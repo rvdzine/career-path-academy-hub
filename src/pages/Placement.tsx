@@ -1,10 +1,14 @@
 
+import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Briefcase, TrendingUp, Building, Award } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CheckCircle, Users, Briefcase, TrendingUp, Building, Award, GraduationCap } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import InternshipForm from "@/components/InternshipForm";
+import InternshipVacancies from "@/components/InternshipVacancies";
 
 const Placement = () => {
   const placementStats = [
@@ -21,6 +25,22 @@ const Placement = () => {
 
   const placementPrograms = [
     {
+      title: "Internship Program",
+      description: "3-6 months paid internship with guaranteed job opportunity upon successful completion.",
+      duration: "3-6 months internship + job placement",
+      features: [
+        "Paid internship opportunities",
+        "Real-world project experience",
+        "One-on-one mentorship",
+        "Industry exposure and networking",
+        "Performance-based job offers",
+        "Certificate of completion"
+      ],
+      price: "Free Registration",
+      guarantee: "Internship Guaranteed",
+      color: "from-green-500 to-emerald-600"
+    },
+    {
       title: "Job Guarantee Program",
       description: "100% job guarantee or full fee refund. Complete training with dedicated placement support.",
       duration: "12 weeks + 3 months placement support",
@@ -34,7 +54,7 @@ const Placement = () => {
       ],
       price: "₹45,000",
       guarantee: "Job Guaranteed",
-      color: "from-green-500 to-emerald-600"
+      color: "from-blue-500 to-cyan-600"
     },
     {
       title: "Premium Placement Support",
@@ -50,22 +70,6 @@ const Placement = () => {
       ],
       price: "₹15,000",
       guarantee: "Premium Support",
-      color: "from-blue-500 to-cyan-600"
-    },
-    {
-      title: "Basic Placement Assistance",
-      description: "Standard placement support included with all courses to help you find the right opportunity.",
-      duration: "Course duration + 2 months support",
-      features: [
-        "Job portal access",
-        "Resume review",
-        "Interview tips and guidance",
-        "Company application assistance",
-        "Basic career counseling",
-        "Certificate validation"
-      ],
-      price: "Included",
-      guarantee: "Standard Support",
       color: "from-purple-500 to-violet-600"
     }
   ];
@@ -109,17 +113,23 @@ const Placement = () => {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl lg:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Placement Support
+              Internship & Placement
             </span>
             <br />
             Programs
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            We don't just train you, we ensure you get placed! Our dedicated placement team works tirelessly to connect you with top companies.
+            Start your career with our industry-focused internship program. Gain real-world experience and secure your dream job!
           </p>
-          <Badge className="bg-green-100 text-green-700 px-6 py-2 text-lg">
-            90% Placement Success Rate
-          </Badge>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Badge className="bg-green-100 text-green-700 px-6 py-2 text-lg">
+              <GraduationCap className="w-5 h-5 mr-2" />
+              Internship Program Available
+            </Badge>
+            <Badge className="bg-blue-100 text-blue-700 px-6 py-2 text-lg">
+              90% Placement Success Rate
+            </Badge>
+          </div>
         </div>
       </section>
 
@@ -143,56 +153,74 @@ const Placement = () => {
         </div>
       </section>
 
-      {/* Placement Programs */}
+      {/* Main Content */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Choose Your Placement Program
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Select the level of support that matches your career goals
-            </p>
-          </div>
+          <Tabs defaultValue="register" className="w-full">
+            <TabsList className="grid w-full grid-cols-3 mb-8">
+              <TabsTrigger value="register">Register for Internship</TabsTrigger>
+              <TabsTrigger value="vacancies">View Vacancies</TabsTrigger>
+              <TabsTrigger value="programs">Placement Programs</TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="register" className="space-y-8">
+              <InternshipForm />
+            </TabsContent>
+            
+            <TabsContent value="vacancies" className="space-y-8">
+              <InternshipVacancies />
+            </TabsContent>
+            
+            <TabsContent value="programs" className="space-y-8">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  Choose Your Placement Program
+                </h2>
+                <p className="text-xl text-muted-foreground">
+                  Select the level of support that matches your career goals
+                </p>
+              </div>
 
-          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
-            {placementPrograms.map((program, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 relative overflow-hidden">
-                {index === 0 && (
-                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-green-500 to-emerald-600 text-white text-center py-2 text-sm font-semibold">
-                    MOST POPULAR
-                  </div>
-                )}
-                <CardHeader className={`pb-4 ${index === 0 ? 'pt-12' : ''}`}>
-                  <div className={`w-full h-2 bg-gradient-to-r ${program.color} rounded-full mb-4`}></div>
-                  <div className="flex justify-between items-start mb-2">
-                    <Badge variant="outline" className="text-xs">{program.guarantee}</Badge>
-                    <span className="text-2xl font-bold text-blue-600">{program.price}</span>
-                  </div>
-                  <CardTitle className="text-xl">{program.title}</CardTitle>
-                  <CardDescription className="text-base">{program.description}</CardDescription>
-                  <p className="text-sm text-muted-foreground">{program.duration}</p>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="space-y-3">
-                    <p className="font-medium text-sm">What's Included:</p>
-                    <div className="space-y-2">
-                      {program.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                          {feature}
+              <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+                {placementPrograms.map((program, index) => (
+                  <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 relative overflow-hidden">
+                    {index === 0 && (
+                      <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-green-500 to-emerald-600 text-white text-center py-2 text-sm font-semibold">
+                        MOST POPULAR
+                      </div>
+                    )}
+                    <CardHeader className={`pb-4 ${index === 0 ? 'pt-12' : ''}`}>
+                      <div className={`w-full h-2 bg-gradient-to-r ${program.color} rounded-full mb-4`}></div>
+                      <div className="flex justify-between items-start mb-2">
+                        <Badge variant="outline" className="text-xs">{program.guarantee}</Badge>
+                        <span className="text-2xl font-bold text-blue-600">{program.price}</span>
+                      </div>
+                      <CardTitle className="text-xl">{program.title}</CardTitle>
+                      <CardDescription className="text-base">{program.description}</CardDescription>
+                      <p className="text-sm text-muted-foreground">{program.duration}</p>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                      <div className="space-y-3">
+                        <p className="font-medium text-sm">What's Included:</p>
+                        <div className="space-y-2">
+                          {program.features.map((feature, idx) => (
+                            <div key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                              {feature}
+                            </div>
+                          ))}
                         </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <Button className={`w-full bg-gradient-to-r ${program.color} hover:opacity-90`}>
-                    Choose This Program
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                      </div>
+                      
+                      <Button className={`w-full bg-gradient-to-r ${program.color} hover:opacity-90`}>
+                        Choose This Program
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
 
@@ -270,10 +298,10 @@ const Placement = () => {
       <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Start Your Career Journey?</h2>
-          <p className="text-xl mb-8 opacity-90">Join our placement program and take the first step towards your dream job</p>
+          <p className="text-xl mb-8 opacity-90">Join our internship program and take the first step towards your dream job</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary">
-              Apply for Job Guarantee Program
+              Register for Internship
             </Button>
             <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600">
               Schedule a Counseling Call
