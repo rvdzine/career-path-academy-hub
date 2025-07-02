@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Clock, Users, BookOpen, CheckCircle, Calendar, Award, PlayCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import EnrollmentDialog from "@/components/EnrollmentDialog";
 
 const CourseDetails = () => {
   const { courseId } = useParams();
@@ -114,9 +115,15 @@ const CourseDetails = () => {
               </div>
 
               <div className="flex gap-4">
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                  Enroll Now - {course.price}
-                </Button>
+                <EnrollmentDialog 
+                  courseTitle={course.title}
+                  coursePrice={course.price}
+                  triggerText={`Enroll Now - ${course.price}`}
+                >
+                  <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                    Enroll Now - {course.price}
+                  </Button>
+                </EnrollmentDialog>
                 <Button size="lg" variant="outline">
                   <PlayCircle className="w-4 h-4 mr-2" />
                   Preview Course
@@ -150,9 +157,14 @@ const CourseDetails = () => {
                 </div>
               </div>
 
-              <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                Enroll Now
-              </Button>
+              <EnrollmentDialog 
+                courseTitle={course.title}
+                coursePrice={course.price}
+              >
+                <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                  Enroll Now
+                </Button>
+              </EnrollmentDialog>
             </Card>
           </div>
         </div>

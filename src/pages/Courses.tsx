@@ -1,13 +1,14 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Clock, Users, BookOpen, CheckCircle, Calendar } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Clock, Users, BookOpen, CheckCircle, Star } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
+import EnrollmentDialog from "@/components/EnrollmentDialog";
 
 const Courses = () => {
-  const allCourses = [
+  const courses = [
     {
       id: "seo-mastery",
       title: "Complete SEO Mastery",
@@ -16,9 +17,11 @@ const Courses = () => {
       students: "1,200+",
       level: "Beginner to Advanced",
       price: "₹25,000",
-      features: ["Technical SEO", "Content Strategy", "Link Building", "Local SEO", "Analytics & Reporting", "Tools Training"],
-      color: "from-green-500 to-emerald-600",
-      category: "SEO"
+      rating: "4.9",
+      modules: 12,
+      projects: 5,
+      features: ["Technical SEO", "Content Strategy", "Link Building", "Local SEO"],
+      color: "from-green-500 to-emerald-600"
     },
     {
       id: "social-media-pro",
@@ -28,57 +31,67 @@ const Courses = () => {
       students: "950+",
       level: "Intermediate",
       price: "₹20,000",
-      features: ["Instagram Marketing", "Facebook Ads", "Content Creation", "Influencer Marketing", "Analytics", "Brand Strategy"],
-      color: "from-pink-500 to-rose-600",
-      category: "Social Media"
+      rating: "4.8",
+      modules: 10,
+      projects: 4,
+      features: ["Instagram Marketing", "Facebook Ads", "Content Creation", "Analytics"],
+      color: "from-pink-500 to-rose-600"
     },
     {
       id: "google-ads-expert",
       title: "Google Ads & PPC Expert",
-      description: "Create and optimize high-converting paid advertising campaigns across Google Ads, Bing, and social platforms.",
+      description: "Create and optimize high-converting paid advertising campaigns with Google Ads.",
       duration: "10 weeks",
       students: "800+",
       level: "Advanced",
       price: "₹30,000",
-      features: ["Google Ads", "Bing Ads", "Campaign Optimization", "ROI Analysis", "Shopping Ads", "Display Advertising"],
-      color: "from-blue-500 to-cyan-600",
-      category: "PPC"
+      rating: "4.7",
+      modules: 14,
+      projects: 6,
+      features: ["Google Ads", "PPC", "Campaign Optimization", "ROI Analysis"],
+      color: "from-blue-500 to-cyan-600"
     },
     {
-      id: "email-marketing",
+      id: "email-marketing-specialist",
       title: "Email Marketing Specialist",
-      description: "Build automated email sequences that convert prospects to customers with advanced segmentation and personalization.",
+      description: "Build automated email sequences that convert prospects to customers.",
       duration: "4 weeks",
       students: "600+",
       level: "Beginner",
       price: "₹15,000",
-      features: ["Automation", "Segmentation", "A/B Testing", "List Building", "Deliverability", "CRM Integration"],
-      color: "from-purple-500 to-violet-600",
-      category: "Email Marketing"
+      rating: "4.6",
+      modules: 8,
+      projects: 3,
+      features: ["Automation", "Segmentation", "A/B Testing", "List Building"],
+      color: "from-purple-500 to-violet-600"
     },
     {
-      id: "analytics-insights",
+      id: "analytics-data-insights",
       title: "Analytics & Data Insights",
-      description: "Make data-driven decisions with advanced analytics, reporting, and business intelligence tools.",
+      description: "Make data-driven decisions with advanced analytics and reporting techniques.",
       duration: "6 weeks",
       students: "750+",
       level: "Intermediate",
-      price: "₹22,000",
-      features: ["Google Analytics", "Data Visualization", "Reporting", "Insights", "Tag Manager", "Data Studio"],
-      color: "from-orange-500 to-red-600",
-      category: "Analytics"
+      price: "₹18,000",
+      rating: "4.5",
+      modules: 9,
+      projects: 4,
+      features: ["Google Analytics", "Data Visualization", "Reporting", "Insights"],
+      color: "from-orange-500 to-red-600"
     },
     {
-      id: "content-strategy",
+      id: "content-strategy-creation",
       title: "Content Strategy & Creation",
-      description: "Create compelling content that drives engagement and conversions across all digital channels.",
+      description: "Create compelling content that drives engagement and conversions.",
       duration: "5 weeks",
       students: "900+",
       level: "All Levels",
-      price: "₹18,000",
-      features: ["Content Planning", "Copywriting", "Visual Content", "Distribution", "SEO Writing", "Brand Voice"],
-      color: "from-teal-500 to-green-600",
-      category: "Content"
+      price: "₹22,000",
+      rating: "4.4",
+      modules: 11,
+      projects: 5,
+      features: ["Content Planning", "Copywriting", "Visual Content", "Distribution"],
+      color: "from-teal-500 to-green-600"
     }
   ];
 
@@ -89,22 +102,25 @@ const Courses = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-            Our
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              {" "}Digital Marketing
-            </span>
-            <br />
-            Courses
+          <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Professional Courses
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Industry-designed curriculum with hands-on projects, real-world applications, and guaranteed placement support
+            Industry-designed curriculum with hands-on projects, real-world applications, and career placement support
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Badge className="bg-green-100 text-green-700 px-4 py-2">Live Projects</Badge>
-            <Badge className="bg-blue-100 text-blue-700 px-4 py-2">Industry Mentors</Badge>
-            <Badge className="bg-purple-100 text-purple-700 px-4 py-2">Job Guarantee</Badge>
-            <Badge className="bg-orange-100 text-orange-700 px-4 py-2">Flexible Timing</Badge>
+            <Badge className="flex items-center gap-2 text-sm px-4 py-2">
+              <BookOpen className="w-4 h-4" />
+              15+ Courses
+            </Badge>
+            <Badge className="flex items-center gap-2 text-sm px-4 py-2">
+              <Users className="w-4 h-4" />
+              5000+ Students
+            </Badge>
+            <Badge className="flex items-center gap-2 text-sm px-4 py-2">
+              <Star className="w-4 h-4" />
+              4.8/5 Rating
+            </Badge>
           </div>
         </div>
       </section>
@@ -113,13 +129,16 @@ const Courses = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {allCourses.map((course, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2">
+            {courses.map((course) => (
+              <Card key={course.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2">
                 <CardHeader className="pb-4">
                   <div className={`w-full h-2 bg-gradient-to-r ${course.color} rounded-full mb-4`}></div>
                   <div className="flex justify-between items-start mb-2">
-                    <Badge variant="outline" className="text-xs">{course.category}</Badge>
-                    <span className="text-2xl font-bold text-blue-600">{course.price}</span>
+                    <Badge className="text-lg px-3 py-1">{course.price}</Badge>
+                    <div className="flex items-center gap-1">
+                      <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      <span className="text-sm font-medium">{course.rating}</span>
+                    </div>
                   </div>
                   <CardTitle className="text-xl group-hover:text-blue-600 transition-colors">
                     {course.title}
@@ -128,7 +147,7 @@ const Courses = () => {
                     {course.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-4">
                   <div className="flex flex-wrap gap-2">
                     <Badge variant="secondary" className="flex items-center gap-1">
                       <Clock className="w-3 h-3" />
@@ -141,93 +160,36 @@ const Courses = () => {
                     <Badge variant="outline">{course.level}</Badge>
                   </div>
                   
-                  <div className="space-y-3">
-                    <p className="font-medium text-sm">What You'll Learn:</p>
-                    <div className="grid grid-cols-1 gap-2">
+                  <div className="space-y-2">
+                    <p className="font-medium text-sm">Key Features:</p>
+                    <div className="grid grid-cols-1 gap-1">
                       {course.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <CheckCircle className="w-3 h-3 text-green-500 flex-shrink-0" />
+                          <CheckCircle className="w-3 h-3 text-green-500" />
                           {feature}
                         </div>
                       ))}
                     </div>
                   </div>
-                  
-                  <div className="flex gap-2">
-                    <Button 
-                      className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
-                      asChild
+
+                  <div className="flex gap-2 pt-4">
+                    <Link to={`/courses/${course.id}`} className="flex-1">
+                      <Button variant="outline" className="w-full">
+                        View Details
+                      </Button>
+                    </Link>
+                    <EnrollmentDialog 
+                      courseTitle={course.title}
+                      coursePrice={course.price}
                     >
-                      <Link to={`/courses/${course.id}`}>View Details</Link>
-                    </Button>
-                    <Button variant="outline" className="flex-1">
-                      Enroll Now
-                    </Button>
+                      <Button className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                        Enroll Now
+                      </Button>
+                    </EnrollmentDialog>
                   </div>
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Why Our Courses Stand Out
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center hover:shadow-lg transition-shadow duration-300 border-0">
-              <CardHeader>
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <BookOpen className="w-8 h-8 text-blue-600" />
-                </div>
-                <CardTitle className="text-xl">Live Projects</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Work on real client projects during your training</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center hover:shadow-lg transition-shadow duration-300 border-0">
-              <CardHeader>
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-green-600" />
-                </div>
-                <CardTitle className="text-xl">Expert Mentors</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Learn from industry professionals with 10+ years experience</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center hover:shadow-lg transition-shadow duration-300 border-0">
-              <CardHeader>
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="w-8 h-8 text-purple-600" />
-                </div>
-                <CardTitle className="text-xl">Certification</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Industry-recognized certificates upon completion</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center hover:shadow-lg transition-shadow duration-300 border-0">
-              <CardHeader>
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Calendar className="w-8 h-8 text-orange-600" />
-                </div>
-                <CardTitle className="text-xl">Flexible Schedule</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Weekend and evening batches available</p>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
