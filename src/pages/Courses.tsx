@@ -1,14 +1,15 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Clock, Users, BookOpen, CheckCircle, Calendar } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
 
 const Courses = () => {
   const allCourses = [
     {
+      id: "seo-mastery",
       title: "Complete SEO Mastery",
       description: "Master search engine optimization from basics to advanced techniques including technical SEO, content strategy, and link building.",
       duration: "8 weeks",
@@ -20,6 +21,7 @@ const Courses = () => {
       category: "SEO"
     },
     {
+      id: "social-media-pro",
       title: "Social Media Marketing Pro",
       description: "Build engaging social media campaigns across all major platforms with advanced strategies for brand building.",
       duration: "6 weeks",
@@ -31,6 +33,7 @@ const Courses = () => {
       category: "Social Media"
     },
     {
+      id: "google-ads-expert",
       title: "Google Ads & PPC Expert",
       description: "Create and optimize high-converting paid advertising campaigns across Google Ads, Bing, and social platforms.",
       duration: "10 weeks",
@@ -42,6 +45,7 @@ const Courses = () => {
       category: "PPC"
     },
     {
+      id: "email-marketing",
       title: "Email Marketing Specialist",
       description: "Build automated email sequences that convert prospects to customers with advanced segmentation and personalization.",
       duration: "4 weeks",
@@ -53,6 +57,7 @@ const Courses = () => {
       category: "Email Marketing"
     },
     {
+      id: "analytics-insights",
       title: "Analytics & Data Insights",
       description: "Make data-driven decisions with advanced analytics, reporting, and business intelligence tools.",
       duration: "6 weeks",
@@ -64,6 +69,7 @@ const Courses = () => {
       category: "Analytics"
     },
     {
+      id: "content-strategy",
       title: "Content Strategy & Creation",
       description: "Create compelling content that drives engagement and conversions across all digital channels.",
       duration: "5 weeks",
@@ -147,9 +153,17 @@ const Courses = () => {
                     </div>
                   </div>
                   
-                  <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                    Enroll Now
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button 
+                      className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                      asChild
+                    >
+                      <Link to={`/courses/${course.id}`}>View Details</Link>
+                    </Button>
+                    <Button variant="outline" className="flex-1">
+                      Enroll Now
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
