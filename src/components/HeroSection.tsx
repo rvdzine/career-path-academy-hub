@@ -1,0 +1,89 @@
+
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
+import { CheckCircle, Users, Clock } from "lucide-react";
+
+const HeroSection = () => {
+  return (
+    <section className="py-20 lg:py-28 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <div className="container mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-100">
+                🚀 India's Leading Digital Marketing Academy
+              </Badge>
+              <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
+                Master
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  {" "}Digital Marketing
+                </span>
+                <br />
+                Launch Your Career
+              </h1>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                Transform your career with industry-focused training in SEO, Social Media, PPC, and more. 
+                Get hands-on experience and guaranteed placement support.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700" asChild>
+                <Link to="/courses">Explore Courses</Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link to="/placement">Placement Programs</Link>
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                </div>
+                <div>
+                  <p className="font-semibold">90% Placement Rate</p>
+                  <p className="text-sm text-muted-foreground">Job Guarantee</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                  <Users className="w-5 h-5 text-blue-600" />
+                </div>
+                <div>
+                  <p className="font-semibold">5000+ Students</p>
+                  <p className="text-sm text-muted-foreground">Trained Successfully</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                  <Clock className="w-5 h-5 text-purple-600" />
+                </div>
+                <div>
+                  <p className="font-semibold">Flexible Timing</p>
+                  <p className="text-sm text-muted-foreground">Online & Offline</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="relative z-10">
+              <img 
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Digital Marketing Training" 
+                className="rounded-2xl shadow-2xl"
+              />
+            </div>
+            <div className="absolute -top-4 -right-4 w-full h-full bg-gradient-to-r from-blue-200 to-purple-200 rounded-2xl -z-10"></div>
+            <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full opacity-60"></div>
+            <div className="absolute top-10 -left-8 w-16 h-16 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-40"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
