@@ -6,6 +6,7 @@ import { MapPin, Users, Calendar, Clock, BookOpen, Award, Wifi, Coffee, Phone, M
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BookingDialog from "@/components/BookingDialog";
+import ScheduleVisitDialog from "@/components/ScheduleVisitDialog";
 
 const OfflineCenter = () => {
   const center = {
@@ -105,7 +106,7 @@ const OfflineCenter = () => {
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-blue-600" />
-                    <span className="text-gray-700">noida@digitalacademy.com</span>
+                    <span className="text-gray-700">noida@ids.com</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Clock className="w-5 h-5 text-blue-600" />
@@ -122,9 +123,11 @@ const OfflineCenter = () => {
                   </Button>
                 </BookingDialog>
                 
-                <Button size="lg" variant="outline">
-                  Schedule a Visit
-                </Button>
+                <ScheduleVisitDialog>
+                  <Button size="lg" variant="outline">
+                    Schedule a Visit
+                  </Button>
+                </ScheduleVisitDialog>
               </div>
             </div>
           </div>
@@ -254,11 +257,18 @@ const OfflineCenter = () => {
 
           {/* Final CTA */}
           <div className="text-center mt-12">
-            <BookingDialog>
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-4">
-                Start Your Journey - Book Now for ₹499
-              </Button>
-            </BookingDialog>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <BookingDialog>
+                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-4">
+                  Start Your Journey - Book Now for ₹499
+                </Button>
+              </BookingDialog>
+              <ScheduleVisitDialog>
+                <Button size="lg" variant="outline" className="text-lg px-8 py-4">
+                  Schedule a Free Visit
+                </Button>
+              </ScheduleVisitDialog>
+            </div>
             <p className="text-sm text-gray-600 mt-2">*Booking amount will be adjusted in your course fee</p>
           </div>
         </div>

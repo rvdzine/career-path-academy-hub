@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Users, Calendar, Clock, BookOpen, Award, Wifi, Coffee } from "lucide-react";
 import { Link } from "react-router-dom";
 import BookingDialog from "./BookingDialog";
+import ScheduleVisitDialog from "./ScheduleVisitDialog";
 
 const OfflineSection = () => {
   const facilities = ["Smart Classrooms", "Wi-Fi", "Cafeteria", "Parking", "Lab Access"];
@@ -102,9 +103,17 @@ const OfflineSection = () => {
                 </Button>
               </BookingDialog>
               
-              <Button size="lg" variant="outline" asChild>
-                <Link to="/offline-center">View Center Details</Link>
-              </Button>
+              <div className="flex gap-2">
+                <ScheduleVisitDialog>
+                  <Button size="lg" variant="outline">
+                    Schedule Visit
+                  </Button>
+                </ScheduleVisitDialog>
+                
+                <Button size="lg" variant="outline" asChild>
+                  <Link to="/offline-center">View Details</Link>
+                </Button>
+              </div>
             </div>
 
             {/* Trust Indicators */}
