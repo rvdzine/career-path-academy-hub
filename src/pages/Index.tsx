@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +10,7 @@ import TestimonialSection from "@/components/TestimonialSection";
 import HeroSection from "@/components/HeroSection";
 import CourseHighlights from "@/components/CourseHighlights";
 import StatsSection from "@/components/StatsSection";
+import CertificationSection from "@/components/CertificationSection";
 import Chatbot from "@/components/Chatbot";
 
 const Index = () => {
@@ -17,6 +19,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <CourseHighlights />
+      <CertificationSection />
       <StatsSection />
       <TestimonialSection />
       <Footer />
