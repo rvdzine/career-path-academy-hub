@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Clock, Users, BookOpen, CheckCircle } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const CourseHighlights = () => {
   const courses = [
@@ -14,7 +15,8 @@ const CourseHighlights = () => {
       students: "1,200+",
       level: "Beginner to Advanced",
       features: ["Technical SEO", "Content Strategy", "Link Building", "Analytics"],
-      color: "from-green-500 to-emerald-600"
+      color: "from-green-500 to-emerald-600",
+      image: "photo-1461749280684-dccba630e2f6"
     },
     {
       title: "Social Media Marketing Pro",
@@ -23,7 +25,8 @@ const CourseHighlights = () => {
       students: "950+",
       level: "Intermediate",
       features: ["Instagram Marketing", "Facebook Ads", "Content Creation", "Analytics"],
-      color: "from-pink-500 to-rose-600"
+      color: "from-pink-500 to-rose-600",
+      image: "photo-1649972904349-6e44c42644a7"
     },
     {
       title: "Google Ads & PPC Expert",
@@ -32,7 +35,8 @@ const CourseHighlights = () => {
       students: "800+",
       level: "Advanced",
       features: ["Google Ads", "Bing Ads", "Campaign Optimization", "ROI Analysis"],
-      color: "from-blue-500 to-cyan-600"
+      color: "from-blue-500 to-cyan-600",
+      image: "photo-1488590528505-98d2b5aba04b"
     },
     {
       title: "Email Marketing Specialist",
@@ -41,7 +45,8 @@ const CourseHighlights = () => {
       students: "600+",
       level: "Beginner",
       features: ["Automation", "Segmentation", "A/B Testing", "List Building"],
-      color: "from-purple-500 to-violet-600"
+      color: "from-purple-500 to-violet-600",
+      image: "photo-1581091226825-a6a2a5aee158"
     },
     {
       title: "Analytics & Data Insights",
@@ -50,7 +55,8 @@ const CourseHighlights = () => {
       students: "750+",
       level: "Intermediate",
       features: ["Google Analytics", "Data Visualization", "Reporting", "Insights"],
-      color: "from-orange-500 to-red-600"
+      color: "from-orange-500 to-red-600",
+      image: "photo-1498050108023-c5249f4df085"
     },
     {
       title: "Content Strategy & Creation",
@@ -59,7 +65,8 @@ const CourseHighlights = () => {
       students: "900+",
       level: "All Levels",
       features: ["Content Planning", "Copywriting", "Visual Content", "Distribution"],
-      color: "from-teal-500 to-green-600"
+      color: "from-teal-500 to-green-600",
+      image: "photo-1461749280684-dccba630e2f6"
     }
   ];
 
@@ -77,9 +84,18 @@ const CourseHighlights = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {courses.map((course, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2">
+            <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 overflow-hidden">
+              <div className="relative">
+                <AspectRatio ratio={16/9}>
+                  <img 
+                    src={`https://images.unsplash.com/${course.image}?w=400&h=225&fit=crop`}
+                    alt={course.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </AspectRatio>
+                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${course.color}`}></div>
+              </div>
               <CardHeader className="pb-4">
-                <div className={`w-full h-2 bg-gradient-to-r ${course.color} rounded-full mb-4`}></div>
                 <CardTitle className="text-xl group-hover:text-blue-600 transition-colors">
                   {course.title}
                 </CardTitle>

@@ -1,8 +1,10 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Clock, Users, BookOpen, CheckCircle, Star } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EnrollmentDialog from "@/components/EnrollmentDialog";
@@ -21,7 +23,8 @@ const Courses = () => {
       modules: 12,
       projects: 5,
       features: ["Technical SEO", "Content Strategy", "Link Building", "Local SEO"],
-      color: "from-green-500 to-emerald-600"
+      color: "from-green-500 to-emerald-600",
+      image: "photo-1461749280684-dccba630e2f6"
     },
     {
       id: "social-media-pro",
@@ -35,7 +38,8 @@ const Courses = () => {
       modules: 10,
       projects: 4,
       features: ["Instagram Marketing", "Facebook Ads", "Content Creation", "Analytics"],
-      color: "from-pink-500 to-rose-600"
+      color: "from-pink-500 to-rose-600",
+      image: "photo-1649972904349-6e44c42644a7"
     },
     {
       id: "google-ads-expert",
@@ -49,7 +53,8 @@ const Courses = () => {
       modules: 14,
       projects: 6,
       features: ["Google Ads", "PPC", "Campaign Optimization", "ROI Analysis"],
-      color: "from-blue-500 to-cyan-600"
+      color: "from-blue-500 to-cyan-600",
+      image: "photo-1488590528505-98d2b5aba04b"
     },
     {
       id: "email-marketing-specialist",
@@ -63,7 +68,8 @@ const Courses = () => {
       modules: 8,
       projects: 3,
       features: ["Automation", "Segmentation", "A/B Testing", "List Building"],
-      color: "from-purple-500 to-violet-600"
+      color: "from-purple-500 to-violet-600",
+      image: "photo-1581091226825-a6a2a5aee158"
     },
     {
       id: "analytics-data-insights",
@@ -77,7 +83,8 @@ const Courses = () => {
       modules: 9,
       projects: 4,
       features: ["Google Analytics", "Data Visualization", "Reporting", "Insights"],
-      color: "from-orange-500 to-red-600"
+      color: "from-orange-500 to-red-600",
+      image: "photo-1498050108023-c5249f4df085"
     },
     {
       id: "content-strategy-creation",
@@ -91,7 +98,8 @@ const Courses = () => {
       modules: 11,
       projects: 5,
       features: ["Content Planning", "Copywriting", "Visual Content", "Distribution"],
-      color: "from-teal-500 to-green-600"
+      color: "from-teal-500 to-green-600",
+      image: "photo-1461749280684-dccba630e2f6"
     }
   ];
 
@@ -130,15 +138,26 @@ const Courses = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {courses.map((course) => (
-              <Card key={course.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2">
-                <CardHeader className="pb-4">
-                  <div className={`w-full h-2 bg-gradient-to-r ${course.color} rounded-full mb-4`}></div>
-                  <div className="flex justify-between items-start mb-2">
-                    <Badge className="text-lg px-3 py-1">{course.price}</Badge>
+              <Card key={course.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 overflow-hidden">
+                <div className="relative">
+                  <AspectRatio ratio={16/9}>
+                    <img 
+                      src={`https://images.unsplash.com/${course.image}?w=400&h=225&fit=crop`}
+                      alt={course.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </AspectRatio>
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1">
                     <div className="flex items-center gap-1">
                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                       <span className="text-sm font-medium">{course.rating}</span>
                     </div>
+                  </div>
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${course.color}`}></div>
+                </div>
+                <CardHeader className="pb-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <Badge className="text-lg px-3 py-1">{course.price}</Badge>
                   </div>
                   <CardTitle className="text-xl group-hover:text-blue-600 transition-colors">
                     {course.title}
