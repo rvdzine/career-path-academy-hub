@@ -11,6 +11,7 @@ import HeroSection from "@/components/HeroSection";
 import CourseHighlights from "@/components/CourseHighlights";
 import StatsSection from "@/components/StatsSection";
 import CertificationSection from "@/components/CertificationSection";
+import OfflineSection from "@/components/OfflineSection";
 import Chatbot from "@/components/Chatbot";
 
 const Index = () => {
@@ -19,6 +20,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <CourseHighlights />
+      <OfflineSection />
       <CertificationSection />
       <StatsSection />
       <TestimonialSection />
