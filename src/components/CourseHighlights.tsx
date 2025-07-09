@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -73,7 +72,7 @@ const CourseHighlights = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Featured Courses
           </h2>
@@ -84,19 +83,23 @@ const CourseHighlights = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {courses.map((course, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 overflow-hidden">
-              <div className="relative">
+            <Card 
+              key={index} 
+              className="group hover:shadow-xl transition-all duration-500 border-0 shadow-lg hover:-translate-y-3 overflow-hidden animate-fade-in-up cursor-pointer"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="relative overflow-hidden">
                 <AspectRatio ratio={16/9}>
                   <img 
                     src={`https://images.unsplash.com/${course.image}?w=400&h=225&fit=crop`}
                     alt={course.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </AspectRatio>
-                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${course.color}`}></div>
+                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${course.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}></div>
               </div>
               <CardHeader className="pb-4">
-                <CardTitle className="text-xl group-hover:text-blue-600 transition-colors">
+                <CardTitle className="text-xl group-hover:text-blue-600 transition-colors duration-300">
                   {course.title}
                 </CardTitle>
                 <CardDescription className="text-base">
@@ -105,22 +108,22 @@ const CourseHighlights = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary" className="flex items-center gap-1">
+                  <Badge variant="secondary" className="flex items-center gap-1 hover:scale-105 transition-transform duration-200">
                     <Clock className="w-3 h-3" />
                     {course.duration}
                   </Badge>
-                  <Badge variant="secondary" className="flex items-center gap-1">
+                  <Badge variant="secondary" className="flex items-center gap-1 hover:scale-105 transition-transform duration-200">
                     <Users className="w-3 h-3" />
                     {course.students}
                   </Badge>
-                  <Badge variant="outline">{course.level}</Badge>
+                  <Badge variant="outline" className="hover:scale-105 transition-transform duration-200">{course.level}</Badge>
                 </div>
                 
                 <div className="space-y-2">
                   <p className="font-medium text-sm">Key Features:</p>
                   <div className="grid grid-cols-1 gap-1">
                     {course.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <div key={idx} className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                         <CheckCircle className="w-3 h-3 text-green-500" />
                         {feature}
                       </div>
@@ -132,8 +135,8 @@ const CourseHighlights = () => {
           ))}
         </div>
 
-        <div className="text-center">
-          <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700" asChild>
+        <div className="text-center animate-fade-in-up [animation-delay:0.6s]">
+          <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105 hover:shadow-lg" asChild>
             <Link to="/courses">View All Courses</Link>
           </Button>
         </div>
