@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useForm } from "react-hook-form";
 import { MapPin, Clock, Calendar, Users, CreditCard, Phone, Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import axios from "axios";
 
 interface BookingDialogProps {
   children?: React.ReactNode;
@@ -26,7 +27,7 @@ interface BookingFormData {
 
 const BookingDialog = ({ children, course }: BookingDialogProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [step, setStep] = useState(1);
+  // const [step, setStep] = useState(1);
   const { toast } = useToast();
   
   const form = useForm<BookingFormData>({
@@ -48,23 +49,41 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
     "Email Marketing Pro"
   ];
 
-  const onSubmit = (data: BookingFormData) => {
-    console.log("Booking submitted:", data);
-    setStep(2);
-    toast({
-      title: "Booking Request Submitted!",
-      description: "We'll contact you within 24 hours to confirm your seat.",
-    });
+  const onSubmit = async (data: BookingFormData) => {
+    try{
+      const result = await axios.post("http://localhost:8000/api/demo/book/", {
+        full_name: data.name,
+        email: data.email,
+        phone: data.phone,
+        course: data.course,
+        learning_goals: data.message
+      });
+
+      if(result.status === 201){
+        // setStep(2);
+        toast({
+          title: "Booking Request submitted!",
+          description: "We'll contact you within 24 hours to confirm your seat.",
+        });
+      }
+    } catch (error: any){
+      console.log('Booking Error: ', error.response?.data || error.message);
+      toast({
+        title: "Oops! Your Booking is Failed!!",
+        description: "Please check your inputs and try again.",
+        variant: "destructive"
+      });
+    }
   };
 
   const handlePayment = () => {
     // Simulate payment process
     toast({
-      title: "Payment Successful!",
-      description: "Your seat has been reserved. You'll receive a confirmation email shortly.",
+      title: "Booking Successful!",
+      description: "Your seat has been reserved. You'll receive a confi rmation email shortly.",
     });
     setIsOpen(false);
-    setStep(1);
+    // setStep(1);
     form.reset();
   };
 
@@ -79,12 +98,12 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
       </DialogTrigger>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-center">
+          {/* <DialogTitle className="text-2xl font-bold text-center">
             {step === 1 ? "Reserve Your Seat" : "Complete Payment"}
-          </DialogTitle>
+          </DialogTitle> */}
         </DialogHeader>
 
-        {step === 1 ? (
+        {/* {step === 1 ? ( */}
           <div className="space-y-6">
             {/* Center Info */}
             <Card className="bg-blue-50 border-blue-200">
@@ -216,24 +235,24 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
                 />
 
                 <div className="flex justify-between items-center pt-4">
-                  <div className="text-sm text-gray-600">
+                  {/* <div className="text-sm text-gray-600">
                     <p>Seat Reservation Fee: <span className="font-semibold text-lg">₹499</span></p>
                     <p className="text-xs">*Deducted from course fee upon enrollment</p>
-                  </div>
+                  </div> */}
                   <Button type="submit" size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                    Proceed to Payment
+                    Book Demo
                   </Button>
                 </div>
               </form>
             </Form>
           </div>
-        ) : (
-          <div className="space-y-6 text-center">
+        {/* ) : ( */}
+          {/* <div className="space-y-6 text-center">
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
               <CreditCard className="w-10 h-10 text-green-600" />
-            </div>
+            </div> */}
             
-            <div>
+            {/* <div>
               <h3 className="text-xl font-semibold mb-2">Payment Details</h3>
               <div className="bg-gray-50 p-4 rounded-lg mb-4">
                 <div className="flex justify-between items-center">
@@ -241,9 +260,9 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
                   <span className="font-bold text-xl">₹499</span>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="space-y-3">
+            {/* <div className="space-y-3">
               <Button 
                 onClick={handlePayment}
                 size="lg" 
@@ -262,9 +281,9 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
                   Query: info@digitalacademy.com
                 </span>
               </div>
-            </div>
-          </div>
-        )}
+            </div> */}
+          {/* </div>
+        )} */}
       </DialogContent>
     </Dialog>
   );

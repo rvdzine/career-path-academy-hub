@@ -8,6 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge";
 import { CreditCard, User, Mail, Phone, BookOpen } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import api from '../lib/axios'
+import { toast } from "sonner";
 
 interface EnrollmentFormProps {
   courseTitle: string;
@@ -29,87 +31,90 @@ const EnrollmentForm = ({ courseTitle, coursePrice, onClose }: EnrollmentFormPro
     experience: "",
     learningGoals: ""
   });
+
   const [isProcessing, setIsProcessing] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
   const { toast } = useToast();
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const loadRazorpayScript = () => {
-    return new Promise((resolve) => {
-      const script = document.createElement('script');
-      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-      script.onload = () => resolve(true);
-      script.onerror = () => resolve(false);
-      document.body.appendChild(script);
-    });
-  };
+  //  COMMENTING THE CODE THAT IS RELEATED TO PAYMENT 
+  // const loadRazorpayScript = () => {
+  //   return new Promise((resolve) => {
+  //     const script = document.createElement('script');
+  //     script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+  //     script.onload = () => resolve(true);
+  //     script.onerror = () => resolve(false);
+  //     document.body.appendChild(script);
+  //   });
+  // };
 
-  const handlePayment = async () => {
-    setIsProcessing(true);
+  // const handlePayment = async () => {
+  //   setIsProcessing(true);
     
-    // Load Razorpay script
-    const isLoaded = await loadRazorpayScript();
-    if (!isLoaded) {
-      toast({
-        title: "Payment Error",
-        description: "Failed to load payment gateway. Please try again.",
-        variant: "destructive"
-      });
-      setIsProcessing(false);
-      return;
-    }
+  //   // Load Razorpay script
+  //   const isLoaded = await loadRazorpayScript();
+  //   if (!isLoaded) {
+  //     toast({
+  //       title: "Payment Error",
+  //       description: "Failed to load payment gateway. Please try again.",
+  //       variant: "destructive"
+  //     });
+  //     setIsProcessing(false);
+  //     return;
+  //   }
 
-    // Convert price string to number (remove ₹ and commas)
-    const amount = parseInt(coursePrice.replace(/[₹,]/g, '')) * 100; // Convert to paise
+  //   // Convert price string to number (remove ₹ and commas)
+  //   const amount = parseInt(coursePrice.replace(/[₹,]/g, '')) * 100; // Convert to paise
 
-    const options = {
-      key: 'rzp_test_1234567890', // Replace with your Razorpay key
-      amount: amount,
-      currency: 'INR',
-      name: 'Digital Marketing Academy',
-      description: `Enrollment for ${courseTitle}`,
-      image: '/placeholder.svg',
-      handler: function (response: any) {
-        console.log('Payment successful:', response);
-        toast({
-          title: "Enrollment Successful!",
-          description: `Welcome to ${courseTitle}! You'll receive course access details via email.`,
-        });
+  //   const options = {
+  //     key: 'rzp_test_1234567890', // Replace with your Razorpay key
+  //     amount: amount,
+  //     currency: 'INR',
+  //     name: 'Digital Marketing Academy',
+  //     description: `Enrollment for ${courseTitle}`,
+  //     image: '/placeholder.svg',
+  //     handler: function (response: any) {
+  //       console.log('Payment successful:', response);
+  //       toast({
+  //         title: "Enrollment Successful!",
+  //         description: `Welcome to ${courseTitle}! You'll receive course access details via email.`,
+  //       });
         
         // Reset form
-        setFormData({
-          fullName: "",
-          email: "",
-          phone: "",
-          experience: "",
-          learningGoals: ""
-        });
+      //   setFormData({
+      //     fullName: "",
+      //     email: "",
+      //     phone: "",
+      //     experience: "",
+      //     learningGoals: ""
+      //   });
         
-        if (onClose) onClose();
-        setIsProcessing(false);
-      },
-      prefill: {
-        name: formData.fullName,
-        email: formData.email,
-        contact: formData.phone
-      },
-      theme: {
-        color: '#3B82F6'
-      },
-      modal: {
-        ondismiss: function() {
-          setIsProcessing(false);
-        }
-      }
-    };
+      //   if (onClose) onClose();
+      //   setIsProcessing(false);
+      // },
+  //     prefill: {
+  //       name: formData.fullName,
+  //       email: formData.email,
+  //       contact: formData.phone
+  //     },
+  //     theme: {
+  //       color: '#3B82F6'
+  //     },
+  //     modal: {
+  //       ondismiss: function() {
+  //         setIsProcessing(false);
+  //       }
+  //     }
+  //   };
 
-    const paymentObject = new window.Razorpay(options);
-    paymentObject.open();
-  };
+  //   const paymentObject = new window.Razorpay(options);
+  //   paymentObject.open();
+  // };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validate form
@@ -121,10 +126,47 @@ const EnrollmentForm = ({ courseTitle, coursePrice, onClose }: EnrollmentFormPro
       });
       return;
     }
+    setIsProcessing(true);
+
+    try{
+      const response = await api.post('/enroll/', {
+        full_name: formData.fullName,
+        email:formData.email,
+        phone:formData.phone,
+        experience:formData.experience,
+        learning_goals:formData.learningGoals,
+        course_title:courseTitle,
+        course_price:coursePrice
+      });
+      if (response.status === 201){
+        toast({
+          title: "Enrollment Successful!",
+          description: "You are registered successfully.",
+        });
+        setSuccessMessage("You are registered successfully.");
+        
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          experience: "",
+          learningGoals: ""
+        });
+        if (onClose) onClose();
+      }
+    } catch (error) {
+      console.error("Enrollment failed:", error);
+      toast({
+        title: "Submission Failed",
+        description: "Something went wrong while enrolling.",
+        variant: "destructive"
+      });
+    }
+    setIsProcessing(false);
+    };
 
     // Proceed to payment
-    handlePayment();
-  };
+    // handlePayment();
 
   return (
     <Card className="max-w-2xl mx-auto">
@@ -227,9 +269,14 @@ const EnrollmentForm = ({ courseTitle, coursePrice, onClose }: EnrollmentFormPro
             className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
             disabled={isProcessing}
           >
-            {isProcessing ? "Processing..." : `Pay ${coursePrice} & Enroll Now`}
+            {isProcessing ? "Submitting..." : `Submit Enrollment`}
           </Button>
           
+          {successMessage && (
+            <p className="text-green-600 font-semibold text-center">
+              {successMessage}
+            </p>
+          )}
           {onClose && (
             <Button type="button" variant="outline" className="w-full" onClick={onClose}>
               Cancel

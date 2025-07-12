@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import axios from "axios";
 
 const InternshipForm = () => {
   const [formData, setFormData] = useState({
@@ -22,24 +23,6 @@ const InternshipForm = () => {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Internship registration:", formData);
-    toast({
-      title: "Registration Successful!",
-      description: "Your internship application has been submitted. We'll contact you soon.",
-    });
-    setFormData({
-      fullName: "",
-      email: "",
-      phone: "",
-      course: "",
-      experience: "",
-      skills: "",
-      resume: null
-    });
-  };
-
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
@@ -47,6 +30,61 @@ const InternshipForm = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
     setFormData(prev => ({ ...prev, resume: file }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.resume) {
+      toast({
+        title: "Resume Required",
+        description: "Please upload your resume before submitting.",
+        variant: "destructive" 
+      });
+      return;
+    }
+
+    const submissionData = new FormData();
+    submissionData.append("full_name", formData.fullName);
+    submissionData.append("email", formData.email);
+    submissionData.append("phone", formData.phone);
+    submissionData.append("experience_level", formData.experience);
+    submissionData.append("key_skills", formData.skills);
+    submissionData.append("resume", formData.resume);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/placement/student-placement/", 
+        submissionData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        }
+      );
+
+      if (response.status === 201) {
+        toast({
+          title: "Registration Successful!",
+          description: "Your internship application has been submitted. We'll contact you soon.",
+        });
+
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          course: "",
+          experience: "",
+          skills: "",
+          resume: null
+        });
+      }
+    } catch (error: any) {
+      toast({
+        title: "Submission Failed",
+        description: error?.response?.data?.resume?.[0] || "Something went wrong. Please try again.",
+        variant: "destructive"
+      });
+    }
   };
 
   return (
