@@ -16,8 +16,11 @@ class Enrollment(models.Model):
     experience = models.CharField(max_length=20, choices=EXPERIENCE_CHOICES, blank=True, null=True)
     learning_goals = models.TextField(blank=True, null=True)
     course_title = models.CharField(max_length=200)
-    course_price = models.CharField(max_length=20)
+    # course_price = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('full_name', 'email', 'phone', 'course_title')
 
     def __str__(self):
         return f"{self.full_name} - {self.course_title}"

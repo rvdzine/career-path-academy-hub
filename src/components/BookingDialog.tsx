@@ -68,9 +68,12 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
       }
     } catch (error: any){
       console.log('Booking Error: ', error.response?.data || error.message);
+
+      const isDuplicate = error.response?.data?.error?.include("demo booking already exists");
+
       toast({
-        title: "Oops! Your Booking is Failed!!",
-        description: "Please check your inputs and try again.",
+        title: isDuplicate ? "Already Booked" : "Oops! Your Booking is Failed!!",
+        description: isDuplicate ? "You have already booked a demo for this course. Please check your email or contact us.": "Please check your inputs and try again.",
         variant: "destructive"
       });
     }
@@ -80,7 +83,7 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
     // Simulate payment process
     toast({
       title: "Booking Successful!",
-      description: "Your seat has been reserved. You'll receive a confi rmation email shortly.",
+      description: "Your seat has been reserved. You'll receive a confirmation email shortly.",
     });
     setIsOpen(false);
     // setStep(1);

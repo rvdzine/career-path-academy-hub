@@ -6,7 +6,7 @@ import { MapPin, Users, Calendar, Clock, BookOpen, Award, Wifi, Coffee, Phone, M
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BookingDialog from "@/components/BookingDialog";
-import ScheduleVisitDialog from "@/components/ScheduleVisitDialog";
+// import ScheduleVisitDialog from "@/components/ScheduleVisitDialog";
 
 const OfflineCenter = () => {
   const center = {
@@ -123,11 +123,11 @@ const OfflineCenter = () => {
                   </Button>
                 </BookingDialog>
                 
-                <ScheduleVisitDialog>
+                {/* <ScheduleVisitDialog>
                   <Button size="lg" variant="outline">
                     Schedule a Visit
                   </Button>
-                </ScheduleVisitDialog>
+                </ScheduleVisitDialog> */}
               </div>
             </div>
           </div>
@@ -200,7 +200,7 @@ const OfflineCenter = () => {
                   </div>
                   <BookingDialog course={batch.course}>
                     <Button className="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                      Reserve Seat - ₹499
+                      Book Demo Class
                     </Button>
                   </BookingDialog>
                 </CardContent>
@@ -260,16 +260,16 @@ const OfflineCenter = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <BookingDialog>
                 <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-4">
-                  Start Your Journey - Book Now for ₹499
+                  Start Your Journey - Book Your Free Demo Now!
                 </Button>
               </BookingDialog>
-              <ScheduleVisitDialog>
+              {/* <ScheduleVisitDialog>
                 <Button size="lg" variant="outline" className="text-lg px-8 py-4">
                   Schedule a Free Visit
                 </Button>
-              </ScheduleVisitDialog>
+              </ScheduleVisitDialog> */}
             </div>
-            <p className="text-sm text-gray-600 mt-2">*Booking amount will be adjusted in your course fee</p>
+            {/* <p className="text-sm text-gray-600 mt-2">*Booking amount will be adjusted in your course fee</p> */}
           </div>
         </div>
       </section>

@@ -18,7 +18,7 @@ const Courses = () => {
       duration: "8 weeks",
       students: "1,200+",
       level: "Beginner to Advanced",
-      price: "₹25,000",
+      // price: "₹25,000",
       rating: "4.9",
       modules: 12,
       projects: 5,
@@ -33,7 +33,7 @@ const Courses = () => {
       duration: "6 weeks",
       students: "950+",
       level: "Intermediate",
-      price: "₹20,000",
+      // price: "₹20,000",
       rating: "4.8",
       modules: 10,
       projects: 4,
@@ -48,7 +48,7 @@ const Courses = () => {
       duration: "10 weeks",
       students: "800+",
       level: "Advanced",
-      price: "₹30,000",
+      // price: "₹30,000",
       rating: "4.7",
       modules: 14,
       projects: 6,
@@ -63,7 +63,7 @@ const Courses = () => {
       duration: "4 weeks",
       students: "600+",
       level: "Beginner",
-      price: "₹15,000",
+      // price: "₹15,000",
       rating: "4.6",
       modules: 8,
       projects: 3,
@@ -78,7 +78,7 @@ const Courses = () => {
       duration: "6 weeks",
       students: "750+",
       level: "Intermediate",
-      price: "₹18,000",
+      // price: "₹18,000",
       rating: "4.5",
       modules: 9,
       projects: 4,
@@ -93,7 +93,7 @@ const Courses = () => {
       duration: "5 weeks",
       students: "900+",
       level: "All Levels",
-      price: "₹22,000",
+      // price: "₹22,000",
       rating: "4.4",
       modules: 11,
       projects: 5,
@@ -156,9 +156,9 @@ const Courses = () => {
                   <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${course.color}`}></div>
                 </div>
                 <CardHeader className="pb-4">
-                  <div className="flex justify-between items-start mb-2">
+                  {/* <div className="flex justify-between items-start mb-2">
                     <Badge className="text-lg px-3 py-1">{course.price}</Badge>
-                  </div>
+                  </div> */}
                   <CardTitle className="text-xl group-hover:text-blue-600 transition-colors">
                     {course.title}
                   </CardTitle>
@@ -199,7 +199,7 @@ const Courses = () => {
                     </Link>
                     <EnrollmentDialog 
                       courseTitle={course.title}
-                      coursePrice={course.price}
+                      // coursePrice={course.price}
                     >
                       <Button className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
                         Enroll Now

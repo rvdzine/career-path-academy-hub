@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, PhoneCall } from "lucide-react";
+import ContactDialog from "@/components/ContactDialog";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,7 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "Courses", path: "/courses" },
     { name: "Offline Center", path: "/offline-center" },
-    { name: "Placement", path: "/placement" },
+    { name: "Careers", path: "/careers" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
@@ -45,9 +46,21 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-              Enroll Now
-            </Button>
+            <ContactDialog>
+              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                Enroll Now
+              </Button>
+            </ContactDialog>
+
+            {/* adding contact on navbar */}
+            <a
+              href="tel:+91 9876543210"
+              className="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-purple-600 transition-colors"
+            >
+              <PhoneCall className="w-4 h-4" />
+              +91-98765-43210
+            </a>
+
           </div>
 
           {/* Mobile menu button */}
@@ -77,9 +90,11 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 w-full">
-                Enroll Now
-              </Button>
+              <ContactDialog>
+                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 w-full">
+                  Enroll Now
+                </Button>
+               </ContactDialog>
             </div>
           </div>
         )}

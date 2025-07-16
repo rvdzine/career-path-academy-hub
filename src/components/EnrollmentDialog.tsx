@@ -5,12 +5,12 @@ import EnrollmentForm from "./EnrollmentForm";
 
 interface EnrollmentDialogProps {
   courseTitle: string;
-  coursePrice: string;
+  // coursePrice: string;
   children?: React.ReactNode;
   triggerText?: string;
 }
 
-const EnrollmentDialog = ({ courseTitle, coursePrice, children, triggerText = "Enroll Now" }: EnrollmentDialogProps) => {
+const EnrollmentDialog = ({ courseTitle, children, triggerText = "Enroll Now" }: EnrollmentDialogProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -23,7 +23,7 @@ const EnrollmentDialog = ({ courseTitle, coursePrice, children, triggerText = "E
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
         <EnrollmentForm 
           courseTitle={courseTitle} 
-          coursePrice={coursePrice}
+          // coursePrice={coursePrice}
         />
       </DialogContent>
     </Dialog>

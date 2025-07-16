@@ -10,6 +10,8 @@ import { Calendar, Clock, MapPin, Phone, Mail, CheckCircle } from "lucide-react"
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import axios from 'axios'
+import { useToast } from "@/components/ui/use-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -21,15 +23,58 @@ const Contact = () => {
     message: ""
   });
 
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
+
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Here you would typically handle the form submission
-    alert("Thank you for your inquiry! We'll get back to you soon.");
+    // console.log("Form submitted:", formData);
+    // alert("Thank you for your inquiry! We'll get back to you soon.");
+    setLoading(true);
+
+    try {
+      const response = await axios.post("http://localhost:8000/api/contact/contact/", {
+        full_name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        interested_courses: formData.course,
+        experience: formData.experience,
+        message: formData.message
+      });
+
+      if (response.status === 201) {
+        toast({
+          title: "Success!",
+          description: "Your details have been submitted. We’ll contact you within 24 hours."
+        });
+
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          course: "",
+          experience: "",
+          message: ""
+        });
+      }
+    } catch (error: any) {
+      const errorMsg =
+        error?.response?.data?.non_field_errors?.[0] ||
+        error?.response?.data?.email?.[0] ||
+        "Something went wrong. Please try again.";
+      toast({
+        title: "Submission Failed",
+        description: errorMsg,
+        variant: "destructive"
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const campusLocations = [
@@ -98,7 +143,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="container mx-auto px-4 text-center">
@@ -158,7 +203,7 @@ const Contact = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2">
                     <Label htmlFor="email">Email Address *</Label>
                     <Input
@@ -178,13 +223,13 @@ const Contact = () => {
                         <SelectValue placeholder="Select a course" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="complete-digital-marketing">Complete Digital Marketing</SelectItem>
-                        <SelectItem value="seo-mastery">SEO Mastery</SelectItem>
-                        <SelectItem value="social-media-pro">Social Media Marketing Pro</SelectItem>
-                        <SelectItem value="google-ads-expert">Google Ads & PPC Expert</SelectItem>
-                        <SelectItem value="email-marketing">Email Marketing Specialist</SelectItem>
-                        <SelectItem value="analytics">Analytics & Data Insights</SelectItem>
-                        <SelectItem value="content-strategy">Content Strategy & Creation</SelectItem>
+                        <SelectItem value="digitalmarketing">Complete Digital Marketing</SelectItem>
+                        <SelectItem value="seomastery">SEO Mastery</SelectItem>
+                        <SelectItem value="socialmediamarketingpro">Social Media Marketing Pro</SelectItem>
+                        <SelectItem value="googleads">Google Ads & PPC Expert</SelectItem>
+                        <SelectItem value="emailmarketing">Email Marketing Specialist</SelectItem>
+                        <SelectItem value="analyticsanddatainsights">Analytics & Data Insights</SelectItem>
+                        <SelectItem value="content">Content Strategy & Creation</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -197,10 +242,10 @@ const Contact = () => {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="fresher">Fresher / Student</SelectItem>
-                        <SelectItem value="0-2-years">0-2 Years</SelectItem>
-                        <SelectItem value="2-5-years">2-5 Years</SelectItem>
-                        <SelectItem value="5-plus-years">5+ Years</SelectItem>
-                        <SelectItem value="career-switcher">Career Switcher</SelectItem>
+                        <SelectItem value="0-2">0-2 Years</SelectItem>
+                        <SelectItem value="2-5">2-5 Years</SelectItem>
+                        <SelectItem value="5+">5+ Years</SelectItem>
+                        <SelectItem value="switcher">Career Switcher</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -216,8 +261,12 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                    Submit & Get Free Counseling
+                  <Button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                  >
+                    {loading ? "Submitting..." : "Submit & Get Free Counseling"}
                   </Button>
                 </form>
               </CardContent>
@@ -239,7 +288,7 @@ const Contact = () => {
                       <p className="text-muted-foreground">+91 9876543210</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
                       <Mail className="w-5 h-5 text-green-600" />
@@ -249,7 +298,7 @@ const Contact = () => {
                       <p className="text-muted-foreground">info@digitalacademy.com</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
                       <Clock className="w-5 h-5 text-purple-600" />

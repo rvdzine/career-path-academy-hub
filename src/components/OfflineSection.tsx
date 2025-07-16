@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Users, Calendar, Clock, BookOpen, Award, Wifi, Coffee } from "lucide-react";
 import { Link } from "react-router-dom";
 import BookingDialog from "./BookingDialog";
-import ScheduleVisitDialog from "./ScheduleVisitDialog";
+// import ScheduleVisitDialog from "./ScheduleVisitDialog";
 
 const OfflineSection = () => {
   const facilities = ["Smart Classrooms", "Wi-Fi", "Cafeteria", "Parking", "Lab Access"];
@@ -108,16 +108,16 @@ const OfflineSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up [animation-delay:0.3s]">
               <BookingDialog>
                 <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  Book Your Seat - ₹499
+                  Book Your Demo
                 </Button>
               </BookingDialog>
               
               <div className="flex gap-2">
-                <ScheduleVisitDialog>
+                {/* <ScheduleVisitDialog>
                   <Button size="lg" variant="outline" className="hover:scale-105 transition-all duration-300 hover:shadow-md">
                     Schedule Visit
                   </Button>
-                </ScheduleVisitDialog>
+                </ScheduleVisitDialog> */}
                 
                 <Button size="lg" variant="outline" className="hover:scale-105 transition-all duration-300 hover:shadow-md" asChild>
                   <Link to="/offline-center">View Details</Link>

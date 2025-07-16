@@ -3,9 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { CheckCircle, Users, Clock } from "lucide-react";
+import PlacedStudentCarousel from "@/components/PlacedStudentCarousel";
 
 const HeroSection = () => {
   return (
+    <>
     <section className="py-20 lg:py-28 bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -33,7 +35,7 @@ const HeroSection = () => {
                 <Link to="/courses">Explore Courses</Link>
               </Button>
               <Button size="lg" variant="outline" className="hover:scale-105 transition-all duration-300 hover:shadow-md" asChild>
-                <Link to="/placement">Placement Programs</Link>
+                <Link to="/careers">Placement Programs</Link>
               </Button>
             </div>
 
@@ -83,6 +85,8 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
+    <PlacedStudentCarousel />
+    </>
   );
 };
 

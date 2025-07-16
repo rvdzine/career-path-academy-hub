@@ -13,7 +13,7 @@ import { toast } from "sonner";
 
 interface EnrollmentFormProps {
   courseTitle: string;
-  coursePrice: string;
+  // coursePrice: string;
   onClose?: () => void;
 }
 
@@ -23,7 +23,7 @@ declare global {
   }
 }
 
-const EnrollmentForm = ({ courseTitle, coursePrice, onClose }: EnrollmentFormProps) => {
+const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -33,7 +33,7 @@ const EnrollmentForm = ({ courseTitle, coursePrice, onClose }: EnrollmentFormPro
   });
 
   const [isProcessing, setIsProcessing] = useState(false);
-  const [successMessage, setSuccessMessage] = useState('');
+  // const [successMessage, setSuccessMessage] = useState('');
   const { toast } = useToast();
 
   const handleInputChange = (field: string, value: string) => {
@@ -136,14 +136,14 @@ const EnrollmentForm = ({ courseTitle, coursePrice, onClose }: EnrollmentFormPro
         experience:formData.experience,
         learning_goals:formData.learningGoals,
         course_title:courseTitle,
-        course_price:coursePrice
+        // course_price:coursePrice
       });
       if (response.status === 201){
         toast({
           title: "Enrollment Successful!",
           description: "You are registered successfully.",
         });
-        setSuccessMessage("You are registered successfully.");
+        // setSuccessMessage("You are registered successfully.");
         
         setFormData({
           fullName: "",
@@ -154,14 +154,22 @@ const EnrollmentForm = ({ courseTitle, coursePrice, onClose }: EnrollmentFormPro
         });
         if (onClose) onClose();
       }
-    } catch (error) {
+    } catch (error: any) {
+      if(error.response?.data?.error?.includes("already registered")) {
+        toast({
+          title: "Already Registered!",
+          description: "Oops! This account is already registered! Try again.",
+          variant: "destructive"
+        })
+      } else {
       console.error("Enrollment failed:", error);
       toast({
         title: "Submission Failed",
-        description: "Something went wrong while enrolling.",
+        description: "You are already registered!",
         variant: "destructive"
       });
     }
+  }
     setIsProcessing(false);
     };
 
@@ -175,11 +183,11 @@ const EnrollmentForm = ({ courseTitle, coursePrice, onClose }: EnrollmentFormPro
           <BookOpen className="w-6 h-6 text-blue-600" />
           Enroll in {courseTitle}
         </CardTitle>
-        <div className="text-center">
+        {/* <div className="text-center">
           <Badge className="text-lg px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600">
             {coursePrice}
           </Badge>
-        </div>
+        </div> */}
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -272,11 +280,11 @@ const EnrollmentForm = ({ courseTitle, coursePrice, onClose }: EnrollmentFormPro
             {isProcessing ? "Submitting..." : `Submit Enrollment`}
           </Button>
           
-          {successMessage && (
+          {/* {successMessage && (
             <p className="text-green-600 font-semibold text-center">
               {successMessage}
             </p>
-          )}
+          )} */}
           {onClose && (
             <Button type="button" variant="outline" className="w-full" onClick={onClose}>
               Cancel

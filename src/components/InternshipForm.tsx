@@ -53,7 +53,7 @@ const InternshipForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/placement/student-placement/", 
+        "http://localhost:8000/api/careers/student-placement/", 
         submissionData,
         {
           headers: {
@@ -91,7 +91,7 @@ const InternshipForm = () => {
     <Card className="max-w-2xl mx-auto">
       <CardHeader>
         <CardTitle className="text-2xl text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          Register for Internship Program
+          Registration for Job
         </CardTitle>
       </CardHeader>
       <CardContent>

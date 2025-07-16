@@ -19,5 +19,10 @@ class Demo(models.Model):
     course = models.CharField(max_length=50, choices=COURSES_CHOICES, blank=True, null=True)
     learning_goals = models.TextField(blank=True, null=True)
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['full_name', 'email', 'phone', 'course'], name='unique_demo_booking')
+        ]
+        
     def __str__(self):
         return f"{self.full_name} - {self.course or 'No course selected'}"

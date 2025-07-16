@@ -158,8 +158,8 @@ const Placement = () => {
         <div className="container mx-auto px-4">
           <Tabs defaultValue="register" className="w-full">
             <TabsList className="grid w-full grid-cols-3 mb-8">
-              <TabsTrigger value="register">Register for Internship</TabsTrigger>
-              <TabsTrigger value="vacancies">View Vacancies</TabsTrigger>
+              <TabsTrigger value="register">Registration For Job</TabsTrigger>
+              <TabsTrigger value="vacancies">Current Vacancies</TabsTrigger>
               <TabsTrigger value="programs">Placement Programs</TabsTrigger>
             </TabsList>
             
