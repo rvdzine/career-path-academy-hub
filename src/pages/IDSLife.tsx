@@ -1,6 +1,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Play } from "lucide-react";
 
 const IDSLife = () => {
   const galleryImages = [
@@ -10,6 +11,76 @@ const IDSLife = () => {
     { src: "/placeholder.svg", alt: "Industry visit" },
     { src: "/placeholder.svg", alt: "Certification ceremony" },
     { src: "/placeholder.svg", alt: "Alumni meetup" },
+  ];
+
+  const videos = [
+    {
+      id: 1,
+      title: "Campus Tour - IDS Noida",
+      description: "Take a virtual tour of our state-of-the-art campus and modern facilities.",
+      thumbnail: "/placeholder.svg",
+      duration: "5:32"
+    },
+    {
+      id: 2,
+      title: "Student Success Stories",
+      description: "Hear from our alumni about their journey and achievements after IDS.",
+      thumbnail: "/placeholder.svg",
+      duration: "8:45"
+    },
+    {
+      id: 3,
+      title: "Digital Marketing Workshop Highlights",
+      description: "Behind the scenes of our intensive digital marketing workshops.",
+      thumbnail: "/placeholder.svg",
+      duration: "12:15"
+    },
+    {
+      id: 4,
+      title: "Industry Expert Sessions",
+      description: "Watch highlights from our guest lectures by industry professionals.",
+      thumbnail: "/placeholder.svg",
+      duration: "15:30"
+    }
+  ];
+
+  const shortVideos = [
+    {
+      id: 1,
+      title: "Quick SEO Tips",
+      thumbnail: "/placeholder.svg",
+      duration: "0:45"
+    },
+    {
+      id: 2,
+      title: "Social Media Hacks",
+      thumbnail: "/placeholder.svg",
+      duration: "1:20"
+    },
+    {
+      id: 3,
+      title: "Google Ads Basics",
+      thumbnail: "/placeholder.svg",
+      duration: "0:58"
+    },
+    {
+      id: 4,
+      title: "Content Creation Tips",
+      thumbnail: "/placeholder.svg",
+      duration: "1:15"
+    },
+    {
+      id: 5,
+      title: "Email Marketing Secrets",
+      thumbnail: "/placeholder.svg",
+      duration: "0:52"
+    },
+    {
+      id: 6,
+      title: "Analytics Explained",
+      thumbnail: "/placeholder.svg",
+      duration: "1:30"
+    }
   ];
 
   const testimonials = [
@@ -81,6 +152,77 @@ const IDSLife = () => {
               <h3 className="text-xl font-semibold mb-3">Industry Exposure</h3>
               <p className="text-gray-600">Regular industry visits, guest lectures, and real-world project experiences.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Videos Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Videos</h2>
+            <p className="text-xl text-gray-600">Get an inside look at our campus life and learning experience</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {videos.map((video) => (
+              <div key={video.id} className="bg-gray-100 rounded-lg overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group">
+                <div className="relative aspect-video">
+                  <img 
+                    src={video.thumbnail} 
+                    alt={video.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center group-hover:bg-opacity-50 transition-all">
+                    <div className="w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center">
+                      <Play className="w-6 h-6 text-blue-600 ml-1" />
+                    </div>
+                  </div>
+                  <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
+                    {video.duration}
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-semibold text-lg mb-2">{video.title}</h3>
+                  <p className="text-gray-600 text-sm">{video.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Short Videos Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Quick Learning Videos</h2>
+            <p className="text-xl text-gray-600">Bite-sized learning content for quick insights</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {shortVideos.map((video) => (
+              <div key={video.id} className="bg-gray-100 rounded-lg overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group">
+                <div className="relative aspect-video">
+                  <img 
+                    src={video.thumbnail} 
+                    alt={video.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center group-hover:bg-opacity-50 transition-all">
+                    <div className="w-10 h-10 bg-white bg-opacity-90 rounded-full flex items-center justify-center">
+                      <Play className="w-4 h-4 text-blue-600 ml-0.5" />
+                    </div>
+                  </div>
+                  <div className="absolute bottom-1 right-1 bg-black bg-opacity-75 text-white px-1.5 py-0.5 rounded text-xs">
+                    {video.duration}
+                  </div>
+                </div>
+                <div className="p-3">
+                  <h3 className="font-medium text-sm">{video.title}</h3>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -18,7 +18,8 @@ const Events = () => {
       description: "Explore the latest trends and strategies in digital marketing for 2024. Learn from industry experts about emerging technologies and consumer behavior.",
       speaker: "Sarah Johnson, Digital Marketing Director at TechCorp",
       attendees: 150,
-      price: "Free"
+      price: "Free",
+      image: "/placeholder.svg"
     },
     {
       id: 2,
@@ -30,7 +31,8 @@ const Events = () => {
       description: "Hands-on workshop covering advanced SEO techniques, technical SEO, and latest algorithm updates. Practical exercises included.",
       speaker: "Amit Sharma, SEO Expert",
       attendees: 50,
-      price: "₹999"
+      price: "₹999",
+      image: "/placeholder.svg"
     },
     {
       id: 3,
@@ -42,7 +44,8 @@ const Events = () => {
       description: "Learn how to create effective social media strategies that drive engagement and conversions across different platforms.",
       speaker: "Priya Patel, Social Media Strategist",
       attendees: 200,
-      price: "Free"
+      price: "Free",
+      image: "/placeholder.svg"
     }
   ];
 
@@ -57,7 +60,8 @@ const Events = () => {
       description: "Comprehensive workshop to prepare for Google Ads certification with practical exercises and exam preparation.",
       speaker: "Rahul Kumar, Google Ads Specialist",
       attendees: 75,
-      price: "₹1,499"
+      price: "₹1,499",
+      image: "/placeholder.svg"
     },
     {
       id: 5,
@@ -69,14 +73,20 @@ const Events = () => {
       description: "Deep dive into content marketing strategies that work in 2024. Learn about content planning, creation, and distribution.",
       speaker: "Neha Singh, Content Marketing Manager",
       attendees: 180,
-      price: "Free"
+      price: "Free",
+      image: "/placeholder.svg"
     }
   ];
 
   const EventCard = ({ event, isPast = false }: { event: typeof upcomingEvents[0], isPast?: boolean }) => (
-    <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-      <div className="flex justify-between items-start mb-4">
-        <div className="flex items-center gap-2">
+    <div className="bg-white rounded-lg shadow-sm border overflow-hidden hover:shadow-md transition-shadow">
+      <div className="aspect-video relative overflow-hidden">
+        <img 
+          src={event.image} 
+          alt={event.title}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute top-3 left-3 flex gap-2">
           <Badge variant={event.type === "webinar" ? "secondary" : "default"}>
             {event.type === "webinar" ? "Webinar" : "Workshop"}
           </Badge>
@@ -84,45 +94,47 @@ const Events = () => {
         </div>
       </div>
 
-      <h3 className="text-xl font-semibold text-gray-900 mb-3">{event.title}</h3>
-      <p className="text-gray-600 mb-4">{event.description}</p>
+      <div className="p-6">
+        <h3 className="text-xl font-semibold text-gray-900 mb-3">{event.title}</h3>
+        <p className="text-gray-600 mb-4">{event.description}</p>
 
-      <div className="space-y-2 mb-4">
-        <div className="flex items-center text-sm text-gray-500">
-          <Calendar className="w-4 h-4 mr-2" />
-          {new Date(event.date).toLocaleDateString('en-US', { 
-            weekday: 'long', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-          })}
+        <div className="space-y-2 mb-4">
+          <div className="flex items-center text-sm text-gray-500">
+            <Calendar className="w-4 h-4 mr-2" />
+            {new Date(event.date).toLocaleDateString('en-US', { 
+              weekday: 'long', 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+            })}
+          </div>
+          <div className="flex items-center text-sm text-gray-500">
+            <Clock className="w-4 h-4 mr-2" />
+            {event.time}
+          </div>
+          <div className="flex items-center text-sm text-gray-500">
+            <MapPin className="w-4 h-4 mr-2" />
+            {event.location}
+          </div>
+          <div className="flex items-center text-sm text-gray-500">
+            <Users className="w-4 h-4 mr-2" />
+            {event.attendees} participants
+          </div>
         </div>
-        <div className="flex items-center text-sm text-gray-500">
-          <Clock className="w-4 h-4 mr-2" />
-          {event.time}
-        </div>
-        <div className="flex items-center text-sm text-gray-500">
-          <MapPin className="w-4 h-4 mr-2" />
-          {event.location}
-        </div>
-        <div className="flex items-center text-sm text-gray-500">
-          <Users className="w-4 h-4 mr-2" />
-          {event.attendees} participants
-        </div>
-      </div>
 
-      <div className="border-t pt-4">
-        <p className="text-sm text-gray-600 mb-3">
-          <strong>Speaker:</strong> {event.speaker}
-        </p>
-        
-        {!isPast && (
-          <EventEnrollmentDialog eventTitle={event.title} eventType={event.type} />
-        )}
-        
-        {isPast && (
-          <div className="text-sm text-gray-500">Event Completed</div>
-        )}
+        <div className="border-t pt-4">
+          <p className="text-sm text-gray-600 mb-3">
+            <strong>Speaker:</strong> {event.speaker}
+          </p>
+          
+          {!isPast && (
+            <EventEnrollmentDialog eventTitle={event.title} eventType={event.type} />
+          )}
+          
+          {isPast && (
+            <div className="text-sm text-gray-500">Event Completed</div>
+          )}
+        </div>
       </div>
     </div>
   );
