@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -15,6 +14,7 @@ interface EnrollmentFormProps {
   courseTitle: string;
   coursePrice: string;
   onClose?: () => void;
+  onSuccess?: () => void;
 }
 
 declare global {
@@ -23,7 +23,7 @@ declare global {
   }
 }
 
-const EnrollmentForm = ({ courseTitle, coursePrice, onClose }: EnrollmentFormProps) => {
+const EnrollmentForm = ({ courseTitle, coursePrice, onClose, onSuccess }: EnrollmentFormProps) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -152,6 +152,7 @@ const EnrollmentForm = ({ courseTitle, coursePrice, onClose }: EnrollmentFormPro
           experience: "",
           learningGoals: ""
         });
+        if (onSuccess) onSuccess();
         if (onClose) onClose();
       }
     } catch (error) {
