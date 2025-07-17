@@ -1,9 +1,9 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Users, Award, BookOpen, Target } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import DownloadPRDButton from "@/components/DownloadPRDButton";
 
 const About = () => {
   const instructors = [
@@ -17,7 +17,7 @@ const About = () => {
     },
     {
       name: "Priya Sharma",
-      role: "Social Media Marketing Expert",
+      role: "Social Media Marketing Expert", 
       experience: "10+ years",
       expertise: ["Instagram Marketing", "Facebook Ads", "Influencer Marketing"],
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
@@ -26,7 +26,7 @@ const About = () => {
     {
       name: "Amit Patel",
       role: "PPC & Analytics Specialist",
-      experience: "15+ years",
+      experience: "15+ years", 
       expertise: ["Google Ads", "Data Analytics", "Conversion Optimization"],
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
       bio: "Certified Google Ads trainer and former Analytics lead at Amazon India."
@@ -95,6 +95,9 @@ const About = () => {
                 <Badge className="bg-blue-100 text-blue-700 px-4 py-2">Est. 2018</Badge>
                 <Badge className="bg-green-100 text-green-700 px-4 py-2">5000+ Alumni</Badge>
                 <Badge className="bg-purple-100 text-purple-700 px-4 py-2">Industry Leaders</Badge>
+              </div>
+              <div className="pt-4">
+                <DownloadPRDButton />
               </div>
             </div>
             <div className="relative">
