@@ -8,6 +8,7 @@ pexpect==4.9.0
 pillow==11.3.0
 PyMuPDF==1.26.3
 python-decouple==3.8
+python-debian==0.1.49
 pyzbar==0.1.9
 razorpay==1.4.2
 requests==2.32.4
