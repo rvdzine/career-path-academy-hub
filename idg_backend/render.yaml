@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: idg-backend
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn idg_backend.wsgi:application"
+    preDeployCommand: "python manage.py collectstatic --noinput"
