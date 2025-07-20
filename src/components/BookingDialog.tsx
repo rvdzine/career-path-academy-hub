@@ -51,7 +51,7 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
 
   const onSubmit = async (data: BookingFormData) => {
     try{
-      const result = await axios.post("http://localhost:8000/api/demo/book/", {
+      const result = await axios.post("https://idg-backend.onrender.com/api/demo/book/", {
         full_name: data.name,
         email: data.email,
         phone: data.phone,

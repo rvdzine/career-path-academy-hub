@@ -53,7 +53,7 @@ const InternshipForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/careers/student-placement/", 
+        "https://idg-backend.onrender.com/api/careers/student-placement/", 
         submissionData,
         {
           headers: {

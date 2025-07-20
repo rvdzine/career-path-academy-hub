@@ -37,7 +37,7 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:8000/api/contact/contact/", {
+      const response = await axios.post("https://idg-backend.onrender.com/api/contact/contact/", {
         full_name: formData.name,
         email: formData.email,
         phone: formData.phone,
