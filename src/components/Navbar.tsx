@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, PhoneCall } from "lucide-react";
 import ContactDialog from "@/components/ContactDialog";
+import IDS_LOGO from "@/components/svg/IDS_LOGO.svg"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "Courses", path: "/courses" },
     { name: "Offline Center", path: "/offline-center" },
-    { name: "Careers", path: "/careers" },
+    { name: "Jobs & Placements", path: "/jobs-and-placements" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
@@ -25,12 +26,13 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+            {/* <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-xl">IDS</span>
             </div>
             <span className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Institute of Digital Studies
-            </span>
+            </span> */}
+            <img src={IDS_LOGO} className="h-16 w-auto" alt="" />
           </Link>
 
           {/* Desktop Navigation */}

@@ -35,7 +35,7 @@ const HeroSection = () => {
                 <Link to="/courses">Explore Courses</Link>
               </Button>
               <Button size="lg" variant="outline" className="hover:scale-105 transition-all duration-300 hover:shadow-md" asChild>
-                <Link to="/careers">Placement Programs</Link>
+                <Link to="/jobs-and-placements">Placement Programs</Link>
               </Button>
             </div>
 
