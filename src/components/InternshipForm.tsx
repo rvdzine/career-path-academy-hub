@@ -1,5 +1,6 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,9 +8,9 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import axios from "axios";
+
 
 const InternshipForm = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +22,18 @@ const InternshipForm = () => {
     skills: "",
     resume: null as File | null
   });
+
+  const [jobTitles, setJobTitles] = useState<string[]>([]);
   const { toast } = useToast();
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const job = params.get("job");
+    if (job && !jobTitles.includes(job) && jobTitles.length < 5) {
+      setJobTitles((prev) => [...prev, job]);
+    }
+  }, [location.search]); 
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -30,6 +42,16 @@ const InternshipForm = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
     setFormData(prev => ({ ...prev, resume: file }));
+  };
+
+  const addJobTitle = (title: string) => {
+    if (title && jobTitles.length < 5 && !jobTitles.includes(title)) {
+      setJobTitles(prev => [...prev, title]);
+    }
+  };
+
+  const removeJobTitle = (title: string) => {
+    setJobTitles(prev => prev.filter(item => item !== title));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -50,10 +72,13 @@ const InternshipForm = () => {
     submissionData.append("experience_level", formData.experience);
     submissionData.append("key_skills", formData.skills);
     submissionData.append("resume", formData.resume);
+    submissionData.append("job_titles", JSON.stringify(jobTitles));
+
 
     try {
       const response = await axios.post(
-        "https://idg-backend.onrender.com/api/careers/student-placement/", 
+        // "https://idg-backend.onrender.com/api/careers/student-placement/",
+        "http://localhost:8000/api/careers/student-placement/", 
         submissionData,
         {
           headers: {
@@ -75,13 +100,14 @@ const InternshipForm = () => {
           course: "",
           experience: "",
           skills: "",
-          resume: null
+          resume: null,
         });
+        setJobTitles([])
       }
     } catch (error: any) {
       toast({
         title: "Submission Failed",
-        description: error?.response?.data?.resume?.[0] || "Something went wrong. Please try again.",
+        description: error?.response?.data?.resume?.[0] || "Oops! Your submission has failed!. Please try again.",
         variant: "destructive"
       });
     }
@@ -190,6 +216,39 @@ const InternshipForm = () => {
             </p>
           </div>
 
+          <div className="space-y-2">
+            <Label>Job Looking For (Add up to 5 job titles)</Label>
+            <div className="flex items-center space-x-2">
+              <Input
+                placeholder="Add job title"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    const title = (e.target as HTMLInputElement).value.trim();
+                    if (title) {
+                      addJobTitle(title);
+                      (e.target as HTMLInputElement).value = "";
+                    }
+                  }
+                }}
+              />
+              <span className="text-sm text-muted-foreground">
+                {5 - jobTitles.length} more job titles can be added
+              </span>
+            </div>
+            <div className="flex gap-2 flex-wrap">
+              {jobTitles.map((title) => (
+                <Badge
+                  key={title}
+                  variant="secondary"
+                  className="cursor-pointer"
+                  onClick={() => removeJobTitle(title)}
+                >
+                  {title} ✕
+                </Badge>
+              ))}
+            </div>
+          </div>
           <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
             Submit Application
           </Button>

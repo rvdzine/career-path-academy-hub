@@ -4,11 +4,27 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar, Users, Clock, Building } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
+
+interface Vacancy {
+  id: number;
+  title: string;
+  company: string;
+  location: string;
+  type: string;
+  duration: string;
+  stipend: string;
+  posted: string;
+  skills: string[];
+  description: string;
+  requirements: string[];
+}
 
 const InternshipVacancies = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
 
-  const vacancies = [
+  const vacancies: Vacancy[] = [
     {
       id: 1,
       title: "Digital Marketing Intern",
@@ -90,6 +106,7 @@ const InternshipVacancies = () => {
   ];
 
   const handleApply = (vacancy: typeof vacancies[0]) => {
+    navigate(`/internship-form?job=${encodeURIComponent(vacancy.title)}`);
     console.log("Applying for:", vacancy.title);
     toast({
       title: "Application Submitted!",
@@ -141,7 +158,7 @@ const InternshipVacancies = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-muted-foreground">{vacancy.description}</p>
-              
+
               <div className="space-y-3">
                 <div>
                   <h4 className="font-medium text-sm mb-2">Required Skills:</h4>
@@ -153,7 +170,7 @@ const InternshipVacancies = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 <div>
                   <h4 className="font-medium text-sm mb-2">Requirements:</h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
@@ -174,7 +191,7 @@ const InternshipVacancies = () => {
                     Duration: {vacancy.duration}
                   </div>
                 </div>
-                <Button 
+                <Button
                   onClick={() => handleApply(vacancy)}
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
                 >

@@ -21,6 +21,7 @@ import Terms from "./pages/Terms"
 import IDS from "./pages/IDSLife"
 import Events from "./pages/Events"
 import { ThemeProvider } from "@/components/ThemeProvider";
+import  InternshipForm  from "@/components/InternshipForm"
 
 const queryClient = new QueryClient();
 
@@ -48,7 +49,8 @@ const App = () => (
           <Route path="/terms" element={<Terms />} />
           <Route path="/ids" element={<IDS />} />
           <Route path="/events" element={<Events />} />
-
+          <Route path="/internship-form" element={<InternshipForm />} />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
