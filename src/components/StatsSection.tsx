@@ -8,7 +8,7 @@ const StatsSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white overflow-hidden">
+    <section className="py-16 bg-[#EA2525] text-white overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (

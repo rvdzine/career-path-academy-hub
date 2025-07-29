@@ -33,7 +33,7 @@ const TestimonialSection = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-4 bg-[#EA2525] bg-clip-text text-transparent">
             Success Stories
           </h2>
           <p className="text-xl text-muted-foreground">
@@ -58,9 +58,9 @@ const TestimonialSection = () => {
                     />
                   </div>
                   <div>
-                    <h4 className="font-semibold group-hover:text-blue-600 transition-colors duration-300">{testimonial.name}</h4>
+                    <h4 className="font-semibold group-hover:text-[#EA2525] transition-colors duration-300">{testimonial.name}</h4>
                     <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                    <p className="text-xs text-blue-600 font-medium">{testimonial.company}</p>
+                    <p className="text-xs text-[#EA2525] font-medium">{testimonial.company}</p>
                   </div>
                 </div>
                 
@@ -68,7 +68,7 @@ const TestimonialSection = () => {
                   "{testimonial.testimonial}"
                 </p>
                 
-                <Badge variant="secondary" className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors duration-300">
+                <Badge variant="secondary" className="bg-blue-50 text-[#EA2525] hover:bg-blue-100 transition-colors duration-300">
                   {testimonial.course}
                 </Badge>
               </CardContent>

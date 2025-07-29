@@ -9,97 +9,104 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EnrollmentDialog from "@/components/EnrollmentDialog";
 
+import FDM1 from "../components/assets/FDM1.png";
+import SDM2 from "../components/assets/SDM2.png";
+import MDM3 from "../components/assets/MDM3.png";
+import BODM4 from "../components/assets/BODM4.png";
+import DDM5 from "../components/assets/DDM5.png";
+import DIPDM6 from "../components/assets/DIPDM6.png";
+
 const Courses = () => {
   const courses = [
     {
       id: "seo-mastery",
-      title: "Complete SEO Mastery",
-      description: "Master search engine optimization from basics to advanced techniques including technical SEO, content strategy, and link building.",
-      duration: "8 weeks",
+      title: "Foundation in Digital Marketing",
+      description: "Build a strong base in digital marketing fundamentals. Learn core concepts like SEO, Social Media, and Content Marketing to kickstart your career..",
+      duration: "2 Months",
       students: "1,200+",
-      level: "Beginner to Advanced",
+      level: "Online/Offline",
       // price: "₹25,000",
       rating: "4.9",
       modules: 12,
       projects: 5,
-      features: ["Technical SEO", "Content Strategy", "Link Building", "Local SEO"],
+      features: ["SEO Basics", "Social Media Essentials", "Content Marketing Foundations", "Google Ads Introduction"],
       color: "from-green-500 to-emerald-600",
-      image: "photo-1461749280684-dccba630e2f6"
+      image: FDM1,
     },
     {
       id: "social-media-pro",
-      title: "Social Media Marketing Pro",
-      description: "Build engaging social media campaigns across all major platforms with advanced strategies for brand building.",
-      duration: "6 weeks",
-      students: "950+",
-      level: "Intermediate",
+      title: "Specialist in Digital Marketing",
+      description: "Become a digital marketing specialist with in-depth knowledge of advanced strategies including PPC, Social Media Ads, and Analytics..",
+      duration: "3 Months",
+      students: "1000+",
+      level: "Online/Offline",
       // price: "₹20,000",
       rating: "4.8",
       modules: 10,
       projects: 4,
-      features: ["Instagram Marketing", "Facebook Ads", "Content Creation", "Analytics"],
+      features: ["Advanced SEO & SEM", "Paid Marketing & PPC", "Social Media Ads", "Google Analytics"],
       color: "from-pink-500 to-rose-600",
-      image: "photo-1649972904349-6e44c42644a7"
+      image: SDM2
     },
     {
       id: "google-ads-expert",
-      title: "Google Ads & PPC Expert",
-      description: "Create and optimize high-converting paid advertising campaigns with Google Ads.",
-      duration: "10 weeks",
-      students: "800+",
-      level: "Advanced",
+      title: "Master in Digital Marketing (With Guaranteed Internship)",
+      description: "A complete program covering all digital marketing verticals with practical projects and a guaranteed internship for real-world experience..",
+      duration: "Customisable",
+      students: "300+",
+      level: "Online",
       // price: "₹30,000",
       rating: "4.7",
       modules: 14,
       projects: 6,
-      features: ["Google Ads", "PPC", "Campaign Optimization", "ROI Analysis"],
+      features: ["Full Stack Digital Marketing", "Real Projects & Case Studies", "Internship Guarantee", "1-on-1 Mentorship Chat Support"],
       color: "from-blue-500 to-cyan-600",
-      image: "photo-1488590528505-98d2b5aba04b"
+      image: MDM3
     },
     {
       id: "email-marketing-specialist",
-      title: "Email Marketing Specialist",
-      description: "Build automated email sequences that convert prospects to customers.",
-      duration: "4 weeks",
-      students: "600+",
-      level: "Beginner",
+      title: "Professional & Business Owner Course (1:1 Learning)",
+      description: "Exclusive personalised training for professionals and business owners. Tailored modules with live one-on-one sessions for your business needs..",
+      duration: "Customisable",
+      students: "300+",
+      level: "Online",
       // price: "₹15,000",
       rating: "4.6",
       modules: 8,
       projects: 3,
-      features: ["Automation", "Segmentation", "A/B Testing", "List Building"],
+      features: ["Custom Business Strategies", "Lead Generation for Business", "Personalised Marketing Plan", "Hands-on Implementation"],
       color: "from-purple-500 to-violet-600",
-      image: "photo-1581091226825-a6a2a5aee158"
+      image: BODM4
     },
     {
       id: "analytics-data-insights",
-      title: "Analytics & Data Insights",
-      description: "Make data-driven decisions with advanced analytics and reporting techniques.",
-      duration: "6 weeks",
-      students: "750+",
-      level: "Intermediate",
+      title: "Degree in Digital Marketing",
+      description: "A comprehensive 3-year program designed for in-depth mastery of digital marketing with academic rigor, internship opportunities, and placement support.",
+      duration: "36 Months",
+      students: "250+",
+      level: "Offline",
       // price: "₹18,000",
       rating: "4.5",
       modules: 9,
       projects: 4,
-      features: ["Google Analytics", "Data Visualization", "Reporting", "Insights"],
+      features: ["Complete Digital Marketing Ecosystem", "Multiple Internships & Projects", "Placement Assistance", "Degree Certification"],
       color: "from-orange-500 to-red-600",
-      image: "photo-1498050108023-c5249f4df085"
+      image: DDM5
     },
     {
       id: "content-strategy-creation",
-      title: "Content Strategy & Creation",
-      description: "Create compelling content that drives engagement and conversions.",
-      duration: "5 weeks",
-      students: "900+",
-      level: "All Levels",
+      title: "Diploma in Digital Marketing",
+      description: "Earn a diploma with extensive training across all digital marketing domains. Includes certifications, practical projects, and live assignments..",
+      duration: "12 Months",
+      students: "500+",
+      level: "Offline",
       // price: "₹22,000",
       rating: "4.4",
       modules: 11,
       projects: 5,
-      features: ["Content Planning", "Copywriting", "Visual Content", "Distribution"],
+      features: ["360° Digital Marketing Coverage", "Capstone Projects", "Industry Certifications", "Live Case Studies"],
       color: "from-teal-500 to-green-600",
-      image: "photo-1461749280684-dccba630e2f6"
+      image: DIPDM6
     }
   ];
 
@@ -110,7 +117,7 @@ const Courses = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-[#EA2525] bg-clip-text text-transparent">
             Professional Courses
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -138,13 +145,18 @@ const Courses = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {courses.map((course) => (
-              <Card key={course.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 overflow-hidden">
+              <Card key={course.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 overflow-hidden cursor-pointer">
                 <div className="relative">
-                  <AspectRatio ratio={16/9}>
-                    <img 
+                  <AspectRatio>
+                    {/* <img 
                       src={`https://images.unsplash.com/${course.image}?w=400&h=225&fit=crop`}
                       alt={course.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    /> */}
+                    <img
+                      src={course.image}
+                      alt={course.title}
+                      className="max-w-full max-h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </AspectRatio>
                   <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1">
@@ -159,7 +171,7 @@ const Courses = () => {
                   {/* <div className="flex justify-between items-start mb-2">
                     <Badge className="text-lg px-3 py-1">{course.price}</Badge>
                   </div> */}
-                  <CardTitle className="text-xl group-hover:text-blue-600 transition-colors">
+                  <CardTitle className="text-xl group-hover:text-[#EA2525] transition-colors">
                     {course.title}
                   </CardTitle>
                   <CardDescription className="text-base">
@@ -193,7 +205,7 @@ const Courses = () => {
 
                   <div className="flex gap-2 pt-4">
                     <Link to={`/courses/${course.id}`} className="flex-1">
-                      <Button variant="outline" className="w-full">
+                      <Button variant="outline" className="border-2 border-red-500 text-[#EA2525]">
                         View Details
                       </Button>
                     </Link>
@@ -201,7 +213,7 @@ const Courses = () => {
                       courseTitle={course.title}
                       // coursePrice={course.price}
                     >
-                      <Button className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                      <Button className="flex-1 bg-[#EA2525] hover:from-blue-700 hover:to-purple-700">
                         Enroll Now
                       </Button>
                     </EnrollmentDialog>

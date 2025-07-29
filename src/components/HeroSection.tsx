@@ -18,7 +18,7 @@ const HeroSection = () => {
               </Badge>
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
                 Master
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-pulse-soft">
+                <span className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent animate-pulse-soft">
                   {" "}Digital Marketing
                 </span>
                 <br />
@@ -31,7 +31,7 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up [animation-delay:0.2s]">
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105 hover:shadow-lg" asChild>
+              <Button size="lg" className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#EA2525] hover:to-[#AA2526] transition-all duration-300 hover:scale-105 hover:shadow-lg" asChild>
                 <Link to="/courses">Explore Courses</Link>
               </Button>
               <Button size="lg" variant="outline" className="hover:scale-105 transition-all duration-300 hover:shadow-md" asChild>

@@ -42,7 +42,7 @@ const Navbar = () => {
             <span className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Institute of Digital Studies
             </span> */}
-            <img src={IDS_LOGO} className="h-16 w-auto" alt="" />
+            <img src={IDS_LOGO} className="h-12 w-auto" alt="" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -51,8 +51,8 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                  isActive(link.path) ? "text-blue-600" : "text-gray-700"
+                className={`text-sm font-medium transition-colors hover:text-[#EA2525] ${
+                  isActive(link.path) ? "text-[#EA2525]" : "text-gray-700"
                 }`}
               >
                 {link.name}
@@ -61,7 +61,7 @@ const Navbar = () => {
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className="flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                <button className="flex items-center text-sm font-medium text-gray-700 hover:text-black transition-colors">
                   More
                   <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
@@ -72,7 +72,7 @@ const Navbar = () => {
                     <Link
                       to={link.path}
                       className={`block px-4 py-2 text-sm hover:bg-gray-50 ${
-                        isActive(link.path) ? "text-blue-600 font-medium" : "text-gray-700"
+                        isActive(link.path) ? "text-[#EA2525] font-medium" : "text-gray-700"
                       }`}
                     >
                       {link.name}
@@ -83,7 +83,7 @@ const Navbar = () => {
             </DropdownMenu>
 
             <ContactDialog>
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+              <Button className="bg-[#EA2525] hover:bg-red-600">
                 Enroll Now
               </Button>
             </ContactDialog>

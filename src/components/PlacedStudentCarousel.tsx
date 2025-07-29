@@ -49,16 +49,17 @@ const dummyStudents: Student[] = [
 
 const PlacedStudentsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const visibleCount = 3;
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === dummyStudents.length - 1 ? 0 : prevIndex + 1
+      prevIndex + visibleCount >= dummyStudents.length ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? dummyStudents.length - 1 : prevIndex - 1
+      prevIndex === 0 ? dummyStudents.length - visibleCount : prevIndex - 1
     );
   };
 
@@ -74,22 +75,22 @@ const PlacedStudentsCarousel = () => {
       </h2>
 
       <div className="relative overflow-hidden">
-        <div className="flex transition-transform duration-500 ease-in-out transform"
-             style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+        <div className="flex transition-transform duration-500 ease-in-out"
+             style={{width: `${(dummyStudents.length / visibleCount)*100}%`, transform: `translateX(-${(currentIndex * 100) / dummyStudents.length}%)`,}}>
           {dummyStudents.map((student, index) => (
             <div
               key={index}
-              className="min-w-full flex justify-center items-center px-4"
+              className="w-1/3 flex justify-center items-center px-4"
             >
               <div className="bg-white rounded-xl shadow-lg p-6 max-w-md w-full text-center">
                 <img
                   src={student.image}
                   alt={student.name}
-                  className="w-28 h-28 rounded-full mx-auto mb-4 object-cover border-4 border-blue-500"
+                  className="w-28 h-28 rounded-full mx-auto mb-4 object-cover border-4 border-[#EA2525]"
                 />
                 <h3 className="text-xl font-semibold">{student.name}</h3>
                 <p className="text-sm text-gray-600 mt-1">{student.company}</p>
-                <p className="text-blue-600 font-bold text-lg mt-2">{student.package}</p>
+                <p className="text-[#EA2525] font-bold text-lg mt-2">{student.package}</p>
                 <p>{student.location}</p>
               </div>
             </div>

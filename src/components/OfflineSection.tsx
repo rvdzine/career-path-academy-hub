@@ -28,7 +28,7 @@ const OfflineSection = () => {
     <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in-up">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-4 text-[#EA2525]">
             Experience Hands-On Learning
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -56,7 +56,7 @@ const OfflineSection = () => {
           <div className="space-y-6 animate-fade-in-right">
             <div className="animate-fade-in-up">
               <h3 className="text-3xl font-bold mb-3 text-gray-900">Our Premium Campus</h3>
-              <p className="text-lg text-gray-600 flex items-center gap-2 hover:text-blue-600 transition-colors duration-300">
+              <p className="text-lg text-gray-600 flex items-center gap-2 hover:text-[#EA2525] transition-colors duration-300">
                 <MapPin className="w-5 h-5" />
                 Sector 63, Noida - 201301
               </p>
@@ -74,7 +74,7 @@ const OfflineSection = () => {
                       className="flex items-center gap-2 p-2 bg-white rounded-lg shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer"
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      <IconComponent className="w-4 h-4 text-blue-600" />
+                      <IconComponent className="w-4 h-4 text-[#EA2525]" />
                       <span className="text-sm font-medium text-gray-700">{facility}</span>
                     </div>
                   );
@@ -107,7 +107,7 @@ const OfflineSection = () => {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up [animation-delay:0.3s]">
               <BookingDialog>
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                <Button size="lg" className="bg-[#EA2525] transition-all duration-300 hover:scale-105 hover:shadow-lg">
                   Book Your Demo
                 </Button>
               </BookingDialog>
