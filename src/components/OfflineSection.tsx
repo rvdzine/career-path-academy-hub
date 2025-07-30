@@ -71,7 +71,7 @@ const OfflineSection = () => {
                   return (
                     <div 
                       key={facility} 
-                      className="flex items-center gap-2 p-2 bg-white rounded-lg shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer"
+                      className="flex items-center gap-2 p-2 bg-white rounded-lg shadow-sm "
                       style={{ animationDelay: `${index * 0.1}s` }}
                     >
                       <IconComponent className="w-4 h-4 text-[#EA2525]" />
@@ -86,21 +86,24 @@ const OfflineSection = () => {
             <div className="animate-fade-in-up [animation-delay:0.2s]">
               <h4 className="text-xl font-semibold mb-4 text-gray-900">Available Batches</h4>
               <div className="space-y-2">
-                {batches.slice(0, 2).map((batch, index) => (
-                  <div 
-                    key={index} 
-                    className="flex justify-between items-center p-3 bg-white rounded-lg shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <div>
-                      <p className="font-medium text-gray-900">{batch.course}</p>
-                      <p className="text-sm text-gray-600">{batch.timing} • {batch.days}</p>
-                    </div>
-                    <Badge variant="outline" className={`${batch.seats <= 5 ? 'border-red-500 text-red-600 animate-pulse-soft' : 'border-green-500 text-green-600'} transition-colors duration-300`}>
-                      {batch.seats} seats left
-                    </Badge>
-                  </div>
-                ))}
+               {batches.slice(0, 2).map((batch, index) => (
+  <BookingDialog key={index}>
+    <div 
+      className="cursor-pointer flex justify-between items-center p-3 bg-white rounded-lg shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300"
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
+      <div>
+        <p className="font-medium text-gray-900">{batch.course}</p>
+        <p className="text-sm text-gray-600">{batch.timing} • {batch.days}</p>
+      </div>
+      <Badge variant="outline" className={`${batch.seats <= 5 ? 'border-red-500 text-red-600 animate-pulse-soft' : 'border-green-500 text-green-600'} transition-colors duration-300`}>
+        {batch.seats} seats left
+      </Badge>
+    </div>
+  </BookingDialog>
+))}
+
+                
               </div>
             </div>
 
