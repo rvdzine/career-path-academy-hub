@@ -43,7 +43,7 @@ const About = () => {
   ];
 
   const achievements = [
-    { icon: Users, number: "5000+", label: "Students Trained" },
+    { icon: Users, number: "1000+", label: "Students Trained" },
     { icon: Award, number: "90%", label: "Placement Rate" },
     { icon: BookOpen, number: "6", label: "Course Modules" },
     { icon: Target, number: "50+", label: "Partner Companies" }
