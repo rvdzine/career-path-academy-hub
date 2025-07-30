@@ -89,7 +89,7 @@ const About = () => {
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 We are India's leading digital marketing training institute, dedicated to bridging the gap between 
-                academic learning and industry requirements. Since our inception, we have trained over 5000 students 
+                academic learning and industry requirements. Since our inception, we have trained over 1000 students 
                 and maintained a remarkable 90% placement success rate.
               </p>
               <div className="flex flex-wrap gap-3">
