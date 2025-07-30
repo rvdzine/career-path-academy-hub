@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { CheckCircle, Users, Clock } from "lucide-react";
 import PlacedStudentCarousel from "@/components/PlacedStudentCarousel";
+import hero from "@/components/assets/hero.png"
 
 const HeroSection = () => {
   return (
@@ -13,7 +14,7 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-in-left">
             <div className="space-y-4">
-              <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-100 animate-bounce-gentle">
+              <Badge className="bg-red-100 text-red-700 hover:bg-red-200 animate-bounce-gentle">
                 🚀 India's Leading Digital Marketing Academy
               </Badge>
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
@@ -45,7 +46,7 @@ const HeroSection = () => {
                   <CheckCircle className="w-5 h-5 text-green-600" />
                 </div>
                 <div>
-                  <p className="font-semibold">90% Placement Rate</p>
+                  <p className="font-semibold">90% Placement</p>
                   <p className="text-sm text-muted-foreground">Job Guarantee</p>
                 </div>
               </div>
@@ -54,7 +55,7 @@ const HeroSection = () => {
                   <Users className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="font-semibold">5000+ Students</p>
+                  <p className="font-semibold">1000+ Students</p>
                   <p className="text-sm text-muted-foreground">Trained Successfully</p>
                 </div>
               </div>
@@ -73,7 +74,7 @@ const HeroSection = () => {
           <div className="relative animate-fade-in-right">
             <div className="relative z-10 group">
               <img 
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                src={hero}
                 alt="Digital Marketing Training" 
                 className="rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-105"
               />

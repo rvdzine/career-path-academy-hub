@@ -145,7 +145,7 @@ const Events = () => {
       
       <div className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent mb-4">
             Events & Webinars
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -154,7 +154,7 @@ const Events = () => {
         </div>
 
         <Tabs defaultValue="upcoming" className="max-w-6xl mx-auto">
-          <TabsList className="grid w-full grid-cols-2 mb-8">
+          <TabsList className="grid w-full grid-cols-2 mb-8 bg-gradient-to-r from-red-300 via-red-200 to-red-300">
             <TabsTrigger value="upcoming">Upcoming Events</TabsTrigger>
             <TabsTrigger value="past">Past Events</TabsTrigger>
           </TabsList>

@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Clock, Users, BookOpen, CheckCircle, Star } from "lucide-react";
+import { Clock, Users, BookOpen, CheckCircle } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -123,20 +123,6 @@ const Courses = () => {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Industry-designed curriculum with hands-on projects, real-world applications, and career placement support
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Badge className="flex items-center gap-2 text-sm px-4 py-2">
-              <BookOpen className="w-4 h-4" />
-              15+ Courses
-            </Badge>
-            <Badge className="flex items-center gap-2 text-sm px-4 py-2">
-              <Users className="w-4 h-4" />
-              5000+ Students
-            </Badge>
-            <Badge className="flex items-center gap-2 text-sm px-4 py-2">
-              <Star className="w-4 h-4" />
-              4.8/5 Rating
-            </Badge>
-          </div>
         </div>
       </section>
 
@@ -159,12 +145,12 @@ const Courses = () => {
                       className="max-w-full max-h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </AspectRatio>
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1">
+                  {/* <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1">
                     <div className="flex items-center gap-1">
                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                       <span className="text-sm font-medium">{course.rating}</span>
                     </div>
-                  </div>
+                  </div> */}
                   <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${course.color}`}></div>
                 </div>
                 <CardHeader className="pb-4">
@@ -204,16 +190,16 @@ const Courses = () => {
                   </div>
 
                   <div className="flex gap-2 pt-4">
-                    <Link to={`/courses/${course.id}`} className="flex-1">
+                    {/* <Link to={`/courses/${course.id}`} className="flex-1">
                       <Button variant="outline" className="border-2 border-red-500 text-[#EA2525]">
                         View Details
                       </Button>
-                    </Link>
+                    </Link> */}
                     <EnrollmentDialog 
                       courseTitle={course.title}
                       // coursePrice={course.price}
                     >
-                      <Button className="flex-1 bg-[#EA2525] hover:from-blue-700 hover:to-purple-700">
+                      <Button className="flex-1 bg-gradient-to-r bg-[#EA2525] hover:from-[#AA2526] hover:to-[#EA2525]">
                         Enroll Now
                       </Button>
                     </EnrollmentDialog>

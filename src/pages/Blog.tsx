@@ -160,7 +160,7 @@ const Blog = () => {
 
         {/* Load More Button */}
         <div className="text-center mt-12">
-          <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-colors">
+          <button className="px-8 py-3 text-white font-semibold rounded-lg bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525] transition-colors">
             Load More Posts
           </button>
         </div>

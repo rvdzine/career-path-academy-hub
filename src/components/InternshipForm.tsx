@@ -116,7 +116,7 @@ const InternshipForm = () => {
   return (
     <Card className="max-w-2xl mx-auto">
       <CardHeader>
-        <CardTitle className="text-2xl text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        <CardTitle className="text-2xl text-center bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent">
           Registration for Job
         </CardTitle>
       </CardHeader>
@@ -249,7 +249,7 @@ const InternshipForm = () => {
               ))}
             </div>
           </div>
-          <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+          <Button type="submit" className="w-full bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525]">
             Submit Application
           </Button>
         </form>

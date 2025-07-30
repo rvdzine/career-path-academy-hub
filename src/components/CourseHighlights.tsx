@@ -137,7 +137,7 @@ const CourseHighlights = () => {
               </div>
               <CardHeader className="pb-4">
                 <CardTitle className="text-xl group-hover:text-[#EA2525] transition-colors duration-300">
-                  {course.title}
+                  <Link to ="/courses">{course.title}</Link>
                 </CardTitle>
                 <CardDescription className="text-base">
                   {course.description}

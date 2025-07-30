@@ -79,22 +79,25 @@ const Contact = () => {
 
   const campusLocations = [
     {
-      city: "Mumbai",
-      address: "Andheri East, Mumbai - 400069",
-      phone: "+91 9876543210",
-      email: "mumbai@digitalacademy.com"
-    },
-    {
       city: "Delhi",
-      address: "Connaught Place, New Delhi - 110001",
-      phone: "+91 9876543211",
-      email: "delhi@digitalacademy.com"
+      // address: "Andheri East, Mumbai - 400069",
+      // phone: "+91 9876543210",
+      // email: "mumbai@digitalacademy.com"
+    },
+    // {
+    //   city: "Noida, UP",
+    //   address: "NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306",
+    //   phone: "+91 9315471293",
+    //   email: "delhi@digitalacademy.com"
+    // },
+    {
+      city: "Ghaziabad",
+      // address: "Koramangala, Bangalore - 560034",
+      // phone: "+91 9876543212",
+      // email: "bangalore@digitalacademy.com"
     },
     {
-      city: "Bangalore",
-      address: "Koramangala, Bangalore - 560034",
-      phone: "+91 9876543212",
-      email: "bangalore@digitalacademy.com"
+      city:"Faridabad"
     }
   ];
 
@@ -149,7 +152,7 @@ const Contact = () => {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl lg:text-6xl font-bold mb-6">
             Get in
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent">
               {" "}Touch
             </span>
           </h1>
@@ -171,7 +174,7 @@ const Contact = () => {
             {/* Contact Form */}
             <Card className="shadow-lg border-0">
               <CardHeader>
-                <CardTitle className="text-2xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <CardTitle className="text-2xl bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
                   Enroll Now - Free Counseling
                 </CardTitle>
                 <CardDescription>
@@ -264,7 +267,7 @@ const Contact = () => {
                   <Button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                    className="w-full bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525]"
                   >
                     {loading ? "Submitting..." : "Submit & Get Free Counseling"}
                   </Button>
@@ -280,12 +283,12 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-blue-600" />
+                    <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                      <Phone className="w-5 h-5 text-red-600" />
                     </div>
                     <div>
                       <p className="font-semibold">Call Us</p>
-                      <p className="text-muted-foreground">+91 9876543210</p>
+                      <p className="text-muted-foreground">+91 9315471293 </p>
                     </div>
                   </div>
 
@@ -295,11 +298,11 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-semibold">Email Us</p>
-                      <p className="text-muted-foreground">info@digitalacademy.com</p>
+                      <p className="text-muted-foreground">info@idigitalstudies.com</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center space-x-3">
+                  {/* <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
                       <Clock className="w-5 h-5 text-purple-600" />
                     </div>
@@ -307,21 +310,33 @@ const Contact = () => {
                       <p className="font-semibold">Office Hours</p>
                       <p className="text-muted-foreground">Mon-Sat: 9AM-7PM</p>
                     </div>
-                  </div>
+                  </div> */}
                 </CardContent>
               </Card>
 
               {/* Campus Locations */}
               <Card className="shadow-lg border-0">
                 <CardHeader>
-                  <CardTitle className="text-xl">Our Campuses</CardTitle>
+                  <CardTitle className="text-xl">Our Campus</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {/* {campusLocations.map((location, index) => ( */}
+                    <div className="border-l-4 border-red-500 pl-4 space-y-1">
+                      <h4 className="font-semibold text-red-600">Noida, UP</h4>
+                      <p className="text-sm text-muted-foreground">NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306</p>
+                      <p className="text-sm">+91 9315471293</p>
+                    </div>
+                  {/* ))} */}
+                </CardContent>
+                <CardHeader>
+                  <CardTitle className="text-xl">Upcoming Campuses</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {campusLocations.map((location, index) => (
-                    <div key={index} className="border-l-4 border-blue-500 pl-4 space-y-1">
-                      <h4 className="font-semibold text-blue-600">{location.city}</h4>
-                      <p className="text-sm text-muted-foreground">{location.address}</p>
-                      <p className="text-sm">{location.phone}</p>
+                    <div key={index} className="border-l-4 border-red-500 pl-4 space-y-1">
+                      <h4 className="font-semibold text-red-600">{location.city}</h4>
+                      {/* <p className="text-sm text-muted-foreground">{location.address}</p> */}
+                      {/* <p className="text-sm">{location.phone}</p> */}
                     </div>
                   ))}
                 </CardContent>
@@ -335,7 +350,7 @@ const Contact = () => {
       <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
               Simple Enrollment Process
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -347,7 +362,7 @@ const Contact = () => {
             {enrollmentSteps.map((step, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300 border-0 relative">
                 <CardHeader>
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                  <div className="w-16 h-16 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
                     {step.step}
                   </div>
                   <CardTitle className="text-lg">{step.title}</CardTitle>
@@ -356,7 +371,7 @@ const Contact = () => {
                   <p className="text-muted-foreground text-sm">{step.description}</p>
                 </CardContent>
                 {index < enrollmentSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 -right-4 w-8 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600"></div>
+                  <div className="hidden lg:block absolute top-8 -right-4 w-8 h-0.5 bg-gradient-to-r from-red-600 to-red-700"></div>
                 )}
               </Card>
             ))}
@@ -368,7 +383,7 @@ const Contact = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
               Frequently Asked Questions
             </h2>
           </div>
@@ -377,7 +392,7 @@ const Contact = () => {
             {faqs.map((faq, index) => (
               <Card key={index} className="border-0 shadow-lg">
                 <CardContent className="p-6">
-                  <h3 className="font-semibold text-lg mb-3 text-blue-600">{faq.question}</h3>
+                  <h3 className="font-semibold text-lg mb-3 text-red-600">{faq.question}</h3>
                   <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
                 </CardContent>
               </Card>

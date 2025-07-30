@@ -45,7 +45,7 @@ const OfflineSection = () => {
               className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute top-4 left-4 animate-bounce-gentle">
-              <Badge className="bg-blue-600 text-white px-4 py-2 text-lg font-semibold shadow-lg">
+              <Badge className="bg-red-600 text-white px-4 py-2 text-lg font-semibold shadow-lg">
                 Noida Center
               </Badge>
             </div>
@@ -58,7 +58,7 @@ const OfflineSection = () => {
               <h3 className="text-3xl font-bold mb-3 text-gray-900">Our Premium Campus</h3>
               <p className="text-lg text-gray-600 flex items-center gap-2 hover:text-[#EA2525] transition-colors duration-300">
                 <MapPin className="w-5 h-5" />
-                Sector 63, Noida - 201301
+                  NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306
               </p>
             </div>
 

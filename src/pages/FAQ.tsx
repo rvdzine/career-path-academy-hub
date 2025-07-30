@@ -71,7 +71,7 @@ const FAQ = () => {
             <p className="text-gray-600 mb-4">Still have questions?</p>
             <a 
               href="/contact" 
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-lg hover:from-[#AA2526] hover:to-[#EA2525] transition-colors"
             >
               Contact Us
             </a>

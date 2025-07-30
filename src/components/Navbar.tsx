@@ -26,7 +26,7 @@ const Navbar = () => {
     {name: "Terms & Conditions", path: "/terms"},
     {name: "Privacy Policy", path: "/privacy"},
     {name: "Refund Policy", path: "/refund"},
-    {name: "IDS Life", path: "/ids"},
+    // {name: "IDS Life", path: "/ids"},
     {name: "Events & Webinars", path: "/events"},
     {name: "Blog", path: "/blog"},
   ]
@@ -42,7 +42,7 @@ const Navbar = () => {
             <span className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Institute of Digital Studies
             </span> */}
-            <img src={IDS_LOGO} className="h-12 w-auto" alt="" />
+            <img src={IDS_LOGO} className="h-10 w-auto" alt="" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -93,10 +93,10 @@ const Navbar = () => {
             {/* adding contact number on navbar */}
             <a
               href="tel:+91 9876543210"
-              className="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-purple-600 transition-colors"
+              className="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-[#EA2525] transition-colors"
             >
               <PhoneCall className="w-4 h-4" />
-              +91-98765-43210
+              +91 9315471293
             </a>
 
           </div>

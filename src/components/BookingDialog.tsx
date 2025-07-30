@@ -109,10 +109,10 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
         {/* {step === 1 ? ( */}
           <div className="space-y-6">
             {/* Center Info */}
-            <Card className="bg-blue-50 border-blue-200">
+            <Card className="bg-red-100 border-red-400">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <MapPin className="w-6 h-6 text-blue-600 mt-1" />
+                  <MapPin className="w-6 h-6 text-[#EA2525] mt-1" />
                   <div>
                     <h3 className="font-semibold text-lg">Noida Center</h3>
                     <p className="text-gray-600">Sector 63, Noida - 201301</p>
@@ -242,7 +242,7 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
                     <p>Seat Reservation Fee: <span className="font-semibold text-lg">₹499</span></p>
                     <p className="text-xs">*Deducted from course fee upon enrollment</p>
                   </div> */}
-                  <Button type="submit" size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                  <Button type="submit" size="lg" className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525]">
                     Book Demo
                   </Button>
                 </div>

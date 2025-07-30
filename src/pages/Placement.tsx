@@ -15,8 +15,8 @@ const Placement = () => {
   const placementStats = [
     { number: "90%", label: "Placement Rate", icon: TrendingUp },
     { number: "50+", label: "Partner Companies", icon: Building },
-    { number: "₹8.5L", label: "Average Package", icon: Award },
-    { number: "3000+", label: "Students Placed", icon: Users }
+    // { number: "₹8.5L", label: "Average Package", icon: Award },
+    { number: "1000+", label: "Students Placed", icon: Users }
   ];
 
   const partnerCompanies = [
@@ -113,11 +113,10 @@ const Placement = () => {
       <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Internship & Placement
+            <span className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent">
+              Jobs & Placement
             </span>
             <br />
-            Programs
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Start your career with our industry-focused internship program. Gain real-world experience and secure your dream job!
@@ -127,7 +126,7 @@ const Placement = () => {
               <GraduationCap className="w-5 h-5 mr-2" />
               Internship Program Available
             </Badge>
-            <Badge className="bg-blue-100 text-blue-700 px-6 py-2 text-lg">
+            <Badge className="bg-red-100 text-blue-[#EA2525] px-6 py-2 text-lg">
               90% Placement Success Rate
             </Badge>
           </div>
@@ -135,9 +134,9 @@ const Placement = () => {
       </section>
 
       {/* Placement Stats */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-[#EA2525] to-[#AA2526] text-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {placementStats.map((stat, index) => {
               const IconComponent = stat.icon;
               return (
@@ -158,8 +157,8 @@ const Placement = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="register" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
-              <TabsTrigger value="register">Register for Internship</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-3 mb-8 bg-gradient-to-r from-red-300 via-red-200 to-red-300">
+              <TabsTrigger value="register">Register for Job</TabsTrigger>
               <TabsTrigger value="vacancies">View Vacancies</TabsTrigger>
               <TabsTrigger value="recruiters">For Recruiters</TabsTrigger>
             </TabsList>
@@ -174,7 +173,7 @@ const Placement = () => {
             
             <TabsContent value="recruiters" className="space-y-8">
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent">
                   Partner with Us for Hiring
                 </h2>
                 <p className="text-xl text-muted-foreground">
@@ -191,7 +190,7 @@ const Placement = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent">
               Placement Success Stories
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -204,8 +203,8 @@ const Placement = () => {
               <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-6 space-y-4">
                   <div className="text-center">
-                    <h4 className="font-bold text-xl text-blue-600">{story.name}</h4>
-                    <Badge className="bg-green-100 text-green-700 mt-2">{story.salaryIncrease} Salary Increase</Badge>
+                    <h4 className="font-bold text-xl text-[#EA2525]">{story.name}</h4>
+                    <Badge className="bg-red-100 text-red-700 mt-2">{story.salaryIncrease} Salary Increase</Badge>
                   </div>
                   
                   <div className="space-y-3">
@@ -223,7 +222,7 @@ const Placement = () => {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-sm text-muted-foreground">Package:</span>
-                      <span className="text-sm font-bold text-green-600">{story.package}</span>
+                      <span className="text-sm font-bold text-red-600">{story.package}</span>
                     </div>
                   </div>
                   
@@ -238,7 +237,7 @@ const Placement = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-20 bg-gradient-to-r from-[#EA2525] to-[#AA2526] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Start Your Career Journey?</h2>
           <p className="text-xl mb-8 opacity-90">Join our internship program and take the first step towards your dream job</p>
@@ -246,7 +245,7 @@ const Placement = () => {
             <Button size="lg" variant="secondary">
               Register for Internship
             </Button>
-            <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600">
+            <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-red-600">
               Schedule a Counseling Call
             </Button>
           </div>

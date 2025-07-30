@@ -49,7 +49,7 @@ const EventEnrollmentDialog = ({ eventTitle, eventType, children }: EventEnrollm
     <Dialog>
       <DialogTrigger asChild>
         {children || (
-          <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+          <Button className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525]">
             Enroll Now
           </Button>
         )}
@@ -124,7 +124,7 @@ const EventEnrollmentDialog = ({ eventTitle, eventType, children }: EventEnrollm
 
           <Button 
             type="submit" 
-            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+            className="w-full bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525]"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Enrolling..." : "Enroll Now"}

@@ -117,7 +117,7 @@ const InternshipVacancies = () => {
   return (
     <div className="space-y-6">
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#EA2525] to-[#AA2526]  bg-clip-text text-transparent">
           Open Internship Vacancies
         </h2>
         <p className="text-lg text-muted-foreground">
@@ -134,7 +134,7 @@ const InternshipVacancies = () => {
             <CardHeader>
               <div className="flex justify-between items-start">
                 <div className="space-y-2">
-                  <CardTitle className="text-xl text-blue-600">{vacancy.title}</CardTitle>
+                  <CardTitle className="text-xl text-red-600">{vacancy.title}</CardTitle>
                   <div className="flex items-center gap-4 text-sm text-muted-foreground">
                     <div className="flex items-center gap-1">
                       <Building className="w-4 h-4" />
@@ -151,7 +151,7 @@ const InternshipVacancies = () => {
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-lg font-bold text-green-600">{vacancy.stipend}</div>
+                  <div className="text-lg font-bold">{vacancy.stipend}</div>
                   <Badge variant="outline">{vacancy.type}</Badge>
                 </div>
               </div>
@@ -176,7 +176,7 @@ const InternshipVacancies = () => {
                   <ul className="text-sm text-muted-foreground space-y-1">
                     {vacancy.requirements.map((req, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                        <div className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
                         {req}
                       </li>
                     ))}
@@ -193,7 +193,7 @@ const InternshipVacancies = () => {
                 </div>
                 <Button
                   onClick={() => handleApply(vacancy)}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                  className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525]"
                 >
                   Apply Now
                 </Button>

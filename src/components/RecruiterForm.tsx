@@ -124,7 +124,7 @@ const RecruiterForm = () => {
   return (
     <Card className="max-w-4xl mx-auto">
       <CardHeader>
-        <CardTitle className="text-2xl text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        <CardTitle className="text-2xl text-center bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent">
           Register Your Company for Hiring
         </CardTitle>
       </CardHeader>
@@ -132,7 +132,7 @@ const RecruiterForm = () => {
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Company Information */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-blue-600">Company Information</h3>
+            <h3 className="text-lg font-semibold text-red-600">Company Information</h3>
             
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -222,7 +222,7 @@ const RecruiterForm = () => {
 
           {/* Contact Information */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-blue-600">Contact Information</h3>
+            <h3 className="text-lg font-semibold text-red-600">Contact Information</h3>
             
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -250,7 +250,7 @@ const RecruiterForm = () => {
 
           {/* Address Information */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-blue-600">Company Address</h3>
+            <h3 className="text-lg font-semibold text-red-600">Company Address</h3>
             
             <div className="space-y-4">
               <div className="space-y-2">
@@ -311,7 +311,7 @@ const RecruiterForm = () => {
 
           {/* Job Information */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-blue-600">Job Information</h3>
+            <h3 className="text-lg font-semibold text-red-600">Job Information</h3>
             
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -386,7 +386,7 @@ const RecruiterForm = () => {
             </div>
           </div>
 
-          <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+          <Button type="submit" className="w-full bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525]">
             Register Company for Hiring
           </Button>
         </form>

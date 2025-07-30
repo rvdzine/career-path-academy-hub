@@ -39,7 +39,7 @@ const OfflineCenter = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent">
             Our Noida Training Center
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -75,7 +75,7 @@ const OfflineCenter = () => {
                 className="w-full h-96 object-cover hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute top-4 left-4">
-                <Badge className="bg-blue-600 text-white px-6 py-3 text-lg font-semibold">
+                <Badge className="bg-[#EA2525] bg-gradient-to-r hover:from-[#AA2526] hover:to-[#EA2525] text-white px-6 py-3 text-lg font-semibold">
                   Premium Campus
                 </Badge>
               </div>
@@ -97,19 +97,19 @@ const OfflineCenter = () => {
               </div>
 
               {/* Contact Info */}
-              <div className="bg-blue-50 p-6 rounded-xl">
+              <div className="bg-red-100 p-6 rounded-xl">
                 <h3 className="text-xl font-semibold mb-4 text-gray-900">Get in Touch</h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
-                    <Phone className="w-5 h-5 text-blue-600" />
+                    <Phone className="w-5 h-5 text-[#EA2525]" />
                     <span className="text-gray-700">+91-XXXXXXXXXX</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Mail className="w-5 h-5 text-blue-600" />
+                    <Mail className="w-5 h-5 text-[#EA2525]" />
                     <span className="text-gray-700">noida@ids.com</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-blue-600" />
+                    <Clock className="w-5 h-5 text-[#EA2525]" />
                     <span className="text-gray-700">Mon-Sat: 9:00 AM - 9:00 PM</span>
                   </div>
                 </div>
@@ -118,7 +118,7 @@ const OfflineCenter = () => {
               {/* Quick Actions */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <BookingDialog>
-                  <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                  <Button size="lg" className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525]">
                     Book Your Demo
                   </Button>
                 </BookingDialog>
@@ -150,8 +150,8 @@ const OfflineCenter = () => {
               return (
                 <Card key={facility} className="text-center hover:shadow-lg transition-shadow">
                   <CardContent className="p-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <IconComponent className="w-8 h-8 text-blue-600" />
+                    <div className="w-16 h-16 bg-gradient-to-r from-red-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <IconComponent className="w-8 h-8 text-red-700" />
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900">{facility}</h3>
                   </CardContent>
@@ -163,7 +163,7 @@ const OfflineCenter = () => {
       </section>
 
       {/* Batches Section */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-gray-900">Available Batches</h2>
@@ -208,7 +208,7 @@ const OfflineCenter = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Why Choose Offline Learning */}
       <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
@@ -245,8 +245,8 @@ const OfflineCenter = () => {
             ].map((benefit, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow bg-white">
                 <CardContent className="p-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <benefit.icon className="w-8 h-8 text-blue-600" />
+                  <div className="w-16 h-16 bg-gradient-to-r from-red-100 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <benefit.icon className="w-8 h-8 text-[#EA2525]" />
                   </div>
                   <h3 className="text-xl font-semibold mb-3 text-gray-900">{benefit.title}</h3>
                   <p className="text-gray-600">{benefit.description}</p>
@@ -259,7 +259,7 @@ const OfflineCenter = () => {
           <div className="text-center mt-12">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <BookingDialog>
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-4">
+                <Button size="lg" className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525] text-lg px-8 py-4">
                   Start Your Journey - Book Your Free Demo Now!
                 </Button>
               </BookingDialog>

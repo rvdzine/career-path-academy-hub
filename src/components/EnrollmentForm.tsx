@@ -180,7 +180,7 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
     <Card className="max-w-2xl mx-auto">
       <CardHeader>
         <CardTitle className="text-2xl text-center flex items-center justify-center gap-2">
-          <BookOpen className="w-6 h-6 text-blue-600" />
+          <BookOpen className="w-6 h-6 text-[#EA2525]" />
           Enroll in {courseTitle}
         </CardTitle>
         {/* <div className="text-center">
@@ -259,7 +259,7 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
             />
           </div>
 
-          <div className="bg-blue-50 p-4 rounded-lg">
+          <div className="bg-red-50 p-4 rounded-lg">
             <h3 className="font-semibold mb-2 flex items-center gap-2">
               <CreditCard className="w-4 h-4" />
               Payment Details
@@ -274,7 +274,7 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
 
           <Button 
             type="submit" 
-            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+            className="w-full bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525]"
             disabled={isProcessing}
           >
             {isProcessing ? "Submitting..." : `Submit Enrollment`}
