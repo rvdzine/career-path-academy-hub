@@ -5,153 +5,149 @@ const RefundPolicy = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      
+
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">Refund & Cancellation Policy</h1>
-          
-          <div className="prose prose-lg max-w-none">
-          <section className="mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-2">Refund Policy</h2>
-              
-              <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">7-Day Money Back Guarantee</h3>
-                <p className="text-gray-600 mb-4">
-                  We offer a 7-day money-back guarantee from the date of enrollment. If you are not satisfied with our course within the first 7 days, you can request a full refund.
-                </p>
-              </div>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Refund & Cancellation
+          </h1>
+          <p className="text-sm text-gray-500 mb-2">
+            <strong>Institute of Digital Studies (IDS)</strong>
+            <br />
+            <strong>A Subsidiary of Cybershield Technologies Pvt. Ltd.</strong>
+          </p>
+          <p className="text-sm text-gray-500 mb-6">
+            <strong>Last updated:</strong> 31 March 2015
+          </p>
 
-              <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Refund Eligibility</h3>
-                <p className="text-gray-600 mb-4">
-                  To be eligible for a refund, you must:
-                </p>
-                <ul className="list-disc list-inside text-gray-600 mb-4 space-y-2">
-                  <li>Request the refund within 7 days of enrollment</li>
-                  <li>Have attended less than 25% of the scheduled classes</li>
-                  <li>Not have downloaded or accessed more than 25% of course materials</li>
-                  <li>Provide a valid reason for the refund request</li>
-                </ul>
-              </div>
-
-              <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Non-Refundable Situations</h3>
-                <p className="text-gray-600 mb-4">
-                  Refunds will not be provided in the following situations:
-                </p>
-                <ul className="list-disc list-inside text-gray-600 mb-4 space-y-2">
-                  <li>Requests made after 7 days of enrollment</li>
-                  <li>Violation of our terms and conditions</li>
-                  <li>Completion of more than 25% of the course</li>
-                  <li>Failure to attend classes due to personal reasons</li>
-                </ul>
-              </div>
-
-              <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Refund Process</h3>
-                <p className="text-gray-600 mb-4">
-                  To request a refund:
-                </p>
-                <ul className="list-disc list-inside text-gray-600 mb-4 space-y-2">
-                  <li>Send an email to info@ids.com with your refund request</li>
-                  <li>Include your enrollment details and reason for refund</li>
-                  <li>Our team will review your request within 2-3 business days</li>
-                  <li>Approved refunds will be processed within 5-7 business days</li>
-                </ul>
-              </div>
-
-              <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Partial Refunds</h3>
-                <p className="text-gray-600 mb-4">
-                  In exceptional circumstances, partial refunds may be considered on a case-by-case basis. This is subject to management approval and specific terms.
-                </p>
-              </div>
-            </section>
-
-            {/* Cancellation Policy Section */}
-            <section className="mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-2">Cancellation Policy</h2>
-              
-              <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Course Cancellation by Student</h3>
-                <p className="text-gray-600 mb-4">
-                  Students can cancel their enrollment under the following conditions:
-                </p>
-                <ul className="list-disc list-inside text-gray-600 mb-4 space-y-2">
-                  <li><strong>Within 24 hours of enrollment:</strong> Full refund (100%) minus processing fees</li>
-                  <li><strong>Within 3 days of enrollment:</strong> 90% refund of course fees</li>
-                  <li><strong>Within 7 days of enrollment:</strong> 75% refund of course fees</li>
-                  <li><strong>After 7 days:</strong> No refund applicable</li>
-                </ul>
-              </div>
-
-              <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Course Cancellation by IDS</h3>
-                <p className="text-gray-600 mb-4">
-                  In rare circumstances, IDS may need to cancel a course due to:
-                </p>
-                <ul className="list-disc list-inside text-gray-600 mb-4 space-y-2">
-                  <li>Insufficient enrollment numbers</li>
-                  <li>Instructor unavailability</li>
-                  <li>Technical or facility issues</li>
-                  <li>Force majeure events</li>
-                </ul>
-                <p className="text-gray-600 mb-4">
-                  In such cases, students will receive:
-                </p>
-                <ul className="list-disc list-inside text-gray-600 mb-4 space-y-2">
-                  <li>Full refund of all fees paid</li>
-                  <li>Option to transfer to another batch</li>
-                  <li>Priority enrollment in future courses</li>
-                </ul>
-              </div>
-
-              <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Class Cancellation & Rescheduling</h3>
-                <p className="text-gray-600 mb-4">
-                  Individual classes may be cancelled or rescheduled due to:
-                </p>
-                <ul className="list-disc list-inside text-gray-600 mb-4 space-y-2">
-                  <li>Instructor illness or emergency</li>
-                  <li>Technical difficulties</li>
-                  <li>Public holidays or unforeseen circumstances</li>
-                </ul>
-                <p className="text-gray-600 mb-4">
-                  In such cases, make-up classes will be scheduled at no additional cost.
-                </p>
-              </div>
-
-              <div className="mb-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">Cancellation Process</h3>
-                <p className="text-gray-600 mb-4">
-                  To cancel your enrollment:
-                </p>
-                <ul className="list-disc list-inside text-gray-600 mb-4 space-y-2">
-                  <li>Email your cancellation request to info@ids.com</li>
-                  <li>Include your full name, course name, and enrollment ID</li>
-                  <li>State the reason for cancellation</li>
-                  <li>Cancellation will be processed within 2-3 business days</li>
-                </ul>
-              </div>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Contact Information</h2>
-              <p className="text-gray-600 mb-4">
-                For refund or cancellation related queries, contact us at:
-              </p>
-              <ul className="list-none text-gray-600 mb-4 space-y-2">
-                <li>Email: info@ids.com</li>
-                <li>Phone: +91 9876543210</li>
-                <li>Address: Sector 63, Noida - 201301</li>
-              </ul>
-            </section>
-          </div>
-
-          <div className="mt-8 pt-8 border-t border-gray-200">
-            <p className="text-sm text-gray-500">
-              Last updated: {new Date().toLocaleDateString()}
+          <div className="prose prose-sm sm:prose lg:prose-lg max-w-none text-gray-700 space-y-8">
+            <p>
+              At the <strong>Institute of Digital Studies (IDS)</strong>, we are committed to delivering high-quality educational services. However, we understand that situations may arise where students may need to cancel their registration or withdraw from a course. This document outlines our refund and cancellation policy in detail.
             </p>
+
+            <div>
+              <h2 className="text-2xl font-semibold">1. Registration & Admission Cancellation</h2><br/>
+              <p>
+                <strong>Non-refundable registration fee:</strong> INR 1000
+              </p>
+              <p>
+                Students are eligible for cancellation within 7 days of the registration date, provided that:
+              </p>
+              <ul className="list-disc list-inside">
+                <li><strong>The student has not been assigned to any batch</strong></li>
+                <li><strong>The student has been assigned a batch but has not attended any classes</strong></li>
+              </ul>
+              <p>
+                In both cases, a <strong>full refund</strong> (excluding the INR 1000 registration fee) will be issued after deducting applicable <strong>18% GST</strong>.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-semibold">2. Active Students – Post Batch Allotment</h2><br/>
+              <p>
+                A student is considered <strong>“active”</strong> after attending at least 3 classes and making the first installment payment.
+              </p>
+              <table className="table-auto border-collapse border border-gray-300 my-4">
+                <thead>
+                  <tr>
+                    <th className="border border-gray-300 p-2">Condition</th>
+                    <th className="border border-gray-300 p-2">Refund Eligibility</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-gray-300 p-2"><strong>Attended up to 4 classes</strong></td>
+                    <td className="border border-gray-300 p-2"><strong>Eligible for up to 25% refund</strong> of tuition (excluding registration fee), subject to management approval.</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 p-2"><strong>Attended 5 or more classes</strong></td>
+                    <td className="border border-gray-300 p-2"><strong>No refund applicable.</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p><strong>All refunds are subject to 18% GST deduction.</strong></p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-semibold">3. Active & Ongoing Students</h2><br/>
+              <ul className="list-disc list-inside">
+                <li><strong>“Active & ongoing”</strong> means attended classes for 1 month or more and paid all due installments.</li>
+                <li><strong>A formal written request</strong> must be submitted to the Operations team.</li>
+                <li><strong>No refund</strong> for EMI-based payments.</li>
+                <li><strong>No refund</strong> if course is paused for future resumption; however, fees may be adjusted.</li>
+              </ul>
+              <p><strong>All refunds are subject to 18% GST deduction.</strong></p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-semibold">4. One-Time Payment Students</h2><br/>
+              <p>Eligible for partial refunds as per the below matrix:</p>
+              <table className="table-auto border-collapse border border-gray-300 my-4">
+                <thead>
+                  <tr>
+                    <th className="border border-gray-300 p-2">Duration / Classes Attended</th>
+                    <th className="border border-gray-300 p-2">Refund % (Excl. Registration Fee)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-gray-300 p-2"><strong>Up to 8 classes or 1 month</strong></td>
+                    <td className="border border-gray-300 p-2"><strong>50%</strong></td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 p-2"><strong>Up to 16 classes or 2 months</strong></td>
+                    <td className="border border-gray-300 p-2"><strong>25%</strong></td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 p-2"><strong>More than 24 classes or 3 months</strong></td>
+                    <td className="border border-gray-300 p-2"><strong>No refund</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p><strong>All refunds are subject to 18% GST deduction.</strong></p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-semibold">5. Discounted / Promotional Enrollments</h2><br/>
+              <ul className="list-disc list-inside">
+                <li><strong>Refund of INR 1000</strong> is applicable within 7 days of registration, provided <strong>no classes have been attended</strong>.</li>
+                <li><strong>No refund</strong> if 3 or more classes have been attended or 1 month has passed (whichever is earlier).</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-semibold">6. Refund Processing Timeline</h2><br/>
+              <ul className="list-disc list-inside">
+                <li><strong>Approved refunds</strong> processed within <strong>5 to 15 working days</strong> from formal approval.</li>
+                <li><strong>Refunds will be via the original payment mode.</strong></li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-semibold">7. Cancellation by IDS</h2><br/>
+              <p>
+                IDS reserves the right to cancel any course or batch due to <strong>unforeseen circumstances</strong>. In such cases:
+              </p>
+              <ul className="list-disc list-inside">
+                <li><strong>Full refund</strong> (excluding third-party charges) will be issued within <strong>10 business days</strong>.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-semibold">8. Policy Exceptions</h2><br/>
+              <ul className="list-disc list-inside">
+                <li><strong>Fees once paid are non-transferable</strong> to another course, batch, or student.</li>
+                <li><strong>No refund</strong> for missed classes or partial participation.</li>
+                <li><strong>No refund</strong> for violation of IDS’s code of conduct or policies.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-semibold">9. Right to Amend</h2><br/>
+              <p>
+                This policy may be updated without prior notice. The latest version will always be available on our website.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -162,4 +158,5 @@ const RefundPolicy = () => {
 };
 
 export default RefundPolicy;
+
 

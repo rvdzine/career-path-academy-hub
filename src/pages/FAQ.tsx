@@ -6,37 +6,78 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const FAQ = () => {
   const faqs = [
     {
-      question: "What courses does Institute of Digital Studies offer?",
-      answer: "We offer comprehensive digital marketing courses including SEO, Social Media Marketing, Google Ads, Email Marketing, Content Marketing, and complete Digital Marketing certification programs."
+      question: "What is the Institute of Digital Studies (IDS)?",
+      answer: "IDS is a leading digital marketing academy offering beginner to advanced-level programs with hands-on learning, mentorship, and guaranteed internship support. It is a subsidiary of Cybershield Technologies Pvt. Ltd."
     },
     {
-      question: "Do you provide job placement assistance?",
-      answer: "Yes, we provide 100% job placement assistance with our industry partnerships. We have tie-ups with leading companies and provide interview preparation and career guidance."
+      question: "What courses do you offer?",
+      answer: "We offer a variety of programs:\n\n• Foundation in Digital Marketing (2 months)\n\n• Specialist in Digital Marketing (3 months)\n\n• Master in Digital Marketing (6 months, includes internship)\n\n• Professional & Business Owner Course (customizable, 1-on-1)\n\n• Diploma in Digital Marketing"
     },
     {
-      question: "What is the duration of the courses?",
-      answer: "Course duration varies from 2-6 months depending on the program. We offer both intensive and regular batches to suit different schedules."
+      question: "Are your courses available online or offline?",
+      answer:
+        "Yes! We offer both online (live instructor-led) and offline (in-classroom) sessions depending on your convenience.",
+    },
+   {
+      question: "Do I get a certificate after course completion?",
+      answer:
+        "Yes, every student receives an industry-recognized certificate from IDS along with guidance to complete certifications from Google, Meta, HubSpot, and more.",
     },
     {
-      question: "Are the courses suitable for beginners?",
-      answer: "Absolutely! Our courses are designed for all levels - from complete beginners to professionals looking to upgrade their skills. We start with fundamentals and progress to advanced topics."
+      question: "Is there any internship included in the course?",
+      answer:
+        "Yes. Our Master’s course includes a guaranteed internship. Students from other programs may also apply for internship opportunities via our placement cell.",
     },
     {
-      question: "Do you offer online classes?",
-      answer: "Yes, we offer both online and offline classes. Our online classes are live and interactive with recorded sessions available for review."
+      question: "Do you offer job placement assistance?",
+      answer:
+        "Yes. We provide placement support, resume building, interview preparation, and connect students with hiring partners in the digital marketing industry.",
     },
     {
-      question: "What certifications will I receive?",
-      answer: "You'll receive industry-recognized certifications from IDS along with Google, Facebook, and other platform certifications upon successful completion."
+      question: "Is there a trial class available before enrollment?",
+      answer:
+        "Yes, we offer a free demo class so you can experience our teaching style and curriculum before enrolling.",
     },
     {
-      question: "What is your refund policy?",
-      answer: "We offer a 7-day money-back guarantee if you're not satisfied with our course. Please refer to our refund policy page for detailed terms."
+      question: "What is the minimum qualification to join the course?",
+      answer:
+        "A 10+2 pass is the basic requirement. However, our students range from freshers to working professionals, business owners, and freelancers.",
     },
     {
-      question: "Do you provide study materials?",
-      answer: "Yes, we provide comprehensive study materials, video recordings, practical assignments, and access to premium tools and software."
-    }
+      question: "What is the fee structure? Do you offer EMI options?",
+      answer:
+        "Yes. We have flexible EMI options and installment plans available for all major courses. Please contact our team for customized payment plans.",
+    },
+    {
+      question: "What is your refund & cancellation policy?",
+      answer:
+        "We have a transparent refund policy based on course stage and attendance. Please click here to read our full Refund & Cancellation Policy.",
+    },
+    {
+      question: "Do you provide recorded sessions?",
+      answer:
+        "Yes, every session is recorded and made available to students for future reference.",
+    },
+    {
+      question: "Will I get support if I miss a class?",
+      answer:
+        "Absolutely. You can attend a repeat session in another batch or watch the recorded session anytime.",
+    },
+    {
+      question: "How can I enroll in a course?",
+      answer:
+        "You can enroll directly through our website, visit our center, or speak to our admissions team at 📞 9315471293 or 📧 info@idigitalstudies.com.",
+    },
+    {
+      question: "Can I customize a course as per my learning goals?",
+      answer:
+        "Yes. Our Professional & Business Owner course is fully customizable and designed as a 1-to-1 learning plan.",
+    },
+    {
+      question: "Do you provide real-time project exposure?",
+      answer:
+        "Yes. Every course involves live projects, case studies, and practical tools to ensure hands-on learning.",
+    },
   ];
 
   return (
