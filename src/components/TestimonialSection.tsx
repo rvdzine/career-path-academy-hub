@@ -30,45 +30,45 @@ const TestimonialSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="w-full py-24 bg-white overflow-x-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl font-bold mb-4 bg-[#EA2525] bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#EA2525] to-[#ff4d4d] bg-clip-text text-transparent">
             Success Stories
           </h2>
-          <p className="text-xl text-muted-foreground">
-            Hear from our alumni who transformed their careers
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Hear from our alumni who transformed their careers with our programs
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {testimonials.map((testimonial, index) => (
-            <Card 
-              key={index} 
-              className="hover:shadow-xl transition-all duration-500 border-0 shadow-lg hover:-translate-y-2 animate-fade-in-up group cursor-pointer"
+            <Card
+              key={index}
+              className="group hover:shadow-2xl transition-all duration-500 border-0 shadow-md rounded-2xl hover:-translate-y-2 bg-[#fafafa] animate-fade-in-up"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-center space-x-4">
-                  <div className="relative overflow-hidden rounded-full">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                  </div>
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-14 h-14 rounded-full object-cover border-2 border-[#EA2525] group-hover:scale-105 transition-transform duration-300"
+                  />
                   <div>
-                    <h4 className="font-semibold group-hover:text-[#EA2525] transition-colors duration-300">{testimonial.name}</h4>
+                    <h4 className="font-semibold text-lg group-hover:text-[#EA2525] transition-colors duration-300">
+                      {testimonial.name}
+                    </h4>
                     <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                     <p className="text-xs text-[#EA2525] font-medium">{testimonial.company}</p>
                   </div>
                 </div>
-                
-                <p className="text-muted-foreground leading-relaxed italic group-hover:text-foreground transition-colors duration-300">
-                  "{testimonial.testimonial}"
+
+                <p className="text-muted-foreground leading-relaxed italic group-hover:text-black transition-colors duration-300">
+                  “{testimonial.testimonial}”
                 </p>
-                
-                <Badge variant="secondary" className="bg-blue-50 text-[#EA2525] hover:bg-blue-100 transition-colors duration-300">
+
+                <Badge variant="secondary" className="bg-[#ffe9e9] text-[#EA2525] hover:bg-[#ffdede] transition-colors duration-300">
                   {testimonial.course}
                 </Badge>
               </CardContent>
