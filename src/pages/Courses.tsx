@@ -116,15 +116,27 @@ const Courses = () => {
       
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-[#EA2525] bg-clip-text text-transparent">
-            Professional Courses
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Industry-designed curriculum with hands-on projects, real-world applications, and career placement support
-          </p>
-        </div>
-      </section>
+  <div className="container mx-auto px-4 text-center">
+    <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-[#EA2525] bg-clip-text text-transparent">
+      Professional Courses
+    </h1>
+    <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+      Industry-designed curriculum with hands-on projects, real-world applications, and career placement support
+    </p>
+    <div className="flex justify-center">
+      <a
+        href="/brochure.pdf"
+        download
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block px-6 py-3 text-white rounded-md bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525] transition-all duration-300 shadow-md hover:shadow-lg"
+      >
+        Download Brochure
+      </a>
+    </div>
+  </div>
+</section>
+
 
       {/* Courses Grid */}
       <section className="py-20 bg-white">

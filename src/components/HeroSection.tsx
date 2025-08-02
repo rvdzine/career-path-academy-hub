@@ -35,9 +35,17 @@ const HeroSection = () => {
               <Button size="lg" className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#EA2525] hover:to-[#AA2526] transition-all duration-300 hover:scale-105 hover:shadow-lg" asChild>
                 <Link to="/courses">Explore Courses</Link>
               </Button>
-              <Button size="lg" variant="outline" className="hover:scale-105 transition-all duration-300 hover:shadow-md" asChild>
-                <Link to="/jobs-and-placements">Placement Programs</Link>
-              </Button>
+              <Button
+  size="lg"
+  variant="outline"
+  className="hover:scale-105 transition-all duration-300 hover:shadow-md"
+  asChild
+>
+  <a href="/brochure.pdf" download target="_blank" rel="noopener noreferrer">
+    Download Brochure
+  </a>
+</Button>
+
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 animate-fade-in-up [animation-delay:0.4s]">
