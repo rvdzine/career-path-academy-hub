@@ -118,8 +118,8 @@ const RefundPolicy = () => {
             <div>
               <h2 className="text-2xl font-semibold">6. Refund Processing Timeline</h2><br/>
               <ul className="list-disc list-inside">
-                <li><strong>Approved refunds</strong> processed within <strong>5 to 15 working days</strong> from formal approval.</li>
-                <li><strong>Refunds will be via the original payment mode.</strong></li>
+                {/* <li><strong>Approved refunds</strong> processed within <strong>5 to 15 working days</strong> from formal approval.</li>
+                <li><strong>Refunds will be via the original payment mode.</strong></li> */}
                 <li><strong>If refund is approved, your refund will be processed and a credit will automatically be applied to your original method of payment within 7-10 business days.</strong></li>
               </ul>
             </div>
