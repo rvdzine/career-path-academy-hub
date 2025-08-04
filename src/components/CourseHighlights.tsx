@@ -111,7 +111,7 @@ const CourseHighlights = () => {
             Industry-designed curriculum with hands-on projects and real-world
             applications
           </p>
-          <b><i>Note: </i></b> <i>Our courses starts at price 10k and it goes upto 1.5 Lacs as per the clients requirements.</i>
+          {/* <b><i>Note: </i></b> <i>Our courses starts at price 10k and it goes upto 1.5 Lacs as per the clients requirements.</i> */}
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
