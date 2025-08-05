@@ -2,6 +2,10 @@
 import { Link } from "react-router-dom";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import idg_footer from "@/components/svg/idg_footer.svg"
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
+
 
 const Footer = () => {
   return (
@@ -17,6 +21,21 @@ const Footer = () => {
             <p className="text-gray-400 dark:text-gray-500">
               Empowering careers through digital marketing education and guaranteed job placement support.
             </p>
+            <div className="flex space-x-4 pt-4">
+  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
+    <FaFacebookF />
+  </a>
+  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
+    <FaXTwitter />
+  </a>
+  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
+    <FaInstagram />
+  </a>
+  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
+    <FaLinkedinIn />
+  </a>
+</div>
+
           </div>
 
           <div>
