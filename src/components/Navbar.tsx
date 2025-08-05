@@ -31,8 +31,8 @@ const Navbar = () => {
     { name: "Terms & Conditions", path: "/terms" },
     { name: "Privacy Policy", path: "/privacy" },
     { name: "Refund Policy", path: "/refund" },
-    { name: "Events & Webinars", path: "/events" },
-    { name: "Blog", path: "/blog" },
+    // { name: "Events & Webinars", path: "/events" },
+    // { name: "Blog", path: "/blog" },
   ];
 
   return (
