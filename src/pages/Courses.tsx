@@ -54,7 +54,7 @@ const Courses = () => {
       description: "A complete program covering all digital marketing verticals with practical projects and a guaranteed internship for real-world experience..",
       duration: "Customisable",
       students: "300+",
-      level: "Online",
+      level: "Online/Offline",
       // price: "₹30,000",
       rating: "4.7",
       modules: 14,
