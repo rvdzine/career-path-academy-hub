@@ -63,7 +63,7 @@ const HeroSection = () => {
                   <Users className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
-                  <p className="font-semibold">1000+ Students</p>
+                  <p className="font-semibold">2000+ Students</p>
                   <p className="text-sm text-muted-foreground">Trained Successfully</p>
                 </div>
               </div>

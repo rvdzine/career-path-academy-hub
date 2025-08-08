@@ -23,7 +23,7 @@ const Footer = () => {
               Empowering careers through digital marketing education and guaranteed job placement support.
             </p>
             <div className="flex space-x-4 pt-4">
-  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
+  <a href="https://www.facebook.com/instituteofdigitalstudies/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
     <FaFacebookF />
   </a>
   <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
@@ -32,7 +32,7 @@ const Footer = () => {
   <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
     <FaInstagram />
   </a>
-  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
+  <a href="https://www.linkedin.com/company/institute-of-digital-marketing-studies/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
     <FaLinkedinIn />
   </a>
 </div>
