@@ -16,7 +16,7 @@ const Placement = () => {
     { number: "90%", label: "Placement Rate", icon: TrendingUp },
     { number: "50+", label: "Partner Companies", icon: Building },
     // { number: "₹8.5L", label: "Average Package", icon: Award },
-    { number: "1000+", label: "Students Placed", icon: Users }
+    { number: "2000+", label: "Students Placed", icon: Users }
   ];
 
   const partnerCompanies = [

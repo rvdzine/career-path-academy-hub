@@ -2,6 +2,11 @@
 import { Link } from "react-router-dom";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import idg_footer from "@/components/svg/idg_footer.svg"
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
+
+
 
 const Footer = () => {
   return (
@@ -17,6 +22,21 @@ const Footer = () => {
             <p className="text-gray-400 dark:text-gray-500">
               Empowering careers through digital marketing education and guaranteed job placement support.
             </p>
+            <div className="flex space-x-4 pt-4">
+  <a href="https://www.facebook.com/instituteofdigitalstudies/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
+    <FaFacebookF />
+  </a>
+  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
+    <FaXTwitter />
+  </a>
+  <a href="https://www.instagram.com/instituteofdigitalstudies/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
+    <FaInstagram />
+  </a>
+  <a href="https://www.linkedin.com/company/institute-of-digital-marketing-studies/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
+    <FaLinkedinIn />
+  </a>
+</div>
+
           </div>
 
           <div>
@@ -42,18 +62,23 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Contact Info</h4>
-            <ul className="space-y-2 text-gray-400 dark:text-gray-500">
-              <li>📍 T3, B1603, NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306</li>
-              <li>📞 +91 9315471293</li>
-              <li>✉️ info@idigitalstudies.com</li>
-              {/* <li>🌐 www.ids.com</li> */}
-            </ul>
-            {/* <div className="mt-4 flex items-center gap-2">
-              <span className="text-sm text-gray-400 dark:text-gray-500">Theme:</span>
-              <ThemeToggle />
-            </div> */}
-          </div>
+  <h4 className="font-semibold mb-4">Contact Info</h4>
+  <ul className="space-y-2 text-gray-400 dark:text-gray-500">
+    <li className="flex items-start gap-2">
+      <MdLocationOn className="text-xl mt-1" />
+      T3, B1603, NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306
+    </li>
+    <li className="flex items-center gap-2">
+      <MdPhone className="text-xl" />
+      <a href="tel:+919315471293" className="hover:text-white transition-colors">+91 9315471293</a>
+    </li>
+    <li className="flex items-center gap-2">
+      <MdEmail className="text-xl" />
+      <a href="mailto:info@idigitalstudies.com" className="hover:text-white transition-colors">info@idigitalstudies.com</a>
+    </li>
+  </ul>
+</div>
+
         </div>
 
         <div className="border-t border-gray-800 dark:border-gray-700 mt-12 pt-8 text-center text-gray-400 dark:text-gray-500">

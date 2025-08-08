@@ -13,13 +13,13 @@ import Contact from "./pages/Contact";
 import OfflineCenter from "./pages/OfflineCenter";
 import NotFound from "./pages/NotFound";
 import FAQ from "./pages/FAQ"
-import Blog from "./pages/Blog"
+// import Blog from "./pages/Blog"
 import IDSLife from "./pages/IDSLife"
 import Privacy from "./pages/PrivacyPolicy"
 import RefundPolicy from "./pages/RefundPolicy"
 import Terms from "./pages/Terms"
 import IDS from "./pages/IDSLife"
-import Events from "./pages/Events"
+// import Events from "./pages/Events"
 import { ThemeProvider } from "@/components/ThemeProvider";
 import  InternshipForm  from "@/components/InternshipForm"
 
@@ -42,13 +42,13 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/offline-center" element={<OfflineCenter />} />
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/blog" element={<Blog />} />
+          {/* <Route path="/blog" element={<Blog />} /> */}
           <Route path="/ids" element={<IDSLife />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/refund" element={<RefundPolicy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/ids" element={<IDS />} />
-          <Route path="/events" element={<Events />} />
+          {/* <Route path="/events" element={<Events />} /> */}
           <Route path="/internship-form" element={<InternshipForm />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
