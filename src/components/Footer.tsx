@@ -29,7 +29,7 @@ const Footer = () => {
   <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
     <FaXTwitter />
   </a>
-  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
+  <a href="https://www.instagram.com/instituteofdigitalstudies/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
     <FaInstagram />
   </a>
   <a href="https://www.linkedin.com/company/institute-of-digital-marketing-studies/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
