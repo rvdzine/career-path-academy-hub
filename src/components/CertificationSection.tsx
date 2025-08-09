@@ -111,7 +111,7 @@ const CertificationSection = () => {
           <p className="text-lg text-gray-600 mb-4">
             Join thousands of professionals who have advanced their careers with our certified programs
           </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+          {/* <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
             <span className="flex items-center gap-1 hover:text-green-600 transition-colors duration-300">
               <CheckCircle className="w-4 h-4 text-green-500" />
               MSME Registration: UDYAM-UP-27-0123456
@@ -120,7 +120,7 @@ const CertificationSection = () => {
               <CheckCircle className="w-4 h-4 text-green-500" />
               NSDC Partner ID: NSDC/2024/DM/001
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

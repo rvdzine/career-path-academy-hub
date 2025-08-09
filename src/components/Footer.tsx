@@ -4,6 +4,8 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import idg_footer from "@/components/svg/idg_footer.svg"
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { FaYoutube } from "react-icons/fa";
+
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
 
 
@@ -34,6 +36,9 @@ const Footer = () => {
   </a>
   <a href="https://www.linkedin.com/company/institute-of-digital-marketing-studies/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
     <FaLinkedinIn />
+  </a>
+  <a href="hhttps://www.youtube.com/@instituteofdigitalstudies5567" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
+    <FaYoutube />
   </a>
 </div>
 

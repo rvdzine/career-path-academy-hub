@@ -1,7 +1,7 @@
 
 const StatsSection = () => {
   const stats = [
-    { number: "1000+", label: "Students Trained" },
+    { number: "2000+", label: "Students Trained" },
     { number: "90%", label: "Placement Rate" },
     { number: "50+", label: "Partner Companies" },
     // { number: "4.8/5", label: "Average Rating" }
