@@ -155,7 +155,7 @@ const Courses = () => {
                   </div>
 
                   {/* Custom Button for 'Customize Course in Digital Marketing' */}
-                  {course.id === "content-strategy-creation" ? (
+                  {course.id === "content-strategy-creation" || course.id === "analytics-data-insights" ? (
                     <div className="pt-4">
                       <a href="/contact" className="block w-full">
                         <Button className="w-full bg-[#EA2525] hover:bg-[#c21e1e]">
@@ -166,8 +166,8 @@ const Courses = () => {
                   ) : (
                     <div className="flex flex-col sm:flex-row justify-between gap-2 pt-4">
                       <a
-                        href="/brochure.pdf"
-                        download
+                        href="/ids-brochure.pdf"
+                        // download
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex-1"
