@@ -71,7 +71,11 @@ const Footer = () => {
   <ul className="space-y-2 text-gray-400 dark:text-gray-500">
     <li className="flex items-start gap-2">
       <MdLocationOn className="text-xl mt-1" />
-      T3, B1603, NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306
+      Business Address: T3, B1603, NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306
+    </li>
+    <li className="flex items-start gap-2">
+      <MdLocationOn className="text-xl mt-1" />
+     Registered Address: B-110, GAUR CASCADES, RAJNAGAR EXTN., Ghaziabad, UttarPradesh, 201001
     </li>
     <li className="flex items-center gap-2">
       <MdPhone className="text-xl" />
