@@ -7,20 +7,21 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EnrollmentDialog from "@/components/EnrollmentDialog";
 import { FaDownload } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import FDM1 from "../components/assets/FDM1.png";
 import SDM2 from "../components/assets/SDM2.png";
 import MDM3 from "../components/assets/MDM3.png";
 import BODM4 from "../components/assets/BODM4.png";
 import DDM5 from "../components/assets/DDM5.png";
 import DIPDM6 from "../components/assets/DIPDM6.png";
+import BrochureDialog from "./BrochureDialog";
 
 const Courses = () => {
   const courses = [
     {
       id: "seo-mastery",
       title: "Foundation in Digital Marketing",
-      description: "Build a strong base in digital marketing fundamentals. Learn core concepts like SEO, Social Media, and Content Marketing to kickstart your career.",
+      description:
+        "Build a strong base in digital marketing fundamentals. Learn core concepts like SEO, Social Media, and Content Marketing to kickstart your career.",
       duration: "2 Months",
       students: "1,200+",
       level: "Online/Offline",
@@ -33,7 +34,8 @@ const Courses = () => {
     {
       id: "social-media-pro",
       title: "Specialist in Digital Marketing",
-      description: "Become a digital marketing specialist with in-depth knowledge of advanced strategies including PPC, Social Media Ads, and Analytics.",
+      description:
+        "Become a digital marketing specialist with in-depth knowledge of advanced strategies including PPC, Social Media Ads, and Analytics.",
       duration: "3 Months",
       students: "1000+",
       level: "Online/Offline",
@@ -41,25 +43,27 @@ const Courses = () => {
       modules: 10,
       projects: 4,
       color: "from-pink-500 to-rose-600",
-      image: SDM2
+      image: SDM2,
     },
     {
       id: "google-ads-expert",
       title: "Master in Digital Marketing (With Guaranteed Internship)",
-      description: "A complete program covering all digital marketing verticals with practical projects and a guaranteed internship for real-world experience.",
-      duration: "Customisable",
+      description:
+        "A complete program covering all digital marketing verticals with practical projects and a guaranteed internship for real-world experience.",
+      duration: "6 Months",
       students: "300+",
       level: "Online/Offline",
       rating: "4.7",
       modules: 14,
       projects: 6,
       color: "from-blue-500 to-cyan-600",
-      image: MDM3
+      image: MDM3,
     },
     {
       id: "email-marketing-specialist",
       title: "Professional & Business Owner Course (1:1 Learning)",
-      description: "Exclusive personalised training for professionals and business owners. Tailored modules with live one-on-one sessions for your business needs.",
+      description:
+        "Exclusive personalised training for professionals and business owners. Tailored modules with live one-on-one sessions for your business needs.",
       duration: "Customisable",
       students: "300+",
       level: "Online",
@@ -67,7 +71,7 @@ const Courses = () => {
       modules: 8,
       projects: 3,
       color: "from-purple-500 to-violet-600",
-      image: BODM4
+      image: BODM4,
     },
     {
       id: "analytics-data-insights",
@@ -85,7 +89,8 @@ const Courses = () => {
     {
       id: "content-strategy-creation",
       title: "Customize Course in Digital Marketing",
-      description: "Earn a diploma with extensive training across all digital marketing domains. Includes certifications, practical projects, and live assignments.",
+      description:
+        "Earn a diploma with extensive training across all digital marketing domains. Includes certifications, practical projects, and live assignments.",
       duration: "Customisable",
       students: "500+",
       level: "Online/Offline",
@@ -93,15 +98,15 @@ const Courses = () => {
       modules: 11,
       projects: 5,
       color: "from-teal-500 to-green-600",
-      image: DIPDM6
-    }
+      image: DIPDM6,
+    },
   ];
-
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
+      {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl lg:text-6xl font-bold mb-6 bg-[#EA2525] bg-clip-text text-transparent">
@@ -113,6 +118,7 @@ const Courses = () => {
         </div>
       </section>
 
+      {/* Courses Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -121,6 +127,7 @@ const Courses = () => {
                 key={course.id}
                 className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 overflow-hidden cursor-pointer"
               >
+                {/* Image */}
                 <div className="relative">
                   <AspectRatio>
                     <img
@@ -129,9 +136,12 @@ const Courses = () => {
                       className="max-w-full max-h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </AspectRatio>
-                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${course.color}`}></div>
+                  <div
+                    className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${course.color}`}
+                  ></div>
                 </div>
 
+                {/* Title & Description */}
                 <CardHeader className="pb-4">
                   <CardTitle className="text-xl group-hover:text-[#EA2525] transition-colors">
                     {course.title}
@@ -141,6 +151,7 @@ const Courses = () => {
                   </CardDescription>
                 </CardHeader>
 
+                {/* Content */}
                 <CardContent className="space-y-4">
                   <div className="flex flex-wrap gap-2">
                     <Badge variant="secondary" className="flex items-center gap-1">
@@ -154,8 +165,8 @@ const Courses = () => {
                     <Badge variant="outline">{course.level}</Badge>
                   </div>
 
-                  {/* Custom Button for 'Customize Course in Digital Marketing' */}
-                  {course.id === "content-strategy-creation" || course.id === "analytics-data-insights" ? (
+                  {/* Buttons */}
+                  {course.id === "content-strategy-creation" ? (
                     <div className="pt-4">
                       <a href="/contact" className="block w-full">
                         <Button className="w-full bg-[#EA2525] hover:bg-[#c21e1e]">
@@ -165,24 +176,20 @@ const Courses = () => {
                     </div>
                   ) : (
                     <div className="flex flex-col sm:flex-row justify-between gap-2 pt-4">
-                      <a
-                        href="/ids-brochure.pdf"
-                        // download
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1"
-                      >
+                      {/* Brochure Button */}
+                      <BrochureDialog courseTitle={course.title}>
                         <Button
                           variant="outline"
-                          className="w-full border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4] flex items-center justify-center gap-2"
+                          className="flex-1 border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4] flex items-center justify-center gap-2"
                         >
                           <FaDownload className="text-sm" />
-                          Brochure
+                          Course Details
                         </Button>
-                      </a>
+                      </BrochureDialog>
 
+                      {/* Enroll Button */}
                       <EnrollmentDialog courseTitle={course.title}>
-                        <Button className="flex-1 bg-gradient-to-r bg-[#EA2525] hover:from-[#AA2526] hover:to-[#EA2525]">
+                        <Button className="flex-1 bg-gradient-to-r bg-[#EA2525] hover:from-[#AA2526] hover:to-[#EA2525] text-white">
                           Enroll Now
                         </Button>
                       </EnrollmentDialog>

@@ -21,7 +21,8 @@ import Terms from "./pages/Terms"
 import IDS from "./pages/IDSLife"
 
 import { ThemeProvider } from "@/components/ThemeProvider";
-import  InternshipForm  from "@/components/InternshipForm"
+import  InternshipForm  from "@/components/InternshipForm";
+import BrochureDialog from "./pages/BrochureDialog";
 
 const queryClient = new QueryClient();
 

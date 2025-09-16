@@ -51,7 +51,7 @@ const CourseHighlights = () => {
       title: "Master in Digital Marketing (With Guaranteed Internship)",
       description:
         "A complete program covering all digital marketing verticals with practical projects and a guaranteed internship for real-world experience..",
-      duration: "Customisable",
+      duration: "6 Months",
       students: "300+",
       level: "Online/Offline",
       rating: "4.7",
