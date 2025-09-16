@@ -183,7 +183,7 @@ const Courses = () => {
                           className="flex-1 border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4] flex items-center justify-center gap-2"
                         >
                           <FaDownload className="text-sm" />
-                          Brochure
+                          Course Details
                         </Button>
                       </BrochureDialog>
 

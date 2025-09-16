@@ -14,8 +14,7 @@ import { FaDownload } from "react-icons/fa";
 export default function BrochureDialog({ children, courseTitle }) {
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
+    fullName: "",
     email: "",
     phone: "",
   });
@@ -54,20 +53,20 @@ export default function BrochureDialog({ children, courseTitle }) {
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
           {/* First Name */}
           <div>
-            <label className="block text-sm font-medium">First Name *</label>
+            <label className="block text-sm font-medium">Full Name *</label>
             <input
               type="text"
-              name="firstName"
-              value={form.firstName}
+              name="fullName"
+              value={form.fullName}
               onChange={handleChange}
               required
               className="w-full border rounded-lg p-2"
-              placeholder="Enter your first name"
+              placeholder="Enter your full name"
             />
           </div>
 
           {/* Last Name */}
-          <div>
+          {/* <div>
             <label className="block text-sm font-medium">Last Name *</label>
             <input
               type="text"
@@ -77,9 +76,8 @@ export default function BrochureDialog({ children, courseTitle }) {
               required
               className="w-full border rounded-lg p-2"
               placeholder="Enter your surname"
-            />
-          </div>
-
+            /> */}
+         
           {/* Email */}
           <div>
             <label className="block text-sm font-medium">Email Address *</label>
