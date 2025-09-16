@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+
 interface Student {
   name: string;
   company: string;
@@ -11,35 +12,35 @@ interface Student {
 
 const dummyStudents: Student[] = [
   {
-    name: "Ananya Sharma",
+    name: "Isha Verma",
     company: "Google",
     package: "₹12 LPA",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
     location: "Pune",
   },
   {
-    name: "Rohit Mehra",
+    name: "Mohit Kumar",
     company: "Amazon",
     package: "₹10 LPA",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
     location: "Mumbai",
   },
   {
-    name: "Simran Kaur",
+    name: "Loveleen Sharma",
     company: "Meta",
     package: "₹15 LPA",
     image: "https://randomuser.me/api/portraits/women/50.jpg",
     location: "Bengaluru",
   },
   {
-    name: "Amit Verma",
+    name: "Jitendra Singh",
     company: "Zoho",
     package: "₹8 LPA",
     image: "https://randomuser.me/api/portraits/men/65.jpg",
     location: "Noida",
   },
   {
-    name: "Neha Singh",
+    name: "Shweta Verma",
     company: "TCS",
     package: "₹6.5 LPA",
     image: "https://randomuser.me/api/portraits/women/68.jpg",
