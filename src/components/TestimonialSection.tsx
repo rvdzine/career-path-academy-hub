@@ -1,13 +1,17 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import shweta from "../components/assets/shweta.jpg";
+import kumar from "../components/assets/Kumar.jpg";
+import aleem from "../components/assets/Alim.jpg";
 
 const TestimonialSection = () => {
   const testimonials = [
     {
-      name: "Priya Sharma",
+      name: "Shweta Verma",
       role: "Digital Marketing Manager", 
       company: "TechCorp India",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+      image: shweta,
+      
       testimonial: "The SEO course transformed my career completely. Within 6 months of completion, I landed my dream job with a 150% salary increase!",
       course: "SEO Mastery"
     },
@@ -15,15 +19,15 @@ const TestimonialSection = () => {
       name: "Rahul Patel",
       role: "Social Media Specialist",
       company: "Creative Agency",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+      image: kumar,
       testimonial: "Amazing hands-on training with real projects. The placement support team helped me get interviews with top companies.",
       course: "Social Media Pro"
     },
     {
-      name: "Anita Verma",
+      name: "Aleem Khan",
       role: "PPC Specialist",
       company: "Digital Solutions Ltd",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+      image: aleem,
       testimonial: "From zero knowledge to managing ₹50L+ ad budgets. The practical approach and mentor support made all the difference.",
       course: "Google Ads Expert"
     }
