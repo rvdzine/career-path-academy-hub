@@ -23,6 +23,7 @@ import IDS from "./pages/IDSLife"
 import { ThemeProvider } from "@/components/ThemeProvider";
 import  InternshipForm  from "@/components/InternshipForm";
 import BrochureDialog from "./pages/BrochureDialog";
+import UseScrollToTop from "./components/ScrollToTop"
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+      <UseScrollToTop/>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/courses" element={<Courses />} />
