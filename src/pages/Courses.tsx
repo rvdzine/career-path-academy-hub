@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Clock, Users } from "lucide-react";
@@ -20,11 +20,12 @@ const Courses = () => {
     {
       id: "seo-mastery",
       title: "Foundation in Digital Marketing",
-      description:
-        "Build a strong base in digital marketing fundamentals. Learn core concepts like SEO, Social Media, and Content Marketing to kickstart your career.",
+      skills: ["React.js", "Node.js", "MongoDB", "JavaScript", "HTML/CSS", "REST APIs"],
+
       duration: "2 Months",
       students: "1,200+",
       level: "Online/Offline",
+      certification: "Certification",
       rating: "4.9",
       modules: 12,
       projects: 5,
@@ -34,11 +35,11 @@ const Courses = () => {
     {
       id: "social-media-pro",
       title: "Specialist in Digital Marketing",
-      description:
-        "Become a digital marketing specialist with in-depth knowledge of advanced strategies including PPC, Social Media Ads, and Analytics.",
-      duration: "3 Months",
+      skills: ["React.js", "Node.js", "MongoDB", "JavaScript", "HTML/CSS", "REST APIs"],
+     duration: "3 Months",
       students: "1000+",
       level: "Online/Offline",
+      certification: "Certification",
       rating: "4.8",
       modules: 10,
       projects: 4,
@@ -48,11 +49,11 @@ const Courses = () => {
     {
       id: "google-ads-expert",
       title: "Master in Digital Marketing (With Guaranteed Internship)",
-      description:
-        "A complete program covering all digital marketing verticals with practical projects and a guaranteed internship for real-world experience.",
+      skills: ["React.js", "Node.js", "MongoDB", "JavaScript", "HTML/CSS", "REST APIs"],
       duration: "6 Months",
       students: "300+",
       level: "Online",
+      certification: "Certification",
       rating: "4.7",
       modules: 14,
       projects: 6,
@@ -62,11 +63,12 @@ const Courses = () => {
     {
       id: "email-marketing-specialist",
       title: "Professional & Business Owner Course (1:1 Learning)",
-      description:
-        "Exclusive personalised training for professionals and business owners. Tailored modules with live one-on-one sessions for your business needs.",
+      skills: ["React.js", "Node.js", "MongoDB", "JavaScript", "HTML/CSS", "REST APIs"],
+
       duration: "Customisable",
       students: "300+",
       level: "Online",
+      certification: "Certification",
       rating: "4.6",
       modules: 8,
       projects: 3,
@@ -76,24 +78,27 @@ const Courses = () => {
     {
       id: "analytics-data-insights",
       title: "Degree in Digital Marketing",
-      description: "A comprehensive 3-year program designed for in-depth mastery of digital marketing with academic rigor, internship opportunities, and placement support.",
+      skills: ["React.js", "Node.js", "MongoDB", "JavaScript", "HTML/CSS", "REST APIs"],
+
       duration: "36 Months",
       students: "250+",
       level: "Offline-Regular",
+      certification: "Certification",
       rating: "4.5",
       modules: 9,
       projects: 4,
       color: "from-orange-500 to-red-600",
-      image: DDM5
+      image: DDM5,
     },
     {
       id: "content-strategy-creation",
       title: "Customize Course in Digital Marketing",
-      description:
-        "Earn a diploma with extensive training across all digital marketing domains. Includes certifications, practical projects, and live assignments.",
+      skills: ["React.js", "Node.js", "MongoDB", "JavaScript", "HTML/CSS", "REST APIs"],
+
       duration: "Customisable",
       students: "500+",
       level: "Online/Offline",
+      certification: "Certification",
       rating: "4.4",
       modules: 11,
       projects: 5,
@@ -125,39 +130,76 @@ const Courses = () => {
             {courses.map((course) => (
               <Card
                 key={course.id}
-                className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 overflow-hidden cursor-pointer"
+                className="flex flex-col h-[650px] group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 overflow-hidden cursor-pointer rounded-xl"
               >
+                {/* Header with Title and Badges */}
+               <div
+  className="p-5 text-white"
+  style={{
+    background:
+      "linear-gradient(56deg, rgba(133, 0, 0, 1) 0%, rgba(198, 1, 31, 1) 100%)",
+  }}
+>
+  {/* Badges at top */}
+  <div className="flex gap-2 mb-3 flex-wrap">
+    <Badge className="bg-yellow-400 h-[35px] text-black">AI Driven</Badge>
+    <Badge variant="secondary">Language: English/Hinglish</Badge>
+  </div>
+
+  {/* Heading */}
+  <h2 className="text-xl font-bold leading-snug min-h-[60px] flex items-center text-white">
+    {course.title}
+  </h2>
+
+  {/* Subheading */}
+  <p className="mt-1 text-sm text-gray-200">
+    Next Batch: Starting January 15, 2025
+  </p>
+</div>
+
                 {/* Image */}
-                <div className="relative">
-                  <AspectRatio>
+                <div className="relative m-[15px]">
+                  <div className="h-[150px]  overflow-hidden rounded-xl">
                     <img
                       src={course.image}
                       alt={course.title}
-                      className="max-w-full max-h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                  </AspectRatio>
+                  </div>
                   <div
                     className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${course.color}`}
                   ></div>
                 </div>
 
-                {/* Title & Description */}
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-xl group-hover:text-[#EA2525] transition-colors">
-                    {course.title}
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    {course.description}
-                  </CardDescription>
-                </CardHeader>
+                {/* Description */}
+              <CardHeader className="pb-3 flex-1">
+  <div className="flex flex-wrap items-center gap-2">
+    <span className="font-semibold text-gray-700">Skills:</span>
+    {course.skills.map((skill, idx) => (
+      <Badge
+        key={idx}
+        className="h-[30px] px-3 flex items-center justify-center text-white bg-[#C74457] hover:bg-[#9a3746] transition-colors duration-200"
+      >
+        {skill}
+      </Badge>
+    ))}
+  </div>
+</CardHeader>
+
+
+
 
                 {/* Content */}
                 <CardContent className="space-y-4">
+  {/* Title */}
+  <h3 className="text-md font-semibold text-gray-700">Course Details</h3>
+
                   <div className="flex flex-wrap gap-2">
                     <Badge variant="secondary" className="flex items-center gap-1">
                       <Clock className="w-3 h-3" />
                       {course.duration}
                     </Badge>
+                    <Badge variant="secondary">{course.certification}</Badge>
                     <Badge variant="secondary" className="flex items-center gap-1">
                       <Users className="w-3 h-3" />
                       {course.students}
@@ -189,7 +231,7 @@ const Courses = () => {
 
                       {/* Enroll Button */}
                       <EnrollmentDialog courseTitle={course.title}>
-                        <Button className="flex-1 bg-gradient-to-r bg-[#EA2525] hover:from-[#AA2526] hover:to-[#EA2525] text-white">
+                        <Button className="flex-1 bg-[#EA2525] hover:bg-[#c21e1e] text-white">
                           Enroll Now
                         </Button>
                       </EnrollmentDialog>
