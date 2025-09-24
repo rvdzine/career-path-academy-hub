@@ -13,6 +13,7 @@ import StatsSection from "@/components/StatsSection";
 import CertificationSection from "@/components/CertificationSection";
 import OfflineSection from "@/components/OfflineSection";
 import Chatbot from "@/components/Chatbot";
+import FAQHighlight from "@/components/FAQHighlight";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       <CourseHighlights />
       <OfflineSection />
       <CertificationSection />
+      <FAQHighlight/>
       <StatsSection />
       <TestimonialSection />
       <Footer />
