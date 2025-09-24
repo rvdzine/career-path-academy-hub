@@ -29,7 +29,7 @@ const Courses = () => {
       rating: "4.9",
       modules: 12,
       projects: 5,
-      color: "from-green-500 to-emerald-600",
+      // color: "from-green-500 to-emerald-600",
       image: FDM1,
     },
     {
@@ -43,7 +43,7 @@ const Courses = () => {
       rating: "4.8",
       modules: 10,
       projects: 4,
-      color: "from-pink-500 to-rose-600",
+      // color: "from-pink-500 to-rose-600",
       image: SDM2,
     },
     {
@@ -57,7 +57,7 @@ const Courses = () => {
       rating: "4.7",
       modules: 14,
       projects: 6,
-      color: "from-blue-500 to-cyan-600",
+      // color: "from-blue-500 to-cyan-600",
       image: MDM3,
     },
     {
@@ -72,7 +72,7 @@ const Courses = () => {
       rating: "4.6",
       modules: 8,
       projects: 3,
-      color: "from-purple-500 to-violet-600",
+      // color: "from-purple-500 to-violet-600",
       image: BODM4,
     },
     {
@@ -87,7 +87,7 @@ const Courses = () => {
       rating: "4.5",
       modules: 9,
       projects: 4,
-      color: "from-orange-500 to-red-600",
+      // color: "from-orange-500 to-red-600",
       image: DDM5,
     },
     {
@@ -102,7 +102,7 @@ const Courses = () => {
       rating: "4.4",
       modules: 11,
       projects: 5,
-      color: "from-teal-500 to-green-600",
+      // color: "from-teal-500 to-green-600",
       image: DIPDM6,
     },
   ];
@@ -128,10 +128,11 @@ const Courses = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {courses.map((course) => (
-              <Card
-                key={course.id}
-                className="flex flex-col h-[650px] group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg hover:-translate-y-2 overflow-hidden cursor-pointer rounded-xl"
-              >
+             <Card
+  key={course.id}
+  className="flex flex-col h-[650px] group transition-all duration-300 border border-gray-300 hover:border-red-500 hover:-translate-y-2 overflow-hidden cursor-pointer rounded-xl"
+>
+
                 {/* Header with Title and Badges */}
                <div
   className="p-5 text-white"
@@ -142,7 +143,11 @@ const Courses = () => {
 >
   {/* Badges at top */}
   <div className="flex gap-2 mb-3 flex-wrap">
-    <Badge className="bg-yellow-400 h-[35px] text-black">AI Driven</Badge>
+    <Badge className="bg-yellow-400 h-[35px] text-black hover:!bg-yellow-100 transition-colors duration-200">
+  AI Driven
+</Badge>
+
+
     <Badge variant="secondary">Language: English/Hinglish</Badge>
   </div>
 
@@ -159,16 +164,18 @@ const Courses = () => {
 
                 {/* Image */}
                 <div className="relative m-[15px]">
-                  <div className="h-[150px]  overflow-hidden rounded-xl">
-                    <img
-                      src={course.image}
-                      alt={course.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <div
+  <div
+    className="h-[150px] overflow-hidden rounded-xl border border-gray-300 hover:border-red-500 transition-colors duration-300 group-hover:border-red-500"
+  >
+    <img
+      src={course.image}
+      alt={course.title}
+      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+    />
+  </div>
+                  {/* <div
                     className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${course.color}`}
-                  ></div>
+                  ></div> */}
                 </div>
 
                 {/* Description */}
@@ -178,7 +185,7 @@ const Courses = () => {
     {course.skills.map((skill, idx) => (
       <Badge
         key={idx}
-        className="h-[30px] px-3 flex items-center justify-center text-white bg-[#C74457] hover:bg-[#9a3746] transition-colors duration-200"
+        className="h-[30px] px-3 flex items-center justify-center text-white bg-[#EA2525] hover:bg-[#9a3746] transition-colors duration-200"
       >
         {skill}
       </Badge>
@@ -190,22 +197,28 @@ const Courses = () => {
 
 
                 {/* Content */}
-                <CardContent className="space-y-4">
+               <CardContent className="space-y-4">
   {/* Title */}
   <h3 className="text-md font-semibold text-gray-700">Course Details</h3>
 
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary" className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      {course.duration}
-                    </Badge>
-                    <Badge variant="secondary">{course.certification}</Badge>
-                    <Badge variant="secondary" className="flex items-center gap-1">
-                      <Users className="w-3 h-3" />
-                      {course.students}
-                    </Badge>
-                    <Badge variant="outline">{course.level}</Badge>
-                  </div>
+  <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-gray-700 text-sm">
+    <div className="flex items-center gap-2">
+      <span className="w-2 h-2 rounded-full bg-red-500"></span>
+      {course.duration}
+    </div>
+    <div className="flex items-center gap-2">
+      <span className="w-2 h-2 rounded-full bg-red-500"></span>
+      {course.certification}
+    </div>
+    <div className="flex items-center gap-2">
+      <span className="w-2 h-2 rounded-full bg-red-500"></span>
+      {course.students}
+    </div>
+    <div className="flex items-center gap-2">
+      <span className="w-2 h-2 rounded-full bg-red-500"></span>
+      {course.level}
+    </div>
+  </div>
 
                   {/* Buttons */}
                   {course.id === "content-strategy-creation" ? (
