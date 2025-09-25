@@ -1,180 +1,187 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Bar } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
+import { motion, AnimatePresence } from "framer-motion";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-
-const companyData = [
-  { name: "Google India", fresher: 60, mid: 150, senior: 400, tier: "product" },
-  { name: "Zoho", fresher: 55, mid: 130, senior: 250, tier: "product" },
-  { name: "Adobe India", fresher: 45, mid: 100, senior: 270, tier: "product" },
-  { name: "Accenture", fresher: 35, mid: 85, senior: 250, tier: "tier1" },
-  { name: "Deloitte", fresher: 40, mid: 90, senior: 220, tier: "tier1" },
-  { name: "HCL", fresher: 34, mid: 85, senior: 220, tier: "tier2" },
-  { name: "TCS", fresher: 32, mid: 80, senior: 210, tier: "tier2" },
-  { name: "Wipro", fresher: 30, mid: 75, senior: 200, tier: "tier2" },
-  { name: "Publicis Sapient", fresher: 38, mid: 90, senior: 200, tier: "product" },
-  { name: "Infosys", fresher: 28, mid: 70, senior: 180, tier: "tier2" },
+const salaryData = [
+  { company: "Google India", fresher: 60000, intermediate: 150000, senior: 400000, tier: "tier1", type: "product", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
+  { company: "Accenture", fresher: 35000, intermediate: 85000, senior: 250000, tier: "tier1", type: "service", logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/Accenture.svg"  },
+  { company: "Deloitte", fresher: 40000, intermediate: 90000, senior: 220000, tier: "tier1", type: "service", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
+  { company: "Wipro", fresher: 30000, intermediate: 75000, senior: 200000, tier: "tier2", type: "service", logo:"https://upload.wikimedia.org/wikipedia/commons/4/49/Wipro_Ltd_logo.svg"  },
+  { company: "Infosys", fresher: 28000, intermediate: 70000, senior: 180000, tier: "tier2", type: "service", logo: "https://upload.wikimedia.org/wikipedia/commons/9/99/Infosys_logo.svg" },
+  { company: "TCS", fresher: 32000, intermediate: 80000, senior: 210000, tier: "tier2", type: "service", logo:"https://upload.wikimedia.org/wikipedia/commons/9/9e/Tata_Consultancy_Services_Logo.svg"  },
+  { company: "HCL", fresher: 34000, intermediate: 85000, senior: 220000, tier: "tier2", type: "service", logo: "https://upload.wikimedia.org/wikipedia/commons/8/8c/HCL_Technologies_logo.svg"  },
+  { company: "Cognizant", fresher: 30000, intermediate: 65000, senior: 170000, tier: "tier2", type: "service", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Cognizant_logo.svg" },
+  { company: "Zoho", fresher: 55000, intermediate: 130000, senior: 350000, tier: "tier1", type: "product", logo:  "https://upload.wikimedia.org/wikipedia/commons/7/77/Zoho_logo.svg" },
+  { company: "Adobe India", fresher: 45000, intermediate: 100000, senior: 270000, tier: "tier1", type: "product", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Corporate_logo.svg" },
+  { company: "Publicis Sapient", fresher: 38000, intermediate: 90000, senior: 200000, tier: "tier1", type: "service", logo: "https://upload.wikimedia.org/wikipedia/commons/1/10/Publicis_Sapient_logo.svg" },
+  { company: "Wunderman Thompson", fresher: 36000, intermediate: 80000, senior: 180000, tier: "tier2", type: "service", logo:"https://upload.wikimedia.org/wikipedia/commons/3/31/Wunderman_Thompson_logo.svg" },
 ];
+export default function Home() {
+  const [filter, setFilter] = useState("all");
+  const [view, setView] = useState("all");
+  const [unit, setUnit] = useState("monthly");
 
-export default function SalaryDashboard() {
-  const [currentFilter, setCurrentFilter] = useState("all");
-  const [currentUnit, setCurrentUnit] = useState("monthly"); // monthly or yearly
-  const [currentView, setCurrentView] = useState("all");
-  const [filteredData, setFilteredData] = useState(companyData);
-
-  useEffect(() => {
-    let data = [...companyData];
-    if (currentFilter !== "all") data = data.filter((c) => c.tier === currentFilter);
-    setFilteredData(data);
-  }, [currentFilter]);
-
-  // salary conversion for monthly vs yearly
-  const convert = (salary: number) =>
-    currentUnit === "yearly" ? salary * 12 : salary;
-
-  const chartData = {
-    labels: filteredData.map((c) => c.name),
-    datasets: [
-      {
-        label: "Fresher (0-2 yrs)",
-        data: filteredData.map((c) => convert(c.fresher)),
-        backgroundColor: "#3B82F6",
-        borderRadius: 8,
-      },
-      {
-        label: "Mid-level (3-5 yrs)",
-        data: filteredData.map((c) => convert(c.mid)),
-        backgroundColor: "#22C55E",
-        borderRadius: 8,
-      },
-      {
-        label: "Senior (8-10 yrs)",
-        data: filteredData.map((c) => convert(c.senior)),
-        backgroundColor: "#F59E0B",
-        borderRadius: 8,
-      },
-    ],
+  const formatCurrency = (amount) => {
+    const converted = unit === "yearly" ? amount * 12 : amount;
+    if (converted >= 10000000) return `₹${(converted / 10000000).toFixed(1)} Cr`;
+    if (converted >= 100000) return `₹${(converted / 100000).toFixed(1)} L`;
+    return `₹${(converted / 1000).toFixed(0)} K`;
   };
 
-  const chartOptions = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "top" as const,
-        labels: { color: "#d1d5db" },
-      },
-    },
-    scales: {
-      x: { ticks: { color: "#9CA3AF" }, grid: { color: "#1F2937" } },
-      y: { ticks: { color: "#9CA3AF" }, grid: { color: "#1F2937" } },
-    },
+  const filteredData = salaryData.filter(
+    (c) => filter === "all" || c.tier === filter || c.type === filter
+  );
+
+  const avg = {
+    senior: formatCurrency(filteredData.reduce((a, c) => a + (unit === "yearly" ? c.senior * 12 : c.senior), 0) / filteredData.length),
+    mid: formatCurrency(filteredData.reduce((a, c) => a + (unit === "yearly" ? c.intermediate * 12 : c.intermediate), 0) / filteredData.length),
+    fresher: formatCurrency(filteredData.reduce((a, c) => a + (unit === "yearly" ? c.fresher * 12 : c.fresher), 0) / filteredData.length),
   };
+
+  const maxSalary = Math.max(
+    ...filteredData.map((c) => Math.max(c.fresher, c.intermediate, c.senior))
+  );
 
   return (
-    <section className="min-h-screen bg-[#0F172A] text-white py-16 px-6">
-      {/* Title */}
-      <div className="text-center space-y-4 mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-          IT Salary Analytics
-        </h1>
-        <p className="text-gray-400 max-w-2xl mx-auto">
+    <div className="min-h-screen bg-[#0a0a1a] text-white px-6 py-8">
+      {/* HEADER */}
+      <motion.header
+        className="text-center mb-10"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        <h1 className="text-4xl font-bold">IT Salary Analytics</h1>
+        <p className="text-gray-400">
           Comprehensive analysis of monthly salaries across top Indian IT companies by experience level
         </p>
-      </div>
+      </motion.header>
 
-      {/* Filters */}
-      <div className="flex flex-wrap justify-center gap-3 mb-8">
-        {["all", "tier1", "tier2", "product"].map((filter) => (
+      {/* FILTER BUTTONS */}
+      <div className="flex justify-center gap-3 mb-6 flex-wrap">
+        {["all", "tier1", "tier2", "service", "product"].map((btn) => (
           <button
-            key={filter}
-            onClick={() => setCurrentFilter(filter)}
-            className={`px-4 py-2 rounded-lg border transition ${
-              currentFilter === filter
-                ? "bg-blue-500 text-white border-blue-500"
-                : "bg-gray-800 border-gray-700 hover:bg-gray-700"
+            key={btn}
+            className={`px-4 py-2 rounded-full ${
+              filter === btn ? "bg-blue-600" : "bg-gray-700 hover:bg-gray-600"
             }`}
+            onClick={() => setFilter(btn)}
           >
-            {filter === "all"
+            {btn === "all"
               ? "All Companies"
-              : filter === "tier1"
+              : btn === "tier1"
               ? "Tier 1"
-              : filter === "tier2"
+              : btn === "tier2"
               ? "Tier 2"
+              : btn === "service"
+              ? "Service Based"
               : "Product Based"}
           </button>
         ))}
       </div>
 
-      {/* Monthly / Yearly toggle */}
-      <div className="flex justify-center gap-4 mb-12">
-        <button
-          onClick={() => setCurrentUnit("monthly")}
-          className={`px-4 py-2 rounded-xl transition ${
-            currentUnit === "monthly"
-              ? "bg-purple-500 text-white"
-              : "bg-gray-700 text-gray-300"
-          }`}
-        >
-          Monthly
-        </button>
-        <button
-          onClick={() => setCurrentUnit("yearly")}
-          className={`px-4 py-2 rounded-xl transition ${
-            currentUnit === "yearly"
-              ? "bg-purple-500 text-white"
-              : "bg-gray-700 text-gray-300"
-          }`}
-        >
-          Yearly
-        </button>
-      </div>
-
-      {/* Chart */}
-      <div className="bg-gray-900 rounded-2xl p-6 shadow-xl mb-16">
-        <h2 className="text-2xl font-semibold mb-6 text-center">
-          Salary Comparison Chart
-        </h2>
-        <Bar data={chartData} options={chartOptions} />
-      </div>
-
-      {/* Company Cards */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredData.map((c, i) => (
-          <div
-            key={i}
-            className="bg-gray-900 p-6 rounded-2xl shadow-md hover:shadow-xl transition"
+      {/* TOGGLE MONTHLY / YEARLY */}
+      <div className="flex justify-center gap-3 mb-8">
+        {["monthly", "yearly"].map((btn) => (
+          <button
+            key={btn}
+            className={`px-4 py-1 rounded-full ${
+              unit === btn ? "bg-green-600" : "bg-gray-700 hover:bg-gray-600"
+            }`}
+            onClick={() => setUnit(btn)}
           >
-            <h3 className="text-xl font-semibold text-blue-400 mb-4">
-              {c.name}
-            </h3>
-            <p className="mb-2 text-gray-300">
-              Fresher: <span className="text-white">{convert(c.fresher)} K</span>
-            </p>
-            <p className="mb-2 text-gray-300">
-              Mid-level: <span className="text-white">{convert(c.mid)} K</span>
-            </p>
-            <p className="text-gray-300">
-              Senior: <span className="text-white">{convert(c.senior)} K</span>
-            </p>
-          </div>
+            {btn.charAt(0).toUpperCase() + btn.slice(1)}
+          </button>
         ))}
       </div>
 
-      {/* Footer */}
-      <p className="text-gray-500 text-center text-sm mt-10">
-        Data sourced from Glassdoor, PayScale, and industry reports – Last updated: September 2025
-      </p>
-    </section>
+      {/* STATS */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <motion.div className="bg-gray-800 p-4 rounded-xl text-center">
+          <div className="text-2xl font-bold">{filteredData.length}</div>
+          <div className="text-gray-400">Companies Analyzed</div>
+        </motion.div>
+        <motion.div className="bg-gray-800 p-4 rounded-xl text-center">
+          <div className="text-2xl font-bold">{avg.senior}</div>
+          <div className="text-gray-400">Average Senior Salary</div>
+        </motion.div>
+        <motion.div className="bg-gray-800 p-4 rounded-xl text-center">
+          <div className="text-2xl font-bold">{avg.mid}</div>
+          <div className="text-gray-400">Average Mid-level</div>
+        </motion.div>
+        <motion.div className="bg-gray-800 p-4 rounded-xl text-center">
+          <div className="text-2xl font-bold">{avg.fresher}</div>
+          <div className="text-gray-400">Average Fresher</div>
+        </motion.div>
+      </div>
+
+      {/* CHART */}
+      <div className="space-y-3 mb-10">
+        {filteredData.map((c, i) => (
+          <motion.div
+            key={i}
+            className="bg-gray-900 p-3 rounded-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <div className="text-sm font-semibold mb-2">{c.company}</div>
+            <div className="space-y-2">
+              {(view === "all" || view === "fresher") && (
+                <div className="bg-blue-600 h-4 rounded-full relative" style={{ width: `${(c.fresher / maxSalary) * 100}%` }}>
+                  <span className="absolute right-0 -top-5 text-xs">{formatCurrency(c.fresher)}</span>
+                </div>
+              )}
+              {(view === "all" || view === "intermediate") && (
+                <div className="bg-green-600 h-4 rounded-full relative" style={{ width: `${(c.intermediate / maxSalary) * 100}%` }}>
+                  <span className="absolute right-0 -top-5 text-xs">{formatCurrency(c.intermediate)}</span>
+                </div>
+              )}
+              {(view === "all" || view === "senior") && (
+                <div className="bg-yellow-500 h-4 rounded-full relative" style={{ width: `${(c.senior / maxSalary) * 100}%` }}>
+                  <span className="absolute right-0 -top-5 text-xs">{formatCurrency(c.senior)}</span>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* CARDS GRID */}
+       <div className="grid md:grid-cols-3 gap-6">
+        {filteredData.map((c, i) => (
+          <motion.div
+            key={i}
+            className="bg-gray-800 rounded-2xl p-5 shadow-md hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.05 }}
+          >
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-bold">{c.company}</h3>
+              <img src={c.logo.src} alt={c.company} className="h-8 w-auto" />
+            </div>
+            <div className="space-y-3">
+              <div>
+                <p className="text-sm text-gray-400">Fresher (0-2 yrs)</p>
+                <p className="font-semibold text-green-400">{formatCurrency(c.fresher)}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-400">Mid-level (3-5 yrs)</p>
+                <p className="font-semibold text-green-400">{formatCurrency(c.intermediate)}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-400">Senior (8-10 yrs)</p>
+                <p className="font-semibold text-green-400">{formatCurrency(c.senior)}</p>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* FOOTER */}
+      <footer className="text-center mt-10 text-gray-500 text-sm">
+        Data sourced from Glassdoor, PayScale, and industry reports • Last updated: September 2025
+      </footer>
+    </div>
   );
 }

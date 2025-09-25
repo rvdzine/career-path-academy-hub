@@ -103,7 +103,7 @@ export default function SalaryReportModal({ children }) {
 
           {/* Navigate Button */}
           <div className="flex justify-end pt-4">
-  <Link to="/salary-report">
+  <Link to="/Ss">
     <Button className="bg-[#EA2525] hover:bg-[#c21e1e] text-white">
       See the Salary Report
     </Button>
