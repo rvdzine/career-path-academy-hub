@@ -23,6 +23,8 @@ import IDS from "./pages/IDSLife"
 import { ThemeProvider } from "@/components/ThemeProvider";
 import  InternshipForm  from "@/components/InternshipForm";
 import BrochureDialog from "./pages/BrochureDialog";
+import Ss from "./components/SS";
+import CompanyCard from "./components/CompanyCards";
 import UseScrollToTop from "./components/ScrollToTop"
 
 const queryClient = new QueryClient();
@@ -53,6 +55,7 @@ const App = () => (
           <Route path="/ids" element={<IDS />} />
         
           <Route path="/internship-form" element={<InternshipForm />} />
+          <Route path="/SS" element={<Ss/>}/>
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
