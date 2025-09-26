@@ -8,7 +8,7 @@ import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
 import csh_footer from "@/components/svg/cybershields-footer-logo.svg"
 
 // import the SalaryReportModal
-import SalaryReportModal from "@/components/salaryreport"; 
+import SalaryReportModal from "@/components/SalaryReport"; 
 
 const Footer = () => {
   return (
