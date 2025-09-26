@@ -64,7 +64,7 @@ const ContactDialog = ({ children }: { children?: React.ReactNode }) => {
         </DialogHeader>
         <Card className="shadow-none border-0">
           <CardHeader>
-            <CardTitle className="text-2xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <CardTitle className="text-2xl bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
               Enroll Now - Free Counseling
             </CardTitle>
             <CardDescription>
@@ -185,7 +185,7 @@ const ContactDialog = ({ children }: { children?: React.ReactNode }) => {
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                className="w-full bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-lg hover:from-[#AA2526] hover:to-[#EA2525] transition-colors"
               >
                 Submit & Get Free Counseling
               </Button>

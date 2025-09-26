@@ -5,6 +5,7 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
+import csh_footer from "@/components/svg/cybershields-footer-logo.svg"
 
 // import the SalaryReportModal
 import SalaryReportModal from "@/components/salaryreport"; 
@@ -80,6 +81,7 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <MdLocationOn className="text-xl mt-1" />
                 T3, B1603, NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306
+                Business Address: T3, B1603, NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306
               </li>
               <li className="flex items-center gap-2">
                 <MdPhone className="text-xl" />
@@ -93,8 +95,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 dark:border-gray-700 mt-12 pt-8 text-center text-gray-400 dark:text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Institute of Digital Studies. All rights reserved.</p>
+        <div className="border-t flex justify-between border-gray-800 dark:border-gray-700 mt-12 pt-8 text-gray-400 dark:text-gray-500">
+          <p className="text-left font-semibold">&copy; {new Date().getFullYear()} Institute of Digital Studies(IDS). An initiative under Cybershield Technologies Pvt. Ltd.</p>
+          <Link to = 'https://cybershieldtechnologies.com/' target="blank" rel="noopener noreferrer"><img src={csh_footer} className="h-10 w-auto" alt="" /></Link>
         </div>
       </div>
     </footer>

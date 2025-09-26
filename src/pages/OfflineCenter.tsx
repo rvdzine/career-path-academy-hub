@@ -10,8 +10,8 @@ import BookingDialog from "@/components/BookingDialog";
 
 const OfflineCenter = () => {
   const center = {
-    city: "Noida",
-    address: "Sector 63, Noida - 201301",
+    city: "Greater Noida",
+    address: "T3, B1603, NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop",
     facilities: ["Smart Classrooms", "High-Speed Wi-Fi", "Modern Lab", "Cafeteria", "Free Parking", "AC Environment"],
     batches: [
@@ -102,11 +102,11 @@ const OfflineCenter = () => {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-[#EA2525]" />
-                    <span className="text-gray-700">+91-XXXXXXXXXX</span>
+                    <span className="text-gray-700">+91-9315471293</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-[#EA2525]" />
-                    <span className="text-gray-700">noida@ids.com</span>
+                    <span className="text-gray-700">info@idigitalstudies.com</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Clock className="w-5 h-5 text-[#EA2525]" />

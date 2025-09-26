@@ -126,7 +126,7 @@ const Terms = () => {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold">11. Governing Law and Jurisdiction</h2>
               <p>
-                These Terms and Conditions are governed by and construed in accordance with the laws of India. Any dispute arising in relation to these terms shall be subject to the exclusive jurisdiction of the courts located in Gautam Buddha Nagar (Noida).
+                These Terms and Conditions are governed by and construed in accordance with the laws of India. Any dispute arising in relation to these terms shall be subject to the exclusive jurisdiction of the courts located in Ghaziabad, UP.
               </p>
             </section>
           </div>

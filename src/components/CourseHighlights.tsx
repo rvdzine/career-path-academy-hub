@@ -53,7 +53,7 @@ const CourseHighlights = () => {
         "A complete program covering all digital marketing verticals with practical projects and a guaranteed internship for real-world experience..",
       duration: "6 Months",
       students: "300+",
-      level: "Online",
+      level: "Online/Offline",
       rating: "4.7",
       modules: 14,
       projects: 6,
@@ -111,6 +111,7 @@ const CourseHighlights = () => {
             Industry-designed curriculum with hands-on projects and real-world
             applications
           </p>
+          <b><i>Note: </i></b> <i>Our courses starts at price 10k and it goes upto 1.5 Lacs as per the clients requirements.</i>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">

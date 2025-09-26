@@ -115,7 +115,7 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
                   <MapPin className="w-6 h-6 text-[#EA2525] mt-1" />
                   <div>
                     <h3 className="font-semibold text-lg">Noida Center</h3>
-                    <p className="text-gray-600">Sector 63, Noida - 201301</p>
+                    <p className="text-gray-600">T3, NXOne, Opposite Gaur city mall, Greater Noida, UP, 201306</p>
                     <div className="flex flex-wrap gap-4 mt-2 text-sm text-gray-600">
                       <span className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
