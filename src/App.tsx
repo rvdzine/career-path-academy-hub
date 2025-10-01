@@ -13,7 +13,8 @@ import Contact from "./pages/Contact";
 import OfflineCenter from "./pages/OfflineCenter";
 import NotFound from "./pages/NotFound";
 import FAQ from "./pages/FAQ"
-
+import Blog from "./pages/Blog"
+import BlogDetail from "./pages/BlogDetail"
 import IDSLife from "./pages/IDSLife"
 import Privacy from "./pages/PrivacyPolicy"
 import RefundPolicy from "./pages/RefundPolicy"
@@ -47,7 +48,8 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/offline-center" element={<OfflineCenter />} />
           <Route path="/faq" element={<FAQ />} />
-        
+          <Route path="/blog" element={<Blog/>}/>
+          <Route path="/blog/:slug" element={<BlogDetail />} />
           <Route path="/ids" element={<IDSLife />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/refund" element={<RefundPolicy />} />

@@ -1,4 +1,3 @@
-
 import { useParams, Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -117,10 +116,10 @@ const CourseDetails = () => {
               <div className="flex gap-4">
                 <EnrollmentDialog 
                   courseTitle={course.title}
-                  coursePrice={course.price}
+                  // coursePrice={course.price}
                   triggerText={`Enroll Now - ${course.price}`}
                 >
-                  <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                  <Button size="lg" className="bg-[#EA2525] hover:bg-red-600">
                     Enroll Now - {course.price}
                   </Button>
                 </EnrollmentDialog>
@@ -134,7 +133,7 @@ const CourseDetails = () => {
             <Card className="p-8">
               <div className="text-center mb-6">
                 <div className={`w-full h-2 bg-gradient-to-r ${course.color} rounded-full mb-6`}></div>
-                <div className="text-3xl font-bold text-blue-600 mb-2">{course.price}</div>
+                <div className="text-3xl font-bold text-red-600 mb-2">{course.price}</div>
                 <p className="text-muted-foreground">One-time payment</p>
               </div>
               
@@ -159,9 +158,9 @@ const CourseDetails = () => {
 
               <EnrollmentDialog 
                 courseTitle={course.title}
-                coursePrice={course.price}
+                // coursePrice={course.price}
               >
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                <Button className="w-full bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#EA2525] hover:to-[#AA2526] transition-all duration-300 hover:scale-105 hover:shadow-lg">
                   Enroll Now
                 </Button>
               </EnrollmentDialog>
@@ -224,7 +223,7 @@ const CourseDetails = () => {
                   <CardTitle>Your Instructor</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <div className="w-20 h-20 bg-[#EA2525] hover:bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                     <span className="text-white font-bold text-2xl">{course.instructor.split(' ').map(n => n[0]).join('')}</span>
                   </div>
                   <h3 className="font-bold text-lg mb-2">{course.instructor}</h3>

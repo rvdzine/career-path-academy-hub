@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
@@ -18,16 +17,15 @@ const HeroSection = () => {
                   🚀 India's Leading Digital Marketing Academy
                 </Badge>
                 <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                  Master
+                  Best
                   <span className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent animate-pulse-soft">
                     {" "}Digital Marketing
                   </span>
                   <br />
-                  Launch Your Career
+                  Institute in Noida
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Transform your career with industry-focused training in SEO, Social Media, PPC, and more.
-                  Get hands-on experience and guaranteed placement support.
+                  iDigital Studies: Noida's premier SEO & Digital Marketing institute.<br/> Learn from experts with live projects and guaranteed placement support.<br/> Enroll now!.
                 </p>
               </div>
 

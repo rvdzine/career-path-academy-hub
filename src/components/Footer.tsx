@@ -23,8 +23,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-400 dark:text-gray-500">
-              Empowering careers through digital marketing education and guaranteed job placement support.
-            </p>
+            Join the best Digital Marketing Institute in Noida. iDigital Studies offers practical Digital Marketing courses like SEO, SMO, PPC with live projects, 100% placement assistance, and expert training. Enroll today!</p>
             <div className="flex space-x-4 pt-4">
               <a href="https://www.facebook.com/instituteofdigitalstudies/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
                 <FaFacebookF />

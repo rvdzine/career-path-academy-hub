@@ -1,19 +1,16 @@
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Clock, Users } from "lucide-react";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EnrollmentDialog from "@/components/EnrollmentDialog";
-import { FaDownload } from "react-icons/fa";
 import FDM1 from "../components/assets/FDM1.png";
 import SDM2 from "../components/assets/SDM2.png";
 import MDM3 from "../components/assets/MDM3.png";
 import BODM4 from "../components/assets/BODM4.png";
 import DDM5 from "../components/assets/DDM5.png";
 import DIPDM6 from "../components/assets/DIPDM6.png";
-import BrochureDialog from "./BrochureDialog";
+import { Link } from "react-router-dom"
 
 const Courses = () => {
   const courses = [
@@ -232,7 +229,7 @@ const Courses = () => {
                   ) : (
                     <div className="flex flex-col sm:flex-row justify-between gap-2 pt-4">
                       {/* Brochure Button */}
-                      <BrochureDialog courseTitle={course.title}>
+                      {/* <BrochureDialog courseTitle={course.title}>
                         <Button
                           variant="outline"
                           className="flex-1 border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4] flex items-center justify-center gap-2"
@@ -240,7 +237,17 @@ const Courses = () => {
                           <FaDownload className="text-sm" />
                           Course Details
                         </Button>
-                      </BrochureDialog>
+                      </BrochureDialog> */}
+
+
+                      <Link to={`/courses/${course.id}`} className="flex-1">
+                        <Button
+                          variant="outline"
+                          className="w-full border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4] flex items-center justify-center gap-2"
+                        >
+                          Course Details
+                        </Button>
+                      </Link>
 
                       {/* Enroll Button */}
                       <EnrollmentDialog courseTitle={course.title}>

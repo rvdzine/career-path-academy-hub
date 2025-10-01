@@ -24,7 +24,7 @@ const CourseHighlights = () => {
       id: "seo-mastery",
       title: "Foundation in Digital Marketing",
       description:
-        "Build a strong base in digital marketing fundamentals. Learn core concepts like SEO, Social Media, and Content Marketing to kickstart your career..",
+        "Our Foundation in Digital Marketing course provides comprehensive coaching on SEO, social media, content marketing, PPC, email campaigns, and analytics, preparing you for a successful career in digital marketing.",
       duration: "2 Months",
       students: "1,200+",
       level: "Online/Offline",
@@ -37,7 +37,7 @@ const CourseHighlights = () => {
       id: "social-media-pro",
       title: "Specialist in Digital Marketing",
       description:
-        "Become a digital marketing specialist with in-depth knowledge of advanced strategies including PPC, Social Media Ads, and Analytics..",
+        "Our Digital Marketing Specialist Course (3 months) offers in-depth training on SEO, SEM, social media marketing, content strategy, PPC, email campaigns, and analytics, preparing you to become an industry expert with Live Project Training.",
       duration: "3 Months",
       students: "1000+",
       level: "Online/Offline",
@@ -50,7 +50,7 @@ const CourseHighlights = () => {
       id: "google-ads-expert",
       title: "Master in Digital Marketing (With Guaranteed Internship)",
       description:
-        "A complete program covering all digital marketing verticals with practical projects and a guaranteed internship for real-world experience..",
+        "Our 6-Month Digital Marketing Course with 100% Internship provides hands-on experience in SEO, SEM, social media, content marketing, and more, along with a guaranteed internship to kickstart your career.",
       duration: "6 Months",
       students: "300+",
       level: "Online/Offline",
@@ -63,7 +63,7 @@ const CourseHighlights = () => {
       id: "email-marketing-specialist",
       title: "Professional & Business Owner Course (1:1 Learning)",
       description:
-        "Exclusive personalised training for professionals and business owners. Tailored modules with live one-on-one sessions for your business needs..",
+        "Our 1:1 Digital Marketing Course for Business Owners offers personalized coaching tailored to your business needs, covering SEO, social media, PPC, content strategies, and more to drive growth and success.",
       duration: "Customisable",
       students: "300+",
       level: "Online",
@@ -76,7 +76,7 @@ const CourseHighlights = () => {
       id: "analytics-data-insights",
       title: "Degree in Digital Marketing",
       description:
-        "A comprehensive 3-year program designed for in-depth mastery of digital marketing with academic rigor, internship opportunities, and placement support.",
+        "Our Customized - Digital Marketing Course According to Your Needs offers personalized coaching tailored to you according to your needs SEO, social media, PPC, content strategies, and more to drive growth and success.",
       duration: "36 Months",
       students: "250+",
       level: "Offline-Regular",
@@ -105,7 +105,7 @@ const CourseHighlights = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl font-bold mb-4 text-[#EA2525]">
-            Featured Courses
+          Explore our Digital Marketing Courses
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Industry-designed curriculum with hands-on projects and real-world

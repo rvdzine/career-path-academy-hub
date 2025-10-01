@@ -32,7 +32,7 @@ const Navbar = () => {
     { name: "Privacy Policy", path: "/privacy" },
     { name: "Refund Policy", path: "/refund" },
     // { name: "Events & Webinars", path: "/events" },
-    // { name: "Blog", path: "/blog" },
+    { name: "Blog", path: "/blog" },
   ];
 
   return (
