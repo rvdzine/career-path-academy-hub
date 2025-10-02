@@ -83,7 +83,7 @@ const OfflineSection = () => {
             </div>
 
             {/* Quick Batch Info */}
-            <div className="animate-fade-in-up [animation-delay:0.2s]">
+            {/* <div className="animate-fade-in-up [animation-delay:0.2s]">
               <h4 className="text-xl font-semibold mb-4 text-gray-900">Available Batches</h4>
               <div className="space-y-2">
                {batches.slice(0, 2).map((batch, index) => (
@@ -105,7 +105,7 @@ const OfflineSection = () => {
 
                 
               </div>
-            </div>
+            </div> */}
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up [animation-delay:0.3s]">
