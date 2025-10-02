@@ -138,7 +138,7 @@ const Courses = () => {
       badges: ["AI Driven", "Hinglish/English"],
     },
   ];
-  
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -174,32 +174,28 @@ const Courses = () => {
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   />
                   {/* Badges Overlay (top-right) */}
-                 {/* Badges Overlay (top-right) */}
-<div className="absolute top-2 right-2 flex flex-wrap gap-2">
-  {course.badges.map((badge, idx) => {
-    let IconComponent = null;
+                  <div className="absolute top-2 right-2 flex flex-wrap gap-2">
+                    {course.badges.map((badge, idx) => {
+                      let IconComponent = null;
 
-    if (badge === "AI Driven") IconComponent = Sparkles;
-    else if (badge === "Hinglish") IconComponent = Users;
-    else if (badge === "Hinglish/English") IconComponent = Globe;
+                      if (badge === "AI Driven") IconComponent = Sparkles;
+                      else if (badge === "Hinglish") IconComponent = Users;
+                      else if (badge === "Hinglish/English") IconComponent = Globe;
 
-    return (
-      <Badge
-        key={idx}
-        className={`flex items-center gap-2 px-2 py-1 text-sm rounded-full ${
-          badge === "AI Driven"
-            ? "bg-gradient-to-r from-[#0061FF] to-[#60EFFF] text-white"
-            : "bg-white text-gray-800 border border-gray-300"
-        }`}
-      >
-        {IconComponent && <IconComponent className="w-3 h-3" />}
-        {badge}
-      </Badge>
-    );
-  })}
-</div>
-
-                       
+                      return (
+                        <Badge
+                          key={idx}
+                          className={`flex items-center gap-2 px-2 py-1 text-sm rounded-full ${badge === "AI Driven"
+                              ? "bg-gradient-to-r from-[#0061FF] to-[#60EFFF] text-white"
+                              : "bg-white text-gray-800 border border-gray-300"
+                            }`}
+                        >
+                          {IconComponent && <IconComponent className="w-3 h-3" />}
+                          {badge}
+                        </Badge>
+                      );
+                    })}
+                  </div>
                 </div>
 
                 <CardContent className="px-5 pb-5 flex-1 flex flex-col justify-between">
@@ -226,10 +222,7 @@ const Courses = () => {
                         </span>{" "}
                         {isAiDriven
                           ? "Students Enrolled in this AI Driven Course"
-                          : course.students.replace(
-                              course.students.split(" ")[0],
-                              ""
-                            )}
+                          : course.students.replace(course.students.split(" ")[0], "")}
                       </p>
                     </div>
 
@@ -240,111 +233,101 @@ const Courses = () => {
 
                     {/* Badges under Title */}
                     <div className="flex flex-wrap gap-2 mt-3 mb-4">
-  <Badge
-    variant="outline"
-    className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
-  >
-    <Calendar className="w-4 h-4 text-gray-500" /> {course.duration}
-  </Badge>
-  <Badge
-    variant="outline"
-    className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
-  >
-    <Globe className="w-4 h-4 text-gray-500" /> {course.mode}
-  </Badge>
-  <Badge
-    variant="outline"
-    className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
-  >
-    <GraduationCap className="w-4 h-4 text-gray-500" /> {course.certification}
-  </Badge>
-  <Badge
-    variant="outline"
-    className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
-  >
-    <Lightbulb className="w-4 h-4 text-gray-500" /> {course.projects}
-  </Badge>
-  {course.extra && (
-    <Badge
-      variant="outline"
-      className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
-    >
-      <CheckCircle className="w-4 h-4 text-gray-500" /> {course.extra}
-    </Badge>
-  )}
-</div>
-
-
-
-                  {/* Buttons */}
-                  {course.id === "content-strategy-creation" ? (
-                    <div className="pt-4">
-                      <a href="/contact" className="block w-full">
-                        <Button className="w-full bg-[#EA2525] hover:bg-[#c21e1e]">
-                          For Queries - Contact Us
-                        </Button>
-                      </a>
+                      <Badge
+                        variant="outline"
+                        className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
+                      >
+                        <Calendar className="w-4 h-4 text-gray-500" /> {course.duration}
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
+                      >
+                        <Globe className="w-4 h-4 text-gray-500" /> {course.mode}
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
+                      >
+                        <GraduationCap className="w-4 h-4 text-gray-500" /> {course.certification}
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
+                      >
+                        <Lightbulb className="w-4 h-4 text-gray-500" /> {course.projects}
+                      </Badge>
+                      {course.extra && (
+                        <Badge
+                          variant="outline"
+                          className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
+                        >
+                          <CheckCircle className="w-4 h-4 text-gray-500" /> {course.extra}
+                        </Badge>
+                      )}
                     </div>
-                  ) : (
-                    <div className="flex flex-col sm:flex-row justify-between gap-2 pt-4">
-                      {/* Brochure Button */}
-                      {/* <BrochureDialog courseTitle={course.title}>
-                        <Button
-                          variant="outline"
-                          className="flex-1 border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4] flex items-center justify-center gap-2"
-                        >
-                          <FaDownload className="text-sm" />
-                          Course Details
-                        </Button>
-                      </BrochureDialog> */}
 
-
-                      <Link to={`/courses/${course.id}`} className="flex-1">
-                        <Button
-                          variant="outline"
-                          className="w-full border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4] flex items-center justify-center gap-2"
-                        >
-                          Course Details
-                        </Button>
-                      </Link>
-
-
-                    {/* Skills */} <div className="mt-4">
-                       <p className="text-sm font-semibold text-gray-700"> 
-                        Skills you learn:
-                         </p> 
-                         <p className="text-sm text-gray-600">
-                           {course.skills.join(", ")}
-                            </p> 
-                            </div>
-                             </div>
-
-                  {/* Buttons always bottom aligned */}
-                 <div className="mt-6 flex flex-col sm:flex-row gap-2">
-  {course.id === "dipdm" || course.id === "ddm" ? (
-    <Button className="w-full bg-[#EA2525] hover:bg-[#c21e1e]">
-      For Queries - Contact Us
-    </Button>
+                    {/* Buttons */}
+                    {course.id === "content-strategy-creation" ? (
+                      <div className="pt-4">
+                        <a href="/contact" className="block w-full">
+                          <Button className="w-full bg-[#EA2525] hover:bg-[#c21e1e]">
+                            For Queries - Contact Us
+                          </Button>
+                        </a>
+                      </div>
                     ) : (
                       <>
-                        <BrochureDialog courseTitle={course.title}>
-                          <Button
-                            variant="outline"
-                            className="flex-1 border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4] flex items-center justify-center gap-2"
-                          >
-                            <FaDownload className="text-sm" />
-                            Course Details
-                          </Button>
-                        </BrochureDialog>
-                        <EnrollmentDialog courseTitle={course.title}>
-                          <Button className="flex-1 bg-[#EA2525] hover:bg-[#c21e1e] text-white">
-                            Enroll Now
-                          </Button>
-                        </EnrollmentDialog>
+                        {/* <div className="flex flex-col sm:flex-row justify-between gap-2 pt-4">
+                          
+                          <Link to={`/courses/${course.id}`} className="flex-1">
+                            <Button
+                              variant="outline"
+                              className="w-full border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4] flex items-center justify-center gap-2"
+                            >
+                              Course Details
+                            </Button>
+                          </Link>
+                        </div> */}
+
+                        {/* Skills */}
+                        <div className="mt-4">
+                          <p className="text-sm font-semibold text-gray-700">Skills you learn:</p>
+                          <p className="text-sm text-gray-600">
+                            {course.skills.join(", ")}
+                          </p>
+                        </div>
+
+                        {/* Buttons always bottom aligned */}
+                        <div className="mt-6 flex flex-col sm:flex-row gap-2">
+                          {course.id === "dipdm" || course.id === "ddm" ? (
+                            <Button className="w-full bg-[#EA2525] hover:bg-[#c21e1e]">
+                              For Queries - Contact Us
+                            </Button>
+                          ) : (
+                            <>
+                              <BrochureDialog courseTitle={course.title}>
+                                <Button
+                                  variant="outline"
+                                  className="flex-1 border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4] flex items-center justify-center gap-2"
+                                >
+                                  <FaDownload className="text-sm" />
+                                  Course Details
+                                </Button>
+                              </BrochureDialog>
+                              <EnrollmentDialog courseTitle={course.title}>
+                                <Button className="flex-1 bg-[#EA2525] hover:bg-[#c21e1e] text-white">
+                                  Enroll Now
+                                </Button>
+                              </EnrollmentDialog>
+                            </>
+                          )}
+                        </div>
                       </>
                     )}
                   </div>
                 </CardContent>
+
               </Card>
             );
           })}
