@@ -2,7 +2,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-
 const FAQHighlight = () => {
   const faqs = [
     {
@@ -38,7 +37,7 @@ const FAQHighlight = () => {
   ];
 
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="bg-gray-50 py-8">
       <div className="container mx-auto px-4">
         {/* Title */}
         <div className="text-center mb-12">
@@ -50,12 +49,12 @@ const FAQHighlight = () => {
           </p>
         </div>
 
-        {/* Grid with 6 Questions */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-[1350px] mx-auto">
+        {/* Single Column FAQ List */}
+        <div className="space-y-4 max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
             <Accordion
               key={index}
-              type="multiple" // ✅ allows independent expand/collapse
+              type="multiple" // allows independent expand/collapse
               className="w-full"
             >
               <AccordionItem
@@ -72,12 +71,17 @@ const FAQHighlight = () => {
             </Accordion>
           ))}
         </div>
+
+        {/* Button */}
         <div className="flex justify-center mt-10">
-          <Link to = '/faq'><Button className="bg-[#EA2525] hover:bg-red-600 px-8 text-lg font-semibold">View More</Button></Link>  
+          <Link to="/faq">
+            <Button className="bg-[#EA2525] hover:bg-red-600 px-8 text-lg font-semibold">
+              View More
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
   );
 };
-
 export default FAQHighlight;

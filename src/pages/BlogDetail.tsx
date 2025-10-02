@@ -1,4 +1,5 @@
 // src/pages/BlogDetail.tsx
+import Navbar from "@/components/Navbar";
 import { useParams, Link } from "react-router-dom";
 
 const blogDetails: Record<string, { title: string; content: string; image: string }> = {
@@ -92,12 +93,14 @@ const BlogDetail = () => {
   }
 
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4 max-w-4xl">
+    <section className="bg-white">
+      <>
+      <Navbar/>
+      <div className="container mx-auto px-4 py-5 max-w-4xl">
         <img
           src={blog.image}
           alt={blog.title}
-          className="w-full h-80 object-cover rounded-lg mb-6"
+          className="w-full h-80 object-cover mb-6"
         />
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
           {blog.title}
@@ -113,7 +116,9 @@ const BlogDetail = () => {
           </Link>
         </div>
       </div>
+      </>
     </section>
+    
   );
 };
 
