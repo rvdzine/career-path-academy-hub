@@ -6,78 +6,78 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const FAQ = () => {
   const faqs = [
     {
-      question: "What is the Institute of Digital Studies (IDS)?",
-      answer: "IDS is a leading digital marketing academy offering beginner to advanced-level programs with hands-on learning, mentorship, and guaranteed internship support. It is a subsidiary of Cybershield Technologies Pvt. Ltd."
+      question: " What makes iDigitalStudies the best digital marketing institute in Noida?",
+      answer: "iDigitalStudies is known for its industry-relevant curriculum, expert trainers, hands-on experience, and personalized attention. We ensure our students gain practical knowledge that is directly applicable to real-world digital marketing challenges."
     },
     {
-      question: "What courses do you offer?",
-      answer: "We offer a variety of programs:\n\n• Foundation in Digital Marketing (2 months)\n\n• Specialist in Digital Marketing (3 months)\n\n• Master in Digital Marketing (6 months, includes internship)\n\n• Professional & Business Owner Course (customizable, 1-on-1)\n\n• Diploma in Digital Marketing"
+      question: "What is the duration of the Digital Marketing course in Noida at iDigitalStudies?",
+      answer: "The duration of our Digital Marketing course ranges from 3 months for specialized programs to 6 months for comprehensive courses, including internships and practical training."
     },
     {
-      question: "Are your courses available online or offline?",
+      question: "Is there an internship included in the digital marketing course at iDigitalStudies?",
       answer:
-        "Yes! We offer both online (live instructor-led) and offline (in-classroom) sessions depending on your convenience.",
+        "Yes, we offer a 100% Internship as part of our 6-month Digital Marketing course to provide students with hands-on industry experience",
     },
    {
-      question: "Do I get a certificate after course completion?",
+      question: "What topics are covered in the Digital Marketing course in Noida?",
       answer:
-        "Yes, every student receives an industry-recognized certificate from IDS along with guidance to complete certifications from Google, Meta, HubSpot, and more.",
+        "Our Digital Marketing course covers SEO, SEM, Social Media Marketing (SMM), Content Marketing, Google Analytics, PPC, Email Marketing, Affiliate Marketing, and much more.",
     },
     {
-      question: "Is there any internship included in the course?",
+      question: "Are the digital marketing classes in Noida offered by iDigitalStudies suitable for beginners?",
       answer:
-        "Yes. Our Master’s course includes a guaranteed internship. Students from other programs may also apply for internship opportunities via our placement cell.",
+        "Absolutely! Our Digital Marketing courses are designed to cater to both beginners and experienced professionals. We start with foundational concepts and gradually move to advanced strategies.",
     },
     {
-      question: "Do you offer job placement assistance?",
+      question: "Will I get certification after completing the digital marketing course?",
       answer:
-        "Yes. We provide placement support, resume building, interview preparation, and connect students with hiring partners in the digital marketing industry.",
+        "Yes, iDigitalStudies provides a certification upon completion of the course, which is recognized by industry leaders and enhances your credibility as a digital marketing professional.",
     },
     {
-      question: "Is there a trial class available before enrollment?",
+      question: "How do I enroll in the Digital Marketing course at iDigitalStudies in Noida?",
       answer:
-        "Yes, we offer a free demo class so you can experience our teaching style and curriculum before enrolling.",
+        "You can enroll by visiting our website or contacting our admissions team for a free consultation. We'll guide you through the process and help you choose the right course based on your goals.",
     },
     {
-      question: "What is the minimum qualification to join the course?",
+      question: "What is the fee structure for the Digital Marketing course at iDigitalStudies?",
       answer:
-        "A 10+2 pass is the basic requirement. However, our students range from freshers to working professionals, business owners, and freelancers.",
+        "The fee structure depends on the course type and duration. For detailed information, please visit our website or contact our team for the most accurate pricing details.",
     },
     {
-      question: "What is the fee structure? Do you offer EMI options?",
+      question: "Do you offer 1:1 Digital Marketing classes in Noida?",
       answer:
-        "Yes. We have flexible EMI options and installment plans available for all major courses. Please contact our team for customized payment plans.",
+        "Yes, iDigitalStudies offers 1:1 Digital Marketing coaching for business owners and professionals who need personalized attention and tailored strategies to grow their businesses online.",
     },
     {
-      question: "What is your refund & cancellation policy?",
+      question: "Can I attend digital marketing classes online if I am unable to join the Noida campus?",
       answer:
-        "We have a transparent refund policy based on course stage and attendance. Please click here to read our full Refund & Cancellation Policy.",
+        "Yes, we offer online digital marketing classes for students across the globe. Our virtual classes provide the same level of training, resources, and support as in-person classes in Noida.",
     },
-    {
-      question: "Do you provide recorded sessions?",
-      answer:
-        "Yes, every session is recorded and made available to students for future reference.",
-    },
-    {
-      question: "Will I get support if I miss a class?",
-      answer:
-        "Absolutely. You can attend a repeat session in another batch or watch the recorded session anytime.",
-    },
-    {
-      question: "How can I enroll in a course?",
-      answer:
-        "You can enroll directly through our website, visit our center, or speak to our admissions team at 📞 9315471293 or 📧 info@idigitalstudies.com.",
-    },
-    {
-      question: "Can I customize a course as per my learning goals?",
-      answer:
-        "Yes. Our Professional & Business Owner course is fully customizable and designed as a 1-to-1 learning plan.",
-    },
-    {
-      question: "Do you provide real-time project exposure?",
-      answer:
-        "Yes. Every course involves live projects, case studies, and practical tools to ensure hands-on learning.",
-    },
+    // {
+    //   question: "Do you provide recorded sessions?",
+    //   answer:
+    //     "Yes, every session is recorded and made available to students for future reference.",
+    // },
+    // {
+    //   question: "Will I get support if I miss a class?",
+    //   answer:
+    //     "Absolutely. You can attend a repeat session in another batch or watch the recorded session anytime.",
+    // },
+    // {
+    //   question: "How can I enroll in a course?",
+    //   answer:
+    //     "You can enroll directly through our website, visit our center, or speak to our admissions team at 📞 9315471293 or 📧 info@idigitalstudies.com.",
+    // },
+    // {
+    //   question: "Can I customize a course as per my learning goals?",
+    //   answer:
+    //     "Yes. Our Professional & Business Owner course is fully customizable and designed as a 1-to-1 learning plan.",
+    // },
+    // {
+    //   question: "Do you provide real-time project exposure?",
+    //   answer:
+    //     "Yes. Every course involves live projects, case studies, and practical tools to ensure hands-on learning.",
+    // },
   ];
 
   return (

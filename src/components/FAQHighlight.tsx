@@ -1,58 +1,60 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const FAQHighlight = () => {
   const faqs = [
     {
-      question: "What is the Institute of Digital Studies (IDS)?",
+      question: "What makes iDigitalStudies the best digital marketing institute in Noida?",
       answer:
-        "IDS is a leading digital marketing academy offering beginner to advanced-level programs with hands-on learning, mentorship, and guaranteed internship support.",
+        "iDigitalStudies is known for its industry-relevant curriculum, expert trainers, hands-on experience, and personalized attention. We ensure our students gain practical knowledge that is directly applicable to real-world digital marketing challenges.",
     },
     {
-      question: "Are your courses available online or offline?",
+      question: "What is the duration of the Digital Marketing course in Noida at iDigitalStudies?",
       answer:
-        "Yes! We offer both online (live instructor-led) and offline (in-classroom) sessions depending on your convenience.",
+        "The duration of our Digital Marketing course ranges from 3 months for specialized programs to 6 months for comprehensive courses, including internships and practical training.",
     },
     {
-      question: "Do you provide job placement assistance?",
+      question: "Is there an internship included in the digital marketing course at iDigitalStudies?",
       answer:
-        "Yes. We provide placement support, resume building, interview preparation, and connect students with hiring partners.",
+        "Yes, we offer a 100% Internship as part of our 6-month Digital Marketing course to provide students with hands-on industry experience.",
     },
     {
-      question: "Do I get a certificate after course completion?",
+      question: "What topics are covered in the Digital Marketing course in Noida?",
       answer:
-        "Yes, every student receives an industry-recognized certificate from IDS along with guidance to complete certifications from Google, Meta, and HubSpot.",
+        "Our Digital Marketing course covers SEO, SEM, Social Media Marketing (SMM), Content Marketing, Google Analytics, PPC, Email Marketing, Affiliate Marketing, and much more.",
     },
     {
-      question: "Is there an internship included in the course?",
+      question: "Are the digital marketing classes in Noida offered by iDigitalStudies suitable for beginners?",
       answer:
-        "Yes. Our Master’s course includes a guaranteed internship. Students from other programs may also apply via our placement cell.",
+        "Absolutely! Our Digital Marketing courses are designed to cater to both beginners and experienced professionals. We start with foundational concepts and gradually move to advanced strategies.",
     },
     {
-      question: "Is there a trial/demo class before enrollment?",
+      question: "Will I get certification after completing the digital marketing course?",
       answer:
-        "Yes, we offer a free demo class so you can experience our teaching style and curriculum before enrolling.",
+        "Yes, iDigitalStudies provides a certification upon completion of the course, which is recognized by industry leaders and enhances your credibility as a digital marketing professional.",
     },
   ];
 
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="bg-gray-50 py-8">
       <div className="container mx-auto px-4">
         {/* Title */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Most Asked Questions
+            Frequently Asked Questions
           </h2>
           <p className="text-lg text-gray-600">
             Quick answers to what students usually ask
           </p>
         </div>
 
-        {/* Grid with 6 Questions */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-[1350px] mx-auto">
+        {/* Single Column FAQ List */}
+        <div className="space-y-4 max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
             <Accordion
               key={index}
-              type="multiple" // ✅ allows independent expand/collapse
+              type="multiple" // allows independent expand/collapse
               className="w-full"
             >
               <AccordionItem
@@ -69,9 +71,17 @@ const FAQHighlight = () => {
             </Accordion>
           ))}
         </div>
+
+        {/* Button */}
+        <div className="flex justify-center mt-10">
+          <Link to="/faq">
+            <Button className="bg-[#EA2525] hover:bg-red-600 px-8 text-lg font-semibold">
+              View More
+            </Button>
+          </Link>
+        </div>
       </div>
     </section>
   );
 };
-
 export default FAQHighlight;

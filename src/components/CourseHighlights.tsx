@@ -113,7 +113,7 @@ const CourseHighlights = () => {
         {/* Heading */}
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl font-bold mb-4 text-[#EA2525]">
-            Featured Courses
+          Explore our Digital Marketing Courses
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Industry-designed curriculum with hands-on projects and real-world
@@ -124,6 +124,7 @@ const CourseHighlights = () => {
             Our courses start at ₹10,000 and go up to ₹1.5 Lacs depending on
             client requirements.
           </i>
+          {/* <b><i>Note: </i></b> <i>Our courses starts at price 10k and it goes upto 1.5 Lacs as per the clients requirements.</i> */}
         </div>
 
         {/* Grid */}

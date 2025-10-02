@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EnrollmentDialog from "@/components/EnrollmentDialog";
+
 import BrochureDialog from "./BrochureDialog";
 import { FaDownload } from "react-icons/fa";
 import {
@@ -19,12 +20,15 @@ import {
   Users,
 } from "lucide-react";
 
+
 import FDM1 from "../components/assets/FDM1.png";
 import SDM2 from "../components/assets/SDM2.png";
 import MDM3 from "../components/assets/MDM3.png";
 import BODM4 from "../components/assets/BODM4.png";
 import DDM5 from "../components/assets/DDM5.png";
 import DIPDM6 from "../components/assets/DIPDM6.png";
+
+import { Link } from "react-router-dom"
 
 const Courses = () => {
   const courses = [
@@ -270,6 +274,39 @@ const Courses = () => {
   )}
 </div>
 
+
+
+                  {/* Buttons */}
+                  {course.id === "content-strategy-creation" ? (
+                    <div className="pt-4">
+                      <a href="/contact" className="block w-full">
+                        <Button className="w-full bg-[#EA2525] hover:bg-[#c21e1e]">
+                          For Queries - Contact Us
+                        </Button>
+                      </a>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col sm:flex-row justify-between gap-2 pt-4">
+                      {/* Brochure Button */}
+                      {/* <BrochureDialog courseTitle={course.title}>
+                        <Button
+                          variant="outline"
+                          className="flex-1 border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4] flex items-center justify-center gap-2"
+                        >
+                          <FaDownload className="text-sm" />
+                          Course Details
+                        </Button>
+                      </BrochureDialog> */}
+
+
+                      <Link to={`/courses/${course.id}`} className="flex-1">
+                        <Button
+                          variant="outline"
+                          className="w-full border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4] flex items-center justify-center gap-2"
+                        >
+                          Course Details
+                        </Button>
+                      </Link>
 
 
                     {/* Skills */} <div className="mt-4">

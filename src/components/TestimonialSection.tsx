@@ -12,58 +12,58 @@ import priya from "../components/assets/Priya.jpg";
 const testimonials = [
   {
     name: "Shweta Verma",
-    role: "Digital Marketing Manager",
-    company: "TechCorp India",
+    role: "SEO Analyst",
+    company: " TechMinds Solutions",
     image: shweta,
     testimonial:
-      "The SEO course transformed my career completely. Within 6 months of completion, I landed my dream job with a 150% salary increase!",
+      "Joining iDigital Studies was the best decision for my career. The trainers didn't just teach theory; they made us work on live client projects. I had 3 interviews within a month of completing the course and got placed as an SEO Analyst with a great package. The placement team guided me through every step. Highly recommended!",
     course: "SEO Mastery",
   },
-  {
-    name: "Rahul Patel",
-    role: "Social Media Specialist",
-    company: "Creative Agency",
-    image: kumar,
-    testimonial:
-      "Amazing hands-on training with real projects. The placement support team helped me get interviews with top companies.",
-    course: "Social Media Pro",
-  },
+  // {
+  //   name: "Rahul Patel",
+  //   role: "Social Media Specialist",
+  //   company: "Creative Agency",
+  //   image: kumar,
+  //   testimonial:
+  //     "Amazing hands-on training with real projects. The placement support team helped me get interviews with top companies.",
+  //   course: "Social Media Pro",
+  // },
   {
     name: "Aleem Khan",
     role: "PPC Specialist",
-    company: "Digital Solutions Ltd",
+    company: "E-Commerce Hub",
     image: aleem,
     testimonial:
-      "From zero knowledge to managing ₹50L+ ad budgets. The practical approach and mentor support made all the difference.",
+      "The in-depth training on Google Ads and analytics was incredible. We managed real ad budgets and learned to optimize for ROI. This practical experience was exactly what employers wanted. I'm now a PPC specialist, all thanks to the expert guidance and strong placement support from iDigital Studies.",
     course: "Google Ads Expert",
   },
   {
     name: "Isha Verma",
-    role: "Content Strategist",
-    company: "GrowthHackers",
+    role: "Social Media Executive,",
+    company: "BrandWave Media",
     image: Isha,
     testimonial:
-      "This course gave me the confidence to switch careers. Loved the mentors and peer learning community!",
+      "As a complete beginner, I was nervous, but the faculty at iDigital Studies made everything so clear. The practical assignments on real brands built my confidence. Thanks to their dedicated placement cell, I landed my dream job in social media just weeks after my final exam. Thank you!",
     course: "Content Marketing Bootcamp",
   },
-  {
-    name: "Priya Kumari",
-    role: "Email Marketing Specialist",
-    company: "MailerX",
-    image: priya,
-    testimonial:
-      "I can now build high-converting campaigns and track ROI. Got promoted within 3 months!",
-    course: "Email Marketing Pro",
-  },
-  {
-    name: "Loveleen Sharma",
-    role: "SEO Analyst",
-    company: "Brandify",
-    image: loveleen,
-    testimonial:
-      "The case studies and projects were game changers. I got real-world exposure before even joining a company.",
-    course: "Advanced SEO",
-  },
+  // {
+  //   name: "Priya Kumari",
+  //   role: "Email Marketing Specialist",
+  //   company: "MailerX",
+  //   image: priya,
+  //   testimonial:
+  //     "I can now build high-converting campaigns and track ROI. Got promoted within 3 months!",
+  //   course: "Email Marketing Pro",
+  // },
+  // {
+  //   name: "Loveleen Sharma",
+  //   role: "SEO Analyst",
+  //   company: "Brandify",
+  //   image: loveleen,
+  //   testimonial:
+  //     "The case studies and projects were game changers. I got real-world exposure before even joining a company.",
+  //   course: "Advanced SEO",
+  // },
 ];
 
 const TestimonialSection = () => {
@@ -110,7 +110,8 @@ const TestimonialSection = () => {
       <div className="mx-auto px-4 max-w-[1300px]">
         {/* Heading */}
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#EA2525] to-[#ff4d4d] bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold mb-4">Why iDigitalStudies is every student's choice for Digital Marketing?</h1>
+          <h2 className="text-4xl mt-24 font-bold mb-4 bg-gradient-to-r from-[#EA2525] to-[#ff4d4d] bg-clip-text text-transparent">
             Success Stories
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
