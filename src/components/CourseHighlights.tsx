@@ -1,22 +1,22 @@
 import {
   Card,
   CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import EnrollmentDialog from "@/components/EnrollmentDialog";
+import BrochureDialog from "../pages/BrochureDialog";
+import { FaDownload } from "react-icons/fa";
 import {
   Calendar,
-  Users,
   Globe,
   Lightbulb,
   Cpu,
   Languages,
+  GraduationCap,
+  CheckCircle,
 } from "lucide-react";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 import FDM1 from "../components/assets/FDM1.png";
 import SDM2 from "../components/assets/SDM2.png";
@@ -28,82 +28,119 @@ import DIPDM6 from "../components/assets/DIPDM6.png";
 const CourseHighlights = () => {
   const courses = [
     {
-      id: "fdm",
-      title: "Foundation in Digital Marketing",
-      description:
-        "Build a strong base in digital marketing fundamentals. Learn SEO, Social Media, and Content Marketing to kickstart your career.",
-      duration: "2 Months",
-      students: "1,200+",
-      level: "Online / Offline",
-      projects: "5 Projects",
-      image: FDM1,
-      ai: true,
-      bilingual: true,
+      id: "mdm",
+      title: "Master in Digital Marketing (With Guaranteed Internship)",
+      duration: "6 Months",
+      students: "2500+ Students Enrolled",
+      mode: "Online / Offline",
+      certification: "Certification",
+      projects: "10+ Live Projects",
+      extra: "Internship",
+      skills: [
+        "SEO",
+        "Digital Marketing",
+        "AI in Marketing",
+        "Social Media Marketing",
+        "Content Strategy",
+        "Analytics",
+      ],
+      image: MDM3,
+      badges: ["AI Driven", "Hinglish"],
     },
     {
       id: "sdm",
       title: "Specialist in Digital Marketing",
-      description:
-        "Become a digital marketing specialist with advanced strategies including PPC, Social Media Ads, and Analytics.",
       duration: "3 Months",
-      students: "1000+",
-      level: "Online / Offline",
-      projects: "4 Projects",
+      students: "1500+ Students Enrolled",
+      mode: "Online / Offline",
+      certification: "Certification",
+      projects: "5 Live Projects",
+      skills: [
+        "SEO",
+        "Digital Marketing",
+        "AI in Marketing",
+        "Social Media Marketing",
+        "Content Strategy",
+        "Analytics",
+      ],
       image: SDM2,
-      ai: true,
-      bilingual: true,
-    },
-    {
-      id: "mdm",
-      title: "Master in Digital Marketing (With Internship)",
-      description:
-        "Comprehensive program covering all digital marketing verticals with practical projects and guaranteed internship.",
-      duration: "6 Months",
-      students: "300+",
-      level: "Online / Offline",
-      projects: "6 Projects",
-      image: MDM3,
-      ai: true,
-      bilingual: true,
+      badges: ["Hinglish"],
     },
     {
       id: "bodm",
-      title: "Business Owner Course (1:1 Learning)",
-      description:
-        "Exclusive personalised training for professionals and business owners with one-on-one mentorship.",
-      duration: "Customisable",
-      students: "300+",
-      level: "Online",
-      projects: "3 Projects",
+      title: "Professional & Business Owner Course (1:1 Learning)",
+      duration: "Customised Timeline",
+      students: "200+ Students Enrolled",
+      mode: "Online",
+      certification: "Certification",
+      projects: "10+ Live Projects",
+      skills: [
+        "SEO",
+        "Digital Marketing",
+        "AI in Marketing",
+        "Social Media Marketing",
+        "Content Strategy",
+        "Analytics",
+      ],
       image: BODM4,
-      ai: false,
-      bilingual: true,
+      badges: ["AI Driven", "Hinglish/English"],
+    },
+    {
+      id: "fdm",
+      title: "Foundation in Digital Marketing",
+      duration: "2 Months",
+      students: "500+ Students Enrolled",
+      mode: "Online / Offline",
+      certification: "Certification",
+      projects: "2 Live Projects",
+      skills: [
+        "SEO",
+        "Digital Marketing",
+        "AI in Marketing",
+        "Social Media Marketing",
+        "Content Strategy",
+        "Analytics",
+      ],
+      image: FDM1,
+      badges: ["Hinglish"],
+    },
+    {
+      id: "dipdm",
+      title: "Customised Course in Digital Marketing",
+      duration: "Customised Timeline",
+      students: "500+ Students Enrolled",
+      mode: "Online / Offline",
+      certification: "Certification",
+      projects: "2+ Live Projects",
+      skills: [
+        "SEO",
+        "Digital Marketing",
+        "AI in Marketing",
+        "Social Media Marketing",
+        "Content Strategy",
+        "Analytics",
+      ],
+      image: DIPDM6,
+      badges: ["AI Driven", "Hinglish/English"],
     },
     {
       id: "ddm",
       title: "Degree in Digital Marketing",
-      description:
-        "3-year comprehensive program for in-depth mastery of digital marketing with placement support.",
-      duration: "36 Months",
-      students: "250+",
-      level: "Offline-Regular",
-      projects: "4 Projects",
+      duration: "3 Years",
+      students: "250+ Students Enrolled",
+      mode: "Offline",
+      certification: "Degree + Certification",
+      projects: "Live Projects",
+      skills: [
+        "SEO",
+        "Digital Marketing",
+        "AI in Marketing",
+        "Social Media Marketing",
+        "Content Strategy",
+        "Analytics",
+      ],
       image: DDM5,
-      ai: true,
-      bilingual: false,
-    },
-    {
-      id: "dipdm",
-      title: "Diploma in Digital Marketing",
-      description:
-        "Extensive diploma program with certifications, practical projects, and live assignments.",
-      duration: "Customisable",
-      students: "500+",
-      level: "Online / Offline",
-      projects: "5 Projects",
-      image: DIPDM6,
-      ai: true,
-      bilingual: true,
+      badges: ["AI Driven", "Hinglish/English"],
     },
   ];
 
@@ -113,108 +150,181 @@ const CourseHighlights = () => {
         {/* Heading */}
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl font-bold mb-4 text-[#EA2525]">
-          Explore our Digital Marketing Courses
+            Explore our Digital Marketing Courses
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Industry-designed curriculum with hands-on projects and real-world
             applications
           </p>
-          <b><i>Note:</i></b>{" "}
-          <i>
-            Our courses start at ₹10,000 and go up to ₹1.5 Lacs depending on
-            client requirements.
-          </i>
-          {/* <b><i>Note: </i></b> <i>Our courses starts at price 10k and it goes upto 1.5 Lacs as per the clients requirements.</i> */}
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {courses.map((course, index) => (
-            <Link to="/courses" key={index} className="group">
-              <Card className="flex flex-col border rounded-xl shadow-md hover:shadow-lg transition duration-300 overflow-hidden h-full">
-                
-                {/* Image */}
-                <div className="relative overflow-hidden">
-                  <AspectRatio ratio={16 / 8} className="w-full">
-                    <img
-                      src={course.image}
-                      alt={course.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </AspectRatio>
+        <div className="container mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {courses.map((course) => {
+            const isAiDriven = course.badges.includes("AI Driven");
+            return (
+              <Card
+                key={course.id}
+                className="flex flex-col border rounded-xl shadow-md hover:shadow-lg transition duration-300 overflow-hidden min-h-[540px]"
+              >
+                {/* Image with badges */}
+                <div className="relative h-[220px] overflow-hidden">
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-full object-cover "
+                  />
 
-                  {/* Top Highlight Badges */}
-                  <div className="absolute top-3 left-3 flex gap-2">
-                    {course.ai && (
-                      <Badge className="bg-[#EA2525] text-white flex items-center gap-1 text-xs px-2 py-1 rounded-md shadow">
-                        <Cpu className="w-3 h-3" /> AI Driven
-                      </Badge>
-                    )}
-                    {course.bilingual && (
-                      <Badge className="bg-black text-white flex items-center gap-1 text-xs px-2 py-1 rounded-md shadow">
-                        <Languages className="w-3 h-3" /> Hindi / English
-                      </Badge>
-                    )}
+                  {/* Badges Overlay (top-right) */}
+                  <div className="absolute top-2 right-2 flex flex-wrap gap-2">
+                    {course.badges.map((badge, idx) => {
+                      let IconComponent = null;
+
+                      if (badge === "AI Driven") IconComponent = Cpu;
+                      else if (badge === "Hinglish") IconComponent = Languages;
+                      else if (badge === "Hinglish/English")
+                        IconComponent = Globe;
+
+                      return (
+                        <Badge
+                          key={idx}
+                          className={`flex items-center gap-2 px-2 py-1 text-sm rounded-full ${
+                            badge === "AI Driven"
+                              ? "bg-gradient-to-r from-[#0061FF] to-[#60EFFF] text-white"
+                              : "bg-white text-gray-800 border border-gray-300"
+                          }`}
+                        >
+                          {IconComponent && (
+                            <IconComponent className="w-3 h-3" />
+                          )}
+                          {badge}
+                        </Badge>
+                      );
+                    })}
                   </div>
                 </div>
 
-                {/* Content */}
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-[#EA2525] transition-colors duration-300">
-                    {course.title}
-                  </CardTitle>
-                  <CardDescription className="text-sm text-gray-600">
-                    {course.description}
-                  </CardDescription>
-                </CardHeader>
+                <CardContent className="px-5 pb-5 flex-1 flex flex-col justify-between">
+                  <div className="flex-1">
+                    {/* Students Enrolled */}
+                    <div className="flex items-center gap-2 mt-3 mb-3">
+                      <div className="flex -space-x-3">
+                        <img
+                          src="https://i.pravatar.cc/40?img=1"
+                          className="w-8 h-8 rounded-full border-2 border-white"
+                        />
+                        <img
+                          src="https://i.pravatar.cc/40?img=2"
+                          className="w-8 h-8 rounded-full border-2 border-white"
+                        />
+                        <img
+                          src="https://i.pravatar.cc/40?img=3"
+                          className="w-8 h-8 rounded-full border-2 border-white"
+                        />
+                      </div>
+                      <p className="text-xs text-gray-500">
+                        <span className="text-base font-bold text-gray-900">
+                          {course.students.split(" ")[0]}
+                        </span>{" "}
+                        {isAiDriven
+                          ? "Students Enrolled in this AI Driven Course"
+                          : course.students.replace(
+                              course.students.split(" ")[0],
+                              ""
+                            )}
+                      </p>
+                    </div>
 
-                <CardContent className="flex-1 flex flex-col justify-between">
-                  {/* Info Badges */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <Badge
-                      variant="outline"
-                      className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
-                    >
-                      <Calendar className="w-3 h-3 text-gray-500" />{" "}
-                      {course.duration}
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
-                    >
-                      <Users className="w-3 h-3 text-gray-500" />{" "}
-                      {course.students}
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
-                    >
-                      <Globe className="w-3 h-3 text-gray-500" />{" "}
-                      {course.level}
-                    </Badge>
-                    <Badge
-                      variant="outline"
-                      className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
-                    >
-                      <Lightbulb className="w-3 h-3 text-gray-500" />{" "}
-                      {course.projects}
-                    </Badge>
+                    {/* Title */}
+                    <h2 className="text-xl font-bold text-gray-800 mt-1">
+                      {course.title}
+                    </h2>
+
+                    {/* Info Badges under Title */}
+                    <div className="flex flex-wrap gap-2 mt-3 mb-4">
+                      <Badge
+                        variant="outline"
+                        className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
+                      >
+                        <Calendar className="w-4 h-4 text-gray-500" />{" "}
+                        {course.duration}
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
+                      >
+                        <Globe className="w-4 h-4 text-gray-500" />{" "}
+                        {course.mode}
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
+                      >
+                        <GraduationCap className="w-4 h-4 text-gray-500" />{" "}
+                        {course.certification}
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
+                      >
+                        <Lightbulb className="w-4 h-4 text-gray-500" />{" "}
+                        {course.projects}
+                      </Badge>
+                      {course.extra && (
+                        <Badge
+                          variant="outline"
+                          className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
+                        >
+                          <CheckCircle className="w-4 h-4 text-gray-500" />{" "}
+                          {course.extra}
+                        </Badge>
+                      )}
+                    </div>
+
+                    {/* Skills */}
+                    <div className="mt-4">
+                      <p className="text-sm font-semibold text-gray-700">
+                        Skills you learn:
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        {course.skills.join(", ")}
+                      </p>
+                    </div>
                   </div>
 
-                  {/* CTA */}
-                  <div className="mt-auto">
-                    <Button className="w-full bg-[#EA2525] hover:bg-[#c21e1e] text-white">
-                      View Details
-                    </Button>
+                  {/* Buttons always bottom aligned */}
+                  <div className="mt-6 flex flex-col sm:flex-row gap-2">
+                    {course.id === "dipdm" || course.id === "ddm" ? (
+                      <Button className="w-full bg-[#EA2525] hover:bg-[#c21e1e]">
+                        For Queries - Contact Us
+                      </Button>
+                    ) : (
+                      <>
+                        <BrochureDialog courseTitle={course.title}>
+                          <Button
+                            variant="outline"
+                            className="flex-1 border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4] flex items-center justify-center gap-2"
+                          >
+                            <FaDownload className="text-sm" />
+                            Course Details
+                          </Button>
+                        </BrochureDialog>
+                        <EnrollmentDialog courseTitle={course.title}>
+                          <Button className="flex-1 bg-[#EA2525] hover:bg-[#c21e1e] text-white">
+                            Enroll Now
+                          </Button>
+                        </EnrollmentDialog>
+                      </>
+                    )}
                   </div>
                 </CardContent>
               </Card>
-            </Link>
-          ))}
+            );
+          })}
         </div>
 
         {/* View All */}
-        <div className="text-center animate-fade-in-up [animation-delay:0.6s]">
+        <div className="text-center animate-fade-in-up [animation-delay:0.6s] mt-12">
           <Button
             size="lg"
             className="bg-[#EA2525] transition-all duration-300 hover:scale-105 hover:shadow-lg"
