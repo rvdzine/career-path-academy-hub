@@ -27,6 +27,7 @@ import BrochureDialog from "./pages/BrochureDialog";
 import Ss from "./components/SS";
 import CompanyCard from "./components/CompanyCards";
 import UseScrollToTop from "./components/ScrollToTop"
+import CourseDetailsLanding from "./pages/coursedetailslanding";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +56,7 @@ const App = () => (
           <Route path="/refund" element={<RefundPolicy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/ids" element={<IDS />} />
+          <Route path="/coursedetails" element={<CourseDetailsLanding/>}/>
         
           <Route path="/internship-form" element={<InternshipForm />} />
           <Route path="/SS" element={<Ss/>}/>

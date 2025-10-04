@@ -85,63 +85,7 @@ const CourseHighlights = () => {
       image: BODM4,
       badges: ["AI Driven", "Hinglish/English"],
     },
-    {
-      id: "fdm",
-      title: "Foundation in Digital Marketing",
-      duration: "2 Months",
-      students: "500+ Students Enrolled",
-      mode: "Online / Offline",
-      certification: "Certification",
-      projects: "2 Live Projects",
-      skills: [
-        "SEO",
-        "Digital Marketing",
-        "AI in Marketing",
-        "Social Media Marketing",
-        "Content Strategy",
-        "Analytics",
-      ],
-      image: FDM1,
-      badges: ["Hinglish"],
-    },
-    {
-      id: "dipdm",
-      title: "Customised Course in Digital Marketing",
-      duration: "Customised Timeline",
-      students: "500+ Students Enrolled",
-      mode: "Online / Offline",
-      certification: "Certification",
-      projects: "2+ Live Projects",
-      skills: [
-        "SEO",
-        "Digital Marketing",
-        "AI in Marketing",
-        "Social Media Marketing",
-        "Content Strategy",
-        "Analytics",
-      ],
-      image: DIPDM6,
-      badges: ["AI Driven", "Hinglish/English"],
-    },
-    {
-      id: "ddm",
-      title: "Degree in Digital Marketing",
-      duration: "3 Years",
-      students: "250+ Students Enrolled",
-      mode: "Offline",
-      certification: "Degree + Certification",
-      projects: "Live Projects",
-      skills: [
-        "SEO",
-        "Digital Marketing",
-        "AI in Marketing",
-        "Social Media Marketing",
-        "Content Strategy",
-        "Analytics",
-      ],
-      image: DDM5,
-      badges: ["AI Driven", "Hinglish/English"],
-    },
+    
   ];
 
   return (
@@ -149,7 +93,7 @@ const CourseHighlights = () => {
       <div className="container mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl font-bold mb-4 text-[#EA2525]">
+          <h2 className="text-4xl font-bold mb-4 text-[#00000]">
             Explore our Digital Marketing Courses
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
