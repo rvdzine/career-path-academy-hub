@@ -258,7 +258,7 @@ const PlacedStudentsCarousel = () => {
         </div>
         </div>
          {/* Stats Section */}
-      <div className="bg-[#EA2525] mt-16 py-12 px-4">
+      <div className="bg-gradient-to-r from-[#c81e1e] to-[#520505] mt-16 py-12 px-4">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
           <div>
             <h3 className="text-5xl font-bold mb-2">2400</h3>
