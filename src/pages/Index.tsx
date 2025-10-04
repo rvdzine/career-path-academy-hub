@@ -20,10 +20,11 @@ const Index = () => {
       <CtaDigitalMarketing />
       <OfflineSection />
       <CertificationSection />
-      <FAQHighlight/>
+      
       <StatsSection />
       <TestimonialSection />
       <Blogs />
+      <FAQHighlight/>
       <Footer />
       <Chatbot />
     </div>

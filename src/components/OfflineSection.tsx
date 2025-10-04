@@ -99,6 +99,38 @@ const OfflineSection = () => {
   </Button>
 </div>
 
+
+  </div>
+  
+</div>
+{/* Gallery Section */}
+<div className="max-w-[1350px] mx-auto mt-16 px-6">
+  <h3 className="text-2xl text-left font-bold text-center text-[#121212] mb-8">
+    Glimpse of Our Offline Center
+  </h3>
+
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+    {[
+      "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016155/offline1.png",
+      "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016156/offline2.png",
+      "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016157/offline3.png",
+      "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016158/offline4.png",
+      "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016159/offline5.png",
+      "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016160/offline6.png",
+      "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016161/offline7.png",
+      "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016162/offline8.png",
+    ].map((img, index) => (
+      <div
+        key={index}
+        className="relative aspect-square overflow-hidden rounded-xl shadow-md group"
+      >
+        <img
+          src={img}
+          alt={`Gallery Image ${index + 1}`}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+      </div>
+    ))}
   </div>
 </div>
 
