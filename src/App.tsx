@@ -28,6 +28,7 @@ import Ss from "./components/SS";
 import CompanyCard from "./components/CompanyCards";
 import UseScrollToTop from "./components/ScrollToTop"
 import CourseDetailsLanding from "./pages/coursedetailslanding";
+import WhyIDS from "./components/whyids";
 
 const queryClient = new QueryClient();
 

@@ -10,6 +10,7 @@ import OfflineSection from "@/components/OfflineSection";
 import Chatbot from "@/components/Chatbot";
 import FAQHighlight from "@/components/FAQHighlight";
 import Blogs from "@/components/BlogIndex"
+// import WhyIDS from "@/components/whyids";
 
 const Index = () => {
   return (
@@ -20,9 +21,10 @@ const Index = () => {
       <CtaDigitalMarketing />
       <OfflineSection />
       <CertificationSection />
+      {/* <WhyIDS/> added in certificationsection */}
       
-      <StatsSection />
-      <TestimonialSection />
+      {/* <StatsSection /> */}
+      {/* <TestimonialSection /> */}
       <Blogs />
       <FAQHighlight/>
       <Footer />

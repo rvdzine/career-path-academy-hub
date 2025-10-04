@@ -4,6 +4,7 @@ import MSMELogo from "./assets/MSME_logo.jpg";
 import NSDCLogo from "./assets/logo_nsdc.svg";
 import SkillsNSDC from "./assets/skills_nsdc.svg";
 import { Award, Shield, CheckCircle, Star } from "lucide-react";
+import WhyIDS from "./whyids";
 
 const CertificationSection = () => {
   const certifications = [
@@ -34,10 +35,12 @@ const CertificationSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <>
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-4 text-black">
+
             Government Recognized Certifications
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -123,7 +126,9 @@ const CertificationSection = () => {
           </div> */}
         </div>
       </div>
+      <WhyIDS/>
     </section>
+    </>
   );
 };
 
