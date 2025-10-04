@@ -42,7 +42,11 @@ const CourseHighlights = () => {
         "AI in Marketing",
         "Social Media Marketing",
         "Content Strategy",
-        "Analytics",
+        " Analytical & Technical Skills",
+         "Paid Advertising (PPC)", 
+         "Content & Creative Skills",
+         "Growth & Strategy",
+         "E-commerce & Specialised",
       ],
       image: MDM3,
       badges: ["AI Driven", "Hinglish"],
@@ -61,7 +65,11 @@ const CourseHighlights = () => {
         "AI in Marketing",
         "Social Media Marketing",
         "Content Strategy",
-        "Analytics",
+        " Analytical & Technical Skills",
+         "Paid Advertising (PPC)", 
+         "Content & Creative Skills",
+         "Growth & Strategy",
+         "E-commerce & Specialised",
       ],
       image: SDM2,
       badges: ["Hinglish"],
@@ -74,18 +82,90 @@ const CourseHighlights = () => {
       mode: "Online",
       certification: "Certification",
       projects: "10+ Live Projects",
+     skills: [
+        "SEO",
+        "Digital Marketing",
+        "AI in Marketing",
+        "Social Media Marketing",
+        "Content Strategy",
+        " Analytical & Technical Skills",
+         "Paid Advertising (PPC)", 
+         "Content & Creative Skills",
+         "Growth & Strategy",
+         "E-commerce & Specialised",
+      ],
+      image: BODM4,
+      badges: ["AI Driven", "Hinglish/English"],
+    },
+    {
+      id: "fdm",
+      title: "Foundation in Digital Marketing",
+      duration: "2 Months",
+      students: "500+ Students Enrolled",
+      mode: "Online / Offline",
+      certification: "Certification",
+      projects: "2 Live Projects",
       skills: [
         "SEO",
         "Digital Marketing",
         "AI in Marketing",
         "Social Media Marketing",
         "Content Strategy",
-        "Analytics",
+        " Analytical & Technical Skills",
+         "Paid Advertising (PPC)", 
+         "Content & Creative Skills",
+         "Growth & Strategy",
+         "E-commerce & Specialised",
       ],
-      image: BODM4,
+      image: FDM1,
+      badges: ["Hinglish"],
+    },
+    {
+      id: "dipdm",
+      title: "Customised Course in Digital Marketing",
+      duration: "Customised Timeline",
+      students: "500+ Students Enrolled",
+      mode: "Online / Offline",
+      certification: "Certification",
+      projects: "2+ Live Projects",
+     skills: [
+        "SEO",
+        "Digital Marketing",
+        "AI in Marketing",
+        "Social Media Marketing",
+        "Content Strategy",
+        " Analytical & Technical Skills",
+         "Paid Advertising (PPC)", 
+         "Content & Creative Skills",
+         "Growth & Strategy",
+         "E-commerce & Specialised",
+      ],
+      image: DIPDM6,
       badges: ["AI Driven", "Hinglish/English"],
     },
-    
+    {
+      id: "ddm",
+      title: "Degree in Digital Marketing",
+      duration: "3 Years",
+      students: "250+ Students Enrolled",
+      mode: "Offline",
+      certification: "Degree + Certification",
+      projects: "Live Projects",
+      skills: [
+        "SEO",
+        "Digital Marketing",
+        "AI in Marketing",
+        "Social Media Marketing",
+        "Content Strategy",
+        " Analytical & Technical Skills",
+         "Paid Advertising (PPC)", 
+         "Content & Creative Skills",
+         "Growth & Strategy",
+         "E-commerce & Specialised",
+      ],
+      image: DDM5,
+      badges: ["AI Driven", "Hinglish/English"],
+    },
   ];
 
   return (
@@ -239,7 +319,7 @@ const CourseHighlights = () => {
                   {/* Buttons always bottom aligned */}
                   <div className="mt-6 flex flex-col sm:flex-row gap-2">
                     {course.id === "dipdm" || course.id === "ddm" ? (
-                      <Button className="w-full bg-[#EA2525] hover:bg-[#c21e1e]">
+                      <Button className="w-full border border-[#EA2525] bg-[#fff] text-[#EA2525] hover:bg-[#c21e1e] hover:text-[#fff]">
                         For Queries - Contact Us
                       </Button>
                     ) : (
@@ -268,7 +348,7 @@ const CourseHighlights = () => {
         </div>
 
         {/* View All */}
-        <div className="text-center animate-fade-in-up [animation-delay:0.6s] mt-12">
+        {/* <div className="text-center animate-fade-in-up [animation-delay:0.6s] mt-12">
           <Button
             size="lg"
             className="bg-[#EA2525] transition-all duration-300 hover:scale-105 hover:shadow-lg"
@@ -276,7 +356,7 @@ const CourseHighlights = () => {
           >
             <Link to="/courses">View All Courses</Link>
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
