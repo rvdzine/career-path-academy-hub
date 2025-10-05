@@ -7,27 +7,25 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EnrollmentDialog from "@/components/EnrollmentDialog";
-
 import BrochureDialog from "./BrochureDialog";
 import { FaDownload } from "react-icons/fa";
-import {
-  Calendar,
-  GraduationCap,
-  Lightbulb,
-  Globe,
-  CheckCircle,
-  Sparkles,
-  Users,
-} from "lucide-react";
 
+// SVG icons
+import chimg1 from "../components/svg/clock.svg";
+import chimg2 from "../components/svg/book.svg";
+import chimg3 from "../components/svg/frame.svg";
+import chimg4 from "../components/svg/clipboard.svg";
+import chimg5 from "../components/svg/briefcase.svg";
+import chimg6 from "../components/svg/verify.svg";
+import chimg7 from "../components/svg/sparkle.svg";
+
+// Course images
 import FDM1 from "../components/assets/FDM1.png";
 import SDM2 from "../components/assets/SDM2.png";
 import MDM3 from "../components/assets/MDM3.png";
 import BODM4 from "../components/assets/BODM4.png";
 import DDM5 from "../components/assets/DDM5.png";
 import DIPDM6 from "../components/assets/DIPDM6.png";
-
-import { Link } from "react-router-dom";
 
 const Courses = () => {
   const courses = [
@@ -46,7 +44,11 @@ const Courses = () => {
         "AI in Marketing",
         "Social Media Marketing",
         "Content Strategy",
-        "Analytics",
+        "Analytical & Technical Skills",
+        "Paid Advertising (PPC)",
+        "Content & Creative Skills",
+        "Growth & Strategy",
+        "E-commerce & Specialised",
       ],
       image: MDM3,
       badges: ["AI Driven", "Hinglish"],
@@ -65,7 +67,11 @@ const Courses = () => {
         "AI in Marketing",
         "Social Media Marketing",
         "Content Strategy",
-        "Analytics",
+        "Analytical & Technical Skills",
+        "Paid Advertising (PPC)",
+        "Content & Creative Skills",
+        "Growth & Strategy",
+        "E-commerce & Specialised",
       ],
       image: SDM2,
       badges: ["Hinglish"],
@@ -84,7 +90,11 @@ const Courses = () => {
         "AI in Marketing",
         "Social Media Marketing",
         "Content Strategy",
-        "Analytics",
+        "Analytical & Technical Skills",
+        "Paid Advertising (PPC)",
+        "Content & Creative Skills",
+        "Growth & Strategy",
+        "E-commerce & Specialised",
       ],
       image: BODM4,
       badges: ["AI Driven", "Hinglish/English"],
@@ -103,7 +113,11 @@ const Courses = () => {
         "AI in Marketing",
         "Social Media Marketing",
         "Content Strategy",
-        "Analytics",
+        "Analytical & Technical Skills",
+        "Paid Advertising (PPC)",
+        "Content & Creative Skills",
+        "Growth & Strategy",
+        "E-commerce & Specialised",
       ],
       image: FDM1,
       badges: ["Hinglish"],
@@ -122,7 +136,11 @@ const Courses = () => {
         "AI in Marketing",
         "Social Media Marketing",
         "Content Strategy",
-        "Analytics",
+        "Analytical & Technical Skills",
+        "Paid Advertising (PPC)",
+        "Content & Creative Skills",
+        "Growth & Strategy",
+        "E-commerce & Specialised",
       ],
       image: DIPDM6,
       badges: ["AI Driven", "Hinglish/English"],
@@ -141,7 +159,11 @@ const Courses = () => {
         "AI in Marketing",
         "Social Media Marketing",
         "Content Strategy",
-        "Analytics",
+        "Analytical & Technical Skills",
+        "Paid Advertising (PPC)",
+        "Content & Creative Skills",
+        "Growth & Strategy",
+        "E-commerce & Specialised",
       ],
       image: DDM5,
       badges: ["AI Driven", "Hinglish/English"],
@@ -158,8 +180,7 @@ const Courses = () => {
           Professional Courses
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Industry-designed curriculum with hands-on projects, real-world
-          applications, and career placement support.
+          Industry-designed curriculum with hands-on projects, real-world applications, and career placement support.
         </p>
       </section>
 
@@ -179,27 +200,28 @@ const Courses = () => {
                   <img
                     src={course.image}
                     alt={course.title}
-                    className="w-full h-full object-cover "
+                    className="w-full h-full object-cover"
                   />
-                  {/* Badges Overlay (top-right) */}
+
+                  {/* Badges Overlay */}
                   <div className="absolute top-2 right-2 flex flex-wrap gap-2">
                     {course.badges.map((badge, idx) => {
-                      let IconComponent = null;
+                      let iconSrc = null;
 
-                      if (badge === "AI Driven") IconComponent = Sparkles;
-                      else if (badge === "Hinglish") IconComponent = Users;
-                      else if (badge === "Hinglish/English") IconComponent = Globe;
+                      if (badge === "AI Driven") iconSrc = chimg7;
+                      else if (badge === "Hinglish") iconSrc = chimg3;
+                      else if (badge === "Hinglish/English") iconSrc = chimg3;
 
                       return (
                         <Badge
                           key={idx}
-                          className={`flex items-center gap-2 px-2 py-1 text-sm rounded-full ${
+                          className={`flex items-center gap-1 px-2 py-1 text-sm rounded-full ${
                             badge === "AI Driven"
                               ? "bg-gradient-to-r from-[#0061FF] to-[#60EFFF] text-white"
                               : "bg-white text-gray-800 border border-gray-300"
                           }`}
                         >
-                          {IconComponent && <IconComponent className="w-3 h-3" />}
+                          {iconSrc && <img src={iconSrc} alt={badge} className="w-3 h-3" />}
                           {badge}
                         </Badge>
                       );
@@ -208,85 +230,63 @@ const Courses = () => {
                 </div>
 
                 <CardContent className="px-5 pb-5 flex flex-col flex-1">
-                  {/* Top Content */}
-                  <div>
-                    {/* Students Enrolled */}
-                    <div className="flex items-center gap-2 mt-3 mb-3">
-                      <div className="flex -space-x-3">
-                        <img
-                          src="https://i.pravatar.cc/40?img=1"
-                          className="w-8 h-8 rounded-full border-2 border-white"
-                        />
-                        <img
-                          src="https://i.pravatar.cc/40?img=2"
-                          className="w-8 h-8 rounded-full border-2 border-white"
-                        />
-                        <img
-                          src="https://i.pravatar.cc/40?img=3"
-                          className="w-8 h-8 rounded-full border-2 border-white"
-                        />
-                      </div>
-                      <p className="text-xs text-gray-500">
-                        <span className="text-base font-bold text-gray-900">
-                          {course.students.split(" ")[0]}
-                        </span>{" "}
-                        {isAiDriven
-                          ? "Students Enrolled in this AI Driven Course"
-                          : course.students.replace(course.students.split(" ")[0], "")}
-                      </p>
+                  {/* Students Enrolled */}
+                  <div className="flex items-center gap-2 mt-3 mb-3">
+                    <div className="flex -space-x-3">
+                      <img
+                        src="https://i.pravatar.cc/40?img=1"
+                        className="w-8 h-8 rounded-full border-2 border-white"
+                      />
+                      <img
+                        src="https://i.pravatar.cc/40?img=2"
+                        className="w-8 h-8 rounded-full border-2 border-white"
+                      />
+                      <img
+                        src="https://i.pravatar.cc/40?img=3"
+                        className="w-8 h-8 rounded-full border-2 border-white"
+                      />
                     </div>
-
-                    {/* Title */}
-                    <h2 className="text-xl font-bold text-gray-800 mt-1">
-                      {course.title}
-                    </h2>
-
-                    {/* Badges under Title */}
-                    <div className="flex flex-wrap gap-2 mt-3 mb-4">
-                      <Badge
-                        variant="outline"
-                        className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
-                      >
-                        <Calendar className="w-4 h-4 text-gray-500" /> {course.duration}
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
-                      >
-                        <Globe className="w-4 h-4 text-gray-500" /> {course.mode}
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
-                      >
-                        <GraduationCap className="w-4 h-4 text-gray-500" /> {course.certification}
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
-                      >
-                        <Lightbulb className="w-4 h-4 text-gray-500" /> {course.projects}
-                      </Badge>
-                      {course.extra && (
-                        <Badge
-                          variant="outline"
-                          className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] border-0"
-                        >
-                          <CheckCircle className="w-4 h-4 text-gray-500" /> {course.extra}
-                        </Badge>
-                      )}
-                    </div>
-
-                    {/* Skills */}
-                    <div className="mt-4">
-                      <p className="text-sm font-semibold text-gray-700">Skills you learn:</p>
-                      <p className="text-sm text-gray-600">
-                        {course.skills.join(", ")}
-                      </p>
-                    </div>
+                    <p className="text-xs text-gray-500">
+                      <span className="text-base font-bold text-gray-900">
+                        {course.students.split(" ")[0]}
+                      </span>{" "}
+                      {isAiDriven
+                        ? "Students Enrolled in this AI Driven Course"
+                        : course.students.replace(course.students.split(" ")[0], "")}
+                    </p>
                   </div>
 
-                  {/* Bottom Buttons (always aligned) */}
+                  {/* Title */}
+                  <h2 className="text-xl font-bold text-gray-800 mt-1">{course.title}</h2>
+
+                  {/* Info Badges */}
+                  <div className="flex flex-wrap gap-2 mt-3 mb-4">
+                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
+                      <img src={chimg1} alt="" className="w-4 h-4" /> {course.duration}
+                    </Badge>
+                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
+                      <img src={chimg2} alt="" className="w-4 h-4" /> {course.mode}
+                    </Badge>
+                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
+                      <img src={chimg6} alt="" className="w-4 h-4" /> {course.certification}
+                    </Badge>
+                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
+                      <img src={chimg4} alt="" className="w-4 h-4" /> {course.projects}
+                    </Badge>
+                    {course.extra && (
+                      <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
+                        <img src={chimg5} alt="" className="w-4 h-4" /> {course.extra}
+                      </Badge>
+                    )}
+                  </div>
+
+                  {/* Skills */}
+                  <div className="mt-2">
+                    <p className="text-sm font-semibold text-gray-700">Skills you learn:</p>
+                    <p className="text-sm text-gray-600">{course.skills.join(", ")}</p>
+                  </div>
+
+                  {/* Bottom Buttons */}
                   <div className="mt-auto pt-6 flex flex-col sm:flex-row gap-2">
                     {course.id === "dipdm" || course.id === "ddm" ? (
                       <Button className="w-full bg-[#EA2525] hover:bg-[#c21e1e]">
