@@ -12,8 +12,7 @@ import offimg4 from "../components/svg/monitor.svg";
 import offimg5 from "../components/svg/reserve.svg";
 import offimg6 from "../components/svg/wifi-square.svg";
 import offimg7 from "../components/svg/wind.svg";
-
-
+import offimg8 from "../components/assets/offsectionimg.jpg";
 
 const OfflineSection = () => {
   const facilities = [
@@ -42,13 +41,14 @@ const OfflineSection = () => {
       {/* Content Section */}
       <div className="max-w-[1350px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
         {/* Left Image */}
-        <div className="flex justify-center md:justify-start">
-          <img
-            src="https://res.cloudinary.com/dqdpblijd/image/upload/v1728016125/nxonebuilding.png"
-            alt="IDS Offline Center"
-            className="rounded-2xl w-full max-w-[420px] object-cover shadow-md"
-          />
-        </div>
+       <div className="flex justify-center md:justify-start">
+  <img
+    src={offimg8}
+    alt="IDS Offline Center"
+    className="rounded-2xl w-full max-w-[420px] md:ml-10 object-cover shadow-md"
+  />
+</div>
+
 
         {/* Right Content */}
         <div className="space-y-6 text-left -ml-20">
@@ -73,7 +73,7 @@ const OfflineSection = () => {
                 className="flex items-center gap-2 bg-white rounded-full px-3 py-1.5 shadow-sm border border-gray-100"
               >
                 <img
-                 src="#"
+                  src={facility.icon}
                   alt={facility.name}
                   className="w-4 h-4 text-gray-600"
                 />
