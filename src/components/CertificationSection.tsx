@@ -87,7 +87,7 @@ const CertificationSection = () => {
         </div>
 
         {/* Trust Indicators */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 animate-fade-in-up [animation-delay:0.4s]">
+        {/* <div className="bg-white rounded-2xl shadow-lg p-8 animate-fade-in-up [animation-delay:0.4s]">
           <h3 className="text-2xl font-bold text-center mb-8 text-gray-900">
             Why Choose Our Certified Programs?
           </h3>
@@ -107,13 +107,13 @@ const CertificationSection = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Call to Action */}
-        <div className="text-center mt-12 animate-fade-in-up [animation-delay:0.6s]">
+        {/* <div className="text-center mt-12 animate-fade-in-up [animation-delay:0.6s]">
           <p className="text-lg text-gray-600 mb-4">
             Join thousands of professionals who have advanced their careers with our certified programs
-          </p>
+          </p> */}
           {/* <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
             <span className="flex items-center gap-1 hover:text-green-600 transition-colors duration-300">
               <CheckCircle className="w-4 h-4 text-green-500" />
@@ -124,8 +124,8 @@ const CertificationSection = () => {
               NSDC Partner ID: NSDC/2024/DM/001
             </span>
           </div> */}
-        </div>
-      </div>
+         </div>
+      
       <WhyIDS/>
     </section>
     </>
