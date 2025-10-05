@@ -2,7 +2,16 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
-import Image from "../components/assets/Alim.jpg" // make sure this is uncommented
+import toolimg1 from "../components/svg/download 7.svg";
+import toolimg2 from "../components/svg/download 10.svg";
+import toolimg3 from "../components/svg/download 16.svg";
+import toolimg4 from "../components/svg/download 18.svg";
+import toolimg5 from "../components/svg/download 20.svg";
+import toolimg6 from "../components/svg/download 26.svg";
+import toolimg7 from "../components/svg/download 28.svg";
+import toolimg8 from "../components/svg/download 31.svg";
+import toolimg9 from "../components/svg/download 36.svg";
+import toolimg10 from "../components/svg/Group 1000002025.svg";
 
 export default function WhyIDS() {
   const reasons = [
@@ -16,7 +25,7 @@ export default function WhyIDS() {
     },
     {
       title: "Affordable Fees with No Cost EMI",
-      desc: "Learn without financial stress flexible and budget-friendly payment options.",
+      desc: "Learn without financial stress with flexible and budget-friendly payment options.",
     },
     {
       title: "Industry-Recognized Certifications",
@@ -40,7 +49,7 @@ export default function WhyIDS() {
     },
     {
       title: "AI Driven Updated Curriculum",
-      desc: "Always aligned with the latest industry tools, technologies, and AI Driven trends.",
+      desc: "Always aligned with the latest industry tools, technologies, and AI-driven trends.",
     },
     {
       title: "Career Guidance & Mentorship",
@@ -69,80 +78,80 @@ export default function WhyIDS() {
       name: "SEMRUSH",
       category: "SEO Tools",
       desc: "Keyword research · Backlink analysis · Site audits",
-      img: "/tools/semrush.png",
+      img: toolimg1,
     },
     {
       name: "Hootsuite",
       category: "Social Media Management",
       desc: "Post scheduling · Engagement tracking · Performance analytics",
-      img: "/tools/hootsuite.png",
+      img: toolimg2,
     },
     {
       name: "HubSpot",
       category: "Content Marketing",
       desc: "Content creation · Lead generation · Performance tracking",
-      img: "/tools/hubspot.png",
+      img: toolimg3,
     },
     {
       name: "Mailchimp",
       category: "Email Marketing",
       desc: "Automated campaigns · A/B testing · Audience segmentation",
-      img: "/tools/mailchimp.png",
+      img: toolimg4,
     },
     {
       name: "Google Ads",
       category: "PPC Advertising",
       desc: "Ad management · Keyword targeting · Campaign analytics",
-      img: "/tools/googleads.png",
+      img: toolimg5,
     },
     {
       name: "Google Analytics",
-      category: "Analytics",
-      desc: "Track website traffic and user engagement effectively.",
-      img: "/tools/ga.png",
+      category: "Analytics & Reporting",
+      desc: "Traffic insights · Conversion tracking · Detailed reporting",
+      img: toolimg6,
     },
     {
-      name: "Converro Salesforce",
-      category: "CRM Integration",
-      desc: "Customer relationship management and automation.",
-      img: "/tools/converro.png",
+      name: "Salesforce",
+      category: "CRM",
+      desc: "Contact management · Sales automation · Forecasting",
+      img: toolimg7,
     },
     {
       name: "HubSpot Marketing Hub",
       category: "Marketing Automation",
-      desc: "Streamline and automate marketing workflows.",
-      img: "/tools/hubspot-mh.png",
+      desc: "Lead nurturing · Email workflows · Campaign analytics",
+      img: toolimg8,
     },
     {
       name: "Canva",
-      category: "Design Tool",
-      desc: "Create professional visuals, posts, and banners easily.",
-      img: "/tools/canva.png",
+      category: "Video Marketing",
+      desc: "Video creation · Templates · Editing tools",
+      img: toolimg9,
     },
     {
       name: "Refersion",
       category: "Affiliate Marketing",
-      desc: "Manage and track affiliate partnerships efficiently.",
-      img: "/tools/refersion.png",
+      desc: "Affiliate tracking · Commission management · Performance reports",
+      img: toolimg10,
     },
   ];
 
   return (
-    <div className="bg-rose-50 py-16 px-6 md:px-20 w-[1300px] rounded-[20px] mx-auto">
+    <div className="bg-rose-50 py-16 px-6 md:px-20 rounded-[20px] max-w-7xl mx-auto">
 
       {/* --- WHY CHOOSE IDS SECTION --- */}
-      <section className="max-w-6xl mx-auto mb-20">
+      <section className="mb-20">
         <h2 className="text-4xl font-bold text-center mb-3">
           Why choose IDS for Digital Marketing?
         </h2>
-        <p className="text-center text-gray-700 mb-10">
+        <p className="text-center text-gray-700 mb-10 max-w-2xl mx-auto">
           At our institute, we believe in delivering not just courses, but career-transforming
           experiences. Here’s why learners prefer us:
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {reasons.map((reason, idx) => (
-            <Card key={idx} className="border-none bg-white shadow-sm hover:shadow-md transition">
+            <Card key={idx} className="border-none bg-white shadow-sm hover:shadow-md transition rounded-xl">
               <CardContent className="flex items-start gap-3 p-4">
                 <CheckCircle className="text-gray-700 w-6 h-6 flex-shrink-0 mt-1" />
                 <div>
@@ -156,32 +165,39 @@ export default function WhyIDS() {
       </section>
 
       {/* --- TOOLS SECTION --- */}
-      <section className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-3">Tools you’ll Master</h2>
-        <p className="text-center text-gray-700 mb-10">
-          Digital marketing relies on a wide variety of tools to manage campaigns, analyze
-          performance, create content, and engage with audiences.
-        </p>
+     {/* --- TOOLS SECTION --- */}
+<section className="py-16 px-6 md:px-6 rounded-[20px] max-w-7xl mx-auto">
+  <h2 className="text-4xl font-bold text-center mb-3">Tools you’ll Master</h2>
+  <p className="text-center text-gray-700 mb-10 max-w-2xl mx-auto">
+    Digital marketing relies on a wide variety of tools to manage campaigns,
+    analyze performance, create content, and engage with audiences.
+  </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-          {tools.map((tool, idx) => (
-            <Card
-              key={idx}
-              className="flex flex-col items-center justify-center p-6 bg-white shadow-sm border-none hover:shadow-md transition"
-            >
-              {/* <Image
-                src={tool.img} 
-                alt={tool.name}
-                width={80}
-                height={80}
-                className="object-contain mb-4"
-              /> */}
-              <h4 className="font-semibold text-center">{tool.category}</h4>
-              <p className="text-gray-600 text-sm text-center">{tool.desc}</p>
-            </Card>
-          ))}
+  {/* GRID */}
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+    {tools.map((tool, idx) => (
+      <div key={idx} className="flex flex-col bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200">
+        {/* White top section */}
+        <div className="bg-white flex items-center justify-center h-40  rounded-2xl">
+          <img
+            src={tool.img}
+            alt={tool.name}
+            className="h-14 w-auto object-contain"
+          />
         </div>
-      </section>
+
+        {/* Gray bottom section */}
+        <div className="px-4 py-5 text-center flex-1 flex flex-col justify-center">
+          <h4 className="font-semibold text-gray-900 mb-1">{tool.category}</h4>
+          <p className="text-gray-600 text-sm leading-snug">{tool.desc}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+
+
     </div>
   );
 }
