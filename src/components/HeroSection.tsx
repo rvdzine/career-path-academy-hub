@@ -3,7 +3,9 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { CheckCircle, Users, Clock } from "lucide-react";
 import PlacedStudentCarousel from "@/components/PlacedStudentCarousel";
-import hero from "@/components/assets/hero.png"
+import hero from "@/components/assets/hero.png";
+import BrochureDialog from "../pages/BrochureDialog";
+import { FaDownload } from "react-icons/fa";
 
 const HeroSection = () => {
   return (
@@ -25,25 +27,32 @@ const HeroSection = () => {
                   Institute in Noida
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  iDigital Studies: Noida's premier SEO & Digital Marketing institute.<br/> Learn from experts with live projects and guaranteed placement support.<br/> Enroll now!.
+                  iDigital Studies: Noida's premier SEO & Digital Marketing institute.<br />
+                  Learn from experts with live projects and guaranteed placement support.<br />
+                  Enroll now!
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up [animation-delay:0.2s]">
-                <Button size="lg" className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#EA2525] hover:to-[#AA2526] transition-all duration-300 hover:scale-105 hover:shadow-lg" asChild>
-                  <Link to="/courses">Explore Courses</Link>
-                </Button>
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="hover:scale-105 transition-all duration-300 hover:shadow-md"
+                  className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#EA2525] hover:to-[#AA2526] transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   asChild
                 >
-                  <a href="/ids-brochure.pdf" target="_blank" rel="noopener noreferrer">
-                    Download Brochure
-                  </a>
+                  <Link to="/courses">Explore Courses</Link>
                 </Button>
 
+                {/* Brochure download button */}
+                <BrochureDialog courseTitle="Master in Digital Marketing">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="flex items-center justify-center gap-2 hover:scale-105 transition-all duration-300 hover:shadow-md"
+                  >
+                    <FaDownload className="text-sm" />
+                    Download Brochure
+                  </Button>
+                </BrochureDialog>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 animate-fade-in-up [animation-delay:0.4s]">
