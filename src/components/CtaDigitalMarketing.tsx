@@ -1,30 +1,46 @@
 import { Button } from "@/components/ui/button";
 import BookingDialog from "./BookingDialog";
 import { Link } from "react-router-dom";
+import ctaimg from "../components/assets/ctaimage.svg";
 
 const CtaDigitalMarketing = () => {
   return (
-    <section className="py-12 bg-gradient-to-r from-[#c81e1e] to-[#520505] text-white overflow-hidden">
+    <section className="py-12 bg-gradient-to-b from-[#c81e1e] to-[#520505] text-white overflow-hidden">
       <div className="max-w-[1300px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
         
         {/* Left Side Image with Organic Shape */}
-        <div className="flex justify-center md:justify-start">
-          <div
-            className="ml-20 overflow-hidden shadow-lg"
-            style={{
-              borderRadius: "0% 30% 0% 30% / 35% 20% 20% 35%",
-              width: "300px",
-              height: "380px",
-              background: "linear-gradient(180deg, #e63939, #a60f0f)",
-            }}
-          >
-            <img
-              src="https://res.cloudinary.com/dqdpblijd/image/upload/v1728016125/nxonebuilding.png" // replace with your abstract image (like screenshot)
-              alt="Digital Marketing Direction"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
+        <div className="flex justify-center md:justify-start relative ml-20">
+  {/* Back layer (shadow shape) */}
+  <div
+    className="absolute top-5 left-5"
+    style={{
+      borderRadius: "0% 35% 0% 35% / 0% 35% 0% 35%",
+      width: "300px",
+      height: "380px",
+      background: "linear-gradient(180deg, #7b1212, #3b0707)",
+      opacity: 0.8,
+      zIndex: 0,
+    }}
+  ></div>
+
+  {/* Front layer (main image shape) */}
+  <div
+    className="overflow-hidden shadow-lg relative z-10"
+    style={{
+      borderRadius: "0% 35% 0% 35% / 0% 35% 0% 35%",
+      width: "300px",
+      height: "380px",
+      background: "linear-gradient(180deg, #e63939, #a60f0f)",
+    }}
+  >
+    <img
+      src={ctaimg}
+      alt="Digital Marketing Direction"
+      className="w-full h-full object-cover"
+    />
+  </div>
+</div>
+
 
         {/* Right Side Content */}
         <div className="space-y-6 text-left -ml-20">

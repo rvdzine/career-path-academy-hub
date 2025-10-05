@@ -211,17 +211,37 @@ const PlacedStudentsCarousel = () => {
                   </div>
 
                   {/* Right Side - Photo with cut shape */}
-                <div className="relative w-32 h-40 flex-shrink-0">
-                    <div className="absolute inset-0 overflow-hidden" style={{
-                      borderRadius: "70% 70% 100% 0% / 75% 68% 80% 40%"
-                    }}>
-                      <img
-                        src={student.image}
-                        alt={student.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
+                {/* Right Side - Photo with layered background effect */}
+<div className="relative w-32 h-40 flex-shrink-0">
+  {/* Back Layer (Shadow Shape) */}
+  <div
+    className="absolute top-2 left-2"
+    style={{
+      borderRadius: "70% 70% 100% 0% / 75% 68% 80% 40%",
+      width: "100%",
+      height: "100%",
+      background: "#FFEFEF",
+      opacity: 0.9,
+      zIndex: 0,
+    }}
+  ></div>
+
+  {/* Front Layer (Image Shape) */}
+  <div
+    className="absolute inset-0 overflow-hidden z-10"
+    style={{
+      borderRadius: "70% 70% 100% 0% / 75% 68% 80% 40%",
+      background: "#FFEFEF",
+    }}
+  >
+    <img
+      src={student.image}
+      alt={student.name}
+      className="w-full h-full object-cover"
+    />
+  </div>
+</div>
+
               </div>
               </div>
             ))}
@@ -258,7 +278,7 @@ const PlacedStudentsCarousel = () => {
         </div>
         </div>
          {/* Stats Section */}
-      <div className="bg-gradient-to-r from-[#c81e1e] to-[#520505] mt-16 py-12 px-4">
+      <div className="bg-gradient-to-b from-[#c81e1e] to-[#520505] mt-16 py-12 px-4">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
           <div>
             <h3 className="text-5xl font-bold mb-2">2400</h3>
