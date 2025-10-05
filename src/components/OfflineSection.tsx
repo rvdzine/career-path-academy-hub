@@ -13,6 +13,8 @@ import offimg5 from "../components/svg/reserve.svg";
 import offimg6 from "../components/svg/wifi-square.svg";
 import offimg7 from "../components/svg/wind.svg";
 
+
+
 const OfflineSection = () => {
   const facilities = [
     { name: "Smart Classroom", icon: offimg4 },
@@ -71,7 +73,7 @@ const OfflineSection = () => {
                 className="flex items-center gap-2 bg-white rounded-full px-3 py-1.5 shadow-sm border border-gray-100"
               >
                 <img
-                  src={facility.icon}
+                 src="#"
                   alt={facility.name}
                   className="w-4 h-4 text-gray-600"
                 />
@@ -111,7 +113,7 @@ const OfflineSection = () => {
       </div>
 
       {/* Gallery Section */}
-      <div className="max-w-[1350px] mx-auto mt-16 px-6">
+      {/* <div className="max-w-[1350px] mx-auto mt-16 px-6">
         <h3 className="text-2xl text-left font-bold text-center text-[#121212] mb-8">
           Glimpse of Our Offline Center
         </h3>
@@ -139,7 +141,7 @@ const OfflineSection = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
