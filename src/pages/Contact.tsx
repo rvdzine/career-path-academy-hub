@@ -124,24 +124,24 @@ const Contact = () => {
     }
   ];
 
-  const faqs = [
-    {
-      question: "What is the duration of the courses?",
-      answer: "Course duration varies from 4 weeks to 12 weeks depending on the program. Our comprehensive digital marketing course is 12 weeks long."
-    },
-    {
-      question: "Do you provide placement assistance?",
-      answer: "Yes! We have a dedicated placement team with a 90% success rate. We offer job guarantee programs and lifetime placement support."
-    },
-    {
-      question: "Are the courses available online?",
-      answer: "Yes, we offer flexible learning options including online, offline, and hybrid modes to suit your schedule and preferences."
-    },
-    {
-      question: "What certifications do you provide?",
-      answer: "We provide industry-recognized certifications upon course completion, along with Google and Facebook certified training modules."
-    }
-  ];
+  // const faqs = [
+  //   {
+  //     question: "What is the duration of the courses?",
+  //     answer: "Course duration varies from 4 weeks to 12 weeks depending on the program. Our comprehensive digital marketing course is 12 weeks long."
+  //   },
+  //   {
+  //     question: "Do you provide placement assistance?",
+  //     answer: "Yes! We have a dedicated placement team with a 90% success rate. We offer job guarantee programs and lifetime placement support."
+  //   },
+  //   {
+  //     question: "Are the courses available online?",
+  //     answer: "Yes, we offer flexible learning options including online, offline, and hybrid modes to suit your schedule and preferences."
+  //   },
+  //   {
+  //     question: "What certifications do you provide?",
+  //     answer: "We provide industry-recognized certifications upon course completion, along with Google and Facebook certified training modules."
+  //   }
+  // ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -380,7 +380,7 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
@@ -399,7 +399,7 @@ const Contact = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>

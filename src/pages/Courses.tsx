@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EnrollmentDialog from "@/components/EnrollmentDialog";
-import BrochureDialog from "./BrochureDialog";
-import { FaDownload } from "react-icons/fa";
+import { Link } from "react-router-dom";
+// import BrochureDialog from "./BrochureDialog";
+// import { FaDownload } from "react-icons/fa";
 
 // SVG icons
 import chimg1 from "../components/svg/clock.svg";
@@ -30,7 +31,7 @@ import DIPDM6 from "../components/assets/DIPDM6.png";
 const Courses = () => {
   const courses = [
     {
-      id: "mdm",
+      id: "master-digital-marketing",
       title: "Master in Digital Marketing (With Guaranteed Internship)",
       duration: "6 Months",
       students: "2500+ Students Enrolled",
@@ -54,7 +55,7 @@ const Courses = () => {
       badges: ["AI Driven", "Hinglish"],
     },
     {
-      id: "sdm",
+      id: "specialist-digital-marketing",
       title: "Specialist in Digital Marketing",
       duration: "3 Months",
       students: "1500+ Students Enrolled",
@@ -77,7 +78,7 @@ const Courses = () => {
       badges: ["Hinglish"],
     },
     {
-      id: "bodm",
+      id: "business-owner-course",
       title: "Professional & Business Owner Course (1:1 Learning)",
       duration: "Customised Timeline",
       students: "200+ Students Enrolled",
@@ -100,7 +101,7 @@ const Courses = () => {
       badges: ["AI Driven", "Hinglish/English"],
     },
     {
-      id: "fdm",
+      id: "foundation-digital-marketing",
       title: "Foundation in Digital Marketing",
       duration: "2 Months",
       students: "500+ Students Enrolled",
@@ -123,7 +124,7 @@ const Courses = () => {
       badges: ["Hinglish"],
     },
     {
-      id: "dipdm",
+      id: "customised-digital-marketing",
       title: "Customised Course in Digital Marketing",
       duration: "Customised Timeline",
       students: "500+ Students Enrolled",
@@ -146,7 +147,7 @@ const Courses = () => {
       badges: ["AI Driven", "Hinglish/English"],
     },
     {
-      id: "ddm",
+      id: "degree-digital-marketing",
       title: "Degree in Digital Marketing",
       duration: "3 Years",
       students: "250+ Students Enrolled",
@@ -215,11 +216,10 @@ const Courses = () => {
                       return (
                         <Badge
                           key={idx}
-                          className={`flex items-center gap-1 px-2 py-1 text-sm rounded-full ${
-                            badge === "AI Driven"
+                          className={`flex items-center gap-1 px-2 py-1 text-sm rounded-full ${badge === "AI Driven"
                               ? "bg-gradient-to-r from-[#0061FF] to-[#60EFFF] text-white"
                               : "bg-white text-gray-800 border border-gray-300"
-                          }`}
+                            }`}
                         >
                           {iconSrc && <img src={iconSrc} alt={badge} className="w-3 h-3" />}
                           {badge}
@@ -288,21 +288,22 @@ const Courses = () => {
 
                   {/* Bottom Buttons */}
                   <div className="mt-auto pt-6 flex flex-col sm:flex-row gap-2">
-                    {course.id === "dipdm" || course.id === "ddm" ? (
-                      <Button className="w-full bg-[#EA2525] hover:bg-[#c21e1e]">
+                    {course.id === "customised-digital-marketing" || course.id === "degree-digital-marketing" ? (
+                      <Button className="w-full border border-[#EA2525] bg-[#fff] text-[#EA2525] hover:bg-[#c21e1e] hover:text-[#fff]">
                         For Queries - Contact Us
                       </Button>
                     ) : (
                       <>
-                        <BrochureDialog courseTitle={course.title}>
+                        {/* <BrochureDialog courseTitle={course.title}> */}
+                        <Link to={`/courses/${course.id}`} className="flex-1">
                           <Button
                             variant="outline"
-                            className="flex-1 border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4] flex items-center justify-center gap-2"
+                            className="w-full border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4]"
                           >
-                            <FaDownload className="text-sm" />
                             Course Details
                           </Button>
-                        </BrochureDialog>
+                        </Link>
+                        {/* </BrochureDialog> */}
                         <EnrollmentDialog courseTitle={course.title}>
                           <Button className="flex-1 bg-[#EA2525] hover:bg-[#c21e1e] text-white">
                             Enroll Now

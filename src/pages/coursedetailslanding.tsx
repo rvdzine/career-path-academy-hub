@@ -81,29 +81,29 @@ export default function CourseDetailsLanding() {
         </div>
 
         {/* Stats Section */}
-       
-<section className="w-full bg-gray-100 py-12 mt-16">
-  <div className=" px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-    <div>
-      <h3 className="text-3xl font-bold text-gray-900">8</h3>
-      <p className="text-gray-600">Modules</p>
-    </div>
-    <div>
-      <h3 className="text-3xl font-bold text-gray-900">12</h3>
-      <p className="text-gray-600">
-        Course Duration in <span className="font-semibold">Weeks</span>
-      </p>
-    </div>
-    <div>
-      <h3 className="text-3xl font-bold text-gray-900">10+</h3>
-      <p className="text-gray-600">Live projects</p>
-    </div>
-    <div>
-      <h3 className="text-3xl font-bold text-gray-900">4,312+</h3>
-      <p className="text-gray-600">Students Enrolled</p>
-    </div>
-  </div>
-</section>
+
+        <section className="w-full bg-gray-100 py-12 mt-16">
+          <div className=" px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+              <h3 className="text-3xl font-bold text-gray-900">8</h3>
+              <p className="text-gray-600">Modules</p>
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold text-gray-900">12</h3>
+              <p className="text-gray-600">
+                Course Duration in <span className="font-semibold">Weeks</span>
+              </p>
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold text-gray-900">10+</h3>
+              <p className="text-gray-600">Live projects</p>
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold text-gray-900">4,312+</h3>
+              <p className="text-gray-600">Students Enrolled</p>
+            </div>
+          </div>
+        </section>
 
 
       </section>

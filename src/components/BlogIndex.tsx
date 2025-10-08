@@ -80,7 +80,7 @@ const BlogIndex = () => {
         {/* View All Button */}
         <div className="flex justify-center mt-12">
           <Link to="/blog">
-            <Button className="bg-[#EA2525] hover:bg-red-600 px-6 py-6 text-lg font-semibold">
+            <Button className="bg-[#EA2525] hover:bg-red-600 px-6 py-6 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg focus:ring-2 focus:ring-[#EA2525]/50">
               View More Blogs
             </Button>
           </Link>

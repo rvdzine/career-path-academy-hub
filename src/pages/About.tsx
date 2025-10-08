@@ -7,47 +7,47 @@ import Footer from "@/components/Footer";
 import about_csh from "../components/assets/about-csh.png"
 
 const About = () => {
-  const instructors = [
-    {
-      name: "Ravi Gupta",
-      role: "Lead SEO Instructor",
-      experience: "12+ years",
-      expertise: ["Technical SEO", "Content Strategy", "Local SEO"],
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
-      bio: "Former SEO Manager at Google India with extensive experience in enterprise SEO strategies."
-    },
-    {
-      name: "Priya Sharma",
-      role: "Social Media Marketing Expert",
-      experience: "10+ years",
-      expertise: ["Instagram Marketing", "Facebook Ads", "Influencer Marketing"],
-      image: "https://randomuser.me/api/portraits/women/50.jpg",
-      bio: "Ex-Facebook Marketing Manager who has managed campaigns worth ₹100+ crores."
-    },
-    {
-      name: "Amit Patel",
-      role: "PPC & Analytics Specialist",
-      experience: "15+ years",
-      expertise: ["Google Ads", "Data Analytics", "Conversion Optimization"],
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
-      bio: "Certified Google Ads trainer and former Analytics lead at Amazon India."
-    },
-    {
-      name: "Neha Verma",
-      role: "Content Strategy Director",
-      experience: "8+ years",
-      expertise: ["Content Marketing", "Email Marketing", "Brand Strategy"],
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
-      bio: "Content marketing strategist who has worked with 200+ brands across industries."
-    }
-  ];
+  // const instructors = [
+  //   {
+  //     name: "Ravi Gupta",
+  //     role: "Lead SEO Instructor",
+  //     experience: "12+ years",
+  //     expertise: ["Technical SEO", "Content Strategy", "Local SEO"],
+  //     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+  //     bio: "Former SEO Manager at Google India with extensive experience in enterprise SEO strategies."
+  //   },
+  //   {
+  //     name: "Priya Sharma",
+  //     role: "Social Media Marketing Expert",
+  //     experience: "10+ years",
+  //     expertise: ["Instagram Marketing", "Facebook Ads", "Influencer Marketing"],
+  //     image: "https://randomuser.me/api/portraits/women/50.jpg",
+  //     bio: "Ex-Facebook Marketing Manager who has managed campaigns worth ₹100+ crores."
+  //   },
+  //   {
+  //     name: "Amit Patel",
+  //     role: "PPC & Analytics Specialist",
+  //     experience: "15+ years",
+  //     expertise: ["Google Ads", "Data Analytics", "Conversion Optimization"],
+  //     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+  //     bio: "Certified Google Ads trainer and former Analytics lead at Amazon India."
+  //   },
+  //   {
+  //     name: "Neha Verma",
+  //     role: "Content Strategy Director",
+  //     experience: "8+ years",
+  //     expertise: ["Content Marketing", "Email Marketing", "Brand Strategy"],
+  //     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+  //     bio: "Content marketing strategist who has worked with 200+ brands across industries."
+  //   }
+  // ];
 
-  const achievements = [
-    { icon: Users, number: "2000+", label: "Students Trained" },
-    { icon: Award, number: "90%", label: "Placement Rate" },
-    { icon: BookOpen, number: "6", label: "Course Modules" },
-    { icon: Target, number: "50+", label: "Partner Companies" }
-  ];
+  // const achievements = [
+  //   { icon: Users, number: "2000+", label: "Students Trained" },
+  //   { icon: Award, number: "90%", label: "Placement Rate" },
+  //   { icon: BookOpen, number: "6", label: "Course Modules" },
+  //   { icon: Target, number: "50+", label: "Partner Companies" }
+  // ];
 
   const values = [
     {
@@ -110,7 +110,7 @@ const About = () => {
       </section>
 
       {/* Achievements */}
-      <section className="py-16 bg-gradient-to-r from-[#EA2525] to-[#AA2526] text-white">
+      {/* <section className="py-16 bg-gradient-to-r from-[#EA2525] to-[#AA2526] text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {achievements.map((achievement, index) => {
@@ -127,7 +127,7 @@ const About = () => {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Mission & Vision */}
       <section className="py-20 bg-white">
@@ -200,7 +200,7 @@ const About = () => {
       </section>
 
       {/* Instructor Profiles */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent">
@@ -245,7 +245,7 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Why Choose Us */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
