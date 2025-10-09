@@ -44,7 +44,7 @@ export default function SalaryReportModal({ children }) {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/salaryreport/submit/",
+        "https://idg-backend.onrender.com/api/salaryreport/submit/",
         {
           full_name: fullName,
           email: email,
