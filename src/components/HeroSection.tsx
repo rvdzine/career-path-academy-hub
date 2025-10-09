@@ -18,13 +18,13 @@ const HeroSection = () => {
                 <Badge className="bg-red-100 text-red-700 hover:bg-red-200 animate-bounce-gentle">
                   🚀 India's Leading Digital Marketing Academy
                 </Badge>
-                <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                  Best
+                <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-blue-600">
+                  AI Driven
                   <span className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent animate-pulse-soft">
                     {" "}Digital Marketing
                   </span>
                   <br />
-                  Institute in Noida
+                  <span className="text-black">Institute in Noida</span>
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
                   iDigital Studies: Noida's premier SEO & Digital Marketing institute.<br />

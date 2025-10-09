@@ -5,27 +5,27 @@ import { Clock } from "lucide-react";
 const blogs = [
   {
     slug: "digital-marketing-trends-2025",
-    title: "Top Digital Marketing Trends in 2025",
+    title: "Local SEO Checklist: How to Get Your Business on Google Maps for Free",
     excerpt:
-      "Discover the latest strategies dominating the digital marketing landscape in 2025...",
+      "For any local business, showing up on Google Maps is one of the most powerful....",
     image:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
     date: "25 Nov, 2025",
   },
   {
     slug: "seo-strategies-beginners",
-    title: "SEO Strategies for Beginners",
+    title: "What is Quality Score? 5 Simple Ways to Improve It in Google Ads",
     excerpt:
-      "A complete beginner-friendly guide to help your website rank higher on Google...",
+      "If you’ve spent any time poking around in Google Ads, you’ve probably...",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
     date: "10 Oct, 2025",
   },
   {
     slug: "content-marketing-secrets",
-    title: "Secrets of Content Marketing",
+    title: "How to Use Negative Keywords in GoogleAds to Save Money",
     excerpt:
-      "Content is king, but strategy is queen. Learn the secrets of creating content that converts...",
+      "Running Google Ads is kind of like playing poker. You can win big if you know what...",
     image:
       "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
     date: "05 Sep, 2025",

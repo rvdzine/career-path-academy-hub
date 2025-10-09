@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'courses',
     'demo',
     'placement',
-    'contact'
+    'contact',
+    'salaryreport'
 ]
 
 MIDDLEWARE = [
