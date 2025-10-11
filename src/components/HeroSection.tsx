@@ -18,22 +18,23 @@ const HeroSection = () => {
                 <Badge className="bg-red-100 text-red-700 hover:bg-red-200 animate-bounce-gentle">
                   🚀 India's Leading Digital Marketing Academy
                 </Badge>
-                <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-blue-600">
-                  AI Driven
+                <h1 className="text-4xl top-8 lg:text-6xl font-bold leading-tight relative">
+                  <span className="absolute -top-9 text-lg px-6 py-1 font-semibold bg-gradient-to-r from-[#EA2525] to-[#AA2526] text-white rounded-md left-0 shadow-md">AI Driven</span>
+                  <span className="line-through decoration-4 decoration-red-500 text-black">Best</span>
                   <span className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent animate-pulse-soft">
                     {" "}Digital Marketing
                   </span>
                   <br />
                   <span className="text-black">Institute in Noida</span>
                 </h1>
-                <p className="text-xl text-muted-foreground leading-relaxed">
+                <p className="text-xl relative top-7 text-muted-foreground leading-relaxed">
                   iDigital Studies: Noida's premier SEO & Digital Marketing institute.<br />
                   Learn from experts with live projects and guaranteed placement support.<br />
                   Enroll now!
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up [animation-delay:0.2s]">
+              <div className="flex flex-col relative top-6 sm:flex-row gap-4 animate-fade-in-up [animation-delay:0.2s]">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#EA2525] hover:to-[#AA2526] transition-all duration-300 hover:scale-105 hover:shadow-lg"

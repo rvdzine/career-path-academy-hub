@@ -77,62 +77,92 @@ export default function WhyIDS() {
     {
       name: "SEMRUSH",
       category: "SEO Tools",
-      desc: "Keyword research · Backlink analysis · Site audits",
+      desc: "Learn to conduct keyword research, analyze backlinks, and improve on-page and technical SEO for better visibility.",
       img: toolimg1,
     },
     {
       name: "Hootsuite",
       category: "Social Media Management",
-      desc: "Post scheduling · Engagement tracking · Performance analytics",
+      desc: "Manage multiple platforms, monitor engagement, and track performance metrics to grow your brand effectively.",
       img: toolimg2,
     },
     {
       name: "HubSpot",
       category: "Content Marketing",
-      desc: "Content creation · Lead generation · Performance tracking",
-      img: toolimg3,
+      desc: "Develop strategies, craft engaging content, and measure success through insights and performance reports.",
+      img: toolimg6,
     },
     {
       name: "Mailchimp",
       category: "Email Marketing",
-      desc: "Automated campaigns · A/B testing · Audience segmentation",
-      img: toolimg4,
+      desc: "Design campaigns, segment audiences, and track engagement to improve open rates and conversions.",
+      img: toolimg3,
     },
     {
       name: "Google Ads",
       category: "PPC Advertising",
-      desc: "Ad management · Keyword targeting · Campaign analytics",
-      img: toolimg5,
+      desc: "Learn to manage ad budgets, optimize keywords, and analyze performance for maximum ROI.",
+      img: toolimg4,
     },
     {
       name: "Google Analytics",
       category: "Analytics & Reporting",
-      desc: "Traffic insights · Conversion tracking · Detailed reporting",
-      img: toolimg6,
+      desc: "Track website performance, audience behavior, and campaign results to make data-backed decisions.",
+      img: toolimg5,
     },
     {
       name: "Salesforce",
       category: "CRM",
-      desc: "Contact management · Sales automation · Forecasting",
+      desc: "Organize leads, automate communication, and streamline workflows to improve customer satisfaction and retention.",
       img: toolimg7,
     },
     {
       name: "HubSpot Marketing Hub",
       category: "Marketing Automation",
-      desc: "Lead nurturing · Email workflows · Campaign analytics",
-      img: toolimg8,
+      desc: "Set up workflows, nurture leads, and optimize campaigns for consistency and scalability.",
+      img: toolimg6,
     },
     {
       name: "Canva",
       category: "Video Marketing",
-      desc: "Video creation · Templates · Editing tools",
-      img: toolimg9,
+      desc: "Plan, produce, and distribute videos that boost brand awareness and drive viewer engagement.",
+      img: toolimg8,
     },
     {
       name: "Refersion",
       category: "Affiliate Marketing",
-      desc: "Affiliate tracking · Commission management · Performance reports",
-      img: toolimg10,
+      desc: "Learn how to manage affiliates, track performance, and reward conversions effectively.",
+      img: toolimg8,
+    },
+    {
+      name: "AI-Powered Marketing",
+      category: "AI-Powered Marketing",
+      desc: "Use AI tools for content generation, data analysis, audience segmentation, and personalization..",
+      img: toolimg8,      
+    },
+    {
+      name: "Clarity Hotzar",
+      category: "Conversion Rate Optimization (CRO)",
+      desc: "Run A/B tests, analyze user behavior, and refine landing pages for better results..",
+      img: toolimg8
+    },
+    {
+      name: "WordPress",
+      category: "Content Management System (CMS)",
+      desc: "Design web pages, organize digital assets, and maintain site structure efficiently..",
+      img: toolimg8,
+    },
+    {
+      name: "Pabbly",
+      category: "Performance Marketing",
+      desc: "Monitor real-time performance, optimize ad spend, and scale what works for your business goals..",
+      img: toolimg8,
+    },
+    {
+      name: "Shopify",
+      category: "E-commerce & Dropshipping",
+      desc: "Learn to handle product listings, orders, payments, and customer service with efficiency.",
+      img: toolimg8,
     },
   ];
 
@@ -178,7 +208,7 @@ export default function WhyIDS() {
     {tools.map((tool, idx) => (
       <div key={idx} className="flex flex-col bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200">
         {/* White top section */}
-        <div className="bg-white flex items-center justify-center h-40  rounded-2xl">
+        <div className="bg-white flex items-center justify-center h-40 rounded-2xl">
           <img
             src={tool.img}
             alt={tool.name}

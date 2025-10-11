@@ -1,4 +1,4 @@
-import {useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
@@ -9,12 +9,12 @@ import { FaDownload } from "react-icons/fa";
 const CourseHero = () => {
     const { courseId } = useParams();
     const isMasterCourse = courseId === "master-digital-marketing";
-    
+
     const courseNames: Record<string, string> = {
-        "master-digital-marketing": "Master in Digital Marketing (With Guaranteed Internship)",
-        "specialist-digital-marketing": "Specialist in Digital Marketing",
-        "business-owner-course": "Professional & Business Owner Course (1:1 Learning)",
-        "foundation-digital-marketing": "Foundation in Digital Marketing",
+        "master-in-digital-marketing-course": "Master in Digital Marketing Course at idigitalstudies",
+        "specialist-in-digital-marketing": "Digital Marketing Specialist Course at iDigitalStudies",
+        "digital-marketing-course-for-business-owners": "Best Digital Marketing Course for Business Owners",
+        "foundation-in-digital-marketing": "Digital Marketing Course for Beginners",
         "customised-digital-marketing": "Customised Course in Digital Marketing",
         "degree-digital-marketing": "Degree in Digital Marketing",
     };
@@ -28,15 +28,17 @@ const CourseHero = () => {
                         <div className="space-y-4 animate-fade-in-left">
                             {isMasterCourse && (
                                 <Badge className="bg-[#2F4C99] animate-bounce-gentle">
-                                #Internship Guarantee Program
-                              </Badge>
+                                    #Internship Guarantee Program
+                                </Badge>
                             )}
                             <div className="space-y-4">
                                 <h1 className="text-4xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent animate-pulse-soft">
                                     {courseName}
                                 </h1>
                                 <p className="text-xl text-[#64748B] text-muted-foreground leading-relaxed">
-                                Learn how to apply User Experience (UX) principles to your website designs, code a variety of sites, and increase sales!
+                                    Boost your business growth with iDigitalStudies’ Digital
+                                    Marketing Course for Business Owners. Practical, hands-on training to grow sales and online
+                                    presence.                                
                                 </p>
                             </div>
 
@@ -52,7 +54,7 @@ const CourseHero = () => {
                                         Download Brochure
                                     </Button>
                                 </BrochureDialog>
-                                
+
                                 {/* <Button
                                     size="lg"
                                     className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#EA2525] hover:to-[#AA2526] transition-all duration-300 hover:scale-105 hover:shadow-lg"

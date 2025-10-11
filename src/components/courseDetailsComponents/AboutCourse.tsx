@@ -4,10 +4,10 @@ const AboutCourse = () => {
     const { courseId } = useParams();
 
     const courseNames: Record<string, string> = {
-        "master-digital-marketing": "Master in Digital Marketing (With Guaranteed Internship)",
-        "specialist-digital-marketing": "Specialist in Digital Marketing",
-        "business-owner-course": "Professional & Business Owner Course (1:1 Learning)",
-        "foundation-digital-marketing": "Foundation in Digital Marketing",
+        "master-in-digital-marketing-course": "Master in Digital Marketing Course at idigitalstudies",
+        "specialist-in-digital-marketing": "Digital Marketing Specialist Course at iDigitalStudies",
+        "digital-marketing-course-for-business-owners": "Best Digital Marketing Course for Business Owners",
+        "foundation-in-digital-marketing": "Digital Marketing Course for Beginners",
         "customised-digital-marketing": "Customised Course in Digital Marketing",
         "degree-digital-marketing": "Degree in Digital Marketing",
     };
@@ -24,23 +24,31 @@ const AboutCourse = () => {
                     </h3>
                     <h1 className='text-2xl md:text-3xl font-bold text-[#4B444D] mb-6'>{courseName}</h1>
                     <p className="text-gray-600">
-                        This program is designed for absolute beginners as well as working
-                        professionals who want to advance their career in digital marketing.
-                        You’ll learn everything from the fundamentals to advanced strategies
-                        including SEO, social media marketing, performance marketing, content
-                        strategy, web analytics, and more with practical, hands-on training
-                        and real-world projects.
+                        Running a business today without digital skills is like driving blindfolded; you'll miss
+                        opportunities, waste money, and struggle to stay ahead. That’s where iDigitalStudies’ Digital
+                        Marketing Course for Business Owners steps in. Designed exclusively for entrepreneurs, start-
+                        up founders, and small business owners, this program helps you master the skills needed to
+                        take control of your online growth.
                     </p>
-                    <h3 className="font-semibold mt-6">By the end of the course, you will:</h3>
+                    <h3 className="font-semibold mt-6">Why Business Owners Need Digital Marketing Training?</h3>
+                    <p className='text-gray-600'>Hiring agencies can be expensive, and relying solely on freelancers doesn’t guarantee results.
+                    By learning digital marketing yourself, you gain the power to</p>
                     <ul className="list-disc list-inside text-gray-600 space-y-1">
-                        <li>Plan and execute complete digital marketing campaigns.</li>
-                        <li>Run paid ads on Google, Meta, and LinkedIn.</li>
-                        <li>Build SEO-optimized websites and landing pages.</li>
-                        <li>Analyze data and optimize campaigns using Google Analytics.</li>
-                        <li>
-                            Gain confidence through a guaranteed internship with real industry
-                            projects.
-                        </li>
+                        <li>Generate consistent leads without burning your budget.</li>
+                        <li>Improve brand visibility on Google, social media, and email campaigns.</li>
+                        <li>Track ROI with real-time analytics instead of guesswork..</li>
+                        <li>Stay ahead of competitors by adapting quickly to market trends.</li>
+                    </ul>
+                    <h3 className="font-semibold mt-6">What Makes iDigitalStudies Different?</h3>
+                    <p className='text-gray-600'>At iDigitalStudies, we don’t just teach you the theory, we walk you through <b>practical business-
+                    driven strategies.</b> Our <b>USP (Unique Selling Proposition)</b> lies in:</p>
+                    <ul className="list-disc list-inside text-gray-600 space-y-1">
+                        <li><b>Tailored for business owners</b> – Focused modules on lead generation, customer
+                        retention, and sales growth.</li>
+                        <li><b>Hands-on learning </b>– Real-time projects so you can apply tactics directly to your
+                        business.</li>
+                        <li><b>Expert mentors </b>– Trainers with years of experience in helping businesses scale online.</li>
+                        <li><b>Affordable and flexible </b>– Learn at your pace without breaking the bank.</li>
                     </ul>
                 </div>
 

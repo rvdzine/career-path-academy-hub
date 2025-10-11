@@ -28,8 +28,8 @@ import chimg7 from "../components/svg/sparkle.svg";
 const CourseHighlightsIndex = () => {
   const courses = [
     {
-      id: "master-digital-marketing",
-      title: "Master in Digital Marketing (With Guaranteed Internship)",
+      id: "master-in-digital-marketing-course",
+      title: "Master in Digital Marketing Course at idigitalstudies",
       duration: "6 Months",
       students: "2500+ Students Enrolled",
       mode: "Online / Offline",
@@ -52,8 +52,8 @@ const CourseHighlightsIndex = () => {
       badges: ["AI Driven", "Hinglish"],
     },
     {
-      id: "specialist-digital-marketing",
-      title: "Specialist in Digital Marketing",
+      id: "specialist-in-digital-marketing",
+      title: "Digital Marketing Specialist Course at iDigitalStudies",
       duration: "3 Months",
       students: "1500+ Students Enrolled",
       mode: "Online / Offline",
@@ -75,8 +75,8 @@ const CourseHighlightsIndex = () => {
       badges: ["Hinglish"],
     },
     {
-      id: "business-owner-course",
-      title: "Professional & Business Owner Course (1:1 Learning)",
+      id: "digital-marketing-course-for-business-owners",
+      title: "Best Digital Marketing Course for Business Owners",
       duration: "Customised Timeline",
       students: "200+ Students Enrolled",
       mode: "Online",
@@ -98,8 +98,8 @@ const CourseHighlightsIndex = () => {
       badges: ["AI Driven", "Hinglish/English"],
     },
     {
-      id: "foundation-digital-marketing",
-      title: "Foundation in Digital Marketing",
+      id: "foundation-in-digital-marketing",
+      title: "Digital Marketing Course for Beginners",
       duration: "2 Months",
       students: "500+ Students Enrolled",
       mode: "Online / Offline",
@@ -290,7 +290,7 @@ const CourseHighlightsIndex = () => {
                         </Button>
                       ) : (
                         <>
-                          <BrochureDialog courseTitle={course.title}>
+                          {/* <BrochureDialog courseTitle={course.title}> */}
                             {/* <FaDownload className="text-sm" /> */}
                             <Link to={`/courses/${course.id}`}>
                               <Button
@@ -300,7 +300,7 @@ const CourseHighlightsIndex = () => {
                                 Course Details
                               </Button>
                             </Link>
-                          </BrochureDialog>
+                          {/* </BrochureDialog> */}
                           <EnrollmentDialog courseTitle={course.title}>
                             <Button className="flex-1 bg-[#EA2525] hover:bg-[#c21e1e] text-white">
                               Enroll Now
