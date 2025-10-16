@@ -26,7 +26,7 @@ const HeroSection = () => {
     bg-gradient-to-r from-[#0061FF] to-[#60EFFF] text-white rounded-full shadow-md"
                   >
                     <img src={chimg7} alt="AI Driven" className="w-4 h-4" />
-                    AI Driven
+                    Best AI Driven
                   </Badge>
 
                   {/* Rest of the title */}
