@@ -57,24 +57,24 @@ const blogs = [
     excerpt: "Master Google Performance Max campaigns learn setup tips, targeting strategies, and ways to drive real business growth...",
     image: "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=800",
   },
-  // {
-  //   slug: "video-marketing-strategies",
-  //   title: "Video Marketing Strategies in 2025",
-  //   excerpt: "Video is the most engaging content format today. Learn how to leverage it for your brand...",
-  //   image: "https://images.unsplash.com/photo-1551836022-4c4c79ecde51",
-  // },
-  // {
-  //   slug: "affiliate-marketing-guide",
-  //   title: "Affiliate Marketing Guide",
-  //   excerpt: "How to start and succeed with affiliate marketing in today’s competitive market...",
-  //   image: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1200&q=80",
-  // },
-  // {
-  //   slug: "local-seo-importance",
-  //   title: "Importance of Local SEO",
-  //   excerpt: "Learn why local SEO matters and how it helps businesses attract customers nearby...",
-  //   image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
-  // },
+  {
+    slug: "seo-vs-ppc",
+    title: "SEO vs. PPC: What's the Difference and Which Should You Use?",
+    excerpt: "Understand the real difference between SEO and PPC, when to use each, and how to combine them for the best ...",
+    image: "https://images.unsplash.com/photo-1551836022-4c4c79ecde51",
+  },
+  {
+    slug: "7-common-mistakes-in-google-ads",
+    title: "7 Most Common Google Ads Mistakes That Waste Your Budget",
+    excerpt: "Avoid these common Google Ads mistakes that waste money. Fix your targeting, keywords, and bidding to save budget....",
+    image: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    slug: "basic-keyword-research",
+    title: "How to Do Basic Keyword Research for Free in 2025?",
+    excerpt: "Find out how to do keyword research for free in 2025 using simple tools, smart strategies, and real search insights....",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+  },
 ];
 
 const Blog = () => {

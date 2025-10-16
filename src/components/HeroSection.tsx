@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { CheckCircle, Users, Clock } from "lucide-react";
+import { CheckCircle, Users, Clock, Sparkle } from "lucide-react";
 import PlacedStudentCarousel from "@/components/PlacedStudentCarousel";
 import hero from "@/components/assets/hero.png";
 import BrochureDialog from "../pages/BrochureDialog";
 import { FaDownload } from "react-icons/fa";
+import chimg7 from "../components/svg/sparkle.svg"
 
 const HeroSection = () => {
   return (
@@ -19,10 +20,21 @@ const HeroSection = () => {
                   🚀 India's Leading Digital Marketing Academy
                 </Badge>
                 <h1 className="text-4xl top-8 lg:text-6xl font-bold leading-tight relative">
-                  <span className="absolute -top-9 text-lg px-6 py-1 font-semibold bg-gradient-to-r from-[#EA2525] to-[#AA2526] text-white rounded-md left-0 shadow-md">AI Driven</span>
-                  <span className="line-through decoration-4 decoration-red-500 text-black">Best</span>
+                  {/* AI Driven Badge */}
+                  <Badge
+                    className="absolute -top-9 left-0 flex items-center gap-2 px-4 py-1 text-lg font-semibold 
+    bg-gradient-to-r from-[#0061FF] to-[#60EFFF] text-white rounded-full shadow-md"
+                  >
+                    <img src={chimg7} alt="AI Driven" className="w-4 h-4" />
+                    AI Driven
+                  </Badge>
+
+                  {/* Rest of the title */}
+                  <span className="line-through decoration-4 decoration-red-500 text-black">
+                    Best
+                  </span>{" "}
                   <span className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent animate-pulse-soft">
-                    {" "}Digital Marketing
+                    Digital Marketing
                   </span>
                   <br />
                   <span className="text-black">Institute in Noida</span>
