@@ -40,7 +40,7 @@ const HeroSection = () => {
                   <span className="text-black">Institute in Noida</span>
                 </h1>
                 <p className="text-xl relative top-7 text-muted-foreground leading-relaxed">
-                  iDigital Studies: Noida's premier SEO & Digital Marketing institute.<br />
+                  IDS: Noida's premier SEO & Digital Marketing institute.<br />
                   Learn from experts with live projects and guaranteed placement support.<br />
                   Enroll now!
                 </p>
