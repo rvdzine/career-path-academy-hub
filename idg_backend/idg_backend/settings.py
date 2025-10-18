@@ -30,7 +30,7 @@ DEBUG = os.environ.get("DEBUG", "False") == "True"
 # DEBUG = True  #for local
 
 # ALLOWED_HOSTS = ['idg-backend.onrender.com']
-ALLOWED_HOSTS = ['16.171.151.203', '*']
+ALLOWED_HOSTS = ['*']
 
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost'] # for local
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
