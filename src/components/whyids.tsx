@@ -2,16 +2,21 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
-import toolimg1 from "../components/svg/download 7.svg";
-import toolimg2 from "../components/svg/download 10.svg";
-import toolimg3 from "../components/svg/download 16.svg";
-import toolimg4 from "../components/svg/download 18.svg";
-import toolimg5 from "../components/svg/download 20.svg";
-import toolimg6 from "../components/svg/download 26.svg";
-import toolimg7 from "../components/svg/download 28.svg";
-import toolimg8 from "../components/svg/download 31.svg";
-import toolimg9 from "../components/svg/download 36.svg";
-import toolimg10 from "../components/svg/Group 1000002025.svg";
+import toolimg1 from "../components/svg/1 seo.png";
+import toolimg2 from "../components/svg/2 smm.png";
+import toolimg3 from "../components/svg/3 content.png";
+import toolimg4 from "../components/svg/4 email.png";
+import toolimg5 from "../components/svg/5 PPC.png";
+import toolimg6 from "../components/svg/CRM.png";
+import toolimg7 from "../components/svg/7 CRM.png";
+import toolimg8 from "../components/svg/8 marketing.png";
+import toolimg9 from "../components/svg/9 video.png";
+import toolimg10 from "../components/svg/10 affiliate.png";
+import toolimg11 from "../components/svg/11 ai.png";
+import toolimg12 from "../components/svg/12 CRO.png";
+import toolimg13 from "../components/svg/13 cms.png";
+import toolimg14 from "../components/svg/14 performance.png";
+import toolimg15 from "../components/svg/15 ecom.png";
 
 export default function WhyIDS() {
   const reasons = [
@@ -90,25 +95,25 @@ export default function WhyIDS() {
       name: "HubSpot",
       category: "Content Marketing",
       desc: "Develop strategies, craft engaging content, and measure success through insights and performance reports.",
-      img: toolimg6,
+      img: toolimg3,
     },
     {
       name: "Mailchimp",
       category: "Email Marketing",
       desc: "Design campaigns, segment audiences, and track engagement to improve open rates and conversions.",
-      img: toolimg3,
+      img: toolimg4,
     },
     {
       name: "Google Ads",
       category: "PPC Advertising",
       desc: "Learn to manage ad budgets, optimize keywords, and analyze performance for maximum ROI.",
-      img: toolimg4,
+      img: toolimg5,
     },
     {
       name: "Google Analytics",
       category: "Analytics & Reporting",
       desc: "Track website performance, audience behavior, and campaign results to make data-backed decisions.",
-      img: toolimg5,
+      img: toolimg6,
     },
     {
       name: "Salesforce",
@@ -120,49 +125,49 @@ export default function WhyIDS() {
       name: "HubSpot Marketing Hub",
       category: "Marketing Automation",
       desc: "Set up workflows, nurture leads, and optimize campaigns for consistency and scalability.",
-      img: toolimg6,
+      img: toolimg8,
     },
     {
       name: "Canva",
       category: "Video Marketing",
       desc: "Plan, produce, and distribute videos that boost brand awareness and drive viewer engagement.",
-      img: toolimg8,
+      img: toolimg9,
     },
     {
       name: "Refersion",
       category: "Affiliate Marketing",
       desc: "Learn how to manage affiliates, track performance, and reward conversions effectively.",
-      img: toolimg8,
+      img: toolimg10,
     },
     {
       name: "AI-Powered Marketing",
       category: "AI-Powered Marketing",
       desc: "Use AI tools for content generation, data analysis, audience segmentation, and personalization..",
-      img: toolimg8,      
+      img: toolimg11,      
     },
     {
       name: "Clarity Hotzar",
       category: "Conversion Rate Optimization (CRO)",
       desc: "Run A/B tests, analyze user behavior, and refine landing pages for better results..",
-      img: toolimg8
+      img: toolimg12,
     },
     {
       name: "WordPress",
       category: "Content Management System (CMS)",
       desc: "Design web pages, organize digital assets, and maintain site structure efficiently..",
-      img: toolimg8,
+      img: toolimg13,
     },
     {
       name: "Pabbly",
       category: "Performance Marketing",
       desc: "Monitor real-time performance, optimize ad spend, and scale what works for your business goals..",
-      img: toolimg8,
+      img: toolimg14,
     },
     {
       name: "Shopify",
       category: "E-commerce & Dropshipping",
       desc: "Learn to handle product listings, orders, payments, and customer service with efficiency.",
-      img: toolimg8,
+      img: toolimg15,
     },
   ];
 
@@ -203,18 +208,21 @@ export default function WhyIDS() {
     analyze performance, create content, and engage with audiences.
   </p>
 
-  {/* GRID */}
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-    {tools.map((tool, idx) => (
-      <div key={idx} className="flex flex-col bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200">
-        {/* White top section */}
-        <div className="bg-white flex items-center justify-center h-40 rounded-2xl">
-          <img
-            src={tool.img}
-            alt={tool.name}
-            className="h-14 w-auto object-contain"
-          />
-        </div>
+ {/* GRID */}
+<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+  {tools.map((tool, idx) => (
+    <div
+      key={idx}
+      className="flex flex-col bg-[#f2f2f2] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200"
+    >
+      {/* White top section */}
+      <div className="bg-white flex items-center justify-center h-40 rounded-2xl">
+        <img
+          src={tool.img}
+          alt={tool.name}
+          className="h-30 w-auto object-contain" // increased from h-14 → h-24
+        />
+      </div>
 
         {/* Gray bottom section */}
         <div className="px-4 py-5 text-center flex-1 flex flex-col justify-center">
