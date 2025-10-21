@@ -6,11 +6,13 @@ import Isha from "../components/assets/Isha Verma.jpeg";
 import Loveleen from "../components/assets/Loveleen.jpg";
 import Priya from "../components/assets/Priya.jpg";
 import Mohit from "../components/assets/Mohit.jpg";
+import Anmol from "../components/assets/anmolSoni.jpg"
 
 // Logos
 const logos = {
   Paytm: "https://upload.wikimedia.org/wikipedia/commons/5/55/Paytm_logo.png",
   Google: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+  Goldman: "https://upload.wikimedia.org/wikipedia/commons/6/61/Goldman_Sachs.svg",
   Amazon: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
   Meta: "https://upload.wikimedia.org/wikipedia/commons/0/08/Meta_Platforms_Inc._logo.svg",
   Zomato: "https://upload.wikimedia.org/wikipedia/commons/7/75/Zomato_logo.png",
@@ -69,105 +71,114 @@ const students = [
       "I switched my career into IT confidently with the right guidance and projects.",
   },
   {
-    name: "Priya Kumari",
-    role: "System Engineer",
-    company: "TCS",
-    package: "₹6.5 LPA",
-    location: "Gurgaon, India",
-    image: Priya,
-    quote:
-      "I switched my career into IT confidently with the right guidance and projects.",
-  },
-  {
-    name: "Priya Kumari",
-    role: "System Engineer",
-    company: "TCS",
-    package: "₹6.5 LPA",
-    location: "Gurgaon, India",
-    image: Priya,
-    quote:
-      "I switched my career into IT confidently with the right guidance and projects.",
-  },
-  {
-    name: "Priya Kumari",
-    role: "System Engineer",
-    company: "TCS",
-    package: "₹6.5 LPA",
-    location: "Gurgaon, India",
-    image: Priya,
-    quote:
-      "I switched my career into IT confidently with the right guidance and projects.",
-  },
-  {
-    name: "Priya Kumari",
-    role: "System Engineer",
-    company: "TCS",
-    package: "₹6.5 LPA",
-    location: "Gurgaon, India",
-    image: Priya,
-    quote:
-      "I switched my career into IT confidently with the right guidance and projects.",
-  },
-  {
-    name: "Priya Kumari",
-    role: "System Engineer",
-    company: "TCS",
-    package: "₹6.5 LPA",
-    location: "Gurgaon, India",
-    image: Priya,
-    quote:
-      "I switched my career into IT confidently with the right guidance and projects.",
-  },
-  {
-    name: "Priya Kumari",
-    role: "System Engineer",
-    company: "TCS",
-    package: "₹6.5 LPA",
-    location: "Gurgaon, India",
-    image: Priya,
-    quote:
-      "I switched my career into IT confidently with the right guidance and projects.",
-  },
-  {
-    name: "Priya Kumari",
-    role: "System Engineer",
-    company: "TCS",
-    package: "₹6.5 LPA",
-    location: "Gurgaon, India",
-    image: Priya,
-    quote:
-      "I switched my career into IT confidently with the right guidance and projects.",
-  },
-  {
-    name: "Priya Kumari",
-    role: "System Engineer",
-    company: "TCS",
-    package: "₹6.5 LPA",
-    location: "Gurgaon, India",
-    image: Priya,
-    quote:
-      "I switched my career into IT confidently with the right guidance and projects.",
-  },
-  {
-    name: "Priya Kumari",
-    role: "System Engineer",
-    company: "TCS",
-    package: "₹6.5 LPA",
-    location: "Gurgaon, India",
-    image: Priya,
-    quote:
-      "I switched my career into IT confidently with the right guidance and projects.",
-  },
-  {
-    name: "Priya Kumari",
-    role: "System Engineer",
-    company: "TCS",
-    package: "₹6.5 LPA",
-    location: "Gurgaon, India",
-    image: Priya,
-    quote:
-      "I switched my career into IT confidently with the right guidance and projects.",
-  },
+    name: "Anmol Soni",
+    role: "Full Stack Developer",
+    company: "Goldman",
+    package: "₹24 LPA",
+    location: "Mumbai",
+    image: Anmol,
+    quote: "I am working as a full stack developer at goldman sachs. "
+  }
+  // {
+  //   name: "Priya Kumari",
+  //   role: "System Engineer",
+  //   company: "TCS",
+  //   package: "₹6.5 LPA",
+  //   location: "Gurgaon, India",
+  //   image: Priya,
+  //   quote:
+  //     "I switched my career into IT confidently with the right guidance and projects.",
+  // },
+  // {
+  //   name: "Priya Kumari",
+  //   role: "System Engineer",
+  //   company: "TCS",
+  //   package: "₹6.5 LPA",
+  //   location: "Gurgaon, India",
+  //   image: Priya,
+  //   quote:
+  //     "I switched my career into IT confidently with the right guidance and projects.",
+  // },
+  // {
+  //   name: "Priya Kumari",
+  //   role: "System Engineer",
+  //   company: "TCS",
+  //   package: "₹6.5 LPA",
+  //   location: "Gurgaon, India",
+  //   image: Priya,
+  //   quote:
+  //     "I switched my career into IT confidently with the right guidance and projects.",
+  // },
+  // {
+  //   name: "Priya Kumari",
+  //   role: "System Engineer",
+  //   company: "TCS",
+  //   package: "₹6.5 LPA",
+  //   location: "Gurgaon, India",
+  //   image: Priya,
+  //   quote:
+  //     "I switched my career into IT confidently with the right guidance and projects.",
+  // },
+  // {
+  //   name: "Priya Kumari",
+  //   role: "System Engineer",
+  //   company: "TCS",
+  //   package: "₹6.5 LPA",
+  //   location: "Gurgaon, India",
+  //   image: Priya,
+  //   quote:
+  //     "I switched my career into IT confidently with the right guidance and projects.",
+  // },
+  // {
+  //   name: "Priya Kumari",
+  //   role: "System Engineer",
+  //   company: "TCS",
+  //   package: "₹6.5 LPA",
+  //   location: "Gurgaon, India",
+  //   image: Priya,
+  //   quote:
+  //     "I switched my career into IT confidently with the right guidance and projects.",
+  // },
+  // {
+  //   name: "Priya Kumari",
+  //   role: "System Engineer",
+  //   company: "TCS",
+  //   package: "₹6.5 LPA",
+  //   location: "Gurgaon, India",
+  //   image: Priya,
+  //   quote:
+  //     "I switched my career into IT confidently with the right guidance and projects.",
+  // },
+  // {
+  //   name: "Priya Kumari",
+  //   role: "System Engineer",
+  //   company: "TCS",
+  //   package: "₹6.5 LPA",
+  //   location: "Gurgaon, India",
+  //   image: Priya,
+  //   quote:
+  //     "I switched my career into IT confidently with the right guidance and projects.",
+  // },
+  // {
+  //   name: "Priya Kumari",
+  //   role: "System Engineer",
+  //   company: "TCS",
+  //   package: "₹6.5 LPA",
+  //   location: "Gurgaon, India",
+  //   image: Priya,
+  //   quote:
+  //     "I switched my career into IT confidently with the right guidance and projects.",
+  // },
+  // {
+  //   name: "Priya Kumari",
+  //   role: "System Engineer",
+  //   company: "TCS",
+  //   package: "₹6.5 LPA",
+  //   location: "Gurgaon, India",
+  //   image: Priya,
+  //   quote:
+  //     "I switched my career into IT confidently with the right guidance and projects.",
+  // },
 ];
 
 const PlacedStudentsCarousel = () => {
@@ -296,11 +307,10 @@ const PlacedStudentsCarousel = () => {
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentIndex
+              className={`w-3 h-3 rounded-full transition-colors ${index === currentIndex
                   ? "bg-[#EA2525]"
                   : "bg-gray-300 hover:bg-gray-400"
-              }`}
+                }`}
             />
           ))}
         </div>
