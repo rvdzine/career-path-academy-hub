@@ -3,26 +3,27 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import BookingDialog from "./BookingDialog";
+import Image from "next/image"
 
 // SVG imports (used as images)
-import offimg1 from "@/components/svg/info-circle.svg";
-import offimg2 from "@/components/svg/location.svg";
-import offimg3 from "@/components/svg/monitor-mobbile.svg";
-import offimg4 from "@/components/svg/monitor.svg";
-import offimg5 from "@/components/svg/reserve.svg";
-import offimg6 from "@/components/svg/wifi-square.svg";
-import offimg7 from "@/components/svg/wind.svg";
-import offimg8 from "@/components/assets/offsectionimg.jpg";
+// import offimg1 from "@/components/svg/info-circle.svg";
+// import offimg2 from "@/components/svg/location.svg";
+// import offimg3 from "@/components/svg/monitor-mobbile.svg";
+// import offimg4 from "@/components/svg/monitor.svg";
+// import offimg5 from "@/components/svg/reserve.svg";
+// import offimg6 from "@/components/svg/wifi-square.svg";
+// import offimg7 from "@/components/svg/wind.svg";
+// import offimg8 from "@/components/assets/offsectionimg.jpg";
 
 const OfflineSection = () => {
   const facilities = [
-    { name: "Smart Classroom", icon: offimg4 },
-    { name: "WiFi", icon: offimg6 },
-    { name: "Cafeteria", icon: offimg5 },
-    { name: "Parking", icon: offimg2 },
-    { name: "Practice Lab", icon: offimg3 },
-    { name: "Doubt Classes", icon: offimg1 },
-    { name: "Air Conditioner", icon: offimg7 },
+    { name: "Smart Classroom", icon: "/svg/info-circle.svg" },
+    { name: "WiFi", icon: "/svg/location.svg" },
+    { name: "Cafeteria", icon: "/svg/monitor-mobbile.svg" },
+    { name: "Parking", icon: "/svg/monitor.svg" },
+    { name: "Practice Lab", icon: "/svg/reserve.svg" },
+    { name: "Doubt Classes", icon: "/svg/wifi-square.svg" },
+    { name: "Air Conditioner", icon: "/svg/wind.svg" },
   ];
 
   return (
@@ -42,11 +43,18 @@ const OfflineSection = () => {
       <div className="max-w-[1350px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
         {/* Left Image */}
        <div className="flex justify-center md:justify-start">
-  <img
+  {/* <img
     src={typeof offimg8 === 'string' ? offimg8 : offimg8.src}
     alt="IDS Offline Center"
     className="rounded-2xl w-full max-w-[420px] md:ml-10 object-cover shadow-md"
-  />
+  /> */}
+          <Image
+            src="/assets/offsectionimg.jpg"
+            alt="IDS Offline Center"
+            width={420}
+            height={280}
+            className="rounded-2xl w-full max-w-[420px] md:ml-10 object-cover shadow-md"
+          />
 </div>
 
 
@@ -72,11 +80,20 @@ const OfflineSection = () => {
                 key={index}
                 className="flex items-center gap-2 bg-white rounded-full px-3 py-1.5 shadow-sm border border-gray-100"
               >
-                <img
+                <Image
                   src={facility.icon}
                   alt={facility.name}
-                  className="w-4 h-4 text-gray-600"
+                  // className="w-4 h-4 text-gray-600"
+                  width={12}
+                  height={12}
                 />
+                {/* <Image
+            src="/assets/offsectionimg.jpg"
+            alt="IDS Offline Center"
+            width={420}
+            height={280}
+            className="rounded-2xl w-full max-w-[420px] md:ml-10 object-cover shadow-md"
+          /> */}
                 <span className="text-xs text-gray-700 font-medium">
                   {facility.name}
                 </span>

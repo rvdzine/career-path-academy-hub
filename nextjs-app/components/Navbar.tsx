@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import ContactDialog from "@/components/ContactDialog";
-import IDS_LOGO from "@/components/svg/IDS_LOGO.svg";
+import Image from "next/image";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -44,7 +44,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <img src={IDS_LOGO} className="h-10 w-auto" alt="IDS Logo" />
+            <Image src= "/IDS_LOGO.svg" width={120} height={40} alt="IDS Logo" />
           </Link>
 
           {/* Desktop Navigation */}

@@ -6,7 +6,8 @@ import PlacedStudentCarousel from "@/components/PlacedStudentCarousel";
 import hero from "@/components/assets/hero.png";
 import BrochureDialog from "@/components/pages/BrochureDialog";
 import { FaDownload } from "react-icons/fa";
-import chimg7 from "@/components/svg/sparkle.svg"
+import Image from "next/image";
+// import chimg7 from "@/components/svg/sparkle.svg"
 
 const HeroSection = () => {
   return (
@@ -25,7 +26,8 @@ const HeroSection = () => {
                     className="absolute -top-9 left-0 flex items-center gap-2 px-4 py-1 text-lg font-semibold 
     bg-gradient-to-r from-[#0061FF] to-[#60EFFF] text-white rounded-full shadow-md"
                   >
-                    <img src={chimg7} alt="AI Driven" className="w-4 h-4" />
+                    {/* <img src={chimg7} alt="AI Driven" className="w-4 h-4" /> */}
+                    <Image src= "/svg/sparkle.svg" width={20} height={20} alt="sparkle"/>
                     Best AI Driven
                   </Badge>
 

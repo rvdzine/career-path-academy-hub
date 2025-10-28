@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import MSMELogo from "./assets/MSME_logo.jpg";
-import NSDCLogo from "./assets/logo_nsdc.svg";
+// import MSMELogo from "./assets/MSME_logo.jpg";
+// import NSDCLogo from "./assets/logo_nsdc.svg";
 import SkillsNSDC from "./assets/skills_nsdc.svg";
 import { Award, Shield, CheckCircle, Star } from "lucide-react";
 import WhyIDS from "./whyids";
@@ -14,7 +14,7 @@ const CertificationSection = () => {
       icon: Shield,
       color: "from-blue-500 to-blue-600",
       badge: "Government Recognized",
-      image: MSMELogo, 
+      image: "/assets/MSME_logo.jpg", 
     },
     {
       name: "Skill India (NSDC)",
@@ -22,7 +22,7 @@ const CertificationSection = () => {
       icon: Award,
       color: "from-green-500 to-green-600",
       badge: "NSDC Partner",
-       image: NSDCLogo,
+       image: "/svg/logo_nsdc.svg",
        
     },
   ];

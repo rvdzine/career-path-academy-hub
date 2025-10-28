@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import idg_footer from "@/components/svg/idg_footer.svg";
+// import idg_footer from "@/components/svg/idg_footer.svg";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
 import csh_footer from "@/components/svg/cybershields-footer-logo.svg"
+import Image from "next/image";
 
 // import the SalaryReportModal
 import SalaryReportModal from "@/components/SalaryReport"; 
@@ -19,7 +20,9 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="flex items-center justify-center">
-                <img src={idg_footer} className="h-12 w-auto" alt="IDS Footer Logo" />
+                <Link href="/" className="flex items-center space-x-2">
+                  <Image src="/idg_footer.svg" width={120} height={40} alt="IDS Logo" />
+                </Link>
               </div>
             </div>
             <p className="text-gray-400 dark:text-gray-500">
