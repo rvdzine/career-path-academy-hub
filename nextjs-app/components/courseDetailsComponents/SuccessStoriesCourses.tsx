@@ -1,11 +1,11 @@
 "use client";
-
+import Image from "next/image"
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Isha from "../../components/assets/Isha Verma.jpeg";
-import Loveleen from "../../components/assets/Loveleen.jpg";
-import priya from "../../components/assets/Priya.jpg";
-import mohit from "../../components/assets/Mohit.jpg";
+// import Isha from "../../components/assets/Isha Verma.jpeg";
+// import Loveleen from "../../components/assets/Loveleen.jpg";
+// import priya from "../../components/assets/Priya.jpg";
+// import mohit from "../../components/assets/Mohit.jpg";
 
 interface Student {
     name: string;
@@ -23,7 +23,7 @@ const dummyStudents: Student[] = [
         role: "Software Engineer",
         company: "G",
         package: "₹12 LPA",
-        image: Isha,
+        image: "/assets/Isha Verma.jpeg",
         location: "Pune, India",
         quote:
             "This course gave me real-world projects and confidence to crack Google interviews!",
@@ -33,7 +33,7 @@ const dummyStudents: Student[] = [
         role: "Backend Developer",
         company: "A",
         package: "₹10 LPA",
-        image: mohit,
+        image: "/assets/Mohit.jpg",
         location: "Mumbai, India",
         quote:
             "The mentorship and mock interviews were game-changing. Got placed in Amazon within 3 months.",
@@ -43,71 +43,71 @@ const dummyStudents: Student[] = [
         role: "Frontend Engineer",
         company: "M",
         package: "₹15 LPA",
-        image: Loveleen,
+        image: "/assets/Loveleen.jpg",
         location: "Bengaluru, India",
         quote:
             "From basics to advanced React, this journey shaped me into a strong frontend developer.",
     },
-    {
-        name: "Jitendra Singh",
-        role: "Full Stack Developer",
-        company: "Z",
-        package: "₹8 LPA",
-        image: "https://randomuser.me/api/portraits/men/65.jpg",
-        location: "Noida, India",
-        quote:
-            "Hands-on projects and internship support helped me secure a role at Zoho.",
-    },
+    // {
+    //     name: "Jitendra Singh",
+    //     role: "Full Stack Developer",
+    //     company: "Z",
+    //     package: "₹8 LPA",
+    //     image: "https://randomuser.me/api/portraits/men/65.jpg",
+    //     location: "Noida, India",
+    //     quote:
+    //         "Hands-on projects and internship support helped me secure a role at Zoho.",
+    // },
     {
         name: "Priya Kumari",
         role: "System Engineer",
         company: "T",
         package: "₹6.5 LPA",
-        image: priya,
+        image: "/assets/Priya.jpg",
         location: "Gurgaon, India",
         quote:
             "I switched my career into IT confidently with the right guidance and projects.",
     },
-    {
-        name: "Isha Verma",
-        role: "Software Engineer",
-        company: "G",
-        package: "₹12 LPA",
-        image: Isha,
-        location: "Pune, India",
-        quote:
-            "This course gave me real-world projects and confidence to crack Google interviews!",
-    },
-    {
-        name: "Mohit Kumar",
-        role: "Backend Developer",
-        company: "A",
-        package: "₹10 LPA",
-        image: mohit,
-        location: "Mumbai, India",
-        quote:
-            "The mentorship and mock interviews were game-changing. Got placed in Amazon within 3 months.",
-    },
-    {
-        name: "Loveleen Sharma",
-        role: "Frontend Engineer",
-        company: "M",
-        package: "₹15 LPA",
-        image: Loveleen,
-        location: "Bengaluru, India",
-        quote:
-            "From basics to advanced React, this journey shaped me into a strong frontend developer.",
-    },
-    {
-        name: "Jitendra Singh",
-        role: "Full Stack Developer",
-        company: "Z",
-        package: "₹8 LPA",
-        image: "https://randomuser.me/api/portraits/men/65.jpg",
-        location: "Noida, India",
-        quote:
-            "Hands-on projects and internship support helped me secure a role at Zoho.",
-    },
+    // {
+    //     name: "Isha Verma",
+    //     role: "Software Engineer",
+    //     company: "G",
+    //     package: "₹12 LPA",
+    //     image: Isha,
+    //     location: "Pune, India",
+    //     quote:
+    //         "This course gave me real-world projects and confidence to crack Google interviews!",
+    // },
+    // {
+    //     name: "Mohit Kumar",
+    //     role: "Backend Developer",
+    //     company: "A",
+    //     package: "₹10 LPA",
+    //     image: mohit,
+    //     location: "Mumbai, India",
+    //     quote:
+    //         "The mentorship and mock interviews were game-changing. Got placed in Amazon within 3 months.",
+    // },
+    // {
+    //     name: "Loveleen Sharma",
+    //     role: "Frontend Engineer",
+    //     company: "M",
+    //     package: "₹15 LPA",
+    //     image: Loveleen,
+    //     location: "Bengaluru, India",
+    //     quote:
+    //         "From basics to advanced React, this journey shaped me into a strong frontend developer.",
+    // },
+    // {
+    //     name: "Jitendra Singh",
+    //     role: "Full Stack Developer",
+    //     company: "Z",
+    //     package: "₹8 LPA",
+    //     image: "https://randomuser.me/api/portraits/men/65.jpg",
+    //     location: "Noida, India",
+    //     quote:
+    //         "Hands-on projects and internship support helped me secure a role at Zoho.",
+    // },
 ];
 
 const SuccessStoriesCourses = () => {
@@ -178,13 +178,13 @@ const SuccessStoriesCourses = () => {
                                         <div className="flex-1">
                                             {/* Logo + Name + Role */}
                                             <div className="flex items-center gap-3 mb-4">
-                                                <div className="w-18 h-18 flex items-center justify-center rounded-full bg-black p-2">
+                                                {/* <div className="w-18 h-18 flex items-center justify-center rounded-full bg-black p-2">
                                                     <img
                                                         // src={student.logo}
                                                         alt={student.company}
                                                         className="w-full h-full object-contain invert"
                                                     />
-                                                </div>
+                                                </div> */}
                                                 <div>
                                                     <h3 className="font-semibold text-gray-900 text-base">
                                                         {student.name}
@@ -228,19 +228,23 @@ const SuccessStoriesCourses = () => {
                                             ></div>
 
                                             {/* Front Layer (Image Shape) */}
-                                            <div
-                                                className="absolute inset-0 overflow-hidden z-10"
-                                                style={{
-                                                    borderRadius: "70% 70% 100% 0% / 75% 68% 80% 40%",
-                                                    background: "#FFEFEF",
-                                                }}
-                                            >
-                                                <img
-                                                    src={student.image}
-                                                    alt={student.name}
-                                                    className="w-full h-full object-cover"
-                                                />
-                                            </div>
+                                            <div className="flex justify-center items-center mt-4">
+                                                                  <div
+                                                                    className="relative w-[160px] h-[160px] md:w-[200px] md:h-[200px] lg:w-[240px] lg:h-[180px] overflow-hidden z-10"
+                                                                    style={{
+                                                                      borderRadius: "70% 70% 100% 0% / 75% 68% 80% 40%",
+                                                                      background: "#FFEFEF",
+                                                                    }}
+                                                                  >
+                                                                    <Image
+                                                                      src={student.image}
+                                                                      alt={student.name}
+                                                                      fill
+                                                                      className="object-cover object-center"
+                                                                      sizes="(max-width: 768px) 160px, (max-width: 1024px) 200px, 220px"
+                                                                    />
+                                                                  </div>
+                                                                </div>
                                         </div>
                                     </div>
                                 </div>

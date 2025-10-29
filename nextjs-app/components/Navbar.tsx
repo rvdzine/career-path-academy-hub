@@ -62,7 +62,7 @@ const Navbar = () => {
             ))}
 
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+              <DropdownMenuTrigger asChild suppressHydrationWarning>
                 <button className="flex items-center text-sm font-medium text-gray-700 hover:text-black transition-colors">
                   More
                   <ChevronDown className="ml-1 h-4 w-4" />
