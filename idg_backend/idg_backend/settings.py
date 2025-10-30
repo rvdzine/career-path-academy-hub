@@ -29,7 +29,9 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "fallback-dev-key")
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 # DEBUG = True  #for local
 
-ALLOWED_HOSTS = ['idg-backend.onrender.com']
+# ALLOWED_HOSTS = ['idg-backend.onrender.com']
+ALLOWED_HOSTS = ['*']
+
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost'] # for local
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -48,7 +50,8 @@ INSTALLED_APPS = [
     'courses',
     'demo',
     'placement',
-    'contact'
+    'contact',
+    'salaryreport'
 ]
 
 MIDDLEWARE = [

@@ -11,8 +11,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
+import { toast } from "@/components/ui/use-toast";
+import axios from "axios";
+
+
 export default function SalaryReportModal({ children }) {
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     fullName: "",
     email: "",
@@ -22,6 +27,50 @@ export default function SalaryReportModal({ children }) {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleViewReport = async () => {
+    const { fullName, email, phone, course } = form;
+
+    if (!fullName || !email || !phone || !course) {
+      toast({
+        title: "Please fill the required fields",
+        description: "All four fields are mandatory before proceeding.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const response = await axios.post(
+        "https://idg-backend.onrender.com/api/salaryreport/submit/",
+        {
+          full_name: fullName,
+          email: email,
+          phone: phone,
+          course: course,
+        }
+      );
+
+      if (response.status === 201) {
+        toast({
+          title: "Success!",
+          description: "Your details have been submitted successfully.",
+        });
+        setOpen(false);
+        window.location.href = "/Ss"; // navigate to report
+      }
+    } catch (error: any) {
+      toast({
+        title: "Submission Failed",
+        description:
+          error.response?.data?.error || "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -90,25 +139,27 @@ export default function SalaryReportModal({ children }) {
               className="w-full border rounded-lg p-2"
             >
               <option value="">-- Select a Course --</option>
-              <option value="SEO Mastery">SEO Mastery</option>
-              <option value="Social Media Pro">Social Media Pro</option>
-              <option value="Google Ads Expert">Google Ads Expert</option>
-              <option value="Content Marketing Bootcamp">
+              <option value="seomastery">SEO Mastery</option>
+              <option value="socialmediapro">Social Media Pro</option>
+              <option value="googleadsexpert">Google Ads Expert</option>
+              <option value="cmbootcamp">
                 Content Marketing Bootcamp
               </option>
-              <option value="Email Marketing Pro">Email Marketing Pro</option>
-              <option value="Advanced SEO">Advanced SEO</option>
+              <option value="emailmarketingpro">Email Marketing Pro</option>
+              <option value="advancedseo">Advanced SEO</option>
             </select>
           </div>
 
-          {/* Navigate Button */}
+          {/* Submit Button */}
           <div className="flex justify-end pt-4">
-  <Link to="/Ss">
-    <Button className="bg-[#EA2525] hover:bg-[#c21e1e] text-white">
-      See the Salary Report
-    </Button>
-  </Link>
-</div>
+            <Button
+              onClick={handleViewReport}
+              disabled={loading}
+              className="bg-[#EA2525] hover:bg-[#c21e1e] text-white"
+            >
+              {loading ? "Submitting..." : "See the Salary Report"}
+            </Button>
+          </div>
         </div>
       </DialogContent>
     </Dialog>

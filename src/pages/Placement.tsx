@@ -1,15 +1,16 @@
-
-import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+// import { useState } from "react";
+// import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CheckCircle, Users, Briefcase, TrendingUp, Building, Award, GraduationCap } from "lucide-react";
+// import { CheckCircle, Users, Briefcase, TrendingUp, Building, Award, GraduationCap } from "lucide-react";
+import { Users, TrendingUp, Building, GraduationCap } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InternshipForm from "@/components/InternshipForm";
 import InternshipVacancies from "@/components/InternshipVacancies";
 import RecruiterForm from "@/components/RecruiterForm"
+import SuccessStoriesCourses from "@/components/courseDetailsComponents/SuccessStoriesCourses";
 
 const Placement = () => {
   const placementStats = [
@@ -19,91 +20,91 @@ const Placement = () => {
     { number: "2000+", label: "Students Placed", icon: Users }
   ];
 
-  const partnerCompanies = [
-    "Google", "Facebook", "Amazon", "Flipkart", "Paytm", "Zomato",
-    "Swiggy", "OYO", "Byju's", "Unacademy", "PhonePe", "Razorpay"
-  ];
+  // const partnerCompanies = [
+  //   "Google", "Facebook", "Amazon", "Flipkart", "Paytm", "Zomato",
+  //   "Swiggy", "OYO", "Byju's", "Unacademy", "PhonePe", "Razorpay"
+  // ];
 
-  const placementPrograms = [
-    {
-      title: "Internship Program",
-      description: "3-6 months paid internship with guaranteed job opportunity upon successful completion.",
-      duration: "3-6 months internship + job placement",
-      features: [
-        "Paid internship opportunities",
-        "Real-world project experience",
-        "One-on-one mentorship",
-        "Industry exposure and networking",
-        "Performance-based job offers",
-        "Certificate of completion"
-      ],
-      price: "Free Registration",
-      guarantee: "Internship Guaranteed",
-      color: "from-green-500 to-emerald-600"
-    },
-    {
-      title: "Job Guarantee Program",
-      description: "100% job guarantee or full fee refund. Complete training with dedicated placement support.",
-      duration: "12 weeks + 3 months placement support",
-      features: [
-        "Comprehensive training in all modules",
-        "Personal interview preparation",
-        "Resume building workshop",
-        "Mock interviews with industry experts",
-        "Direct company referrals",
-        "Salary negotiation support"
-      ],
-      price: "₹45,000",
-      guarantee: "Job Guaranteed",
-      color: "from-blue-500 to-cyan-600"
-    },
-    {
-      title: "Premium Placement Support",
-      description: "Enhanced placement assistance with priority access to top companies and personalized mentoring.",
-      duration: "Course duration + 6 months support",
-      features: [
-        "Priority company applications",
-        "1-on-1 career counseling",
-        "LinkedIn profile optimization",
-        "Portfolio development",
-        "Industry networking events",
-        "Alumni network access"
-      ],
-      price: "₹15,000",
-      guarantee: "Premium Support",
-      color: "from-purple-500 to-violet-600"
-    }
-  ];
+  // const placementPrograms = [
+  //   {
+  //     title: "Internship Program",
+  //     description: "3-6 months paid internship with guaranteed job opportunity upon successful completion.",
+  //     duration: "3-6 months internship + job placement",
+  //     features: [
+  //       "Paid internship opportunities",
+  //       "Real-world project experience",
+  //       "One-on-one mentorship",
+  //       "Industry exposure and networking",
+  //       "Performance-based job offers",
+  //       "Certificate of completion"
+  //     ],
+  //     price: "Free Registration",
+  //     guarantee: "Internship Guaranteed",
+  //     color: "from-green-500 to-emerald-600"
+  //   },
+  //   {
+  //     title: "Job Guarantee Program",
+  //     description: "100% job guarantee or full fee refund. Complete training with dedicated placement support.",
+  //     duration: "12 weeks + 3 months placement support",
+  //     features: [
+  //       "Comprehensive training in all modules",
+  //       "Personal interview preparation",
+  //       "Resume building workshop",
+  //       "Mock interviews with industry experts",
+  //       "Direct company referrals",
+  //       "Salary negotiation support"
+  //     ],
+  //     price: "₹45,000",
+  //     guarantee: "Job Guaranteed",
+  //     color: "from-blue-500 to-cyan-600"
+  //   },
+  //   {
+  //     title: "Premium Placement Support",
+  //     description: "Enhanced placement assistance with priority access to top companies and personalized mentoring.",
+  //     duration: "Course duration + 6 months support",
+  //     features: [
+  //       "Priority company applications",
+  //       "1-on-1 career counseling",
+  //       "LinkedIn profile optimization",
+  //       "Portfolio development",
+  //       "Industry networking events",
+  //       "Alumni network access"
+  //     ],
+  //     price: "₹15,000",
+  //     guarantee: "Premium Support",
+  //     color: "from-purple-500 to-violet-600"
+  //   }
+  // ];
 
-  const successStories = [
-    {
-      name: "Rajesh Kumar",
-      previousRole: "Sales Executive",
-      currentRole: "Digital Marketing Manager",
-      company: "TechCorp India",
-      salaryIncrease: "180%",
-      package: "₹12 LPA",
-      course: "Complete Digital Marketing"
-    },
-    {
-      name: "Sneha Patel",
-      previousRole: "Fresh Graduate",
-      currentRole: "SEO Specialist",
-      company: "E-commerce Giants",
-      salaryIncrease: "New Career",
-      package: "₹6.5 LPA",
-      course: "SEO Mastery"
-    },
-    {
-      name: "Amit Sharma",
-      previousRole: "Content Writer",
-      currentRole: "PPC Manager",
-      company: "Digital Solutions Ltd",
-      salaryIncrease: "150%",
-      package: "₹10 LPA",
-      course: "Google Ads Expert"
-    }
-  ];
+  // const successStories = [
+  //   {
+  //     name: "Rajesh Kumar",
+  //     previousRole: "Sales Executive",
+  //     currentRole: "Digital Marketing Manager",
+  //     company: "TechCorp India",
+  //     salaryIncrease: "180%",
+  //     package: "₹12 LPA",
+  //     course: "Complete Digital Marketing"
+  //   },
+  //   {
+  //     name: "Sneha Patel",
+  //     previousRole: "Fresh Graduate",
+  //     currentRole: "SEO Specialist",
+  //     company: "E-commerce Giants",
+  //     salaryIncrease: "New Career",
+  //     package: "₹6.5 LPA",
+  //     course: "SEO Mastery"
+  //   },
+  //   {
+  //     name: "Amit Sharma",
+  //     previousRole: "Content Writer",
+  //     currentRole: "PPC Manager",
+  //     company: "Digital Solutions Ltd",
+  //     salaryIncrease: "150%",
+  //     package: "₹10 LPA",
+  //     course: "Google Ads Expert"
+  //   }
+  // ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -187,7 +188,10 @@ const Placement = () => {
       </section>
 
       {/* Success Stories */}
-      <section className="py-20 bg-white">
+
+      <SuccessStoriesCourses/>
+      {/* PREVIOUS SUCCESS STORY SECTION */}
+      {/* <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent">
@@ -234,7 +238,7 @@ const Placement = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-[#EA2525] to-[#AA2526] text-white">

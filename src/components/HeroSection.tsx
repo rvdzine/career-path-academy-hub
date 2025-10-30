@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { CheckCircle, Users, Clock } from "lucide-react";
+import { CheckCircle, Users, Clock, Sparkle } from "lucide-react";
 import PlacedStudentCarousel from "@/components/PlacedStudentCarousel";
-import hero from "@/components/assets/hero.png"
+import hero from "@/components/assets/hero.png";
+import BrochureDialog from "../pages/BrochureDialog";
+import { FaDownload } from "react-icons/fa";
+import chimg7 from "../components/svg/sparkle.svg"
 
 const HeroSection = () => {
   return (
@@ -16,34 +19,53 @@ const HeroSection = () => {
                 <Badge className="bg-red-100 text-red-700 hover:bg-red-200 animate-bounce-gentle">
                   🚀 India's Leading Digital Marketing Academy
                 </Badge>
-                <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                  Best
+                <h1 className="text-4xl top-8 lg:text-6xl font-bold leading-tight relative">
+                  {/* AI Driven Badge */}
+                  <Badge
+                    className="absolute -top-9 left-0 flex items-center gap-2 px-4 py-1 text-lg font-semibold 
+    bg-gradient-to-r from-[#0061FF] to-[#60EFFF] text-white rounded-full shadow-md"
+                  >
+                    <img src={chimg7} alt="AI Driven" className="w-4 h-4" />
+                    Best AI Driven
+                  </Badge>
+
+                  {/* Rest of the title */}
+                  <span className="line-through decoration-4 decoration-red-500 text-black">
+                    Best
+                  </span>{" "}
                   <span className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent animate-pulse-soft">
-                    {" "}Digital Marketing
+                    Digital Marketing
                   </span>
                   <br />
-                  Institute in Noida
+                  <span className="text-black">Institute in Noida</span>
                 </h1>
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  iDigital Studies: Noida's premier SEO & Digital Marketing institute.<br/> Learn from experts with live projects and guaranteed placement support.<br/> Enroll now!.
+                <p className="text-xl relative top-7 text-muted-foreground leading-relaxed">
+                  IDS: Noida's premier SEO & Digital Marketing institute.<br />
+                  Learn from experts with live projects and guaranteed placement support.<br />
+                  Enroll now!
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up [animation-delay:0.2s]">
-                <Button size="lg" className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#EA2525] hover:to-[#AA2526] transition-all duration-300 hover:scale-105 hover:shadow-lg" asChild>
-                  <Link to="/courses">Explore Courses</Link>
-                </Button>
+              <div className="flex flex-col relative top-6 sm:flex-row gap-4 animate-fade-in-up [animation-delay:0.2s]">
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="hover:scale-105 transition-all duration-300 hover:shadow-md"
+                  className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#EA2525] hover:to-[#AA2526] transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   asChild
                 >
-                  <a href="/ids-brochure.pdf" target="_blank" rel="noopener noreferrer">
-                    Download Brochure
-                  </a>
+                  <Link to="/courses">Explore Courses</Link>
                 </Button>
 
+                {/* Brochure download button */}
+                <BrochureDialog courseTitle="Master in Digital Marketing">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="flex items-center justify-center gap-2 hover:scale-105 transition-all duration-300 hover:shadow-md"
+                  >
+                    <FaDownload className="text-sm" />
+                    Download Brochure
+                  </Button>
+                </BrochureDialog>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 animate-fade-in-up [animation-delay:0.4s]">

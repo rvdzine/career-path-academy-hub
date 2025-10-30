@@ -1,147 +1,147 @@
-
-import { Card, CardContent } from "@/components/ui/card";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Users, Calendar, Clock, BookOpen, Award, Wifi, Coffee } from "lucide-react";
 import { Link } from "react-router-dom";
 import BookingDialog from "./BookingDialog";
-// import ScheduleVisitDialog from "./ScheduleVisitDialog";
+
+// SVG imports (used as images)
+import offimg1 from "../components/svg/info-circle.svg";
+import offimg2 from "../components/svg/location.svg";
+import offimg3 from "../components/svg/monitor-mobbile.svg";
+import offimg4 from "../components/svg/monitor.svg";
+import offimg5 from "../components/svg/reserve.svg";
+import offimg6 from "../components/svg/wifi-square.svg";
+import offimg7 from "../components/svg/wind.svg";
+import offimg8 from "../components/assets/offsectionimg.jpg";
 
 const OfflineSection = () => {
-  const facilities = ["Smart Classrooms", "Wi-Fi", "Cafeteria", "Parking", "Lab Access"];
-  
-  const batches = [
-    { course: "Complete Digital Marketing", timing: "9:00 AM - 12:00 PM", days: "Mon-Fri", seats: 8 },
-    { course: "SEO Specialist", timing: "2:00 PM - 5:00 PM", days: "Mon-Wed-Fri", seats: 12 },
-    { course: "Social Media Marketing", timing: "6:00 PM - 9:00 PM", days: "Tue-Thu-Sat", seats: 5 }
+  const facilities = [
+    { name: "Smart Classroom", icon: offimg4 },
+    { name: "WiFi", icon: offimg6 },
+    { name: "Cafeteria", icon: offimg5 },
+    { name: "Parking", icon: offimg2 },
+    { name: "Practice Lab", icon: offimg3 },
+    { name: "Doubt Classes", icon: offimg1 },
+    { name: "Air Conditioner", icon: offimg7 },
   ];
 
-  const facilityIcons = {
-    "Smart Classrooms": BookOpen,
-    "Wi-Fi": Wifi,
-    "Cafeteria": Coffee,
-    "Parking": MapPin,
-    "Lab Access": Award
-  };
-
   return (
-    <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50 overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12 animate-fade-in-up">
-          <h2 className="text-4xl font-bold mb-4 text-[#EA2525]">
-            Experience Hands-On Learning
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Join our offline classes at our premium Noida center for personalized attention and interactive learning
+    <section className="bg-[#fdecec] py-20">
+      {/* Heading Section */}
+      <div className="text-center mb-14">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#121212]">
+          Experience Hands-On Learning
+        </h2>
+        <p className="text-lg text-gray-600 mt-3 max-w-2xl mx-auto">
+          Join our offline classes at our premium Noida center for personalized
+          attention and interactive learning
+        </p>
+      </div>
+
+      {/* Content Section */}
+      <div className="max-w-[1350px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
+        {/* Left Image */}
+       <div className="flex justify-center md:justify-start">
+  <img
+    src={offimg8}
+    alt="IDS Offline Center"
+    className="rounded-2xl w-full max-w-[420px] md:ml-10 object-cover shadow-md"
+  />
+</div>
+
+
+        {/* Right Content */}
+        <div className="space-y-6 text-left -ml-20">
+          <Badge className="bg-[#2d2d2d] text-white px-4 py-1.5 rounded-full text-sm font-medium">
+            Our Premium Offline Center
+          </Badge>
+
+          <h3 className="text-3xl font-bold text-black leading-snug">
+            NXOne, Tech zone 4, Opposite Gaur City Mall, <br />
+            Greater Noida, UP, 201306
+          </h3>
+
+          <p className="text-lg font-medium text-gray-700">
+            Offline Center Facilities
           </p>
-        </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Center Image */}
-          <div className="relative overflow-hidden rounded-2xl shadow-xl animate-fade-in-left group">
-            <img 
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop" 
-              alt="Noida Training Center"
-              className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            <div className="absolute top-4 left-4 animate-bounce-gentle">
-              <Badge className="bg-red-600 text-white px-4 py-2 text-lg font-semibold shadow-lg">
-                Noida Center
-              </Badge>
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          {/* Facilities List */}
+          <div className="flex flex-wrap gap-2">
+            {facilities.map((facility, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2 bg-white rounded-full px-3 py-1.5 shadow-sm border border-gray-100"
+              >
+                <img
+                  src={facility.icon}
+                  alt={facility.name}
+                  className="w-4 h-4 text-gray-600"
+                />
+                <span className="text-xs text-gray-700 font-medium">
+                  {facility.name}
+                </span>
+              </div>
+            ))}
           </div>
 
-          {/* Center Details */}
-          <div className="space-y-6 animate-fade-in-right">
-            <div className="animate-fade-in-up">
-              <h3 className="text-3xl font-bold mb-3 text-gray-900">Our Premium Campus</h3>
-              <p className="text-lg text-gray-600 flex items-center gap-2 hover:text-[#EA2525] transition-colors duration-300">
-                <MapPin className="w-5 h-5" />
-                  NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306
-              </p>
-            </div>
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 animate-fade-in-up [animation-delay:0.3s]">
+            {/* Book Your Demo */}
+            <BookingDialog>
+              <Button
+                size="lg"
+                className="bg-[#EA2525] hover:bg-[#d92020] text-white rounded-md px-8 py-5 text-lg font-semibold 
+                 transition-all duration-300 hover:scale-105 hover:shadow-lg focus:ring-2 focus:ring-[#EA2525]/50"
+              >
+                Book Your Demo
+              </Button>
+            </BookingDialog>
 
-            {/* Facilities */}
-            <div className="animate-fade-in-up [animation-delay:0.1s]">
-              <h4 className="text-xl font-semibold mb-4 text-gray-900">World-Class Facilities</h4>
-              <div className="grid grid-cols-2 gap-3">
-                {facilities.map((facility, index) => {
-                  const IconComponent = facilityIcons[facility] || Award;
-                  return (
-                    <div 
-                      key={facility} 
-                      className="flex items-center gap-2 p-2 bg-white rounded-lg shadow-sm "
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <IconComponent className="w-4 h-4 text-[#EA2525]" />
-                      <span className="text-sm font-medium text-gray-700">{facility}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Quick Batch Info */}
-            {/* <div className="animate-fade-in-up [animation-delay:0.2s]">
-              <h4 className="text-xl font-semibold mb-4 text-gray-900">Available Batches</h4>
-              <div className="space-y-2">
-               {batches.slice(0, 2).map((batch, index) => (
-  <BookingDialog key={index}>
-    <div 
-      className="cursor-pointer flex justify-between items-center p-3 bg-white rounded-lg shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300"
-      style={{ animationDelay: `${index * 0.1}s` }}
-    >
-      <div>
-        <p className="font-medium text-gray-900">{batch.course}</p>
-        <p className="text-sm text-gray-600">{batch.timing} • {batch.days}</p>
-      </div>
-      <Badge variant="outline" className={`${batch.seats <= 5 ? 'border-red-500 text-red-600 animate-pulse-soft' : 'border-green-500 text-green-600'} transition-colors duration-300`}>
-        {batch.seats} seats left
-      </Badge>
-    </div>
-  </BookingDialog>
-))}
-
-                
-              </div>
-            </div> */}
-
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up [animation-delay:0.3s]">
-              <BookingDialog>
-                <Button size="lg" className="bg-[#EA2525] transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                  Book Your Demo
-                </Button>
-              </BookingDialog>
-              
-              <div className="flex gap-2">
-                {/* <ScheduleVisitDialog>
-                  <Button size="lg" variant="outline" className="hover:scale-105 transition-all duration-300 hover:shadow-md">
-                    Schedule Visit
-                  </Button>
-                </ScheduleVisitDialog> */}
-                
-                <Button size="lg" variant="outline" className="hover:scale-105 transition-all duration-300 hover:shadow-md" asChild>
-                  <Link to="/offline-center">View Details</Link>
-                </Button>
-              </div>
-            </div>
-
-            {/* Trust Indicators */}
-            <div className="flex justify-center gap-8 pt-4 text-sm text-gray-600 animate-fade-in-up [animation-delay:0.4s]">
-              <span className="flex items-center gap-2 hover:text-blue-600 transition-colors duration-300">
-                <Users className="w-4 h-4" />
-                Small Batches (Max 15)
-              </span>
-              <span className="flex items-center gap-2 hover:text-blue-600 transition-colors duration-300">
-                <Award className="w-4 h-4" />
-                Industry Certified
-              </span>
-            </div>
+            {/* View Details */}
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="rounded-md px-8 py-5 text-lg font-semibold 
+               border border-[#EA2525] text-[#EA2525] hover:bg-[#EA2525] hover:text-white 
+               transition-all duration-300 hover:scale-105 hover:shadow-md focus:ring-2 focus:ring-[#EA2525]/50"
+            >
+              <Link to="/offline-center">View Details</Link>
+            </Button>
           </div>
         </div>
       </div>
+
+      {/* Gallery Section */}
+      {/* <div className="max-w-[1350px] mx-auto mt-16 px-6">
+        <h3 className="text-2xl text-left font-bold text-center text-[#121212] mb-8">
+          Glimpse of Our Offline Center
+        </h3>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+          {[
+            "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016155/offline1.png",
+            "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016156/offline2.png",
+            "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016157/offline3.png",
+            "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016158/offline4.png",
+            "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016159/offline5.png",
+            "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016160/offline6.png",
+            "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016161/offline7.png",
+            "https://res.cloudinary.com/dqdpblijd/image/upload/v1728016162/offline8.png",
+          ].map((img, index) => (
+            <div
+              key={index}
+              className="relative aspect-square overflow-hidden rounded-xl shadow-md group"
+            >
+              <img
+                src={img}
+                alt={`Gallery Image ${index + 1}`}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+          ))}
+        </div>
+      </div> */}
     </section>
   );
 };

@@ -75,7 +75,7 @@ const FAQHighlight = () => {
         {/* Button */}
         <div className="flex justify-center mt-10">
           <Link to="/faq">
-            <Button className="bg-[#EA2525] hover:bg-red-600 px-8 text-lg font-semibold">
+            <Button className="bg-[#EA2525] hover:bg-red-600 px-8 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg focus:ring-2 focus:ring-[#EA2525]/50">
               View More
             </Button>
           </Link>

@@ -95,7 +95,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t flex justify-between border-gray-800 dark:border-gray-700 mt-12 pt-8 text-gray-400 dark:text-gray-500">
-          <p className="text-left font-semibold">&copy; {new Date().getFullYear()} Institute of Digital Studies(IDS). An initiative under Cybershield Technologies Pvt. Ltd.</p>
+          <p className="text-left font-semibold">&copy; {new Date().getFullYear()} Institute of Digital Studies(IDS). A Unit of Cybershield Technologies Pvt. Ltd.</p>
           <Link to = 'https://cybershieldtechnologies.com/' target="blank" rel="noopener noreferrer"><img src={csh_footer} className="h-10 w-auto" alt="" /></Link>
         </div>
       </div>

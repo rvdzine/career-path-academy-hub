@@ -4,6 +4,7 @@ import MSMELogo from "./assets/MSME_logo.jpg";
 import NSDCLogo from "./assets/logo_nsdc.svg";
 import SkillsNSDC from "./assets/skills_nsdc.svg";
 import { Award, Shield, CheckCircle, Star } from "lucide-react";
+import WhyIDS from "./whyids";
 
 const CertificationSection = () => {
   const certifications = [
@@ -34,10 +35,12 @@ const CertificationSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <>
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-4 text-black">
+
             Government Recognized Certifications
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -84,7 +87,7 @@ const CertificationSection = () => {
         </div>
 
         {/* Trust Indicators */}
-        <div className="bg-white rounded-2xl shadow-lg p-8 animate-fade-in-up [animation-delay:0.4s]">
+        {/* <div className="bg-white rounded-2xl shadow-lg p-8 animate-fade-in-up [animation-delay:0.4s]">
           <h3 className="text-2xl font-bold text-center mb-8 text-gray-900">
             Why Choose Our Certified Programs?
           </h3>
@@ -104,13 +107,13 @@ const CertificationSection = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Call to Action */}
-        <div className="text-center mt-12 animate-fade-in-up [animation-delay:0.6s]">
+        {/* <div className="text-center mt-12 animate-fade-in-up [animation-delay:0.6s]">
           <p className="text-lg text-gray-600 mb-4">
             Join thousands of professionals who have advanced their careers with our certified programs
-          </p>
+          </p> */}
           {/* <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
             <span className="flex items-center gap-1 hover:text-green-600 transition-colors duration-300">
               <CheckCircle className="w-4 h-4 text-green-500" />
@@ -121,9 +124,11 @@ const CertificationSection = () => {
               NSDC Partner ID: NSDC/2024/DM/001
             </span>
           </div> */}
-        </div>
-      </div>
+         </div>
+      
+      <WhyIDS/>
     </section>
+    </>
   );
 };
 
