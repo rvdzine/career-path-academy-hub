@@ -11,6 +11,7 @@ interface Student {
   image: any;
   location: string;
   quote: string;
+  logo: string;
 }
 
 const dummyStudents: Student[] = [
@@ -23,6 +24,7 @@ const dummyStudents: Student[] = [
     location: "Pune, India",
     quote:
       "This course gave me real-world projects and confidence to crack Google interviews!",
+    logo: "/svg/Nykaa.svg",
   },
   {
     name: "Mohit Kumar",
@@ -33,6 +35,7 @@ const dummyStudents: Student[] = [
     location: "Mumbai, India",
     quote:
       "The mentorship and mock interviews were game-changing. Got placed in Amazon within 3 months.",
+    logo: "/svg/TCS.svg", 
   },
   {
     name: "Loveleen Sharma",
@@ -43,6 +46,7 @@ const dummyStudents: Student[] = [
     location: "Bengaluru, India",
     quote:
       "From basics to advanced React, this journey shaped me into a strong frontend developer.",
+    logo: "/svg/Paytm.svg", 
   },
   {
     name: "Priya Kumari",
@@ -53,6 +57,7 @@ const dummyStudents: Student[] = [
     location: "Gurgaon, India",
     quote:
       "I switched my career into IT confidently with the right guidance and projects.",
+    logo: "/svg/Myntra.svg", 
   },
 ];
 
@@ -107,11 +112,14 @@ const SuccessStoriesCourses = () => {
                   {/* Left */}
                   <div className="flex-1 pr-6">
                     <div className="flex items-center gap-3 mb-3 -mt-2">
-                      <div className="w-11 h-11 flex items-center justify-center rounded-full bg-white border shadow-sm">
-                        <span className="font-bold text-gray-600 text-lg">
-                          {student.company[0]}
-                        </span>
-                      </div>
+                      <div className="w-20 h-20 flex items-center justify-center rounded-full bg-white border shadow-sm overflow-hidden">
+                             <Image 
+                                src={student.logo}
+                                alt={`${student.company} logo`}
+                                width={35}
+                                height={35}
+                                className="object-contain" />
+                        </div>
 
                       <div className="-mt-[2px]">
                         <h3 className="font-semibold text-gray-900 text-base">{student.name}</h3>
