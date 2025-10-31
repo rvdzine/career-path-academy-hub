@@ -13,13 +13,13 @@ import Link from "next/link";
 // import { FaDownload } from "react-icons/fa";
 
 // SVG icons
-import chimg1 from "@/components/svg/clock.svg";
-import chimg2 from "@/components/svg/book.svg";
-import chimg3 from "@/components/svg/frame.svg";
-import chimg4 from "@/components/svg/clipboard.svg";
-import chimg5 from "@/components/svg/briefcase.svg";
-import chimg6 from "@/components/svg/verify.svg";
-import chimg7 from "@/components/svg/sparkle.svg";
+const chimg1 = "/svg/clock.svg";
+const chimg2 = "/svg/book.svg";
+const chimg3 = "/svg/frame.svg";
+const chimg4 = "/svg/clipboard.svg";
+const chimg5 = "/svg/briefcase.svg";
+const chimg6 = "/svg/verify.svg";
+const chimg7 = "/svg/sparkle.svg";
 
 // Course images
 import FDM1 from "@/components/assets/FDM1.png";

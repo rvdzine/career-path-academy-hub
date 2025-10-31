@@ -1,288 +1,194 @@
 "use client";
-import Image from "next/image"
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-// import Isha from "../../components/assets/Isha Verma.jpeg";
-// import Loveleen from "../../components/assets/Loveleen.jpg";
-// import priya from "../../components/assets/Priya.jpg";
-// import mohit from "../../components/assets/Mohit.jpg";
 
 interface Student {
-    name: string;
-    role: string;
-    company: string;
-    package: string;
-    image: any;
-    location: string;
-    quote: string;
+  name: string;
+  role: string;
+  company: string;
+  package: string;
+  image: any;
+  location: string;
+  quote: string;
+  logo: string;
 }
 
 const dummyStudents: Student[] = [
-    {
-        name: "Isha Verma",
-        role: "Software Engineer",
-        company: "G",
-        package: "₹12 LPA",
-        image: "/assets/Isha Verma.jpeg",
-        location: "Pune, India",
-        quote:
-            "This course gave me real-world projects and confidence to crack Google interviews!",
-    },
-    {
-        name: "Mohit Kumar",
-        role: "Backend Developer",
-        company: "A",
-        package: "₹10 LPA",
-        image: "/assets/Mohit.jpg",
-        location: "Mumbai, India",
-        quote:
-            "The mentorship and mock interviews were game-changing. Got placed in Amazon within 3 months.",
-    },
-    {
-        name: "Loveleen Sharma",
-        role: "Frontend Engineer",
-        company: "M",
-        package: "₹15 LPA",
-        image: "/assets/Loveleen.jpg",
-        location: "Bengaluru, India",
-        quote:
-            "From basics to advanced React, this journey shaped me into a strong frontend developer.",
-    },
-    // {
-    //     name: "Jitendra Singh",
-    //     role: "Full Stack Developer",
-    //     company: "Z",
-    //     package: "₹8 LPA",
-    //     image: "https://randomuser.me/api/portraits/men/65.jpg",
-    //     location: "Noida, India",
-    //     quote:
-    //         "Hands-on projects and internship support helped me secure a role at Zoho.",
-    // },
-    {
-        name: "Priya Kumari",
-        role: "System Engineer",
-        company: "T",
-        package: "₹6.5 LPA",
-        image: "/assets/Priya.jpg",
-        location: "Gurgaon, India",
-        quote:
-            "I switched my career into IT confidently with the right guidance and projects.",
-    },
-    // {
-    //     name: "Isha Verma",
-    //     role: "Software Engineer",
-    //     company: "G",
-    //     package: "₹12 LPA",
-    //     image: Isha,
-    //     location: "Pune, India",
-    //     quote:
-    //         "This course gave me real-world projects and confidence to crack Google interviews!",
-    // },
-    // {
-    //     name: "Mohit Kumar",
-    //     role: "Backend Developer",
-    //     company: "A",
-    //     package: "₹10 LPA",
-    //     image: mohit,
-    //     location: "Mumbai, India",
-    //     quote:
-    //         "The mentorship and mock interviews were game-changing. Got placed in Amazon within 3 months.",
-    // },
-    // {
-    //     name: "Loveleen Sharma",
-    //     role: "Frontend Engineer",
-    //     company: "M",
-    //     package: "₹15 LPA",
-    //     image: Loveleen,
-    //     location: "Bengaluru, India",
-    //     quote:
-    //         "From basics to advanced React, this journey shaped me into a strong frontend developer.",
-    // },
-    // {
-    //     name: "Jitendra Singh",
-    //     role: "Full Stack Developer",
-    //     company: "Z",
-    //     package: "₹8 LPA",
-    //     image: "https://randomuser.me/api/portraits/men/65.jpg",
-    //     location: "Noida, India",
-    //     quote:
-    //         "Hands-on projects and internship support helped me secure a role at Zoho.",
-    // },
+  {
+    name: "Isha Verma",
+    role: "Software Engineer",
+    company: "Google",
+    package: "₹12 LPA",
+    image: "/assets/Isha Verma.jpeg",
+    location: "Pune, India",
+    quote:
+      "This course gave me real-world projects and confidence to crack Google interviews!",
+    logo: "/svg/Nykaa.svg",
+  },
+  {
+    name: "Mohit Kumar",
+    role: "Backend Developer",
+    company: "Amazon",
+    package: "₹10 LPA",
+    image: "/assets/Mohit.jpg",
+    location: "Mumbai, India",
+    quote:
+      "The mentorship and mock interviews were game-changing. Got placed in Amazon within 3 months.",
+    logo: "/svg/TCS.svg", 
+  },
+  {
+    name: "Loveleen Sharma",
+    role: "Frontend Engineer",
+    company: "Meta",
+    package: "₹15 LPA",
+    image: "/assets/Loveleen.jpg",
+    location: "Bengaluru, India",
+    quote:
+      "From basics to advanced React, this journey shaped me into a strong frontend developer.",
+    logo: "/svg/Paytm.svg", 
+  },
+  {
+    name: "Priya Kumari",
+    role: "System Engineer",
+    company: "TCS",
+    package: "₹6.5 LPA",
+    image: "/assets/Priya.jpg",
+    location: "Gurgaon, India",
+    quote:
+      "I switched my career into IT confidently with the right guidance and projects.",
+    logo: "/svg/Myntra.svg", 
+  },
 ];
 
 const SuccessStoriesCourses = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [visibleCount, setVisibleCount] = useState(3);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(3);
 
-    useEffect(() => {
-        const updateVisibleCount = () => {
-            if (window.innerWidth < 768) {
-                setVisibleCount(1);
-            } else if (window.innerWidth < 1024) {
-                setVisibleCount(2);
-            } else {
-                setVisibleCount(3);
-            }
-        };
-
-        updateVisibleCount();
-        window.addEventListener("resize", updateVisibleCount);
-        return () => window.removeEventListener("resize", updateVisibleCount);
-    }, []);
-
-    const maxIndex = Math.max(0, dummyStudents.length - visibleCount);
-
-    const nextSlide = () => {
-        setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  useEffect(() => {
+    const updateVisibleCount = () => {
+      if (window.innerWidth < 768) setVisibleCount(1);
+      else if (window.innerWidth < 1024) setVisibleCount(2);
+      else setVisibleCount(3);
     };
+    updateVisibleCount();
+    window.addEventListener("resize", updateVisibleCount);
+    return () => window.removeEventListener("resize", updateVisibleCount);
+  }, []);
 
-    const prevSlide = () => {
-        setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
-    };
+  const maxIndex = Math.max(0, dummyStudents.length - visibleCount);
+  const nextSlide = () => setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  const prevSlide = () => setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
 
-    useEffect(() => {
-        const interval = setInterval(nextSlide, 4000);
-        return () => clearInterval(interval);
-    }, [maxIndex]);
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 4000);
+    return () => clearInterval(interval);
+  }, [maxIndex]);
 
-    const translateX = -(currentIndex * (100 / visibleCount));
+  const translateX = -(currentIndex * (100 / visibleCount));
 
-    return (
-        <section className="py-20 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
-                <div className="text-center mb-10">
-                    <h3 className="text-red-600 font-semibold text-lg mb-2">
-                        Success Stories
-                    </h3>
-                    <h2 className="text-2xl md:text-3xl font-bold text-[#4B444D] mb-6">
-                        Our alumni are working in top organizations such as Google, Meta,
-                        Zomato, Meesho, Flipkart, TCS, and more.
-                    </h2>
-                </div>
+  return (
+    <section className="pt-20 pb-10 bg-[#FFEFEF]">
+      <div className="text-center mb-8">
+        <span className="bg-[#EA2525] text-white px-5 py-1 rounded-full font-medium">
+          Success Stories
+        </span>
+        <h2 className="text-3xl font-bold text-gray-800 mt-4 max-w-3xl mx-auto">
+          Our alumni are working in top organizations such as Google, Meta,
+          Zomato, Meesho, Flipkart, TCS, and more.
+        </h2>
+      </div>
 
-                {/* Carousel Container */}
-                <div className="relative px-4 md:px-8 lg:px-16">
-                    <div className="overflow-hidden">
-                        <div
-                            className="flex transition-transform duration-500 ease-out"
-                            style={{ transform: `translateX(${translateX}%)` }}
-                        >
-                            {dummyStudents.map((student, index) => (
-                                <div
-                                    key={index}
-                                    className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-3"
-                                >
-                                    <div className="bg-white rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 p-6 flex items-center gap-6 h-full min-h-[280px]">
-
-                                        {/* Left Side - Details */}
-                                        <div className="flex-1">
-                                            {/* Logo + Name + Role */}
-                                            <div className="flex items-center gap-3 mb-4">
-                                                {/* <div className="w-18 h-18 flex items-center justify-center rounded-full bg-black p-2">
-                                                    <img
-                                                        // src={student.logo}
-                                                        alt={student.company}
-                                                        className="w-full h-full object-contain invert"
-                                                    />
-                                                </div> */}
-                                                <div>
-                                                    <h3 className="font-semibold text-gray-900 text-base">
-                                                        {student.name}
-                                                    </h3>
-                                                    <p className="text-sm text-gray-500">
-                                                        {student.role} at {student.company}
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            {/* Quote */}
-                                            <p className="text-gray-600 text-sm leading-relaxed mb-5">
-                                                "{student.quote}"
-                                            </p>
-
-                                            {/* Tags */}
-                                            <div className="flex gap-3 flex-wrap">
-                                                <span className="bg-[#FFEFEF] text-[#EA2525] text-sm px-3 py-1 rounded-full font-medium">
-                                                    {student.package}
-                                                </span>
-                                                <span className="bg-[#FFEFEF] text-[#EA2525] text-sm px-3 py-1 rounded-full font-medium">
-                                                    {student.location}
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                        {/* Right Side - Photo with cut shape */}
-                                        {/* Right Side - Photo with layered background effect */}
-                                        <div className="relative w-32 h-40 flex-shrink-0">
-                                            {/* Back Layer (Shadow Shape) */}
-                                            <div
-                                                className="absolute top-2 left-2"
-                                                style={{
-                                                    borderRadius: "70% 70% 100% 0% / 75% 68% 80% 40%",
-                                                    width: "100%",
-                                                    height: "100%",
-                                                    background: "#FFEFEF",
-                                                    opacity: 0.9,
-                                                    zIndex: 0,
-                                                }}
-                                            ></div>
-
-                                            {/* Front Layer (Image Shape) */}
-                                            <div className="flex justify-center items-center mt-4">
-                                                                  <div
-                                                                    className="relative w-[160px] h-[160px] md:w-[200px] md:h-[200px] lg:w-[240px] lg:h-[180px] overflow-hidden z-10"
-                                                                    style={{
-                                                                      borderRadius: "70% 70% 100% 0% / 75% 68% 80% 40%",
-                                                                      background: "#FFEFEF",
-                                                                    }}
-                                                                  >
-                                                                    <Image
-                                                                      src={student.image}
-                                                                      alt={student.name}
-                                                                      fill
-                                                                      className="object-cover object-center"
-                                                                      sizes="(max-width: 768px) 160px, (max-width: 1024px) 200px, 220px"
-                                                                    />
-                                                                  </div>
-                                                                </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
+      <div className="relative px-4 md:px-8 lg:px-16">
+        <div className="overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(${translateX}%)` }}
+          >
+            {dummyStudents.map((student, index) => (
+              <div key={index} className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-3">
+                <div className="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 p-6 flex items-center justify-between h-full">
+                  
+                  {/* Left */}
+                  <div className="flex-1 pr-6">
+                    <div className="flex items-center gap-3 mb-3 -mt-2">
+                      <div className="w-20 h-20 flex items-center justify-center rounded-full bg-white border shadow-sm overflow-hidden">
+                             <Image 
+                                src={student.logo}
+                                alt={`${student.company} logo`}
+                                width={35}
+                                height={35}
+                                className="object-contain" />
                         </div>
+
+                      <div className="-mt-[2px]">
+                        <h3 className="font-semibold text-gray-900 text-base">{student.name}</h3>
+                        <p className="text-sm text-gray-500">
+                          {student.role} at {student.company}
+                        </p>
+                      </div>
                     </div>
 
-                    {/* Navigation */}
-                    <button
-                        onClick={prevSlide}
-                        className="absolute -left-6 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-md border hover:border-[#EA2525] transition-colors"
-                    >
-                        <ChevronLeft size={22} />
-                    </button>
-                    <button
-                        onClick={nextSlide}
-                        className="absolute -right-6 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-md border hover:border-[#EA2525] transition-colors"
-                    >
-                        <ChevronRight size={22} />
-                    </button>
+                    <hr className="my-3 border-gray-200" />
 
-                    {/* Dots */}
-                    <div className="flex justify-center mt-8 gap-2">
-                        {Array.from({ length: maxIndex + 1 }).map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => setCurrentIndex(index)}
-                                className={`w-3 h-3 rounded-full transition-colors ${index === currentIndex
-                                    ? "bg-[#EA2525]"
-                                    : "bg-gray-300 hover:bg-gray-400"
-                                    }`}
-                            />
-                        ))}
+                    <p className="text-gray-600 text-sm italic leading-relaxed mb-5">
+                      “{student.quote}”
+                    </p>
+
+                    <div className="flex gap-3 flex-wrap">
+                      <span className="bg-[#FFEFEF] text-[#EA2525] text-sm px-3 py-1 rounded-full font-medium">
+                        {student.package}
+                      </span>
+                      <span className="bg-[#FFEFEF] text-[#EA2525] text-sm px-3 py-1 rounded-full font-medium">
+                        {student.location}
+                      </span>
                     </div>
+                  </div>
+
+                  {/* Right - Image */}
+                  <div className="w-28 h-52 rounded-xl overflow-hidden border border-gray-100 relative">
+                    <Image
+                      src={student.image}
+                      alt={student.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
-            </div>
-        </section>
-    );
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-2 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow border hover:border-[#EA2525]"
+        >
+          <ChevronLeft size={22} />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow border hover:border-[#EA2525]"
+        >
+          <ChevronRight size={22} />
+        </button>
+
+        {/* Dots */}
+        <div className="flex justify-center mt-8 gap-2">
+          {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-3 h-3 rounded-full transition-colors ${
+                index === currentIndex ? "bg-[#EA2525]" : "bg-gray-300 hover:bg-gray-400"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default SuccessStoriesCourses;

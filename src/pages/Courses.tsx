@@ -313,6 +313,7 @@ const Courses = () => {
                     )}
                   </div>
                 </CardContent>
+
               </Card>
             );
           })}
