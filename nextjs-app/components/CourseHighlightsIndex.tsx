@@ -126,124 +126,130 @@ const CourseHighlightsIndex = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+  <section className="py-16 md:py-20 bg-white">
+    <div className="container mx-auto px-3 sm:px-4">
 
-        {/* Heading */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl font-bold mb-4 text-[#000000]">Explore our Digital Marketing Courses</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Industry-designed curriculum with hands-on projects and real-world applications
-          </p>
-        </div>
+      {/* Heading */}
+      <div className="text-center mb-10 md:mb-16 animate-fade-in-up">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-[#000000]">
+          Explore our Digital Marketing Courses
+        </h2>
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-2">
+          Industry-designed curriculum with hands-on projects and real-world applications
+        </p>
+      </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {courses.map((course) => {
-            const isAiDriven = course.badges.includes("AI Driven");
-            return (
-              <Card key={course.id} className="flex flex-col border rounded-xl shadow-md hover:shadow-lg transition duration-300 overflow-hidden min-h-[540px]">
+      {/* ✅ Improved Responsive Grid */}
+      <div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 
-                {/* Image */}
-                <div className="relative h-[220px] overflow-hidden">
-                  <img src={typeof course.image === 'string' ? course.image : course.image.src} alt={course.title} className="w-full h-full object-cover" />
+        {courses.map((course) => {
+          const isAiDriven = course.badges.includes("AI Driven");
 
-                  {/* Badge */}
-                  <div className="absolute top-2 right-2 flex flex-wrap gap-2">
-                    {course.badges.map((badge, idx) => (
-                      <Badge
-                        key={idx}
-                        className={`flex items-center gap-2 px-2 py-1 text-sm rounded-full ${badge === "AI Driven"
+          return (
+            <Card key={course.id} className="flex flex-col border rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden min-h-[520px]">
+
+              {/* ✅ Responsive Image Height */}
+              <div className="relative h-[180px] sm:h-[200px] md:h-[220px] overflow-hidden">
+                <img
+                  src={typeof course.image === "string" ? course.image : course.image.src}
+                  alt={course.title}
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Badge */}
+                <div className="absolute top-2 right-2 flex flex-wrap gap-1 sm:gap-2">
+                  {course.badges.map((badge, idx) => (
+                    <Badge
+                      key={idx}
+                      className={`flex items-center gap-1 sm:gap-2 px-2 py-1 text-[10px] sm:text-xs md:text-sm rounded-full ${
+                        badge === "AI Driven"
                           ? "bg-gradient-to-r from-[#0061FF] to-[#60EFFF] text-white"
                           : "bg-white text-gray-800 border border-gray-300"
-                          }`}
-                      >
-                        {badge === "AI Driven" && <img src={chimg7} alt="" className="w-3 h-3" />}
-                        {(badge === "Hinglish" || badge === "Hinglish/English") && <img src={chimg3} alt="" className="w-3 h-3" />}
-                        {badge}
-                      </Badge>
-                    ))}
+                      }`}
+                    >
+                      {badge === "AI Driven" && <img src={chimg7} className="w-3 h-3" />}
+                      {(badge === "Hinglish" || badge === "Hinglish/English") && <img src={chimg3} className="w-3 h-3" />}
+                      {badge}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+
+              <CardContent className="px-4 sm:px-5 pb-5 flex-1 flex flex-col justify-between">
+
+                {/* Students */}
+                <div className="flex items-center gap-2 mt-3 mb-3">
+                  <div className="flex -space-x-3">
+                    <img src="https://i.pravatar.cc/40?img=1" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
+                    <img src="https://i.pravatar.cc/40?img=2" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
+                    <img src="https://i.pravatar.cc/40?img=3" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
                   </div>
+                  <p className="text-[10px] sm:text-xs text-gray-500">
+                    <span className="text-sm sm:text-base font-bold text-gray-900">
+                      {course.students.split(" ")[0]}
+                    </span>{" "}
+                    {isAiDriven
+                      ? "Students Enrolled in this AI Driven Course"
+                      : course.students.replace(course.students.split(" ")[0], "")
+                    }
+                  </p>
                 </div>
 
-                <CardContent className="px-5 pb-5 flex-1 flex flex-col justify-between">
+                {/* Title */}
+                <h2 className="text-lg sm:text-xl font-bold text-gray-800 mt-1">
+                  {course.title}
+                </h2>
 
-                  {/* Students */}
-                  <div className="flex items-center gap-2 mt-3 mb-3">
-                    <div className="flex -space-x-3">
-                      <img src="https://i.pravatar.cc/40?img=1" className="w-8 h-8 rounded-full border-2 border-white" />
-                      <img src="https://i.pravatar.cc/40?img=2" className="w-8 h-8 rounded-full border-2 border-white" />
-                      <img src="https://i.pravatar.cc/40?img=3" className="w-8 h-8 rounded-full border-2 border-white" />
-                    </div>
-                    <p className="text-xs text-gray-500">
-                      <span className="text-base font-bold text-gray-900">{course.students.split(" ")[0]}</span>{" "}
-                      {isAiDriven
-                        ? "Students Enrolled in this AI Driven Course"
-                        : course.students.replace(course.students.split(" ")[0], "")
-                      }
-                    </p>
-                  </div>
-
-                  {/* Title */}
-                  <h2 className="text-xl font-bold text-gray-800 mt-1">{course.title}</h2>
-
-                  {/* Info */}
-                  <div className="flex flex-wrap gap-2 mt-3 mb-4">
-                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
-                      <img src={chimg1} alt="" className="w-4 h-4" /> {course.duration}
+                {/* Info Badges */}
+                <div className="flex flex-wrap gap-1 sm:gap-2 mt-3 mb-4">
+                  {[ 
+                    { icon: chimg1, text: course.duration },
+                    { icon: chimg2, text: course.mode },
+                    { icon: chimg6, text: course.certification },
+                    { icon: chimg4, text: course.projects },
+                  ]
+                  .concat(course.extra ? [{ icon: chimg5, text: course.extra }] : [])
+                  .map((item, index) => (
+                    <Badge key={index} className="flex items-center gap-1 px-2 sm:px-3 py-1 text-[10px] sm:text-xs bg-[#FFF2F2] text-[#000] border-0">
+                      <img src={item.icon} className="w-3 h-3 sm:w-4 sm:h-4" /> {item.text}
                     </Badge>
-                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
-                      <img src={chimg2} alt="" className="w-4 h-4" /> {course.mode}
-                    </Badge>
-                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
-                      <img src={chimg6} alt="" className="w-4 h-4" /> {course.certification}
-                    </Badge>
-                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
-                      <img src={chimg4} alt="" className="w-4 h-4" /> {course.projects}
-                    </Badge>
-                    {course.extra && (
-                      <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
-                        <img src={chimg5} alt="" className="w-4 h-4" /> {course.extra}
-                      </Badge>
-                    )}
-                  </div>
+                  ))}
+                </div>
 
-                  {/* Skills */}
-                  <div className="mt-4">
-                    <p className="text-sm font-semibold text-gray-700">Skills you learn:</p>
-                    <p className="text-sm text-gray-600">{course.skills.join(", ")}</p>
-                  </div>
+                {/* Skills */}
+                <div className="mt-4">
+                  <p className="text-sm font-semibold text-gray-700">Skills you learn:</p>
+                  <p className="text-[12px] sm:text-sm text-gray-600">{course.skills.join(", ")}</p>
+                </div>
 
-                  {/* Buttons */}
-                  <div className="mt-6 flex flex-col sm:flex-row gap-2">
-                    {course.id === "customised-digital-marketing" || course.id === "degree-digital-marketing" ? (
-                      <Button className="w-full border border-[#EA2525] bg-[#fff] text-[#EA2525] hover:bg-[#c21e1e] hover:text-[#fff]">
-                        For Queries - Contact Us
-                      </Button>
-                    ) : (
-                      <>
-                        <Link href={`/courses/${course.id}`}>
-                          <Button
-                            variant="outline"
-                            className="flex-1 border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4] flex items-center justify-center gap-2"
-                          >
-                            Course Details
-                          </Button>
-                        </Link>
-                        <EnrollmentDialog courseTitle={course.title}>
-                          <Button className="flex-1 bg-[#EA2525] hover:bg-[#c21e1e] text-white">Enroll Now</Button>
-                        </EnrollmentDialog>
-                      </>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+                {/* Buttons */}
+                <div className="mt-6 flex flex-col sm:flex-row gap-2">
+                  {course.id === "customised-digital-marketing" || course.id === "degree-digital-marketing" ? (
+                    <Button className="w-full border border-[#EA2525] bg-[#fff] text-[#EA2525] hover:bg-[#c21e1e] hover:text-[#fff]">
+                      For Queries - Contact Us
+                    </Button>
+                  ) : (
+                    <>
+                      <Link href={`/courses/${course.id}`}>
+                       <Button className="w-full sm:flex-1 border border-red-500 text-[#EA2525] bg-[#fff] hover:bg-[#f7e4e4]">
+                          Course Details
+                        </Button>
+                      </Link>
+                      <EnrollmentDialog courseTitle={course.title}>
+                        <Button className="flex-1 bg-[#EA2525] hover:bg-[#c21e1e] text-white">
+                          Enroll Now
+                        </Button>
+                      </EnrollmentDialog>
+                    </>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 };
-
 export default CourseHighlightsIndex;
