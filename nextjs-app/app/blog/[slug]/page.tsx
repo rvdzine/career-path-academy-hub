@@ -1,6 +1,12 @@
 import BlogDetail from "@/components/pages/BlogDetail";
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+interface BlogDetailPageProps{
+  params: Promise< {slug:string} >;
+}
+
+export async function generateMetadata({ params }: BlogDetailPageProps) {
+  const {slug} = await params;
+
   const blogDetails: Record<string, { title: string; description: string; image: string }> = {
     "digital-marketing-trends-2025": {
       title: "Local SEO Checklist: How to Get Your Business on Google Maps for Free",
@@ -16,7 +22,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     },
   };
 
-  const blog = blogDetails[params.slug];
+  const blog = blogDetails[slug];
 
   if (!blog) {
     return {
@@ -31,7 +37,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     openGraph: {
       title: `${blog.title} | iDigitalStudies`,
       description: blog.description,
-      url: `https://idigitalstudies.com/blog/${params.slug}`,
+      url: `https://idigitalstudies.in/blog/${slug}`,
       images: [blog.image],
       type: "article",
     },
@@ -44,7 +50,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function BlogDetailPage() {
-  return <BlogDetail />;
+export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
+  const {slug} = await params;
+  return <BlogDetail slug = {slug}  />;
 }
 

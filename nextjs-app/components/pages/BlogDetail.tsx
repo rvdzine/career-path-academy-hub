@@ -1486,8 +1486,8 @@ They often are for small or new websites because they face less competition and 
   }
 };
 
-const BlogDetail = () => {
-  const { slug } = useParams<{ slug: string }>();
+const BlogDetail = ({ slug }: { slug: string }) => {
+  // const { slug } = useParams<{ slug: string }>();
   const blog = blogDetails[slug || ""];
 
   if (!blog) {
