@@ -232,30 +232,22 @@ const Courses = () => {
 
                 <CardContent className="px-5 pb-5 flex flex-col flex-1">
                   {/* Students Enrolled */}
-                  <div className="flex items-center gap-2 mt-3 mb-3">
-                    <div className="flex -space-x-3">
-                      <img
-                        src="https://i.pravatar.cc/40?img=1"
-                        className="w-8 h-8 rounded-full border-2 border-white"
-                      />
-                      <img
-                        src="https://i.pravatar.cc/40?img=2"
-                        className="w-8 h-8 rounded-full border-2 border-white"
-                      />
-                      <img
-                        src="https://i.pravatar.cc/40?img=3"
-                        className="w-8 h-8 rounded-full border-2 border-white"
-                      />
-                    </div>
-                    <p className="text-xs text-gray-500">
-                      <span className="text-base font-bold text-gray-900">
-                        {course.students.split(" ")[0]}
-                      </span>{" "}
-                      {isAiDriven
-                        ? "Students Enrolled in this AI Driven Course"
-                        : course.students.replace(course.students.split(" ")[0], "")}
-                    </p>
+                   <div className="flex items-center gap-2 mt-3 mb-3">
+                  <div className="flex -space-x-3">
+                    <img src="https://i.pravatar.cc/40?img=1" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
+                    <img src="https://i.pravatar.cc/40?img=2" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
+                    <img src="https://i.pravatar.cc/40?img=3" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
                   </div>
+                  <p className="text-[10px] sm:text-xs text-gray-500">
+                    <span className="text-sm sm:text-base font-bold text-gray-900">
+                      {course.students.split(" ")[0]}
+                    </span>{" "}
+                    {isAiDriven
+                      ? "Students Enrolled in this AI Driven Course"
+                      : course.students.replace(course.students.split(" ")[0], "")
+                    }
+                  </p>
+                </div>
 
                   {/* Title */}
                   <h2 className="text-xl font-bold text-gray-800 mt-1">{course.title}</h2>
@@ -299,8 +291,7 @@ const Courses = () => {
                         <Link href={`/courses/${course.id}`} className="flex-1">
                           <Button
                             variant="outline"
-                            className="w-full border border-red-500 text-[#EA2525] hover:bg-[#f7e4e4]"
-                          >
+                           className="w-full sm:flex-1 border border-red-500 text-[#EA2525] bg-[#fff] hover:bg-[#f7e4e4]">
                             Course Details
                           </Button>
                         </Link>
