@@ -209,7 +209,7 @@ const PlacedStudentsCarousel = () => {
             >
               {dummyStudents.map((student, index) => (
                 <div key={index} className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-3">
-                  <div className="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 p-6 flex items-center justify-between h-full">
+                  <div className="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 p-6 flex flex-col md:flex-row items-center justify-between h-full">
                     <div className="flex-1 pr-6">
                       <div className="flex items-center gap-3 mb-3 -mt-2">
                         {/* ✅ Uniform Company Logo Box */}
@@ -247,7 +247,7 @@ const PlacedStudentsCarousel = () => {
                       </div>
                     </div>
 
-                    <div className="w-28 h-52 rounded-xl overflow-hidden border border-gray-100 relative">
+                    <div className="w-full md:w-28 md:h-52 h-64 rounded-xl overflow-hidden border border-gray-100 relative mt-4 md:mt-0">
                       <Image src={student.image} alt={student.name} fill className="object-cover" />
                     </div>
                   </div>
