@@ -11,10 +11,32 @@ interface Student {
   image: any;
   location: string;
   quote: string;
-  logo: string; 
+  logo: string;
 }
 
 const dummyStudents: Student[] = [
+  {
+    name: "Aarav Gupta",
+    role: "Digital Marketing Specialist",
+    company: "Salesforce",
+    package: "₹8 LPA",
+    image: "/assets/Arav.jpg",
+    location: "Noida, India",
+    quote:
+      "Amazing mentors and real-world campaigns helped me land my first digital marketing role.",
+    logo: "/svg/Salesforce.svg",
+  },
+  {
+    name: "Simran Kaur",
+    role: "Social Media Manager",
+    company: "Meesho",
+    package: "₹7.5 LPA",
+    image: "/assets/Simran2.jpg", 
+    location: "Gurgaon, India",
+    quote:
+      "Built creative campaigns, portfolio & strategy — cracked my dream social media job!",
+    logo: "/svg/Meesho.svg",
+  },
   {
     name: "Isha Verma",
     role: "Software Engineer",
@@ -24,7 +46,18 @@ const dummyStudents: Student[] = [
     location: "Pune, India",
     quote:
       "This course gave me real-world projects and confidence to crack Google interviews!",
-      logo: "/svg/Nykaa.svg", 
+    logo: "/svg/Nykaa.svg",
+  },
+  {
+    name: "Rohan Mehta",
+    role: "Product Marketing Associate",
+    company: "Flipkart",
+    package: "₹11 LPA",
+    image: "/assets/Rohan.jpg",
+    location: "Bengaluru, India",
+    quote:
+      "Hands-on projects + interview prep = my ticket to CRED. Truly life-changing!",
+    logo: "/svg/Flipkart.svg",
   },
   {
     name: "Mohit Kumar",
@@ -35,7 +68,7 @@ const dummyStudents: Student[] = [
     location: "Mumbai, India",
     quote:
       "The mentorship and mock interviews were game-changing. Got placed in Amazon within 3 months.",
-      logo: "/svg/TCS.svg", 
+    logo: "/svg/TCS.svg",
   },
   {
     name: "Loveleen Sharma",
@@ -46,7 +79,7 @@ const dummyStudents: Student[] = [
     location: "Bengaluru, India",
     quote:
       "From basics to advanced React, this journey shaped me into a strong frontend developer.",
-      logo: "/svg/Paytm.svg", 
+    logo: "/svg/Paytm.svg",
   },
   {
     name: "Priya Kumari",
@@ -57,7 +90,7 @@ const dummyStudents: Student[] = [
     location: "Gurgaon, India",
     quote:
       "I switched my career into IT confidently with the right guidance and projects.",
-      logo: "/svg/Myntra.svg", 
+    logo: "/svg/Myntra.svg",
   },
 ];
 
@@ -66,14 +99,15 @@ const PlacedStudentsCarousel = () => {
   const [visibleCount, setVisibleCount] = useState(3);
 
   useEffect(() => {
-    const updateVisibleCount = () => {
+    const handleResize = () => {
       if (window.innerWidth < 768) setVisibleCount(1);
       else if (window.innerWidth < 1024) setVisibleCount(2);
       else setVisibleCount(3);
     };
-    updateVisibleCount();
-    window.addEventListener("resize", updateVisibleCount);
-    return () => window.removeEventListener("resize", updateVisibleCount);
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const maxIndex = Math.max(0, dummyStudents.length - visibleCount);
@@ -111,14 +145,16 @@ const PlacedStudentsCarousel = () => {
                   <div className="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 p-6 flex items-center justify-between h-full">
                     <div className="flex-1 pr-6">
                       <div className="flex items-center gap-3 mb-3 -mt-2">
+                        {/* ✅ Uniform Company Logo Box */}
                         <div className="w-11 h-11 flex items-center justify-center rounded-full bg-white border shadow-sm overflow-hidden">
-                        <Image 
-                         src={student.logo}
-                         alt={`${student.company} logo`}
-                         width={35}
-                         height={35}
-                         className="object-contain" />
-                       </div>
+                          <Image
+                            src={student.logo}
+                            alt={`${student.company} logo`}
+                            width={35}
+                            height={35}
+                            className="object-contain "
+                          />
+                        </div>
 
                         <div className="-mt-[2px]">
                           <h3 className="font-semibold text-gray-900 text-base">{student.name}</h3>
@@ -183,7 +219,7 @@ const PlacedStudentsCarousel = () => {
       </section>
 
       {/* Stats Section */}
-      <div className="bg-gradient-to-b from-[#c81e1e] to-[#520505] mt-16 py-12 px-4">
+      <div className="bg-gradient-to-b from-[#c81e1e] to-[#520505]  py-12 px-4">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
           <div><h3 className="text-5xl font-bold mb-2">2400</h3><p className="text-lg">Happy Students Trained</p></div>
           <div><h3 className="text-5xl font-bold mb-2">6300</h3><p className="text-lg">Projects Completed</p></div>
