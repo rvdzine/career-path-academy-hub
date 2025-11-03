@@ -196,16 +196,12 @@ export default function WhyIDS() {
         </p>
 
         {/* GRID */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-          {tools.map((tool, idx) => (
-            <div key={idx} className="flex flex-col bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200">
-              {/* White top section */}
-              <div className="bg-white flex items-center justify-center h-40 rounded-2xl">
-                {/* <img
-            src={tool.img}
-            alt={tool.name}
-            className="h-14 w-auto object-contain"
-          /> */}
+       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+         {tools.map((tool, idx) => (
+        <div key={idx} className="flex flex-col bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200">
+{/* Top White Section */}
+          <div className="bg-white flex items-center justify-center h-40 rounded-2xl">
+               
                 <Image
                   src={tool.img}
                   alt={tool.name}

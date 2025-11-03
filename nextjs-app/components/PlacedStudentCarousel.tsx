@@ -38,6 +38,73 @@ const dummyStudents: Student[] = [
     logo: "/svg/Meesho.svg",
   },
   {
+  name: "Aditya Singh",
+  role: "Digital Marketing Analyst",
+  company: "Dream11",
+  package: "₹9 LPA",
+  image: "/assets/Aditiya.jpg",
+  location: "Hyderabad, India",
+  quote:
+    "From zero industry exposure to expert in GA4, dashboards & campaign analysis — Accenture shaped my digital journey.",
+  logo: "/svg/Dream11.svg",
+},
+{
+  name: "Nile Kapoor",
+  role: "Performance Marketing Specialist",
+  company: "Zomato",
+  package: "₹8.2 LPA",
+  image: "/assets/Nile.jpg",
+  location: "Bengaluru, India",
+  quote:
+    "Mastered Meta + Google ads and funnel optimization — now running high-ROI campaigns at Zomato!",
+  logo: "/svg/Zomato.svg",
+},
+// {
+//   name: "Arjun Yadav",
+//   role: "Growth Marketing Manager",
+//   company: "Razorpay",
+//   package: "₹18 LPA",
+//   image: "/assets/Arjun.jpg",
+//   location: "Bengaluru, India",
+//   quote:
+//     "Growth hacking, CRO & analytics helped me crack Razorpay — this program was a game changer!",
+//   logo: "/svg/Razorpay.svg",
+// },
+{
+  name: "Tanish Malhotra",
+  role: "SEO Specialist",
+  company: "Medianet",
+  package: "₹7 LPA",
+  image: "/assets/Tanish.jpg",
+  location: "Mumbai, India",
+  quote:
+    "Learnt SEO, keyword research, and content strategy — landing at Groww feels surreal!",
+  logo: "/svg/medianet.svg",
+},
+{
+  name: "Manvi Sharma",
+  role: "Marketing Automation Specialist",
+  company: "Razorpay",
+  package: "₹22 LPA",
+  image: "/assets/Manvi.jpg",
+  location: "Pune, India",
+  quote:
+    "Built CRM workflows, email funnels & automation — now managing scalable campaigns at Nvidia.",
+  logo: "/svg/razorpay.svg",
+},
+{
+  name: "Ritika Jain",
+  role: "Social Media & Brand Strategist",
+  company: "Testbook",
+  package: "₹10 LPA",
+  image: "/assets/Ritika.jpg",
+  location: "Hyderabad, India",
+  quote:
+    "From design thinking to viral content planning — Swiggy helped me become a brand storyteller.",
+  logo: "/svg/testbook.svg",
+},
+
+  {
     name: "Isha Verma",
     role: "Software Engineer",
     company: "Nykaa",
