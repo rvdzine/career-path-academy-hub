@@ -38,11 +38,11 @@ const dummyStudents: Student[] = [
     logo: "/svg/Meesho.svg",
   },
   {
-  name: "Aditya Singh",
+  name: "Praneel Sharma",
   role: "Digital Marketing Analyst",
   company: "Dream11",
   package: "₹9 LPA",
-  image: "/assets/Aditiya.jpg",
+  image: "/assets/Praneel.jpg",
   location: "Hyderabad, India",
   quote:
     "From zero industry exposure to expert in GA4, dashboards & campaign analysis — Accenture shaped my digital journey.",
