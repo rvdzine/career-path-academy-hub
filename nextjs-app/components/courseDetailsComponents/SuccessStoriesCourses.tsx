@@ -27,22 +27,22 @@ const dummyStudents: Student[] = [
     logo: "/svg/Salesforce.svg",
   },
   {
-    name: "Simran Kaur",
+    name: "Sunny Singh",
     role: "Social Media Manager",
     company: "Meesho",
     package: "₹7.5 LPA",
-    image: "/assets/Simran2.jpg", 
+    image: "/assets/Sunny.jpg", 
     location: "Gurgaon, India",
     quote:
       "Built creative campaigns, portfolio & strategy — cracked my dream social media job!",
     logo: "/svg/Meesho.svg",
   },
   {
-  name: "Aditya Singh",
+  name: "Praneel Sharma",
   role: "Digital Marketing Analyst",
   company: "Dream11",
   package: "₹9 LPA",
-  image: "/assets/Aditiya.jpg",
+  image: "/assets/Praneel.jpg",
   location: "Hyderabad, India",
   quote:
     "From zero industry exposure to expert in GA4, dashboards & campaign analysis — Accenture shaped my digital journey.",
@@ -93,11 +93,11 @@ const dummyStudents: Student[] = [
   logo: "/svg/razorpay.svg",
 },
 {
-  name: "Ritika Jain",
+  name: "Divya Chaudhary",
   role: "Social Media & Brand Strategist",
   company: "Testbook",
   package: "₹10 LPA",
-  image: "/assets/Ritika.jpg",
+  image: "/assets/Divya.png",
   location: "Hyderabad, India",
   quote:
     "From design thinking to viral content planning — Swiggy helped me become a brand storyteller.",
@@ -116,11 +116,11 @@ const dummyStudents: Student[] = [
     logo: "/svg/Nykaa.svg",
   },
   {
-    name: "Rohan Mehta",
+    name: "Abhiram Iyer",
     role: "Product Marketing Associate",
     company: "Flipkart",
     package: "₹11 LPA",
-    image: "/assets/Rohan.jpg",
+    image: "/assets/Abhiram.png",
     location: "Bengaluru, India",
     quote:
       "Hands-on projects + interview prep = my ticket to CRED. Truly life-changing!",
@@ -207,7 +207,8 @@ const SuccessStoriesCourses = () => {
           >
             {dummyStudents.map((student, index) => (
               <div key={index} className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-3">
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 p-6 flex items-center justify-between h-full">
+               <div className=" bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md  transition-all duration-300 p-6  flex flex-col md:flex-row items-center justify-between h-full">
+
                   
                   {/* Left */}
                   <div className="flex-1 pr-6">
@@ -246,7 +247,7 @@ const SuccessStoriesCourses = () => {
                   </div>
 
                   {/* Right - Image */}
-                  <div className="w-28 h-52 rounded-xl overflow-hidden border border-gray-100 relative">
+                  <div className=" w-full md:w-28 md:h-52 h-64 rounded-xl overflow-hidden border border-gray-100 relative mt-4 md:mt-0">
                     <Image
                       src={student.image}
                       alt={student.name}

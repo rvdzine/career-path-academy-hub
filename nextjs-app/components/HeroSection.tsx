@@ -101,18 +101,52 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <div className="relative animate-fade-in-right">
-              <div className="relative z-10 group">
-                <img
-                  src={typeof hero === 'string' ? hero : hero.src}
-                  alt="Digital Marketing Training"
-                  className="rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="absolute -top-4 -right-4 w-full h-full bg-gradient-to-r from-blue-200 to-purple-200 rounded-2xl -z-10 animate-pulse-soft"></div>
-              <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full opacity-60 animate-bounce-gentle"></div>
-              <div className="absolute top-10 -left-8 w-16 h-16 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-40 animate-bounce-gentle [animation-delay:1s]"></div>
-            </div>
+           <div className="relative animate-fade-in-right">
+  <div className="relative z-10 group">
+    <img
+      src={typeof hero === 'string' ? hero : hero.src}
+      alt="Digital Marketing Training"
+      className="rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-105"
+    />
+  </div>
+
+  <div className="absolute -top-4 -right-4 w-full h-full bg-gradient-to-r from-blue-200 to-purple-200 rounded-2xl -z-10 animate-pulse-soft"></div>
+
+  {/* Bottom ball */}
+  <div
+    className="
+      absolute
+      -bottom-1 -left-1           /* mobile */
+      sm:-bottom-2 sm:-left-2     /* large phone / small tab */
+      md:-bottom-4 md:-left-4     /* tablet */
+      lg:-bottom-4 lg:-left-4     /* desktop */
+      w-8 h-8                     /* mobile */
+      sm:w-12 sm:h-12               /* small tab */
+      md:w-16 md:h-16             /* tablet */
+      lg:w-20 lg:h-20             /* desktop */
+      bg-gradient-to-r from-orange-400 to-pink-400
+      rounded-full opacity-60 animate-bounce-gentle
+    "
+  />
+
+  {/* Top ball */}
+  <div
+    className="
+      absolute
+      top-2 -left-2               /* mobile */
+      sm:top-3 sm:-left-3         /* small tab */
+      md:top-6 md:-left-5         /* tablet */
+      lg:top-8 lg:-left-6         /* desktop */
+      w-6 h-6                     /* mobile */
+      sm:w-10 sm:h-10               /* small tab */
+      md:w-14 md:h-14             /* tablet */
+      lg:w-16 lg:h-16             /* desktop */
+      bg-gradient-to-r from-green-400 to-blue-400
+      rounded-full opacity-40 animate-bounce-gentle [animation-delay:1s]
+    "
+  />
+</div>
+
           </div>
         </div>
       </section>
