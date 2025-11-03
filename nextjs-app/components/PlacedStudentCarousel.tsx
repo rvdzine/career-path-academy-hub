@@ -16,11 +16,11 @@ interface Student {
 
 const dummyStudents: Student[] = [
   {
-    name: "Aarav Gupta",
+    name: "Daryl Fernandes",
     role: "Digital Marketing Specialist",
     company: "Salesforce",
     package: "₹8 LPA",
-    image: "/assets/Arav.jpg",
+    image: "/assets/daryl.jpg",
     location: "Noida, India",
     quote:
       "Amazing mentors and real-world campaigns helped me land my first digital marketing role.",
@@ -49,44 +49,44 @@ const dummyStudents: Student[] = [
   logo: "/svg/Dream11.svg",
 },
 {
-  name: "Nile Kapoor",
+  name: "Rakesh Kumar",
   role: "Performance Marketing Specialist",
   company: "Zomato",
   package: "₹8.2 LPA",
-  image: "/assets/Nile.jpg",
+  image: "/assets/rakesh.jpg",
   location: "Bengaluru, India",
   quote:
     "Mastered Meta + Google ads and funnel optimization — now running high-ROI campaigns at Zomato!",
   logo: "/svg/Zomato.svg",
 },
-// {
-//   name: "Arjun Yadav",
-//   role: "Growth Marketing Manager",
-//   company: "Razorpay",
-//   package: "₹18 LPA",
-//   image: "/assets/Arjun.jpg",
-//   location: "Bengaluru, India",
-//   quote:
-//     "Growth hacking, CRO & analytics helped me crack Razorpay — this program was a game changer!",
-//   logo: "/svg/Razorpay.svg",
-// },
 {
-  name: "Tanish Malhotra",
+  name: "Arjun Yadav",
+  role: "Growth Marketing Manager",
+  company: "Razorpay",
+  package: "₹18 LPA",
+  image: "/assets/vicky.jpg",
+  location: "Bengaluru, India",
+  quote:
+    "Growth hacking, CRO & analytics helped me crack Razorpay — this program was a game changer!",
+  logo: "/svg/razorpay.svg",
+},
+{
+  name: "Vishal Kumar",
   role: "SEO Specialist",
   company: "Medianet",
   package: "₹7 LPA",
-  image: "/assets/Tanish.jpg",
+  image: "/assets/vishal.jpg",
   location: "Mumbai, India",
   quote:
     "Learnt SEO, keyword research, and content strategy — landing at Groww feels surreal!",
   logo: "/svg/medianet.svg",
 },
 {
-  name: "Manvi Sharma",
+  name: "Bhumi Gupta",
   role: "Marketing Automation Specialist",
   company: "Razorpay",
   package: "₹22 LPA",
-  image: "/assets/Manvi.jpg",
+  image: "/assets/Bhumi.jpg",
   location: "Pune, India",
   quote:
     "Built CRM workflows, email funnels & automation — now managing scalable campaigns at Nvidia.",
