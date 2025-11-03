@@ -198,7 +198,7 @@ const Courses = () => {
                 className="flex flex-col border rounded-xl shadow-md hover:shadow-lg transition duration-300 overflow-hidden min-h-[540px]"
               >
                 {/* Image with badges */}
-                <div className="relative h-[220px] overflow-hidden">
+                <div className="relative h-[180px] sm:h-[200px] md:h-[220px] overflow-hidden">
                   <img
                     src={typeof course.image === 'string' ? course.image : course.image.src}
                     alt={course.title}
