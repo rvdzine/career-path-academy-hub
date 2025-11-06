@@ -106,7 +106,7 @@ const dummyStudents: Student[] = [
 
   {
     name: "Isha Verma",
-    role: "Software Engineer",
+    role: "Digital Marketing Specialist",
     company: "Nykaa",
     package: "₹12 LPA",
     image: "/assets/Isha Verma.jpeg",
@@ -128,7 +128,7 @@ const dummyStudents: Student[] = [
   },
   {
     name: "Mohit Kumar",
-    role: "Backend Developer",
+    role: "SEO & Analytics Executive",
     company: "TCS",
     package: "₹10 LPA",
     image: "/assets/Mohit.jpg",
@@ -139,7 +139,7 @@ const dummyStudents: Student[] = [
   },
   {
     name: "Loveleen Sharma",
-    role: "Frontend Engineer",
+    role: "Social Media Marketing Manager",
     company: "Paytm",
     package: "₹15 LPA",
     image: "/assets/Loveleen.jpg",
@@ -150,7 +150,7 @@ const dummyStudents: Student[] = [
   },
   {
     name: "Priya Kumari",
-    role: "System Engineer",
+    role: "Content Marketing Executive",
     company: "Myntra",
     package: "₹6.5 LPA",
     image: "/assets/Priya.jpg",
