@@ -2,11 +2,11 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import { useParams } from "next/navigation";
+// import { useParams } from "next/navigation";
 import Link from "next/link";
 
 const blogDetails: Record<string, { title: string; content: string; image: string }> = {
-  "digital-marketing-trends-2025": {
+  "local-seo-checklist-how-to-get-your-business-on-google-maps-for-free": {
     title: "Local SEO Checklist: How to Get Your Business on Google Maps for Free",
     content: `
 <p>
@@ -105,7 +105,7 @@ Backlinks from local blogs, newspapers, and chambers of commerce can also boost 
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
   },
 
-  "seo-strategies-beginners": {
+  "what-is-quality-score-5-simple-ways-to-improve-it-in-google-ads": {
     title: "What is Quality Score? 5 Simple Ways to Improve It in Google Ads",
     content: `
 <p>
@@ -184,7 +184,7 @@ Pause the stuff that’s flopping, refine copy, try new variations. Little by li
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
   },
 
-  "content-marketing-secrets": {
+  "how-to-use-negative-keywords-in-googleads-to-save-money": {
     title: "How to Use Negative Keywords in GoogleAds to Save Money",
     content: `
 <p>
@@ -263,7 +263,7 @@ Think of them as spring cleaning for your ad account: toss out the junk so only 
       "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
   },
 
-  "basic-seo-report": {
+  "how-to-read-a-basic-seo-report-for-website-owners": {
     title: "How to Read a Basic SEO Report (For Website Owners)?",
     content: `
 <p>
@@ -423,7 +423,7 @@ So next time that report lands in your inbox, don’t groan. Grab a coffee, open
       "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
   },
 
-  "seo-beyond-ranking": {
+  "beyond-rankings-how-to-measure-seos-true-impact-on-revenue": {
     title: "Beyond Rankings: How to Measure SEO's True Impact on Revenue?",
     content: `
     <p>
@@ -551,7 +551,7 @@ So next time that report lands in your inbox, don’t groan. Grab a coffee, open
       "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
   },
 
-  "leverage-ideas": {
+  "how-to-leverage-people-also-ask-for-content-and-keyword-ideas": {
     title: "How to Leverage People Also Ask for Content and Keyword Ideas?",
     content: `
 <p>
@@ -686,7 +686,7 @@ If you treat it like your content compass, you’ll never run out of ideas — a
       "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
   },
 
-  "boost-visibility": {
+  "beginners-guide-to-schema-markup-types-that-boost-visibility": {
     title: "A Beginner's Guide to Schema Markup: Types That Boost Visibility",
     content: `
 <p>
@@ -835,7 +835,7 @@ Think of schema as your website’s translator. The clearer you make things for 
       "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
   },
 
-  "how-to-structure-high-converting-ppc": {
+  "how-to-structure-a-high-converting-ppc-landing-page": {
     title: "How to Structure a High-Converting PPC Landing Page?",
     content: `
 <p>
@@ -974,7 +974,7 @@ And remember: it’s never perfect on the first try. Keep tweaking, testing, and
       "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
   },
 
-  "pmax-campaigns": {
+  "pmax-campaigns-how-to-set-them-up-for-success-not-just-sales": {
     title: "PMax Campaigns: How to Set Them Up for Success, Not Just Sales",
     content: `
 <p>
@@ -1115,7 +1115,7 @@ PMax is more than a sales machine. Treat it like a full-funnel growth tool — f
     image:
       "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
   },
-  "seo-vs-ppc": {
+  "seo-vs-ppc-whats-the-difference-and-which-should-you-use": {
     title: "SEO vs. PPC: What's the Difference and Which Should You Use?",
     content: `
 <p>
@@ -1221,7 +1221,7 @@ They’re not rivals. PPC drives instant clicks while SEO builds long-term trust
   `,
     image:"https://images.unsplash.com/photo-1551836022-4c4c79ecde51",
   },
-  "7-common-mistakes-in-google-ads": {
+  "7-most-common-google-ads-mistakes-that-waste-your-budget": {
     title: "7 Most Common Google Ads Mistakes That Waste Your Budget",
     content: `
 <p>Running a Google Ads campaign can be highly effective for driving traffic, generating leads, and boosting sales. However, many businesses fail to get the results they expect because of common mistakes that waste ad spend. Even a small error in campaign setup, targeting, or optimization can lead to poor ROI and missed opportunities.</p>
@@ -1341,7 +1341,7 @@ Automation helps, but it doesn’t replace strategy. Manual oversight, regular u
   `,
     image:"https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1200&q=80",
   },
-  "basic-keyword-research": {
+  "how-to-do-basic-keyword-research-for-free-in-2025": {
     title: "How to Do Basic Keyword Research for Free in 2025?",
     content: `
 <p><strong>Description:</strong><br>

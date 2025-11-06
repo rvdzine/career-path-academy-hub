@@ -4,7 +4,7 @@ import { Clock } from "lucide-react";
 
 const blogs = [
   {
-    slug: "digital-marketing-trends-2025",
+    slug: "local-seo-checklist-how-to-get-your-business-on-google-maps-for-free",
     title: "Local SEO Checklist: How to Get Your Business on Google Maps for Free",
     excerpt:
       "For any local business, showing up on Google Maps is one of the most powerful....",
@@ -13,7 +13,7 @@ const blogs = [
     date: "25 Nov, 2025",
   },
   {
-    slug: "seo-strategies-beginners",
+    slug: "what-is-quality-score-5-simple-ways-to-improve-it-in-google-ads",
     title: "What is Quality Score? 5 Simple Ways to Improve It in Google Ads",
     excerpt:
       "If you’ve spent any time poking around in Google Ads, you’ve probably...",
@@ -22,7 +22,7 @@ const blogs = [
     date: "10 Oct, 2025",
   },
   {
-    slug: "content-marketing-secrets",
+    slug: "how-to-use-negative-keywords-in-googleads-to-save-money",
     title: "How to Use Negative Keywords in GoogleAds to Save Money",
     excerpt:
       "Running Google Ads is kind of like playing poker. You can win big if you know what...",
