@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useForm } from "react-hook-form";
 import { MapPin, Clock, Calendar, Users, CreditCard, Phone, Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import axios from "axios";
+import api from '../lib/axios'
 
 interface BookingDialogProps {
   children?: React.ReactNode;
@@ -52,7 +52,7 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
 
   const onSubmit = async (data: BookingFormData) => {
     try{
-      const result = await axios.post("https://idg-backend.onrender.com/api/demo/book/", {
+      const result = await api.post('demo/book/', {
         full_name: data.name,
         email: data.email,
         phone: data.phone,

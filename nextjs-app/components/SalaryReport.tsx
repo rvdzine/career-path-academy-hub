@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 import { toast } from "@/components/ui/use-toast";
-import axios from "axios";
+import api from "../lib/axios";
 
 
 export default function SalaryReportModal({ children }) {
@@ -43,8 +43,8 @@ export default function SalaryReportModal({ children }) {
 
     try {
       setLoading(true);
-      const response = await axios.post(
-        "https://idg-backend.onrender.com/api/salaryreport/submit/",
+      const response = await api.post(
+        "salaryreport/submit/",
         {
           full_name: fullName,
           email: email,
@@ -59,7 +59,7 @@ export default function SalaryReportModal({ children }) {
           description: "Your details have been submitted successfully.",
         });
         setOpen(false);
-        window.location.href = "/Ss"; // navigate to report
+        window.location.href = "/ss"; // navigate to report
       }
     } catch (error: any) {
       toast({
