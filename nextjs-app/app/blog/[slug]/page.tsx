@@ -75,6 +75,24 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
       title: "How to Do Basic Keyword Research for Free in 2025?",
       description: "Find out how to do keyword research for free in 2025 using simple tools, smart strategies, and real search insights.",
       image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+    },
+    
+    "how-to-run-a-winning-ab-test-on-facebook-ad-creative": {
+      title: "How to Run a Winning A/B Test on Facebook Ad Creative",
+      description: "Learn how to A/B test Facebook ad creatives the right way to test visuals, copy, and audience to find what truly converts.",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+    },
+    
+    "how-to-use-google-ads-scripts-to-automate-boring-tasks": {
+      title: "How to Use Google Ads Scripts to Automate Boring Tasks",
+      description: "Save time and boost efficiency with Google Ads scripts. Learn easy automation tips to handle repetitive ad tasks.",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+    },
+    
+    "meta-description-checklist-how-to-write-one-that-gets-clicks": {
+      title: "Meta Description Checklist: How to Write One That Gets Clicks",
+      description: "Write meta descriptions that attract clicks. Follow this quick checklist to boost CTR and stand out in Google results.",
+      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
     }
   };
 

@@ -1216,7 +1216,7 @@ They’re not rivals. PPC drives instant clicks while SEO builds long-term trust
   Yes. SEO builds credibility and saves money long-term, while PPC drives quick leads and sales, helping small businesses compete with larger brands.</li>
 </ol>
   `,
-    image:"https://images.unsplash.com/photo-1551836022-4c4c79ecde51",
+    image: "https://images.unsplash.com/photo-1551836022-4c4c79ecde51",
   },
   "7-most-common-google-ads-mistakes-that-waste-your-budget": {
     title: "7 Most Common Google Ads Mistakes That Waste Your Budget",
@@ -1336,7 +1336,7 @@ Broad targeting and ignoring negative keywords. Many advertisers focus on gettin
 <p><strong>5. Can automated tools prevent these mistakes?</strong><br>
 Automation helps, but it doesn’t replace strategy. Manual oversight, regular updates, and goal alignment are essential for avoiding wasted budget.</p>
   `,
-    image:"https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1200&q=80",
   },
   "how-to-do-basic-keyword-research-for-free-in-2025": {
     title: "How to Do Basic Keyword Research for Free in 2025?",
@@ -1476,8 +1476,326 @@ Every 3–6 months for most websites, or sooner if you notice changes in search 
 <p><strong>5. Are long-tail keywords more valuable than high-volume keywords?</strong><br>
 They often are for small or new websites because they face less competition and attract users closer to making a purchase or taking action.</p>
 `,
-    image:"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
-  }
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+  },
+
+  "how-to-run-a-winning-ab-test-on-facebook-ad-creative": {
+    title: "How to Run a Winning A/B Test on Facebook Ad Creative",
+    content: `
+<p>Alright, let’s talk about Facebook ads or more specifically, how not to throw your money at them blindly. You know how sometimes you post two photos on Instagram and one blows up while the other one just... sits there? Facebook ads work kinda like that too. You think you know what’ll perform better, but honestly? You don’t until you test it. That’s where A/B testing comes in.</p>
+</br>
+      <p>Basically, A/B testing (aka split testing if you want to sound fancy) is just running two versions of the same ad to see which one makes people click, buy, or do whatever you want them to do. It’s less about guessing and more about letting data tell you what works which is both nerdy and brilliant.</p>
+
+      <b>So, what’s A/B testing anyway?</b>
+
+      <p>Imagine you’ve got two versions of your ad. Maybe one headline says “Boost Your Productivity in 7 Days” and the other says “Get More Done With Less Effort.” You don’t know which one’s the winner yet so Facebook shows each version to different groups of people. After a while, you check the results, and the better ad reveals itself through cold, hard numbers.</p>
+</br>
+      <p>That’s all it is. You change one thing, maybe a headline, image, or button and see which performs better. Rinse and repeat.</p>
+
+      <b>Why even bother testing?</b>
+
+      <p>Well, because guessing costs money.</p>
+      <ul>
+        <li>You stop wasting budget on underperforming ads and funnel that cash into what actually works.</li>
+        <li>Your ROI goes up, which is just a fancy way of saying you make more with less.</li>
+        <li>You learn what people actually like, so your future ads don’t flop.</li>
+        <li>And hey, you stop relying on “gut feeling” because honestly, our guts aren’t as smart as the data.</li>
+      </ul>
+</br>
+      <b>How to do Facebook A/B Testing?</b>
+
+      <ol>
+        <li>
+          <strong>Pick your goal first</strong><br/>
+          What are you testing for? Clicks? Sales? Engagement? Video views? Pick one clear metric so you can declare a real winner later. Don’t just test for “vibes.”
+        </li>
+        <li>
+          <strong>Decide what to tweak</strong><br/>
+          Don’t go wild and change everything at once — you’ll never know what caused the difference. Just pick one thing:
+          <ul>
+            <li>Try two different images or videos</li>
+            <li>Write a new headline</li>
+            <li>Adjust your ad copy (storytelling vs. straight facts)</li>
+            <li>Swap your CTA button — “Shop Now” vs. “Learn More” sounds small but can be huge</li>
+          </ul>
+          <p><em>Start small. Data loves simplicity.</em></p>
+        </li>
+        <li>
+          <strong>Set it up properly</strong><br/>
+          Facebook’s got a tool for this — it’s literally called <strong>Experiments</strong>. You’ll find it under <strong>Ads Manager → Experiments → Create A/B Test.</strong><br/>
+          Select what you’re testing (like the creative), and let Facebook automatically divide your audience so the test is fair. Don’t manually fiddle with it, just let the algorithm do its thing.
+        </li>
+        <li>
+          <strong>Give it enough time</strong><br/>
+          Here’s where most people mess up: they stop the test too early. Run it for at least <strong>3–7 days</strong> so you get a real picture of performance. If your ad only got a few clicks, that’s not data — that’s noise.
+        </li>
+        <li>
+          <strong>Watch but don’t interfere</strong><br/>
+          You’ll want to tweak it mid-test (trust me, it’s tempting), but don’t. You’ll mess up the results. Instead, keep an eye on metrics like:
+          <ul>
+            <li>CTR (Click-Through Rate)</li>
+            <li>CPC (Cost Per Click)</li>
+            <li>CPA (Cost Per Acquisition)</li>
+            <li>Conversion rate</li>
+          </ul>
+          <p>Then just... wait. I know. Painful.</p>
+        </li>
+        <li>
+          <strong>Pick your winner</strong><br/>
+          When it’s done, look at the numbers, not your feelings. The winner should clearly outperform the other one on your chosen metric. If it’s close, run another test to double-check before you scale up.
+        </li>
+        <li>
+          <strong>Scale and repeat</strong><br/>
+          Now that you’ve got a winner, slowly increase its budget. Don’t just triple it overnight. Facebook will panic. And then? Start a new test. Maybe change the image this time. Or try a different audience. A/B testing never really ends; it just keeps your ads from getting stale.
+        </li>
+      </ol>
+
+      <h2>Some pro tips</h2>
+
+      <ul>
+        <li>Only test one variable at a time. Otherwise, you’re just making chaos.</li>
+        <li>Keep everything else (budget, audience, timing) consistent.</li>
+        <li>Use good visuals. Testing two bad creatives won’t suddenly make one of them good.</li>
+        <li>Write down your results — seriously, you’ll thank yourself later.</li>
+        <li>Keep testing. What works this month might flop next month.</li>
+      </ul>
+
+      <h2>The bottom line</h2>
+      <p>A/B testing isn’t some marketing “hack” — it’s just smart experimenting. You’re learning what your audience clicks on, what makes them buy, and what totally bombs. It saves money, boosts conversions, and makes your ads actually work. Start small, test often, and let your data not your gut do the talking.</p>
+
+      <h1>FAQs About Facebook Ad A/B Testing</h1>
+
+      <ol>
+        <li><strong>Can I test multiple ad elements at once?</strong><br/>It’s possible, but it’s better to test one element at a time for clear insights. Testing multiple elements can make it difficult to identify which change caused the performance difference.</li>
+        <li><strong>How long should an A/B test run?</strong><br/>Run the test for at least 3–7 days, depending on audience size, to collect sufficient data and reduce daily fluctuations.</li>
+        <li><strong>What’s a statistically significant result?</strong><br/>A statistically significant result occurs when the performance difference between variations is unlikely to be due to chance. Larger audiences and more conversions increase confidence in results.</li>
+        <li><strong>Can I use A/B testing for Facebook ads with small budgets?</strong><br/>Yes, but results may be less reliable. Ensure enough impressions per variation to make meaningful comparisons.</li>
+        <li><strong>Should I stop the losing ad immediately?</strong><br/>Not during the test. Stop the test only after reaching statistical significance to avoid skewed results.</li>
+      </ol>
+  `,
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+  },
+
+  "how-to-use-google-ads-scripts-to-automate-boring-tasks": {
+    title: "How to Use Google Ads Scripts to Automate Boring Tasks",
+    content: `
+<p>Alright, so managing Google Ads can feel like trying to juggle flaming torches while riding a unicycle. Between checking bids, tweaking keywords, watching your budget, and pulling endless reports… It's a lot. And if you’re doing it all manually? Yeah, good luck keeping your sanity.</p>
+</br>
+
+<p>That’s where Google Ads Scripts come in—your behind-the-scenes robot helpers that never get tired, bored, or distracted by cat videos. They handle all the repetitive stuff for you while you focus on the strategy (or, let’s be honest, grabbing another coffee). Let’s break this down like a normal human conversation, shall we?</p>
+
+<h2>What are Google Ads Scripts?</h2>
+</br>
+<p>Imagine a tiny bit of JavaScript code that lives inside your Google Ads account and quietly does all the boring, repetitive tasks for you. That’s a script.</p>
+</br>
+
+<p>They can pause keywords that aren’t pulling their weight, adjust bids when things are off, send you reports, or even yell (well, email) when your budget’s about to explode. And the best part? You don’t need to host them anywhere or be a coding wizard; they run right inside Google Ads.</p>
+
+<h2>Why bother using scripts?</h2>
+
+<p>Honestly, because doing everything by hand is a pain. But here’s the real magic:</p>
+
+<ul>
+<li>They save hours. What takes you 45 minutes of clicking and scrolling, a script does in seconds.</li>
+<li>They don’t screw up. Humans make typos. Scripts don’t.</li>
+<li>They scale easily. Whether you’ve got 2 campaigns or 200, one line of code can tweak them all.</li>
+<li>They report automatically. No more exporting data at midnight before a client meeting—scripts can drop reports straight into your inbox or Google Sheets.</li>
+</ul>
+
+<p>Basically, they turn Google Ads from “ugh, tedious” into “oh, that’s kinda cool.”</p>
+
+<h2>Stuff you can automate (and should)</h2>
+
+<ol>
+<li><strong>Auto-pause low performers</strong><br/>
+If a keyword’s been eating money with no conversions, why let it live rent-free? You can tell your script: “Hey, if CTR drops below 1% over 30 days, kill it.” Boom—done automatically.</li>
+
+<li><strong>Smart bid adjustments</strong><br/>
+Set up rules like: “If a keyword’s conversion rate is above 5%, increase the bid by 10%.” Or the opposite if it’s tanking. No need to babysit.</li>
+
+<li><strong>Budget watchdog</strong><br/>
+Ever wake up to see your daily budget blown by 10 AM? Yeah, not fun. Scripts can warn you when campaigns are about to cross spending limits.</li>
+
+<li><strong>Automatic reports</strong><br/>
+You can schedule daily, weekly, or monthly reports that magically appear in your email or Sheets—complete with clicks, conversions, CPC, whatever you want.</li>
+
+<li><strong>Broken link detective</strong><br/>
+Nothing kills performance faster than a “404 Page Not Found.” Scripts can check your ads for broken URLs or disapproved creatives and alert you instantly.</li>
+</ol>
+
+<h2>Setting one up isn’t rocket science</h2>
+
+<ol>
+<li>Log in to your Google Ads account.</li>
+<li>Go to Tools & Settings → Bulk Actions → Scripts.</li>
+<li>Hit the + Script button.</li>
+<li>Paste your code (or borrow a free one—we’ll get to that).</li>
+<li>Click Authorize so it can access your account.</li>
+<li>Run it in Preview mode first—always test before letting it go wild.</li>
+<li>Once it’s behaving, schedule it to run daily, weekly, whatever fits.</li>
+</ol>
+
+<p>And that’s it. You’ve just automated part of your job.</p>
+
+<h2>Don’t want to write your own? Use these free ones.</h2>
+
+<ul>
+<li>Keyword Performance Monitor – auto-pauses bad keywords.</li>
+<li>Budget Alert Script – emails you when you’re nearing budget limits.</li>
+<li>Broken Link Checker – finds dead URLs.</li>
+<li>Automated Reports Script – builds nice, clean reports for you.</li>
+</ul>
+
+<p>You can find tons of them on Google’s official documentation or marketing forums. Just tweak them a bit to fit your needs.</p>
+
+<h3>A few smart tips before you go full automation nerd</h3>
+
+<ul>
+<li>Start small. Don’t unleash five scripts at once. Begin with something safe, like reporting or alerts.</li>
+<li>Log everything. Add <code>Logger.log</code> lines (trust me, you’ll thank yourself later).</li>
+<li>Schedule wisely. Budgets change daily; reports maybe weekly. Don’t overdo it.</li>
+<li>Preview before live. Always. One bad variable and poof—your whole campaign’s paused.</li>
+<li>Keep an eye on updates. Google changes things constantly; your scripts might need tweaks once in a while.</li>
+</ul>
+
+<h2>Final thoughts</h2>
+
+<p>Google Ads Scripts are like having a super-organized assistant who never forgets, never complains, and never misses a deadline. They cut down the grunt work so you can focus on creative strategy and big-picture stuff.</p>
+
+<p>Start small—maybe automate a report or a keyword cleanup. Once you get the hang of it, you’ll wonder how you ever ran campaigns without them. And hey, less time staring at spreadsheets means more time actually doing the fun parts of marketing… or, you know, taking a nap.</p>
+
+<h1>FAQs About Google Ads Scripts</h1>
+
+<ol>
+<li><strong>Do I need to know coding to use Google Ads Scripts?</strong><br/>
+Basic JavaScript knowledge helps, but you can also use pre-written scripts and modify simple variables like campaign names, thresholds, or email addresses.</li>
+
+<li><strong>Are scripts safe to use?</strong><br/>
+Yes, as long as you review and test them. Always run scripts in preview mode first to prevent unwanted changes.</li>
+
+<li><strong>Can scripts handle multiple accounts?</strong><br/>
+Yes, you can use MCC (Manager) accounts to run scripts across multiple Google Ads accounts.</li>
+
+<li><strong>How often can a script run?</strong><br/>
+Scripts can run as frequently as once per hour or less often, depending on your schedule.</li>
+
+<li><strong>Are there limitations on Google Ads Scripts?</strong><br/>
+Yes, scripts have execution time limits (30 minutes per run) and API quotas, so very large accounts may need multiple scripts or batching.</li>
+</ol>
+  `,
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+  },
+
+  "meta-description-checklist-how-to-write-one-that-gets-clicks": {
+    title: "Meta Description Checklist: How to Write One That Gets Clicks",
+    content: `
+<p>A meta description may be small, typically 150–160 characters—but it has a big impact on your website’s performance in search results. A well-written meta description doesn’t just improve SEO; it entices users to click your link over competitors’ listings.</p>
+
+<p>This guide provides a practical meta description checklist to help you write descriptions that drive clicks and improve your search visibility.</p>
+
+<h2>What is a Meta Description?</h2>
+
+<p>A meta description is an HTML attribute that summarizes the content of a web page. Search engines often display it under the page title in search results. While meta descriptions don’t directly affect rankings, they influence click-through rates (CTR)—an important SEO metric.</p>
+
+<h3>Example:</h3>
+
+<p><strong>Title:</strong> “Best Budget Laptops for Students in 2025”<br/>
+<strong>Meta Description:</strong> “Discover the top affordable laptops for students in 2025. Compare features, prices, and performance to find your perfect laptop.”</p>
+
+<p>A compelling meta description encourages searchers to click your page instead of scrolling past it.</p>
+
+<h2>Why Meta Descriptions Matter</h2>
+
+<h3>Increase Click-Through Rate</h3>
+<p>A persuasive meta description grabs attention, conveys value, and motivates users to click. Higher CTR can indirectly boost SEO by signaling relevance to search engines.</p>
+
+<h3>Provide a Clear Summary</h3>
+<p>Meta descriptions help users quickly understand what your page is about, reducing bounce rates from mismatched expectations.</p>
+
+<h3>Enhance SERP Features</h3>
+<p>Well-crafted meta descriptions can complement rich snippets, FAQs, and structured data, improving visibility and trust.</p>
+
+<h2>Meta Description Checklist</h2>
+
+<p>Use this checklist to ensure your meta descriptions are optimized for clicks:</p>
+
+<ol>
+<li><strong>Keep It Between 150–160 Characters</strong><br/>
+Longer descriptions may get truncated in search results, while very short ones don’t provide enough information. Aim for concise, informative text that fits within the visible limit.</li>
+
+<li><strong>Include the Target Keyword</strong><br/>
+Incorporate the primary keyword naturally to show relevance. Avoid keyword stuffing—focus on readability and user intent.</li>
+
+<p><em>Example:</em><br/>
+<strong>Keyword:</strong> “healthy meal plans”<br/>
+<strong>Description:</strong> “Explore easy and nutritious healthy meal plans for busy adults. Save time and eat well every day.”</p>
+
+<li><strong>Highlight the Benefit or Value</strong><br/>
+Tell users why they should click. Focus on what problem your content solves or what value it provides.<br/>
+<em>Example:</em> “Boost your productivity with 10 proven time-management tips for professionals.”</li>
+
+<li><strong>Use a Call-to-Action (CTA)</strong><br/>
+Encourage action with phrases like:<br/>
+“Learn more”<br/>
+“Get started today”<br/>
+“Discover how”<br/>
+CTAs create a sense of urgency and guide users toward the next step.</li>
+
+<li><strong>Match User Intent</strong><br/>
+Your meta description should reflect what the user expects to find on the page:<br/>
+- Informational pages → promise answers or insights<br/>
+- Product pages → highlight features, offers, or discounts<br/>
+- Service pages → mention benefits, solutions, or unique selling points</li>
+
+<li><strong>Make It Unique</strong><br/>
+Each page should have a unique meta description to avoid duplicate content issues and improve user experience. Duplicate meta descriptions can confuse search engines and reduce CTR.</li>
+
+<li><strong>Write for Humans, Not Just Search Engines</strong><br/>
+Avoid over-optimization. Focus on clarity, tone, and appeal. A description that resonates with readers is more effective than one designed solely for SEO.</li>
+
+<li><strong>Test and Refine</strong><br/>
+Use tools like Google Search Console to monitor CTR. If certain pages have low CTR despite high impressions, rewrite the meta description to make it more compelling.</li>
+</ol>
+
+<h2>Additional Tips for Maximum Impact</h2>
+
+<ul>
+<li><strong>Use Numbers or Lists:</strong> E.g., “7 Tips to Improve Your SEO Today” draws attention.</li>
+<li><strong>Add Power Words:</strong> Words like “proven,” “essential,” “free,” or “ultimate” encourage clicks.</li>
+<li><strong>Address Pain Points:</strong> Speak directly to user needs or challenges.</li>
+<li><strong>Keep It Consistent With Title and Content:</strong> Ensure your description accurately reflects the page content to avoid high bounce rates.</li>
+</ul>
+
+<h2>Final Thoughts</h2>
+
+<p>A meta description is a small element with big potential. By following this checklist—keeping it concise, including keywords, highlighting value, adding a CTA, and writing for humans—you can craft meta descriptions that not only improve CTR but also attract the right audience to your website.</p>
+
+<p>Remember, meta descriptions are the first impression users get of your page in search results. A compelling, optimized description can make the difference between a click and a scroll past your content.</p>
+
+<h1>FAQs About Meta Descriptions</h1>
+
+<ol>
+<li><strong>Do meta descriptions affect Google rankings?</strong><br/>
+Not directly. However, higher CTR from effective meta descriptions can indirectly improve SEO performance.</li>
+
+<li><strong>Can Google rewrite my meta description?</strong><br/>
+Yes. Google sometimes generates its own snippet based on the user query if it believes a different text is more relevant.</li>
+
+<li><strong>How often should I update meta descriptions?</strong><br/>
+Review and update them whenever you refresh content, notice low CTR, or want to align with new search trends.</li>
+
+<li><strong>What’s the ideal length for mobile meta descriptions?</strong><br/>
+Keep descriptions between 140–160 characters to avoid truncation on both desktop and mobile devices.</li>
+
+<li><strong>Should product pages have unique meta descriptions?</strong><br/>
+Absolutely. Each product page should have a unique description highlighting key features, benefits, and offers to maximize clicks.</li>
+</ol>
+  `,
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+  },
+  
+
+
 };
 
 const BlogDetail = ({ slug }: { slug: string }) => {

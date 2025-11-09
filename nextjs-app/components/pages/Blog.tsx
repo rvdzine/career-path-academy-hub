@@ -76,6 +76,24 @@ const blogs = [
     excerpt: "Find out how to do keyword research for free in 2025 using simple tools, smart strategies, and real search insights....",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
   },
+  {
+    slug: "how-to-run-a-winning-ab-test-on-facebook-ad-creative",
+    title: "How to Run a Winning A/B Test on Facebook Ad Creatives",
+    excerpt: "Alright, let’s talk about Facebook ads or more specifically, how not to throw your money at....",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    slug: "how-to-use-google-ads-scripts-to-automate-boring-tasks",
+    title: "How to Use Google Ads Scripts to Automate Boring Tasks",
+    excerpt: "Alright, so managing Google Ads can feel like trying to juggle flaming torches while....",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    slug: "meta-description-checklist-how-to-write-one-that-gets-clicks",
+    title: "Meta Description Checklist: How to Write One That Gets Clicks",
+    excerpt: "A meta description may be small, typically 150–160 characters but....",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+  },
 ];
 
 const Blog = () => {
