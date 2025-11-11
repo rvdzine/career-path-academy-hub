@@ -12,6 +12,7 @@ import Chatbot from "@/components/Chatbot";
 import FAQHighlight from "@/components/FAQHighlight";
 import Blogs from "@/components/BlogIndex"
 import SalaryReport from "@/components/courseDetailsComponents/SalaryReport";
+import Contactform from "@/components/ContactForm";
 // import WhyIDS from "@/components/whyids";
 
 const Index = () => {
@@ -30,6 +31,7 @@ const Index = () => {
       <SalaryReport/>
       <Blogs />
       <FAQHighlight/>
+      <Contactform/>
       <Footer />
       <Chatbot />
     </div>
