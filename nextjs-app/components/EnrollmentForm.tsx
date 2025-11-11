@@ -130,7 +130,7 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
     setIsProcessing(true);
 
     try{
-      const response = await api.post('/enroll/', {
+      const response = await api.post('courses/enroll/', {
         full_name: formData.fullName,
         email:formData.email,
         phone:formData.phone,
