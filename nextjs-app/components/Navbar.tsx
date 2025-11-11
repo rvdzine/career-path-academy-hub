@@ -7,12 +7,12 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import ContactDialog from "@/components/ContactDialog";
 import Image from "next/image";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+// import {
+//   DropdownMenu,
+//   DropdownMenuContent,
+//   DropdownMenuItem,
+//   DropdownMenuTrigger,
+// } from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -135,7 +135,7 @@ const Navbar = () => {
                 </Link>
               ))}
 
-              <div className="border-t pt-4">
+              {/* <div className="border-t pt-4">
                 <p className="text-xs font-semibold text-gray-500 mb-2">MORE</p>
                 {moreLinks.map((link) => (
                   <Link
@@ -149,7 +149,7 @@ const Navbar = () => {
                     {link.name}
                   </Link>
                 ))}
-              </div>
+              </div> */}
 
               <ContactDialog>
                 <Button className="bg-[#EA2525] hover:bg-red-600 w-full">Enroll Now</Button>
