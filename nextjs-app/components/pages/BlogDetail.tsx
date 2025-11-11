@@ -101,8 +101,7 @@ Backlinks from local blogs, newspapers, and chambers of commerce can also boost 
 <li><strong>Can I manage multiple locations on Google Maps?</strong><br>Yes. If you run multiple branches, you can add and manage all of them under one Google account.</li>
 </ol>
     `,
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+   image: "/assets/Blog1.png",
   },
 
   "what-is-quality-score-5-simple-ways-to-improve-it-in-google-ads": {
@@ -260,7 +259,7 @@ Think of them as spring cleaning for your ad account: toss out the junk so only 
 </ol>
     `,
     image:
-      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
+      "/assets/Blog3.png",
   },
 
   "how-to-read-a-basic-seo-report-for-website-owners": {
@@ -420,7 +419,7 @@ So next time that report lands in your inbox, don’t groan. Grab a coffee, open
 </p>
   `,
     image:
-      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
+      "/assets/Blog4.png",
   },
 
   "beyond-rankings-how-to-measure-seos-true-impact-on-revenue": {
@@ -547,7 +546,7 @@ So next time that report lands in your inbox, don’t groan. Grab a coffee, open
     </ol>
     `,
     image:
-      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
+      "/assets/blog 5.png",
   },
 
   "how-to-leverage-people-also-ask-for-content-and-keyword-ideas": {
@@ -681,7 +680,7 @@ If you treat it like your content compass, you’ll never run out of ideas — a
 </ol>
 `,
     image:
-      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
+      "/assets/blog6.png",
   },
 
   "beginners-guide-to-schema-markup-types-that-boost-visibility": {
@@ -968,7 +967,7 @@ And remember: it’s never perfect on the first try. Keep tweaking, testing, and
 </ol>
   `,
     image:
-      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
+      "/assets/blog8.png",
   },
 
   "pmax-campaigns-how-to-set-them-up-for-success-not-just-sales": {
@@ -1216,7 +1215,7 @@ They’re not rivals. PPC drives instant clicks while SEO builds long-term trust
   Yes. SEO builds credibility and saves money long-term, while PPC drives quick leads and sales, helping small businesses compete with larger brands.</li>
 </ol>
   `,
-    image: "https://images.unsplash.com/photo-1551836022-4c4c79ecde51",
+    image:"/assets/blog10.png",
   },
   "7-most-common-google-ads-mistakes-that-waste-your-budget": {
     title: "7 Most Common Google Ads Mistakes That Waste Your Budget",
@@ -1336,7 +1335,7 @@ Broad targeting and ignoring negative keywords. Many advertisers focus on gettin
 <p><strong>5. Can automated tools prevent these mistakes?</strong><br>
 Automation helps, but it doesn’t replace strategy. Manual oversight, regular updates, and goal alignment are essential for avoiding wasted budget.</p>
   `,
-    image: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1200&q=80",
+    image:"/assets/blog11.png",
   },
   "how-to-do-basic-keyword-research-for-free-in-2025": {
     title: "How to Do Basic Keyword Research for Free in 2025?",
