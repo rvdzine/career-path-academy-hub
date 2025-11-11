@@ -94,6 +94,24 @@ const blogs = [
     excerpt: "A meta description may be small, typically 150–160 characters but....",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
   },
+  {
+    slug: "what-are-long-tail-keywords-and-why-they-are-easy-seo-wins",
+    title: "What Are Long-Tail Keywords? (And Why They Are Easy SEO Wins)",
+    excerpt: "If you’re just stepping into the world of SEO or content marketing, chances are....",
+    image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    slug: "how-to-repurpose-one-piece-of-content-across-all-social-channels",
+    title: "How to Repurpose One Piece of Content Across All Social Channels",
+    excerpt: "Let’s be real, creating good content is work. Like, the kind that eats your....",
+    image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    slug: "social-listing-for-seo-find-content-gaps-and-unasked-questions",
+    title: "Social Listing for SEO: Find Content Gaps and Unasked Questions",
+    excerpt: "SEO isn’t just about jamming keywords into blog posts anymore. Sure, keyword research and ....",
+    image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+  },
 ];
 
 const Blog = () => {
