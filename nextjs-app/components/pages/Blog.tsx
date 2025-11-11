@@ -80,37 +80,37 @@ const blogs = [
     slug: "how-to-run-a-winning-ab-test-on-facebook-ad-creative",
     title: "How to Run a Winning A/B Test on Facebook Ad Creatives",
     excerpt: "Alright, let’s talk about Facebook ads or more specifically, how not to throw your money at....",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+    image: "./assets/blog13.png",
   },
   {
     slug: "how-to-use-google-ads-scripts-to-automate-boring-tasks",
     title: "How to Use Google Ads Scripts to Automate Boring Tasks",
     excerpt: "Alright, so managing Google Ads can feel like trying to juggle flaming torches while....",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+    image: "./assets/blog14.png",
   },
   {
     slug: "meta-description-checklist-how-to-write-one-that-gets-clicks",
     title: "Meta Description Checklist: How to Write One That Gets Clicks",
     excerpt: "A meta description may be small, typically 150–160 characters but....",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+    image: "./assets/blog15.png",
   },
   {
     slug: "what-are-long-tail-keywords-and-why-they-are-easy-seo-wins",
     title: "What Are Long-Tail Keywords? (And Why They Are Easy SEO Wins)",
     excerpt: "If you’re just stepping into the world of SEO or content marketing, chances are....",
-    image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    image: "./assets/blog16.png",
   },
   {
     slug: "how-to-repurpose-one-piece-of-content-across-all-social-channels",
     title: "How to Repurpose One Piece of Content Across All Social Channels",
     excerpt: "Let’s be real, creating good content is work. Like, the kind that eats your....",
-    image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    image: "./assets/blog17.png",
   },
   {
     slug: "social-listing-for-seo-find-content-gaps-and-unasked-questions",
     title: "Social Listing for SEO: Find Content Gaps and Unasked Questions",
     excerpt: "SEO isn’t just about jamming keywords into blog posts anymore. Sure, keyword research and ....",
-    image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    image: "./assets/blog18.png",
   },
 ];
 

@@ -1572,7 +1572,7 @@ They often are for small or new websites because they face less competition and 
         <li><strong>Should I stop the losing ad immediately?</strong><br/>Not during the test. Stop the test only after reaching statistical significance to avoid skewed results.</li>
       </ol>
   `,
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+    image: "/assets/blog13.png",
   },
 
   "how-to-use-google-ads-scripts-to-automate-boring-tasks": {
@@ -1682,7 +1682,7 @@ Scripts can run as frequently as once per hour or less often, depending on your 
 Yes, scripts have execution time limits (30 minutes per run) and API quotas, so very large accounts may need multiple scripts or batching.</li>
 </ol>
   `,
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+    image: "/assets/blog14.png",
   },
 
   "meta-description-checklist-how-to-write-one-that-gets-clicks": {
@@ -1790,7 +1790,7 @@ Keep descriptions between 140–160 characters to avoid truncation on both deskt
 Absolutely. Each product page should have a unique description highlighting key features, benefits, and offers to maximize clicks.</li>
 </ol>
   `,
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+    image: "/assets/blog15.png",
   },
   
   "what-are-long-tail-keywords-and-why-they-are-easy-seo-wins": {
@@ -1886,7 +1886,7 @@ Long-tail keyword: <em>“best budget laptop for students 2025”</em></p>
 <b>5. How often should I update long-tail keywords?</b>
 <p>Regularly—every 3–6 months or whenever search trends shift. Tools like Google Trends can help spot rising queries.</p>
     `,
-  image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+  image: "/assets/blog16.png",
   },
 
   "how-to-repurpose-one-piece-of-content-across-all-social-channels": {
@@ -1982,7 +1982,7 @@ Evergreen content like how-to guides, industry insights, webinars, and comprehen
 <p><strong>5. Is it okay to repost the exact same content on different platforms?</strong><br>
 It’s better to tailor content for each platform’s audience and format. Exact reposting may reduce engagement and appear repetitive.</p>
   `,
-  image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+  image: "/assets/blog17.png",
   },
 
   "social-listing-for-seo-find-content-gaps-and-unasked-questions": {
@@ -2050,7 +2050,7 @@ It’s better to tailor content for each platform’s audience and format. Exact
   </li>
 </ol>
   `,
-  image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+  image: "/assets/blog18.png",
   },
 
 
