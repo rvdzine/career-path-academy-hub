@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
-import axios from "axios";
+import api from '../lib/axios'
 
 
 const InternshipForm = () => {
@@ -76,8 +76,8 @@ const InternshipForm = () => {
 
 
     try {
-      const response = await axios.post(
-        "https://idg-backend.onrender.com/api/careers/student-placement/",
+      const response = await api.post(
+        "careers/student-placement/",
         // "http://localhost:8000/api/careers/student-placement/", 
         submissionData,
         {

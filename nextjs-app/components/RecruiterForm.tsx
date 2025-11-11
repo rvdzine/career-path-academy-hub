@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
-import axios from "axios";
+import api from '../lib/axios'
 
 const RecruiterForm = () => {
   const [formData, setFormData] = useState({
@@ -74,9 +74,9 @@ const RecruiterForm = () => {
 
     try {
       // Note: You'll need to create a backend endpoint for recruiters
-      const response = await axios.post(
+      const response = await api.post(
         // "http://localhost:8000/api/careers/recruiter-entry/",
-        "https://idg-backend.onrender.com/api/careers/recruiter-entry/",
+        "careers/recruiter-entry/",
         submissionData,
         {
           headers: {

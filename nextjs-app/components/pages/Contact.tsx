@@ -11,7 +11,7 @@ import { Calendar, Clock, MapPin, Phone, Mail, CheckCircle } from "lucide-react"
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import axios from 'axios'
+import api from '../../lib/axios'
 import { useToast } from "@/components/ui/use-toast";
 
 const Contact = () => {
@@ -38,7 +38,7 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("https://idg-backend.onrender.com/api/contact/contact/", {
+      const response = await api.post("contact/contact/", {
         full_name: formData.name,
         email: formData.email,
         phone: formData.phone,

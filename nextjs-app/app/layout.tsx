@@ -8,8 +8,16 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import UseScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
-  title: "Career Path Academy Hub",
-  description: "Digital Marketing Institute - Learn, Grow, Succeed",
+  title: "Digital Marketing Institute in Noida",
+  description: "Join the best Digital Marketing Institute in Noida. iDigital Studies offers practical Digital Marketing courses like SEO, SMO, PPC with live projects, 100% placement assistance, and expert training. Enroll today! ",
+  keywords: [
+    "digital marketing classes",
+    "digital marketing course",
+    "digital marketing course near me",
+    "digital marketing institute",
+    "digital marketing classes in Noida",
+    "digital marketing course in Noida",
+  ],
 };
 
 export default function RootLayout({
