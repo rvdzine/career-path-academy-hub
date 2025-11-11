@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 text-white py-16">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-10 gap-y-12 items-start">
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -67,6 +67,24 @@ const Footer = () => {
               <li><Link href="/courses" className="hover:text-white transition-colors">Courses</Link></li>
               <li><Link href="/placement" className="hover:text-white transition-colors">Placement</Link></li>
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li>
+                {/* Use SalaryReportModal instead of a Link */}
+                <SalaryReportModal>
+                  <button className="hover:text-white transition-colors">Salary Report</button>
+                </SalaryReportModal>
+              </li>
+            </ul>
+          </div>
+
+          {/* Important */}
+          <div>
+            <h4 className="font-semibold mb-4">Important Links</h4>
+            <ul className="space-y-2 text-gray-400 dark:text-gray-500">
+              <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+              <li><Link href="/faq" className="hover:text-white transition-colors" >FAQs</Link></li>
+              <li><Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
+              <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy & Policy</Link></li>
+              <li><Link href="/refund" className="hover:text-white transition-colors">Refund Policy</Link></li>
               <li>
                 {/* Use SalaryReportModal instead of a Link */}
                 <SalaryReportModal>

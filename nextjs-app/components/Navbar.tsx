@@ -27,16 +27,16 @@ const Navbar = () => {
     { name: "Jobs & Placements", path: "/jobs-and-placements" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
+    { name: "Blog", path: "/blog"},
   ];
 
-  const moreLinks = [
-    { name: "FAQ", path: "/faq" },
-    { name: "Terms & Conditions", path: "/terms" },
-    { name: "Privacy Policy", path: "/privacy" },
-    { name: "Refund Policy", path: "/refund" },
-    // { name: "Events & Webinars", path: "/events" },
-    { name: "Blog", path: "/blog" },
-  ];
+  // const moreLinks = [
+  //   { name: "FAQ", path: "/faq" },
+  //   { name: "Terms & Conditions", path: "/terms" },
+  //   { name: "Privacy Policy", path: "/privacy" },
+  //   { name: "Refund Policy", path: "/refund" },
+  //   { name: "Blog", path: "/blog" },
+  // ];
 
   return (
     <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
@@ -61,7 +61,7 @@ const Navbar = () => {
               </Link>
             ))}
 
-            <DropdownMenu>
+            {/* <DropdownMenu>
               <DropdownMenuTrigger asChild suppressHydrationWarning>
                 <button className="flex items-center text-sm font-medium text-gray-700 hover:text-black transition-colors">
                   More
@@ -82,7 +82,7 @@ const Navbar = () => {
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
-            </DropdownMenu>
+            </DropdownMenu> */}
 
             <ContactDialog>
               <Button className="bg-[#EA2525] hover:bg-red-600">Enroll Now</Button>

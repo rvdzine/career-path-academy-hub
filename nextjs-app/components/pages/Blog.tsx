@@ -8,7 +8,7 @@ const blogs = [
     slug: "digital-marketing-trends-2025",
     title: "Local SEO Checklist: How to Get Your Business on Google Maps for Free",
     excerpt: "For any local business, showing up on Google Maps is one of the most powerful....",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    image: "./assets/Blog1.png",
   },
   {
     slug: "seo-strategies-beginners",
@@ -20,25 +20,25 @@ const blogs = [
     slug: "content-marketing-secrets",
     title: "How to Use Negative Keywords in GoogleAds to Save Money",
     excerpt: "Running Google Ads is kind of like playing poker. You can win big if you know what...",
-    image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
+    image: "./assets/Blog3.png",
   },
   {
     slug: "basic-seo-report",
     title: "How to Read a Basic SEO Report (For Website Owners)?",
     excerpt: "Learn how to read a simple SEO report, understand traffic data, rankings, backlinks, and find what’s really driving result..",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+    image: "./assets/Blog4.png",
   },
   {
     slug: "seo-beyond-ranking",
     title: "Beyond Rankings: How to Measure SEO's True Impact on Revenue?",
     excerpt: "Stop chasing rankings and learn how to track SEO’s actual impact on sales, leads, and revenue with meaningful metrics....",
-    image: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1200&q=80",
+    image: "./assets/blog 5.png",
   },
   {
     slug: "leverage-ideas",
     title: "How to Leverage People Also Ask for Content and Keyword Ideas?",
     excerpt: "Turn Google’s “People Also Ask” into a goldmine for keyword and content ideas that match user intent and boost SEO....",
-    image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    image: "./assets/blog6.png",
   },
   {
     slug: "boost-visibility",
@@ -50,7 +50,7 @@ const blogs = [
     slug: "how-to-structure-high-converting-ppc",
     title: "How to Structure a High-Converting PPC Landing Page?",
     excerpt: "Learn how to design a PPC landing page that drives conversions, improves Quality Score, and reduces wasted ad spend...",
-    image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=80",
+    image: "./assets/blog8.png",
   },
   {
     slug: "pmax-campaigns",
@@ -62,13 +62,13 @@ const blogs = [
     slug: "seo-vs-ppc",
     title: "SEO vs. PPC: What's the Difference and Which Should You Use?",
     excerpt: "Understand the real difference between SEO and PPC, when to use each, and how to combine them for the best ...",
-    image: "https://images.unsplash.com/photo-1551836022-4c4c79ecde51",
+    image: "./assets/blog10.png",
   },
   {
     slug: "7-common-mistakes-in-google-ads",
     title: "7 Most Common Google Ads Mistakes That Waste Your Budget",
     excerpt: "Avoid these common Google Ads mistakes that waste money. Fix your targeting, keywords, and bidding to save budget....",
-    image: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1200&q=80",
+    image: "./assets/blog11.png",
   },
   {
     slug: "basic-keyword-research",
