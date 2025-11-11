@@ -9,7 +9,7 @@ const blogs = [
     excerpt:
       "For any local business, showing up on Google Maps is one of the most powerful....",
     image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+      "./assets/Blog1.png",
     date: "25 Nov, 2025",
   },
   {
@@ -27,7 +27,7 @@ const blogs = [
     excerpt:
       "Running Google Ads is kind of like playing poker. You can win big if you know what...",
     image:
-      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
+      "./assets/Blog3.png",
     date: "05 Sep, 2025",
   },
 ];
