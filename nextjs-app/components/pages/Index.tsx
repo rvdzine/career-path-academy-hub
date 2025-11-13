@@ -14,6 +14,7 @@ import Blogs from "@/components/BlogIndex"
 import SalaryReport from "@/components/courseDetailsComponents/SalaryReport";
 import Contactform from "@/components/ContactForm";
 import SignInModal from "@/components/SignInModal";
+import GallerySection from "@/components/Gallery";
 // import WhyIDS from "@/components/whyids";
 
 const Index = () => {
@@ -31,6 +32,7 @@ const Index = () => {
       {/* <TestimonialSection /> */}
       <SalaryReport/>
       <Blogs />
+      <GallerySection/>
       <FAQHighlight/>
       <Contactform/>
       <Footer />
