@@ -22,11 +22,20 @@ export default function CounselingForm() {
 
   return (
     <section className="relative flex justify-center items-center py-20 px-6 overflow-hidden bg-white">
-      <div className="absolute inset-0 [background-image:linear-gradient(to_right,rgba(255,0,0,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,0,0,0.12)_1px,transparent_1px)] [background-size:40px_40px] pointer-events-none"></div>
+      <div
+  className="absolute inset-0 pointer-events-none opacity-100"
+  style={{
+    backgroundColor: "#8c1515",
+    backgroundImage:
+      "repeating-radial-gradient(circle at 0 0, transparent 0, #8c1515 10px), repeating-linear-gradient(#fd585855, #fd5858)",
+  }}
+></div>
+
 
 
       {/* Form Card */}
-      <div className="relative w-full max-w-3xl bg-white/90 backdrop-blur-sm border border-red-100 rounded-2xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl">
+      <div className="relative w-full max-w-3xl bg-white border border-red-100 rounded-2xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl">
+
         <h2 className="text-center text-2xl md:text-3xl font-bold text-red-600 mb-1">
           Enroll Now - Free Counseling
         </h2>

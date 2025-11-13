@@ -129,7 +129,7 @@ const Blog = () => {
           {blogs.map((blog) => (
             <div
               key={blog.slug}
-              className="bg-white rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300"
+              className="bg-white rounded-lg shadow-md hover:shadow-xl  duration-300"
             >
               <img
                 src={blog.image}

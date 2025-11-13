@@ -20,7 +20,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 // 🖼️ Import your single static image
-import Slide1 from "@/public/assets/signinmodal2.png";
+import Slide1 from "@/public/assets/signinmodal1.png";
 
 const SignInModal = () => {
   const [open, setOpen] = useState(false);

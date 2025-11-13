@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
+// 🎨 16 total images (add your real image paths)
 const images = [
   { src: "/assets/gallery1.webp", alt: "Digital Marketing Classroom" },
   { src: "/assets/gallery2.webp", alt: "Hands-on Workshop" },
@@ -9,47 +10,77 @@ const images = [
   { src: "/assets/gallery4.webp", alt: "IDS Event and Seminar" },
   { src: "/assets/gallery5.webp", alt: "Instructor Training Session" },
   { src: "/assets/gallery6.webp", alt: "Certification Ceremony" },
+  { src: "/assets/gallery7.png", alt: "Guest Lecture" },
+  { src: "/assets/gallery8.png", alt: "Marketing Campaign Project" },
+  { src: "/assets/gallery1.webp", alt: "Student Presentation" },
+  { src: "/assets/gallery10.png", alt: "Workshop Collaboration" },
+  { src: "/assets/gallery11.png", alt: "Creative Discussion" },
+  { src: "/assets/gallery12.png", alt: "Practical Demo Session" },
+  { src: "/assets/gallery1.webp", alt: "Networking Event" },
+  { src: "/assets/gallery6.webp", alt: "Social Media Strategy Talk" },
+  { src: "/assets/gallery5.webp", alt: "Classroom Learning" },
+  { src: "/assets/gallery16.png", alt: "Success Celebration" },
 ];
 
 export default function GallerySection() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <section className="py-16 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 text-center">
+    <section className="py-20 bg-white relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 text-center mb-10">
         <h2 className="text-4xl font-bold text-gray-900 mb-4">
           Our <span className="text-red-600">Gallery</span>
         </h2>
-        <p className="text-gray-600 mb-10">
-          A glimpse of our engaging classes, workshops, and student experiences at the
-          <strong> Institute of Digital Studies</strong>.
+        <p className="text-gray-600">
+          Explore our engaging classes, workshops, and student experiences at the{" "}
+          <strong>Institute of Digital Studies</strong>.
         </p>
+      </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className="relative overflow-hidden rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 cursor-pointer"
-              onClick={() => setSelectedImage(image.src)}
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={400}
-                height={300}
-                className="object-cover w-full h-64 hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                <span className="text-white font-semibold text-lg">
-                  {image.alt}
-                </span>
+      {/* 🔁 Auto-moving image rows */}
+      <div className="space-y-8">
+        {/* Row 1 – moves left to right */}
+        <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="flex animate-scroll-left gap-6">
+            {[...images, ...images].map((image, index) => (
+              <div
+                key={`row1-${index}`}
+                className="relative flex-shrink-0 w-64 h-48 rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer transition-transform duration-300 hover:scale-105"
+                onClick={() => setSelectedImage(image.src)}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                />
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        {/* Row 2 – moves right to left */}
+        <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="flex animate-scroll-right gap-6">
+            {[...images, ...images].map((image, index) => (
+              <div
+                key={`row2-${index}`}
+                className="relative flex-shrink-0 w-64 h-48 rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer transition-transform duration-300 hover:scale-105"
+                onClick={() => setSelectedImage(image.src)}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* 🖼️ Lightbox */}
       {selectedImage && (
         <div
           className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
@@ -58,7 +89,7 @@ export default function GallerySection() {
           <Image
             src={selectedImage}
             alt="Enlarged Image"
-            width={800}
+            width={900}
             height={600}
             className="rounded-2xl shadow-2xl max-h-[90vh] object-contain"
           />
