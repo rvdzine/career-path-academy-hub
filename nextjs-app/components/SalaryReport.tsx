@@ -59,7 +59,7 @@ export default function SalaryReportModal({ children }) {
           description: "Your details have been submitted successfully.",
         });
         setOpen(false);
-        window.location.href = "/ss"; // navigate to report
+        window.location.href = "/SS"; // navigate to report
       }
     } catch (error: any) {
       toast({
