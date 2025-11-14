@@ -5,13 +5,12 @@ from django.db import models
 class Contact(models.Model):
 
     INTERESTED_COURSES_CHOICES = [
-        ('digitalmarketing', 'Complete Digital Marketing'),
-        ('seomastery', 'SEO Mastery'),
-        ('socialmediamarketingpro', 'Social Media Marketing Pro'),
-        ('googleads', 'Google Ads & PPC Expert'),
-        ('emailmarketing', 'Email Marketing Specialist'),
-        ('analyticsanddatainsights', 'Analytics & Data Insights'),
-        ('content', 'Content Strategy & Creation'),
+        ('digitalmarketing', 'Master in Digital Marketing Course at idigitalstudies'),
+        ('seomastery', 'Digital Marketing Specialist Course at iDigitalStudies'),
+        ('socialmediamarketingpro', 'Best Digital Marketing Course for Business Owners'),
+        ('googleads', 'Digital Marketing Course for Beginners'),
+        ('emailmarketing', 'Customised Course in Digital Marketing'),
+        ('analyticsanddatainsights', 'Degree in Digital Marketing'),
     ]
 
     EXPERIENCE_CHOICES = [

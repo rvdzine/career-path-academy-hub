@@ -5,12 +5,12 @@ from django.db import models
 class Demo(models.Model):
 
     COURSES_CHOICES = [
-    ('Complete Digital Marketing', 'Complete Digital Marketing'),
-    ('SEO Specialist', 'SEO Specialist'),
-    ('Social Media Marketing', 'Social Media Marketing'),
-    ('Google Ads Mastery', 'Google Ads Mastery'),
-    ('Content Marketing', 'Content Marketing'),
-    ('Email Marketing Pro', 'Email Marketing Pro'),
+    ('Complete Digital Marketing', 'Master in Digital Marketing Course at idigitalstudies'),
+    ('SEO Specialist', 'Digital Marketing Specialist Course at iDigitalStudies'),
+    ('Social Media Marketing', 'Best Digital Marketing Course for Business Owners'),
+    ('Google Ads Mastery', 'Digital Marketing Course for Beginners'),
+    ('Content Marketing', 'Customised Course in Digital Marketing'),
+    ('Email Marketing Pro', 'Degree in Digital Marketing'),
     ]
 
     full_name = models.CharField(max_length=200)
