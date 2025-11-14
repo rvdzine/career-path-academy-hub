@@ -145,7 +145,7 @@ const SignInModal = () => {
                 </Label>
                 <Select onValueChange={(value) => handleInputChange("course", value)}>
                   <SelectTrigger className="border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-red-500 hover:border-red-500 focus:border-red-500 transition-colors duration-200">
-                    <SelectValue placeholder="Select Center" />
+                    <SelectValue placeholder="Select Courses" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="complete-digital-marketing">
