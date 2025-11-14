@@ -110,12 +110,12 @@ export default function CounselingForm() {
               <option value="complete-digital-marketing">
                 Complete Digital Marketing
               </option>
-              <option value="seo-mastery">SEO Mastery</option>
-              <option value="social-media-pro">Social Media Marketing Pro</option>
-              <option value="google-ads-expert">Google Ads & PPC Expert</option>
-              <option value="email-marketing">Email Marketing Specialist</option>
-              <option value="analytics">Analytics & Data Insights</option>
-              <option value="content-strategy">Content Strategy & Creation</option>
+              <option value="seo-mastery">Master in Digital Marketing Course at idigitalstudies</option>
+              <option value="social-media-pro">Digital Marketing Specialist Course at iDigitalStudies</option>
+              <option value="google-ads-expert">Best Digital Marketing Course for Business Owners</option>
+              <option value="email-marketing">Digital Marketing Course for Beginners</option>
+              <option value="analytics">Customised Course in Digital Marketing</option>
+              <option value="content-strategy">Degree in Digital Marketing</option>
             </select>
           </div>
 

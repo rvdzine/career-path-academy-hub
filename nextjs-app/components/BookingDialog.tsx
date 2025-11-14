@@ -42,12 +42,12 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
   });
 
   const courses = [
-    "Complete Digital Marketing",
-    "SEO Specialist",
-    "Social Media Marketing", 
-    "Google Ads Mastery",
-    "Content Marketing",
-    "Email Marketing Pro"
+    "Master in Digital Marketing Course at idigitalstudies",
+    "Digital Marketing Specialist Course at iDigitalStudies",
+    "Best Digital Marketing Course for Business Owners", 
+    "Digital Marketing Course for Beginners",
+    "Customised Course in Digital Marketing",
+    "Degree in Digital Marketing"
   ];
 
   const onSubmit = async (data: BookingFormData) => {
