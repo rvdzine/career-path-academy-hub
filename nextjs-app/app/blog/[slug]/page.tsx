@@ -117,12 +117,14 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
     return {
       title: "Blog Not Found | iDigitalStudies",
       description: "The blog post you're looking for could not be found.",
+      keywords: [], // Remove keywords from 404 blog page
     };
   }
 
   return {
     title: `${blog.title} | iDigitalStudies`,
     description: blog.description,
+    keywords: [], // Remove keywords from individual blog pages
     openGraph: {
       title: `${blog.title} | iDigitalStudies`,
       description: blog.description,

@@ -78,41 +78,43 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">      
-      <div className="container mx-auto py-4">
-        <div className="mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-md font-bold text-[#EA2524]">
-            FAQs
-            </h1>
-            <p className="text-3xl font-bold text-[#4B444D]">
-            Find answers to common questions about our courses
-            </p>
-          </div>
+    <div className="w-full max-w-6xl mx-auto">      
+      <div className="space-y-2 mb-8">
+        <h3 className="text-[#EA2525] font-bold text-sm uppercase tracking-wider mb-2">
+          FAQs
+        </h3>
+        <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#4B444D] to-[#EA2525] bg-clip-text text-transparent mb-6">
+          Find answers to common questions about our courses
+        </h1>
+      </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-lg border">
-                <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
-                  <span className="font-semibold text-[##4B444D]">{faq.question}</span>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4 text-[#4B444D]">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+      <Accordion type="single" collapsible className="space-y-4">
+        {faqs.map((faq, index) => (
+          <AccordionItem 
+            key={index} 
+            value={`item-${index}`} 
+            className="bg-white rounded-xl border-2 border-gray-200 hover:border-[#EA2525] transition-all duration-300 shadow-sm hover:shadow-md"
+          >
+            <AccordionTrigger className="px-6 py-5 text-left hover:no-underline group">
+              <span className="font-bold text-lg text-[#4B444D] group-hover:text-[#EA2525] transition-colors">
+                {faq.question}
+              </span>
+            </AccordionTrigger>
+            <AccordionContent className="px-6 pb-5 text-gray-700 leading-relaxed">
+              {faq.answer}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
 
-          <div className="mt-12 text-center">
-            <p className="text-gray-600 mb-4">Still have questions?</p>
-            <a 
-              href="/contact" 
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-lg hover:from-[#AA2526] hover:to-[#EA2525] transition-colors"
-            >
-              Contact Us
-            </a>
-          </div>
-        </div>
+      <div className="mt-12 text-center">
+        <p className="text-gray-600 mb-4 text-lg">Still have questions?</p>
+        <a 
+          href="/contact" 
+          className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#EA2525] to-[#AA2526] text-white font-bold rounded-xl hover:from-[#AA2526] hover:to-[#EA2525] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+        >
+          Contact Us
+        </a>
       </div>
     </div>
   );

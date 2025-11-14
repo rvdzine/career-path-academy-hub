@@ -3,21 +3,21 @@ interface SkillsYouLearnProps {
 }
 
 const SkillsYouLearn = ({ courseId }: SkillsYouLearnProps) => {
-  const isFoundationCourse = courseId === "foundation-digital-marketing";
+  const isFoundationCourse = courseId === "foundation-in-digital-marketing";
 
   const beginnerSkills = [
-    "SEO (On-page & Off-page Basics)",
-    "Google Ads (Intro to Search Marketing)",
-    "Social Media Marketing (Facebook, Instagram, LinkedIn)",
-    "Content Marketing & Copywriting",
-    "Email Marketing Essentials",
-    "Mobile Marketing Overview",
+    "Introduction to Digital Marketing Fundamentals",
+    "SEO Basics (On-page & Off-page)",
+    "Google Ads Fundamentals",
+    "Social Media Marketing (Facebook, Instagram)",
+    "Content Creation & Blogging",
+    "Email Marketing Basics",
     "Google Analytics (Basic)",
-    "WordPress & Blog Setup",
-    "Canva Graphic Design Basics",
-    "Lead Generation Fundamentals",
-    "Local SEO (Google My Business)",
-    "Introduction to Digital Marketing Strategy",
+    "Google My Business Setup",
+    "Canva for Social Media Graphics",
+    "Basic Website Setup (WordPress)",
+    "Lead Generation Basics",
+    "Digital Marketing Strategy Introduction",
   ];
 
   const advanceSkills = [
