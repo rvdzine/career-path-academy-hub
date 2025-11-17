@@ -1,5 +1,4 @@
 "use client";
-// src/pages/Blog.tsx
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 
@@ -112,17 +111,6 @@ const blogs = [
     excerpt: "SEO isn’t just about jamming keywords into blog posts anymore. Sure, keyword research and ....",
     image: "./assets/blog18.png",
   },
-
-
-
-
-
-
-
-
-
-
-  // Newwwwwwwwwwwwwwwww
   {
     slug: "free-ai-tools-to-boost-your-digital-marketing-skills",
     title: "Free AI Tools to Boost Your Digital Marketing Skills",
