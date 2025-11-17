@@ -96,19 +96,36 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
     },
     "what-are-long-tail-keywords-and-why-they-are-easy-seo-wins": {
       title: "What Are Long-Tail Keywords? (And Why They Are Easy SEO Wins)",
-      description: "Discover why long-tail keywords are low-competition, high-conversion SEO wins and how to find them easily..",
+      description: "Discover why long-tail keywords are low-competition, high-conversion SEO wins and how to find them easily.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
     },
     "how-to-repurpose-one-piece-of-content-across-all-social-channels": {
       title: "How to Repurpose One Piece of Content Across All Social Channels",
-      description: "Turn one piece of content into dozens of posts. Learn how to repurpose blogs, videos, and reels smartly across channels..",
+      description: "Turn one piece of content into dozens of posts. Learn how to repurpose blogs, videos, and reels smartly across channels.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
     },
     "social-listing-for-seo-find-content-gaps-and-unasked-questions": {
       title: "Social Listing for SEO: Find Content Gaps and Unasked Questions",
-      description: "Use social Listing tools to find content gaps, trending topics, and unasked questions that can power your SEO strategy..",
+      description: "Use social Listing tools to find content gaps, trending topics, and unasked questions that can power your SEO strategy.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    }
+    },
+    // NEWWWWWWWWWWWWWWWWWWWWWWWWWWW
+    "free-ai-tools-to-boost-your-digital-marketing-skills": {
+      title: "Free AI Tools to Boost Your Digital Marketing Skills",
+      description: "Explore free AI tools that make learning and executing digital marketing tasks faster and easier.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "content-creation-tools-every-digital-marketer-should-try": {
+      title: "Content Creation Tools Every Digital Marketer Should Try",
+      description: "Discover tools for writing, designing, and video creation to boost your content marketing.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "best-analytics-tools-to-track-your-marketing-performance": {
+      title: "Best Analytics Tools to Track Your Marketing Performance",
+      description: "Track your marketing success using analytics tools like GA4, SEMrush, and HubSpot.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+
   };
 
   const blog = blogDetails[slug];

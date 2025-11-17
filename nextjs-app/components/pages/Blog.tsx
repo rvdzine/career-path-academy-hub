@@ -112,6 +112,35 @@ const blogs = [
     excerpt: "SEO isn’t just about jamming keywords into blog posts anymore. Sure, keyword research and ....",
     image: "./assets/blog18.png",
   },
+
+
+
+
+
+
+
+
+
+
+  // Newwwwwwwwwwwwwwwww
+  {
+    slug: "free-ai-tools-to-boost-your-digital-marketing-skills",
+    title: "Free AI Tools to Boost Your Digital Marketing Skills",
+    excerpt: "If you're new to internet marketing, you could have noticed that it's not just....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "content-creation-tools-every-digital-marketer-should-try",
+    title: "Content Creation Tools Every Digital Marketer Should Try",
+    excerpt: "If you work in digital marketing, you are probably aware....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "best-analytics-tools-to-track-your-marketing-performance",
+    title: "Best Analytics Tools to Track Your Marketing Performance",
+    excerpt: "Have you ever wondered why successful marketers always seem to know what works and what doesn't?  It's not just creativity that  ....",
+    image: "./assets/blog18.png",
+  },
 ];
 
 const Blog = () => {
