@@ -5,18 +5,18 @@ from django.db import models
 class Demo(models.Model):
 
     COURSES_CHOICES = [
-    ('Complete Digital Marketing', 'Master in Digital Marketing Course at idigitalstudies'),
-    ('SEO Specialist', 'Digital Marketing Specialist Course at iDigitalStudies'),
-    ('Social Media Marketing', 'Best Digital Marketing Course for Business Owners'),
-    ('Google Ads Mastery', 'Digital Marketing Course for Beginners'),
-    ('Content Marketing', 'Customised Course in Digital Marketing'),
-    ('Email Marketing Pro', 'Degree in Digital Marketing'),
+    ('mdm', 'Master in Digital Marketing Course at idigitalstudies'),
+    ('dms', 'Digital Marketing Specialist Course at iDigitalStudies'),
+    ('smb', 'Best Digital Marketing Course for Business Owners'),
+    ('beg', 'Digital Marketing Course for Beginners'),
+    ('cus', 'Customised Course in Digital Marketing'),
+    ('deg', 'Degree in Digital Marketing'),
     ]
 
     full_name = models.CharField(max_length=200)
     phone = models.CharField(max_length=15)
     email = models.EmailField()
-    course = models.CharField(max_length=50, choices=COURSES_CHOICES, blank=True, null=True)
+    course = models.CharField(max_length=100, choices=COURSES_CHOICES, blank=True, null=True)
     learning_goals = models.TextField(blank=True, null=True)
 
     class Meta:
