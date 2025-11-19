@@ -109,7 +109,6 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
       description: "Use social Listing tools to find content gaps, trending topics, and unasked questions that can power your SEO strategy.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
     },
-    // NEWWWWWWWWWWWWWWWWWWWWWWWWWWW
     "free-ai-tools-to-boost-your-digital-marketing-skills": {
       title: "Free AI Tools to Boost Your Digital Marketing Skills",
       description: "Explore free AI tools that make learning and executing digital marketing tasks faster and easier.",
@@ -140,24 +139,21 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
       description: "Learn creative ways to practice campaigns, SEO, and ads without spending a single rupee.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
     },
-
-
-// 19 nov
-    // "the-complete-guide-to-learning-seo-in-30-days": {
-    //   title: "The Complete Guide to Learning SEO in 30 Days",
-    //   description: "Follow a 30-day action plan to master SEO  covering keywords, on-page, backlinks, and analytics.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
-    // "top-email-marketing-tools-for-beginners": {
-    //   title: "Top Email Marketing Tools for Beginners",
-    //   description: "Get started with beginner-friendly email marketing tools for automation, design, and analytics.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
-    // "best-youtube-channels-to-learn-digital-marketing-in-hindi": {
-    //   title: "Best YouTube Channels to Learn Digital Marketing in Hindi",
-    //   description: "Explore the best Hindi YouTube channels to learn SEO, Google Ads, and social media marketing.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
+    "the-complete-guide-to-learning-seo-in-30-days": {
+      title: "The Complete Guide to Learning SEO in 30 Days",
+      description: "Follow a 30-day action plan to master SEO  covering keywords, on-page, backlinks, and analytics.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "top-email-marketing-tools-for-beginners": {
+      title: "Top Email Marketing Tools for Beginners",
+      description: "Get started with beginner-friendly email marketing tools for automation, design, and analytics.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "best-youtube-channels-to-learn-digital-marketing-in-hindi": {
+      title: "Best YouTube Channels to Learn Digital Marketing in Hindi",
+      description: "Explore the best Hindi YouTube channels to learn SEO, Google Ads, and social media marketing.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
 
 
 // 20 nov

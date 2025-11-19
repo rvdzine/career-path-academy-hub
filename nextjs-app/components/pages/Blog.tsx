@@ -147,29 +147,24 @@ const blogs = [
     excerpt: "To be honest, digital marketing seems exciting until you consider the high cost of tools, advertisements, and training.  The good news is....",
     image: "./assets/blog18.png",
   },
-
-  // 19  nov
-
-  // {
-  //   slug: "the-complete-guide-to-learning-seo-in-30-days",
-  //   title: "The Complete Guide to Learning SEO in 30 Days",
-  //   excerpt: "So, you want to learn SEO in 30 days? Great decision! SEO (Search Engine Optimization) isn’t....",
-  //   image: "./assets/blog18.png",
-  // },
-
-  // {
-  //   slug: "top-email-marketing-tools-for-beginners",
-  //   title: "Top Email Marketing Tools for Beginners",
-  //   excerpt: "Starting with email marketing can feel like juggling a hundred tiny tasks at once designing templates, building lists, tracking opens, and....",
-  //   image: "./assets/blog18.png",
-  // },
-
-  // {
-  //   slug: "best-youtube-channels-to-learn-digital-marketing-in-hindi",
-  //   title: "Best YouTube Channels to Learn Digital Marketing in Hindi",
-  //   excerpt: "It can feel like you're juggling a hundred little tasks at once when you first start...",
-  //   image: "./assets/blog18.png",
-  // },
+  {
+    slug: "the-complete-guide-to-learning-seo-in-30-days",
+    title: "The Complete Guide to Learning SEO in 30 Days",
+    excerpt: "So, you want to learn SEO in 30 days? Great decision! SEO (Search Engine Optimization) isn’t....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "top-email-marketing-tools-for-beginners",
+    title: "Top Email Marketing Tools for Beginners",
+    excerpt: "Starting with email marketing can feel like juggling a hundred tiny tasks at once designing templates, building lists, tracking opens, and....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "best-youtube-channels-to-learn-digital-marketing-in-hindi",
+    title: "Best YouTube Channels to Learn Digital Marketing in Hindi",
+    excerpt: "It can feel like you're juggling a hundred little tasks at once when you first start...",
+    image: "./assets/blog18.png",
+  },
 
   // 20 nov
   // {
