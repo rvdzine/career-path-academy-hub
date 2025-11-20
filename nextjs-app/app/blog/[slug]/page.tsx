@@ -154,24 +154,21 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
       description: "Explore the best Hindi YouTube channels to learn SEO, Google Ads, and social media marketing.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
     },
-
-
-// 20 nov
-    // "must-know-tools-for-every-digital-marketing-student": {
-    //   title: "Must-Know Tools for Every Digital Marketing Student",
-    //   description: "Discover essential tools for SEO, analytics, email, and content marketing every beginner should master.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
-    // "is-a-digital-marketing-certificate-worth-it-in-2025": {
-    //   title: "Is a Digital Marketing Certificate Worth It in 2025?",
-    //   description: "Find out if digital marketing certifications are still valuable for getting jobs and promotions in 2025.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
-    // "digital-marketing-course-syllabus-explained-module-wise": {
-    //   title: "Digital Marketing Course Syllabus Explained (Module-Wise)",
-    //   description: "A complete breakdown of a typical digital marketing syllabus covering SEO, SMM, content, and PPC modules.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
+    "must-know-tools-for-every-digital-marketing-student": {
+      title: "Must-Know Tools for Every Digital Marketing Student",
+      description: "Discover essential tools for SEO, analytics, email, and content marketing every beginner should master.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "is-a-digital-marketing-certificate-worth-it-in-2025": {
+      title: "Is a Digital Marketing Certificate Worth It in 2025?",
+      description: "Find out if digital marketing certifications are still valuable for getting jobs and promotions in 2025.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "digital-marketing-course-syllabus-explained-module-wise": {
+      title: "Digital Marketing Course Syllabus Explained (Module-Wise)",
+      description: "A complete breakdown of a typical digital marketing syllabus covering SEO, SMM, content, and PPC modules.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
 
 
 

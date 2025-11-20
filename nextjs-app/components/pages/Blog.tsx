@@ -165,27 +165,25 @@ const blogs = [
     excerpt: "It can feel like you're juggling a hundred little tasks at once when you first start...",
     image: "./assets/blog18.png",
   },
+  {
+    slug: "must-know-tools-for-every-digital-marketing-student",
+    title: "Must-Know Tools for Every Digital Marketing Student",
+    excerpt: "If you're learning about digital marketing, you probably already know that there...",
+    image: "./assets/blog18.png",
+  },
 
-  // 20 nov
-  // {
-  //   slug: "must-know-tools-for-every-digital-marketing-student",
-  //   title: "Must-Know Tools for Every Digital Marketing Student",
-  //   excerpt: "If you're learning about digital marketing, you probably already know that there...",
-  //   image: "./assets/blog18.png",
-  // },
-
-  // {
-  //   slug: "is-a-digital-marketing-certificate-worth-it-in-2025",
-  //   title: "Is a Digital Marketing Certificate Worth It in 2025?",
-  //   excerpt: "Digital marketing changes faster than most of us can check our social media feeds. With AI ....",
-  //   image: "./assets/blog18.png",
-  // },
-  // {
-  //   slug: "digital-marketing-course-syllabus-explained-module-wise",
-  //   title: "Digital Marketing Course Syllabus Explained (Module-Wise)",
-  //   excerpt: "You made a smart choice when you decided to get into digital marketing. But you probably....",
-  //   image: "./assets/blog18.png",
-  // },
+  {
+    slug: "is-a-digital-marketing-certificate-worth-it-in-2025",
+    title: "Is a Digital Marketing Certificate Worth It in 2025?",
+    excerpt: "Digital marketing changes faster than most of us can check our social media feeds. With AI ....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "digital-marketing-course-syllabus-explained-module-wise",
+    title: "Digital Marketing Course Syllabus Explained (Module-Wise)",
+    excerpt: "You made a smart choice when you decided to get into digital marketing. But you probably....",
+    image: "./assets/blog18.png",
+  },
 
   // 21 nov
   // {
