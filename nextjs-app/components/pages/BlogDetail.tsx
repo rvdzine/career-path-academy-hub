@@ -4,6 +4,8 @@
 import Navbar from "@/components/Navbar";
 // import { useParams } from "next/navigation";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
 
 const blogDetails: Record<string, { title: string; content: string; image: string }> = {
   "local-seo-checklist-how-to-get-your-business-on-google-maps-for-free": {
@@ -3812,11 +3814,60 @@ const BlogDetail = ({ slug }: { slug: string }) => {
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
 
+          <section className="py-20 px-6 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+          <div className="max-w-7xl mx-auto">
+            {/* Epic Heading */}
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-4xl font-black tracking-tight">
+                Blog related to Digital Marketing
+              </h2>
+            </div>
+
+            {/* Staggered Modern Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {[
+                { title: "Local SEO Checklist How To Get Your Business On Google Maps For Free", link: "https://idigitalstudies.com/blog/local-seo-checklist-how-to-get-your-business-on-google-maps-for-free" },
+                { title: "Pmax Campaigns How To Set Them Up For Success Not Just Sales", link: "https://idigitalstudies.com/blog/pmax-campaigns-how-to-set-them-up-for-success-not-just-sales" },
+                { title: "What Is Quality Score 5 Simple Ways To Improve It In Google Ads", link: "https://idigitalstudies.com/blog/what-is-quality-score-5-simple-ways-to-improve-it-in-google-ads" },
+                { title: "SEO Vs PPC What's The Difference And Which Should You Use", link: "https://idigitalstudies.com/blog/seo-vs-ppc-whats-the-difference-and-which-should-you-use" },
+                { title: "How To Use Negative Keywords In Google Ads To Save Money", link: "https://idigitalstudies.com/blog/how-to-use-negative-keywords-in-googleads-to-save-money" },
+                { title: "7 Most Common Google Ads Mistakes That Waste Your Budget", link: "https://idigitalstudies.com/blog/7-most-common-google-ads-mistakes-that-waste-your-budget" },
+                { title: "How To Do Basic Keyword Research For Free In 2025", link: "https://idigitalstudies.com/blog/how-to-read-a-basic-seo-report-for-website-owners" },
+                { title: "Beyond Rankings How To Measure SEO's True Impact On Revenue", link: "https://idigitalstudies.com/blog/beyond-rankings-how-to-measure-seos-true-impact-on-revenue" },
+                { title: "How To Run A Winning Ab Test On Facebook Ad Creative", link: "https://idigitalstudies.com/blog/how-to-run-a-winning-ab-test-on-facebook-ad-creative" },
+                { title: "How To Leverage People Also Ask For Content And Keyword Ideas", link: "https://idigitalstudies.com/blog/how-to-leverage-people-also-ask-for-content-and-keyword-ideas" },
+                { title: "Beginners Guide To Schema Markup Types That Boost Visibility", link: "https://idigitalstudies.com/blog/beginners-guide-to-schema-markup-types-that-boost-visibility" },
+                { title: "Meta Description Checklist How To Write One That Gets Clicks", link: "https://idigitalstudies.com/blog/meta-description-checklist-how-to-write-one-that-gets-clicks" },
+                { title: "How To Structure A High Converting PPC Landing Page", link: "https://idigitalstudies.com/blog/how-to-structure-a-high-converting-ppc-landing-page" },
+              ].map((item, i) => (
+                <a
+                  key={i}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-white rounded-2xl p-8 transition-all duration-400 block"
+                >
+                  <h3 className="text-xl font-bold text-gray-800 leading-tight group-hover:text-black-600 transition-colors line-clamp-3">
+                    {item.title}
+                  </h3>
+
+                  <div className="mt-6 flex items-center text-red-600 font-semibold">
+                    Read Article
+                    <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-3 transition-transform" />
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+          
+
           <div className="mt-10 text-center md:text-left">
             <Link
               href="/blog"
               className="bg-[#EA2525] text-white px-5 py-2 rounded-md hover:bg-red-600 transition"
             >
+              
               ← Back to Blogs
             </Link>
           </div>

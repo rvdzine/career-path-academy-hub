@@ -16,6 +16,7 @@ import SkillsYouLearn from "@/components/courseDetailsComponents/SkillsYouLearn"
 import SuccessStoriesCourses from "@/components/courseDetailsComponents/SuccessStoriesCourses";
 import SalaryReport from "@/components/courseDetailsComponents/SalaryReport";
 import FAQs from "@/components/courseDetailsComponents/CourseDetailsFaq";
+import CourseTable from "../courseDetailsComponents/CourseTable";
 
 const DynamicCourseDetails = () => {
   const params = useParams();
@@ -40,6 +41,7 @@ const DynamicCourseDetails = () => {
   const successRef = useRef<HTMLDivElement | null>(null);
   const salaryRef = useRef<HTMLDivElement | null>(null);
   const faqRef = useRef<HTMLDivElement | null>(null);
+  const courseTableRef = useRef<HTMLDivElement | null>(null);
 
   const sectionRefs = {
     about: aboutRef,
@@ -48,6 +50,7 @@ const DynamicCourseDetails = () => {
     successtories: successRef,
     salary: salaryRef,
     faqs: faqRef,
+    coursetable: courseTableRef,
   };
 
   const tabs = [
@@ -56,6 +59,7 @@ const DynamicCourseDetails = () => {
     { key: "skills", label: "Skills you Learn" },
     { key: "successtories", label: "Success Stories" },
     { key: "salary", label: "Salary Report" },
+    { key: "coursetable", label: "Course Table" },
     { key: "faqs", label: "FAQs" },
   ];
 
@@ -158,6 +162,10 @@ const DynamicCourseDetails = () => {
 
         <section ref={salaryRef} id="salary" className="scroll-mt-20">
           <SalaryReport />
+        </section>
+
+        <section ref={courseTableRef} id="coursetable" className="scroll-mt-20">
+          <CourseTable />
         </section>
 
         <section ref={faqRef} id="faqs" className="scroll-mt-20">

@@ -10,6 +10,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import EnrollmentDialog from "@/components/EnrollmentDialog";
+import { Badge } from "lucide-react";
 import {
   Trophy,
   Video,
@@ -28,20 +30,179 @@ import {
 import { log } from "console";
 import { json } from "stream/consumers";
 
+// SVG icons
+const chimg1 = "/svg/clock.svg";
+const chimg2 = "/svg/book.svg";
+const chimg3 = "/svg/frame.svg";
+const chimg4 = "/svg/clipboard.svg";
+const chimg5 = "/svg/briefcase.svg";
+const chimg6 = "/svg/verify.svg";
+const chimg7 = "/svg/sparkle.svg";
+
+// Course images
+import FDM1 from "@/components/assets/FDM1.png";
+import SDM2 from "@/components/assets/SDM2.png";
+import MDM3 from "@/components/assets/MDM3.png";
+import BODM4 from "@/components/assets/BODM4.png";
+import DDM5 from "@/components/assets/DDM5.png";
+import DIPDM6 from "@/components/assets/DIPDM6.png";
+
+const courses = [
+    {
+      id: "master-in-digital-marketing-course",
+      title: "Master in Digital Marketing Course at Institute of Digital Studies",
+      duration: "6 Months",
+      students: "2500+ Students Enrolled",
+      mode: "Online / Offline",
+      certification: "Certification",
+      projects: "10+ Live Projects",
+      extra: "Internship",
+      skills: [
+        "SEO",
+        "Digital Marketing",
+        "AI in Marketing",
+        "Social Media Marketing",
+        "Content Strategy",
+        "Analytical & Technical Skills",
+        "Paid Advertising (PPC)",
+        "Content & Creative Skills",
+        "Growth & Strategy",
+        "E-commerce & Specialised",
+      ],
+      image: MDM3,
+      badges: ["AI Driven", "Hinglish"],
+    },
+    {
+      id: "specialist-in-digital-marketing",
+      title: "Digital Marketing Specialist Course at Institute of Digital Studies",
+      duration: "3 Months",
+      students: "1500+ Students Enrolled",
+      mode: "Online / Offline",
+      certification: "Certification",
+      projects: "5 Live Projects",
+      skills: [
+        "SEO",
+        "Digital Marketing",
+        "AI in Marketing",
+        "Social Media Marketing",
+        "Content Strategy",
+        "Analytical & Technical Skills",
+        "Paid Advertising (PPC)",
+        "Content & Creative Skills",
+        "Growth & Strategy",
+        "E-commerce & Specialised",
+      ],
+      image: SDM2,
+      badges: ["Hinglish"],
+    },
+    {
+      id: "digital-marketing-course-for-business-owners",
+      title: "Best Digital Marketing Course for Business Owners",
+      duration: "Customised Timeline",
+      students: "200+ Students Enrolled",
+      mode: "Online",
+      certification: "Certification",
+      projects: "10+ Live Projects",
+      skills: [
+        "SEO",
+        "Digital Marketing",
+        "AI in Marketing",
+        "Social Media Marketing",
+        "Content Strategy",
+        "Analytical & Technical Skills",
+        "Paid Advertising (PPC)",
+        "Content & Creative Skills",
+        "Growth & Strategy",
+        "E-commerce & Specialised",
+      ],
+      image: BODM4,
+      badges: ["AI Driven", "Hinglish/English"],
+    },
+    {
+      id: "foundation-in-digital-marketing",
+      title: "Digital Marketing Course for Beginners",
+      duration: "2 Months",
+      students: "500+ Students Enrolled",
+      mode: "Online / Offline",
+      certification: "Certification",
+      projects: "2 Live Projects",
+      skills: [
+        "SEO",
+        "Digital Marketing",
+        "AI in Marketing",
+        "Social Media Marketing",
+        "Content Strategy",
+        "Analytical & Technical Skills",
+        "Paid Advertising (PPC)",
+        "Content & Creative Skills",
+        "Growth & Strategy",
+        "E-commerce & Specialised",
+      ],
+      image: FDM1,
+      badges: ["Hinglish"],
+    },
+    {
+      id: "customised-digital-marketing",
+      title: "Customised Course in Digital Marketing",
+      duration: "Customised Timeline",
+      students: "500+ Students Enrolled",
+      mode: "Online / Offline",
+      certification: "Certification",
+      projects: "2+ Live Projects",
+      skills: [
+        "SEO",
+        "Digital Marketing",
+        "AI in Marketing",
+        "Social Media Marketing",
+        "Content Strategy",
+        "Analytical & Technical Skills",
+        "Paid Advertising (PPC)",
+        "Content & Creative Skills",
+        "Growth & Strategy",
+        "E-commerce & Specialised",
+      ],
+      image: DIPDM6,
+      badges: ["AI Driven", "Hinglish/English"],
+    },
+    {
+      id: "degree-digital-marketing",
+      title: "Degree in Digital Marketing",
+      duration: "3 Years",
+      students: "250+ Students Enrolled",
+      mode: "Offline",
+      certification: "Degree + Certification",
+      projects: "Live Projects",
+      skills: [
+        "SEO",
+        "Digital Marketing",
+        "AI in Marketing",
+        "Social Media Marketing",
+        "Content Strategy",
+        "Analytical & Technical Skills",
+        "Paid Advertising (PPC)",
+        "Content & Creative Skills",
+        "Growth & Strategy",
+        "E-commerce & Specialised",
+      ],
+      image: DDM5,
+      badges: ["AI Driven", "Hinglish/English"],
+    },
+  ];
+
 // ImageCarousel Component
 function ImageCarousel() {
   const images = [
     {
       src: "/assets/gallery14.png",
-      alt: "iDigitalStudies Delhi Ncr - Students Receiving Certificates 1",
+      alt: "Institute of Digital Studies Delhi Ncr - Students Receiving Certificates 1",
     },
     {
       src: "/assets/gallery16.png",
-      alt: "iDigitalStudies Delhi Ncr - Students Receiving Certificates 2",
+      alt: "Institute of Digital Studies Delhi Ncr - Students Receiving Certificates 2",
     },
     {
       src: "/assets/gallery12.png",
-      alt: "iDigitalStudies Delhi Ncr - Students Receiving Certificates 3",
+      alt: "Institute of Digital Studies Delhi Ncr - Students Receiving Certificates 3",
     },
   ];
 
@@ -166,7 +327,7 @@ export default function BestDigitalMarketingInstitute() {
 
     try {
       const res = await axios.post(
-        "https://api.idigitalstudies.com/api/contact/contact/",
+        "https://api.Institute of Digital Studies.com/api/contact/contact/",
         formData,
         {
           headers: {
@@ -216,23 +377,45 @@ export default function BestDigitalMarketingInstitute() {
       </div>
 
       {/* HERO GRADIENT */}
+      {/* HERO GRADIENT */}
+      {/* ======== Exact Meta Tags You Asked For ======== */}
+      <head>
+        <title>
+          Best Digital Marketing Institute In Delhi Ncr | Institute of Digital Studies
+        </title>
+        <meta
+          name="description"
+          content="Join Institute of Digital Studies is one of the the Best Digital Marketing Institute in Delhi Ncr. Learn SEO, Social Media, Google Ads & more with expert trainers and hands-on projects."
+        />
+        {/* Optional but good for SEO & social sharing */}
+        <meta
+          property="og:title"
+          content="Best Digital Marketing Institute In Delhi Ncr | Institute of Digital Studies"
+        />
+        <meta
+          property="og:description"
+          content="Join Institute of Digital Studies is one of the the Best Digital Marketing Institute in Delhi Ncr. Learn SEO, Social Media, Google Ads & more with expert trainers and hands-on projects."
+        />
+        <meta name="robots" content="index, follow" />
+      </head>
+
+      {/* ======== Your Hero Section ======== */}
       <section className="w-full bg-gradient-to-br from-red-950 via-red-700 to-rose-800 text-white overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center relative">
-          <div className="absolute inset-0 "></div>
+          <div className="absolute inset-0"></div>
 
-          <h1 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 sm:mb-6 leading-tight tracking-tight">
+          {/* ========= Updated H1 as per your request ========= */}
+          <h1 className="relative text-4xl sm:text-4xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight tracking-tight">
             <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white via-rose-100 to-orange-100 drop-shadow-lg">
-              Best Digital Marketing Institute In Delhi Ncr|
-            </span>
-            <span className="block text-orange-200 text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-1 sm:mt-2 drop-shadow-2xl">
-              iDigitalStudies
+              Best Digital Marketing Institute in Delhi Ncr, Institute of Digital Studies
             </span>
           </h1>
 
-          <p className="relative text-base sm:text-lg md:text-xl max-w-4xl mx-auto text-gray-100 leading-relaxed font-medium opacity-95 px-4">
-            Join iDigitalStudies is one of the the Best Digital Marketing
-            Institute in Delhi Ncr. Learn SEO, Social Media, Google Ads & more
-            with expert trainers and hands-on projects.
+          {/* ========= New Cockpit Description Added ========= */}
+          <p className="relative text-base sm:text-lg md:text-xl lg:text-2xl max-w-5xl mx-auto text-gray-100 leading-relaxed font-medium opacity-95 px-4 mt-6">
+            Upgrade your career with Institute of Digital Studies, the Best Digital Marketing
+            Institute in Delhi Ncr. Expert mentors, live projects & 100%
+            practical learning.
           </p>
         </div>
       </section>
@@ -254,7 +437,7 @@ export default function BestDigitalMarketingInstitute() {
                 </div>
                 <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold leading-tight text-black">
                   Best Institute for Digital Marketing Course In Delhi Ncr
-                  <span className="block text-black">iDigitalStudies</span>
+                  <span className="block text-black">Institute of Digital Studies</span>
                 </h1>
               </div>
             </div>
@@ -262,7 +445,7 @@ export default function BestDigitalMarketingInstitute() {
               <p className="text-base sm:text-lg md:text-xl text-black leading-relaxed font-medium">
                 Upgrade{" "}
                 <strong className="text-black">
-                  your career with iDigitalStudies,
+                  your career with Institute of Digital Studies,
                 </strong>{" "}
                 – the Best Digital Marketing Institute in Delhi Ncr. Expert
                 mentors, live projects & 100% practical learning.
@@ -280,8 +463,8 @@ export default function BestDigitalMarketingInstitute() {
       <section className="py-16 sm:py-20 bg-gradient-to-br from-pink-50 via-rose-50 to-white dark:from-gray-900 dark:via-gray-850 dark:to-gray-800 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-clip-text bg-gradient-to-r from-pink-600 to-rose-600 mb-6 sm:mb-4">
-              Why Choose iDigitalStudies?
+            <h2 className="text-3xl sm:text-4xl md:text-3xl font-bold bg-clip-text bg-gradient-to-r from-pink-600 to-rose-600 mb-6 sm:mb-4">
+              Why Choose Institute of Digital Studies?
             </h2>
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">
               Empowering your career with industry-aligned skills, expert
@@ -484,11 +667,11 @@ export default function BestDigitalMarketingInstitute() {
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-12 items-center">
               <div className="text-left">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-pink-600 dark:from-red-400 dark:to-pink-400 leading-tight">
+                <h1 className="text-4xl font-bold  bg-clip-text bg-gradient-to-r from-black-600    ">
                   Digital Marketing Course Training Schedule
                 </h1>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-pink-600 dark:from-red-400 dark:to-pink-400 mt-1 sm:mt-2"></h1>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-pink-600 dark:from-red-400 dark:to-pink-400 mt-1">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold "></h1>
+                <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-4xl font-bold ">
                   Delhi Ncr
                 </h1>
               </div>
@@ -626,7 +809,7 @@ export default function BestDigitalMarketingInstitute() {
                 ].map((course, i) => (
                   <div
                     key={i}
-                    className="bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl p-4 sm:p-5 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-red-100 dark:border-red-900"
+                    className="bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl p-4 sm:p-5 text-center "
                   >
                     <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-3 rounded-full bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center">
                       <svg
@@ -666,13 +849,13 @@ export default function BestDigitalMarketingInstitute() {
                 </div>
                 <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed flex-1">
                   <strong className="text-red-600 dark:text-red-400">
-                    Institute of Digital Studies (IDS)
+                    Institute of Digital Studies 
                   </strong>{" "}
                   was awarded <strong>"Most Promising Brand"</strong> by{" "}
                   <strong>Assocham</strong>. We are <strong>ISO 9001</strong>{" "}
                   certified and registered under{" "}
                   <strong>MSME (Govt. of India)</strong>. Get{" "}
-                  <strong>industry-expert training</strong> at our Delhi Ncr
+                  <strong>industry-expert training</strong> at our Delhi Ncr         
                   centre.
                 </p>
               </div>
@@ -686,15 +869,15 @@ export default function BestDigitalMarketingInstitute() {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12 sm:mb-14">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-clip-text bg-gradient-to-r from-black to-purple-700">
+              <h2 className="text-4xl   font-bold bg-clip-text bg-gradient-to-r from-black to-purple-700">
                 Book Your Free Counselling & Start Your Journey
               </h2>
               <p className="mt-3 sm:mt-4 text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto px-4">
-                <strong className="text-blue-600 dark:text-blue-400">
+                <strong className="">
                   5,000+ students
                 </strong>{" "}
                 who transformed their careers with{" "}
-                <strong>iDigitalStudies</strong>.
+                <strong>Institute of Digital Studies</strong>.
               </p>
             </div>
 
@@ -965,6 +1148,228 @@ export default function BestDigitalMarketingInstitute() {
         </div>
       </section>
 
+      <div className="min-h-screen bg-gray-50">
+        {/* Hero Section */}
+        <section className="text-black py-16">
+          <div className="max-w-6xl mx-auto px-6 text-center">
+            <h1 className="text-4xl font-bold">
+              Digital Marketing Course in Delhi NCR
+            </h1>
+            <p className="mt-4">
+              Forget dusty classrooms and theory-heavy lectures. At{" "}
+              <strong>Institute of Digital Studies</strong>, you jump straight into the
+              action. From crafting your first ad campaign to fine-tuning
+              conversions, every lesson is built for real-world, hands-on
+              application.
+            </p>
+          </div>
+        </section>
+
+        {/* Three Courses – Left | Center | Right – No Boxes */}
+        <section className="py-4 px-6">
+          <div className="mx-auto">
+            <div className="px-28 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+              {/* Left: Masters Course */}
+              <div className="flex flex-col items-center justify-center">
+                <h3 className="text-2xl font-bold text-gray-800 leading-tight">
+                  Masters in Digital Marketing Course
+                </h3>
+                <a
+                  href="https://Institute of Digital Studies.com/courses/master-in-digital-marketing-course"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 px-8 py-4 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition shadow-lg"
+                >
+                  View Details →
+                </a>
+              </div>
+
+              {/* Center: Specialist Course */}
+              <div className="flex flex-col items-center justify-center border-x-4 border-indigo-200 px-10">
+                <h3 className="text-2xl font-bold text-gray-800 leading-tight">
+                  Specialist in Digital Marketing Course
+                </h3>
+                <a
+                  href="https://Institute of Digital Studies.com/courses/specialist-in-digital-marketing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 px-8 py-4 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition shadow-lg"
+                >
+                  View Details →
+                </a>
+              </div>
+
+              {/* Right: Beginners Course */}
+              <div className="flex flex-col items-center justify-center">
+                <h3 className="text-2xl font-bold text-gray-800 leading-tight">
+                  Digital Marketing Course for Beginners
+                </h3>
+                <a
+                  href="https://Institute of Digital Studies.com/courses/foundation-in-digital-marketing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 px-8 py-4 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition shadow-lg"
+                >
+                  View Details →
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Classroom Highlight Box */}
+        <section className="py-8 px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="rounded-3xl p-12 md:p-16 text-center">
+              <h2 className="text-3xl sm:xl font-bold text-gray-900 leading-snug">
+                Classroom sessions let you network, ask questions on the spot,
+                <br />
+                and get personal mentorship from trainers who actually care
+                about your growth.
+              </h2>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* Courses */}
+      <h1 className="text-center font-bold text-4xl mb-4 mt-4">Master In Digital Marketing Course In Delhi Ncr</h1>
+      <p className="text-center">Digital marketing is booming, and Delhi Ncr is buzzing with opportunities. Institute of Digital Studies equips 
+you with the skills and confidence to stand out in a crowded market.</p>
+      <section className="py-16 bg-white">
+       
+        <div className="container mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {courses.map((course) => {
+            const isAiDriven = course.badges.includes("AI Driven");
+
+            return (
+              <Card
+                key={course.id}
+                className="flex flex-col border rounded-xl shadow-md hover:shadow-lg transition duration-300 overflow-hidden min-h-[540px]"
+              >
+                {/* Image with badges */}
+                <div className="relative h-[180px] sm:h-[200px] md:h-[220px] overflow-hidden">
+                  <img
+                    src={typeof course.image === 'string' ? course.image : course.image.src}
+                    alt={course.title}
+                    className="w-full h-full object-cover"
+                  />
+
+                  {/* Badges Overlay */}
+                  <div className="absolute top-2 right-2 flex flex-wrap gap-2">
+                    {course.badges.map((badge, idx) => {
+                      let iconSrc = null;
+
+                      if (badge === "AI Driven") iconSrc = chimg7;
+                      else if (badge === "Hinglish") iconSrc = chimg3;
+                      else if (badge === "Hinglish/English") iconSrc = chimg3;
+
+                      return (
+                        <Badge
+                          key={idx}
+                          className={`flex items-center gap-1 px-2 py-1 text-sm rounded-full ${badge === "AI Driven"
+                              ? "bg-gradient-to-r from-[#0061FF] to-[#60EFFF] text-white"
+                              : "bg-white text-gray-800 border border-gray-300"
+                            }`}
+                        >
+                          {iconSrc && <img src={iconSrc} alt={badge} className="w-3 h-3" />}
+                          {badge}
+                        </Badge>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <CardContent className="px-5 pb-5 flex flex-col flex-1">
+                  {/* Students Enrolled */}
+                   <div className="flex items-center gap-2 mt-3 mb-3">
+                  <div className="flex -space-x-3">
+                    <img src="https://i.pravatar.cc/40?img=1" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
+                    <img src="https://i.pravatar.cc/40?img=2" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
+                    <img src="https://i.pravatar.cc/40?img=3" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
+                  </div>
+                  <p className="text-[10px] sm:text-xs text-gray-500">
+                    <span className="text-sm sm:text-base font-bold text-gray-900">
+                      {course.students.split(" ")[0]}
+                    </span>{" "}
+                    {isAiDriven
+                      ? "Students Enrolled in this AI Driven Course"
+                      : course.students.replace(course.students.split(" ")[0], "")
+                    }
+                  </p>
+                </div>
+
+                  {/* Title */}
+                  <h2 className="text-xl font-bold text-gray-800 mt-1">{course.title}</h2>
+
+                  {/* Info Badges */}
+                  <div className="flex flex-wrap gap-2 mt-3 mb-4">
+                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
+                      <img src={chimg1} alt="" className="w-4 h-4" /> {course.duration}
+                    </Badge>
+                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
+                      <img src={chimg2} alt="" className="w-4 h-4" /> {course.mode}
+                    </Badge>
+                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
+                      <img src={chimg6} alt="" className="w-4 h-4" /> {course.certification}
+                    </Badge>
+                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
+                      <img src={chimg4} alt="" className="w-4 h-4" /> {course.projects}
+                    </Badge>
+                    {course.extra && (
+                      <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
+                        <img src={chimg5} alt="" className="w-4 h-4" /> {course.extra}
+                      </Badge>
+                    )}
+                  </div>
+
+                  {/* Skills */}
+                  <div className="mt-2">
+                    <p className="text-sm font-semibold text-gray-700">Skills you learn:</p>
+                    <p className="text-sm text-gray-600">{course.skills.join(", ")}</p>
+                  </div>
+
+                  {/* Bottom Buttons */}
+                  <div className="mt-auto pt-6 flex flex-col sm:flex-row gap-2">
+                    {course.id === "customised-digital-marketing" || course.id === "degree-digital-marketing" ? (
+                      <Button className="w-full border border-[#EA2525] bg-[#fff] text-[#EA2525] hover:bg-[#c21e1e] hover:text-[#fff]">
+                        For Queries - Contact Us
+                      </Button>
+                    ) : (
+                      <>
+                        {/* <BrochureDialog courseTitle={course.title}> */}
+                        <Link href={`/courses/${course.id}`} className="flex-1">
+                          <Button
+                            variant="outline"
+                           className="w-full sm:flex-1 border border-red-500 text-[#EA2525] bg-[#fff] hover:bg-[#f7e4e4]">
+                            Course Details
+                          </Button>
+                        </Link>
+                        {/* </BrochureDialog> */}
+                        <EnrollmentDialog courseTitle={course.title}>
+                          <Button className="flex-1 bg-[#EA2525] hover:bg-[#c21e1e] text-white">
+                            Enroll Now
+                          </Button>
+                        </EnrollmentDialog>
+                      </>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+        <div className="max-w-5xl mx-auto mt-6">
+            <div className="rounded-3xl p-12 text-center">
+              <h2 className="text-3xl font-bold text-gray-900 leading-snug">
+                Students from Delhi, Gurugram, and Noida swear by the institute’s result-driven approach. 
+                Here, it’s not just about finishing a course, it's about becoming industry-ready, certified, and 
+                confident enough to step into a real digital marketing role. 
+              </h2>
+            </div>
+          </div>
+      </section>
+
       {/* 50+ MODULES */}
       <section className="py-16 sm:py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-850 dark:to-gray-800 overflow-hidden">
         <div className="container mx-auto px-4">
@@ -980,15 +1385,20 @@ export default function BestDigitalMarketingInstitute() {
                 </svg>
                 50+ Industry-Aligned Modules
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 dark:from-red-400 dark:via-pink-400 dark:to-purple-400 leading-tight">
-                Master in Digital Marketing
+
+              {/* === MAIN HEADING REPLACED AS REQUESTED === */}
+              <h1 className="text-4xl font-bold">
+                Institute of Digital Studies offers 50+ Modules that you will learn in Our
+                Digital Marketing Course
               </h1>
-              <h2 className="mt-2 sm:mt-3 text-lg sm:text-xl md:text-2xl font-bold text-gray-800 dark:text-white">
-                Institute of Digital Studies (IDS),{" "}
-                <span className="text-red-600">Delhi Ncr</span>
+
+              <h2 className="mt-2 sm:mt-3 text-xl font-bold text-gray-800 dark:text-white">
+                Institute of Digital Studies ,{" "}
+                <span className="">Delhi NCR</span>
               </h2>
             </div>
 
+            {/* === Rest of the 3 Columns (Unchanged) === */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
               {/* Column 1 */}
               <div className="group relative bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1.5 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700 overflow-hidden">
@@ -1184,8 +1594,9 @@ export default function BestDigitalMarketingInstitute() {
               </div>
             </div>
 
+            {/* CTA Section */}
             <div className="text-center">
-              <div className="inline-flex items-center gap-2.5 sm:gap-3 bg-gradient-to-r from-red-600 to-pink-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-2xl hover:shadow-pink-500/50 transition-all hover:scale-105">
+              <div className="inline-flex items-center gap-2.5 sm:gap-3 bg-gradient-to-r from-red-600 to-pink-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-2xl hover:shadow-pink-500/50 transition-all hover:scale-105 cursor-pointer">
                 <svg
                   className="w-5 h-5 sm:w-6 sm:h-6"
                   fill="currentColor"
@@ -1198,7 +1609,7 @@ export default function BestDigitalMarketingInstitute() {
                 </span>
               </div>
               <p className="mt-5 sm:mt-6 text-base sm:text-lg font-medium text-gray-700 dark:text-gray-300">
-                <strong>iDigital Studies</strong> — Delhi Ncr{" "}
+                <strong>Institute of Digital Studies</strong> — Delhi NCR{" "}
                 <span className="text-red-600">Most Trusted</span> Digital
                 Marketing Institute
               </p>
@@ -1206,7 +1617,7 @@ export default function BestDigitalMarketingInstitute() {
           </div>
         </div>
       </section>
-
+      
       <Footer />
     </>
   );

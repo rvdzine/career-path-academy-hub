@@ -11,6 +11,7 @@ import SkillsYouLearn from "@/components/courseDetailsComponents/SkillsYouLearn"
 import SuccessStoriesCourses from "@/components/courseDetailsComponents/SuccessStoriesCourses";
 import SalaryReport from "@/components/courseDetailsComponents/SalaryReport";
 import FAQs from "@/components/courseDetailsComponents/CourseDetailsFaq";
+import CourseTable from "@/components/courseDetailsComponents/CourseTable";
 
 const DynamicCourseDetails = () => {
   const {courseId} = useParams<{ courseId: string}>();
@@ -39,6 +40,7 @@ const DynamicCourseDetails = () => {
     { key: "skills", label: "Skills you Learn" },
     { key: "successtories", label: "Success Stories" },
     { key: "salary", label: "Salary Report" },
+    { key: "course_table", label: "Course Table" },
     { key: "faqs", label: "FAQs" },
   ];
 
