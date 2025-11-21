@@ -169,25 +169,21 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
       description: "A complete breakdown of a typical digital marketing syllabus covering SEO, SMM, content, and PPC modules.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
     },
-
-
-
-// 21 nov
-    // "how-to-learn-digital-marketing-without-any-prior-experience": {
-    //   title: "How to Learn Digital Marketing Without Any Prior Experience",
-    //   description: "Start from scratch! Learn how to build your digital marketing skills with free tools, courses, and practice.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
-    // "what-to-expect-from-a-digital-marketing-internship-program": {
-    //   title: "What to Expect from a Digital Marketing Internship Program",
-    //   description: "Get insights into what digital marketing internships teach  from campaign work to real-world projects.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
-    // "best-digital-marketing-institutes-in-delhi-ncr-2025-update": {
-    //   title: "Best Digital Marketing Institutes in Delhi-NCR (2025 Update)",
-    //   description: "Explore the top-rated digital marketing institutes in Delhi-NCR offering practical training and placements.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
+    "how-to-learn-digital-marketing-without-any-prior-experience": {
+      title: "How to Learn Digital Marketing Without Any Prior Experience",
+      description: "Start from scratch! Learn how to build your digital marketing skills with free tools, courses, and practice.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "what-to-expect-from-a-digital-marketing-internship-program": {
+      title: "What to Expect from a Digital Marketing Internship Program",
+      description: "Get insights into what digital marketing internships teach  from campaign work to real-world projects.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "best-digital-marketing-institutes-in-delhi-ncr-2025-update": {
+      title: "Best Digital Marketing Institutes in Delhi-NCR (2025 Update)",
+      description: "Explore the top-rated digital marketing institutes in Delhi-NCR offering practical training and placements.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
 
 
 

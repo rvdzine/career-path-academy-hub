@@ -184,26 +184,24 @@ const blogs = [
     excerpt: "You made a smart choice when you decided to get into digital marketing. But you probably....",
     image: "./assets/blog18.png",
   },
-
-  // 21 nov
-  // {
-  //   slug: "how-to-learn-digital-marketing-without-any-prior-experience",
-  //   title: "How to Learn Digital Marketing Without Any Prior Experience",
-  //   excerpt: "So you want to get into digital marketing but don't know anything about it? Don't worry; everyone....",
-  //   image: "./assets/blog18.png",
-  // },
-  // {
-  //   slug: "what-to-expect-from-a-digital-marketing-internship-program",
-  //   title: "What to Expect from a Digital Marketing Internship Program",
-  //   excerpt: "It can be exciting and a little scary to start an internship in digital marketing. You’re stepping into....",
-  //   image: "./assets/blog18.png",
-  // },
-  // {
-  //   slug: "best-digital-marketing-institutes-in-delhi-ncr-2025-update",
-  //   title: "Best Digital Marketing Institutes in Delhi-NCR (2025 Update)",
-  //   excerpt: "It can be hard to find the right place to learn digital marketing. There are a lot of schools in ....",
-  //   image: "./assets/blog18.png",
-  // },
+  {
+    slug: "how-to-learn-digital-marketing-without-any-prior-experience",
+    title: "How to Learn Digital Marketing Without Any Prior Experience",
+    excerpt: "So you want to get into digital marketing but don't know anything about it? Don't worry; everyone....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "what-to-expect-from-a-digital-marketing-internship-program",
+    title: "What to Expect from a Digital Marketing Internship Program",
+    excerpt: "It can be exciting and a little scary to start an internship in digital marketing. You’re stepping into....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "best-digital-marketing-institutes-in-delhi-ncr-2025-update",
+    title: "Best Digital Marketing Institutes in Delhi-NCR (2025 Update)",
+    excerpt: "It can be hard to find the right place to learn digital marketing. There are a lot of schools in ....",
+    image: "./assets/blog18.png",
+  },
 
 
 
