@@ -188,18 +188,20 @@ const SuccessStoriesCourses = () => {
   const translateX = -(currentIndex * (100 / visibleCount));
 
   return (
-    <section className="pt-20 pb-10 bg-[#FFEFEF]">
-      <div className="text-center mb-8">
-        <span className="bg-[#EA2525] text-white px-5 py-1 rounded-full font-medium">
-          Success Stories
-        </span>
-        <h2 className="text-3xl font-bold text-gray-800 mt-4 max-w-3xl mx-auto">
-          Our alumni are working in top organizations such as Google, Meta,
-          Zomato, Meesho, Flipkart, TCS, and more.
-        </h2>
+    <section className="w-full pt-20 pb-16 bg-[#FFEFEF]">
+      <div className="container mx-auto px-4 md:px-8 lg:px-12">
+        <div className="text-center mb-12">
+          <span className="bg-[#EA2525] text-white px-5 py-1 rounded-full font-medium text-sm md:text-base">
+            Success Stories
+          </span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mt-4 max-w-4xl mx-auto px-4">
+            Our alumni are working in top organizations such as Google, Meta,
+            Zomato, Meesho, Flipkart, TCS, and more.
+          </h2>
+        </div>
       </div>
 
-      <div className="relative px-4 md:px-8 lg:px-16">
+      <div className="relative px-4 md:px-8 lg:px-16 xl:px-24">
         <div className="overflow-hidden">
           <div
             className="flex transition-transform duration-500 ease-out"

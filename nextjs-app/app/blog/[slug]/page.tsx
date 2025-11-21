@@ -96,19 +96,117 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
     },
     "what-are-long-tail-keywords-and-why-they-are-easy-seo-wins": {
       title: "What Are Long-Tail Keywords? (And Why They Are Easy SEO Wins)",
-      description: "Discover why long-tail keywords are low-competition, high-conversion SEO wins and how to find them easily..",
+      description: "Discover why long-tail keywords are low-competition, high-conversion SEO wins and how to find them easily.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
     },
     "how-to-repurpose-one-piece-of-content-across-all-social-channels": {
       title: "How to Repurpose One Piece of Content Across All Social Channels",
-      description: "Turn one piece of content into dozens of posts. Learn how to repurpose blogs, videos, and reels smartly across channels..",
+      description: "Turn one piece of content into dozens of posts. Learn how to repurpose blogs, videos, and reels smartly across channels.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
     },
     "social-listing-for-seo-find-content-gaps-and-unasked-questions": {
       title: "Social Listing for SEO: Find Content Gaps and Unasked Questions",
-      description: "Use social Listing tools to find content gaps, trending topics, and unasked questions that can power your SEO strategy..",
+      description: "Use social Listing tools to find content gaps, trending topics, and unasked questions that can power your SEO strategy.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    }
+    },
+    "free-ai-tools-to-boost-your-digital-marketing-skills": {
+      title: "Free AI Tools to Boost Your Digital Marketing Skills",
+      description: "Explore free AI tools that make learning and executing digital marketing tasks faster and easier.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "content-creation-tools-every-digital-marketer-should-try": {
+      title: "Content Creation Tools Every Digital Marketer Should Try",
+      description: "Discover tools for writing, designing, and video creation to boost your content marketing.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "best-analytics-tools-to-track-your-marketing-performance": {
+      title: "Best Analytics Tools to Track Your Marketing Performance",
+      description: "Track your marketing success using analytics tools like GA4, SEMrush, and HubSpot.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "how-to-use-chatgpt-for-digital-marketing-campaigns": {
+      title: "How to Use ChatGPT for Digital Marketing Campaigns",
+      description: "Learn how ChatGPT can help with content, ad copy, SEO, and strategy for your marketing campaigns.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "essential-google-tools-every-digital-marketer-should-use": {
+      title: "Essential Google Tools Every Digital Marketer Should Use",
+      description: "Explore must-use Google tools like Analytics, Tag Manager, and Search Console for marketers.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "how-to-practice-digital-marketing-without-spending-money": {
+      title: "How to Practice Digital Marketing Without Spending Money",
+      description: "Learn creative ways to practice campaigns, SEO, and ads without spending a single rupee.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "the-complete-guide-to-learning-seo-in-30-days": {
+      title: "The Complete Guide to Learning SEO in 30 Days",
+      description: "Follow a 30-day action plan to master SEO  covering keywords, on-page, backlinks, and analytics.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "top-email-marketing-tools-for-beginners": {
+      title: "Top Email Marketing Tools for Beginners",
+      description: "Get started with beginner-friendly email marketing tools for automation, design, and analytics.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "best-youtube-channels-to-learn-digital-marketing-in-hindi": {
+      title: "Best YouTube Channels to Learn Digital Marketing in Hindi",
+      description: "Explore the best Hindi YouTube channels to learn SEO, Google Ads, and social media marketing.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "must-know-tools-for-every-digital-marketing-student": {
+      title: "Must-Know Tools for Every Digital Marketing Student",
+      description: "Discover essential tools for SEO, analytics, email, and content marketing every beginner should master.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "is-a-digital-marketing-certificate-worth-it-in-2025": {
+      title: "Is a Digital Marketing Certificate Worth It in 2025?",
+      description: "Find out if digital marketing certifications are still valuable for getting jobs and promotions in 2025.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "digital-marketing-course-syllabus-explained-module-wise": {
+      title: "Digital Marketing Course Syllabus Explained (Module-Wise)",
+      description: "A complete breakdown of a typical digital marketing syllabus covering SEO, SMM, content, and PPC modules.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+
+
+
+// 21 nov
+    // "how-to-learn-digital-marketing-without-any-prior-experience": {
+    //   title: "How to Learn Digital Marketing Without Any Prior Experience",
+    //   description: "Start from scratch! Learn how to build your digital marketing skills with free tools, courses, and practice.",
+    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    // },
+    // "what-to-expect-from-a-digital-marketing-internship-program": {
+    //   title: "What to Expect from a Digital Marketing Internship Program",
+    //   description: "Get insights into what digital marketing internships teach  from campaign work to real-world projects.",
+    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    // },
+    // "best-digital-marketing-institutes-in-delhi-ncr-2025-update": {
+    //   title: "Best Digital Marketing Institutes in Delhi-NCR (2025 Update)",
+    //   description: "Explore the top-rated digital marketing institutes in Delhi-NCR offering practical training and placements.",
+    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    // },
+
+
+
+// 22nov
+    // "salary-of-a-digital-marketer-in-india-city-wise-breakdown": {
+    //   title: "Salary of a Digital Marketer in India: City-Wise Breakdown",
+    //   description: "Check the latest city-wise salary data for digital marketers across India in 2025.",
+    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    // },
+    // "best-career-paths-after-a-digital-marketing-certification": {
+    //   title: "Best Career Paths After a Digital Marketing Certification",
+    //   description: "Learn about top career options like SEO specialist, content marketer, and PPC expert after certification.",
+    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    // },
+    // "how-long-does-it-take-to-learn-digital-marketing": {
+    //   title: "How Long Does It Take to Learn Digital Marketing?",
+    //   description: "Find out how long it takes to learn digital marketing, depending on your pace, goals, and learning resources.",
+    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    // },
   };
 
   const blog = blogDetails[slug];
@@ -117,12 +215,14 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
     return {
       title: "Blog Not Found | iDigitalStudies",
       description: "The blog post you're looking for could not be found.",
+      keywords: [], // Remove keywords from 404 blog page
     };
   }
 
   return {
     title: `${blog.title} | iDigitalStudies`,
     description: blog.description,
+    keywords: [], // Remove keywords from individual blog pages
     openGraph: {
       title: `${blog.title} | iDigitalStudies`,
       description: blog.description,

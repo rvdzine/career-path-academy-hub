@@ -145,27 +145,24 @@ const SignInModal = () => {
                 </Label>
                 <Select onValueChange={(value) => handleInputChange("course", value)}>
                   <SelectTrigger className="border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-red-500 hover:border-red-500 focus:border-red-500 transition-colors duration-200">
-                    <SelectValue placeholder="Select Center" />
+                    <SelectValue placeholder="Select Courses" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="complete-digital-marketing">
-                      Complete Digital Marketing
+                    Master in Digital Marketing Course at idigitalstudies
                     </SelectItem>
-                    <SelectItem value="seo-mastery">SEO Mastery</SelectItem>
+                    <SelectItem value="seo-mastery">Digital Marketing Specialist Course at iDigitalStudies</SelectItem>
                     <SelectItem value="social-media-pro">
-                      Social Media Marketing Pro
+                    Best Digital Marketing Course for Business Owners
                     </SelectItem>
                     <SelectItem value="google-ads-expert">
-                      Google Ads & PPC Expert
+                    Digital Marketing Course for Beginners
                     </SelectItem>
                     <SelectItem value="email-marketing">
-                      Email Marketing Specialist
+                    Customised Course in Digital Marketing
                     </SelectItem>
                     <SelectItem value="analytics">
-                      Analytics & Data Insights
-                    </SelectItem>
-                    <SelectItem value="content-strategy">
-                      Content Strategy & Creation
+                    Degree in Digital Marketing
                     </SelectItem>
                   </SelectContent>
                 </Select>

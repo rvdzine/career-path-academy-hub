@@ -1,5 +1,4 @@
 "use client";
-// src/pages/Blog.tsx
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 
@@ -112,6 +111,121 @@ const blogs = [
     excerpt: "SEO isn’t just about jamming keywords into blog posts anymore. Sure, keyword research and ....",
     image: "./assets/blog18.png",
   },
+  {
+    slug: "free-ai-tools-to-boost-your-digital-marketing-skills",
+    title: "Free AI Tools to Boost Your Digital Marketing Skills",
+    excerpt: "If you're new to internet marketing, you could have noticed that it's not just....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "content-creation-tools-every-digital-marketer-should-try",
+    title: "Content Creation Tools Every Digital Marketer Should Try",
+    excerpt: "If you work in digital marketing, you are probably aware....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "best-analytics-tools-to-track-your-marketing-performance",
+    title: "Best Analytics Tools to Track Your Marketing Performance",
+    excerpt: "Have you ever wondered why successful marketers always seem to know what works and what doesn't?  It's not just creativity that  ....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "how-to-use-chatgpt-for-digital-marketing-campaigns",
+    title: "How to Use ChatGPT for Digital Marketing Campaigns",
+    excerpt: "Google has a treasure chest full of information for digital marketers who want to make sense of data, effectiveness, and online growth.  The best part is?....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "essential-google-tools-every-digital-marketer-should-use",
+    title: "Essential Google Tools Every Digital Marketer Should Use",
+    excerpt: "Have you ever wondered why successful marketers always seem to know what works and what doesn't?  It's not just creativity that  ....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "how-to-practice-digital-marketing-without-spending-money",
+    title: "How to Practice Digital Marketing Without Spending Money",
+    excerpt: "To be honest, digital marketing seems exciting until you consider the high cost of tools, advertisements, and training.  The good news is....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "the-complete-guide-to-learning-seo-in-30-days",
+    title: "The Complete Guide to Learning SEO in 30 Days",
+    excerpt: "So, you want to learn SEO in 30 days? Great decision! SEO (Search Engine Optimization) isn’t....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "top-email-marketing-tools-for-beginners",
+    title: "Top Email Marketing Tools for Beginners",
+    excerpt: "Starting with email marketing can feel like juggling a hundred tiny tasks at once designing templates, building lists, tracking opens, and....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "best-youtube-channels-to-learn-digital-marketing-in-hindi",
+    title: "Best YouTube Channels to Learn Digital Marketing in Hindi",
+    excerpt: "It can feel like you're juggling a hundred little tasks at once when you first start...",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "must-know-tools-for-every-digital-marketing-student",
+    title: "Must-Know Tools for Every Digital Marketing Student",
+    excerpt: "If you're learning about digital marketing, you probably already know that there...",
+    image: "./assets/blog18.png",
+  },
+
+  {
+    slug: "is-a-digital-marketing-certificate-worth-it-in-2025",
+    title: "Is a Digital Marketing Certificate Worth It in 2025?",
+    excerpt: "Digital marketing changes faster than most of us can check our social media feeds. With AI ....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "digital-marketing-course-syllabus-explained-module-wise",
+    title: "Digital Marketing Course Syllabus Explained (Module-Wise)",
+    excerpt: "You made a smart choice when you decided to get into digital marketing. But you probably....",
+    image: "./assets/blog18.png",
+  },
+
+  // 21 nov
+  // {
+  //   slug: "how-to-learn-digital-marketing-without-any-prior-experience",
+  //   title: "How to Learn Digital Marketing Without Any Prior Experience",
+  //   excerpt: "So you want to get into digital marketing but don't know anything about it? Don't worry; everyone....",
+  //   image: "./assets/blog18.png",
+  // },
+  // {
+  //   slug: "what-to-expect-from-a-digital-marketing-internship-program",
+  //   title: "What to Expect from a Digital Marketing Internship Program",
+  //   excerpt: "It can be exciting and a little scary to start an internship in digital marketing. You’re stepping into....",
+  //   image: "./assets/blog18.png",
+  // },
+  // {
+  //   slug: "best-digital-marketing-institutes-in-delhi-ncr-2025-update",
+  //   title: "Best Digital Marketing Institutes in Delhi-NCR (2025 Update)",
+  //   excerpt: "It can be hard to find the right place to learn digital marketing. There are a lot of schools in ....",
+  //   image: "./assets/blog18.png",
+  // },
+
+
+
+  // 22 nov
+  // {
+  //   slug: "salary-of-a-digital-marketer-in-india-city-wise-breakdown",
+  //   title: "Salary of a Digital Marketer in India: City-Wise Breakdown",
+  //   excerpt: "You're not the only one who has ever wondered how much digital marketers really make in different Indian cities. As marketing goes completely....",
+  //   image: "./assets/blog18.png",
+  // },
+  // {
+  //   slug: "best-career-paths-after-a-digital-marketing-certification",
+  //   title: "Best Career Paths After a Digital Marketing Certification",
+  //   excerpt: "Congratulations on finishing your digital marketing certification! But what now?....",
+  //   image: "./assets/blog18.png",
+  // },
+  // {
+  //   slug: "how-long-does-it-take-to-learn-digital-marketing",
+  //   title: "How Long Does It Take to Learn Digital Marketing?",
+  //   excerpt: "There are many skills that go into digital marketing. You have SEO (Search Engine Optimization), social media marketing, content marketing, email campaigns, PPC ads, and....",
+  //   image: "./assets/blog18.png",
+  // },  
 ];
 
 const Blog = () => {

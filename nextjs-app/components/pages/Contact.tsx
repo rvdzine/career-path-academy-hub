@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, MapPin, Phone, Mail, CheckCircle } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -227,13 +227,13 @@ const Contact = () => {
                         <SelectValue placeholder="Select a course" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="digitalmarketing">Complete Digital Marketing</SelectItem>
-                        <SelectItem value="seomastery">SEO Mastery</SelectItem>
-                        <SelectItem value="socialmediamarketingpro">Social Media Marketing Pro</SelectItem>
-                        <SelectItem value="googleads">Google Ads & PPC Expert</SelectItem>
-                        <SelectItem value="emailmarketing">Email Marketing Specialist</SelectItem>
-                        <SelectItem value="analyticsanddatainsights">Analytics & Data Insights</SelectItem>
-                        <SelectItem value="content">Content Strategy & Creation</SelectItem>
+                        <SelectItem value="digitalmarketing">Master in Digital Marketing Course at idigitalstudies</SelectItem>
+                        <SelectItem value="seomastery">Digital Marketing Specialist Course at iDigitalStudies</SelectItem>
+                        <SelectItem value="socialmediamarketingpro">Best Digital Marketing Course for Business Owners</SelectItem>
+                        <SelectItem value="googleads">Digital Marketing Course for Beginners</SelectItem>
+                        <SelectItem value="emailmarketing">Customised Course in Digital Marketing</SelectItem>
+                        <SelectItem value="analyticsanddatainsights">Degree in Digital Marketing</SelectItem>
+                        {/* <SelectItem value="content">Content Strategy & Creation</SelectItem> */}
                       </SelectContent>
                     </Select>
                   </div>

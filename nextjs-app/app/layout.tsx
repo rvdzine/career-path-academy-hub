@@ -27,6 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/ids-favicon.svg" type="image/svg+xml" />
+      </head>
       <body>
         <QueryProvider>
           <ThemeProvider defaultTheme="light" storageKey="ids-ui-theme">

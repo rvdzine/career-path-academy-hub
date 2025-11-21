@@ -229,7 +229,7 @@ const OfflineCenter = () => {
               <BookingDialog>
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] text-base px-6 py-3 w-auto sm:text-base text-sm sm:px-6 sm:py-3 px-4 py-2 text-xs px-3 py-1.5">
+                  className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] text-base px-6 py-3 w-auto sm:text-base sm:px-6 sm:py-3">
                   Start Your Journey - Book Your Free Demo Now!
                </Button>
               </BookingDialog>

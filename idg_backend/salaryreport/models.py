@@ -2,12 +2,12 @@ from django.db import models
 
 class SalaryReportLead(models.Model):
     COURSE_CHOICES = [
-        ('seomastery', 'SEO Mastery'),
-        ('socialmediapro', 'Social Media Pro'),
-        ('googleadsexpert', 'Google Ads Expert'),
-        ('cmbootcamp', 'Content Marketing Bootcamp'),
-        ('emailmarketingpro', 'Email Marketing Pro'),
-        ('advancedseo', 'Advanced SEO'),
+        ('seomastery', 'Master in Digital Marketing Course at idigitalstudies'),
+        ('socialmediapro', 'Digital Marketing Specialist Course at iDigitalStudies'),
+        ('googleadsexpert', 'Best Digital Marketing Course for Business Owners'),
+        ('cmbootcamp', 'Digital Marketing Course for Beginners'),
+        ('emailmarketingpro', 'Customised Course in Digital Marketing'),
+        ('advancedseo', 'Degree in Digital Marketing'),
     ]
 
     full_name = models.CharField(max_length=100)

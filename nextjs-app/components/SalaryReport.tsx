@@ -139,14 +139,14 @@ export default function SalaryReportModal({ children }) {
               className="w-full border rounded-lg p-2"
             >
               <option value="">-- Select a Course --</option>
-              <option value="seomastery">SEO Mastery</option>
-              <option value="socialmediapro">Social Media Pro</option>
-              <option value="googleadsexpert">Google Ads Expert</option>
+              <option value="seomastery">Master in Digital Marketing Course at idigitalstudies</option>
+              <option value="socialmediapro">Digital Marketing Specialist Course at iDigitalStudies</option>
+              <option value="googleadsexpert">Best Digital Marketing Course for Business Owners</option>
               <option value="cmbootcamp">
-                Content Marketing Bootcamp
+              Digital Marketing Course for Beginners
               </option>
-              <option value="emailmarketingpro">Email Marketing Pro</option>
-              <option value="advancedseo">Advanced SEO</option>
+              <option value="emailmarketingpro">Customised Course in Digital Marketing</option>
+              <option value="advancedseo">Degree in Digital Marketing</option>
             </select>
           </div>
 
