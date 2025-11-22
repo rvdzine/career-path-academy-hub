@@ -1,158 +1,152 @@
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
-import { CheckCircle, Users, Clock, Sparkle } from "lucide-react";
-import PlacedStudentCarousel from "@/components/PlacedStudentCarousel";
-import hero from "@/components/assets/hero.png";
-import BrochureDialog from "@/components/pages/BrochureDialog";
-import { FaDownload } from "react-icons/fa";
-import Image from "next/image";
-// import chimg7 from "@/components/svg/sparkle.svg"
+"use client";
 
-const HeroSection = () => {
+import React from "react";
+import Image from "next/image";
+import { Briefcase, Users, ArrowRight } from "lucide-react";
+import herosectionimg from "../public/assets/gallery8.png";
+import ContactDialog from "@/components/ContactDialog";
+import PlacedStudentCarousel from "@/components/PlacedStudentCarousel";
+
+export default function HeroSection() {
   return (
     <>
-      <section className="py-20 lg:py-28 bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8 animate-fade-in-left">
-              <div className="space-y-4">
-                <Badge className="bg-red-100 text-red-700 hover:bg-red-200 animate-bounce-gentle">
-                  🚀 India's Leading Digital Marketing Academy
-                </Badge>
-                <h1 className="text-4xl top-8 lg:text-6xl font-bold leading-tight relative">
-                  {/* AI Driven Badge */}
-                  <Badge
-                    className="absolute -top-9 left-0 flex items-center gap-2 px-4 py-1 text-lg font-semibold 
-    bg-gradient-to-r from-[#0061FF] to-[#60EFFF] text-white rounded-full shadow-md"
-                  >
-                    {/* <img src={chimg7} alt="AI Driven" className="w-4 h-4" /> */}
-                    <Image src= "/svg/sparkle.svg" width={20} height={20} alt="sparkle"/>
-                    Best AI Driven
-                  </Badge>
+    <section className="relative h-[90vh] md:h-[95vh] bg-black overflow-hidden">
 
-                  {/* Rest of the title */}
-                  <span className="line-through decoration-4 decoration-red-500 text-black">
-                    Best
-                  </span>{" "}
-                  <span className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent animate-pulse-soft">
-                    Digital Marketing
-                  </span>
-                  <br />
-                  <span className="text-black">Institute in Noida</span>
-                </h1>
-                <p className="text-xl relative top-7 text-muted-foreground leading-relaxed">
-                  IDS: Noida's premier SEO & Digital Marketing institute.<br />
-                  Learn from experts with live projects and guaranteed placement support.<br />
-                  Enroll now!
-                </p>
-              </div>
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-transparent z-10"></div>
 
-              <div className="flex flex-col relative top-6 sm:flex-row gap-4 animate-fade-in-up [animation-delay:0.2s]">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#EA2525] hover:to-[#AA2526] transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                  asChild
-                >
-                  <Link href="/courses">Explore Courses</Link>
-                </Button>
+  {/* GRID OVERLAY (Responsive) */}
+  <div
+    className="absolute left-0 top-0 h-full w-[45%] sm:w-[35%] md:w-[30%] lg:w-[25%] xl:w-[22%] 2xl:w-[20%] z-10 pointer-events-none"
+    style={{
+      backgroundImage: `
+        linear-gradient(#ffffff22 1px, transparent 1px),
+        linear-gradient(to right, #ffffff22 1px, transparent 1px),
+        linear-gradient(to right, rgba(0,0,0,0.90), rgba(0,0,0,0.70), rgba(0,0,0,0.30), transparent)
+      `,
+      backgroundSize: "22px 22px, 22px 22px, 100% 100%",
+      backgroundRepeat: "repeat, repeat, no-repeat",
+      backdropFilter: "blur(6px)",
+      WebkitBackdropFilter: "blur(6px)",
+      maskImage: "linear-gradient(to right, black 70%, transparent 100%)",
+      WebkitMaskImage: "linear-gradient(to right, black 70%, transparent 100%)",
+    }}
+  ></div>
 
-                {/* Brochure download button */}
-                <BrochureDialog courseTitle="Master in Digital Marketing">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="flex items-center justify-center gap-2 hover:scale-105 transition-all duration-300 hover:shadow-md"
-                  >
-                    <FaDownload className="text-sm" />
-                    Download Brochure
-                  </Button>
-                </BrochureDialog>
-              </div>
+  {/* Background Image */}
+  <div className="absolute inset-0 z-0 overflow-hidden flex justify-end items-center">
+    <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[55%] max-w-[900px] h-full relative">
+      <Image
+        src={herosectionimg}
+        alt="Students"
+        fill
+        className="object-cover object-center opacity-90"
+      />
+    </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 animate-fade-in-up [animation-delay:0.4s]">
-                <div className="flex items-center space-x-3 group hover:scale-105 transition-all duration-300">
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center group-hover:bg-green-200 transition-colors duration-300">
-                    <CheckCircle className="w-5 h-5 text-green-600" />
-                  </div>
-                  <div>
-                    <p className="font-semibold">90% Placement</p>
-                    <p className="text-sm text-muted-foreground">Job Guarantee</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3 group hover:scale-105 transition-all duration-300">
-                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-300">
-                    <Users className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <p className="font-semibold">2000+ Students</p>
-                    <p className="text-sm text-muted-foreground">Trained Successfully</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3 group hover:scale-105 transition-all duration-300">
-                  <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center group-hover:bg-purple-200 transition-colors duration-300">
-                    <Clock className="w-5 h-5 text-purple-600" />
-                  </div>
-                  <div>
-                    <p className="font-semibold">Flexible Timing</p>
-                    <p className="text-sm text-muted-foreground">Online & Offline</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-           <div className="relative animate-fade-in-right">
-  <div className="relative z-10 group">
-    <img
-      src={typeof hero === 'string' ? hero : hero.src}
-      alt="Digital Marketing Training"
-      className="rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-105"
-    />
+    {/* Right fade on image */}
+    <div className="absolute right-0 top-0 bottom-0 w-[40%] md:w-[30%] lg:w-1/3 bg-gradient-to-l from-black/60 to-transparent"></div>
   </div>
 
-  <div className="absolute -top-4 -right-4 w-full h-full bg-gradient-to-r from-blue-200 to-purple-200 rounded-2xl -z-10 animate-pulse-soft"></div>
+  {/* Content */}
+  <div className="relative z-20 container mx-auto max-w-[1250px] px-4 sm:px-6 lg:px-12 py-10 flex items-center h-full">
+    <div className="max-w-3xl">
 
-  {/* Bottom ball */}
-  <div
-    className="
-      absolute
-      -bottom-1 -left-1           /* mobile */
-      sm:-bottom-2 sm:-left-2     /* large phone / small tab */
-      md:-bottom-4 md:-left-4     /* tablet */
-      lg:-bottom-4 lg:-left-4     /* desktop */
-      w-8 h-8                     /* mobile */
-      sm:w-12 sm:h-12               /* small tab */
-      md:w-16 md:h-16             /* tablet */
-      lg:w-20 lg:h-20             /* desktop */
-      bg-gradient-to-r from-orange-400 to-pink-400
-      rounded-full opacity-60 animate-bounce-gentle
-    "
-  />
-
-  {/* Top ball */}
-  <div
-    className="
-      absolute
-      top-2 -left-2               /* mobile */
-      sm:top-3 sm:-left-3         /* small tab */
-      md:top-6 md:-left-5         /* tablet */
-      lg:top-8 lg:-left-6         /* desktop */
-      w-6 h-6                     /* mobile */
-      sm:w-10 sm:h-10               /* small tab */
-      md:w-14 md:h-14             /* tablet */
-      lg:w-16 lg:h-16             /* desktop */
-      bg-gradient-to-r from-green-400 to-blue-400
-      rounded-full opacity-40 animate-bounce-gentle [animation-delay:1s]
-    "
-  />
-</div>
-
-          </div>
+      {/* Sparkles */}
+      <div className="mb-4 flex gap-2">
+        <div className="text-red-600">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0 L14.59 9.41 L24 12 L14.59 14.59 L12 24 L9.41 14.59 L0 12 L9.41 9.41 Z" />
+          </svg>
         </div>
-      </section>
-      <PlacedStudentCarousel />
-    </>
-  );
-};
+        <div className="text-red-600">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0 L14.59 9.41 L24 12 L14.59 14.59 L12 24 L9.41 14.59 L0 12 L9.41 9.41 Z" />
+          </svg>
+        </div>
+      </div>
 
-export default HeroSection;
+      {/* Heading */}
+      <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-5 leading-tight">
+        <span className="text-red-600">AI-Powered</span>{" "}
+        <span className="text-white">
+          Digital Marketing Education for the Next Generation
+        </span>
+      </h1>
+
+      {/* Subheading */}
+      <p className="text-gray-300 text-sm sm:text-base lg:text-lg mb-8 max-w-xl">
+        Upskill with practical training, industry tools, and hands-on experience
+        that transforms beginners into professionals.
+      </p>
+
+      {/* Arrow (hide on mobile) */}
+      <div className="absolute -left-10 top-[240px] -mt-[50px] -ml-[20px] hidden [@media(min-width:1300px)]:block z-30">
+        <svg
+          width="160"
+          height="260"
+          viewBox="0 0 200 200"
+          fill="none"
+          stroke="white"
+          strokeWidth="5"
+          className="opacity-80 rotate-[25deg]"
+        >
+          <path
+            d="M40 50 
+              Q10 90 100 90 
+              Q70 160 280 200
+
+              M180 200
+              L275 105
+              M180 200
+              L265 100"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+
+      {/* CTA Buttons */}
+      <div className="flex flex-wrap gap-4 mb-10">
+        <ContactDialog>
+          <button className="bg-red-600 hover:bg-red-700 text-white px-7 py-3 rounded-full font-semibold text-base w-full sm:w-auto flex items-center justify-center gap-2 transition-all">
+            Enroll Now <ArrowRight className="w-4 h-4" />
+          </button>
+        </ContactDialog>
+
+        <button className="border-2 border-red-600 text-white hover:bg-red-600/10 px-7 py-3 rounded-full font-semibold text-base w-full sm:w-auto transition-all">
+          Speak to a Counsellor
+        </button>
+      </div>
+
+      {/* Stats */}
+      <div className="space-y-3">
+        <div className="flex items-center gap-3 text-white">
+          <div className="bg-red-600/20 p-2 rounded">
+            <Briefcase className="w-5 h-5 text-red-600" />
+          </div>
+          <span className="text-lg">
+            <span className="font-bold">99%</span> Placement Job Guarantee
+          </span>
+        </div>
+
+        <div className="flex items-center gap-3 text-white">
+          <div className="bg-red-600/20 p-2 rounded">
+            <Users className="w-5 h-5 text-red-600" />
+          </div>
+          <span className="text-lg">
+            <span className="font-bold">2500+</span> Students Trained Successfully
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<PlacedStudentCarousel />
+
+    </>
+
+  );
+}
