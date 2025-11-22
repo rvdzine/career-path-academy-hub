@@ -17,20 +17,20 @@ export default function HeroSection() {
 
   {/* GRID OVERLAY (Responsive) */}
   <div
-    className="absolute left-0 top-0 h-full w-[45%] sm:w-[35%] md:w-[30%] lg:w-[25%] xl:w-[22%] 2xl:w-[20%] z-10 pointer-events-none"
-    style={{
-      backgroundImage: `
-        linear-gradient(#ffffff22 1px, transparent 1px),
-        linear-gradient(to right, #ffffff22 1px, transparent 1px),
-        linear-gradient(to right, rgba(0,0,0,0.90), rgba(0,0,0,0.70), rgba(0,0,0,0.30), transparent)
-      `,
-      backgroundSize: "22px 22px, 22px 22px, 100% 100%",
-      backgroundRepeat: "repeat, repeat, no-repeat",
-      backdropFilter: "blur(6px)",
-      WebkitBackdropFilter: "blur(6px)",
-      maskImage: "linear-gradient(to right, black 70%, transparent 100%)",
-      WebkitMaskImage: "linear-gradient(to right, black 70%, transparent 100%)",
-    }}
+    className="absolute left-0 top-0 h-full w-[50%] z-10 pointer-events-none"
+     style={{
+    backgroundImage: `
+      linear-gradient(#ffffff22 1px, transparent 1px),
+      linear-gradient(to right, #ffffff22 1px, transparent 1px),
+      linear-gradient(to right, rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.37), rgba(0, 0, 0, 0.12), transparent)
+    `,
+    backgroundSize: "22px 22px, 22px 22px, 100% 100%",
+    backgroundRepeat: "repeat, repeat, no-repeat",
+    backdropFilter: "blur(16px)",
+    WebkitBackdropFilter: "blur(6px)",
+    maskImage: "linear-gradient(to right, black 40%, transparent 100%)",
+    WebkitMaskImage: "linear-gradient(to right, black 70%, transparent 100%)",
+  }}
   ></div>
 
   {/* Background Image */}
@@ -52,19 +52,38 @@ export default function HeroSection() {
   <div className="relative z-20 container mx-auto max-w-[1250px] px-4 sm:px-6 lg:px-12 py-10 flex items-center h-full">
     <div className="max-w-3xl">
 
+    
       {/* Sparkles */}
-      <div className="mb-4 flex gap-2">
-        <div className="text-red-600">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0 L14.59 9.41 L24 12 L14.59 14.59 L12 24 L9.41 14.59 L0 12 L9.41 9.41 Z" />
-          </svg>
-        </div>
-        <div className="text-red-600">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0 L14.59 9.41 L24 12 L14.59 14.59 L12 24 L9.41 14.59 L0 12 L9.41 9.41 Z" />
-          </svg>
-        </div>
-      </div>
+<div className="mb-4 flex gap-2 -ml-10">
+ 
+  {/* Sparkles (each star individually positioned) */}
+<div className="relative h-0">
+
+  {/* Small Star — slightly above & left */}
+  <div className="absolute -top-2 left-2 text-red-600 opacity-90">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0 L14.59 9.41 L24 12 L14.59 14.59 L12 24 L9.41 14.59 L0 12 L9.41 9.41 Z" />
+    </svg>
+  </div>
+
+  {/* Medium Star — a bit to the right & lower */}
+  <div className="absolute top-2 left-4 text-red-600 opacity-95">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0 L14.59 9.41 L24 12 L14.59 14.59 L12 24 L9.41 14.59 L0 12 L9.41 9.41 Z" />
+    </svg>
+  </div>
+
+  {/* Large Star — slightly right & more down */}
+  <div className="absolute -top-2 left-10 text-red-600 opacity-100">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0 L14.59 9.41 L24 12 L14.59 14.59 L12 24 L9.41 14.59 L0 12 L9.41 9.41 Z" />
+    </svg>
+  </div>
+
+</div>
+</div>
+
+
 
       {/* Heading */}
       <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-5 leading-tight">
@@ -80,7 +99,7 @@ export default function HeroSection() {
         that transforms beginners into professionals.
       </p>
 
-      {/* Arrow (hide on mobile) */}
+      {/* Arrow (hide on mobile)
       <div className="absolute -left-10 top-[240px] -mt-[50px] -ml-[20px] hidden [@media(min-width:1300px)]:block z-30">
         <svg
           width="160"
@@ -104,7 +123,7 @@ export default function HeroSection() {
             strokeLinejoin="round"
           />
         </svg>
-      </div>
+      </div> */}
 
       {/* CTA Buttons */}
       <div className="flex flex-wrap gap-4 mb-10">
@@ -119,32 +138,61 @@ export default function HeroSection() {
         </button>
       </div>
 
-      {/* Stats */}
-      <div className="space-y-3">
-        <div className="flex items-center gap-3 text-white">
-          <div className="bg-red-600/20 p-2 rounded">
-            <Briefcase className="w-5 h-5 text-red-600" />
-          </div>
-          <span className="text-lg">
-            <span className="font-bold">99%</span> Placement Job Guarantee
-          </span>
-        </div>
 
-        <div className="flex items-center gap-3 text-white">
-          <div className="bg-red-600/20 p-2 rounded">
-            <Users className="w-5 h-5 text-red-600" />
-          </div>
-          <span className="text-lg">
-            <span className="font-bold">2500+</span> Students Trained Successfully
-          </span>
-        </div>
-      </div>
+      {/* Stats Cards */}
+<div className="grid grid-cols-2 gap-x-3 gap-y-3 mt-10 text-white max-w-sm">
 
+  <div className="bg-white/5 border border-white/10 backdrop-blur-md p-3 rounded-xl flex items-center gap-2 ">
+    <div className="bg-red-600/20 p-1.5 rounded">
+      <Briefcase className="w-4 h-4 text-red-600" />
+    </div>
+    <div>
+      <p className="font-bold text-base leading-tight">AI-Driven</p>
+      <p className="text-xs text-gray-300 leading-tight">Module</p>
     </div>
   </div>
+
+  <div className="bg-white/5 border border-white/10 backdrop-blur-md p-3 rounded-xl flex items-center gap-2 ">
+    <div className="bg-red-600/20 p-1.5 rounded">
+      <Users className="w-4 h-4 text-red-600" />
+    </div>
+    <div>
+      <p className="font-bold text-base leading-tight">30+</p>
+      <p className="text-xs text-gray-300 leading-tight">Certifications</p>
+    </div>
+  </div>
+
+  <div className="bg-white/5 border border-white/10 backdrop-blur-md p-3 rounded-xl flex items-center gap-2 ">
+    <div className="bg-red-600/20 p-1.5 rounded">
+      <Briefcase className="w-4 h-4 text-red-600" />
+    </div>
+    <div>
+      <p className="font-bold text-base leading-tight">99%</p>
+      <p className="text-xs text-gray-300 leading-tight">Placement</p>
+    </div>
+  </div>
+
+  <div className="bg-white/5 border border-white/10 backdrop-blur-md p-3 rounded-xl flex items-center gap-2 ">
+    <div className="bg-red-600/20 p-1.5 rounded">
+      <Users className="w-4 h-4 text-red-600" />
+    </div>
+    <div>
+      <p className="font-bold text-base leading-tight">Live</p>
+      <p className="text-xs text-gray-300 leading-tight">Projects</p>
+    </div>
+  </div>
+
+</div>
+
+
+</div>
+
+
+    </div>
+  
 </section>
 
-<PlacedStudentCarousel />
+{/* <PlacedStudentCarousel /> */}
 
     </>
 
