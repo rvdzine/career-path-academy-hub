@@ -202,28 +202,24 @@ const blogs = [
     excerpt: "It can be hard to find the right place to learn digital marketing. There are a lot of schools in ....",
     image: "./assets/blog18.png",
   },
-
-
-
-  // 22 nov
-  // {
-  //   slug: "salary-of-a-digital-marketer-in-india-city-wise-breakdown",
-  //   title: "Salary of a Digital Marketer in India: City-Wise Breakdown",
-  //   excerpt: "You're not the only one who has ever wondered how much digital marketers really make in different Indian cities. As marketing goes completely....",
-  //   image: "./assets/blog18.png",
-  // },
-  // {
-  //   slug: "best-career-paths-after-a-digital-marketing-certification",
-  //   title: "Best Career Paths After a Digital Marketing Certification",
-  //   excerpt: "Congratulations on finishing your digital marketing certification! But what now?....",
-  //   image: "./assets/blog18.png",
-  // },
-  // {
-  //   slug: "how-long-does-it-take-to-learn-digital-marketing",
-  //   title: "How Long Does It Take to Learn Digital Marketing?",
-  //   excerpt: "There are many skills that go into digital marketing. You have SEO (Search Engine Optimization), social media marketing, content marketing, email campaigns, PPC ads, and....",
-  //   image: "./assets/blog18.png",
-  // },  
+  {
+    slug: "salary-of-a-digital-marketer-in-india-city-wise-breakdown",
+    title: "Salary of a Digital Marketer in India: City-Wise Breakdown",
+    excerpt: "You're not the only one who has ever wondered how much digital marketers really make in different Indian cities. As marketing goes completely....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "best-career-paths-after-a-digital-marketing-certification",
+    title: "Best Career Paths After a Digital Marketing Certification",
+    excerpt: "Congratulations on finishing your digital marketing certification! But what now?....",
+    image: "./assets/blog18.png",
+  },
+  {
+    slug: "how-long-does-it-take-to-learn-digital-marketing",
+    title: "How Long Does It Take to Learn Digital Marketing?",
+    excerpt: "There are many skills that go into digital marketing. You have SEO (Search Engine Optimization), social media....",
+    image: "./assets/blog18.png",
+  }  
 ];
 
 const Blog = () => {

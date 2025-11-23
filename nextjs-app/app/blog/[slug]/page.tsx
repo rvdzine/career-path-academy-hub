@@ -184,25 +184,21 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
       description: "Explore the top-rated digital marketing institutes in Delhi-NCR offering practical training and placements.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
     },
-
-
-
-// 22nov
-    // "salary-of-a-digital-marketer-in-india-city-wise-breakdown": {
-    //   title: "Salary of a Digital Marketer in India: City-Wise Breakdown",
-    //   description: "Check the latest city-wise salary data for digital marketers across India in 2025.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
-    // "best-career-paths-after-a-digital-marketing-certification": {
-    //   title: "Best Career Paths After a Digital Marketing Certification",
-    //   description: "Learn about top career options like SEO specialist, content marketer, and PPC expert after certification.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
-    // "how-long-does-it-take-to-learn-digital-marketing": {
-    //   title: "How Long Does It Take to Learn Digital Marketing?",
-    //   description: "Find out how long it takes to learn digital marketing, depending on your pace, goals, and learning resources.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
+    "salary-of-a-digital-marketer-in-india-city-wise-breakdown": {
+      title: "Salary of a Digital Marketer in India: City-Wise Breakdown",
+      description: "Check the latest city-wise salary data for digital marketers across India in 2025.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "best-career-paths-after-a-digital-marketing-certification": {
+      title: "Best Career Paths After a Digital Marketing Certification",
+      description: "Learn about top career options like SEO specialist, content marketer, and PPC expert after certification.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "how-long-does-it-take-to-learn-digital-marketing": {
+      title: "How Long Does It Take to Learn Digital Marketing?",
+      description: "Find out how long it takes to learn digital marketing, depending on your pace, goals, and learning resources.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    }
   };
 
   const blog = blogDetails[slug];
