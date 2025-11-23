@@ -15,6 +15,7 @@ import SalaryReport from "@/components/courseDetailsComponents/SalaryReport";
 import Contactform from "@/components/ContactForm";
 import SignInModal from "@/components/SignInModal";
 import GallerySection from "@/components/Gallery";
+import WhyIDS from "../whyids";
 // import WhyIDS from "@/components/whyids";
 
 const Index = () => {
@@ -23,11 +24,11 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <CourseHighlightsIndex />
-      <CtaDigitalMarketing />
-      <OfflineSection />
-      <CertificationSection />
-      {/* <WhyIDS/> added in certificationsection */}
+      {/* <CtaDigitalMarketing /> */}
+      {/* <OfflineSection /> */}
       
+      <WhyIDS/> 
+      <CertificationSection />
       {/* <StatsSection /> */}
       {/* <TestimonialSection /> */}
       <SalaryReport/>

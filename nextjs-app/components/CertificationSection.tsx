@@ -87,7 +87,7 @@ const CertificationSection = () => {
 
       {/* Why IDS Section */}
       <div className="mt-16">
-        <WhyIDS />
+        
       </div>
     </section>
   );
