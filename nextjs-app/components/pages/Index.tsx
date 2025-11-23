@@ -16,6 +16,8 @@ import Contactform from "@/components/ContactForm";
 import SignInModal from "@/components/SignInModal";
 import GallerySection from "@/components/Gallery";
 import WhyIDS from "../whyids";
+import PlacedStudentsCarousel from "../PlacedStudentCarousel";
+import TrackRecordSection from "../TrackRecordSection";
 // import WhyIDS from "@/components/whyids";
 
 const Index = () => {
@@ -29,13 +31,16 @@ const Index = () => {
       
       <WhyIDS/> 
       <CertificationSection />
+      <PlacedStudentsCarousel/>
       {/* <StatsSection /> */}
       {/* <TestimonialSection /> */}
-      <SalaryReport/>
-      <Blogs />
-      <GallerySection/>
+      {/* <SalaryReport/> */}
+      <TrackRecordSection/>
+     
+     
       <FAQHighlight/>
-      <Contactform/>
+       <Blogs />
+       <GallerySection/>
       <Footer />
       <Chatbot />
        <SignInModal />

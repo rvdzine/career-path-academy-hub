@@ -48,7 +48,7 @@ export default function WhyIDS() {
           linear-gradient(#2a2a2a 1px, transparent 1px),
           linear-gradient(to right, #2a2a2a 1px, transparent 1px)
         `,
-        backgroundSize: "40px 40px",
+        backgroundSize: "30px 30px",
       }}
     >
       {/* Container */}
@@ -95,8 +95,8 @@ export default function WhyIDS() {
             <Image
               src={reason.logo}
               alt={reason.title}
-              width={32}
-              height={32}
+              width={45}
+              height={45}
               className="w-8 h-8 object-contain mt-1 flex-shrink-0"
             />
           )}
