@@ -21,6 +21,7 @@ import TrackRecordSection from "../TrackRecordSection";
 import MentorsSection from "../MentorsSection";
 import ReelsSection from "../ReelsSection";
 import CompanySlider from "../CompanySlider";
+import ProgramForm from "../ProgramForm";
 // import WhyIDS from "@/components/whyids";
 
 const Index = () => {
@@ -46,6 +47,7 @@ const Index = () => {
      
      
       <FAQHighlight/>
+      <ProgramForm/>
        <Blogs />
        <GallerySection/>
       <Footer />
