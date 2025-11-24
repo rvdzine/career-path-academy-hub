@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion, useAnimation, AnimationControls } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
-import img1 from "../public/assets/gallery3.webp";
+
 interface StatItem {
   id: number;
   value: number;
@@ -76,7 +76,8 @@ export default function TrackRecordSection() {
             className="flex justify-center"
           >
             <Image
-              src={img1}
+              src="/assets/gallery3.webp"
+
               alt="Students group"
               width={700}
               height={500}

@@ -18,6 +18,9 @@ import GallerySection from "@/components/Gallery";
 import WhyIDS from "../whyids";
 import PlacedStudentsCarousel from "../PlacedStudentCarousel";
 import TrackRecordSection from "../TrackRecordSection";
+import MentorsSection from "../MentorsSection";
+import ReelsSection from "../ReelsSection";
+import CompanySlider from "../CompanySlider";
 // import WhyIDS from "@/components/whyids";
 
 const Index = () => {
@@ -36,6 +39,10 @@ const Index = () => {
       {/* <TestimonialSection /> */}
       {/* <SalaryReport/> */}
       <TrackRecordSection/>
+    
+      <ReelsSection/>
+        <CompanySlider/>
+      <MentorsSection/>
      
      
       <FAQHighlight/>

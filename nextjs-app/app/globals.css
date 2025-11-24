@@ -129,3 +129,26 @@ All colors MUST be HSL.
 .animate-scroll-right {
   animation: scroll-right 50s linear infinite;
 }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+@keyframes row1 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes row2 {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
