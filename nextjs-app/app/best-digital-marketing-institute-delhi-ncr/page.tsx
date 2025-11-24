@@ -22,7 +22,6 @@ import {
   MessageCircle,
   HelpCircle,
   Brain,
-  // jay
   Compass,
   Briefcase,
   GraduationCap,
@@ -193,15 +192,15 @@ const courses = [
 function ImageCarousel() {
   const images = [
     {
-      src: "/assets/gallery14.png",
+      src: "/assets/gallery2.webp",
       alt: "Institute of Digital Studies Delhi Ncr - Students Receiving Certificates 1",
     },
     {
-      src: "/assets/gallery16.png",
+      src: "/assets/gallery12.png",
       alt: "Institute of Digital Studies Delhi Ncr - Students Receiving Certificates 2",
     },
     {
-      src: "/assets/gallery12.png",
+      src: "/assets/gallery5.webp",
       alt: "Institute of Digital Studies Delhi Ncr - Students Receiving Certificates 3",
     },
   ];
@@ -240,7 +239,7 @@ function ImageCarousel() {
               alt={image.alt}
               width={1920}
               height={400}
-              className="w-full object-cover sm:h-[200px] md:h-[400px] lg:h-[400px] xl:h-[400px]"
+              className="w-full  object-cover sm:h-[200px] md:h-[400px] lg:h-[400px] xl:h-[400px]"
               priority={index === 0}
             />
           </div>
@@ -377,7 +376,6 @@ export default function BestDigitalMarketingInstitute() {
       </div>
 
       {/* HERO GRADIENT */}
-      {/* HERO GRADIENT */}
       {/* ======== Exact Meta Tags You Asked For ======== */}
       <head>
         <title>
@@ -413,9 +411,9 @@ export default function BestDigitalMarketingInstitute() {
 
           {/* ========= New Cockpit Description Added ========= */}
           <p className="relative text-base sm:text-lg md:text-xl lg:text-2xl max-w-5xl mx-auto text-gray-100 leading-relaxed font-medium opacity-95 px-4 mt-6">
-            Upgrade your career with Institute of Digital Studies, the Best Digital Marketing
-            Institute in Delhi Ncr. Expert mentors, live projects & 100%
-            practical learning.
+          Join iDigitalStudies is one of the the Best Digital Marketing 
+          Institute in Delhi Ncr. Learn SEO, Social Media, Google Ads & more with expert trainers and 
+          hands-on projects.
           </p>
         </div>
       </section>
@@ -1401,7 +1399,7 @@ you with the skills and confidence to stand out in a crowded market.</p>
             {/* === Rest of the 3 Columns (Unchanged) === */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
               {/* Column 1 */}
-              <div className="group relative bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1.5 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700 overflow-hidden">
+              <div className="group relative bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-1.5 sm:h-2 bg-gradient-to-r from-blue-500 to-indigo-600" />
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 p-2.5 sm:p-3 shadow-lg mb-4 sm:mb-5 group-hover:scale-110 transition-transform">
                   <svg
@@ -1460,13 +1458,11 @@ you with the skills and confidence to stand out in a crowded market.</p>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-4 sm:mt-5 text-xs font-bold text-gray-500 dark:text-gray-400">
-                  + 11 modules
-                </div>
+                
               </div>
 
               {/* Column 2 */}
-              <div className="group relative bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1.5 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700 overflow-hidden">
+              <div className="group relative bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl  overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-1.5 sm:h-2 bg-gradient-to-r from-purple-500 to-pink-600" />
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 p-2.5 sm:p-3 shadow-lg mb-4 sm:mb-5 group-hover:scale-110 transition-transform">
                   <svg
@@ -1524,13 +1520,11 @@ you with the skills and confidence to stand out in a crowded market.</p>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-4 sm:mt-5 text-xs font-bold text-gray-500 dark:text-gray-400">
-                  + 10 modules
-                </div>
+               
               </div>
 
               {/* Column 3 */}
-              <div className="group relative bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1.5 sm:hover:-translate-y-2 border border-gray-100 dark:border-gray-700 overflow-hidden">
+              <div className="group relative bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl  overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-1.5 sm:h-2 bg-gradient-to-r from-emerald-500 to-teal-600" />
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 p-2.5 sm:p-3 shadow-lg mb-4 sm:mb-5 group-hover:scale-110 transition-transform">
                   <svg
@@ -1588,9 +1582,7 @@ you with the skills and confidence to stand out in a crowded market.</p>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-4 sm:mt-5 text-xs font-bold text-gray-500 dark:text-gray-400">
-                  + 10 modules
-                </div>
+                
               </div>
             </div>
 

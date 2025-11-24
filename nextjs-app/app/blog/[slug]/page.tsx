@@ -107,7 +107,7 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
     "social-listing-for-seo-find-content-gaps-and-unasked-questions": {
       title: "Social Listing for SEO: Find Content Gaps and Unasked Questions",
       description: "Use social Listing tools to find content gaps, trending topics, and unasked questions that can power your SEO strategy.",
-      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1637606346315-d23ed32a6cfc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8U2VvfGVufDB8fDB8fHww",
     },
     "free-ai-tools-to-boost-your-digital-marketing-skills": {
       title: "Free AI Tools to Boost Your Digital Marketing Skills",
