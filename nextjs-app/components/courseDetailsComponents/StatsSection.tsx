@@ -43,7 +43,7 @@ const StatsSection = () => {
                                 8
                             </h3>
                             <p className="text-lg font-semibold text-[#4B444D]">
-                                Course Duration in <b className="text-[#EA2525]">Weeks</b>
+                                Course Duration in Weeks
                             </p>
                         </div>
                     </div>

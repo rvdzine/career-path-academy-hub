@@ -107,7 +107,7 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
     "social-listing-for-seo-find-content-gaps-and-unasked-questions": {
       title: "Social Listing for SEO: Find Content Gaps and Unasked Questions",
       description: "Use social Listing tools to find content gaps, trending topics, and unasked questions that can power your SEO strategy.",
-      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1637606346315-d23ed32a6cfc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8U2VvfGVufDB8fDB8fHww",
     },
     "free-ai-tools-to-boost-your-digital-marketing-skills": {
       title: "Free AI Tools to Boost Your Digital Marketing Skills",
@@ -169,44 +169,36 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
       description: "A complete breakdown of a typical digital marketing syllabus covering SEO, SMM, content, and PPC modules.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
     },
-
-
-
-// 21 nov
-    // "how-to-learn-digital-marketing-without-any-prior-experience": {
-    //   title: "How to Learn Digital Marketing Without Any Prior Experience",
-    //   description: "Start from scratch! Learn how to build your digital marketing skills with free tools, courses, and practice.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
-    // "what-to-expect-from-a-digital-marketing-internship-program": {
-    //   title: "What to Expect from a Digital Marketing Internship Program",
-    //   description: "Get insights into what digital marketing internships teach  from campaign work to real-world projects.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
-    // "best-digital-marketing-institutes-in-delhi-ncr-2025-update": {
-    //   title: "Best Digital Marketing Institutes in Delhi-NCR (2025 Update)",
-    //   description: "Explore the top-rated digital marketing institutes in Delhi-NCR offering practical training and placements.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
-
-
-
-// 22nov
-    // "salary-of-a-digital-marketer-in-india-city-wise-breakdown": {
-    //   title: "Salary of a Digital Marketer in India: City-Wise Breakdown",
-    //   description: "Check the latest city-wise salary data for digital marketers across India in 2025.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
-    // "best-career-paths-after-a-digital-marketing-certification": {
-    //   title: "Best Career Paths After a Digital Marketing Certification",
-    //   description: "Learn about top career options like SEO specialist, content marketer, and PPC expert after certification.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
-    // "how-long-does-it-take-to-learn-digital-marketing": {
-    //   title: "How Long Does It Take to Learn Digital Marketing?",
-    //   description: "Find out how long it takes to learn digital marketing, depending on your pace, goals, and learning resources.",
-    //   image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    // },
+    "how-to-learn-digital-marketing-without-any-prior-experience": {
+      title: "How to Learn Digital Marketing Without Any Prior Experience",
+      description: "Start from scratch! Learn how to build your digital marketing skills with free tools, courses, and practice.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "what-to-expect-from-a-digital-marketing-internship-program": {
+      title: "What to Expect from a Digital Marketing Internship Program",
+      description: "Get insights into what digital marketing internships teach  from campaign work to real-world projects.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "best-digital-marketing-institutes-in-delhi-ncr-2025-update": {
+      title: "Best Digital Marketing Institutes in Delhi-NCR (2025 Update)",
+      description: "Explore the top-rated digital marketing institutes in Delhi-NCR offering practical training and placements.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "salary-of-a-digital-marketer-in-india-city-wise-breakdown": {
+      title: "Salary of a Digital Marketer in India: City-Wise Breakdown",
+      description: "Check the latest city-wise salary data for digital marketers across India in 2025.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "best-career-paths-after-a-digital-marketing-certification": {
+      title: "Best Career Paths After a Digital Marketing Certification",
+      description: "Learn about top career options like SEO specialist, content marketer, and PPC expert after certification.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    },
+    "how-long-does-it-take-to-learn-digital-marketing": {
+      title: "How Long Does It Take to Learn Digital Marketing?",
+      description: "Find out how long it takes to learn digital marketing, depending on your pace, goals, and learning resources.",
+      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+    }
   };
 
   const blog = blogDetails[slug];
