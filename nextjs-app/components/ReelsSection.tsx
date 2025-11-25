@@ -11,36 +11,36 @@ const reels = [
     rating: 5,
     username: "esc.music",
     date: "15/04/2021",
-    logo:"/svg/Paytm.svg"
+    logo: "/svg/Paytm.svg",
   },
-  {
-    img: "/assets/reel2.jpg",
-    video: "/assets/reel2.mp4",
-    rating: 5,
-    username: "esc.music",
-    date: "15/04/2021",
-  },
-  {
-    img: "/assets/reel3.jpg",
-    video: "/assets/reel3.mp4",
-    rating: 5,
-    username: "esc.music",
-    date: "15/04/2021",
-  },
-  {
-    img: "/assets/reel2.jpg",
-    video: "/assets/reel2.mp4",
-    rating: 5,
-    username: "esc.music",
-    date: "15/04/2021",
-  },
-  {
-    img: "/assets/reel3.jpg",
-    video: "/assets/reel3.mp4",
-    rating: 5,
-    username: "esc.music",
-    date: "15/04/2021",
-  },
+  // {
+  //   img: "/assets/reel2.jpg",
+  //   video: "/assets/reel2.mp4",
+  //   rating: 5,
+  //   username: "esc.music",
+  //   date: "15/04/2021",
+  // },
+  // {
+  //   img: "/assets/reel3.jpg",
+  //   video: "/assets/reel3.mp4",
+  //   rating: 5,
+  //   username: "esc.music",
+  //   date: "15/04/2021",
+  // },
+  // {
+  //   img: "/assets/reel2.jpg",
+  //   video: "/assets/reel2.mp4",
+  //   rating: 5,
+  //   username: "esc.music",
+  //   date: "15/04/2021",
+  // },
+  // {
+  //   img: "/assets/reel3.jpg",
+  //   video: "/assets/reel3.mp4",
+  //   rating: 5,
+  //   username: "esc.music",
+  //   date: "15/04/2021",
+  // },
 ];
 
 export default function ReelsSection() {
@@ -48,14 +48,17 @@ export default function ReelsSection() {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
-  const scrollLeft = () => scrollRef.current?.scrollBy({ left: -350, behavior: "smooth" });
-  const scrollRight = () => scrollRef.current?.scrollBy({ left: 350, behavior: "smooth" });
+  const scrollLeft = () =>
+    scrollRef.current?.scrollBy({ left: -350, behavior: "smooth" });
+
+  const scrollRight = () =>
+    scrollRef.current?.scrollBy({ left: 350, behavior: "smooth" });
 
   const stopVideo = (index: number) => {
     const video = videoRefs.current[index];
     if (video) {
       video.pause();
-      video.currentTime = 0; // reset to start
+      video.currentTime = 0;
     }
     setPlayingIndex(null);
   };
@@ -63,13 +66,12 @@ export default function ReelsSection() {
   return (
     <section className="relative py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-
         <h2 className="text-3xl md:text-5xl font-bold text-center text-gray-900">
           Hear from IDS Alumni
         </h2>
         <p className="text-gray-600 text-center mt-4 mb-10 max-w-3xl mx-auto text-lg">
-          Hear directly from our students how IDS’s Programs have helped them
-          accelerate their professional journey.
+          Hear directly from our students how IDS&apos;s Programs have helped
+          them accelerate their professional journey.
         </p>
 
         {/* Left Arrow */}
@@ -92,14 +94,21 @@ export default function ReelsSection() {
               {/* VIDEO */}
               {playingIndex === index ? (
                 <video
-                  ref={(el) => (videoRefs.current[index] = el)}
+                  ref={(el) => {
+                    videoRefs.current[index] = el;
+                  }}
                   src={item.video}
                   autoPlay
                   controls
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <Image src={item.img} alt="reel" fill className="object-cover" />
+                <Image
+                  src={item.img}
+                  alt="reel"
+                  fill
+                  className="object-cover"
+                />
               )}
 
               {/* Play Button */}
@@ -120,7 +129,7 @@ export default function ReelsSection() {
                   onClick={() => stopVideo(index)}
                   className="absolute top-3 right-3 bg-black/60 text-white p-2 rounded-full"
                 >
-                  <X size={20} />
+                <X size={20} />
                 </button>
               )}
 
@@ -140,17 +149,15 @@ export default function ReelsSection() {
                     <p className="opacity-80">{item.date}</p>
                   </div>
 
-                  {item.logo ? (
-  <Image
-    src={item.logo}
-    alt="logo"
-    width={40}
-    height={40}
-    className="opacity-90 object-contain"
-  />
-) : (null
-)}
-
+                  {item.logo && (
+                    <Image
+                      src={item.logo}
+                      alt="logo"
+                      width={40}
+                      height={40}
+                      className="opacity-90 object-contain"
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -164,7 +171,6 @@ export default function ReelsSection() {
         >
           <ChevronRight size={22} />
         </button>
-
       </div>
     </section>
   );
