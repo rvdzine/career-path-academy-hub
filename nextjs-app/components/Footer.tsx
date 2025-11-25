@@ -40,7 +40,7 @@ const Footer = () => {
               href="/best-digital-marketing-institute-delhi-ncr"
               className="text-gray-400 dark:text-gray-500 hover:text-white transition-colors"
             >
-              Best Digital Marketing Institute In Delhi Ncr | iDigitalStudies
+              Delhi Ncr | Dwarka | Gurugram | Kalkaji | Pitampura |  Preet Vihar | Rajouri Garden | South Extension | South Campus | Noida
             </Link>
 
             <div className="flex space-x-4 pt-4">

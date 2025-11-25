@@ -1,15 +1,8 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectTrigger,
@@ -18,174 +11,141 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import { X } from "lucide-react";
 
-// 🖼️ Import your single static image
-import Slide1 from "@/public/assets/signinmodal1.png";
+// Images import
+import DesktopImage from "@/public/assets/signinmodal5.png";        // Web / Desktop
+import MobileImage from "@/public/assets/signinmodal6mobile.png";      // Mobile Only
 
 const SignInModal = () => {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
-    phone: "",
     email: "",
+    phone: "",
     course: "",
   });
 
-  // ⏳ Auto open after 3 seconds
+  // Modal 3 seconds baad khulega
   useEffect(() => {
     const timer = setTimeout(() => setOpen(true), 3000);
     return () => clearTimeout(timer);
   }, []);
 
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setOpen(false);
+    console.log("Form Submitted:", formData);
+    setOpen(false); // Submit karne ke baad band ho jayega
   };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-w-3xl w-full p-0 overflow-hidden  shadow-2xl border-0 bg-white">
-        <div className="flex flex-col md:flex-row">
-          <div className="md:w-1/2 w-full bg-red-600 relative flex items-center justify-center p-8 m-5 rounded-tr-[100px] rounded-bl-[100px] overflow-hidden shadow-lg">
-            {/* Pattern background */}
-            <div
-              className="absolute inset-0 opacity-90"
-              style={{
-                backgroundColor: "#8c1515",
-                backgroundImage:
-                  "repeating-radial-gradient(circle at 0 0, transparent 0, #8c1515 10px), repeating-linear-gradient(#fd585855, #fd5858)",
-              }}
-            ></div>
+      <DialogContent
+        className="p-0 rounded-2xl shadow-2xl border-0 max-w-3xl w-[90vw] max-h-[92dvh] overflow-y-auto"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+        onCloseAutoFocus={(e) => e.preventDefault()}
+      >
+        {/* Close Button */}
+        <button
+          onClick={() => setOpen(false)}
+          className="absolute top-4 right-4 z-50 bg-black/70 hover:bg-black text-white rounded-full p-2.5 backdrop-blur-md transition-all duration-200"
+          aria-label="Close modal"
+        >
+          <X className="w-6 h-6" />
+        </button>
 
-            {/* Static image */}
-            <div className="relative w-full h-50 md:h-full flex justify-center items-center z-10">
-              <Image
-                src={Slide1}
-                alt="Sign In Banner"
-                width={800}
-                height={800}
-                className="object-contain w-full h-full"
-              />
-            </div>
+        <div className="flex flex-col lg:flex-row min-h-[580px]">
+          {/* ========== IMAGE SECTION - RESPONSIVE (Mobile vs Desktop) ========== */}
+          <div className="relative w-full lg:w-1/2 min-h-[220px]">
+            {/* Mobile Image - Sirf mobile pe dikhega */}
+            <Image
+              src={MobileImage}
+              alt="Free Demo - Mobile View"
+              fill
+              priority
+              className="object-cover lg:hidden"
+            />
 
-            {/* Optional caption text */}
-            <div className="absolute bottom-6 text-center text-white font-semibold text-lg z-20">
-              Explore Your Digital Future 🚀
-            </div>
+            {/* Desktop Image - Sirf tablet aur desktop pe dikhega */}
+            <Image
+              src={DesktopImage}
+              alt="Free Demo - Desktop View"
+              fill
+              priority
+              className="object-cover hidden lg:block"
+            />
           </div>
 
-          {/* ⚪ Right side with form */}
-          <div className="md:w-1/2 w-full  bg-white p-8">
-            <DialogHeader>
-              <DialogTitle className="text-center text-xl font-semibold text-gray-800">
-                Join FREE Online Demo – Become a Digital Marketing Expert
-              </DialogTitle>
-              <p className="text-center text-gray-600 text-sm mt-1">
-                Attend <span className="font-semibold">FREE ONLINE DEMO</span> – Become a Certified Expert in Digital Marketing
+          {/* ========== FORM SECTION ========== */}
+          <div className="w-full lg:w-1/2 bg-white p-6 sm:p-10 flex flex-col justify-center">
+            <div className="text-center mb-4">
+              <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 leading-tight">
+                Join <span className="text-red-600">FREE</span> Demo
+              </h2>
+              <p className="text-base sm:text-lg text-gray-700 mt-3 font-semibold">
+                Become a Certified Expert in Digital Marketing
               </p>
-            </DialogHeader>
+            </div>
 
-            <form onSubmit={handleSubmit} className="space-y-5 mt-4">
-              {/* Full Name */}
-              <div className="space-y-1">
-                <Label htmlFor="name" className="text-gray-700 text-sm">
-                  Full Name
-                </Label>
-                <Input
-                  id="name"
-                  value={formData.name}
-                  onChange={(e) => handleInputChange("name", e.target.value)}
-                  placeholder="Enter your full name"
-                  className="border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-red-500 hover:border-red-500 focus:border-red-500 transition-colors duration-200"
-                  required
-                />
-              </div>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <Input
+                placeholder="Full Name *"
+                value={formData.name}
+                onChange={(e) => handleInputChange("name", e.target.value)}
+                required
+                className="h-12 text-base"
+              />
+              <Input
+                type="email"
+                placeholder="Email Address *"
+                value={formData.email}
+                onChange={(e) => handleInputChange("email", e.target.value)}
+                required
+                className="h-12 text-base"
+              />
+              <Input
+                type="tel"
+                placeholder="Mobile Number *"
+                value={formData.phone}
+                onChange={(e) => handleInputChange("phone", e.target.value)}
+                required
+                className="h-12 text-base"
+              />
 
-              {/* Email */}
-              <div className="space-y-1">
-                <Label htmlFor="email" className="text-gray-700 text-sm">
-                  Email
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => handleInputChange("email", e.target.value)}
-                  placeholder="Enter your email"
-                  className="border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-red-500 hover:border-red-500 focus:border-red-500 transition-colors duration-200"
-                  required
-                />
-              </div>
+              <Select onValueChange={(v) => handleInputChange("course", v)} required>
+                <SelectTrigger className="h-12">
+                  <SelectValue placeholder="Select Course" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="master">Master in Digital Marketing</SelectItem>
+                  <SelectItem value="specialist">Digital Marketing Specialist</SelectItem>
+                  <SelectItem value="business">For Business Owners</SelectItem>
+                  <SelectItem value="beginners">Beginners Course</SelectItem>
+                </SelectContent>
+              </Select>
 
-              {/* Mobile */}
-              <div className="space-y-1">
-                <Label htmlFor="phone" className="text-gray-700 text-sm">
-                  Mobile No.
-                </Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => handleInputChange("phone", e.target.value)}
-                  placeholder="Enter your mobile number"
-                  className="border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-red-500 hover:border-red-500 focus:border-red-500 transition-colors duration-200"
-                  required
-                />
-              </div>
-
-              {/* Center */}
-              <div className="space-y-1">
-                <Label htmlFor="course" className="text-gray-700 text-sm">
-                  Interested Course
-                </Label>
-                <Select onValueChange={(value) => handleInputChange("course", value)}>
-                  <SelectTrigger className="border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-red-500 hover:border-red-500 focus:border-red-500 transition-colors duration-200">
-                    <SelectValue placeholder="Select Courses" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="complete-digital-marketing">
-                    Master in Digital Marketing Course at idigitalstudies
-                    </SelectItem>
-                    <SelectItem value="seo-mastery">Digital Marketing Specialist Course at iDigitalStudies</SelectItem>
-                    <SelectItem value="social-media-pro">
-                    Best Digital Marketing Course for Business Owners
-                    </SelectItem>
-                    <SelectItem value="google-ads-expert">
-                    Digital Marketing Course for Beginners
-                    </SelectItem>
-                    <SelectItem value="email-marketing">
-                    Customised Course in Digital Marketing
-                    </SelectItem>
-                    <SelectItem value="analytics">
-                    Degree in Digital Marketing
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              {/* Terms */}
-              <div className="flex items-start gap-2">
-                <input type="checkbox" className="mt-1" required />
-                <p className="text-xs text-gray-600">
-                  By clicking Submit, you agree to our{" "}
-                  <span className="text-red-600 underline cursor-pointer">
-                    Terms and Conditions
-                  </span>
-                  , Visitor Agreement and Privacy Policy.
-                </p>
+              <div className="flex items-start gap-3 text-sm text-gray-600">
+                <input type="checkbox" required className="mt-1 w-5 h-5 rounded border-gray-300" />
+                <span>
+                  I agree to <span className="text-red-600 underline cursor-pointer">Terms</span> &{" "}
+                  <span className="text-red-600 underline cursor-pointer">Privacy Policy</span>
+                </span>
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold rounded-md py-2 transition"
+                className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-7 rounded-xl text-lg shadow-lg transition-all"
               >
-                Submit
+                Register for FREE Demo
               </Button>
+
+              <p className="text-center text-sm font-bold text-red-600 mt-5">
+                Limited Seats • Next Batch Starting Soon!
+              </p>
             </form>
           </div>
         </div>

@@ -357,7 +357,7 @@ const CourseContent = () => {
                 <h3 className="text-[#EA2525] font-bold text-sm uppercase tracking-wider mb-2">
                 Course content
             </h3>
-                <h1 className='text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#4B444D] to-[#EA2525] bg-clip-text text-transparent mb-6'>
+                <h1 className='text-3xl md:text-4xl font-bold  mb-6'>
                     {description}
             </h1>
             </div>

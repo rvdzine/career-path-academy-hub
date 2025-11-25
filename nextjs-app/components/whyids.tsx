@@ -116,8 +116,8 @@ export default function WhyIDS() {
     },
     {
       name: "Canva",
-      category: "Video Marketing",
-      desc: "Plan, produce, and distribute videos that boost brand awareness and drive viewer engagement.",
+      category: "Graphic Design Tool",
+     desc: "Create stunning graphics, social media posts, videos & presentations effortlessly.",
       img: "/svg/download 31.svg",
     },
     {
@@ -140,8 +140,8 @@ export default function WhyIDS() {
     },
     {
       name: "WordPress",
-      category: "Content Management System (CMS)",
-      desc: "Design web pages, organize digital assets, and maintain site structure efficiently..",
+      category: "WordPress",
+      desc: "Build powerful, customizable websites with thousands of themes & plugins.",
       img: "/assets/wordpress.png",
     },
     {
