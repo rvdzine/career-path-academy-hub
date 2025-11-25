@@ -13,34 +13,6 @@ const reels = [
     date: "15/04/2021",
     logo: "/svg/Paytm.svg",
   },
-  // {
-  //   img: "/assets/reel2.jpg",
-  //   video: "/assets/reel2.mp4",
-  //   rating: 5,
-  //   username: "esc.music",
-  //   date: "15/04/2021",
-  // },
-  // {
-  //   img: "/assets/reel3.jpg",
-  //   video: "/assets/reel3.mp4",
-  //   rating: 5,
-  //   username: "esc.music",
-  //   date: "15/04/2021",
-  // },
-  // {
-  //   img: "/assets/reel2.jpg",
-  //   video: "/assets/reel2.mp4",
-  //   rating: 5,
-  //   username: "esc.music",
-  //   date: "15/04/2021",
-  // },
-  // {
-  //   img: "/assets/reel3.jpg",
-  //   video: "/assets/reel3.mp4",
-  //   rating: 5,
-  //   username: "esc.music",
-  //   date: "15/04/2021",
-  // },
 ];
 
 export default function ReelsSection() {
@@ -91,24 +63,28 @@ export default function ReelsSection() {
               key={index}
               className="relative w-[280px] h-[500px] flex-shrink-0 rounded-xl overflow-hidden shadow-lg bg-black"
             >
-              {/* VIDEO */}
+              {/* Video */}
               {playingIndex === index ? (
                 <video
-                  ref={(el) => {
-                    videoRefs.current[index] = el;
-                  }}
+                  ref={(el) => (videoRefs.current[index] = el)}
                   src={item.video}
                   autoPlay
                   controls
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <Image
-                  src={item.img}
-                  alt="reel"
-                  fill
-                  className="object-cover"
-                />
+                <>
+                  {/* Background Image */}
+                  <Image
+                    src={item.img}
+                    alt="reel"
+                    fill
+                    className="object-cover"
+                  />
+
+                  {/* Dark Overlay */}
+                  <div className="absolute inset-0 bg-black/40"></div>
+                </>
               )}
 
               {/* Play Button */}
@@ -117,7 +93,7 @@ export default function ReelsSection() {
                   onClick={() => setPlayingIndex(index)}
                   className="absolute inset-0 cursor-pointer flex justify-center items-center"
                 >
-                  <div className="w-16 h-16 bg-white/50 backdrop-blur-md rounded-full flex justify-center items-center">
+                  <div className="w-16 h-16 bg-white/40 backdrop-blur-xl rounded-full flex justify-center items-center">
                     <Play size={34} className="text-white" />
                   </div>
                 </div>
@@ -129,12 +105,12 @@ export default function ReelsSection() {
                   onClick={() => stopVideo(index)}
                   className="absolute top-3 right-3 bg-black/60 text-white p-2 rounded-full"
                 >
-                <X size={20} />
+                  <X size={20} />
                 </button>
               )}
 
               {/* Bottom Info */}
-              <div className="absolute bottom-0 w-full px-5 pb-4 pt-6 bg-gradient-to-t from-black/80 to-transparent text-white">
+              <div className="absolute bottom-0 w-full px-5 pb-4 pt-6 bg-gradient-to-t from-black/90 to-transparent text-white">
                 <div className="flex gap-1 text-yellow-400 mb-2">
                   {Array(item.rating)
                     .fill(0)

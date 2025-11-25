@@ -13,22 +13,22 @@ const mentors = [
   {
     name: "Summit Mishra",
     title: "Ex Marketing Manager",
-    companyLogo: "/lovebeauty.png",
+    companyLogo: "/assets/loveb.png",
   },
   {
     name: "Ravi Verma",
     title: "Ex Marketing Manager",
-    companyLogo: "/lovebeauty.png",
+    companyLogo: "/assets/loveb.png",
   },
   {
     name: "Deepanshi Kukreja",
     title: "Ex Marketing Manager",
-    companyLogo: "/lovebeauty.png",
+    companyLogo: "/assets/loveb.png",
   },
   {
     name: "Deepanshi Kukreja",
     title: "Ex Marketing Manager",
-    companyLogo: "/lovebeauty.png",
+    companyLogo: "/assets/loveb.png",
   },
 
 ];

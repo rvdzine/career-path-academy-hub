@@ -75,14 +75,14 @@ export default function TrackRecordSection() {
             transition={{ duration: 0.8 }}
             className="flex justify-center"
           >
-            <Image
-              src="/assets/gallery3.webp"
+            {/* <Image
+              src="#"
 
               alt="Students group"
               width={700}
               height={500}
               className="rounded-2xl shadow-lg object-cover"
-            />
+            /> */}
           </motion.div>
 
         </div>
@@ -91,9 +91,6 @@ export default function TrackRecordSection() {
   );
 }
 
-/* ------------------------
-   COUNT-UP COMPONENT (TSX)
------------------------- */
 
 interface CountUpProps {
   end: number;

@@ -3,14 +3,21 @@
 import Image from "next/image";
 
 const logos = [
-  "/svg/Meesho.svg",
-  "/svg/Paytm.svg",
-  "/svg/logo3.png",
-  "/svg/logo4.png",
-  "/svg/logo5.png",
-  "/svg/logo6.png",
-  "/svg/logo7.png",
-  "/svg/logo8.png",
+  "/svg/download 7.svg",
+  "/svg/download 10.svg",
+  "/svg/download 36.svg",
+  "/svg/download 16.svg",
+  "/svg/download 18.svg",
+  "/svg/download 20.svg",
+  "/svg/download 28.svg",
+   "/svg/download 26.svg",
+   "/svg/download 31.svg",
+    "/assets/mask-group.png",
+     "/assets/ai-marketing.png",
+    "/assets/conversion-rate.png",
+     "/assets/wordpress.png",
+     "/assets/pabbly.png",
+     "/assets/shopify.png",
 ];
 
 export default function CompanySlider() {
@@ -39,7 +46,7 @@ export default function CompanySlider() {
                 src={logo}
                 alt="brand"
                 width={100}
-                height={60}
+                height={30}
                 className="object-contain"
               />
             </div>
@@ -59,7 +66,7 @@ export default function CompanySlider() {
                 src={logo}
                 alt="brand"
                 width={100}
-                height={60}
+                height={30}
                 className="object-contain"
               />
             </div>
