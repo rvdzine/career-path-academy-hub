@@ -211,6 +211,46 @@ const blogs = [
     // CHANGED: Use absolute path
     image: "/assets/blog-30.avif", 
   },
+  {
+    slug: "how-to-learn-digital-marketing-without-any-prior-experience",
+    title: "How to Learn Digital Marketing Without Any Prior Experience",
+    excerpt: "So you want to get into digital marketing but don't know anything about it? Don't worry; everyone....",
+    image: "./assets/blog-31.webp",
+  },
+  {
+    slug: "what-to-expect-from-a-digital-marketing-internship-program",
+    title: "What to Expect from a Digital Marketing Internship Program",
+    excerpt: "It can be exciting and a little scary to start an internship in digital marketing. You’re stepping into....",
+    image: "./assets/blog-32.webp",
+  },
+  {
+    slug: "best-digital-marketing-institutes-in-delhi-ncr-2025-update",
+    title: "Best Digital Marketing Institutes in Delhi-NCR (2025 Update)",
+    excerpt: "It can be hard to find the right place to learn digital marketing. There are a lot of schools in ....",
+    image: "./assets/blog-33.avif",
+  },
+  {
+    slug: "salary-of-a-digital-marketer-in-india-city-wise-breakdown",
+    title: "Salary of a Digital Marketer in India: City-Wise Breakdown",
+    excerpt: "You're not the only one who has ever wondered how much digital marketers really make in different Indian cities. As marketing goes completely....",
+    image: "./assets/blog-34.avif",
+  },
+  {
+    slug: "best-career-paths-after-a-digital-marketing-certification",
+    title: "Best Career Paths After a Digital Marketing Certification",
+    excerpt: "Congratulations on finishing your digital marketing certification! But what now?....",
+    image: "./assets/blog-35.avif",
+  },
+  {
+    slug: "how-long-does-it-take-to-learn-digital-marketing",
+    title: "How Long Does It Take to Learn Digital Marketing?",
+    excerpt: "There are many skills that go into digital marketing. You have SEO (Search Engine Optimization), social media....",
+    image: "./assets/blog-36.avif",
+  }  
+
+
+
+
 ];
 
 const Blog = () => {
