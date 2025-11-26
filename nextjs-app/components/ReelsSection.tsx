@@ -66,7 +66,7 @@ export default function ReelsSection() {
               {/* Video */}
               {playingIndex === index ? (
                 <video
-                  ref={(el) => (videoRefs.current[index] = el)}
+                  ref={(el) => {videoRefs.current[index] = el}}
                   src={item.video}
                   autoPlay
                   controls
