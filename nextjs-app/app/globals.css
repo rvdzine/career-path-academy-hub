@@ -143,12 +143,26 @@ All colors MUST be HSL.
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-@keyframes row1 {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scroll animations */
+@keyframes scrollRight {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0%); }
 }
 
-@keyframes row2 {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+@keyframes scrollLeft {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
 }
+
+.animate-scrollRight {
+  animation: scrollRight 20s linear infinite;
+}
+
+.animate-scrollLeft {
+  animation: scrollLeft 20s linear infinite;
+}
+

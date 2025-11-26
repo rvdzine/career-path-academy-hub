@@ -2,27 +2,29 @@
 
 import Image from "next/image";
 
+
 const logos = [
-  "/svg/download 7.svg",
-  "/svg/download 10.svg",
-  "/svg/download 36.svg",
-  "/svg/download 16.svg",
-  "/svg/download 18.svg",
-  "/svg/download 20.svg",
-  "/svg/download 28.svg",
-   "/svg/download 26.svg",
-   "/svg/download 31.svg",
-    "/assets/mask-group.png",
-     "/assets/ai-marketing.png",
-    "/assets/conversion-rate.png",
-     "/assets/wordpress.png",
-     "/assets/pabbly.png",
-     "/assets/shopify.png",
+  "/assets/Cyber Shield.png",
+ "/assets/Geeksquares.png",
+ "/assets/Glam space.png",
+ "/assets/ICR Infra.png",
+  "/assets/IDS.png",
+ "/assets/skillgrow.png",
+ "/assets/Tech Maestro.png",
+ "/assets/Deshizayka.png",
+  "/assets/Vishal mega mart.png",
+ "/assets/Titan.png",
+  "/assets/Sleepwell.png",
+  "/assets/Roto pumps.png",
+ "/assets/NX ONE.png",
+ "/assets/Aakkar.png",
+  "/assets/Godrej.png",
+ "/assets/Cavana Fashion.png",
 ];
 
-export default function CompanySlider() {
+export default function BrandSlider() {
   return (
-    <section className="w-full py-16">
+    <div className="w-full bg-gray-50 py-14 overflow-hidden">
       
       {/* Heading */}
       <h2 className="text-center text-4xl font-bold text-gray-900">
@@ -31,49 +33,45 @@ export default function CompanySlider() {
 
       {/* Paragraph */}
       <p className="text-center mt-3 text-gray-600 text-lg max-w-2xl mx-auto">
-        Our alumni from across programmes work at India's top startups and corporates.
+        Our alumni from across programmes work at India&apos;s top startups and corporates.
       </p>
 
-      {/* Row 1 */}
-      <div className="overflow-hidden mt-10">
-        <div className="flex gap-10 w-[200%] animate-[row1_20s_linear_infinite]">
-          {[...logos, ...logos].map((logo, index) => (
-            <div
-              key={`row1-${index}`}
-              className="min-w-[250px] h-[90px] bg-white border border-red-500 rounded-xl flex items-center justify-center"
-            >
-              <Image
-                src={logo}
-                alt="brand"
-                width={100}
-                height={30}
-                className="object-contain"
-              />
-            </div>
-          ))}
-        </div>
+      {/* ROW → RIGHT */}
+      <div className="flex gap-6 mt-12 animate-scrollRight">
+        {logos.concat(logos).map((logo, i) => (
+          <div
+            key={i}
+            className="bg-white rounded-2xl min-w-[160px] min-h-[110px] flex items-center justify-center shadow-md p-4"
+          >
+            <Image
+             src={logo}
+             alt={`logo-${i}`}
+             width={140}
+             height={80}
+             className="object-contain hover:scale-110 transition-transform duration-300"
+            />
+
+          </div>
+        ))}
       </div>
 
-      {/* Row 2 (Reverse direction) */}
-      <div className="overflow-hidden mt-10">
-        <div className="flex gap-10 w-[200%] animate-[row2_22s_linear_infinite]">
-          {[...logos, ...logos].map((logo, index) => (
-            <div
-              key={`row2-${index}`}
-              className="min-w-[250px] h-[90px] bg-white border border-red-500 rounded-xl flex items-center justify-center"
-            >
-              <Image
-                src={logo}
-                alt="brand"
-                width={100}
-                height={30}
-                className="object-contain"
-              />
-            </div>
-          ))}
-        </div>
+      {/* ROW → LEFT */}
+      <div className="flex gap-6 mt-6 animate-scrollLeft">
+        {logos.concat(logos).map((logo, i) => (
+          <div
+            key={i}
+            className="bg-white rounded-2xl min-w-[160px] min-h-[110px] flex items-center justify-center shadow-md p-4"
+          >
+            <Image
+             src={logo}
+             alt={`logo-${i}`}
+             width={140}
+             height={80}
+             className="object-contain hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+        ))}
       </div>
-
-    </section>
+    </div>
   );
 }
