@@ -1,6 +1,5 @@
 
 "use client";
-
 import { Crown, Trophy, Target, Zap } from "lucide-react";
 
 export default function CourseTable() {
