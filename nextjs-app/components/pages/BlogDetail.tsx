@@ -3223,7 +3223,7 @@ Once you get the hang of these, you can move on to more advanced or paid tools.<
 
   "how-to-learn-digital-marketing-without-any-prior-experience": {
     title: "How to Learn Digital Marketing Without Any Prior Experience",
-    content: 
+    content: `
 <p>So you want to get into digital marketing but don't know anything about it? Don't worry; everyone has to start somewhere. You don't need a fancy degree or years of training to work in this field, which is great. You can easily learn it from scratch if you're interested, consistent, and willing to learn. Let's talk about how to make that happen.</p>
 <br/>
 
