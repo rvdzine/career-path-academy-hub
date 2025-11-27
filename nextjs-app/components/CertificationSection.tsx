@@ -84,11 +84,32 @@ const CertificationSection = () => {
         </div>
 
       </div>
+      <div className="mt-20 w-full">
+  {/* Heading + Description */}
+  <div className="text-center mb-10">
+    <h2 className="text-3xl md:text-5xl font-bold text-black mb-4">
+      IDS Recognized Certifications
+    </h2>
+    <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+      Get industry-recognized certification that validates your practical
+      digital marketing skills and boosts your career opportunities globally.
+    </p>
+  </div>
 
-      {/* Why IDS Section */}
-      <div className="mt-16">
-        <WhyIDS />
-      </div>
+  {/* Certificate Image */}
+  <div className="relative w-full max-w-4xl mx-auto">
+    <Image
+      src="/assets/certificate.png"
+      alt="IDS Certificate Sample"
+      width={1600}
+      height={1100}
+      className="rounded-xl shadow-lg object-contain w-full h-auto"
+    />
+  </div>
+</div>
+
+      
+      
     </section>
   );
 };

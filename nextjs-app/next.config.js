@@ -8,5 +8,8 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
-module.exports = nextConfig
+const path = require('path');
 
+module.exports = {
+  outputFileTracingRoot: path.join(__dirname, '../'),
+};

@@ -13,7 +13,7 @@ import SalaryReportModal from "@/components/SalaryReport";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 text-white py-16">
+    <footer className="bg-[#121212] dark:bg-gray-950 text-white py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-10 gap-y-12 items-start">
           {/* Company Info */}
