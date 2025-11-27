@@ -3,6 +3,7 @@ const nextConfig = {
   images: {
     domains: [],
     unoptimized: false,
+    
   },
   reactStrictMode: true,
 }
