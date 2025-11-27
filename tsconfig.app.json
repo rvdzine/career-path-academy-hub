@@ -26,5 +26,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "nextjs-app/components/courseDetailsComponents/CourseTable.tsx"]
 }

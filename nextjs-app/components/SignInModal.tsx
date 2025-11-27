@@ -50,18 +50,18 @@ const SignInModal = () => {
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
         {/* Close Button */}
-        <button
+        {/* <button
           onClick={() => setOpen(false)}
           className="absolute top-4 right-4 z-50 bg-black/70 hover:bg-black text-white rounded-full p-2.5 backdrop-blur-md transition-all duration-200"
           aria-label="Close modal"
         >
           <X className="w-6 h-6" />
-        </button>
+        </button> */}
 
         <div className="flex flex-col lg:flex-row min-h-[580px]">
           {/* ========== IMAGE SECTION - RESPONSIVE (Mobile vs Desktop) ========== */}
           <div className="relative w-full lg:w-1/2 min-h-[220px]">
-            {/* Mobile Image - Sirf mobile pe dikhega */}
+            {/* Mobile Image*/}
             <Image
               src={MobileImage}
               alt="Free Demo - Mobile View"
@@ -70,7 +70,7 @@ const SignInModal = () => {
               className="object-cover lg:hidden"
             />
 
-            {/* Desktop Image - Sirf tablet aur desktop pe dikhega */}
+            {/* Desktop Image */}
             <Image
               src={DesktopImage}
               alt="Free Demo - Desktop View"
