@@ -41,9 +41,9 @@ const Index = () => {
       {/* <SalaryReport/> */}
       <TrackRecordSection/>
     
-      {/* <ReelsSection/> */}
+      <ReelsSection/>
         <CompanySlider/>
-      {/* <MentorsSection/> */}
+      <MentorsSection/>
      
      
       <FAQHighlight/>
