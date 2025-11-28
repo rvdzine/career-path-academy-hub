@@ -14,8 +14,8 @@ import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 
 // Images import
-import DesktopImage from "@/public/assets/signinmodal5.png";        // Web / Desktop
-import MobileImage from "@/public/assets/signinmodal6mobile.png";      // Mobile Only
+import DesktopImage from "@/public/assets/signinmodal5.png";        
+import MobileImage from "@/public/assets/signinmodal6mobile.png";     
 
 const SignInModal = () => {
   const [open, setOpen] = useState(false);
@@ -26,7 +26,6 @@ const SignInModal = () => {
     course: "",
   });
 
-  // Modal 3 seconds baad khulega
   useEffect(() => {
     const timer = setTimeout(() => setOpen(true), 3000);
     return () => clearTimeout(timer);
@@ -39,7 +38,7 @@ const SignInModal = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form Submitted:", formData);
-    setOpen(false); // Submit karne ke baad band ho jayega
+    setOpen(false); 
   };
 
   return (
@@ -49,15 +48,6 @@ const SignInModal = () => {
         onOpenAutoFocus={(e) => e.preventDefault()}
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
-        {/* Close Button */}
-        {/* <button
-          onClick={() => setOpen(false)}
-          className="absolute top-4 right-4 z-50 bg-black/70 hover:bg-black text-white rounded-full p-2.5 backdrop-blur-md transition-all duration-200"
-          aria-label="Close modal"
-        >
-          <X className="w-6 h-6" />
-        </button> */}
-
         <div className="flex flex-col lg:flex-row min-h-[580px]">
           {/* ========== IMAGE SECTION - RESPONSIVE (Mobile vs Desktop) ========== */}
           <div className="relative w-full lg:w-1/2 min-h-[220px]">
@@ -69,7 +59,6 @@ const SignInModal = () => {
               priority
               className="object-cover lg:hidden"
             />
-
             {/* Desktop Image */}
             <Image
               src={DesktopImage}

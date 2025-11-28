@@ -3828,21 +3828,20 @@ Choose the mode that fits your learning style and convenience.
     image: "/assets/blog-36.avif",
   },
 
-  
- "top-tools-for-keyword-research-and-seo-optimization": {
+  "top-tools-for-keyword-research-and-seo-optimization": {
     title: "Top Tools for Keyword Research and SEO Optimization",
     content: `
-<p>Keyword research is not optional if you want to rank higher on Google. It is the most important part of any successful SEO strategy.  You can find out what people are really looking for, detect trends before other companies do, and make content that ranks with the right tools.  Let's look at among the best tools to make keyword evaluation and SEO optimization easier, smarter, and much more effective.</p><br/>
+<p>Keyword research is not optional if you want to rank higher on Google. It is the most important part of any successful SEO strategy.You can find out what people are really looking for, detect trends before other companies do, and make content that ranks with the right tools. Let's look at among the best tools to make keyword evaluation and SEO optimization easier, smarter, and much more effective.</p><br/>
 
 <h2><strong>Why studying keyword instruments are important</strong></h2>
 
-<p> You can't just guess exactly what individuals type into search boxes.  Keyword tools look through a lot of data and inform you how many people are searching for a term, how many other people are competing for it, and what other questions people are asking.  This helps you focus on the words that bring in real visitors, not just random clicks. </p></br>
+<p> You can't just guess exactly what individuals type into search boxes. Keyword tools look through a lot of data and inform you how many people are searching for a term, how many other people are competing for it, and what other questions people are asking. This helps you focus on the words that bring in real visitors, not just random clicks. </p></br>
 
 <h3><strong>Google Keyword Planner – The Beginner’s Starting Point</strong></h3>
 <p>Google’s own Keyword Planner is a solid place to start if you’re new to SEO. It’s free, easy to use, and packed with search data straight from the source. You can enter a word or phrase, and it’ll show you search volume ranges, competition, and related terms. The downside? It doesn’t give precise volume numbers unless you’re running Google Ads. But for basic keyword discovery and trend analysis, it’s perfect Pro tip: Use Keyword Planner to identify high-volume, low-competition keywords, then plug them into another SEO tool for deeper insights.</p></br>
 
 <h3><strong>SEMrush – The All-in-One Powerhouse</strong></h3>
-<p>If you’re ready to level up, SEMrush is a powerhouse for keyword research and overall SEO management. It not only shows you keyword ideas but also competitor rankings, backlink data, and SERP (Search Engine Results Page) features. You can even spy on which keywords your competitors are ranking for  and build a better strategy around it.</p></br>
+<p>If you’re ready to level up, SEMrush is a powerhouse for keyword research and overall SEO management. It not only shows you keyword ideas but also competitor rankings, backlink data, and SERP (Search Engine Results Page) features. You can even spy on which keywords your competitors are ranking for and build a better strategy around it.</p></br>
 
 <p>One standout feature is the “Keyword Magic Tool,” which helps you discover long-tail keywords that have high potential with low difficulty. Yes, it’s a paid tool, but the insights it offers make it worth every penny.</p></br>
 
@@ -3853,16 +3852,16 @@ Choose the mode that fits your learning style and convenience.
 
 <h2><strong>Ubersuggest – Simple, Affordable, and Effective</strong></h2>
 
-<p>Ubersuggest by Neil Patel is a great tool for freelancers, bloggers, or small businesses. It offers keyword ideas, search volumes, and SEO difficulty scores  all in a clean, easy-to-use dashboard. It even gives you content ideas based on what’s trending in your niche. The free version is limited, but the paid plans are affordable compared to the bigger tools.</p>
+<p>Ubersuggest by Neil Patel is a great tool for freelancers, bloggers, or small businesses. It offers keyword ideas, search volumes, and SEO difficulty scores all in a clean, easy-to-use dashboard. It even gives you content ideas based on what’s trending in your niche. The free version is limited, but the paid plans are affordable compared to the bigger tools.</p>
 
-<p>Quick tip: Use Ubersuggest to find “question-based” keywords like “how to optimize SEO”  these often make great blog post titles and FAQ ideas.</p>
+<p>Quick tip: Use Ubersuggest to find “question-based” keywords like “how to optimize SEO” these often make great blog post titles and FAQ ideas.</p>
 
 <p><strong>Bonus Tools Worth Trying.</strong></p><br/>
 <li> <strong>AnswerThePublic – </strong>Visualizes search questions and helps you understand user intent.</li>
 <li> <strong>Moz Keyword Explorer – </strong> Known for accurate keyword difficulty metrics.</li>
 <li><strong>Google Trends –</strong> Perfect for spotting seasonal trends or rising topics before they peak.</li>
 
-<p>Mixing a few of these tools gives you the best results  one for data, one for trends, and one for competitor analysis.
+<p>Mixing a few of these tools gives you the best results one for data, one for trends, and one for competitor analysis.
 </p><br/>
 
 
@@ -3880,23 +3879,23 @@ Choose the mode that fits your learning style and convenience.
 <p>SEMrush and Ahrefs lead the pack for professionals. SEMrush offers deep keyword analytics, competitor tracking, and backlink data. Ahrefs focuses more on link profiles and search metrics. If you’re running multiple websites or managing clients, these paid tools are worth the investment. They save time, provide valuable insights, and support advanced SEO planning.</p><br/>
 
 <h3><strong>3. Can I rely only on one keyword research tool?</strong></h3>
-<p>It’s possible, but not ideal. Each tool has its strengths  Google Keyword Planner excels in data accuracy, while SEMrush and Ahrefs shine in competitive analysis. Combining two or three tools gives you a complete picture. For example, you can find keywords on Keyword Planner, analyze difficulty with Ahrefs, and monitor performance with SEMrush.</p><br/>
+<p>It’s possible, but not ideal. Each tool has its strengths Google Keyword Planner excels in data accuracy, while SEMrush and Ahrefs shine in competitive analysis. Combining two or three tools gives you a complete picture. For example, you can find keywords on Keyword Planner, analyze difficulty with Ahrefs, and monitor performance with SEMrush.</p><br/>
 
 <h3><strong>4. How often should I do keyword research?</strong></h3>
 <p>If you've been learning consistently, you can start small projects or internships in <strong>4–6 months</strong>.</p>
 
-<p>It’s smart to revisit your keyword research every three to six months. Search trends change, and new keywords emerge as industries evolve. Regular updates help you stay ahead of competitors and adjust your strategy for better rankings. Also, review your existing pages  optimizing them with fresh keywords can boost visibility without creating new content.</p><br/>
+<p>It’s smart to revisit your keyword research every three to six months. Search trends change, and new keywords emerge as industries evolve. Regular updates help you stay ahead of competitors and adjust your strategy for better rankings. Also, review your existing pages optimizing them with fresh keywords can boost visibility without creating new content.</p><br/>
 
 <h3><strong>5. How do I choose the right keywords for my content?</strong></h3>
 <p>Learning by doing is the fastest way.</p>
 
-<p>Start by understanding your audience  what problems are they trying to solve? Then look for keywords with good search volume but low to medium competition. Long-tail keywords like “best SEO tools for beginners” often perform better than short, broad terms. Finally, make sure your chosen keywords naturally fit into your content so it reads smoothly and ranks effectively.</p>
+<p>Start by understanding your audience what problems are they trying to solve? Then look for keywords with good search volume but low to medium competition. Long-tail keywords like “best SEO tools for beginners” often perform better than short, broad terms. Finally, make sure your chosen keywords naturally fit into your content so it reads smoothly and ranks effectively.</p>
 
 <p>When you learn by doing, you don’t just learn how something works—you learn <strong>why</strong> it works.</p>`,
     image: "/assets/blog-37.avif",
-},
+  },
 
- "a-beginners-guide-to-using-google-tag-manager": {
+  "a-beginners-guide-to-using-google-tag-manager": {
     title: "A Beginner’s Guide to Using Google Tag Manager",
     content: `
 <p>If you’ve ever opened your website’s backend, stared at a bunch of code, and immediately considered closing your laptop and walking into the sun… yeah, same. Tracking website stuff can feel ridiculously complicated when you’re juggling random scripts and those dashboards that look like spaceship control panels. This is exactly why Google Tag Manager exists. Think of it as that organised friend who labels everything and magically makes chaos look neat. GTM keeps all your tracking bits Analytics, Pixels, whatever in one spot so you don’t have to constantly ping your developer with “hey, can you add this one tiny code?” every two days.</p><br/>
@@ -3965,9 +3964,9 @@ Choose the mode that fits your learning style and convenience.
 <p>The biggest mistake is publishing tags without testing them first. Always use the preview mode to verify your triggers and data. Another common error is forgetting to link GTM with Google Analytics properly, which leads to missing or inaccurate data. Also, beginners sometimes skip naming conventions, which causes confusion later when managing multiple tags.</p><br/>
 `,
     image: "/assets/blog-38.avif",
-},
+  },
 
- "automation-tools-that-simplify-your-marketing-workflow": {
+  "automation-tools-that-simplify-your-marketing-workflow": {
     title: "Automation Tools That Simplify Your Marketing Workflow",
     content: `
 <p>Truthfully, marketing may appear like trying to do 10 things at once.  You're in charge of social media posts, checking on how well they do, following up with leads, forwarding emails, and oh, you forgot about that campaign deadline.  That's when automation tools come in like superheroes.  They make your work easier, save you time, and keep your marketing machine going even when you're not online.</p><br/>
@@ -4014,10 +4013,8 @@ Choose the mode that fits your learning style and convenience.
 <p>Start by identifying your pain points. Do you spend too much time on social media scheduling? Go for Hootsuite or Buffer. Need better lead tracking? HubSpot or Zoho CRM might fit. Check each tool’s features, pricing, and integration options. Most tools offer free trials use them to test how they fit into your workflow before committing.</p><br/>
 `,
     image: "/assets/blog-39.avif",
-},
-
+  },
 };
-
 
 const BlogDetail = ({ slug }: { slug: string }) => {
   // const { slug } = useParams<{ slug: string }>();
@@ -4127,7 +4124,6 @@ const BlogDetail = ({ slug }: { slug: string }) => {
                         "Meta Description Checklist How To Write One That Gets Clicks",
                       link: "https://idigitalstudies.com/blog/meta-description-checklist680-how-to-write-one-that-gets-clicks",
                     },
-                    
                   ].map((item, index) => (
                     <a
                       key={index}
