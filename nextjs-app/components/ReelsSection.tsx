@@ -11,7 +11,7 @@ const reels = [
     video: "/videos/loveleen.mp4",
     rating: 5,
     username: "Loveleen Sharma",
-    text: "From basics to advanced React, this journey shaped me into a strong frontend developer.",
+    text: "This journey strengthened my skills to lead social media at Paytm.",
     logo: "/svg/Paytm.svg",
     
   },
@@ -20,7 +20,7 @@ const reels = [
     video: "/videos/Bhumi.mp4",
     rating: 5,
     username: "Bhumi Gupta",
-    text: "Built CRM workflows, email funnels & automation — now managing scalable campaigns at Nvidia.",
+    text: "Automation skills here helped me power campaigns at Razorpay.",
     logo: "/svg/razorpay.svg",
     
   },

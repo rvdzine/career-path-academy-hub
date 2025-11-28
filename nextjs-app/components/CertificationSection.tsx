@@ -99,7 +99,7 @@ const CertificationSection = () => {
   {/* Certificate Image */}
   <div className="relative w-full max-w-4xl mx-auto">
     <Image
-      src="/assets/certificate.png"
+      src="/assets/IdsCertificate.jpg"
       alt="IDS Certificate Sample"
       width={1600}
       height={1100}
