@@ -190,12 +190,21 @@ const PlacedStudentsCarousel = () => {
 
   return (
     <>
-      <section className="pt-20 pb-10 bg-[#FFEFEF]">
+      <section className="w-full py-20"
+      style={{
+        backgroundColor: "#000",
+        backgroundImage: `
+          linear-gradient(#2a2a2a 1px, transparent 1px),
+          linear-gradient(to right, #2a2a2a 1px, transparent 1px)
+        `,
+        backgroundSize: "30px 30px",
+      }}
+    >
         <div className="text-center mb-8">
           <span className="bg-[#EA2525] text-white px-5 py-1 rounded-full font-medium">
             Success Stories
           </span>
-          <h2 className="text-3xl font-bold text-gray-800 mt-4 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-white mt-4 max-w-3xl mx-auto">
             Our alumni are working in top organizations such as Google, Meta,
             Zomato, Meesho, Flipkart, TCS, and more.
           </h2>
@@ -286,14 +295,14 @@ const PlacedStudentsCarousel = () => {
       </section>
 
       {/* Stats Section */}
-      <div className="bg-gradient-to-b from-[#c81e1e] to-[#520505]  py-12 px-4">
+      {/* <div className="bg-gradient-to-b from-[#c81e1e] to-[#520505]  py-12 px-4">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
           <div><h3 className="text-5xl font-bold mb-2">2400</h3><p className="text-lg">Happy Students Trained</p></div>
           <div><h3 className="text-5xl font-bold mb-2">6300</h3><p className="text-lg">Projects Completed</p></div>
           <div><h3 className="text-5xl font-bold mb-2">10+</h3><p className="text-lg">Years Experience</p></div>
           <div><h3 className="text-5xl font-bold mb-2">2000</h3><p className="text-lg">Students Placed</p></div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

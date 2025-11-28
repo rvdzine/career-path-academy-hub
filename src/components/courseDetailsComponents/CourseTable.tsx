@@ -1,11 +1,17 @@
 
 "use client";
+<<<<<<< HEAD
 // import {useRouter} from 'next/navigation'
 
 import { Crown, Trophy, Target, Zap } from "lucide-react";
 
 export default function CourseTable() {
   // const router = useRouter();
+=======
+import { Crown, Trophy, Target, Zap } from "lucide-react";
+
+export default function CourseTable() {
+>>>>>>> cda786e00b40bae7fdc64f5776efa347d04c9541
 
   const courses = [
     { 

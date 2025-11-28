@@ -129,3 +129,40 @@ All colors MUST be HSL.
 .animate-scroll-right {
   animation: scroll-right 50s linear infinite;
 }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scroll animations */
+@keyframes scrollRight {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0%); }
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-scrollRight {
+  animation: scrollRight 20s linear infinite;
+}
+
+.animate-scrollLeft {
+  animation: scrollLeft 20s linear infinite;
+}
+

@@ -32,6 +32,7 @@
       ]
     }
   },
+<<<<<<< HEAD
   "include": [
     "next-env.d.ts",
     "**/*.ts",
@@ -43,4 +44,8 @@
   "exclude": [
     "node_modules"
   ]
+=======
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "../nextjs-app/components/courseDetailsComponents/CourseTable.tsx"],
+  "exclude": ["node_modules"]
+>>>>>>> cda786e00b40bae7fdc64f5776efa347d04c9541
 }
