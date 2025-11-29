@@ -1,0 +1,23 @@
+{
+  "/SS/page": "/SS",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/about/page": "/about",
+  "/best-digital-marketing-institute-delhi-ncr/page": "/best-digital-marketing-institute-delhi-ncr",
+  "/blog/[slug]/page": "/blog/[slug]",
+  "/blog/page": "/blog",
+  "/contact/page": "/contact",
+  "/coursedetails/page": "/coursedetails",
+  "/courses/[courseId]/page": "/courses/[courseId]",
+  "/courses/page": "/courses",
+  "/faq/page": "/faq",
+  "/ids/page": "/ids",
+  "/internship-form/page": "/internship-form",
+  "/jobs-and-placements/page": "/jobs-and-placements",
+  "/offline-center/page": "/offline-center",
+  "/page": "/",
+  "/privacy/page": "/privacy",
+  "/refund/page": "/refund",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/terms/page": "/terms"
+}
