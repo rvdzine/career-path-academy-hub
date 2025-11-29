@@ -246,11 +246,28 @@ const blogs = [
     title: "How Long Does It Take to Learn Digital Marketing?",
     excerpt: "There are many skills that go into digital marketing. You have SEO (Search Engine Optimization), social media....",
     image: "./assets/blog-36.avif",
-  }  
+  },
 
+   {
+    slug: "top-tools-for-keyword-research-and-seo-optimization",
+    title: "Top Tools for Keyword Research and SEO Optimization",
+    excerpt: "Keyword research is not optional if you want to rank higher on Google.....",
+    image: "./assets/blog-37.avif",
+  },
 
+   {
+    slug: "a-beginners-guide-to-using-google-tag-manager",
+    title: "A Beginner’s Guide to Using Google Tag Manager",
+    excerpt: "If you’ve ever opened your website’s backend, stared at a bunch of code, and immediately considered closing your laptop and walking into the sun…",
+    image: "./assets/blog-38.avif",
+  },
 
-
+   {
+    slug: "automation-tools-that-simplify-your-marketing-workflow",
+    title: "Automation Tools That Simplify Your Marketing Workflow",
+    excerpt: "Truthfully, marketing may appear like trying to do 10 things at once.  You're in charge of social media posts, checking on how well they do, following up with leads, forwarding emails…",
+    image: "./assets/blog-39.avif",
+  },
 ];
 
 const Blog = () => {
