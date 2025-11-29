@@ -6,15 +6,22 @@ import HeroSection from "@/components/HeroSection";
 import CourseHighlightsIndex from "@/components/CourseHighlightsIndex";
 // import StatsSection from "@/components/StatsSection";
 import CertificationSection from "@/components/CertificationSection";
-import CtaDigitalMarketing from "@/components/CtaDigitalMarketing";
-import OfflineSection from "@/components/OfflineSection";
+// import CtaDigitalMarketing from "@/components/CtaDigitalMarketing";
+// import OfflineSection from "@/components/OfflineSection";
 import Chatbot from "@/components/Chatbot";
 import FAQHighlight from "@/components/FAQHighlight";
 import Blogs from "@/components/BlogIndex"
-import SalaryReport from "@/components/courseDetailsComponents/SalaryReport";
-import Contactform from "@/components/ContactForm";
+// import SalaryReport from "@/components/courseDetailsComponents/SalaryReport";
+// import Contactform from "@/components/ContactForm";
 import SignInModal from "@/components/SignInModal";
 import GallerySection from "@/components/Gallery";
+import WhyIDS from "@/components/whyids";
+import PlacedStudentsCarousel from "@/components/PlacedStudentCarousel";
+import TrackRecordSection from "@/components/TrackRecordSection";
+import MentorsSection from "@/components/MentorsSection";
+import ReelsSection from "@/components/ReelsSection";
+import CompanySlider from "@/components/CompanySlider";
+import ProgramForm from "@/components/ProgramForm";
 // import WhyIDS from "@/components/whyids";
 
 const Index = () => {
@@ -23,18 +30,26 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <CourseHighlightsIndex />
-      <CtaDigitalMarketing />
-      <OfflineSection />
-      <CertificationSection />
-      {/* <WhyIDS/> added in certificationsection */}
+      {/* <CtaDigitalMarketing /> */}
+      {/* <OfflineSection /> */}
       
+      <WhyIDS/> 
+      <CertificationSection />
+      <PlacedStudentsCarousel/>
       {/* <StatsSection /> */}
       {/* <TestimonialSection /> */}
-      <SalaryReport/>
-      <Blogs />
-      <GallerySection/>
+      {/* <SalaryReport/> */}
+      <TrackRecordSection/>
+    
+      <ReelsSection/>
+        <CompanySlider/>
+      <MentorsSection/>
+     
+     
       <FAQHighlight/>
-      <Contactform/>
+      <ProgramForm/>
+       <Blogs />
+       <GallerySection/>
       <Footer />
       <Chatbot />
        <SignInModal />

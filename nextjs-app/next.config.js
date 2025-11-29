@@ -3,9 +3,13 @@ const nextConfig = {
   images: {
     domains: [],
     unoptimized: false,
+    
   },
-  reactStrictMode: true,
+  reactStrictMode: false,
 }
 
-module.exports = nextConfig
+const path = require('path');
 
+module.exports = {
+  outputFileTracingRoot: path.join(__dirname, '../'),
+};
