@@ -267,16 +267,7 @@ const blogs = [
     title: "Automation Tools That Simplify Your Marketing Workflow",
     excerpt: "Truthfully, marketing may appear like trying to do 10 things at once.  You're in charge of social media posts, checking on how well they do, following up with leads, forwarding emails…",
     image: "./assets/blog-39.avif",
-  },
-
-
-  
-  
-  
-
-
-
-
+  }
 ];
 
 const Blog = () => {

@@ -29,8 +29,7 @@ const mentors = [
     name: "Deepanshi Kukreja",
     title: "Ex Marketing Manager",
     companyLogo: "/assets/loveb.png",
-  },
-
+  }
 ];
 
 export default function MentorCarousel() {
