@@ -24,6 +24,24 @@ const reels = [
     logo: "/svg/razorpay.svg",
     
   },
+  {
+    img: "/assets/Divya.png",
+    video: "/videos/Divya.mp4",
+    rating: 5,
+    username: "Divya Chaudhary",
+    text: "Content strategy training shaped me into a stronger brand storyteller.",
+    logo: "/svg/testbook.svg",
+    
+  },
+   {
+    img: "/assets/Isha Verma.jpeg",
+    video: "/videos/Isha .mp4",
+    rating: 5,
+    username: "Isha Verma",
+    text: "Real projects prepared me to run high-performing campaigns at Nykaa.",
+    logo: "/svg/Nykaa.svg",
+    
+  },
 ];
 
 export default function ReelsSection() {
@@ -123,7 +141,7 @@ export default function ReelsSection() {
 
                 <div className="flex justify-between items-center text-sm opacity-90">
                   <div>
-                    <p className="font-semibold">@{item.username}</p>
+                    <p className="font-semibold">{item.username}</p>
                     <p className="opacity-80">{item.text}</p>
                   </div>
 
