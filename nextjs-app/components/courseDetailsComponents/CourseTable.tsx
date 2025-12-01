@@ -1,13 +1,12 @@
-// src/components/courseDetailsComponents/CourseTable.tsx
 "use client";
 
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
+// import { useRouter } from 'next/router';
+
 import { Crown, Trophy, Target, Zap } from "lucide-react";
 
 export default function CourseTable() {
-  const router = useRouter();
-
-  // Tumhare diye hue exact links yahan daal diye hain
+  // const router = useRouter();
   const courses = [
     { 
       title: "Master in Digital Marketing Course", 
