@@ -22,6 +22,7 @@ import MentorsSection from "@/components/MentorsSection";
 import ReelsSection from "@/components/ReelsSection";
 import CompanySlider from "@/components/CompanySlider";
 import ProgramForm from "@/components/ProgramForm";
+import CoursesSection from "../CoursesSection";
 // import WhyIDS from "@/components/whyids";
 
 const Index = () => {
@@ -29,7 +30,8 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <CourseHighlightsIndex />
+      <CoursesSection/>
+      {/* <CourseHighlightsIndex /> */}
       {/* <CtaDigitalMarketing /> */}
       {/* <OfflineSection /> */}
       
