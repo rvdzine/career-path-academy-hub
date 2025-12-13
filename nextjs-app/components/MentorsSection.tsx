@@ -1,118 +1,133 @@
 "use client";
 
-import { useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
-const mentors = [
-  {
-    name: "Abhishek Singh",
-    title: "Ex Marketing Manager",
-    companyLogo: "/assets/loveb.png",
-  },
-  {
-    name: "Summit Mishra",
-    title: "Ex Marketing Manager",
-    companyLogo: "/assets/loveb.png",
-  },
-  {
-    name: "Ravi Verma",
-    title: "Ex Marketing Manager",
-    companyLogo: "/assets/loveb.png",
-  },
-  {
-    name: "Deepanshi Kukreja",
-    title: "Ex Marketing Manager",
-    companyLogo: "/assets/loveb.png",
-  },
-  {
-    name: "Deepanshi Kukreja",
-    title: "Ex Marketing Manager",
-    companyLogo: "/assets/loveb.png",
-  },
+type Mentor = {
+  name: string;
+  role: string;
+  company?: string;
+  avatar: string;
+  logo: string;
+};
 
+const mentors: Mentor[] = [
+  {
+    name: "Avik Bhandari",
+    role: "Ex. Senior Director",
+    company: "Meesho",
+    avatar: "/mentors/avik.jpg",
+    logo: "/logos/meesho.svg",
+  },
+  {
+    name: "Madhuvanthi S",
+    role: "Strategy Principal",
+    company: "Mamaearth",
+    avatar: "/mentors/madhuvanthi.jpg",
+    logo: "/logos/mamaearth.svg",
+  },
+  {
+    name: "Karan Bhagi",
+    role: "Ex. Marketing Director",
+    company: "Surf Excel",
+    avatar: "/mentors/karan.jpg",
+    logo: "/logos/surf.svg",
+  },
+  {
+    name: "Arun A",
+    role: "Ex. Sr. PM Digital Commerce",
+    company: "Unilever",
+    avatar: "/mentors/arun.jpg",
+    logo: "/logos/unilever.svg",
+  },
+  {
+    name: "Mohona Dey",
+    role: "Revenue Growth Mgmt.",
+    company: "Mondelez",
+    avatar: "/mentors/mohona.jpg",
+    logo: "/logos/mondelez.svg",
+  },
+  {
+    name: "Pankaj Yadav",
+    role: "Sr. Category Manager",
+    company: "Amazon",
+    avatar: "/mentors/pankaj.jpg",
+    logo: "/logos/amazon.svg",
+  },
+  {
+    name: "Aalekh Tripathi",
+    role: "Ex. Marketing Manager",
+    company: "Love Beauty & Planet",
+    avatar: "/mentors/aalekh.jpg",
+    logo: "/logos/lovebeauty.svg",
+  },
+  {
+    name: "Tarun Jyot Singh",
+    role: "Founder",
+    company: "1DigitalStack",
+    avatar: "/mentors/tarun.jpg",
+    logo: "/logos/1digitalstack.svg",
+  },
+  {
+    name: "Ankur Devpura",
+    role: "Ex. eCommerce Head",
+    company: "GSK",
+    avatar: "/mentors/ankur.jpg",
+    logo: "/logos/gsk.svg",
+  },
+  {
+    name: "Sriram G",
+    role: "Strategy Head",
+    company: "Whole Truth",
+    avatar: "/mentors/sriram.jpg",
+    logo: "/logos/wholetruth.svg",
+  },
 ];
 
-export default function MentorCarousel() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (direction: "left" | "right") => {
-    if (scrollRef.current) {
-      const amount = direction === "left" ? -350 : 350;
-      scrollRef.current.scrollBy({ left: amount, behavior: "smooth" });
-    }
-  };
-
+export default function MentorsSection() {
   return (
-    <section className="w-full py-20"
-      style={{
-        backgroundColor: "#000",
-        backgroundImage: `
-          linear-gradient(#2a2a2a 1px, transparent 1px),
-          linear-gradient(to right, #2a2a2a 1px, transparent 1px)
-        `,
-        backgroundSize: "30px 30px",
-      }}>
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-        
-        {/* Title */}
-        <h2 className="text-white text-3xl md:text-4xl font-bold text-center mb-4">
-          Meet Our Mentors
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 text-center">
+        <h2 className="text-4xl font-bold text-gray-900">
+          Meet your Mentors
         </h2>
-        <p className="text-gray-300 text-center mb-10 text-lg">
-          Our mentors comprise leaders from some of India’s Leading Marketing, Tech & 
-          Product Organizations.
+        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          Get trained by experts with real experience across digital, media,
+          brand, and tech industries.
         </p>
 
-        {/* Slider Container */}
-        <div className="relative flex items-center">
-          
-          {/* Left Button */}
-          <button
-            onClick={() => scroll("left")}
-            className="absolute left-0 z-10 bg-white shadow-md p-2 rounded-full"
-          >
-            <ChevronLeft size={22} />
-          </button>
-
-          {/* Cards Wrapper */}
-          <div
-            ref={scrollRef}
-            className="flex overflow-x-scroll no-scrollbar gap-6 px-10 scroll-smooth"
-          >
-            {mentors.map((m, index) => (
-              <div
-                key={index}
-                className="min-w-[250px] bg-white rounded-2xl p-6 flex flex-col items-center shadow-md"
-              >
-                {/* Image Placeholder */}
-                <div className="w-40 h-40 bg-gray-300 rounded-full mb-6" />
-
-                {/* Name */}
-                <h3 className="text-xl font-semibold text-black">{m.name}</h3>
-
-                {/* Title */}
-                <p className="text-blue-700 text-sm">{m.title}</p>
-
-                {/* Company Logo */}
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+          {mentors.map((mentor, idx) => (
+            <div
+              key={idx}
+              className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col items-center shadow-sm hover:shadow-md transition"
+            >
+              <div className="relative w-24 h-24 rounded-full overflow-hidden">
                 <Image
-                  src={m.companyLogo}
-                  width={180}
-                  height={40}
-                  alt="company"
-                  className="mt-6"
+                  src={mentor.avatar}
+                  alt={mentor.name}
+                  fill
+                  className="object-cover"
                 />
               </div>
-            ))}
-          </div>
 
-          {/* Right Button */}
-          <button
-            onClick={() => scroll("right")}
-            className="absolute right-0 z-10 bg-white shadow-md p-2 rounded-full"
-          >
-            <ChevronRight size={22} />
-          </button>
+              <h3 className="mt-4 font-semibold text-gray-900 text-lg">
+                {mentor.name}
+              </h3>
+
+              <p className="text-[#EA2525] text-sm font-medium mt-1">
+                {mentor.role}
+              </p>
+
+              <div className="mt-4 h-8 relative w-full">
+                <Image
+                  src={mentor.logo}
+                  alt={mentor.company || "Company"}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

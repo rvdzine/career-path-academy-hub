@@ -28,7 +28,7 @@ export default function TrackRecordSection() {
   }, [inView, controls]);
 
   return (
-    <section ref={ref} className="w-full py-16 bg-white">
+    <section ref={ref} className="w-full py-16 bg-[#FFF9F9]">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
 
         {/* Title */}

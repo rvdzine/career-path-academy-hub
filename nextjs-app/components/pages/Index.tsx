@@ -25,6 +25,7 @@ import ProgramForm from "@/components/ProgramForm";
 import CoursesSection from "../CoursesSection";
 import ToolsYouWillMaster from "../ToolMaster";
 import DigitalMarketingSlider from "../DigitalMarketingSlider";
+import IDSComparison from "./IDSComparison";
 // import WhyIDS from "@/components/whyids";
 
 const Index = () => {
@@ -35,27 +36,32 @@ const Index = () => {
       <CoursesSection/>
       <DigitalMarketingSlider/>
       <ToolsYouWillMaster/>
+      <PlacedStudentsCarousel/>
+      <TrackRecordSection/>
 
       {/* <CourseHighlightsIndex /> */}
       {/* <CtaDigitalMarketing /> */}
       {/* <OfflineSection /> */}
       
-      <WhyIDS/> 
-      <CertificationSection />
-      <PlacedStudentsCarousel/>
+      {/* <WhyIDS/>  */}
+    
+      
       {/* <StatsSection /> */}
       {/* <TestimonialSection /> */}
       {/* <SalaryReport/> */}
-      <TrackRecordSection/>
-    
+      
+      <CompanySlider/>
+        <CertificationSection />
+    <IDSComparison/>
       <ReelsSection/>
-        <CompanySlider/>
+        
       <MentorsSection/>
      
      
-      <FAQHighlight/>
+      
       <ProgramForm/>
        <Blogs />
+       <FAQHighlight/>
        <GallerySection/>
       <Footer />
       <Chatbot />
