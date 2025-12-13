@@ -23,6 +23,8 @@ import ReelsSection from "@/components/ReelsSection";
 import CompanySlider from "@/components/CompanySlider";
 import ProgramForm from "@/components/ProgramForm";
 import CoursesSection from "../CoursesSection";
+import ToolsYouWillMaster from "../ToolMaster";
+import DigitalMarketingSlider from "../DigitalMarketingSlider";
 // import WhyIDS from "@/components/whyids";
 
 const Index = () => {
@@ -31,6 +33,9 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <CoursesSection/>
+      <DigitalMarketingSlider/>
+      <ToolsYouWillMaster/>
+
       {/* <CourseHighlightsIndex /> */}
       {/* <CtaDigitalMarketing /> */}
       {/* <OfflineSection /> */}
