@@ -26,7 +26,7 @@ export default function GallerySection() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section className="py-20 bg-[#FFF9F9] relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 text-center mb-10">
         <h2 className="text-4xl font-bold text-gray-900 mb-4">
           Our <span className="text-red-600">Gallery</span>

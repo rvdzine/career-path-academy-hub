@@ -59,7 +59,7 @@ export default function IDSComparison() {
 
         {/* HEADERS */}
         <div className="grid grid-cols-12 mt-20 items-end">
-          <div className="col-span-7 text-center text-2xl font-semibold">
+          <div className="col-span-7 bg-grey-200 text-2xl font-bold text-center py-6 rounded-t-2xl">
             Others
           </div>
 

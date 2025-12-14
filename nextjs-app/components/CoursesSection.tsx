@@ -25,7 +25,7 @@ const chimg5 = "/svg/briefcase.svg";
 const chimg6 = "/svg/verify.svg";
 const chimg7 = "/svg/sparkle.svg";
 
-const tabs = ["Master Course", "Specialist Course", "Custom Course", "Business Owner"] as const;
+const tabs = ["Master Course", "Specialist Course", "Business Owner", "Custom Course",] as const;
 type TabType = (typeof tabs)[number];
 
 const courseData: Record<TabType, any> = {

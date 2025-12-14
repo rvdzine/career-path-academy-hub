@@ -37,7 +37,7 @@ const FAQHighlight = () => {
   ];
 
   return (
-    <section className="bg-gray-50 py-8">
+    <section className="bg-white-50 py-8">
       <div className="container mx-auto px-4">
         {/* Title */}
         <div className="text-center mb-12">

@@ -38,18 +38,6 @@ const Index = () => {
       <ToolsYouWillMaster/>
       <PlacedStudentsCarousel/>
       <TrackRecordSection/>
-
-      {/* <CourseHighlightsIndex /> */}
-      {/* <CtaDigitalMarketing /> */}
-      {/* <OfflineSection /> */}
-      
-      {/* <WhyIDS/>  */}
-    
-      
-      {/* <StatsSection /> */}
-      {/* <TestimonialSection /> */}
-      {/* <SalaryReport/> */}
-      
       <CompanySlider/>
         <CertificationSection />
     <IDSComparison/>
@@ -64,7 +52,7 @@ const Index = () => {
        <FAQHighlight/>
        <GallerySection/>
       <Footer />
-      <Chatbot />
+      {/* <Chatbot /> */}
        <SignInModal />
     </div>
   );

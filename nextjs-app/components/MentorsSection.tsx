@@ -46,41 +46,7 @@ const mentors: Mentor[] = [
     avatar: "/mentors/mohona.jpg",
     logo: "/logos/mondelez.svg",
   },
-  {
-    name: "Pankaj Yadav",
-    role: "Sr. Category Manager",
-    company: "Amazon",
-    avatar: "/mentors/pankaj.jpg",
-    logo: "/logos/amazon.svg",
-  },
-  {
-    name: "Aalekh Tripathi",
-    role: "Ex. Marketing Manager",
-    company: "Love Beauty & Planet",
-    avatar: "/mentors/aalekh.jpg",
-    logo: "/logos/lovebeauty.svg",
-  },
-  {
-    name: "Tarun Jyot Singh",
-    role: "Founder",
-    company: "1DigitalStack",
-    avatar: "/mentors/tarun.jpg",
-    logo: "/logos/1digitalstack.svg",
-  },
-  {
-    name: "Ankur Devpura",
-    role: "Ex. eCommerce Head",
-    company: "GSK",
-    avatar: "/mentors/ankur.jpg",
-    logo: "/logos/gsk.svg",
-  },
-  {
-    name: "Sriram G",
-    role: "Strategy Head",
-    company: "Whole Truth",
-    avatar: "/mentors/sriram.jpg",
-    logo: "/logos/wholetruth.svg",
-  },
+  
 ];
 
 export default function MentorsSection() {

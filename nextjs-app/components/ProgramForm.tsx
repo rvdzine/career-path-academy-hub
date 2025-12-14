@@ -1,131 +1,135 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function ProgramForm() {
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("working");
 
   return (
-    <section className="w-full bg-black text-white py-20 px-6 md:px-12 lg:px-20">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+    <section className="w-full bg-[#FFF9F9] py-12 sm:py-16 lg:py-20 px-4 sm:px-6 md:px-10 lg:px-20">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-        {/* LEFT SIDE TEXT */}
-        <div className="space-y-6">
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            Want to know more about <br /> the Program?
-          </h2>
-
-          <p className="text-gray-300 text-lg leading-relaxed">
-            Fill out the form below and our counselors will contact <br /> you within 24 hours
-          </p>
+        {/* LEFT ILLUSTRATION */}
+        <div className="flex justify-center order-1 lg:order-none">
+          <Image
+            src="/svg/illustration.svg"
+            alt="Program Illustration"
+            width={480}
+            height={420}
+            className="w-full max-w-xs sm:max-w-sm md:max-w-md"
+            priority
+          />
         </div>
 
-        {/* RIGHT SIDE FORM */}
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* RIGHT FORM CONTENT */}
+        <div className="order-2 lg:order-none">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-3">
+            Want to know more about the <br className="hidden sm:block" /> Program?
+          </h2>
 
-          {/* First Name */}
-          <div className="col-span-1">
-            <label className="text-sm mb-2 block">First name</label>
-            <input
-              type="text"
-              placeholder="Enter First Name"
-              className="w-full bg-[#1a1a1a] border border-red-500/30 text-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-red-500"
-            />
-          </div>
+          <p className="text-sm sm:text-base text-gray-600 mb-8 sm:mb-10">
+            Fill out the form below and our counselors will contact you within
+            24 hours
+          </p>
 
-          {/* Last Name */}
-          <div className="col-span-1">
-            <label className="text-sm mb-2 block">Last name</label>
-            <input
-              type="text"
-              placeholder="Enter Last Name"
-              className="w-full bg-[#1a1a1a] border border-red-500/30 text-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-red-500"
-            />
-          </div>
+          <form className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
 
-          {/* Email */}
-          <div className="col-span-1">
-            <label className="text-sm mb-2 block">Email Address</label>
-            <input
-              type="email"
-              placeholder="Enter email address"
-              className="w-full bg-[#1a1a1a] border border-red-500/30 text-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-red-500"
-            />
-          </div>
-
-          {/* Mobile Number */}
-          <div className="col-span-1">
-            <label className="text-sm mb-2 block">Mobile Number</label>
-            <input
-              type="number"
-              placeholder="Enter mobile number"
-              className="w-full bg-[#1a1a1a] border border-red-500/30 text-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-red-500"
-            />
-          </div>
-
-          {/* Course */}
-          <div className="col-span-1">
-            <label className="text-sm mb-2 block">Interested Course</label>
-            <select
-              className="w-full bg-[#1a1a1a] border border-red-500/30 text-gray-300 rounded-full px-5 py-3 focus:outline-none focus:border-red-500"
-            >
-              <option>Select your course</option>
-              <option>Digital Marketing</option>
-              <option>Web Development</option>
-              <option>UI/UX</option>
-            </select>
-          </div>
-
-          {/* Message */}
-          <div className="col-span-1">
-            <label className="text-sm mb-2 block">Message (Optional)</label>
-            <input
-              type="text"
-              placeholder="Tell us about your career goals or any…"
-              className="w-full bg-[#1a1a1a] border border-red-500/30 text-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-red-500"
-            />
-          </div>
-
-          {/* ROLE SECTION */}
-          <div className="col-span-2 mt-4">
-            <label className="text-sm block mb-2">Select Role</label>
-
-            <div className="flex items-center gap-10 mt-2">
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="radio"
-                  name="role"
-                  value="professional"
-                  onChange={(e) => setRole(e.target.value)}
-                  className="accent-red-500 w-4 h-4"
-                />
-                <span className="text-gray-300">Working Professional</span>
+            {/* Name */}
+            <div>
+              <label className="text-sm text-gray-700 mb-1 block">
+                Enter your name
               </label>
-
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="radio"
-                  name="role"
-                  value="student"
-                  onChange={(e) => setRole(e.target.value)}
-                  className="accent-red-500 w-4 h-4"
-                />
-                <span className="text-gray-300">Student</span>
-              </label>
+              <input
+                type="text"
+                placeholder="Full Name"
+                className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-red-500"
+              />
             </div>
-          </div>
 
-          {/* SUBMIT */}
-          <div className="col-span-2">
-            <button
-              type="submit"
-              className="bg-red-600 hover:bg-red-700 transition-all text-white rounded-full w-full md:w-40 py-3 text-lg font-medium"
-            >
-              Submit
-            </button>
-          </div>
+            {/* Mobile */}
+            <div>
+              <label className="text-sm text-gray-700 mb-1 block">
+                Your Mobile No.
+              </label>
+              <input
+                type="tel"
+                placeholder="+91 -"
+                className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-red-500"
+              />
+            </div>
 
-        </form>
+            {/* Email */}
+            <div>
+              <label className="text-sm text-gray-700 mb-1 block">
+                Your Email Id
+              </label>
+              <input
+                type="email"
+                placeholder="abc@abc.com"
+                className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-red-500"
+              />
+            </div>
+
+            {/* Course */}
+            <div>
+              <label className="text-sm text-gray-700 mb-1 block">
+                Interested Course For
+              </label>
+              <select className="w-full border border-gray-300 rounded-md px-4 py-3 text-sm text-gray-600 focus:outline-none focus:border-red-500">
+                <option>Select</option>
+                <option>Master in Digital Marketing</option>
+                <option>Digital Marketing Specialist</option>
+                <option>Best Digital Marketing Course for Business Owners</option>
+                <option>Customised Course in Digital Marketing</option>
+              </select>
+            </div>
+
+            {/* Role */}
+            <div className="sm:col-span-2 mt-2">
+              <label className="text-sm text-gray-700 block mb-3">
+                You are a
+              </label>
+
+              <div className="flex flex-wrap gap-4 sm:gap-6">
+                {[
+                  { label: "Working Professional", value: "working" },
+                  { label: "Business Owner", value: "business" },
+                  { label: "Student", value: "student" },
+                  { label: "Other", value: "other" },
+                ].map((item) => (
+                  <label
+                    key={item.value}
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
+                    <input
+                      type="radio"
+                      name="role"
+                      value={item.value}
+                      checked={role === item.value}
+                      onChange={(e) => setRole(e.target.value)}
+                      className="accent-red-500"
+                    />
+                    <span className="text-gray-700 text-sm">
+                      {item.label}
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Submit */}
+            <div className="sm:col-span-2 mt-6 flex justify-center sm:justify-start">
+              <button
+                type="submit"
+                className="bg-red-500 hover:bg-red-600 text-white px-10 sm:px-12 py-3 rounded-full text-sm sm:text-base font-medium transition"
+              >
+                Submit
+              </button>
+            </div>
+
+          </form>
+        </div>
       </div>
     </section>
   );
