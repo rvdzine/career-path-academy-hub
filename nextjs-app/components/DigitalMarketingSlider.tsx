@@ -8,42 +8,67 @@ type Card = {
   description: string;
   bg: string;
   textColor: string;
+  image: string;
 };
+
 
 const cards: Card[] = [
   {
     title: "Learn From Digital Marketing Professionals",
     strike: "NOT Theory-Driven Academics",
     description:
-      "Get trained by experts who run real campaigns, manage real budgets, and drive real results across SEO, ads, content, automation, and analytics.",
+      "Trained by professionals who run real campaigns and deliver results.",
     bg: "bg-gradient-to-br from-[#2b2b2b] to-[#111]",
     textColor: "text-white",
+    image: "/svg/Frame 5434.svg",
   },
   {
     title: "Master Proven Digital Marketing Frameworks",
     strike: "NOT Outdated Marketing Concepts",
     description:
-      "Learn growth frameworks, funnels, and performance strategies used by top agencies to scale campaigns with precision.",
+      "Learn modern strategies and funnels used by top marketing teams.",
     bg: "bg-[#ffe1dc]",
     textColor: "text-black",
+    image: "/svg/Frame 5435.svg",
   },
   {
-    title: "Learn By Doing",
-    strike: "NOT Weak Assignments",
+    title: "Learn By Executing Real Campaigns",
+    strike: "NOT Watching Recorded Lectures",
     description:
-      "Work on real-world projects, live campaigns, and case studies that help you build a strong portfolio.",
+      "Build skills by working on live campaigns and marketing projects.",
     bg: "bg-gradient-to-br from-[#3a3a3a] to-[#1a1a1a]",
     textColor: "text-white",
+    image: "/svg/Frame 5436.svg",
   },
-   {
-    title: "Learn By Doing",
-    strike: "NOT Weak Assignments",
+  {
+    title: "Data-Driven Performance Feedback",
+    strike: "NOT Basic Exam Scores",
     description:
-      "Work on real-world projects, live campaigns, and case studies that help you build a strong portfolio.",
-    bg: "bg-gradient-to-br from-[#3a3a3a] to-[#1a1a1a]",
+      "Improve with insights based on real performance metrics.",
+    bg: "bg-[#ffe1dc]",
+    textColor: "text-black",
+    image: "/svg/Frame 5437.svg",
+  },
+  {
+    title: "Industry Tools & Platforms Training",
+    strike: "NOT Just Theoretical Notes",
+    description:
+      "Hands-on experience with leading marketing tools & platforms.",
+    bg: "bg-gradient-to-br from-[#2b2b2b] to-[#111]",
     textColor: "text-white",
+    image: "/svg/Frame 5438.svg",
+  },
+  {
+    title: "Career Support & Real-World Mentorship",
+    strike: "NOT Generic Guidance Sessions",
+    description:
+      "Get guidance to build confidence and grow your digital career.",
+    bg: "bg-[#ffe1dc]",
+    textColor: "text-black",
+    image: "/svg/Frame 5439.svg",
   },
 ];
+
 
 export default function DigitalMarketingCards() {
   const [index, setIndex] = useState(0);
@@ -103,23 +128,36 @@ export default function DigitalMarketingCards() {
                 className="w-full flex-shrink-0 px-4 md:w-2/3 lg:w-1/3"
               >
                 <div
-                  className={`h-[360px] md:h-[400px] p-8 rounded-3xl flex flex-col justify-between ${card.bg} ${card.textColor}`}
-                >
-                  <div>
-                    <h3 className="text-2xl font-bold mb-3">
-                      {card.title}
-                    </h3>
+  className={`relative h-[380px] md:h-[420px] p-8 rounded-3xl overflow-hidden ${card.bg} ${card.textColor}`}
+>
+  {/* Text Content */}
+  <div className="relative z-10">
+    <h3 className="text-2xl font-bold mb-3 leading-snug">
+      {card.title}
+    </h3>
 
-                    <p className="line-through decoration-red-500 font-semibold mb-4">
-                      {card.strike}
-                    </p>
+    <p className="text-sm line-through decoration-red-500 font-semibold mb-4">
+      {card.strike}
+    </p>
 
-                    <p className="text-sm leading-relaxed opacity-90">
-                      {card.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
+    <p className="text-sm leading-relaxed opacity-90 max-w-[90%]">
+      {card.description}
+    </p>
+  </div>
+
+  {/* Image — BIG & BOTTOM-ALIGNED */}
+  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full flex justify-center">
+    <img
+      src={card.image}
+      alt={card.title}
+      className="h-[200px] md:h-[240px] object-contain"
+    />
+  </div>
+</div>
+
+
+            </div>
+             
             ))}
           </div>
         </div>
