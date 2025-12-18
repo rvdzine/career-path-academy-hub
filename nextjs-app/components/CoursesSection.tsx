@@ -28,53 +28,47 @@ type TabType = (typeof tabs)[number];
 
 const courseData: Record<TabType, any> = {
   "Master Course": {
-    tag: "AI Powered",
+    tag: "AI Driven",
     id: "master-in-digital-marketing-course",
     title: "Master in Digital Marketing Course at Insitute of Digital Studies",
     animation: courseAnimation1,
     duration: "6 Months",
-    mode: "Online / Offline",
+    mode: "Off/Online",
     badge:  "Hinglish",
     salary: "₹8.5 LPA",
-    skills: [
-        "SEO","Digital Marketing","AI in Marketing","Social Media Marketing","Content Strategy",
-        "Analytical & Technical Skills","Paid Advertising (PPC)","Content & Creative Skills",
-        "Growth & Strategy","E-commerce & Specialised",
-    ],
+    internship: "3 Months",
+    content: 
+        "Our 6-Month Digital Marketing Course with 100% Internship provides hands-on experience in SEO, SEM, social media, content marketing, and more, along with a guaranteed internship to kickstart your career.",
     certification: "Certification",
     projects: "10+ Live Projects",
   },
   "Specialist Course": {
-    tag: "Advanced",
+    tag: "AI Driven",
     id: "specialist-in-digital-marketing",
     title: "Digital Marketing Specialist Course at Insitute of Digital Studies",
     animation: courseAnimation2,
     duration: "3 Months",
-    mode: "Online / Offline",
+    mode: "Off/Online",
     badge:  "Hinglish",
     salary: "₹6.2 LPA",
-    skills: [
-        "SEO","Digital Marketing","AI in Marketing","Social Media Marketing","Content Strategy",
-        "Analytical & Technical Skills","Paid Advertising (PPC)","Content & Creative Skills",
-        "Growth & Strategy","E-commerce & Specialised",
-    ],
+    content: 
+        "Our Digital Marketing Specialist Course (3 months) offers in-depth training on SEO, SEM, social media marketing, content strategy, PPC, email campaigns, and analytics, preparing you to become an industry expert with Live Project Training.",
+    
     certification: "Certification",
     projects: "5+ Live Projects",
   },
   "Custom Course": {
-    tag: "Personalized",
+    tag: "AI Driven",
     id: "customised-digital-marketing",
     title: "Customised Course in Digital Marketing",
     animation: courseAnimation3,
     duration: "Customised Timeline",
-    mode: "Online / Offline",
+    mode: "Off/Online",
     badge:  "Hinglish/English",
     salary: "Depends on Skills",
-    skills: [
-        "SEO","Digital Marketing","AI in Marketing","Social Media Marketing","Content Strategy",
-        "Analytical & Technical Skills","Paid Advertising (PPC)","Content & Creative Skills",
-        "Growth & Strategy","E-commerce & Specialised",
-    ],
+    content: 
+        "Our Customized - Digital Marketing Course According to Your Needs offers personalized coaching tailored to you according to your needs SEO, social media, PPC, content strategies, and more to drive growth and success.",
+    
     certification: "Certification",
     projects: "Custom Projects",
   },
@@ -84,14 +78,10 @@ const courseData: Record<TabType, any> = {
     title: "Best Digital Marketing Course for Business Owners",
     animation: courseAnimation4,
     duration: "Customised Timeline",
-    mode: "Online / Offline",
+    mode: "Online (1:1)",
     badge:  "Hinglish/English",
-    salary: "₹7.5 LPA",
-    skills: [
-        "SEO","Digital Marketing","AI in Marketing","Social Media Marketing","Content Strategy",
-        "Analytical & Technical Skills","Paid Advertising (PPC)","Content & Creative Skills",
-        "Growth & Strategy","E-commerce & Specialised",
-    ],
+    content: 
+        "Our 1:1 Digital Marketing Course for Business Owners offers personalized coaching tailored to your business needs, covering SEO, social media, PPC, content strategies, and more to drive growth and success.",
     certification: "Certification",
     projects: "10+ Live Projects",
   },
@@ -110,9 +100,6 @@ const CoursesSection: React.FC = () => {
 
   return (
     <section className="w-full max-w-[1250px] mx-auto py-16 relative">
-
-      
-
       <div className="relative z-10 px-4">
 
         {/* Heading */}
@@ -142,8 +129,8 @@ const CoursesSection: React.FC = () => {
 
         {/* Course Card */}
         <div className="bg-white border-[0.5px] border-gray-300 rounded-2xl shadow-lg flex flex-col md:flex-row overflow-hidden p-6 md:p-8">
-
           
+          {/* Left Animation */}
           <div className="w-full md:w-[45%] h-[260px] md:h-auto flex items-center justify-center rounded-xl bg-[#FFF5F5]">
             <Lottie
                animationData={data.animation}
@@ -151,7 +138,6 @@ const CoursesSection: React.FC = () => {
                autoplay
                className="w-full h-full max-h-[460px]" />
           </div>
-
 
           {/* Right Content */}
           <div className="md:w-[55%] md:pl-8 mt-6 md:mt-0 flex flex-col justify-between">
@@ -166,38 +152,74 @@ const CoursesSection: React.FC = () => {
 
             {/* Badges */}
             <div className="flex flex-wrap gap-2 mb-4">
-              {/* <Badge><img src={chimg1} className="w-4 h-4 rounded-full" /> {data.duration}</Badge> */}
-              {/* <Badge><img src={chimg2} className="w-4 h-4 rounded-full"  /> {data.mode}</Badge> */}
               <Badge><img src={chimg6} className="w-4 h-4 rounded-full" /> {data.certification}</Badge>
               <Badge><img src={chimg4} className="w-4 h-4 rounded-full" /> {data.projects}</Badge>
               <Badge><img src={chimg3} className="w-5 h-5 rounded-full" /> {data.badge}</Badge>
             </div>
 
-             {/* Skills */}
-                <div className="mt-4">
-                  <p className="text-sm font-semibold text-gray-700">Skills you learn:</p>
-                  <p className="text-[12px] sm:text-sm text-gray-600">{data.skills.join(", ")}</p>
-                </div>
-
-            {/* Description */}
-            <p className="text-gray-600 text-sm mb-4">{data.description}</p>
+            {/* Skills */}
+            <div className="mt-4">
+              <p className="text-[12px] sm:text-sm text-gray-600">{data.content}</p>
+            </div>
 
             {/* Info Boxes */}
-            <div className="grid grid-cols-3 gap-4 my-4">
-              <div className="border rounded-lg p-3 text-center">
-                <p className="text-sm text-gray-500">Duration</p>
-                <p className="font-bold">{data.duration}</p>
-              </div>
+            <div className={`grid gap-4 my-4 ${activeTab === "Master Course" ? "grid-cols-4" : activeTab === "Business Owner" ? "grid-cols-2" : "grid-cols-3"}`}>
+              {activeTab === "Master Course" && (
+                <>
+                  <div className="border rounded-lg p-3 text-center">
+                    <p className="text-sm text-gray-500">Duration</p>
+                    <p className="font-bold">{data.duration}</p>
+                  </div>
 
-              <div className="border rounded-lg p-3 text-center">
-                <p className="text-sm text-gray-500">Mode</p>
-                <p className="font-bold">{data.mode}</p>
-              </div>
+                  <div className="border rounded-lg p-3 text-center">
+                    <p className="text-sm text-gray-500">Mode</p>
+                    <p className="font-bold">{data.mode}</p>
+                  </div>
 
-              <div className="border rounded-lg p-3 text-center">
-                <p className="text-sm text-gray-500">Avg Salary</p>
-                <p className="font-bold">{data.salary}</p>
-              </div>
+                  <div className="border rounded-lg p-3 text-center">
+                    <p className="text-sm text-gray-500">Avg Salary</p>
+                    <p className="font-bold">{data.salary}</p>
+                  </div>
+
+                  <div className="border rounded-lg p-3 text-center">
+                    <p className="text-sm text-gray-500">Internship</p>
+                    <p className="font-bold">{data.internship}</p>
+                  </div>
+                </>
+              )}
+
+              {activeTab === "Business Owner" && (
+                <>
+                  <div className="border rounded-lg p-3 text-center">
+                    <p className="text-sm text-gray-500">Duration</p>
+                    <p className="font-bold">{data.duration}</p>
+                  </div>
+
+                  <div className="border rounded-lg p-3 text-center">
+                    <p className="text-sm text-gray-500">Mode</p>
+                    <p className="font-bold">{data.mode}</p>
+                  </div>
+                </>
+              )}
+
+              {activeTab !== "Master Course" && activeTab !== "Business Owner" && (
+                <>
+                  <div className="border rounded-lg p-3 text-center">
+                    <p className="text-sm text-gray-500">Duration</p>
+                    <p className="font-bold">{data.duration}</p>
+                  </div>
+
+                  <div className="border rounded-lg p-3 text-center">
+                    <p className="text-sm text-gray-500">Mode</p>
+                    <p className="font-bold">{data.mode}</p>
+                  </div>
+
+                  <div className="border rounded-lg p-3 text-center">
+                    <p className="text-sm text-gray-500">Avg Salary</p>
+                    <p className="font-bold">{data.salary}</p>
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Buttons */}
@@ -214,13 +236,11 @@ const CoursesSection: React.FC = () => {
              </EnrollmentDialog>
             </div>
 
-
             <p className="text-xs text-gray-500 mt-3">
               <b>150+</b> Students enrolled last week
             </p>
           </div>
         </div>
-
       </div>
     </section>
   );

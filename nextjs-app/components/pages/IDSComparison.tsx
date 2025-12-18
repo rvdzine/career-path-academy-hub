@@ -6,6 +6,7 @@ import {
   Users,
   ClipboardList,
   Briefcase,
+  Check,
 } from "lucide-react";
 
 const rows = [
@@ -91,11 +92,12 @@ export default function IDSComparison() {
 
               {/* IDS ADVANTAGE */}
               <div className="col-span-5 bg-[#2b2b2b] text-white px-8 py-8 flex items-center">
-                <div>
-                  <h4 className="font-semibold text-lg">
+                <div className="flex flex-col gap-1">
+                  <h4 className="font-semibold text-lg flex items-center gap-2">
+                    <Check className="w-5 h-5 text-green-500" />
                     {row.idsTitle}
                   </h4>
-                  <p className="text-gray-300 mt-1 text-sm">
+                  <p className="text-gray-300 mt-1 text-sm ml-[26px]">
                     {row.idsDesc}
                   </p>
                 </div>

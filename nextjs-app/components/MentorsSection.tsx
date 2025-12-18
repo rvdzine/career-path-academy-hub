@@ -12,43 +12,43 @@ type Mentor = {
 };
 
 const mentors: Mentor[] = [
-  {
-    name: "Avik Bhandari",
-    role: "Ex. Senior Director",
-    company: "Meesho",
-    avatar: "/mentors/avik.jpg",
-    logo: "/logos/meesho.svg",
-  },
+  // {
+  //   name: "Avik Bhandari",
+  //   role: "Ex. Senior Director",
+  //   company: "Meesho",
+  //   avatar: "/mentors/avik.jpg",
+  //   logo: "/logos/meesho.svg",
+  // },
   {
     name: "Ravi Verma",
     role: "Ex. Strategist Principal",
     experience: "12+ years",
     company: "Physics Wallah",
     avatar: "/assets/Ravi.jpg",
-    logo: "/assets/pw.jpg",
+    logo: "/assets/pw.png",
   },
   {
     name: "Sweta Kushwaha",
-    role: "Ex. Marketing Director",
+    role: "Ex. Sr.Marketing Manager",
     experience: "8+ years",
     company: "Amazon",
     avatar: "/assets/sweta.jpg",
     logo: "/assets/amazon.jpg",
   },
-  {
-    name: "Arun A",
-    role: "Ex. Sr. PM Digital Commerce",
-    company: "Unilever",
-    avatar: "/mentors/arun.jpg",
-    logo: "/logos/unilever.svg",
-  },
-  {
-    name: "Mohona Dey",
-    role: "Revenue Growth Mgmt.",
-    company: "Mondelez",
-    avatar: "/mentors/mohona.jpg",
-    logo: "/logos/mondelez.svg",
-  },
+  // {
+  //   name: "Arun A",
+  //   role: "Ex. Sr. PM Digital Commerce",
+  //   company: "Unilever",
+  //   avatar: "/mentors/arun.jpg",
+  //   logo: "/logos/unilever.svg",
+  // },
+  // {
+  //   name: "Mohona Dey",
+  //   role: "Revenue Growth Mgmt.",
+  //   company: "Mondelez",
+  //   avatar: "/mentors/mohona.jpg",
+  //   logo: "/logos/mondelez.svg",
+  // },
   
 ];
 
@@ -64,7 +64,7 @@ export default function MentorsSection() {
           brand, and tech industries.
         </p>
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 ">
           {mentors.map((mentor, idx) => (
             <div
               key={idx}
