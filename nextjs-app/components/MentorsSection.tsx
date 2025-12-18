@@ -6,6 +6,7 @@ type Mentor = {
   name: string;
   role: string;
   company?: string;
+  experience?: string;
   avatar: string;
   logo: string;
 };
@@ -19,18 +20,20 @@ const mentors: Mentor[] = [
     logo: "/logos/meesho.svg",
   },
   {
-    name: "Madhuvanthi S",
-    role: "Strategy Principal",
-    company: "Mamaearth",
-    avatar: "/mentors/madhuvanthi.jpg",
-    logo: "/logos/mamaearth.svg",
+    name: "Ravi Verma",
+    role: "Ex. Strategist Principal",
+    experience: "12+ years",
+    company: "Physics Wallah",
+    avatar: "/assets/Ravi.jpg",
+    logo: "/assets/pw.jpg",
   },
   {
-    name: "Karan Bhagi",
+    name: "Sweta Kushwaha",
     role: "Ex. Marketing Director",
-    company: "Surf Excel",
-    avatar: "/mentors/karan.jpg",
-    logo: "/logos/surf.svg",
+    experience: "8+ years",
+    company: "Amazon",
+    avatar: "/assets/sweta.jpg",
+    logo: "/assets/amazon.jpg",
   },
   {
     name: "Arun A",
@@ -82,6 +85,9 @@ export default function MentorsSection() {
 
               <p className="text-[#EA2525] text-sm font-medium mt-1">
                 {mentor.role}
+              </p>
+              <p className="text-gray-700 text-sm font-normal mt-1">
+                {mentor.experience}
               </p>
 
               <div className="mt-4 h-8 relative w-full">

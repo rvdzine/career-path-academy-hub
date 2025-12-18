@@ -128,32 +128,52 @@ export default function DigitalMarketingCards() {
                 className="w-full flex-shrink-0 px-4 md:w-2/3 lg:w-1/3"
               >
                 <div
-  className={`relative h-[380px] md:h-[420px] p-8 rounded-3xl overflow-hidden ${card.bg} ${card.textColor}`}
+  className={`relative h-[340px] sm:h-[360px] md:h-[420px] p-6 sm:p-8 rounded-3xl overflow-hidden ${card.bg} ${card.textColor}`}
 >
   {/* Text Content */}
   <div className="relative z-10">
-    <h3 className="text-2xl font-bold mb-3 leading-snug">
+    <h3 className="text-xl sm:text-2xl font-bold mb-3 leading-snug">
       {card.title}
     </h3>
 
-    <p className="text-sm line-through decoration-red-500 font-semibold mb-4">
+    <p className="text-sm line-through decoration-red-500 font-semibold mb-3">
       {card.strike}
     </p>
 
-    <p className="text-sm leading-relaxed opacity-90 max-w-[90%]">
+    <p className="text-sm leading-relaxed opacity-90 max-w-full sm:max-w-[90%]">
       {card.description}
     </p>
   </div>
 
-  {/* Image — BIG & BOTTOM-ALIGNED */}
-  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full flex justify-center">
+  {/* Image — RESPONSIVE */}
+  <div
+    className="
+      absolute
+      bottom-0
+      left-1/2
+      -translate-x-1/2
+      w-full
+      flex
+      justify-center
+      pointer-events-none
+    "
+  >
     <img
       src={card.image}
       alt={card.title}
-      className="h-[200px] md:h-[240px] object-contain"
+      className="
+        w-[80%]
+        sm:w-[75%]
+        md:w-auto
+        h-[140px]
+        sm:h-[170px]
+        md:h-[240px]
+        object-contain
+      "
     />
   </div>
 </div>
+
 
 
             </div>

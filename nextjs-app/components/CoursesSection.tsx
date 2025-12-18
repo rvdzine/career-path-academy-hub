@@ -4,15 +4,13 @@ import Image from "next/image";
 import { useState } from "react";
 import React from "react";
 import Link from "next/link";
-import EnrollmentDialog from "@/components/EnrollmentDialog";
+import Lottie from "lottie-react";
+import courseAnimation1 from "@/public/assets/Animations/1.1.json";
+import courseAnimation2 from "@/public/assets/Animations/2.json";
+import courseAnimation3 from "@/public/assets/Animations/3.json";
+import courseAnimation4 from "@/public/assets/Animations/4.json"; 
 
-// Course Images
-import FDM1 from "@/components/assets/FDM1.png";
-import SDM2 from "@/components/assets/SDM2.png";
-import MDM3 from "@/components/assets/MDM3.png";
-import BODM4 from "@/components/assets/BODM4.png";
-import DDM5 from "@/components/assets/DDM5.png";
-import DIPDM6 from "@/components/assets/DIPDM6.png";
+import EnrollmentDialog from "@/components/EnrollmentDialog";
 
 // const patternimg="/assets/bg-pattern.png";
 
@@ -33,7 +31,7 @@ const courseData: Record<TabType, any> = {
     tag: "AI Powered",
     id: "master-in-digital-marketing-course",
     title: "Master in Digital Marketing Course at Insitute of Digital Studies",
-    image: MDM3,
+    animation: courseAnimation1,
     duration: "6 Months",
     mode: "Online / Offline",
     badge:  "Hinglish",
@@ -50,7 +48,7 @@ const courseData: Record<TabType, any> = {
     tag: "Advanced",
     id: "specialist-in-digital-marketing",
     title: "Digital Marketing Specialist Course at Insitute of Digital Studies",
-    image: SDM2,
+    animation: courseAnimation2,
     duration: "3 Months",
     mode: "Online / Offline",
     badge:  "Hinglish",
@@ -67,7 +65,7 @@ const courseData: Record<TabType, any> = {
     tag: "Personalized",
     id: "customised-digital-marketing",
     title: "Customised Course in Digital Marketing",
-    image: DIPDM6,
+    animation: courseAnimation3,
     duration: "Customised Timeline",
     mode: "Online / Offline",
     badge:  "Hinglish/English",
@@ -84,7 +82,7 @@ const courseData: Record<TabType, any> = {
     tag: "AI Driven",
     id: "digital-marketing-course-for-business-owners",
     title: "Best Digital Marketing Course for Business Owners",
-    image: BODM4,
+    animation: courseAnimation4,
     duration: "Customised Timeline",
     mode: "Online / Offline",
     badge:  "Hinglish/English",
@@ -113,10 +111,7 @@ const CoursesSection: React.FC = () => {
   return (
     <section className="w-full max-w-[1250px] mx-auto py-16 relative">
 
-      {/* Background Pattern */}
-      {/* <div className="absolute inset-0 opacity-80 pointer-events-none">
-        <Image src={patternimg} alt="pattern" fill className="object-cover object-cover w-full h-full" />
-      </div> */}
+      
 
       <div className="relative z-10 px-4">
 
@@ -148,10 +143,15 @@ const CoursesSection: React.FC = () => {
         {/* Course Card */}
         <div className="bg-white border-[0.5px] border-gray-300 rounded-2xl shadow-lg flex flex-col md:flex-row overflow-hidden p-6 md:p-8">
 
-          {/* Left Image */}
-          <div className="w-full md:w-[45%] h-60 md:h-auto relative rounded-xl overflow-hidden">
-            <Image src={data.image} alt={data.title} fill className="object-cover" />
+          
+          <div className="w-full md:w-[45%] h-[260px] md:h-auto flex items-center justify-center rounded-xl bg-[#FFF5F5]">
+            <Lottie
+               animationData={data.animation}
+               loop
+               autoplay
+               className="w-full h-full max-h-[460px]" />
           </div>
+
 
           {/* Right Content */}
           <div className="md:w-[55%] md:pl-8 mt-6 md:mt-0 flex flex-col justify-between">
