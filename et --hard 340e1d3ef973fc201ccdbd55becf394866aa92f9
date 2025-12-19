@@ -1,0 +1,243 @@
+[33mcommit 6332dbe68007c86b4ec1356a2f6f4cdc5b0dcbd2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32msumit/dev[m[33m, [m[1;31morigin/sumit/dev[m[33m)[m
+Author: Sumit Mishra <122989395+sumitmishra84@users.noreply.github.com>
+Date:   Thu Nov 20 22:47:50 2025 +0530
+
+    Add Blog page and CourseTable component
+
+[33mcommit 7cfe8e74bbc3c86a86fc1b5d80b3f623d52c7040[m
+Author: Sumit Mishra <122989395+sumitmishra84@users.noreply.github.com>
+Date:   Wed Nov 19 13:22:20 2025 +0530
+
+    city page
+
+[33mcommit 340e1d3ef973fc201ccdbd55becf394866aa92f9[m
+Author: anmolSoni02 <anmol.soni@vitraya.com>
+Date:   Tue Nov 18 16:41:47 2025 +0530
+
+    Adding 3 blogs - 18th nov 2025
+
+[33mcommit 12c22ef95d12ab6947e9dfe7f45fbec1ea4aee88[m
+Author: anmolSoni02 <anmol.soni@vitraya.com>
+Date:   Tue Nov 18 00:27:33 2025 +0530
+
+    change course-choices from backend, remove unecessary lines in contact us, change the map fn to select-option fix
+
+[33mcommit 1a25ad40abc53b8d78af8e78919baafa272728a2[m
+Author: anmolSoni02 <anmol.soni@vitraya.com>
+Date:   Mon Nov 17 16:01:04 2025 +0530
+
+    add ids favicon and remove unecessary comments from blogpage
+
+[33mcommit 1df7055d8f7132d174308f7812af1df38ea7f2e8[m
+Author: anmolSoni02 <anmol.soni@vitraya.com>
+Date:   Mon Nov 17 14:28:19 2025 +0530
+
+    added 3 more blogs - 17th nov 2025
+
+[33mcommit 7122b7a5b1e3a5fcc971d2659d956c49c5377abe[m
+Author: anmolSoni02 <anmol.soni@vitraya.com>
+Date:   Sat Nov 15 04:43:52 2025 +0530
+
+    select center renamed to select courses in 5sec popup
+
+[33mcommit d637e70f7c07c469ae089ea1ed29d82336b6f486[m
+Author: tanishqsoni24 <tanishqsoni0309@gmail.com>
+Date:   Sat Nov 15 03:55:42 2025 +0530
+
+    bulk changes in IDS
+
+[33mcommit 2ab8eadce63e280e2a585931b776185a20e142f2[m
+Author: anmolSoni02 <anmol.soni@vitraya.com>
+Date:   Fri Nov 14 16:02:25 2025 +0530
+
+    change courses names from all dropdowns from Frontend and also update courses key from backend updations
+
+[33mcommit bfe44af5bc96c896f846f0202e9be921bdb3d8de[m
+Author: anmolSoni02 <anmol.soni@vitraya.com>
+Date:   Fri Nov 14 16:01:49 2025 +0530
+
+    change courses names from all dropdowns from Frontend and also update courses key from backend
+
+[33mcommit 5bc500e17cd831c68e998f7ede964f399d2f8170[m
+Merge: 63a8e9e a31abc6
+Author: Anmol Soni <103637964+Anmolsoni04@users.noreply.github.com>
+Date:   Thu Nov 13 22:31:45 2025 +0530
+
+    Merge pull request #19 from rvdzine/isha/devs
+    
+    Merged isha/devs to anmol/devs.
+
+[33mcommit a31abc615077097e58cc541e9b337871f6690833[m[33m ([m[1;31morigin/isha/devs[m[33m)[m
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Thu Nov 13 18:13:39 2025 +0530
+
+    change link from /ss to /SS fix the issue
+
+[33mcommit a2dae8fc12c187f029b39f99d348fab1ec4a3096[m
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Thu Nov 13 17:34:03 2025 +0530
+
+    gallery is added entirely more images can be added in future
+
+[33mcommit a80181bc6b4ac2ab15619d3fc6ee08a9dbeb305f[m
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Thu Nov 13 16:20:46 2025 +0530
+
+    made gallery section and modified signinmodal section
+
+[33mcommit 55c154ec831561747883a153feec1e02625ccf2f[m
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Wed Nov 12 22:38:29 2025 +0530
+
+    added popup modal at landing page
+
+[33mcommit 63a8e9e2be48a6f651477d7da2d500505b5ea9b4[m
+Merge: 217391b 1c88ad7
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Tue Nov 11 22:32:01 2025 +0530
+
+    Merge pull request #18 from rvdzine/isha/devs
+    
+    added other blog images in both blog &blog details
+
+[33mcommit 17b769b0c34286151246a15501a9769a5f491218[m
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Tue Nov 11 22:30:44 2025 +0530
+
+    made contact form
+
+[33mcommit 1c88ad7f57f8a5fe0d7ea4d4d5b0f907d5a2fec0[m
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Tue Nov 11 18:45:33 2025 +0530
+
+    added other blog images in both blog &blog details
+
+[33mcommit 217391bdc02fb0fffb5cfa08a6984de3dc735acc[m
+Merge: 7c658cb dd84aad
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Tue Nov 11 17:58:45 2025 +0530
+
+    Merge pull request #17 from rvdzine/isha/devs
+    
+    Isha/devs
+
+[33mcommit dd84aadb4f2beb1bac834a1a16f5a088b3c477c9[m
+Merge: d73bf0e 4525f1d
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Tue Nov 11 17:57:29 2025 +0530
+
+    Merge branch 'isha/devs' of https://github.com/rvdzine/career-path-academy-hub into isha/devs
+
+[33mcommit d73bf0e238b365ee5287cface48677ceae4e3df1[m
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Tue Nov 11 17:57:21 2025 +0530
+
+    fixed navbar
+
+[33mcommit 7c658cb3110775cd63fd21a65e408d3497cf59e0[m
+Merge: 2ed830c 4525f1d
+Author: Anmol Soni <103637964+Anmolsoni04@users.noreply.github.com>
+Date:   Tue Nov 11 15:26:59 2025 +0530
+
+    Merge pull request #16 from rvdzine/isha/devs
+    
+    Isha/devs
+
+[33mcommit 4525f1d0ff97547a395b3822ea4da3d76bb47aeb[m
+Merge: cdb0eb1 2ed830c
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Tue Nov 11 15:13:11 2025 +0530
+
+    Merge branch 'anmol/devs' into isha/devs
+
+[33mcommit cdb0eb1278d762a75105fb88a23ab38ecb56135e[m
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Tue Nov 11 15:09:40 2025 +0530
+
+    added images in blogdetails
+
+[33mcommit 8c5fb2dac00c67a0c73f541644948f112146a259[m
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Tue Nov 11 14:47:00 2025 +0530
+
+    added blog images fixed navbar and footer
+
+[33mcommit 2ed830c0308ba039d65f763a60dec67cbab3350c[m
+Author: anmolSoni02 <anmol.soni@vitraya.com>
+Date:   Tue Nov 11 13:13:11 2025 +0530
+
+    Add new 3 blogs with SEO
+
+[33mcommit 4e2ea1be675705beb406c536528bd875c88d2968[m
+Author: anmolSoni02 <anmol.soni@vitraya.com>
+Date:   Mon Nov 10 00:39:21 2025 +0530
+
+    add 3 new blogs with meta title, desc and slug
+
+[33mcommit 9aa478acb4ecb673633559e96fb2f96bffb91a89[m
+Author: anmolSoni02 <anmol.soni@vitraya.com>
+Date:   Sun Nov 9 22:11:40 2025 +0530
+
+    Add the AWS Backend API URL in all models
+
+[33mcommit be8a029a7ca1937cf247a85626d08b4647be2423[m
+Author: anmolSoni02 <anmol.soni@vitraya.com>
+Date:   Sat Nov 8 16:07:58 2025 +0530
+
+    remove descriptions from blog details
+
+[33mcommit 1f958eaac19db48e0b48a3cd3b535beea6d956b4[m
+Author: anmolSoni02 <anmol.soni@vitraya.com>
+Date:   Thu Nov 6 23:24:25 2025 +0530
+
+    update seo in all blogs
+
+[33mcommit 9007913973aa72c39fcd4d49eb174cf76788f44f[m
+Merge: 7c7a6a8 74799da
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Thu Nov 6 18:11:31 2025 +0530
+
+    Merge pull request #15 from rvdzine/isha/devs
+    
+    changed roles in placedstudent and sucessstories
+
+[33mcommit 74799dae0126a76bd019c89a757caa9a8d671e37[m
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Thu Nov 6 18:10:01 2025 +0530
+
+    changed roles in placedstudent and sucessstories
+
+[33mcommit 7c7a6a80283617cb7248287788773cb4a2474c96[m
+Merge: 8d84a29 43623b1
+Author: Anmol Soni <103637964+Anmolsoni04@users.noreply.github.com>
+Date:   Mon Nov 3 22:48:54 2025 +0530
+
+    Merge pull request #14 from rvdzine/isha/devs
+    
+    Good Fixes.
+
+[33mcommit 43623b10e70b93fbce13712bdf2f860201918602[m
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Mon Nov 3 22:39:21 2025 +0530
+
+    fixed courses file img
+
+[33mcommit 728f86c1d08c0d69ea181513ab96254fa600987c[m
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Mon Nov 3 22:22:43 2025 +0530
+
+    responsiveness in mobile version for success stories ,placed student file
+
+[33mcommit c5ab949dc6dcbdf13870e2979930566babc7c5b8[m
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Mon Nov 3 22:09:57 2025 +0530
+
+    added images in placedstudents also responsiveness of herosection
+
+[33mcommit c1f20af29cc686d9601d23c12c150b12db0447b0[m
+Author: ISHA VERMA <145704316+IsHa2507@users.noreply.github.com>
+Date:   Mon Nov 3 17:00:11 2025 +0530
+
+    pic updated in placed students
+
+[33mco
