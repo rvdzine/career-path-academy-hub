@@ -23,4 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
+# Next.js
+.next/
+nextjs-app/.next/
+
 idg_backend/staticfiles/
