@@ -5,10 +5,7 @@ const nextConfig = {
     unoptimized: false,
   },
   reactStrictMode: true,
+  trailingSlash: false,
 }
 
-const path = require('path');
-
-module.exports = {
-  outputFileTracingRoot: path.join(__dirname, '../'),
-};
+module.exports = nextConfig;
