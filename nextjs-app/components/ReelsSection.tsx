@@ -1,4 +1,5 @@
 "use client";
+import { Star } from "lucide-react";
 
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
@@ -9,9 +10,37 @@ const reels = [
     img: "/assets/Loveleen.jpg",
     video: "/videos/loveleen.mp4",
     rating: 5,
-    username: "esc.music",
-    date: "15/04/2021",
+    username: "Loveleen Sharma",
+    text: "This journey strengthened my skills to lead social media at Paytm.",
     logo: "/svg/Paytm.svg",
+    
+  },
+  {
+    img: "/assets/Bhumi.jpg",
+    video: "/videos/Bhumi.mp4",
+    rating: 5,
+    username: "Bhumi Gupta",
+    text: "Automation skills here helped me power campaigns at Razorpay.",
+    logo: "/svg/razorpay.svg",
+    
+  },
+  {
+    img: "/assets/Divya.png",
+    video: "/videos/Divya.mp4",
+    rating: 5,
+    username: "Divya Chaudhary",
+    text: "Content strategy training shaped me into a stronger brand storyteller.",
+    logo: "/svg/testbook.svg",
+    
+  },
+   {
+    img: "/assets/Isha Verma.jpeg",
+    video: "/videos/Isha .mp4",
+    rating: 5,
+    username: "Isha Verma",
+    text: "Real projects prepared me to run high-performing campaigns at Nykaa.",
+    logo: "/svg/Nykaa.svg",
+    
   },
 ];
 
@@ -42,8 +71,7 @@ export default function ReelsSection() {
           Hear from IDS Alumni
         </h2>
         <p className="text-gray-600 text-center mt-4 mb-10 max-w-3xl mx-auto text-lg">
-          Hear directly from our students how IDS&apos;s Programs have helped
-          them accelerate their professional journey.
+          Hear directly from our students how IDS&apos;s Programs have helped them accelerate their professional journey.
         </p>
 
         {/* Left Arrow */}
@@ -63,10 +91,11 @@ export default function ReelsSection() {
               key={index}
               className="relative w-[280px] h-[500px] flex-shrink-0 rounded-xl overflow-hidden shadow-lg bg-black"
             >
-              {/* Video */}
               {playingIndex === index ? (
                 <video
-                  ref={(el) => {videoRefs.current[index] = el}}
+                  ref={(el) => {
+                    videoRefs.current[index] = el;
+                  }}
                   src={item.video}
                   autoPlay
                   controls
@@ -74,20 +103,11 @@ export default function ReelsSection() {
                 />
               ) : (
                 <>
-                  {/* Background Image */}
-                  <Image
-                    src={item.img}
-                    alt="reel"
-                    fill
-                    className="object-cover"
-                  />
-
-                  {/* Dark Overlay */}
+                  <Image src={item.img} alt="reel" fill className="object-cover" />
                   <div className="absolute inset-0 bg-black/40"></div>
                 </>
               )}
 
-              {/* Play Button */}
               {playingIndex !== index && (
                 <div
                   onClick={() => setPlayingIndex(index)}
@@ -99,7 +119,6 @@ export default function ReelsSection() {
                 </div>
               )}
 
-              {/* Cancel Button */}
               {playingIndex === index && (
                 <button
                   onClick={() => stopVideo(index)}
@@ -109,20 +128,21 @@ export default function ReelsSection() {
                 </button>
               )}
 
-              {/* Bottom Info */}
+              {/* Bottom Section */}
               <div className="absolute bottom-0 w-full px-5 pb-4 pt-6 bg-gradient-to-t from-black/90 to-transparent text-white">
                 <div className="flex gap-1 text-yellow-400 mb-2">
-                  {Array(item.rating)
-                    .fill(0)
-                    .map((_, i) => (
-                      <span key={i}>⭐</span>
-                    ))}
-                </div>
+  {Array(item.rating)
+    .fill(0)
+    .map((_, i) => (
+      <Star key={i} size={18} fill="#facc15" stroke="#facc15" />
+    ))}
+</div>
+
 
                 <div className="flex justify-between items-center text-sm opacity-90">
                   <div>
-                    <p className="font-semibold">@{item.username}</p>
-                    <p className="opacity-80">{item.date}</p>
+                    <p className="font-semibold">{item.username}</p>
+                    <p className="opacity-80">{item.text}</p>
                   </div>
 
                   {item.logo && (
@@ -151,4 +171,3 @@ export default function ReelsSection() {
     </section>
   );
 }
- 

@@ -22,6 +22,10 @@ import MentorsSection from "@/components/MentorsSection";
 import ReelsSection from "@/components/ReelsSection";
 import CompanySlider from "@/components/CompanySlider";
 import ProgramForm from "@/components/ProgramForm";
+import CoursesSection from "../CoursesSection";
+import ToolsYouWillMaster from "../ToolMaster";
+import DigitalMarketingSlider from "../DigitalMarketingSlider";
+import IDSComparison from "./IDSComparison";
 // import WhyIDS from "@/components/whyids";
 
 const Index = () => {
@@ -29,29 +33,26 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <CourseHighlightsIndex />
-      {/* <CtaDigitalMarketing /> */}
-      {/* <OfflineSection /> */}
-      
-      <WhyIDS/> 
-      <CertificationSection />
+      <CoursesSection/>
+      <DigitalMarketingSlider/>
+      <ToolsYouWillMaster/>
       <PlacedStudentsCarousel/>
-      {/* <StatsSection /> */}
-      {/* <TestimonialSection /> */}
-      {/* <SalaryReport/> */}
       <TrackRecordSection/>
-    
+      <CompanySlider/>
+        <CertificationSection />
+    <IDSComparison/>
       <ReelsSection/>
-        <CompanySlider/>
+        
       <MentorsSection/>
      
      
-      <FAQHighlight/>
+      
       <ProgramForm/>
        <Blogs />
+       <FAQHighlight/>
        <GallerySection/>
       <Footer />
-      <Chatbot />
+      {/* <Chatbot /> */}
        <SignInModal />
     </div>
   );

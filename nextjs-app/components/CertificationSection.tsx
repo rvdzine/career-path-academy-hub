@@ -2,114 +2,104 @@
 
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Award, Shield, CheckCircle, Star } from "lucide-react";
-import WhyIDS from "./whyids";
 
 const CertificationSection = () => {
-  const certifications = [
-    {
-      name: "MSME Registered",
-      description: "Registered under Ministry of Micro, Small & Medium Enterprises",
-      icon: Shield,
-      color: "from-blue-500 to-blue-600",
-      badge: "Government Recognized",
-      image: "/assets/MSME_logo.jpg",
-    },
-    {
-      name: "Skill India (NSDC)",
-      description: "Affiliated with National Skill Development Corporation",
-      icon: Award,
-      color: "from-green-500 to-green-600",
-      badge: "NSDC Partner",
-      image: "/svg/logo_nsdc.svg",
-    },
-  ];
-
   return (
-    <section className="py-16 md:py-20 bg-gray-50">
-      <div className="max-w-[1300px] mx-auto px-6">
+    <section className="relative py-20 bg-white overflow-hidden">
 
-        {/* Heading */}
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-5xl font-bold text-black mb-4">
-            Government Recognized Certifications
-          </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
-            Our programs are affiliated with leading government bodies, ensuring your certification holds real value in the industry.
-          </p>
-        </div>
+      {/* GRID BACKGROUND */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(#EA252533 1px, transparent 1px),
+            linear-gradient(to right, #EA252533 1px, transparent 1px)
+          `,
+          backgroundSize: "44px 44px",
+          maskImage: "linear-gradient(to right, white 60%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to right, white 60%, transparent 100%)",
+        }}
+      />
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {certifications.map((cert, index) => (
-            <Card
-              key={index}
-              className="group hover:shadow-xl transition-all duration-500 border-0 shadow-md hover:-translate-y-2 rounded-2xl bg-white"
-            >
-              <CardContent className="p-6 md:p-8">
-                <div className="flex items-start gap-4">
-                  {cert.image && (
-                    <div className="w-16 h-16 relative flex-shrink-0">
-                      <Image
-                        src={cert.image}
-                        alt={cert.name}
-                        fill
-                        className="object-contain rounded-lg"
-                      />
-                    </div>
-                  )}
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-[1300px] mx-auto px-6">
 
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center gap-3 mb-3">
-                      <h3 className="text-xl md:text-2xl font-bold text-black group-hover:text-blue-600 transition-colors">
-                        {cert.name}
-                      </h3>
+        {/* MAIN GRID */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-                      <Badge
-                        className={`bg-gradient-to-r ${cert.color} text-white border-0 px-3 py-1 rounded-md text-xs font-semibold`}
-                      >
-                        {cert.badge}
-                      </Badge>
-                    </div>
+          {/* LEFT – CERTIFICATE */}
+          <div className="flex justify-center">
+            <div className="relative w-full max-w-xl">
+              <Image
+                src="/assets/IdsCertificate.jpg"
+                alt="IDS Certificate"
+                width={1200}
+                height={900}
+                className="w-full h-auto rounded-lg shadow-xl border"
+              />
+            </div>
+          </div>
 
-                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                      {cert.description}
-                    </p>
-                  </div>
+          {/* RIGHT – TEXT + CARDS */}
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-snug mb-4">
+              Get certified. Get noticed. <br /> Get hired.
+            </h2>
+
+            <p className="text-gray-600 mb-8 max-w-md">
+              Stand out with a credential that reflects true digital marketing mastery.
+            </p>
+
+            {/* MSME CARD */}
+            <Card className="mb-6 border-0 shadow-md rounded-xl bg-white">
+              <CardContent className="flex items-center gap-4 p-6">
+                <div className="w-14 h-14 relative">
+                  <Image
+                    src="/assets/MSME_logo.jpg"
+                    alt="MSME"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-lg text-gray-900">
+                    MSME Registered
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Registered under Ministry of Micro, Small & Medium Enterprises
+                  </p>
                 </div>
               </CardContent>
             </Card>
-          ))}
+
+            {/* NSDC CARD */}
+            <Card className="border-0 shadow-md rounded-xl bg-white">
+              <CardContent className="flex items-center gap-4 p-6">
+                <div className="w-14 h-14 relative">
+                  <Image
+                    src="/svg/logo_nsdc.svg"
+                    alt="Skill India"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-lg text-gray-900">
+                    Skill India (NSDC)
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Affiliated with National Skill Development Corporation
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+          </div>
         </div>
-
       </div>
-      <div className="mt-20 w-full">
-  {/* Heading + Description */}
-  <div className="text-center mb-10">
-    <h2 className="text-3xl md:text-5xl font-bold text-black mb-4">
-      IDS Recognized Certifications
-    </h2>
-    <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
-      Get industry-recognized certification that validates your practical
-      digital marketing skills and boosts your career opportunities globally.
-    </p>
-  </div>
-
-  {/* Certificate Image */}
-  <div className="relative w-full max-w-4xl mx-auto">
-    <Image
-      src="/assets/certificate.png"
-      alt="IDS Certificate Sample"
-      width={1600}
-      height={1100}
-      className="rounded-xl shadow-lg object-contain w-full h-auto"
-    />
-  </div>
-</div>
-
-      
-      
     </section>
   );
 };

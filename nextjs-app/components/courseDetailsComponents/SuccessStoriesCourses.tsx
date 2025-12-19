@@ -34,7 +34,7 @@ const dummyStudents: Student[] = [
     image: "/assets/Sunny.jpg", 
     location: "Gurgaon, India",
     quote:
-      "Built creative campaigns, portfolio & strategy — cracked my dream social media job!",
+      "Built creative campaigns, portfolio & strategy cracked my dream social media job!",
     logo: "/svg/Meesho.svg",
   },
   {
@@ -45,7 +45,7 @@ const dummyStudents: Student[] = [
   image: "/assets/Praneel.jpg",
   location: "Hyderabad, India",
   quote:
-    "From zero industry exposure to expert in GA4, dashboards & campaign analysis — Accenture shaped my digital journey.",
+    "From zero industry exposure to expert in GA4, dashboards & campaign analysis ,shaped my digital journey.",
   logo: "/svg/Dream11.svg",
 },
 {
@@ -56,7 +56,7 @@ const dummyStudents: Student[] = [
   image: "/assets/rakesh.jpg",
   location: "Bengaluru, India",
   quote:
-    "Mastered Meta + Google ads and funnel optimization — now running high-ROI campaigns at Zomato!",
+    "Mastered Meta + Google ads and funnel optimization ,now running high-ROI campaigns at Zomato!",
   logo: "/svg/Zomato.svg",
 },
 {
@@ -89,7 +89,7 @@ const dummyStudents: Student[] = [
   image: "/assets/Bhumi.jpg",
   location: "Pune, India",
   quote:
-    "Built CRM workflows, email funnels & automation — now managing scalable campaigns at Nvidia.",
+    "Automation skills here helped me power campaigns at Razorpay.",
   logo: "/svg/razorpay.svg",
 },
 {
@@ -100,7 +100,7 @@ const dummyStudents: Student[] = [
   image: "/assets/Divya.png",
   location: "Hyderabad, India",
   quote:
-    "From design thinking to viral content planning — Swiggy helped me become a brand storyteller.",
+    "Content strategy training shaped me into a stronger brand storyteller.",
   logo: "/svg/testbook.svg",
 },
 
@@ -112,7 +112,7 @@ const dummyStudents: Student[] = [
     image: "/assets/Isha Verma.jpeg",
     location: "Pune, India",
     quote:
-      "This course gave me real-world projects and confidence to crack Google interviews!",
+     " Real projects prepared me to run high-performing campaigns at Nykaa.",
     logo: "/svg/Nykaa.svg",
   },
   {
@@ -123,7 +123,7 @@ const dummyStudents: Student[] = [
     image: "/assets/Abhiram.png",
     location: "Bengaluru, India",
     quote:
-      "Hands-on projects + interview prep = my ticket to CRED. Truly life-changing!",
+      "Hands-on projects + interview prep = my ticket to Flipkart. Truly life-changing!",
     logo: "/svg/Flipkart.svg",
   },
   {
@@ -134,7 +134,7 @@ const dummyStudents: Student[] = [
     image: "/assets/Mohit.jpg",
     location: "Mumbai, India",
     quote:
-      "The mentorship and mock interviews were game-changing. Got placed in Amazon within 3 months.",
+      "The mentorship and mock interviews were game-changing. Got placed in TCS within 3 months.",
     logo: "/svg/TCS.svg",
   },
   {
@@ -145,7 +145,7 @@ const dummyStudents: Student[] = [
     image: "/assets/Loveleen.jpg",
     location: "Bengaluru, India",
     quote:
-      "From basics to advanced React, this journey shaped me into a strong frontend developer.",
+      "This journey strengthened my skills to lead social media at Paytm.",
     logo: "/svg/Paytm.svg",
   },
   {
@@ -156,7 +156,7 @@ const dummyStudents: Student[] = [
     image: "/assets/Priya.jpg",
     location: "Gurgaon, India",
     quote:
-      "I switched my career into IT confidently with the right guidance and projects.",
+      "Hands-on content training helped me create impactful fashion content.",
     logo: "/svg/Myntra.svg",
   },
 ];
@@ -188,13 +188,22 @@ const SuccessStoriesCourses = () => {
   const translateX = -(currentIndex * (100 / visibleCount));
 
   return (
-    <section className="w-full pt-20 pb-16 bg-[#FFEFEF]">
+    <section className="w-full py-20"
+      style={{
+        backgroundColor: "#000",
+        backgroundImage: `
+          linear-gradient(#2a2a2a 1px, transparent 1px),
+          linear-gradient(to right, #2a2a2a 1px, transparent 1px)
+        `,
+        backgroundSize: "30px 30px",
+      }}
+    >
       <div className="container mx-auto px-4 md:px-8 lg:px-12">
         <div className="text-center mb-12">
           <span className="bg-[#EA2525] text-white px-5 py-1 rounded-full font-medium text-sm md:text-base">
             Success Stories
           </span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mt-4 max-w-4xl mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mt-4 max-w-4xl mx-auto px-4">
             Our alumni are working in top organizations such as Google, Meta,
             Zomato, Meesho, Flipkart, TCS, and more.
           </h2>

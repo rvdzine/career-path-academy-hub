@@ -1,9 +1,10 @@
 "use client";
 
-// import Image from "next/image";
-import { animate, motion, useAnimation, useAnimationControls } from "framer-motion";
+import { animate, motion, useAnimationControls } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
+import Image from "next/image";
+
 
 interface StatItem {
   id: number;
@@ -13,10 +14,9 @@ interface StatItem {
 }
 
 const stats: StatItem[] = [
-  { id: 1, value: 2400, label: "Happy Students Trained" },
-  { id: 2, value: 6300, label: "Projects Completed" },
-  { id: 3, value: 10, label: "Years Experience", suffix: "+" },
-  { id: 4, value: 2000, label: "Students Placed" },
+  { id: 1, value: 10, label: "Years Experience", suffix: "+" },
+  { id: 2, value: 2000, label: "Students Placed", suffix: "+" },
+  { id: 3, value: 3500, label: "Happy Students Trained", suffix: "+" },
 ];
 
 export default function TrackRecordSection() {
@@ -28,57 +28,74 @@ export default function TrackRecordSection() {
   }, [inView, controls]);
 
   return (
-    <section ref={ref} className="w-full py-16 bg-white">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+    <section ref={ref} className="w-full bg-[#FFF9F9] py-20">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
 
-        {/* Title */}
+        {/* Heading */}
         <h2 className="text-3xl md:text-5xl font-bold text-center text-gray-900">
-          Proven Track Record of Outcomes
+          Career Results You Can Count On
         </h2>
-
         <p className="text-gray-600 text-center mt-4 max-w-3xl mx-auto text-lg">
-          Digiaccel’s education has helped leading professionals accelerate
-          their careers and crack top jobs.
+          IDS students enter the industry with confidence and job-ready skills.
         </p>
 
-        {/* Grid */}
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        {/* Layout */}
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-12 items-center">
 
-          {/* Stats Boxes */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {stats.map((stat) => (
+          {/* Left Stats Column */}
+          <div className="flex flex-col gap-6 h-[420px]">
+            {stats.map((stat, index) => (
               <motion.div
                 key={stat.id}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                initial="hidden"
+                initial={{ opacity: 0, x: -20 }}
                 animate={controls}
-                transition={{ duration: 0.6, delay: stat.id * 0.2 }}
-                className="rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 px-8 py-10 text-center shadow-sm"
+                variants={{
+                  visible: { opacity: 1, x: 0 },
+                }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className=" flex-1
+                  rounded-2xl
+                  h-[100px]
+                  bg-gradient-to-r
+                  from-[#EA2525]/20
+                  to-[#FFF9F9]
+                  p-8"
               >
-                <CountUp end={stat.value} suffix={stat.suffix ?? ""} />
-                <p className="text-gray-700 mt-2 text-lg">{stat.label}</p>
+                <CountUp end={stat.value} suffix={stat.suffix} />
+                <p className="mt-2 text-gray-800 text-lg font-medium">
+                  {stat.label}
+                </p>
               </motion.div>
             ))}
           </div>
 
-          {/* Image Section */}
+          {/* Right Grey Panel */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={controls}
-            transition={{ duration: 0.8 }}
-            className="flex justify-center"
-          >
-            {/* Add image here if needed */}
-          </motion.div>
+  initial={{ opacity: 0, scale: 0.95 }}
+  animate={controls}
+  variants={{
+    visible: { opacity: 1, scale: 1 },
+  }}
+  transition={{ duration: 0.8 }}
+  className="relative w-full h-[360px] md:h-[420px] rounded-3xl overflow-hidden"
+>
+  <Image
+    src="/assets/gallery3.webp"   // 👈 your image path
+    alt="IDS Track Record"
+    fill
+    className="object-cover"
+    priority
+  />
+</motion.div>
+
 
         </div>
       </div>
     </section>
   );
 }
+
+/* ---------------- COUNT UP ---------------- */
 
 interface CountUpProps {
   end: number;
@@ -96,7 +113,8 @@ function CountUp({ end, suffix = "" }: CountUpProps) {
         ease: "easeOut",
         onUpdate(value) {
           if (spanRef.current) {
-            spanRef.current.innerText = Math.floor(value).toString() + suffix;
+            spanRef.current.innerText =
+              Math.floor(value).toString() + suffix;
           }
         },
       });
@@ -106,7 +124,10 @@ function CountUp({ end, suffix = "" }: CountUpProps) {
   }, [inView, end, suffix]);
 
   return (
-    <h3 ref={ref} className="text-4xl md:text-5xl font-bold text-gray-900">
+    <h3
+      ref={ref}
+      className="text-4xl md:text-5xl font-bold text-gray-900"
+    >
       <span ref={spanRef}>0</span>
     </h3>
   );

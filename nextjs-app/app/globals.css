@@ -166,3 +166,17 @@ All colors MUST be HSL.
   animation: scrollLeft 20s linear infinite;
 }
 
+.logo-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 18%,
+    black 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 18%,
+    black 100%
+  );
+}

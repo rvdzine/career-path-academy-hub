@@ -34,7 +34,7 @@ const blogs = [
 
 const BlogIndex = () => {
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="bg-white-50 py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
           Our Latest <span className="text-[#EA2525]">Blogs</span>
