@@ -4,8 +4,8 @@ const nextConfig = {
     domains: [],
     unoptimized: false,
   },
-  reactStrictMode: false,
-  output: 'standalone',
-};
+  reactStrictMode: true,
+  trailingSlash: false,
+}
 
 module.exports = nextConfig;

@@ -11,6 +11,7 @@ import courseAnimation3 from "@/public/assets/Animations/3.json";
 import courseAnimation4 from "@/public/assets/Animations/4.json"; 
 
 import EnrollmentDialog from "@/components/EnrollmentDialog";
+import ContactDialog from "@/components/ContactDialog";
 
 // const patternimg="/assets/bg-pattern.png";
 
@@ -61,7 +62,7 @@ const courseData: Record<TabType, any> = {
     tag: "AI Driven",
     id: "customised-digital-marketing",
     title: "Customised Course in Digital Marketing",
-    animation: courseAnimation3,
+    animation: courseAnimation4,
     duration: "Customised Timeline",
     mode: "Off/Online",
     badge:  "Hinglish/English",
@@ -71,12 +72,13 @@ const courseData: Record<TabType, any> = {
     
     certification: "Certification",
     projects: "Custom Projects",
+
   },
   "Business Owner": {
     tag: "AI Driven",
     id: "digital-marketing-course-for-business-owners",
     title: "Best Digital Marketing Course for Business Owners",
-    animation: courseAnimation4,
+    animation: courseAnimation3,
     duration: "Customised Timeline",
     mode: "Online (1:1)",
     badge:  "Hinglish/English",
@@ -224,21 +226,29 @@ const CoursesSection: React.FC = () => {
 
             {/* Buttons */}
             <div className="flex gap-4 mt-4">
-                <Link href={`/courses/${data.id}`}>
-                  <button className="flex-1 border border-[#EA2525] text-[#EA2525] px-6 py-2 rounded-md font-medium">
-                    Course Details
-                  </button>
-                </Link>
-             <EnrollmentDialog courseTitle={data.title}>
-               <button className="flex-1 bg-[#EA2525] hover:bg-[#c21e1e] text-white px-6 py-2 rounded-md font-medium">
-                Enroll Now
-               </button>
-             </EnrollmentDialog>
-            </div>
 
-            <p className="text-xs text-gray-500 mt-3">
-              <b>150+</b> Students enrolled last week
-            </p>
+  {/* Speak to Counsellor */}
+  <ContactDialog>
+    <button className="flex-1 border border-[#EA2525] text-[#EA2525] px-6 py-2 rounded-md font-medium hover:bg-[#EA2525]/10 transition">
+      Speak to a Counsellor
+    </button>
+  </ContactDialog>
+
+  {/* Enroll Now */}
+  <EnrollmentDialog courseTitle={data.title}>
+    <button className="flex-1 bg-[#EA2525] hover:bg-[#c21e1e] text-white px-6 py-2 rounded-md font-medium transition">
+      Enroll Now
+    </button>
+  </EnrollmentDialog>
+
+</div>
+
+            {(activeTab === "Master Course" || activeTab === "Specialist Course") && (
+  <p className="text-xs text-gray-500 mt-3">
+    <b>150+</b> Students enrolled last week
+  </p>
+)}
+
           </div>
         </div>
       </div>

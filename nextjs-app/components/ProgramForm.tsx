@@ -13,7 +13,7 @@ export default function ProgramForm() {
         {/* LEFT ILLUSTRATION */}
         <div className="flex justify-center order-1 lg:order-none">
           <Image
-            src="/svg/illustration.svg"
+            src="/svg/Illustration.svg"
             alt="Program Illustration"
             width={480}
             height={420}
