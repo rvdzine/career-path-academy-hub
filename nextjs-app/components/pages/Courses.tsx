@@ -1,319 +1,212 @@
 "use client";
-import {
-  Card,
-  CardContent,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import EnrollmentDialog from "@/components/EnrollmentDialog";
+
+import React from "react";
+import Image from "next/image";
 import Link from "next/link";
-// import BrochureDialog from "./BrochureDialog";
-// import { FaDownload } from "react-icons/fa";
+import Lottie from "lottie-react";
 
-// SVG icons
-const chimg1 = "/svg/clock.svg";
-const chimg2 = "/svg/book.svg";
-const chimg3 = "/svg/frame.svg";
+import Navbar from "@/components/Navbar";
+import EnrollmentDialog from "@/components/EnrollmentDialog";
+import ContactDialog from "@/components/ContactDialog";
+
+import courseAnimation1 from "@/public/assets/Animations/1.1.json";
+import courseAnimation2 from "@/public/assets/Animations/2.json";
+import courseAnimation3 from "@/public/assets/Animations/3.json";
+import courseAnimation4 from "@/public/assets/Animations/4.json";
+
+// Badge Icons
+const chimg3 = "/svg/chimg3.svg";
 const chimg4 = "/svg/clipboard.svg";
-const chimg5 = "/svg/briefcase.svg";
 const chimg6 = "/svg/verify.svg";
-const chimg7 = "/svg/sparkle.svg";
 
-// Course images
-import FDM1 from "@/components/assets/FDM1.png";
-import SDM2 from "@/components/assets/SDM2.png";
-import MDM3 from "@/components/assets/MDM3.png";
-import BODM4 from "@/components/assets/BODM4.png";
-import DDM5 from "@/components/assets/DDM5.png";
-import DIPDM6 from "@/components/assets/DIPDM6.png";
+type CourseKey =
+  | "Master Course"
+  | "Specialist Course"
+  | "Business Owner"
+  | "Custom Course";
 
-const Courses = () => {
-  const courses = [
-    {
-      id: "master-in-digital-marketing-course",
-      title: "Master in Digital Marketing Course at idigitalstudies",
-      duration: "6 Months",
-      students: "2500+ Students Enrolled",
-      mode: "Online / Offline",
-      certification: "Certification",
-      projects: "10+ Live Projects",
-      extra: "Internship",
-      skills: [
-        "SEO",
-        "Digital Marketing",
-        "AI in Marketing",
-        "Social Media Marketing",
-        "Content Strategy",
-        "Analytical & Technical Skills",
-        "Paid Advertising (PPC)",
-        "Content & Creative Skills",
-        "Growth & Strategy",
-        "E-commerce & Specialised",
-      ],
-      image: MDM3,
-      badges: ["AI Driven", "Hinglish"],
-    },
-    {
-      id: "specialist-in-digital-marketing",
-      title: "Digital Marketing Specialist Course at iDigitalStudies",
-      duration: "3 Months",
-      students: "1500+ Students Enrolled",
-      mode: "Online / Offline",
-      certification: "Certification",
-      projects: "5 Live Projects",
-      skills: [
-        "SEO",
-        "Digital Marketing",
-        "AI in Marketing",
-        "Social Media Marketing",
-        "Content Strategy",
-        "Analytical & Technical Skills",
-        "Paid Advertising (PPC)",
-        "Content & Creative Skills",
-        "Growth & Strategy",
-        "E-commerce & Specialised",
-      ],
-      image: SDM2,
-      badges: ["Hinglish"],
-    },
-    {
-      id: "digital-marketing-course-for-business-owners",
-      title: "Best Digital Marketing Course for Business Owners",
-      duration: "Customised Timeline",
-      students: "200+ Students Enrolled",
-      mode: "Online",
-      certification: "Certification",
-      projects: "10+ Live Projects",
-      skills: [
-        "SEO",
-        "Digital Marketing",
-        "AI in Marketing",
-        "Social Media Marketing",
-        "Content Strategy",
-        "Analytical & Technical Skills",
-        "Paid Advertising (PPC)",
-        "Content & Creative Skills",
-        "Growth & Strategy",
-        "E-commerce & Specialised",
-      ],
-      image: BODM4,
-      badges: ["AI Driven", "Hinglish/English"],
-    },
-    {
-      id: "foundation-in-digital-marketing",
-      title: "Digital Marketing Course for Beginners",
-      duration: "2 Months",
-      students: "500+ Students Enrolled",
-      mode: "Online / Offline",
-      certification: "Certification",
-      projects: "2 Live Projects",
-      skills: [
-        "SEO",
-        "Digital Marketing",
-        "AI in Marketing",
-        "Social Media Marketing",
-        "Content Strategy",
-        "Analytical & Technical Skills",
-        "Paid Advertising (PPC)",
-        "Content & Creative Skills",
-        "Growth & Strategy",
-        "E-commerce & Specialised",
-      ],
-      image: FDM1,
-      badges: ["Hinglish"],
-    },
-    {
-      id: "customised-digital-marketing",
-      title: "Customised Course in Digital Marketing",
-      duration: "Customised Timeline",
-      students: "500+ Students Enrolled",
-      mode: "Online / Offline",
-      certification: "Certification",
-      projects: "2+ Live Projects",
-      skills: [
-        "SEO",
-        "Digital Marketing",
-        "AI in Marketing",
-        "Social Media Marketing",
-        "Content Strategy",
-        "Analytical & Technical Skills",
-        "Paid Advertising (PPC)",
-        "Content & Creative Skills",
-        "Growth & Strategy",
-        "E-commerce & Specialised",
-      ],
-      image: DIPDM6,
-      badges: ["AI Driven", "Hinglish/English"],
-    },
-    {
-      id: "degree-digital-marketing",
-      title: "Degree in Digital Marketing",
-      duration: "3 Years",
-      students: "250+ Students Enrolled",
-      mode: "Offline",
-      certification: "Degree + Certification",
-      projects: "Live Projects",
-      skills: [
-        "SEO",
-        "Digital Marketing",
-        "AI in Marketing",
-        "Social Media Marketing",
-        "Content Strategy",
-        "Analytical & Technical Skills",
-        "Paid Advertising (PPC)",
-        "Content & Creative Skills",
-        "Growth & Strategy",
-        "E-commerce & Specialised",
-      ],
-      image: DDM5,
-      badges: ["AI Driven", "Hinglish/English"],
-    },
-  ];
+const courseData: Record<CourseKey, any> = {
+  "Master Course": {
+    tag: "AI Driven",
+    title: "Master in Digital Marketing Course at Institute of Digital Studies",
+    animation: courseAnimation1,
+    duration: "6 Months",
+    mode: "Off/Online",
+    badge: "Hinglish",
+    salary: "₹8.5 LPA",
+    internship: "3 Months",
+    certification: "Certification",
+    projects: "10+ Live Projects",
+    content:
+      "Our 6-Month Digital Marketing Course with 100% Internship provides hands-on experience in SEO, SEM, social media, content marketing, and more.",
+  },
 
+  "Specialist Course": {
+    tag: "AI Driven",
+    title: "Digital Marketing Specialist Course at Institute of Digital Studies",
+    animation: courseAnimation2,
+    duration: "3 Months",
+    mode: "Off/Online",
+    badge: "Hinglish",
+    salary: "₹6.2 LPA",
+    certification: "Certification",
+    projects: "5+ Live Projects",
+    content:
+      "In-depth Digital Marketing training covering SEO, PPC, social media, email marketing, and analytics with live projects.",
+  },
+
+  "Business Owner": {
+    tag: "AI Driven",
+    title: "Best Digital Marketing Course for Business Owners",
+    animation: courseAnimation3,
+    duration: "Customised Timeline",
+    mode: "Online (1:1)",
+    badge: "Hinglish/English",
+    certification: "Certification",
+    projects: "10+ Live Projects",
+    content:
+      "1:1 personalised digital marketing coaching tailored to your business goals and growth strategy.",
+  },
+
+  "Custom Course": {
+    tag: "AI Driven",
+    title: "Customised Course in Digital Marketing",
+    animation: courseAnimation4,
+    duration: "Customised Timeline",
+    mode: "Off/Online",
+    badge: "Hinglish/English",
+    salary: "Depends on Skills",
+    certification: "Certification",
+    projects: "Custom Projects",
+    content:
+      "A completely customized digital marketing program designed according to your goals, skills, and learning pace.",
+  },
+};
+
+// Badge Component
+const Badge = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => (
+  <div className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-[#FFF2F2] rounded">
+    {children}
+  </div>
+);
+
+export default function Courses() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
       {/* Hero */}
       <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50 text-center">
-        <h1 className="text-4xl lg:text-6xl font-bold mb-4 bg-[#EA2525] bg-clip-text text-transparent">
-          Professional Courses
-        </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Industry-designed curriculum with hands-on projects, real-world applications, and career placement support.
+        <h2 className="text-3xl md:text-4xl font-bold mb-2">
+          Explore our Digital Marketing Courses
+        </h2>
+        <p className="text-gray-600">
+          Industry-designed curriculum with hands-on projects and real-world
+          applications
         </p>
       </section>
 
-      {/* Courses */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {courses.map((course) => {
-            const isAiDriven = course.badges.includes("AI Driven");
+      {/* Course Cards */}
+      <section className="py-16">
+        <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 gap-10">
+          {(Object.keys(courseData) as CourseKey[]).map((key) => {
+            const data = courseData[key];
 
             return (
-              <Card
-                key={course.id}
-                className="flex flex-col border rounded-xl shadow-md hover:shadow-lg transition duration-300 overflow-hidden min-h-[540px]"
+              <div
+                key={key}
+                className="bg-white border border-gray-300 rounded-2xl shadow-lg flex flex-col md:flex-row p-6 md:p-8"
               >
-                {/* Image with badges */}
-                <div className="relative h-[180px] sm:h-[200px] md:h-[220px] overflow-hidden">
-                  <img
-                    src={typeof course.image === 'string' ? course.image : course.image.src}
-                    alt={course.title}
-                    className="w-full h-full object-cover"
+                {/* Animation */}
+                <div className="w-full md:w-[45%] h-[360px] flex items-center justify-center bg-[#FFF5F5] rounded-xl">
+                  <Lottie
+                    animationData={data.animation}
+                    loop
+                    autoplay
+                    className="w-full h-full max-h-[420px]"
                   />
-
-                  {/* Badges Overlay */}
-                  <div className="absolute top-2 right-2 flex flex-wrap gap-2">
-                    {course.badges.map((badge, idx) => {
-                      let iconSrc = null;
-
-                      if (badge === "AI Driven") iconSrc = chimg7;
-                      else if (badge === "Hinglish") iconSrc = chimg3;
-                      else if (badge === "Hinglish/English") iconSrc = chimg3;
-
-                      return (
-                        <Badge
-                          key={idx}
-                          className={`flex items-center gap-1 px-2 py-1 text-sm rounded-full ${badge === "AI Driven"
-                              ? "bg-gradient-to-r from-[#0061FF] to-[#60EFFF] text-white"
-                              : "bg-white text-gray-800 border border-gray-300"
-                            }`}
-                        >
-                          {iconSrc && <img src={iconSrc} alt={badge} className="w-3 h-3" />}
-                          {badge}
-                        </Badge>
-                      );
-                    })}
-                  </div>
                 </div>
 
-                <CardContent className="px-5 pb-5 flex flex-col flex-1">
-                  {/* Students Enrolled */}
-                   <div className="flex items-center gap-2 mt-3 mb-3">
-                  <div className="flex -space-x-3">
-                    <img src="https://i.pravatar.cc/40?img=1" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
-                    <img src="https://i.pravatar.cc/40?img=2" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
-                    <img src="https://i.pravatar.cc/40?img=3" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
+                {/* Content */}
+                <div className="md:w-[55%] md:pl-8 mt-6 md:mt-0 flex flex-col justify-between">
+                  <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm w-fit mb-3">
+                    {data.tag}
+                  </span>
+
+                  <h3 className="text-2xl font-bold mb-3">
+                    {data.title}
+                  </h3>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <Badge>
+                      <img src={chimg6} className="w-4 h-4" />
+                      {data.certification}
+                    </Badge>
+                    <Badge>
+                      <img src={chimg4} className="w-4 h-4" />
+                      {data.projects}
+                    </Badge>
+                    <Badge>
+                      <img src={chimg3} className="w-4 h-4" />
+                      {data.badge}
+                    </Badge>
                   </div>
-                  <p className="text-[10px] sm:text-xs text-gray-500">
-                    <span className="text-sm sm:text-base font-bold text-gray-900">
-                      {course.students.split(" ")[0]}
-                    </span>{" "}
-                    {isAiDriven
-                      ? "Students Enrolled in this AI Driven Course"
-                      : course.students.replace(course.students.split(" ")[0], "")
-                    }
+
+                  <p className="text-sm text-gray-600 mb-4">
+                    {data.content}
                   </p>
+
+                  {/* Info */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    <Info label="Duration" value={data.duration} />
+                    {data.mode && <Info label="Mode" value={data.mode} />}
+                    {data.salary && (
+                      <Info label="Avg Salary" value={data.salary} />
+                    )}
+                    {data.internship && (
+                      <Info label="Internship" value={data.internship} />
+                    )}
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex gap-4">
+                    <ContactDialog>
+                      <button className="flex-1 border border-[#EA2525] text-[#EA2525] px-6 py-2 rounded-md font-medium hover:bg-[#EA2525]/10">
+                        Speak to a Counsellor
+                      </button>
+                    </ContactDialog>
+
+                    <EnrollmentDialog courseTitle={data.title}>
+                      <button className="flex-1 bg-[#EA2525] text-white px-6 py-2 rounded-md font-medium hover:bg-[#c21e1e]">
+                        Enroll Now
+                      </button>
+                    </EnrollmentDialog>
+                  </div>
+
+                  {(key === "Master Course" ||
+                    key === "Specialist Course") && (
+                    <p className="text-xs text-gray-500 mt-3">
+                      <b>150+</b> Students enrolled last week
+                    </p>
+                  )}
                 </div>
-
-                  {/* Title */}
-                  <h2 className="text-xl font-bold text-gray-800 mt-1">{course.title}</h2>
-
-                  {/* Info Badges */}
-                  <div className="flex flex-wrap gap-2 mt-3 mb-4">
-                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
-                      <img src={chimg1} alt="" className="w-4 h-4" /> {course.duration}
-                    </Badge>
-                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
-                      <img src={chimg2} alt="" className="w-4 h-4" /> {course.mode}
-                    </Badge>
-                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
-                      <img src={chimg6} alt="" className="w-4 h-4" /> {course.certification}
-                    </Badge>
-                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
-                      <img src={chimg4} alt="" className="w-4 h-4" /> {course.projects}
-                    </Badge>
-                    {course.extra && (
-                      <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
-                        <img src={chimg5} alt="" className="w-4 h-4" /> {course.extra}
-                      </Badge>
-                    )}
-                  </div>
-
-                  {/* Skills */}
-                  <div className="mt-2">
-                    <p className="text-sm font-semibold text-gray-700">Skills you learn:</p>
-                    <p className="text-sm text-gray-600">{course.skills.join(", ")}</p>
-                  </div>
-
-                  {/* Bottom Buttons */}
-                  <div className="mt-auto pt-6 flex flex-col sm:flex-row gap-2">
-                    {course.id === "customised-digital-marketing" || course.id === "degree-digital-marketing" ? (
-                      <Button className="w-full border border-[#EA2525] bg-[#fff] text-[#EA2525] hover:bg-[#c21e1e] hover:text-[#fff]">
-                        For Queries - Contact Us
-                      </Button>
-                    ) : (
-                      <>
-                        {/* <BrochureDialog courseTitle={course.title}> */}
-                        <Link href={`/courses/${course.id}`} className="flex-1">
-                          <Button
-                            variant="outline"
-                           className="w-full sm:flex-1 border border-red-500 text-[#EA2525] bg-[#fff] hover:bg-[#f7e4e4]">
-                            Course Details
-                          </Button>
-                        </Link>
-                        {/* </BrochureDialog> */}
-                        <EnrollmentDialog courseTitle={course.title}>
-                          <Button className="flex-1 bg-[#EA2525] hover:bg-[#c21e1e] text-white">
-                            Enroll Now
-                          </Button>
-                        </EnrollmentDialog>
-                      </>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
+              </div>
             );
           })}
         </div>
       </section>
-
-      <Footer />
     </div>
   );
-};
+}
 
-export default Courses;
+// Info Box
+const Info = ({ label, value }: any) => (
+  <div className="border rounded-lg p-3 text-center">
+    <p className="text-xs text-gray-500">{label}</p>
+    <p className="font-bold">{value}</p>
+  </div>
+);

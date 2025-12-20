@@ -96,7 +96,7 @@ const Footer = () => {
                   href="/courses"
                   className="hover:text-white transition-colors"
                 >
-                  Foundation in Digital Marketing
+                  Master in Digital Marketing
                 </Link>
               </li>
               <li>
@@ -107,14 +107,7 @@ const Footer = () => {
                   Specialist in Digital Marketing
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/courses"
-                  className="hover:text-white transition-colors"
-                >
-                  Master in Digital Marketing
-                </Link>
-              </li>
+              
               <li>
                 <Link
                   href="/courses"
@@ -123,22 +116,15 @@ const Footer = () => {
                   Professional & Business Owner Course
                 </Link>
               </li>
-              <li>
+             <li>
                 <Link
                   href="/courses"
                   className="hover:text-white transition-colors"
                 >
-                  Degree in Digital Marketing
+                  Customized Course in Digital Marketing
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/courses"
-                  className="hover:text-white transition-colors"
-                >
-                  Diploma in Digital Marketing
-                </Link>
-              </li>
+              
             </ul>
           </div>
 
