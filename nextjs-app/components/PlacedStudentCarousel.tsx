@@ -85,7 +85,7 @@ const dummyStudents: Student[] = [
   name: "Bhumi Gupta",
   role: "Marketing Automation Specialist",
   company: "Razorpay",
-  package: "₹22 LPA",
+  package: "₹9.2 LPA",
   image: "/assets/Bhumi.jpg",
   location: "Pune, India",
   quote:

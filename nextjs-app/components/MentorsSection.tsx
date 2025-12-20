@@ -35,13 +35,14 @@ const mentors: Mentor[] = [
     avatar: "/assets/sweta.jpg",
     logo: "/assets/amazon.jpg",
   },
-  // {
-  //   name: "Arun A",
-  //   role: "Ex. Sr. PM Digital Commerce",
-  //   company: "Unilever",
-  //   avatar: "/mentors/arun.jpg",
-  //   logo: "/logos/unilever.svg",
-  // },
+  {
+    name: "Deepanshi Kukreja",
+    role: "Trainer and Coach ",
+    experience: "8+ years",
+    company: "WS Cubetect",
+    avatar: "/assets/deepanshi.jpeg",
+    logo: "/assets/ws.jpg",
+  },
   // {
   //   name: "Mohona Dey",
   //   role: "Revenue Growth Mgmt.",

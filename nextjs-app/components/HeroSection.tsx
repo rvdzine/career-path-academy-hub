@@ -20,8 +20,8 @@ export default function HeroSection() {
   className="absolute left-0 top-0 h-full w-[50%] z-10 pointer-events-none"
   style={{
     backgroundImage: `
-      linear-gradient(#EA252533 1px, transparent 1px),
-      linear-gradient(to right, #EA252533 1px, transparent 1px),
+      linear-gradient(#EA25251F 1px, transparent 1px),
+      linear-gradient(to right, #EA25251F 1px, transparent 1px),
       linear-gradient(to right, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.37), rgba(255, 255, 255, 0.12), transparent)
     `,
     backgroundSize: "44px 44px, 44px 44px, 100% 100%",
@@ -150,16 +150,17 @@ export default function HeroSection() {
 
 
       {/* CTA Buttons */}
-      <div className="flex flex-wrap gap-4 mb-10">
+      <div className="flex flex-wrap gap-4 mb-10 mt-12 lg:mt-14">
         <ContactDialog>
           <button className="bg-red-600 hover:bg-red-700 text-white px-7 py-3 rounded-full font-semibold text-base w-full sm:w-auto flex items-center justify-center gap-2 transition-all">
             Enroll Now <ArrowRight className="w-4 h-4" />
           </button>
         </ContactDialog>
-
+        <ContactDialog>
         <button className="border-2 border-red-600 text-[#615F5F] hover:bg-red-600/10 px-7 py-3 rounded-full font-semibold text-base w-full sm:w-auto transition-all">
           Speak to a Counsellor
         </button>
+        </ContactDialog>
       </div>
 
 
