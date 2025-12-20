@@ -12,8 +12,8 @@ const CertificationSection = () => {
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(#EA252533 1px, transparent 1px),
-            linear-gradient(to right, #EA252533 1px, transparent 1px)
+            linear-gradient(#EA252512 1px, transparent 1px),
+            linear-gradient(to right, #EA252512 1px, transparent 1px)
           `,
           backgroundSize: "44px 44px",
           maskImage: "linear-gradient(to right, white 60%, transparent 100%)",

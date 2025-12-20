@@ -5,7 +5,15 @@ import Image from "next/image";
 import { Briefcase, Users, ArrowRight } from "lucide-react";
 import herosectionimg from "../public/assets/bg.jpg";
 import ContactDialog from "@/components/ContactDialog";
+
 // import PlacedStudentCarousel from "@/components/PlacedStudentCarousel";
+const stats = [
+  { image: "/svg/ai.svg", title: "AI-Driven", sub: "Module" },
+  { image: "/svg/ph_certificate.svg", title: "30+", sub: "Certifications" },
+  { image: "/svg/placement.svg", title: "Placement", sub: "Guarantee" },
+  { image: "/svg/project.png", title: "Live", sub: "Projects" },
+];
+
 
 export default function HeroSection() {
   return (
@@ -17,8 +25,8 @@ export default function HeroSection() {
           className="absolute left-0 top-0 h-full w-[50%] z-10 pointer-events-none"
           style={{
             backgroundImage: `
-              linear-gradient(#EA25251F 1px, transparent 1px),
-              linear-gradient(to right, #EA25251F 1px, transparent 1px),
+              linear-gradient(#EA252512   1px, transparent 1px),
+              linear-gradient(to right, #EA252512   1px, transparent 1px),
               linear-gradient(to right, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.37), rgba(255, 255, 255, 0.12), transparent)
             `,
             backgroundSize: "44px 44px, 44px 44px, 100% 100%",
@@ -84,21 +92,26 @@ export default function HeroSection() {
 
             {/* STATS */}
             <div className="grid grid-cols-4 gap-0 -ml-10 mt-4 mb-4 max-w-[550px]">
-  {[
-    { icon: <Briefcase />, title: "AI-Driven", sub: "Module" },
-    { icon: <Users />, title: "30+", sub: "Certifications" },
-    { icon: <Briefcase />, title: "Placement", sub: "Guarantee" },
-    { icon: <Users />, title: "Live", sub: "Projects" },
-  ].map((item, i) => (
+  {stats.map((item, i) => (
     <div key={i} className="flex flex-col items-center text-center gap-1">
-      <div className="bg-red-600/10 p-2.5 rounded-xl text-red-600">
-        {item.icon}
+      
+      {/* IMAGE */}
+      <div className=" p-3 rounded-xl">
+        <Image
+          src={item.image}
+          alt={item.title}
+          width={35}
+          height={35}
+          className="object-contain"
+        />
       </div>
+
       <p className="font-semibold text-[14px] leading-none">{item.title}</p>
       <p className="text-[12px] text-gray-500 leading-none">{item.sub}</p>
     </div>
   ))}
 </div>
+
 
 
             {/* CTA BUTTONS */}

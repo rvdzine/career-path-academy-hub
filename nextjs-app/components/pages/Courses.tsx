@@ -8,6 +8,8 @@ import Lottie from "lottie-react";
 import Navbar from "@/components/Navbar";
 import EnrollmentDialog from "@/components/EnrollmentDialog";
 import ContactDialog from "@/components/ContactDialog";
+import Footer from "@/components/Footer";
+import ProgramForm from "@/components/ProgramForm";
 
 import courseAnimation1 from "@/public/assets/Animations/1.1.json";
 import courseAnimation2 from "@/public/assets/Animations/2.json";
@@ -199,6 +201,8 @@ export default function Courses() {
           })}
         </div>
       </section>
+      <ProgramForm/>
+      <Footer/>
     </div>
   );
 }

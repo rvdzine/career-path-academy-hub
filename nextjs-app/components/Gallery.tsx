@@ -29,7 +29,7 @@ export default function GallerySection() {
     <section className="py-20 bg-[#FFF9F9] relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 text-center mb-10">
         <h2 className="text-4xl font-bold text-gray-900 mb-4">
-          Our <span className="text-red-600">Gallery</span>
+          Our Gallery
         </h2>
         <p className="text-gray-600">
           Explore our engaging classes, workshops, and student experiences at the{" "}
