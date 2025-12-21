@@ -39,8 +39,8 @@ const Index = () => {
       <PlacedStudentsCarousel/>
       <TrackRecordSection/>
       <CompanySlider/>
-        <CertificationSection />
-    <IDSComparison/>
+      <CertificationSection />
+      <IDSComparison/>
       <ReelsSection/>
         
       <MentorsSection/>

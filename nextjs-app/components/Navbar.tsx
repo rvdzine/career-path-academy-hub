@@ -7,12 +7,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import ContactDialog from "@/components/ContactDialog";
 import Image from "next/image";
-// import {
-//   DropdownMenu,
-//   DropdownMenuContent,
-//   DropdownMenuItem,
-//   DropdownMenuTrigger,
-// } from "@/components/ui/dropdown-menu";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,13 +25,7 @@ const Navbar = () => {
     { name: "Blog", path: "/blog"},
   ];
 
-  // const moreLinks = [
-  //   { name: "FAQ", path: "/faq" },
-  //   { name: "Terms & Conditions", path: "/terms" },
-  //   { name: "Privacy Policy", path: "/privacy" },
-  //   { name: "Refund Policy", path: "/refund" },
-  //   { name: "Blog", path: "/blog" },
-  // ];
+
 
   return (
     <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
@@ -61,28 +50,7 @@ const Navbar = () => {
               </Link>
             ))}
 
-            {/* <DropdownMenu>
-              <DropdownMenuTrigger asChild suppressHydrationWarning>
-                <button className="flex items-center text-sm font-medium text-gray-700 hover:text-black transition-colors">
-                  More
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="bg-white shadow-lg border">
-                {moreLinks.map((link) => (
-                  <DropdownMenuItem key={link.name} asChild>
-                    <Link
-                      href={link.path}
-                      className={`block px-4 py-2 text-sm hover:bg-gray-50 ${
-                        isActive(link.path) ? "text-[#EA2525] font-medium" : "text-gray-700"
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu> */}
+            
 
             <ContactDialog>
               <Button className="bg-[#EA2525] hover:bg-red-600">Enroll Now</Button>
@@ -135,21 +103,7 @@ const Navbar = () => {
                 </Link>
               ))}
 
-              {/* <div className="border-t pt-4">
-                <p className="text-xs font-semibold text-gray-500 mb-2">MORE</p>
-                {moreLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.path}
-                    className={`block text-sm font-medium transition-colors hover:text-[#EA2525] py-1 ${
-                      isActive(link.path) ? "text-[#EA2525]" : "text-gray-700"
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div> */}
+              
 
               <ContactDialog>
                 <Button className="bg-[#EA2525] hover:bg-red-600 w-full">Enroll Now</Button>

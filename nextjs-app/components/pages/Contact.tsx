@@ -153,9 +153,8 @@ const Contact = () => {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl lg:text-6xl font-bold mb-6">
             Get in
-            <span className="bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent">
-              {" "}Touch
-            </span>
+            Touch
+            
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Ready to transform your career? Contact us today to learn more about our courses and placement programs.

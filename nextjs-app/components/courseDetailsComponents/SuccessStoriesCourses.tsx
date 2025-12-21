@@ -85,7 +85,7 @@ const dummyStudents: Student[] = [
   name: "Bhumi Gupta",
   role: "Marketing Automation Specialist",
   company: "Razorpay",
-  package: "₹22 LPA",
+  package: "₹9.2 LPA",
   image: "/assets/Bhumi.jpg",
   location: "Pune, India",
   quote:
@@ -188,118 +188,100 @@ const SuccessStoriesCourses = () => {
   const translateX = -(currentIndex * (100 / visibleCount));
 
   return (
-    <section className="w-full py-20"
-      style={{
-        backgroundColor: "#000",
-        backgroundImage: `
-          linear-gradient(#2a2a2a 1px, transparent 1px),
-          linear-gradient(to right, #2a2a2a 1px, transparent 1px)
-        `,
-        backgroundSize: "30px 30px",
-      }}
-    >
-      <div className="container mx-auto px-4 md:px-8 lg:px-12">
-        <div className="text-center mb-12">
-          <span className="bg-[#EA2525] text-white px-5 py-1 rounded-full font-medium text-sm md:text-base">
-            Success Stories
-          </span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mt-4 max-w-4xl mx-auto px-4">
-            Our alumni are working in top organizations such as Google, Meta,
-            Zomato, Meesho, Flipkart, TCS, and more.
-          </h2>
-        </div>
-      </div>
-
-      <div className="relative px-4 md:px-8 lg:px-16 xl:px-24">
-        <div className="overflow-hidden">
-          <div
-            className="flex transition-transform duration-500 ease-out"
-            style={{ transform: `translateX(${translateX}%)` }}
-          >
-            {dummyStudents.map((student, index) => (
-              <div key={index} className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-3">
-               <div className=" bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md  transition-all duration-300 p-6  flex flex-col md:flex-row items-center justify-between h-full">
-
-                  
-                  {/* Left */}
-                  <div className="flex-1 pr-6">
-                    <div className="flex items-center gap-3 mb-3 -mt-2">
-                      <div className="w-11 h-11 flex items-center justify-center rounded-full bg-white border shadow-sm overflow-hidden">
-                             <Image 
+    <section className="w-full bg-[#FFF9F9] py-20">
+            <div className="text-center mb-8">
+              <span className="bg-[#EA2525] text-white px-5 py-1 rounded-full font-medium">
+                Success Stories
+              </span>
+              <h2 className="text-3xl font-bold text-black mt-4 max-w-3xl mx-auto">
+                Our alumni are working in top organizations such as Google, Meta,
+                Zomato, Meesho, Flipkart, TCS, and more.
+              </h2>
+            </div>
+    
+            <div className="relative px-4 md:px-8 lg:px-16">
+              <div className="overflow-hidden">
+                <div
+                  className="flex transition-transform duration-500 ease-out"
+                  style={{ transform: `translateX(${translateX}%)` }}
+                >
+                  {dummyStudents.map((student, index) => (
+                    <div key={index} className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-3">
+                      <div className="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 p-6 flex flex-col md:flex-row items-center justify-between h-full">
+                        <div className="flex-1 pr-6">
+                          <div className="flex items-center gap-3 mb-3 -mt-2">
+                            {/* ✅ Uniform Company Logo Box */}
+                            <div className="w-11 h-11 flex items-center justify-center rounded-full bg-white border shadow-sm overflow-hidden">
+                              <Image
                                 src={student.logo}
                                 alt={`${student.company} logo`}
                                 width={35}
                                 height={35}
-                                className="object-contain" />
+                                className="object-contain "
+                              />
+                            </div>
+    
+                            <div className="-mt-[2px]">
+                              <h3 className="font-semibold text-gray-900 text-base">{student.name}</h3>
+                              <p className="text-sm text-gray-500">
+                                {student.role} at {student.company}
+                              </p>
+                            </div>
+                          </div>
+    
+                          <hr className="my-3 border-gray-200" />
+    
+                          <p className="text-gray-600 text-sm italic leading-relaxed mb-5">
+                            “{student.quote}”
+                          </p>
+    
+                          <div className="flex gap-3 flex-wrap">
+                            <span className="bg-[#FFEFEF] text-[#EA2525] text-sm px-3 py-1 rounded-full font-medium">
+                              {student.package}
+                            </span>
+                            <span className="bg-[#FFEFEF] text-[#EA2525] text-sm px-3 py-1 rounded-full font-medium">
+                              {student.location}
+                            </span>
+                          </div>
                         </div>
-
-                      <div className="-mt-[2px]">
-                        <h3 className="font-semibold text-gray-900 text-base">{student.name}</h3>
-                        <p className="text-sm text-gray-500">
-                          {student.role} at {student.company}
-                        </p>
+    
+                        <div className="w-full md:w-28 md:h-52 h-64 rounded-xl overflow-hidden border border-gray-100 relative mt-4 md:mt-0">
+                          <Image src={student.image} alt={student.name} fill className="object-cover" />
+                        </div>
                       </div>
                     </div>
-
-                    <hr className="my-3 border-gray-200" />
-
-                    <p className="text-gray-600 text-sm italic leading-relaxed mb-5">
-                      “{student.quote}”
-                    </p>
-
-                    <div className="flex gap-3 flex-wrap">
-                      <span className="bg-[#FFEFEF] text-[#EA2525] text-sm px-3 py-1 rounded-full font-medium">
-                        {student.package}
-                      </span>
-                      <span className="bg-[#FFEFEF] text-[#EA2525] text-sm px-3 py-1 rounded-full font-medium">
-                        {student.location}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Right - Image */}
-                  <div className=" w-full md:w-28 md:h-52 h-64 rounded-xl overflow-hidden border border-gray-100 relative mt-4 md:mt-0">
-                    <Image
-                      src={student.image}
-                      alt={student.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+                  ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-2 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow border hover:border-[#EA2525]"
-        >
-          <ChevronLeft size={22} />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow border hover:border-[#EA2525]"
-        >
-          <ChevronRight size={22} />
-        </button>
-
-        {/* Dots */}
-        <div className="flex justify-center mt-8 gap-2">
-          {Array.from({ length: maxIndex + 1 }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentIndex ? "bg-[#EA2525]" : "bg-gray-300 hover:bg-gray-400"
-              }`}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+    
+              {/* Arrows */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow border hover:border-[#EA2525]"
+              >
+                <ChevronLeft size={22} />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow border hover:border-[#EA2525]"
+              >
+                <ChevronRight size={22} />
+              </button>
+    
+              {/* Dots */}
+              <div className="flex justify-center mt-8 gap-2">
+                {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      index === currentIndex ? "bg-[#EA2525]" : "bg-gray-300 hover:bg-gray-400"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
   );
 };
 
