@@ -2,18 +2,16 @@
 
 import React from "react";
 import Image from "next/image";
-import { Briefcase, Users, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import herosectionimg from "../public/assets/bg.jpg";
 import ContactDialog from "@/components/ContactDialog";
 
-// import PlacedStudentCarousel from "@/components/PlacedStudentCarousel";
 const stats = [
   { image: "/svg/ai.svg", title: "AI-Driven", sub: "Module" },
   { image: "/svg/ph_certificate.svg", title: "30+", sub: "Certifications" },
   { image: "/svg/placement.svg", title: "Placement", sub: "Guarantee" },
   { image: "/svg/project.png", title: "Live", sub: "Projects" },
 ];
-
 
 export default function HeroSection() {
   return (
@@ -25,9 +23,9 @@ export default function HeroSection() {
           className="absolute left-0 top-0 h-full w-[50%] z-10 pointer-events-none"
           style={{
             backgroundImage: `
-              linear-gradient(#EA252512   1px, transparent 1px),
-              linear-gradient(to right, #EA252512   1px, transparent 1px),
-              linear-gradient(to right, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.37), rgba(255, 255, 255, 0.12), transparent)
+              linear-gradient(#EA252512 1px, transparent 1px),
+              linear-gradient(to right, #EA252512 1px, transparent 1px),
+              linear-gradient(to right, rgba(255,255,255,0.74), rgba(255,255,255,0.37), rgba(255,255,255,0.12), transparent)
             `,
             backgroundSize: "44px 44px, 44px 44px, 100% 100%",
             backgroundRepeat: "repeat, repeat, no-repeat",
@@ -38,8 +36,8 @@ export default function HeroSection() {
           }}
         />
 
-        {/* BACKGROUND IMAGE */}
-        <div className="absolute inset-0 z-0 flex justify-end items-center">
+        {/* BACKGROUND IMAGE (HIDDEN ON MOBILE) */}
+        <div className="hidden sm:flex absolute inset-0 z-0 justify-end items-center">
           <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[55%] max-w-[900px] h-full relative">
             <Image
               src={herosectionimg}
@@ -52,11 +50,11 @@ export default function HeroSection() {
         </div>
 
         {/* CONTENT */}
-        <div className="relative z-20 container mx-auto max-w-[1250px] px-4 sm:px-6 lg:px-12 flex items-center h-full">
-          <div className="max-w-3xl">
+        <div className="relative z-20 container mx-auto max-w-[1250px] px-4 sm:px-6 lg:px-12 flex items-center h-full text-center sm:text-left">
+          <div className="max-w-3xl mx-auto sm:mx-0">
 
-            {/* SPARKLES */}
-            <div className="mb-3 flex -ml-10">
+            {/* SPARKLES — HIDDEN ON PHONE */}
+            <div className="hidden sm:flex mb-3 sm:-ml-10">
               <div className="relative h-0">
                 <div className="absolute -top-2 left-2 text-red-600">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -76,64 +74,118 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* HEADING */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              <span className="text-red-600">AI-Powered</span>{" "}
-              <span className="text-black">
-                Digital Marketing Education for the Next Generation
-              </span>
-            </h1>
+            {/* HEADING — MOBILE ONLY ADJUST */}
+           <h1 className="
+  text-[24px]
+  max-[360px]:text-[21px]
+  sm:text-4xl
+  lg:text-5xl
+  font-bold
+  mb-2
+  sm:mb-4
+  leading-snug
+  max-[360px]:leading-tight
+">
+  <span className="text-red-600">AI-Powered</span>{" "}
+  <span className="text-black">
+    Digital Marketing Education for the Next Generation
+  </span>
+</h1>
 
-            {/* SUBHEADING */}
-            <p className="text-[#615F5F] text-[17px] sm:text-[18px] lg:text-[16px] max-w-xl leading-relaxed mb-4">
-              Upskill with practical training, industry tools, and hands-on
-              experience that transforms beginners into professionals.
-            </p>
+
+            {/* SUBHEADING — MOBILE ONLY ADJUST */}
+            <p className="
+  text-[#615F5F]
+  text-[14px]
+  max-[360px]:text-[13px]
+  sm:text-[18px]
+  lg:text-[16px]
+  max-w-xl
+  mx-auto
+  sm:mx-0
+  leading-relaxed
+  max-[360px]:leading-snug
+  mb-3
+  sm:mb-4
+">
+  Upskill with practical training, industry tools, and hands-on
+  experience that transforms beginners into professionals.
+</p>
+
 
             {/* STATS */}
-            <div className="grid grid-cols-4 gap-0 -ml-10 mt-4 mb-4 max-w-[550px]">
-  {stats.map((item, i) => (
-    <div key={i} className="flex flex-col items-center text-center gap-1">
-      
-      {/* IMAGE */}
-      <div className=" p-3 rounded-xl">
-        <Image
-          src={item.image}
-          alt={item.title}
-          width={35}
-          height={35}
-          className="object-contain"
-        />
-      </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-0 mt-3 mb-4 max-w-[550px] mx-auto sm:mx-0">
+              {stats.map((item, i) => (
+                <div key={i} className="flex flex-col items-center text-center gap-1">
+                  <div className="p-2 sm:p-3 rounded-xl">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={32}
+                      height={32}
+                      className="object-contain"
+                    />
+                  </div>
+                  <p className="font-semibold text-[12px] sm:text-[14px] leading-none">
+                    {item.title}
+                  </p>
+                  <p className="text-[11px] sm:text-[12px] text-gray-500 leading-none">
+                    {item.sub}
+                  </p>
+                </div>
+              ))}
+            </div>
 
-      <p className="font-semibold text-[14px] leading-none">{item.title}</p>
-      <p className="text-[12px] text-gray-500 leading-none">{item.sub}</p>
-    </div>
-  ))}
+            {/* CTA BUTTONS — MOBILE OPTIMIZED */}
+            <div className="flex flex-col sm:flex-row justify-center sm:justify-start gap-3 sm:gap-4 mt-4 sm:mt-10">
+
+  <ContactDialog>
+    <button
+      className="
+        bg-red-600 hover:bg-red-700 text-white
+        px-5 py-2
+        sm:px-7 sm:py-3
+        max-[360px]:px-4
+        max-[360px]:py-[6px]
+        rounded-full
+        font-semibold
+        flex items-center justify-center gap-2
+        transition-all
+        text-sm sm:text-base
+        max-[360px]:text-[13px]
+      "
+    >
+      Enroll Now
+      <ArrowRight className="w-4 h-4 max-[360px]:w-3 max-[360px]:h-3" />
+    </button>
+  </ContactDialog>
+
+  <ContactDialog>
+    <button
+      className="
+        border-2 border-red-600 text-[#615F5F]
+        hover:bg-red-600/10
+        px-5 py-2
+        sm:px-7 sm:py-3
+        max-[360px]:px-4
+        max-[360px]:py-[6px]
+        rounded-full
+        font-semibold
+        transition-all
+        text-sm sm:text-base
+        max-[360px]:text-[13px]
+      "
+    >
+      Speak to a Counsellor
+    </button>
+  </ContactDialog>
+
 </div>
 
-
-
-            {/* CTA BUTTONS */}
-            <div className="flex flex-wrap gap-4 mt-10">
-              <ContactDialog>
-                <button className="bg-red-600 hover:bg-red-700 text-white px-7 py-3 rounded-full font-semibold flex items-center gap-2 transition-all">
-                  Enroll Now <ArrowRight className="w-4 h-4" />
-                </button>
-              </ContactDialog>
-
-              <ContactDialog>
-                <button className="border-2 border-red-600 text-[#615F5F] hover:bg-red-600/10 px-7 py-3 rounded-full font-semibold transition-all">
-                  Speak to a Counsellor
-                </button>
-              </ContactDialog>
-            </div>
 
           </div>
         </div>
       </section>
-
-      {/* <PlacedStudentCarousel /> */}
     </>
   );
 }
