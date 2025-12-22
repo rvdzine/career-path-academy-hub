@@ -7,7 +7,11 @@ import {
   ClipboardList,
   Briefcase,
   Check,
+ Building2,
+
 } from "lucide-react";
+import Image from "next/image";
+
 
 const rows = [
   {
@@ -105,42 +109,70 @@ export default function IDSComparison() {
         </div>
 
         {/* MOBILE SLIDER */}
-        <div className="md:hidden mt-14 overflow-x-auto scrollbar-hide">
-          <div className="flex gap-4 w-max px-1">
-            {rows.map((row, index) => (
-              <div
-                key={index}
-                className="min-w-[85vw] bg-white border border-gray-200 rounded-2xl shadow-sm"
-              >
-                {/* OTHERS */}
-                <div className="p-5">
-                  <div className="flex items-center gap-3 font-semibold">
-                    {row.icon}
-                    {row.title}
-                  </div>
-                  <p className="text-gray-600 mt-2 text-sm">
-                    {row.other}
-                  </p>
-                </div>
+       {/* MOBILE SLIDER */}
+<div className="md:hidden mt-14 overflow-x-auto scrollbar-hide">
+  <div className="flex gap-4 w-max px-1">
+    {rows.map((row, index) => (
+      <div
+        key={index}
+        className="min-w-[85vw] bg-white border border-gray-200 rounded-2xl shadow-sm"
+      >
+        {/* TITLE */}
+        <div className="p-5">
+          <div className="flex items-center gap-3 font-semibold text-base">
+            {row.icon}
+            {row.title}
+          </div>
+        </div>
 
-                {/* IDS ADVANTAGE */}
-                <div className="bg-[#2b2b2b] text-white p-5 rounded-b-2xl">
-                  <h4 className="font-semibold text-base flex items-center gap-2">
-                    <Check className="w-5 h-5 text-green-500" />
-                    {row.idsTitle}
-                  </h4>
-                  <p className="text-gray-300 mt-2 text-sm ml-[26px]">
-                    {row.idsDesc}
-                  </p>
-                </div>
-              </div>
-            ))}
+        {/* THIN DIVIDER */}
+        <div className="h-px bg-gray-200 mx-5" />
+
+        {/* OTHERS */}
+        <div className="p-5">
+          {/* LABEL */}
+          <div className="flex items-center gap-2 text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
+            <span className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center">
+  <Building2 className="w-3.5 h-3.5 text-gray-500" />
+</span>
+
+            Others
           </div>
 
-          <p className="text-center text-xs text-gray-400 mt-4">
-            Swipe to compare →
+          <p className="text-gray-600 text-sm">
+            {row.other}
           </p>
         </div>
+
+        {/* IDS ADVANTAGE */}
+        <div className="bg-[#2b2b2b] text-white p-5 rounded-b-2xl">
+          {/* LABEL */}
+          <div className="flex items-center gap-2 text-xs font-semibold text-red-400 uppercase tracking-wide mb-3">
+            <span className="w-6 h-6 rounded-full bg-red-600 flex items-center justify-center text-white text-[10px] font-bold">
+              IDS
+            </span>
+            IDS Advantage
+          </div>
+
+          <h4 className="font-semibold text-base flex items-center gap-2">
+            <Check className="w-5 h-5 text-green-500" />
+            {row.idsTitle}
+          </h4>
+
+          <p className="text-gray-300 mt-2 text-sm ml-[26px]">
+            {row.idsDesc}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <p className="text-center text-xs text-gray-400 mt-4">
+    Swipe to compare →
+  </p>
+</div>
+
+
 
       </div>
     </section>
