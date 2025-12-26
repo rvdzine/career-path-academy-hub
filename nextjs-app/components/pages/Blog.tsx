@@ -268,6 +268,12 @@ const blogs = [
     excerpt: "Truthfully, marketing may appear like trying to do 10 things at once.  You're in charge of social media posts, checking on how well they do, following up with leads, forwarding emails…",
     image: "./assets/blog-39.avif",
   },
+  {
+    slug: "how-to-write-content-that-actually-converts-not-just-ranks",
+    title: "How to Write Content That Actually Converts (Not Just Ranks)",
+    excerpt: "Most people write content hoping it will magically bring traffic, leads, and sales. And sure, ranking on Google feels great. But here’s the truth nobody says out loud...",
+    image: "./assets/blog-40.png",
+  },
 
 
   
