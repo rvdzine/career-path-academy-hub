@@ -167,8 +167,13 @@ export default function Courses() {
                     <Info label="Duration" value={data.duration} />
                     {data.mode && <Info label="Mode" value={data.mode} />}
                     {data.salary && (
-                      <Info label="Avg Salary" value={data.salary} />
-                    )}
+  <Info
+    label="Avg Salary"
+    value={data.salary}
+    isSalary
+  />
+)}
+
                     {data.internship && (
                       <Info label="Internship" value={data.internship} />
                     )}
@@ -208,9 +213,30 @@ export default function Courses() {
 }
 
 // Info Box
-const Info = ({ label, value }: any) => (
+const Info = ({
+  label,
+  value,
+  isSalary = false,
+}: {
+  label: string;
+  value: string;
+  isSalary?: boolean;
+}) => (
   <div className="border rounded-lg p-3 text-center">
-    <p className="text-xs text-gray-500">{label}</p>
+    <p className="text-xs text-gray-500 flex items-center justify-center gap-1">
+      {label}
+      {isSalary && (
+        <span className="text-red-500 font-bold">*</span>
+      )}
+    </p>
+
     <p className="font-bold">{value}</p>
+
+    {isSalary && (
+      <p className="text-[10px] text-gray-400 mt-1">
+        Depends on skills
+      </p>
+    )}
   </div>
 );
+
