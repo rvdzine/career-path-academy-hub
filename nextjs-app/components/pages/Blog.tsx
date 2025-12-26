@@ -268,15 +268,45 @@ const blogs = [
     excerpt: "Truthfully, marketing may appear like trying to do 10 things at once.  You're in charge of social media posts, checking on how well they do, following up with leads, forwarding emails…",
     image: "./assets/blog-39.avif",
   },
+  {
+    slug: "how-to-write-content-that-actually-converts-not-just-ranks",
+    title: "How to Write Content That Actually Converts (Not Just Ranks)",
+    excerpt: "Write content that turns readers into customers. Learn simple tactics to blend SEO with persuasion so every piece actually drives conversions...",
+    image: "./assets/blog-40.png",
+  },
 
+   {
+    slug: "the-ultimate-toolkit-for-learning-digital-marketing-in-2025",
+    title: "The Ultimate Toolkit for Mastering Digital Marketing in 2025",
+    excerpt: "Grab the must-have tools, courses, and resources to learn digital marketing fast in 2025. Perfect for beginners wanting a clear, practical learning path…",
+    image: "./assets/blog-40.jpg",
+  },
 
-  
-  
-  
+   {
+    slug: "digital-marketing-cours-syllabus-explained-module-wise",
+    title: "Digital Marketing Course Syllabus Explained (Module-Wise)",
+    excerpt: "Learn how to build powerful topic clusters that boost rankings, improve structure, and help Google understand your content better for huge SEO gains…",
+    image: "./assets/blog-41.jpg",
+  },
 
-
-
-
+   {
+    slug: "the-psychology-of-headlines-why-people-click",
+    title: "The Psychology of Headlines: Why People Really Click (And How to Do It Ethically)",
+    excerpt: "Discover what makes people click. Break down headline psychology, emotional triggers, and simple tweaks that skyrocket engagement…",
+    image: "./assets/blog-42.jpg",
+  },
+  {
+    slug: "the-ultimate-guide-to-creating-a-brand-voice-from-scratch",
+    title: "The Ultimate Guide to Creating a Brand Voice From Scratch",
+    excerpt: "Build a unique brand voice from scratch with easy frameworks, examples, and tips to stand out across all your marketing channels...",
+    image: "./assets/blog43.png",
+  },
+  {
+    slug: "seo-content-mistakes-beginners-make-and-how-to-fix-them",
+    title: "SEO Content Mistakes Beginners Make (And How to Fix Them)",
+    excerpt: "Build a unique brand voice from scratch with easy frameworks, examples, and tips to stand out across all your marketing channels...",
+    image: "./assets/blog44.png",
+  },
 ];
 
 const Blog = () => {

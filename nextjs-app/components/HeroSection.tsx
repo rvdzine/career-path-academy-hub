@@ -9,7 +9,7 @@ import ContactDialog from "@/components/ContactDialog";
 const stats = [
   { image: "/svg/ai.svg", title: "AI-Driven", sub: "Module" },
   { image: "/svg/ph_certificate.svg", title: "30+", sub: "Certifications" },
-  { image: "/svg/placement.svg", title: "Placement", sub: "Guarantee" },
+  { image: "/svg/placement.svg", title: "Placement", sub: "Support" },
   { image: "/svg/project.png", title: "Live", sub: "Projects" },
 ];
 

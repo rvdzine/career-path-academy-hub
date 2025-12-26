@@ -199,15 +199,22 @@ const CoursesSection: React.FC = () => {
               </div>
 
               {data.salary && (
-                <div className="border rounded-lg p-3 text-center">
-                  <p className="text-xs sm:text-sm text-gray-500">
-                    Avg Salary
-                  </p>
-                  <p className="font-bold text-sm sm:text-base">
-                    {data.salary}
-                  </p>
-                </div>
-              )}
+  <div className="border rounded-lg p-3 text-center">
+    <p className="text-xs sm:text-sm text-gray-500 flex items-center justify-center gap-1">
+      Avg Salary
+      <span className="text-red-500 font-bold">*</span>
+    </p>
+    <p className="font-bold text-sm sm:text-base">
+      {data.salary}
+    </p>
+
+    {/* Extra note */}
+    <p className="text-[10px] sm:text-xs text-gray-400 mt-1">
+      Depends on skills
+    </p>
+  </div>
+)}
+
 
               {data.internship && (
                 <div className="border rounded-lg p-3 text-center">

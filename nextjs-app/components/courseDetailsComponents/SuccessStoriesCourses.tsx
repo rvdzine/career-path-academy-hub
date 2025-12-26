@@ -63,7 +63,7 @@ const dummyStudents: Student[] = [
   name: "Arjun Yadav",
   role: "Growth Marketing Manager",
   company: "Razorpay",
-  package: "₹18 LPA",
+  package: "₹9.2 LPA",
   image: "/assets/vicky.jpg",
   location: "Bengaluru, India",
   quote:
@@ -130,7 +130,7 @@ const dummyStudents: Student[] = [
     name: "Mohit Kumar",
     role: "SEO & Analytics Executive",
     company: "TCS",
-    package: "₹10 LPA",
+    package: "₹7.2 LPA",
     image: "/assets/Mohit.jpg",
     location: "Mumbai, India",
     quote:

@@ -8,7 +8,7 @@ type Mentor = {
   company?: string;
   experience?: string;
   avatar: string;
-  logo: string;
+ 
 };
 
 const mentors: Mentor[] = [
@@ -25,7 +25,7 @@ const mentors: Mentor[] = [
     experience: "12+ years",
     company: "Physics Wallah",
     avatar: "/assets/Ravi.jpg",
-    logo: "/assets/pw.png",
+    
   },
   {
     name: "Sweta Kushwaha",
@@ -33,7 +33,7 @@ const mentors: Mentor[] = [
     experience: "8+ years",
     company: "Amazon",
     avatar: "/assets/sweta.jpg",
-    logo: "/assets/amazon.jpg",
+   
   },
   {
     name: "Deepanshi Kukreja",
@@ -41,7 +41,7 @@ const mentors: Mentor[] = [
     experience: "8+ years",
     company: "WS Cubetect",
     avatar: "/assets/deepanshi.jpeg",
-    logo: "/assets/ws.jpg",
+    
   },
   // {
   //   name: "Mohona Dey",
@@ -91,14 +91,14 @@ export default function MentorsSection() {
                 {mentor.experience}
               </p>
 
-              <div className="mt-4 h-8 relative w-full">
+              {/* <div className="mt-4 h-8 relative w-full">
                 <Image
                   src={mentor.logo}
                   alt={mentor.company || "Company"}
                   fill
                   className="object-contain"
                 />
-              </div>
+              </div> */}
             </div>
           ))}
         </div>
