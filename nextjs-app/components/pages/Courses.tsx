@@ -213,6 +213,7 @@ export default function Courses() {
 }
 
 // Info Box
+// Info Box
 const Info = ({
   label,
   value,
@@ -221,22 +222,25 @@ const Info = ({
   label: string;
   value: string;
   isSalary?: boolean;
-}) => (
-  <div className="border rounded-lg p-3 text-center">
-    <p className="text-xs text-gray-500 flex items-center justify-center gap-1">
-      {label}
-      {isSalary && (
-        <span className="text-red-500 font-bold">*</span>
-      )}
-    </p>
+}) => {
+  const showDisclaimer =
+    isSalary && !value.toLowerCase().includes("depend");
 
-    <p className="font-bold">{value}</p>
-
-    {isSalary && (
-      <p className="text-[10px] text-gray-400 mt-1">
-        Depends on skills
+  return (
+    <div className="border rounded-lg p-3 text-center">
+      <p className="text-xs text-gray-500 flex items-center justify-center gap-1">
+        {label}
+        {isSalary && <span className="text-red-500 font-bold">*</span>}
       </p>
-    )}
-  </div>
-);
+
+      <p className="font-bold">{value}</p>
+
+      {showDisclaimer && (
+        <p className="text-[10px] text-gray-400 mt-1">
+          Depends on skills
+        </p>
+      )}
+    </div>
+  );
+};
 

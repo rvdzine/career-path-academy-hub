@@ -204,14 +204,17 @@ const CoursesSection: React.FC = () => {
       Avg Salary
       <span className="text-red-500 font-bold">*</span>
     </p>
+
     <p className="font-bold text-sm sm:text-base">
       {data.salary}
     </p>
 
-    {/* Extra note */}
-    <p className="text-[10px] sm:text-xs text-gray-400 mt-1">
-      Depends on skills
-    </p>
+    {/* Show note ONLY if salary is numeric */}
+    {!data.salary.toLowerCase().includes("depend") && (
+      <p className="text-[10px] sm:text-xs text-gray-400 mt-1">
+        Depends on skills
+      </p>
+    )}
   </div>
 )}
 
