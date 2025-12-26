@@ -271,7 +271,7 @@ const blogs = [
   {
     slug: "how-to-write-content-that-actually-converts-not-just-ranks",
     title: "How to Write Content That Actually Converts (Not Just Ranks)",
-    excerpt: "Most people write content hoping it will magically bring traffic, leads, and sales. And sure, ranking on Google feels great. But here’s the truth nobody says out loud...",
+    excerpt: "Write content that turns readers into customers. Learn simple tactics to blend SEO with persuasion so every piece actually drives conversions...",
     image: "./assets/blog-40.png",
   },
 
@@ -294,6 +294,18 @@ const blogs = [
     title: "The Psychology of Headlines: Why People Really Click (And How to Do It Ethically)",
     excerpt: "Discover what makes people click. Break down headline psychology, emotional triggers, and simple tweaks that skyrocket engagement…",
     image: "./assets/blog-42.jpg",
+  },
+  {
+    slug: "the-ultimate-guide-to-creating-a-brand-voice-from-scratch",
+    title: "The Ultimate Guide to Creating a Brand Voice From Scratch",
+    excerpt: "Build a unique brand voice from scratch with easy frameworks, examples, and tips to stand out across all your marketing channels...",
+    image: "./assets/blog43.png",
+  },
+  {
+    slug: "seo-content-mistakes-beginners-make-and-how-to-fix-them",
+    title: "SEO Content Mistakes Beginners Make (And How to Fix Them)",
+    excerpt: "Build a unique brand voice from scratch with easy frameworks, examples, and tips to stand out across all your marketing channels...",
+    image: "./assets/blog44.png",
   },
 ];
 
