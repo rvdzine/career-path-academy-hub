@@ -325,6 +325,24 @@ const blogs = [
     excerpt: "Clean up your website with smart content pruning. Learn when to delete, update, or merge pages to boost SEO and improve user experience...",
     image: "./assets/blog47.png",
   },
+   {
+    slug: "how-to-write-skyscraper-content-in-2025",
+    title: "How to Write Skyscraper Content in 2025",
+    excerpt: "Learn how to create skyscraper content that dominates rankings in 2025 with research tips, structure tricks, and content upgrading tactics...",
+    image: "./assets/blog48.png",
+  },
+  {
+    slug: "the-art-of-storytelling-in-digital-content",
+    title: "The Art of Storytelling in Digital Content",
+    excerpt: "Unlock storytelling techniques that make your content memorable, relatable, and easier for readers to connect with emotionally...",
+    image: "./assets/blog49.png",
+  },
+  {
+    slug: "how-to-write-blog-intros-that-hook-readers-in-5-seconds",
+    title: "How to Write Blog Intros That Hook Readers in 5 Seconds",
+    excerpt: "Grab readers instantly with irresistible blog intros. Learn simple hooks and opening styles that keep people reading longer...",
+    image: "./assets/blog50.png",
+  },
 ];
 
 const Blog = () => {
