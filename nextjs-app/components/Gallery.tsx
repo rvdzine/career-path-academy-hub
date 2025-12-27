@@ -10,16 +10,16 @@ const images = [
   { src: "/assets/gallery4.webp", alt: "IDS Event and Seminar" },
   { src: "/assets/gallery5.webp", alt: "Instructor Training Session" },
   { src: "/assets/gallery6.webp", alt: "Certification Ceremony" },
-  { src: "/assets/gallery7.png", alt: "Guest Lecture" },
-  { src: "/assets/gallery8.png", alt: "Marketing Campaign Project" },
+  { src: "/assets/gallery7.jpg", alt: "Guest Lecture" },
+  { src: "/assets/gallery8.jpg", alt: "Marketing Campaign Project" },
   { src: "/assets/gallery1.webp", alt: "Student Presentation" },
-  { src: "/assets/gallery10.png", alt: "Workshop Collaboration" },
-  { src: "/assets/gallery11.png", alt: "Creative Discussion" },
-  { src: "/assets/gallery12.png", alt: "Practical Demo Session" },
+  { src: "/assets/gallery10.jpg", alt: "Workshop Collaboration" },
+  { src: "/assets/gallery11.jpg", alt: "Creative Discussion" },
+  { src: "/assets/gallery12.jpg", alt: "Practical Demo Session" },
   { src: "/assets/gallery1.webp", alt: "Networking Event" },
   { src: "/assets/gallery6.webp", alt: "Social Media Strategy Talk" },
   { src: "/assets/gallery5.webp", alt: "Classroom Learning" },
-  { src: "/assets/gallery16.png", alt: "Success Celebration" },
+  { src: "/assets/gallery16.jpg", alt: "Success Celebration" },
 ];
 
 export default function GallerySection() {
