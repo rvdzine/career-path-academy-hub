@@ -34,6 +34,26 @@ const FAQHighlight = () => {
       answer:
         "Yes, iDigitalStudies provides a certification upon completion of the course, which is recognized by industry leaders and enhances your credibility as a digital marketing professional.",
     },
+    {
+      question: "How do I enroll in the Digital Marketing course at iDigitalStudies in Noida?",
+      answer:
+        "You can enroll by visiting our website or contacting our admissions team for a free consultation. We'll guide you through the process and help you choose the right course based on your goals.",
+    },
+     {
+      question: "What is the fee structure for the Digital Marketing course at iDigitalStudies?",
+      answer:
+        "The fee structure depends on the course type and duration. For detailed information, please visit our website or contact our team for the most accurate pricing details.",
+    },
+    {
+      question:  "Do you offer 1:1 Digital Marketing classes in Noida?",
+      answer:
+        "Yes, iDigitalStudies offers 1:1 Digital Marketing coaching for business owners and professionals who need personalized attention and tailored strategies to grow their businesses online.",
+    },
+    {
+      question: "Can I attend digital marketing classes online if I am unable to join the Noida campus?",
+      answer:
+        "Yes, we offer online digital marketing classes for students across the globe. Our virtual classes provide the same level of training, resources, and support as in-person classes in Noida.",
+    },
   ];
 
   return (
