@@ -304,8 +304,44 @@ const blogs = [
   {
     slug: "seo-content-mistakes-beginners-make-and-how-to-fix-them",
     title: "SEO Content Mistakes Beginners Make (And How to Fix Them)",
-    excerpt: "Build a unique brand voice from scratch with easy frameworks, examples, and tips to stand out across all your marketing channels...",
+    excerpt: "Avoid common SEO writing mistakes. Learn quick fixes to improve rankings, boost readability, and create search-friendly content...",
     image: "./assets/blog44.png",
+  },
+  {
+    slug: "how-to-write-content-briefs-that-make-writers-10x-faster",
+    title: "How to Write Content Briefs That Make Writers 10x Faster",
+    excerpt: "Create clear, effective content briefs that speed up writing, reduce revisions, and keep your team aligned from start to finish...",
+    image: "./assets/blog45.png",
+  },
+  {
+    slug: "how-to-build-an-editorial-calendar-for-a-full-year",
+    title: "How to Build an Editorial Calendar for a Full Year",
+    excerpt: "Plan a full year of content with a practical editorial calendar that keeps your workflow organised, consistent, and easier to manage...",
+    image: "./assets/blog46.png",
+  },
+  {
+    slug: "content-pruning-guide-what-to-delete-update-or-merge",
+    title: "Content Pruning Guide: What to Delete, Update, or Merge",
+    excerpt: "Clean up your website with smart content pruning. Learn when to delete, update, or merge pages to boost SEO and improve user experience...",
+    image: "./assets/blog47.png",
+  },
+   {
+    slug: "how-to-write-skyscraper-content-in-2025",
+    title: "How to Write Skyscraper Content in 2025",
+    excerpt: "Learn how to create skyscraper content that dominates rankings in 2025 with research tips, structure tricks, and content upgrading tactics...",
+    image: "./assets/blog48.png",
+  },
+  {
+    slug: "the-art-of-storytelling-in-digital-content",
+    title: "The Art of Storytelling in Digital Content",
+    excerpt: "Unlock storytelling techniques that make your content memorable, relatable, and easier for readers to connect with emotionally...",
+    image: "./assets/blog49.png",
+  },
+  {
+    slug: "how-to-write-blog-intros-that-hook-readers-in-5-seconds",
+    title: "How to Write Blog Intros That Hook Readers in 5 Seconds",
+    excerpt: "Grab readers instantly with irresistible blog intros. Learn simple hooks and opening styles that keep people reading longer...",
+    image: "./assets/blog50.png",
   },
 ];
 
