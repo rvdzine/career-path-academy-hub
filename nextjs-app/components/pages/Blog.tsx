@@ -343,6 +343,24 @@ const blogs = [
     excerpt: "Grab readers instantly with irresistible blog intros. Learn simple hooks and opening styles that keep people reading longer...",
     image: "./assets/blog50.png",
   },
+  {
+    slug: "how-to-research-competitor-content-like-a-pro",
+    title: "How to Research Competitor Content Like a Pro",
+    excerpt: "Find hidden gaps and opportunities by analysing competitor content the smart way. Learn tools and methods that uncover what actually works...",
+    image: "./assets/blog51.png",
+  },
+  {
+    slug: "the-role-of-e-a-t-in-content-writing-with-examples",
+    title: "The Role of E-A-T in Content Writing (With Examples)",
+    excerpt: "Understand E-A-T with real examples. Learn how expertise, authority, and trust impact rankings and how to apply them to your content...",
+    image: "./assets/blog52.png",
+  },
+   {
+    slug: "how-to-write-content-for-voice-search-2025-edition",
+    title: "How to Write Content for Voice Search (2025 Edition)",
+    excerpt: "Optimise your content for voice assistants with conversational keywords, clear structure, and 2025-ready strategies...",
+    image: "./assets/blog53.png",
+  },
 ];
 
 const Blog = () => {
