@@ -361,6 +361,24 @@ const blogs = [
     excerpt: "Optimise your content for voice assistants with conversational keywords, clear structure, and 2025-ready strategies...",
     image: "./assets/blog53.png",
   },
+  {
+    slug: "zero-click-searches-how-to-still-get-traffic",
+    title: "Zero-Click Searches: How to Still Get Traffic",
+    excerpt: "Zero-click searches are rising—here’s how to still attract traffic with smart optimisation, snippets, and value-focused content...",
+    image: "./assets/blog54.png",
+  },
+   {
+    slug: "how-to-turn-boring-topics-into-engaging-content",
+    title: "How to Turn Boring Topics Into Engaging Content",
+    excerpt: "Transform dull topics into engaging articles with creativity, structure tweaks, and storytelling tricks your audience will love...",
+    image: "./assets/blog55.png",
+  },
+   {
+    slug: "content-gap-analysis-step-by-step-guide",
+    title: "Content Gap Analysis: Step-by-Step Guide",
+    excerpt: "Learn how to run a content gap analysis to uncover missed keywords, competitor strengths, and topics your audience actually wants...",
+    image: "./assets/blog56.png",
+  },
 ];
 
 const Blog = () => {
