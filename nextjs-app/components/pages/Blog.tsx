@@ -397,6 +397,24 @@ const blogs = [
     excerpt: "Write product descriptions that highlight benefits, address doubts, and motivate customers to buy without sounding pushy...",
     image: "./assets/blog59.png",
   },
+  {
+    slug: "how-to-write-email-newsletters-that-people-actually-read",
+    title: "How to Write Email Newsletters That People Actually Read",
+    excerpt: "Write newsletters people look forward to with relatable tone, useful content, and clear storytelling...",
+    image: "./assets/blog60.png",
+  },
+  {
+    slug: "how-to-use-data-statistics-in-content-without-sounding-boring",
+    title: "How to Use Data & Statistics in Content (Without Sounding Boring)",
+    excerpt: "Add data to your content without making it dull. Learn how to present stats in a simple, engaging way...",
+    image: "./assets/blog61.png",
+  },
+  {
+    slug: "how-ai-is-changing-content-writing-in-2025-practical-use-cases",
+    title: "How AI Is Changing Content Writing in 2025 (Practical Use Cases)",
+    excerpt: "Explore how AI transforms content writing in 2025 with real use cases, tools, and workflow improvements...",
+    image: "./assets/blog62.png",
+  },
 ];
 
 const Blog = () => {
