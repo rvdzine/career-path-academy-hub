@@ -379,6 +379,24 @@ const blogs = [
     excerpt: "Learn how to run a content gap analysis to uncover missed keywords, competitor strengths, and topics your audience actually wants...",
     image: "./assets/blog56.png",
   },
+   {
+    slug: "how-to-create-high-converting-lead-magnets",
+    title: "How to Create High-Converting Lead Magnets",
+    excerpt: "Build irresistible lead magnets that convert. Get ideas, formats, and simple steps to attract the right audience fast...",
+    image: "./assets/blog57.png",
+  },
+  {
+    slug: "how-to-optimize-blog-content-for-featured-snippets",
+    title: "How to Optimize Blog Content for Featured Snippets",
+    excerpt: "Capture featured snippets with structured answers, smart formatting, and SEO tactics that help Google pick your content...",
+    image: "./assets/blog58.png",
+  },
+  {
+    slug: "how-to-write-product-descriptions-that-sell",
+    title: "How to Write Product Descriptions That Sell",
+    excerpt: "Write product descriptions that highlight benefits, address doubts, and motivate customers to buy without sounding pushy...",
+    image: "./assets/blog59.png",
+  },
 ];
 
 const Blog = () => {
