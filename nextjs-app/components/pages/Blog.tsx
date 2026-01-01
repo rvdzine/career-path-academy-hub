@@ -415,6 +415,42 @@ const blogs = [
     excerpt: "Explore how AI transforms content writing in 2025 with real use cases, tools, and workflow improvements...",
     image: "./assets/blog62.png",
   },
+    {
+    slug: "how-to-create-a-content-style-guide-for-your-team",
+    title: "How to Create a Content Style Guide for Your Team",
+    excerpt: "Build a simple content style guide to keep your team aligned on tone, formatting, and brand messaging across all content...",
+    image: "./assets/blog63.png",
+  },
+  {
+    slug: "how-to-turn-faqs-into-seo-traffic-machines",
+    title: "How to Turn FAQs Into SEO Traffic Machines",
+    excerpt: "Turn FAQs into powerful SEO assets with structured answers, keyword-rich questions, and search-friendly formatting...",
+    image: "./assets/blog64.png",
+  },
+   {
+    slug: "the-complete-guide-to-content-repurposing-practical-examples",
+    title: "The Complete Guide to Content Repurposing (Practical Examples)",
+    excerpt: "Repurpose content the smart way. Learn how to turn one piece into multiple formats without losing quality or time...",
+    image: "./assets/blog65.png",
+  },
+  {
+    slug: "content-writing-for-e-commerce-a-practical-framework",
+    title: "Content Writing for E-commerce: A Practical Framework",
+    excerpt: "Follow a simple framework to write high-converting e-commerce content that improves product visibility and boosts sales...",
+    image: "./assets/blog66.png",
+  },
+  {
+    slug: "how-to-build-a-content-funnel-from-awareness-to-conversion",
+    title: "How to Build a Content Funnel From Awareness to Conversion",
+    excerpt: "Create a seamless content funnel that guides users from awareness to conversion with the right formats and messaging...",
+    image: "./assets/blog67.png",
+  },
+   {
+    slug: "how-to-write-social-media-captions-that-drive-engagement",
+    title: "How to Write Social Media Captions That Drive Engagement",
+    excerpt: "Craft scroll-stopping social media captions with hooks, clarity, and tone that spark engagement instantly....",
+    image: "./assets/blog68.png",
+  },
 ];
 
 const Blog = () => {
