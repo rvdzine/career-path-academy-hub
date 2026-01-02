@@ -451,6 +451,24 @@ const blogs = [
     excerpt: "Craft scroll-stopping social media captions with hooks, clarity, and tone that spark engagement instantly....",
     image: "./assets/blog68.png",
   },
+  {
+    slug: "how-to-edit-your-content-like-a-professional-editor",
+    title: "How to Edit Your Content Like a Professional Editor",
+    excerpt: "Edit your content like a pro using simple techniques to fix flow, clarity, structure, and reader experience...",
+    image: "./assets/blog69.png",
+  },
+  {
+    slug: "evergreen-content-vs-trending-content-when-to-use-what",
+    title: "Evergreen Content vs Trending Content: When to Use What",
+    excerpt: "Learn when to choose evergreen content and when trending topics make sense to maximise traffic and long-term value...",
+    image: "./assets/blog70.png",
+  },
+  {
+    slug: "how-to-structure-long-form-content-for-maximum-readability",
+    title: "How to Structure Long-Form Content for Maximum Readability",
+    excerpt: "Make long-form content easier to read with smart formatting, headings, visuals, and story flow...",
+    image: "./assets/blog71.png",
+  },
 ];
 
 const Blog = () => {
