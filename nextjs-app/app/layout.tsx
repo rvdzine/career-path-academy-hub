@@ -31,8 +31,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/ids-favicon.svg" type="image/svg+xml" />
-        {/* Keywords meta tag */}
-        <meta name="keywords" content={metadata.keywords.join(", ")} />
+        
 
         {/* Google Tag Manager Script */}
         <Script id="google-tag-manager" strategy="afterInteractive">
