@@ -12,6 +12,14 @@ export const metadata: Metadata = {
   title: "Digital Marketing Institute in Noida",
   description:
     "Join the best Digital Marketing Institute in Noida. iDigital Studies offers practical Digital Marketing courses like SEO, SMO, PPC with live projects, 100% placement assistance, and expert training. Enroll today!",
+  keywords: [
+    "digital marketing classes",
+    "digital marketing course",
+    "digital marketing course near me",
+    "digital marketing institute",
+    "digital marketing classes in Noida",
+    "digital marketing course in Noida",
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -19,8 +27,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/ids-favicon.svg" type="image/svg+xml" />
+        {/* Keywords meta tag */}
+        <meta name="keywords" content={metadata.keywords.join(", ")} />
 
-        {/* Google Tag Manager */}
+        {/* Google Tag Manager Script */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -33,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
 
       <body>
-        {/* Google Tag Manager (noscript) */}
+        {/* Google Tag Manager Noscript */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-P4SLG6ZH"
