@@ -21,7 +21,7 @@ const mentors: Mentor[] = [
   // },
   {
     name: "Ravi Verma",
-    role: "Ex. Strategist Principal",
+    role: "Strategist Principal",
     experience: "12+ years",
     company: "Physics Wallah",
     avatar: "/assets/Ravi.jpg",
@@ -29,7 +29,7 @@ const mentors: Mentor[] = [
   },
   {
     name: "Sweta Kushwaha",
-    role: "Ex. Sr.Marketing Manager",
+    role: "Sr.Marketing Manager",
     experience: "8+ years",
     company: "Amazon",
     avatar: "/assets/sweta.jpg",
