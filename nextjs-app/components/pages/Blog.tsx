@@ -469,6 +469,24 @@ const blogs = [
     excerpt: "Make long-form content easier to read with smart formatting, headings, visuals, and story flow...",
     image: "./assets/blog71.png",
   },
+   {
+    slug: "how-to-write-seo-content-without-keyword-stuffing",
+    title: "How to Write SEO Content Without Keyword Stuffing",
+    excerpt: "Use keywords naturally without stuffing. Learn how to balance readability, SEO, and user intent for better ranking...",
+    image: "./assets/blog72.png",
+  },
+   {
+    slug: "how-to-do-content-audits-every-quarter",
+    title: "How to Do Content Audits Every Quarter",
+    excerpt: "Run quarterly content audits to spot gaps, update old posts, and improve your site's overall SEO performance...",
+    image: "./assets/blog73.png",
+  },
+   {
+    slug: "how-to-write-content-for-multilingual-seo",
+    title: "How to Write Content for Multilingual SEO",
+    excerpt: "Create multilingual SEO content with proper localisation, keyword research, and cultural adaptation...",
+    image: "./assets/blog74.png",
+  },
 ];
 
 const Blog = () => {

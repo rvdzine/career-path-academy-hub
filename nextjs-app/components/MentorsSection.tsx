@@ -43,13 +43,13 @@ const mentors: Mentor[] = [
     avatar: "/assets/deepanshi.jpeg",
     
   },
-  // {
-  //   name: "Mohona Dey",
-  //   role: "Revenue Growth Mgmt.",
-  //   company: "Mondelez",
-  //   avatar: "/mentors/mohona.jpg",
-  //   logo: "/logos/mondelez.svg",
-  // },
+  {
+    name: "Suleman Khan",
+    role: "Trainer & coach",
+    experience: "9+ years",
+    company: "Mondelez",
+    avatar: "/assets/suleman.jpeg",
+  },
   
 ];
 
