@@ -7316,43 +7316,29 @@ Breathe. I’ll walk you through a simple starter kit that actually makes sense.
 "how-to-build-a-content-funnel-from-awareness-to-conversion": {
   title: "How to Build a Content Funnel From Awareness to Conversion",
   content: `
-<p>Ever notice how certain brands pull you in without trying too hard?</p><br/>
-
-<p>One minute you’re just browsing, the next you’re hooked. That’s not luck or clever tricks. It’s a content funnel quietly doing its job.</p><br/>
-
-<p>A good funnel walks people through a natural flow, from first hearing about you to finally deciding, <em>“Okay, I’m in.”</em> And once you see how it all fits together, it’s actually kind of fun to build.</p><br/>
+<p>Ever notice how certain brands pull you in without trying too hard? One minute you’re just browsing, the next you’re hooked. That’s not luck or clever tricks it’s a content funnel quietly doing its job. A good funnel walks people through a natural flow, from first hearing about you to finally deciding, “Okay, I’m in.” And once you see how it all fits together, it’s actually kind of fun to build.</p><br/>
 
 <p>Let’s keep this simple and useful.</p><br/>
 
-<h2>So, What’s a Content Funnel Anyway?</h2><br/>
+<h2><strong>So, what’s a content funnel anyway?</strong></h2><br/>
 
-<p>Picture it like a gentle path you lay out for your audience.</p><br/>
+<p>Picture it like a gentle path you lay out for your audience. Most people don’t land on a site ready to buy right away. They’re looking for answers. They want to trust who they’re dealing with. And deep down, they want to feel understood. A content funnel helps with all of that, one step at a time.</p><br/>
 
-<p>Most people don’t land on a site ready to buy right away. They’re looking for answers. They want to trust who they’re dealing with. And deep down, they want to feel understood.</p><br/>
-
-<p>A content funnel helps with all of that, one step at a time.</p><br/>
-
-<p>A typical content funnel has three stages:</p><br/>
-
-<ul>
-  <li><strong>Awareness</strong></li>
-  <li><strong>Consideration</strong></li>
-  <li><strong>Conversion</strong></li>
+<p>A content funnel usually has three stages:</p><br/>
+<ul class="list-disc pl-5">
+  <li>Awareness</li>
+  <li>Consideration</li>
+  <li>Conversion</li>
 </ul><br/>
-
 <p>Your goal is to deliver the right content at the right moment so people naturally move forward instead of drifting away.</p><br/>
+<h2><strong>Stage 1: Awareness – Helping People Discover You
+</strong></h2><br/>
 
-<h2>Stage 1: Awareness – Helping People Discover You</h2><br/>
+<p>At the awareness stage, your audience barely knows who you are. Maybe they’re searching for answers, browsing social media, or trying to figure out why something isn’t working in their life or business.</p><br/>
 
-<p>At the awareness stage, your audience barely knows who you are.</p><br/>
-
-<p>They might be searching for answers, scrolling through social media, or trying to figure out why something isn’t working in their life or business.</p><br/>
-
-<p>Your job here is simple: show up with helpful, no-pressure content.</p><br/>
-
-<p><strong>Great awareness content includes:</strong></p><br/>
-
-<ul>
+<p>Your job? Show up with helpful, no-pressure content.</p><br/>
+<p>Great awareness content includes:</p><br/>
+<ul class="list-disc pl-5">
   <li>Blogs explaining common problems</li>
   <li>Short explainer videos</li>
   <li>Infographics</li>
@@ -7360,23 +7346,14 @@ Breathe. I’ll walk you through a simple starter kit that actually makes sense.
   <li>Educational reels or YouTube shorts</li>
 </ul><br/>
 
-<p>For example, if you sell project management software, your awareness content could be something like:</p><br/>
+<p>For example, if you sell project management software, your awareness content could be something like: “7 Signs Your Team Needs Better Workflow Tools.” You’re not selling. You’re simply being helpful. This builds trust automatically.</p><br/>
 
-<p><em>“7 Signs Your Team Needs Better Workflow Tools.”</em></p><br/>
+<h2><strong>Stage 2: Consideration – Proving That Your Solution Makes Sense</strong></h2><br/>
 
-<p>You’re not selling. You’re simply being helpful. This builds trust automatically.</p><br/>
-
-<h2>Stage 2: Consideration – Proving That Your Solution Makes Sense</h2><br/>
-
-<p>Once someone knows you exist, they enter the consideration stage.</p><br/>
-
-<p>Here, they’re comparing options, reading reviews, and trying to figure out what makes one solution better than another.</p><br/>
-
-<p>This is where your content should gently step things up.</p><br/>
-
-<p><strong>Great consideration content includes:</strong></p><br/>
-
-<ul>
+<p>Once someone knows you exist, they enter the consideration stage. Here, they’re comparing options, reading reviews, and trying to figure out what makes one product better than another.
+</p><br/>
+<p>This is where your content should gently step things up.</p><br/><p>Great consideration content includes:</p><br/>
+<ul class="list-disc pl-5">
   <li>Case studies</li>
   <li>Comparison guides</li>
   <li>Testimonials</li>
@@ -7384,90 +7361,68 @@ Breathe. I’ll walk you through a simple starter kit that actually makes sense.
   <li>Webinars and demos</li>
 </ul><br/>
 
-<p>You’re still not pushing for a sale.</p><br/>
+<p>You’re still not pushing for a sale. Instead, you’re showing how your solution solves their problem better than anything else. Real-life examples work beautifully here. People trust results they can see.</p><br/>
 
-<p>Instead, you’re showing how your solution solves their problem better than anything else. Real-life examples work beautifully here because people trust results they can see.</p><br/>
+<h2><strong>Stage 3: Conversion – Turning Interest Into Action
+</strong></h2><br/>
 
-<h2>Stage 3: Conversion – Turning Interest Into Action</h2><br/>
+<p>Now the user is serious. They want to buy, but they may need one last nudge. Your content should reduce hesitation and make the decision feel obvious.</p><br/>
 
-<p>Now the user is serious.</p><br/>
-
-<p>They’re close to buying, but they may need one last nudge. Your content should reduce hesitation and make the decision feel obvious.</p><br/>
-
-<p><strong>Strong conversion content includes:</strong></p><br/>
-
-<ul>
+<ul class="list-disc pl-5">
   <li>Product pages</li>
   <li>Pricing pages</li>
   <li>Free trials</li>
   <li>Limited-time offers</li>
-  <li>Clear calls to action</li>
+  <li>Strong calls to action</li>
   <li>Customer reviews</li>
   <li>Tutorials</li>
 </ul><br/>
 
-<p>The key here is clarity.</p><br/>
+<p>The key here is clarity. Remove friction. Make the next step simple. A clear CTA like “Start your free 14-day trial” does wonders.</p><br/>
 
-<p>Remove friction. Make the next step simple. A CTA like <em>“Start your free 14-day trial”</em> can make a huge difference.</p><br/>
+<h2><strong>Tips to Build a Funnel That Actually Works</strong></h2><br/>
 
-<h2>Tips to Build a Funnel That Actually Works</h2><br/>
+<p>A good content funnel is a living, breathing system. It improves over time. Here are a few practical tips:</p><br/>
 
-<p>A good content funnel is a living, breathing system. It improves over time.</p><br/>
-
-<p><strong>Keep these practical tips in mind:</strong></p><br/>
-
-<ul>
-  <li>Map every piece of content to a specific funnel stage</li>
-  <li>Repurpose content across multiple platforms</li>
+<ul class="list-disc pl-5">
+  <li>Map every piece of content to a specific funnel stage
+</li>
+  <li>Repurpose content across platforms</li>
   <li>Track metrics like time on page, scroll depth, and conversions</li>
-  <li>Use internal links to guide users naturally</li>
-  <li>Give every stage a clear goal</li>
+  <li>Create internal links to guide users naturally
+</li>
+  <li>Give every stage its own goal</li>
 </ul><br/>
 
-<p>Small tweaks often create surprisingly big improvements.</p><br/>
+<p>Small tweaks often create big improvements.
+</p><br/>
 
-<h2>FAQs</h2><br/>
 
-<h3>How long does it take to build an effective content funnel?</h3><br/>
+<h2><strong>FAQs</strong></h2><br/>
 
-<p>Building a content funnel isn’t a one-day task.</p><br/>
+<h2><strong>How long does it take to build an effective content funnel?</strong></h2><br/>
 
-<p>Most businesses take a few weeks to plan, create, and publish content for each stage. After that, you’ll need one to three months of real audience data to see what’s working.</p><br/>
+<p>Building a content funnel isn’t a one-day task. Most businesses take a few weeks to plan, create, and publish assets for each stage. After that, you need at least one to three months of real audience interactions to understand what’s working. You’ll find yourself adjusting things like calls to action, content topics, and landing page layouts. Think of your funnel as an ongoing experiment rather than a fixed project.</p><br/>
 
-<p>Expect to adjust CTAs, topics, and layouts over time. Think of your funnel as an ongoing experiment, not a fixed project.</p><br/>
+<h2><strong>What type of content works best for the awareness stage?</strong></h2><br/>
 
-<h3>What type of content works best for the awareness stage?</h3><br/>
+<p>Awareness content should feel lightweight, educational, and easy to digest. People are just meeting you, so avoid sales vibes. Blog posts, listicles, short videos, how-to guides, and social media content work great here. The main purpose is to introduce a problem and help the audience understand it. If your content genuinely offers value, users naturally come back for more. Consistency matters more than complexity.
+</p><br/>
 
-<p>Awareness content should be lightweight, educational, and easy to consume.</p><br/>
+<h2><strong>How do I push people from awareness to consideration?</strong></h2><br/>
 
-<p>Blog posts, listicles, short videos, how-to guides, and social media posts work best. The goal is to introduce a problem and help users understand it without selling.</p><br/>
+<p>The shift from awareness to consideration comes from trust and relevance. Once users engage with your initial content, offer them something slightly deeper, like a downloadable guide or a case study. Place internal links or CTAs within your educational articles. Think of it like gently opening the next door instead of forcing people to walk through it. The transition should feel natural and helpful, not pushy.
+</p><br/>
 
-<p>Consistency matters more than complexity.</p><br/>
+<h2><strong>Do I need separate content for every funnel stage?</strong></h2><br/>
 
-<h3>How do I move people from awareness to consideration?</h3><br/>
+<p>Yes, ideally you do. Each stage has a different mindset. At awareness, users are curious. At consideration, they compare options. At conversion, they’re evaluating if they should purchase now. One piece of content can’t do all three jobs well. Creating dedicated content ensures your message actually resonates. It also helps you measure performance more clearly and see where people drop off.</p><br/>
 
-<p>The transition happens through trust and relevance.</p><br/>
+<h2><strong>How can I measure whether my content funnel is working?</strong></h2><br/>
 
-<p>Once users engage with awareness content, offer something deeper like a downloadable guide, checklist, or case study.</p><br/>
-
-<p>Use internal links and soft CTAs. It should feel like opening the next door, not pushing someone through it.</p><br/>
-
-<h3>Do I need separate content for every funnel stage?</h3><br/>
-
-<p>Yes, ideally you do.</p><br/>
-
-<p>Each stage comes with a different mindset. Awareness is about curiosity, consideration is about comparison, and conversion is about decision-making.</p><br/>
-
-<p>Dedicated content helps your message resonate and makes performance tracking much clearer.</p><br/>
-
-<h3>How can I measure if my content funnel is working?</h3><br/>
-
-<p>Measurement is key.</p><br/>
-
-<p>Track metrics like traffic, click-through rates, leads, time on page, and conversions using tools like Google Analytics, Hotjar, or your CRM.</p><br/>
-
-<p>Watch how users move through your funnel and continuously test headlines, formats, CTAs, and layouts to improve results.</p>
-`,image: "./assets/blog67.png"
+<p>Tracking performance is the secret sauce. Look at metrics like website traffic, click-through rates, leads generated, time spent on pages, and final conversions. Tools like Google Analytics, Hotjar, or CRM systems can give great insight. Also pay attention to the user journey: Are people moving from one stage to the next, or dropping off somewhere in between? Optimization is continuous, so keep testing headlines, CTAs, formats, and placements.</p>
+`,
+image: "./assets/blog67.png"
 },
 "how-to-write-social-media-captions-that-drive-engagement": {
   title: "How to Write Social Media Captions That Drive Engagement",
