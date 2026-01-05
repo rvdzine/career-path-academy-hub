@@ -487,6 +487,24 @@ const blogs = [
     excerpt: "Create multilingual SEO content with proper localisation, keyword research, and cultural adaptation...",
     image: "./assets/blog74.png",
   },
+  {
+    slug: "thought-leadership-content-how-to-build-authority-in-your-niche",
+    title: "Thought Leadership Content: How to Build Authority in Your Niche",
+    excerpt: "Build authority with thought leadership content that showcases expertise, originality, and unique insights...",
+    image: "./assets/blog75.png",
+  },
+  {
+    slug: "how-to-create-a-content-distribution-strategy-that-works",
+    title: "How to Create a Content Distribution Strategy That Works",
+    excerpt: "Distribute your content effectively with a strategy that boosts reach, engagement, and long-term visibility...",
+    image: "./assets/blog76.png",
+  },
+  {
+    slug: "how-to-write-explainer-articles-that-keep-readers-hooked",
+    title: "How to Write Explainer Articles That Keep Readers Hooked",
+    excerpt: "Write clear, engaging explainer articles with simple language, strong structure, and relatable examples...",
+    image: "./assets/blog77.png",
+  },
 ];
 
 const Blog = () => {
