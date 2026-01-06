@@ -505,6 +505,24 @@ const blogs = [
     excerpt: "Write clear, engaging explainer articles with simple language, strong structure, and relatable examples...",
     image: "./assets/blog77.png",
   },
+  {
+    slug: "the-complete-guide-to-writing-case-studies",
+    title: "The Complete Guide to Writing Case Studies",
+    excerpt: "Create compelling case studies with storytelling, data, and real results that build trust and credibility...",
+    image: "./assets/blog78.png",
+  },
+  {
+    slug: "how-to-use-reddit-and-quora-for-content-research",
+    title: "How to Use Reddit & Quora for Content Research",
+    excerpt: "Use Reddit and Quora to find real user questions, content gaps, and topics worth writing about...",
+    image: "./assets/blog79.png",
+  },
+  {
+    slug: "content-personalization-strategies-for-higher-retention",
+    title: "Content Personalization Strategies for Higher Retention",
+    excerpt: "Improve retention with personalized content tailored to user behavior, preferences, and intent...",
+    image: "./assets/blog80.png",
+  },
 ];
 
 const Blog = () => {
