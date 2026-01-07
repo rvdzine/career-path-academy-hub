@@ -4853,21 +4853,21 @@ Breathe. I’ll walk you through a simple starter kit that actually makes sense.
 
 <p>Think of your own browsing habits. Do you remember the last statistic you saw? Probably not. But you do remember that touching video about a school kid or that funny post about office life. That is the power of storytelling. It creates an emotional connection that standard content rarely achieves</p><br/>
 
-<h2 class="text-xl font-bold mt-5 mb-3"><strong>How to Craft a Story That Actually Works</strong></h2>
+<h3 ><strong>How to Craft a Story That Actually Works</strong></h2>
 <p>Creating a story is not just about typing words. It is about shaping an experience. Here are some simple ways to build a story that feels natural and keeps readers interested.</p><br/>
 
 
-<h2 class="text-xl font-bold mt-5 mb-3"><strong>Start With a Real Hook</strong></h2>
+<h3><strong>Start With a Real Hook</strong></h3>
 <p>Every good story starts with something engaging. It can be a question, a surprising fact, or even a small personal moment. Something that makes the reader think, Wait, what is happening here. Hooks work because they spark curiosity within the first few seconds.</p><br/>
 
-<h2 class="text-xl font-bold mt-5 mb-3"><strong>Add Characters and Conflict</strong></h2>
+<h3><strong>Add Characters and Conflict</strong></h3>
 <p>Digital content does not need a full movie style plot. But it does need characters. This can be you, your customer, or anyone who represents the message. Add a small challenge or conflict to make the story feel real. Audiences love to follow a journey from start to finish.</p><br/>
 
-<h2 class="text-xl font-bold mt-5 mb-3"><strong>Keep the Message Simple and Clear</strong></h2>
+<h3><strong>Keep the Message Simple and Clear</strong></h3>
 <p>Storytelling does not work when it confuses the reader. Use simple language, short sentences, and a natural tone. Imagine explaining the idea to a friend. That is the easiest way to make your content feel approachable and human.</p><br/>
 
 
-<h2 class="text-xl font-bold mt-5 mb-3"><strong>End With Something Valuable</strong></h2>
+<h3><strong>End With Something Valuable</strong></h3>
 <p>A story should not just entertain. It should leave the reader with a takeaway. It can be a lesson, a tip, or a clear direction. This is what makes storytelling powerful for digital content. It gives your audience something they can use immediately.</p><br/>
 
 <h2 class="text-xl font-bold mt-5 mb-3"><strong>Where Storytelling Fits in Digital Content</strong></h2>
