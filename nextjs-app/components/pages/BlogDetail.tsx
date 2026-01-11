@@ -1,10 +1,12 @@
 // src/pages/BlogDetail.tsx
 "use client";
 
+import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
-// import { useParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { blogApi } from "@/lib/api";
+import { Blog } from "@/lib/types";
 
 const blogDetails: Record<
   string,
@@ -8192,10 +8194,60 @@ image: "/assets/blog68.png"
 };
 
 const BlogDetail = ({ slug }: { slug: string }) => {
-  // const { slug } = useParams<{ slug: string }>();
-  const blog = blogDetails[slug || ""];
+  const [blog, setBlog] = useState<Blog | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  if (!blog) {
+  useEffect(() => {
+    fetchBlog();
+  }, [slug]);
+
+  const fetchBlog = async () => {
+    try {
+      const response = await blogApi.getBlogBySlug(slug);
+      setBlog(response.data);
+    } catch (err: any) {
+      // Silently fallback to hardcoded blog (expected for old blogs)
+      // Only log if it's not a 404 error
+      if (err.response?.status !== 404) {
+        console.error("Error fetching blog:", err);
+      }
+      
+      // Fallback to hardcoded blog if API fails
+      const fallbackBlog = blogDetails[slug];
+      if (fallbackBlog) {
+        setBlog({
+          id: 0,
+          slug,
+          title: fallbackBlog.title,
+          content: fallbackBlog.content,
+          featured_image: fallbackBlog.image,
+          excerpt: "",
+          meta_description: "",
+          author: { id: 0, username: "admin", first_name: "", last_name: "" },
+          status: "published",
+          created_at: "",
+          updated_at: "",
+          is_featured: false,
+          views_count: 0,
+        } as Blog);
+      } else {
+        setError(true);
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-xl text-gray-600">Loading blog...</div>
+      </div>
+    );
+  }
+
+  if (error || !blog) {
     return (
       <div className="py-20 text-center px-4">
         <h2 className="text-2xl font-bold text-gray-700">Blog not found</h2>
@@ -8212,7 +8264,7 @@ const BlogDetail = ({ slug }: { slug: string }) => {
         <Navbar />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 max-w-4xl">
           <img
-            src={blog.image}
+            src={blog.featured_image}
             alt={blog.title}
             className="w-full h-64 sm:h-80 md:h-96 object-cover mb-6 rounded-lg"
           />

@@ -1,4 +1,5 @@
 import BlogDetail from "@/components/pages/BlogDetail";
+import axios from "axios";
 
 interface BlogDetailPageProps{
   params: Promise< {slug:string} >;
@@ -7,7 +8,33 @@ interface BlogDetailPageProps{
 export async function generateMetadata({ params }: BlogDetailPageProps) {
   const {slug} = await params;
 
-  const blogDetails: Record<string, { title: string; description: string; image: string }> = {
+  // Try to fetch from API first (for new blogs)
+  try {
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+    const response = await axios.get(`${API_URL}/blogs/${slug}/`);
+    const blog = response.data;
+    
+    return {
+      title: `${blog.title} | iDigitalStudies`,
+      description: blog.meta_description || blog.excerpt,
+      keywords: blog.meta_keywords ? blog.meta_keywords.split(',') : [],
+      openGraph: {
+        title: `${blog.title} | iDigitalStudies`,
+        description: blog.meta_description || blog.excerpt,
+        url: `https://idigitalstudies.com/blog/${slug}`,
+        images: [blog.featured_image],
+        type: "article",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${blog.title} | iDigitalStudies`,
+        description: blog.meta_description || blog.excerpt,
+        images: [blog.featured_image],
+      },
+    };
+  } catch (error) {
+    // Fallback to hardcoded metadata for old blogs
+    const blogDetails: Record<string, { title: string; description: string; image: string }> = {
     "local-seo-checklist-how-to-get-your-business-on-google-maps-for-free": {
       title: "Local SEO Checklist: How to Get Your Business on Google Maps for Free",
       description:
@@ -201,34 +228,35 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
     }
   };
 
-  const blog = blogDetails[slug];
+    const blog = blogDetails[slug];
 
-  if (!blog) {
+    if (!blog) {
+      return {
+        title: "Blog Not Found | iDigitalStudies",
+        description: "The blog post you're looking for could not be found.",
+        keywords: [],
+      };
+    }
+
     return {
-      title: "Blog Not Found | iDigitalStudies",
-      description: "The blog post you're looking for could not be found.",
-      keywords: [], // Remove keywords from 404 blog page
+      title: `${blog.title} | iDigitalStudies`,
+      description: blog.description,
+      keywords: [],
+      openGraph: {
+        title: `${blog.title} | iDigitalStudies`,
+        description: blog.description,
+        url: `https://idigitalstudies.com/blog/${slug}`,
+        images: [blog.image],
+        type: "article",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${blog.title} | iDigitalStudies`,
+        description: blog.description,
+        images: [blog.image],
+      },
     };
   }
-
-  return {
-    title: `${blog.title} | iDigitalStudies`,
-    description: blog.description,
-    keywords: [], // Remove keywords from individual blog pages
-    openGraph: {
-      title: `${blog.title} | iDigitalStudies`,
-      description: blog.description,
-      url: `https://idigitalstudies.in/blog/${slug}`,
-      images: [blog.image],
-      type: "article",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${blog.title} | iDigitalStudies`,
-      description: blog.description,
-      images: [blog.image],
-    },
-  };
 }
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
