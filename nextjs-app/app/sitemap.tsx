@@ -1,110 +1,149 @@
-// app/sitemap.ts   ← isi file mein pura code daal do
+// app/sitemap.ts
 
 import { MetadataRoute } from 'next'
+import axios from 'axios'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = 'https://idigitalstudies.com'
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api'
+  
+  // Static pages
+  const staticPages: MetadataRoute.Sitemap = [
     {
-      url: 'https://idigitalstudies.com',
+      url: baseUrl,
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 1.0,
     },
     {
-      url: 'https://idigitalstudies.com/about',
+      url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: 'https://idigitalstudies.com/courses',
+      url: `${baseUrl}/courses`,
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.9,
     },
     {
-      url: 'https://idigitalstudies.com/coursedetails',
+      url: `${baseUrl}/coursedetails`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: 'https://idigitalstudies.com/blog',
+      url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.9,
     },
     {
-      url: 'https://idigitalstudies.com/faq',
+      url: `${baseUrl}/faq`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://idigitalstudies.com/contact',
+      url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://idigitalstudies.com/offline-center',
+      url: `${baseUrl}/offline-center`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: 'https://idigitalstudies.com/placement',
+      url: `${baseUrl}/placement`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: 'https://idigitalstudies.com/jobs-and-placements',
+      url: `${baseUrl}/jobs-and-placements`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: 'https://idigitalstudies.com/privacy',
+      url: `${baseUrl}/privacy`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
-      url: 'https://idigitalstudies.com/refund',
+      url: `${baseUrl}/refund`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
-      url: 'https://idigitalstudies.com/terms',
+      url: `${baseUrl}/terms`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
-      url: 'https://idigitalstudies.com/internship-form',
+      url: `${baseUrl}/internship-form`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: 'https://idigitalstudies.com/ids',
+      url: `${baseUrl}/ids`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: 'https://idigitalstudies.com/sss',
+      url: `${baseUrl}/sss`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
-      url: 'https://idigitalstudies.com/best-digital-marketing-institute-delhi-ncr',
+      url: `${baseUrl}/best-digital-marketing-institute-delhi-ncr`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
   ]
-}  
+
+  // Fetch dynamic blog pages from API
+  let blogPages: MetadataRoute.Sitemap = []
+  
+  try {
+    const response = await axios.get(`${API_URL}/blogs/`, {
+      params: { status: 'published' }
+    })
+    
+    blogPages = response.data.map((blog: any) => ({
+      url: `${baseUrl}/blog/${blog.slug}`,
+      lastModified: new Date(blog.updated_at || blog.published_at || blog.created_at),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }))
+  } catch (error) {
+    console.error('Error fetching blogs for sitemap:', error)
+    // Fallback: Add hardcoded blog slugs if API fails
+    const fallbackBlogSlugs = [
+      'local-seo-checklist-how-to-get-your-business-on-google-maps-for-free',
+      'what-is-quality-score-5-simple-ways-to-improve-it-in-google-ads',
+      'how-to-use-negative-keywords-in-googleads-to-save-money',
+      // Add more as needed...
+    ]
+    
+    blogPages = fallbackBlogSlugs.map(slug => ({
+      url: `${baseUrl}/blog/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }))
+  }
+
+  return [...staticPages, ...blogPages]
+}

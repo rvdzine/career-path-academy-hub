@@ -1,8 +1,12 @@
 "use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import { blogApi } from "@/lib/api";
+import { BlogListItem } from "@/lib/types";
 
-const blogs = [
+// Fallback blogs for initial render or if API fails
+const fallbackBlogs = [
   {
     slug: "local-seo-checklist-how-to-get-your-business-on-google-maps-for-free",
     title: "Local SEO Checklist: How to Get Your Business on Google Maps for Free",
@@ -526,42 +530,101 @@ const blogs = [
 ];
 
 const Blog = () => {
+  const [blogs, setBlogs] = useState<BlogListItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
+  const fetchBlogs = async () => {
+    try {
+      const response = await blogApi.getBlogs({ status: 'published' });
+      const apiBlogs = response.data;
+      
+      // Normalize fallback blogs to match API structure
+      const normalizedFallbackBlogs = fallbackBlogs.map((blog: any) => ({
+        ...blog,
+        featured_image: blog.image || blog.featured_image,
+      }));
+      
+      // Merge: OLD blogs first, then NEW blogs at the bottom
+      const mergedBlogs = [...normalizedFallbackBlogs, ...apiBlogs];
+      
+      // Remove duplicates based on slug
+      const uniqueBlogs = mergedBlogs.filter((blog, index, self) =>
+        index === self.findIndex((b) => b.slug === blog.slug)
+      );
+      
+      setBlogs(uniqueBlogs);
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+      // If API fails, normalize and use fallback blogs
+      const normalizedFallbackBlogs = fallbackBlogs.map((blog: any) => ({
+        ...blog,
+        featured_image: blog.image || blog.featured_image,
+      }));
+      setBlogs(normalizedFallbackBlogs as any);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
     <Navbar />
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-          Our Latest <span className="text-[#EA2525]">Blogs</span>
-        </h2>
-
-        {/* Blog Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogs.map((blog) => (
-            <div
-              key={blog.slug}
-              className="bg-white rounded-lg shadow-md hover:shadow-xl  duration-300"
-            >
-              <img
-                src={blog.image}
-                alt={blog.title}
-                className="rounded-t-lg w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                  {blog.title}
-                </h3>
-                <p className="text-gray-600 mb-4">{blog.excerpt}</p>
-                <Link
-                  href={`/blog/${blog.slug}`}
-                  className="inline-block bg-[#EA2525] text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
-                >
-                  Read More
-                </Link>
-              </div>
-            </div>
-          ))}
+        <div className="flex justify-between items-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            Our Latest <span className="text-[#EA2525]">Blogs</span>
+          </h2>
+          {/* Admin Link - Opens in new tab */}
+          <Link
+            href="/admin/blogs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex items-center gap-2 bg-[#EA2525] text-white px-4 py-2 rounded-md hover:bg-red-600 transition text-sm"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+            Manage Blogs
+          </Link>
         </div>
+
+        {loading ? (
+          <div className="text-center py-12">
+            <div className="text-xl text-gray-600">Loading blogs...</div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogs.map((blog) => (
+              <div
+                key={blog.slug}
+                className="bg-white rounded-lg shadow-md hover:shadow-xl  duration-300"
+              >
+                <img
+                  src={blog.featured_image}
+                  alt={blog.title}
+                  className="rounded-t-lg w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                    {blog.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">{blog.excerpt}</p>
+                  <Link
+                    href={`/blog/${blog.slug}`}
+                    className="inline-block bg-[#EA2525] text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
+                  >
+                    Read More
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
     </>
