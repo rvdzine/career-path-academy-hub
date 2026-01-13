@@ -43,10 +43,37 @@ const ContactDialog = ({ children }: { children?: React.ReactNode }) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Submitted contact popup:", formData);
-    setOpen(false); // close modal
+    
+    try {
+      const api = (await import('../lib/axios')).default;
+      const response = await api.post("contact/contact/", {
+        full_name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        interested_courses: formData.course,
+        experience: formData.experience,
+        message: formData.message
+      });
+
+      if (response.status === 201) {
+        // Show success message (you can add toast here if needed)
+        alert("Thank you! We'll contact you within 24 hours.");
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          course: "",
+          experience: "",
+          message: "",
+        });
+        setOpen(false);
+      }
+    } catch (error: any) {
+      console.error("Contact form error:", error);
+      alert("Submission failed. Please try again.");
+    }
   };
 
   return (

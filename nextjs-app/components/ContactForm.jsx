@@ -15,9 +15,40 @@ export default function CounselingForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
+    
+    try {
+      const axios = (await import('axios')).default;
+      const api = axios.create({
+        baseURL: "https://api.idigitalstudies.com/api/",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      
+      const response = await api.post("contact/contact/", {
+        full_name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        interested_courses: formData.course,
+        message: formData.message
+      });
+
+      if (response.status === 201) {
+        alert("Thank you! We'll contact you within 24 hours.");
+        setFormData({
+          fullName: "",
+          phone: "",
+          email: "",
+          course: "",
+          message: "",
+        });
+      }
+    } catch (error) {
+      console.error("Contact form error:", error);
+      alert("Submission failed. Please try again.");
+    }
   };
 
   return (

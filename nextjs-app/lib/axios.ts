@@ -1,8 +1,9 @@
 import axios from 'axios'
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.idigitalstudies.com/api/';
+
 const api = axios.create({
-    // baseURL: "http://localhost:8000/api/courses/",
-    baseURL: "https://api.idigitalstudies.com/api/",
+    baseURL: API_BASE_URL,
     headers: {
         "Content-Type": "application/json",
     },
