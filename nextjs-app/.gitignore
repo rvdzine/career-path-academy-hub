@@ -34,3 +34,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Django
+idg_backend/staticfiles/
+*.sqlite3
+*.pyc
+__pycache__/
+idg_backend/media/
