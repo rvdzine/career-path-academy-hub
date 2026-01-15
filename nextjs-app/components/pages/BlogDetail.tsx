@@ -8273,7 +8273,7 @@ const BlogDetail = ({ slug }: { slug: string }) => {
           </h1>
 
           <div
-            className="prose prose-lg max-w-none text-gray-700 leading-relaxed"
+            className="blog-content prose prose-lg max-w-none text-gray-700 leading-relaxed"
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
           <section className="my-10">

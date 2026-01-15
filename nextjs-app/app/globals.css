@@ -219,6 +219,19 @@ All colors MUST be HSL.
   margin: 0.5rem 0;
 }
 
+.ProseMirror ul {
+  list-style-type: disc !important;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal !important;
+}
+
+.ProseMirror li {
+  display: list-item !important;
+  margin-bottom: 0.25rem;
+}
+
 .ProseMirror blockquote {
   border-left: 3px solid #ccc;
   padding-left: 1rem;
@@ -243,4 +256,79 @@ All colors MUST be HSL.
   padding: 0.2rem 0.4rem;
   border-radius: 0.25rem;
   font-family: monospace;
+}
+
+
+/* Blog Content Display Styles - For rendering saved HTML content */
+.blog-content {
+  @apply text-gray-800 leading-relaxed;
+}
+
+.blog-content h2 {
+  @apply text-2xl font-bold text-gray-900 mt-8 mb-4;
+}
+
+.blog-content h3 {
+  @apply text-xl font-semibold text-gray-900 mt-6 mb-3;
+}
+
+.blog-content p {
+  @apply text-gray-700 leading-relaxed mb-4;
+}
+
+.blog-content ul {
+  list-style-type: disc !important;
+  margin-left: 1.5rem !important;
+  margin-bottom: 1rem !important;
+  padding-left: 0.5rem !important;
+}
+
+.blog-content ol {
+  list-style-type: decimal !important;
+  margin-left: 1.5rem !important;
+  margin-bottom: 1rem !important;
+  padding-left: 0.5rem !important;
+}
+
+.blog-content li {
+  display: list-item !important;
+  margin-bottom: 0.5rem !important;
+  line-height: 1.75 !important;
+  color: #374151 !important;
+}
+
+.blog-content ul li {
+  list-style-type: disc !important;
+}
+
+.blog-content ol li {
+  list-style-type: decimal !important;
+}
+
+.blog-content strong {
+  @apply font-semibold text-gray-900;
+}
+
+.blog-content a {
+  @apply text-blue-600 underline hover:text-blue-800;
+}
+
+.blog-content img {
+  @apply rounded-lg shadow-md my-6 max-w-full h-auto;
+}
+
+.blog-content blockquote {
+  @apply border-l-4 border-gray-300 pl-4 italic my-4 text-gray-600;
+}
+
+.blog-content code {
+  @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono;
+}
+
+.blog-content pre {
+  @apply bg-gray-900 text-white p-4 rounded-lg overflow-x-auto my-4;
+}
+
+.blog-content pre code {
+  @apply bg-transparent p-0;
 }
