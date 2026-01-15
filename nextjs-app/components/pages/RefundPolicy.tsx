@@ -92,15 +92,15 @@ const RefundPolicy = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border border-gray-300 p-2"><strong>Up to 8 classes or 1 month</strong></td>
+                    <td className="border border-gray-300 p-2"><strong>Up to 8 classes</strong></td>
                     <td className="border border-gray-300 p-2"><strong>50%</strong></td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-300 p-2"><strong>Up to 16 classes or 2 months</strong></td>
+                    <td className="border border-gray-300 p-2"><strong>Up to 12 classes</strong></td>
                     <td className="border border-gray-300 p-2"><strong>25%</strong></td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-300 p-2"><strong>More than 24 classes or 3 months</strong></td>
+                    <td className="border border-gray-300 p-2"><strong>More than 12 classes</strong></td>
                     <td className="border border-gray-300 p-2"><strong>No refund</strong></td>
                   </tr>
                 </tbody>
