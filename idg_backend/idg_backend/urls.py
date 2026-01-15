@@ -28,6 +28,7 @@ urlpatterns = [
     path("api/contact/", include("contact.urls")),
     path("api/salaryreport/", include("salaryreport.urls")),
     path("api/", include("blog.urls")),
+    path("api/", include("vacancy.urls")),  # Add vacancy URLs
     # JWT Authentication
     path('api/auth/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),

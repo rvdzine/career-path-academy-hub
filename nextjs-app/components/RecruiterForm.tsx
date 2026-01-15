@@ -137,7 +137,7 @@ const RecruiterForm = () => {
             
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="companyName">Company Name *</Label>
+                <Label htmlFor="companyName">Company Name</Label>
                 <Input
                   id="companyName"
                   value={formData.company_name}

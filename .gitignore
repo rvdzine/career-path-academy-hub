@@ -1,30 +1,49 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
+# ======================
+# Global / OS / Editors
+# ======================
+.DS_Store
+.idea/
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-# Next.js
-.next/
-nextjs-app/.next/
+# ======================
+# Logs
+# ======================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
 
+# ======================
+# Node (global safety)
+# ======================
+node_modules/
+
+# ======================
+# Django / Python (BACKEND)
+# ======================
+idg_backend/db.sqlite3
 idg_backend/staticfiles/
+idg_backend/media/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual env
+venv/
+.Python
+
+# ======================
+# Build artifacts
+# ======================
+dist/
+dist-ssr/
