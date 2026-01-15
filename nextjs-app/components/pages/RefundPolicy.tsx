@@ -18,7 +18,7 @@ const RefundPolicy = () => {
             <strong>A Subsidiary of Cybershield Technologies Pvt. Ltd.</strong>
           </p>
           <p className="text-sm text-gray-500 mb-6">
-            <strong>Last updated:</strong> 31 March 2015
+            <strong>Last updated:</strong> 01st April 2025
           </p>
 
           <div className="prose prose-sm sm:prose lg:prose-lg max-w-none text-gray-700 space-y-8">
