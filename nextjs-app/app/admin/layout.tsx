@@ -74,13 +74,13 @@ export default function AdminLayout({
                   href="/admin/blogs"
                   className="text-gray-700 hover:text-[#EA2525] px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  All Blogs
+                  Blogs
                 </Link>
                 <Link
-                  href="/admin/blogs/new"
+                  href="/admin/vacancies"
                   className="text-gray-700 hover:text-[#EA2525] px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Create New
+                  Vacancies
                 </Link>
               </nav>
             </div>

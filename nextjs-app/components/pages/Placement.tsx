@@ -75,8 +75,15 @@ const Placement = () => {
       {/* Main Content */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <Tabs defaultValue="register" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-8 bg-gradient-to-r from-red-300 via-red-200 to-red-300 rounded-lg p-1 max-w-xl mx-auto">
+          <Tabs defaultValue="vacancies" className="w-full">
+            <TabsList className="grid w-full grid-cols-3 mb-8 bg-gradient-to-r from-red-300 via-red-200 to-red-300 rounded-lg p-1 max-w-2xl mx-auto">
+
+             <TabsTrigger
+  value="vacancies"
+  className="text-sm py-1 px-4 rounded-md data-[state=active]:bg-white data-[state=active]:text-[#EA2525]"
+>
+  View Vacancies
+</TabsTrigger>
 
              <TabsTrigger
   value="register"
@@ -95,6 +102,10 @@ const Placement = () => {
               {/* <TabsTrigger value="vacancies">View Vacancies</TabsTrigger> */}
               
             </TabsList>
+            
+            <TabsContent value="vacancies" className="space-y-8">
+              <InternshipVacancies />
+            </TabsContent>
             
             <TabsContent value="register" className="space-y-8">
               <InternshipForm />
