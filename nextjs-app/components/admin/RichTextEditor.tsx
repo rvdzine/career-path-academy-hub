@@ -4,9 +4,13 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Link from "@tiptap/extension-link";
 import Image from "@tiptap/extension-image";
+import { Table } from "@tiptap/extension-table";
+import { TableRow } from "@tiptap/extension-table-row";
+import { TableCell } from "@tiptap/extension-table-cell";
+import { TableHeader } from "@tiptap/extension-table-header";
 import { TextStyle } from "@tiptap/extension-text-style";
 import { Color } from "@tiptap/extension-color";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   Bold,
   Italic,
@@ -20,6 +24,7 @@ import {
   Heading1,
   Heading2,
   Heading3,
+  Table as TableIcon,
 } from "lucide-react";
 
 interface RichTextEditorProps {
@@ -28,6 +33,10 @@ interface RichTextEditorProps {
 }
 
 export default function RichTextEditor({ content, onChange }: RichTextEditorProps) {
+  const [showTableDialog, setShowTableDialog] = useState(false);
+  const [tableRows, setTableRows] = useState(3);
+  const [tableCols, setTableCols] = useState(3);
+
   const editor = useEditor({
     immediatelyRender: false,
     extensions: [
@@ -36,6 +45,12 @@ export default function RichTextEditor({ content, onChange }: RichTextEditorProp
         openOnClick: false,
       }),
       Image,
+      Table.configure({
+        resizable: true,
+      }),
+      TableRow,
+      TableHeader,
+      TableCell,
       TextStyle,
       Color,
     ],
@@ -71,6 +86,15 @@ export default function RichTextEditor({ content, onChange }: RichTextEditorProp
     const url = window.prompt("Enter image URL:");
     if (url) {
       editor.chain().focus().setImage({ src: url }).run();
+    }
+  };
+
+  const insertTable = () => {
+    if (editor && tableRows > 0 && tableCols > 0) {
+      editor.chain().focus().insertTable({ rows: tableRows, cols: tableCols, withHeaderRow: true }).run();
+      setShowTableDialog(false);
+      setTableRows(3);
+      setTableCols(3);
     }
   };
 
@@ -188,6 +212,17 @@ export default function RichTextEditor({ content, onChange }: RichTextEditorProp
           <ImageIcon size={18} />
         </button>
 
+        <button
+          type="button"
+          onClick={() => setShowTableDialog(true)}
+          className={`p-2 rounded hover:bg-gray-200 ${
+            editor.isActive("table") ? "bg-gray-300" : ""
+          }`}
+          title="Insert Table"
+        >
+          <TableIcon size={18} />
+        </button>
+
         <div className="w-px h-6 bg-gray-300 mx-1" />
 
         <button
@@ -210,6 +245,134 @@ export default function RichTextEditor({ content, onChange }: RichTextEditorProp
 
       {/* Editor */}
       <EditorContent editor={editor} />
+
+      {/* Table Dialog */}
+      {showTableDialog && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="bg-white rounded-lg shadow-xl p-6 max-w-md w-full mx-4">
+            <h3 className="text-lg font-semibold mb-4">Insert Table</h3>
+            
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Number of Rows
+                </label>
+                <input
+                  type="number"
+                  min="1"
+                  max="20"
+                  value={tableRows}
+                  onChange={(e) => setTableRows(parseInt(e.target.value) || 1)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Number of Columns
+                </label>
+                <input
+                  type="number"
+                  min="1"
+                  max="10"
+                  value={tableCols}
+                  onChange={(e) => setTableCols(parseInt(e.target.value) || 1)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+
+            <div className="flex gap-3 mt-6">
+              <button
+                type="button"
+                onClick={insertTable}
+                className="flex-1 bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525] text-white font-semibold py-2 px-4 rounded-md transition-all"
+              >
+                Create Table
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setShowTableDialog(false);
+                  setTableRows(3);
+                  setTableCols(3);
+                }}
+                className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-md transition-all"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Table Controls (shown when cursor is in a table) */}
+      {editor.isActive("table") && (
+        <div className="border-t border-gray-300 p-2 flex flex-wrap gap-1 bg-gray-50">
+          <button
+            type="button"
+            onClick={() => editor.chain().focus().addColumnBefore().run()}
+            className="px-3 py-1 text-sm rounded hover:bg-gray-200"
+            title="Add Column Before"
+          >
+            + Col Before
+          </button>
+          <button
+            type="button"
+            onClick={() => editor.chain().focus().addColumnAfter().run()}
+            className="px-3 py-1 text-sm rounded hover:bg-gray-200"
+            title="Add Column After"
+          >
+            + Col After
+          </button>
+          <button
+            type="button"
+            onClick={() => editor.chain().focus().deleteColumn().run()}
+            className="px-3 py-1 text-sm rounded hover:bg-gray-200"
+            title="Delete Column"
+          >
+            - Column
+          </button>
+
+          <div className="w-px h-6 bg-gray-300 mx-1" />
+
+          <button
+            type="button"
+            onClick={() => editor.chain().focus().addRowBefore().run()}
+            className="px-3 py-1 text-sm rounded hover:bg-gray-200"
+            title="Add Row Before"
+          >
+            + Row Before
+          </button>
+          <button
+            type="button"
+            onClick={() => editor.chain().focus().addRowAfter().run()}
+            className="px-3 py-1 text-sm rounded hover:bg-gray-200"
+            title="Add Row After"
+          >
+            + Row After
+          </button>
+          <button
+            type="button"
+            onClick={() => editor.chain().focus().deleteRow().run()}
+            className="px-3 py-1 text-sm rounded hover:bg-gray-200"
+            title="Delete Row"
+          >
+            - Row
+          </button>
+
+          <div className="w-px h-6 bg-gray-300 mx-1" />
+
+          <button
+            type="button"
+            onClick={() => editor.chain().focus().deleteTable().run()}
+            className="px-3 py-1 text-sm rounded hover:bg-red-200 text-red-700"
+            title="Delete Table"
+          >
+            Delete Table
+          </button>
+        </div>
+      )}
     </div>
   );
 }

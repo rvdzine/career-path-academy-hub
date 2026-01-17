@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { blogApi } from "@/lib/api";
 import { Blog, BlogFormData } from "@/lib/types";
 import RichTextEditor from "./RichTextEditor";
+import { useSuccessModal } from "@/hooks/use-success-modal";
 
 interface BlogFormProps {
   blog?: Blog;
@@ -13,6 +14,7 @@ interface BlogFormProps {
 
 export default function BlogForm({ blog, isEdit = false }: BlogFormProps) {
   const router = useRouter();
+  const { showSuccess, SuccessModal } = useSuccessModal();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [uploadingImage, setUploadingImage] = useState(false);
@@ -83,11 +85,21 @@ export default function BlogForm({ blog, isEdit = false }: BlogFormProps) {
 
       if (isEdit && blog) {
         await blogApi.updateBlog(blog.slug, dataToSubmit);
+        showSuccess({
+          title: "Blog Updated!",
+          description: `Blog has been ${saveAs === 'published' ? 'published' : 'saved as draft'} successfully`,
+          autoCloseDelay: 3000
+        });
       } else {
         await blogApi.createBlog(dataToSubmit);
+        showSuccess({
+          title: "Blog Published Successfully!",
+          description: `Your blog has been ${saveAs === 'published' ? 'published' : 'saved as draft'} successfully`,
+          autoCloseDelay: 3000
+        });
       }
 
-      router.push("/admin/blogs");
+      setTimeout(() => router.push("/admin/blogs"), 3000);
     } catch (err: any) {
       console.error("Error saving blog:", err);
       setError(err.response?.data?.message || "Failed to save blog");
@@ -106,7 +118,9 @@ export default function BlogForm({ blog, isEdit = false }: BlogFormProps) {
       : "text-green-600";
 
   return (
-    <form className="space-y-6">
+    <>
+      <SuccessModal />
+      <form className="space-y-6">
       {error && (
         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
           {error}
@@ -309,5 +323,6 @@ export default function BlogForm({ blog, isEdit = false }: BlogFormProps) {
         </button>
       </div>
     </form>
+    </>
   );
 }

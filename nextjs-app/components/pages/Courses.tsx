@@ -183,7 +183,7 @@ export default function Courses() {
                   <div className="flex gap-4">
                     <ContactDialog>
                       <button className="flex-1 border border-[#EA2525] text-[#EA2525] px-6 py-2 rounded-md font-medium hover:bg-[#EA2525]/10">
-                        Speak to a Counsellor
+                        Book Free Demo Class
                       </button>
                     </ContactDialog>
 

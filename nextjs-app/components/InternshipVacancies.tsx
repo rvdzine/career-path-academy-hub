@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Calendar, Users, Building } from "lucide-react";
+import { MapPin, Calendar, Users, Building, ArrowUpDown, Check } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
 import { vacancyApi } from "@/lib/api";
@@ -30,8 +30,11 @@ const InternshipVacancies = () => {
   const router = useRouter();
   const [apiVacancies, setApiVacancies] = useState<Vacancy[]>([]);
   const [loading, setLoading] = useState(true);
+  const [applyingFor, setApplyingFor] = useState<string | null>(null);
   const [selectedVacancy, setSelectedVacancy] = useState<Vacancy | HardcodedVacancy | null>(null);
   const [showJobDescModal, setShowJobDescModal] = useState(false);
+  const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');
+  const [showSortDropdown, setShowSortDropdown] = useState(false);
 
   // Hardcoded vacancies (existing ones)
   const hardcodedVacancies: HardcodedVacancy[] = [
@@ -116,20 +119,22 @@ const InternshipVacancies = () => {
   const fetchVacancies = async () => {
     try {
       const response = await vacancyApi.getVacancies({ status: 'published' });
-      setApiVacancies(response.data);
+      setApiVacancies(response.data || []);
     } catch (error) {
       console.error("Failed to fetch vacancies:", error);
+      setApiVacancies([]);
     } finally {
       setLoading(false);
     }
   };
 
   const handleApply = (title: string, company: string) => {
-    router.push(`/internship-form?job=${encodeURIComponent(title)}`);
-    toast({
-      title: "Application Submitted!",
-      description: `Your application for ${title} at ${company} has been submitted.`,
-    });
+    // Show loading state
+    setApplyingFor(title);
+    // Navigate to the form after a brief moment
+    setTimeout(() => {
+      router.push(`/internship-form?job=${encodeURIComponent(title)}`);
+    }, 300);
   };
 
   const handleViewJobDescription = (vacancy: Vacancy | HardcodedVacancy) => {
@@ -143,6 +148,32 @@ const InternshipVacancies = () => {
 
   const totalVacancies = apiVacancies.length + hardcodedVacancies.length;
 
+  // Sort vacancies based on selected order
+  const getSortedVacancies = () => {
+    const allVacancies = [...apiVacancies, ...hardcodedVacancies];
+    
+    return allVacancies.sort((a, b) => {
+      // For API vacancies, use created_at
+      // For hardcoded vacancies, we'll use a mock date based on "posted" text
+      const getDate = (vacancy: Vacancy | HardcodedVacancy) => {
+        if ('created_at' in vacancy) {
+          return new Date(vacancy.created_at).getTime();
+        } else {
+          // Parse "X days ago" to approximate date
+          const daysAgo = parseInt(vacancy.posted.match(/\d+/)?.[0] || '0');
+          return Date.now() - (daysAgo * 24 * 60 * 60 * 1000);
+        }
+      };
+
+      const dateA = getDate(a);
+      const dateB = getDate(b);
+
+      return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
+    });
+  };
+
+  const sortedVacancies = getSortedVacancies();
+
   return (
     <div className="space-y-6">
       <div className="text-center mb-8">
@@ -152,187 +183,157 @@ const InternshipVacancies = () => {
         <p className="text-lg text-muted-foreground">
           Discover exciting internship opportunities from top companies
         </p>
-        <div className="flex justify-center items-center gap-4 mt-4">
+        <div className="flex justify-center items-center gap-4 mt-4 flex-wrap">
           <Badge className="bg-green-100 text-green-700">
             {totalVacancies} Active Positions
           </Badge>
-          <Link className="hidden md:flex items-center gap-2 bg-[#EA2525] text-white px-4 py-2 rounded-md hover:bg-red-600 transition text-sm"
+          
+          {/* Sort Dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => setShowSortDropdown(!showSortDropdown)}
+              className="hidden md:flex items-center gap-2 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-4 py-2 rounded-md transition text-sm shadow-md"
+            >
+              <ArrowUpDown className="h-4 w-4" />
+              Sort: {sortOrder === 'newest' ? 'Newest First' : 'Oldest First'}
+            </button>
+            
+            {showSortDropdown && (
+              <div className="absolute top-full mt-2 right-0 bg-white rounded-lg shadow-xl border border-gray-200 py-2 min-w-[180px] z-10">
+                <button
+                  onClick={() => {
+                    setSortOrder('newest');
+                    setShowSortDropdown(false);
+                  }}
+                  className="w-full px-4 py-2 text-left hover:bg-gray-100 flex items-center justify-between text-sm"
+                >
+                  <span>Newest First</span>
+                  {sortOrder === 'newest' && <Check className="h-4 w-4 text-green-600" />}
+                </button>
+                <button
+                  onClick={() => {
+                    setSortOrder('oldest');
+                    setShowSortDropdown(false);
+                  }}
+                  className="w-full px-4 py-2 text-left hover:bg-gray-100 flex items-center justify-between text-sm"
+                >
+                  <span>Oldest First</span>
+                  {sortOrder === 'oldest' && <Check className="h-4 w-4 text-green-600" />}
+                </button>
+              </div>
+            )}
+          </div>
+
+          <Link className="hidden md:flex items-center gap-2 bg-[#EA2525] text-white px-4 py-2 rounded-md hover:bg-red-600 transition text-sm shadow-md"
            href = "/admin/vacancies" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
             Manage Job Vacancy
           </Link>
-          {/* <Link
-            href="/admin/blogs"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-2 bg-[#EA2525] text-white px-4 py-2 rounded-md hover:bg-red-600 transition text-sm"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-            Manage Blogs
-          </Link> */}
-
-          
         </div>
       </div>
 
       <div className="grid gap-6">
-        {/* API Vacancies */}
-        {apiVacancies.map((vacancy) => (
-          <Card key={`api-${vacancy.id}`} className="hover:shadow-lg transition-shadow duration-300">
-            <CardHeader>
-              <div className="flex justify-between items-start">
-                <div className="space-y-2">
-                  <CardTitle className="text-xl text-red-600">{vacancy.title}</CardTitle>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <Building className="w-4 h-4" />
-                      {vacancy.company}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4" />
-                      {vacancy.location}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      {new Date(vacancy.created_at).toLocaleDateString()}
-                    </div>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-lg font-bold">{vacancy.stipend}</div>
-                  <Badge variant="outline">{vacancy.job_type}</Badge>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-muted-foreground line-clamp-2">{vacancy.job_description_header}</p>
-
-              <div className="space-y-3">
-                <div>
-                  <h4 className="font-medium text-sm mb-2">Required Skills:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {vacancy.skills_list.map((skill, index) => (
-                      <Badge key={index} variant="secondary" className="text-xs">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="font-medium text-sm mb-2">Requirements:</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    {vacancy.requirements_list && vacancy.requirements_list.length > 0 ? (
-                      vacancy.requirements_list.map((req, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <div className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                          {req}
-                        </li>
-                      ))
-                    ) : (
-                      <li className="text-muted-foreground">No requirements listed</li>
-                    )}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="flex justify-between items-center pt-4 border-t gap-2">
-                <Button
-                  variant="outline"
-                  onClick={() => handleViewJobDescription(vacancy)}
-                  className="flex-1"
-                >
-                  View Job Description
-                </Button>
-                <Button
-                  onClick={() => handleApply(vacancy.title, vacancy.company)}
-                  className="flex-1 bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525]"
-                >
-                  Apply Now
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-
-        {/* Hardcoded Vacancies */}
-        {hardcodedVacancies.map((vacancy) => (
-          <Card key={`hardcoded-${vacancy.id}`} className="hover:shadow-lg transition-shadow duration-300">
-            <CardHeader>
-              <div className="flex justify-between items-start">
-                <div className="space-y-2">
-                  <CardTitle className="text-xl text-red-600">{vacancy.title}</CardTitle>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <Building className="w-4 h-4" />
-                      {vacancy.company}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4" />
-                      {vacancy.location}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      {vacancy.posted}
+        {/* Sorted Vacancies (API + Hardcoded) */}
+        {sortedVacancies.map((vacancy) => {
+          const isApiVacancy = 'created_at' in vacancy;
+          const vacancyKey = isApiVacancy ? `api-${vacancy.id}` : `hardcoded-${vacancy.id}`;
+          
+          return (
+            <Card key={vacancyKey} className="hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <div className="flex justify-between items-start">
+                  <div className="space-y-2">
+                    <CardTitle className="text-xl text-red-600">{vacancy.title}</CardTitle>
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <Building className="w-4 h-4" />
+                        {vacancy.company}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MapPin className="w-4 h-4" />
+                        {vacancy.location}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        {isApiVacancy 
+                          ? new Date(vacancy.created_at).toLocaleDateString()
+                          : vacancy.posted
+                        }
+                      </div>
                     </div>
                   </div>
+                  <div className="text-right">
+                    <div className="text-lg font-bold">{vacancy.stipend}</div>
+                    <Badge variant="outline">
+                      {isApiVacancy ? vacancy.job_type : vacancy.type}
+                    </Badge>
+                  </div>
                 </div>
-                <div className="text-right">
-                  <div className="text-lg font-bold">{vacancy.stipend}</div>
-                  <Badge variant="outline">{vacancy.type}</Badge>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-muted-foreground">{vacancy.description}</p>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-muted-foreground line-clamp-2">
+                  {isApiVacancy ? vacancy.job_description_header : vacancy.description}
+                </p>
 
-              <div className="space-y-3">
-                <div>
-                  <h4 className="font-medium text-sm mb-2">Required Skills:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {vacancy.skills.map((skill, index) => (
-                      <Badge key={index} variant="secondary" className="text-xs">
-                        {skill}
-                      </Badge>
-                    ))}
+                <div className="space-y-3">
+                  <div>
+                    <h4 className="font-medium text-sm mb-2">Required Skills:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {(isApiVacancy ? vacancy.skills_list : vacancy.skills).map((skill, index) => (
+                        <Badge key={index} variant="secondary" className="text-xs">
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-medium text-sm mb-2">Requirements:</h4>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      {isApiVacancy ? (
+                        vacancy.requirements_list && vacancy.requirements_list.length > 0 ? (
+                          vacancy.requirements_list.map((req, index) => (
+                            <li key={index} className="flex items-start gap-2">
+                              <div className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+                              {req}
+                            </li>
+                          ))
+                        ) : (
+                          <li className="text-muted-foreground">No requirements listed</li>
+                        )
+                      ) : (
+                        vacancy.requirements.map((req, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <div className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
+                            {req}
+                          </li>
+                        ))
+                      )}
+                    </ul>
                   </div>
                 </div>
 
-                <div>
-                  <h4 className="font-medium text-sm mb-2">Requirements:</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    {vacancy.requirements.map((req, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                        {req}
-                      </li>
-                    ))}
-                  </ul>
+                <div className="flex justify-between items-center pt-4 border-t gap-2">
+                  <Button
+                    variant="outline"
+                    onClick={() => handleViewJobDescription(vacancy)}
+                    className="flex-1"
+                  >
+                    View Job Description
+                  </Button>
+                  <Button
+                    onClick={() => handleApply(vacancy.title, vacancy.company)} disabled={applyingFor === vacancy.title}
+                    className="flex-1 bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525]"
+                  >
+                    {applyingFor === vacancy.title ? "Loading..." : "Apply Now"}
+                  </Button>
                 </div>
-              </div>
-
-              <div className="flex justify-between items-center pt-4 border-t gap-2">
-                <Button
-                  variant="outline"
-                  onClick={() => handleViewJobDescription(vacancy)}
-                  className="flex-1"
-                >
-                  View Job Description
-                </Button>
-                <Button
-                  onClick={() => handleApply(vacancy.title, vacancy.company)}
-                  className="flex-1 bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525]"
-                >
-                  Apply Now
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+              </CardContent>
+            </Card>
+          );
+        })}
       </div>
 
       {/* Job Description Modal */}
@@ -373,7 +374,7 @@ const InternshipVacancies = () => {
                         >
                           View Document
                         </Button>
-                        <Button
+                        {/* <Button
                           variant="outline"
                           onClick={() => {
                             const link = document.createElement('a');
@@ -383,7 +384,7 @@ const InternshipVacancies = () => {
                           }}
                         >
                           Download Document
-                        </Button>
+                        </Button> */}
                       </div>
                       {selectedVacancy.job_description_file?.endsWith('.pdf') && (
                         <iframe

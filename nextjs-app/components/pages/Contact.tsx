@@ -12,7 +12,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import api from '../../lib/axios'
-import { useToast } from "@/components/ui/use-toast";
+import { useSuccessModal } from "@/hooks/use-success-modal";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +25,7 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
-  const { toast } = useToast();
+  const { showSuccess, SuccessModal } = useSuccessModal();
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -48,10 +48,11 @@ const Contact = () => {
       });
 
       if (response.status === 201) {
-        toast({
-          title: "Success!",
-          description: "Your details have been submitted. We’ll contact you within 24 hours."
+        showSuccess({
+          title: "Thank You!",
+          description: "Your details have been submitted successfully. We’ll contact you within 24 hours."
         });
+          autoCloseDelay: 4000
 
         // Reset form
         setFormData({
@@ -68,11 +69,9 @@ const Contact = () => {
         error?.response?.data?.non_field_errors?.[0] ||
         error?.response?.data?.email?.[0] ||
         "Something went wrong. Please try again.";
-      toast({
-        title: "Submission Failed",
-        description: errorMsg,
-        variant: "destructive"
-      });
+      
+      // Show error alert
+      alert(`Error: ${errorMsg}`);
     } finally {
       setLoading(false);
     }
@@ -145,37 +144,37 @@ const Contact = () => {
   // ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <>
+      <SuccessModal />
+      <div className="min-h-screen bg-background">
+        <Navbar />
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-8 md:py-12 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-            Get in
-            Touch
-            
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
+            Get in Touch
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mb-4">
             Ready to transform your career? Contact us today to learn more about our courses and placement programs.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Badge className="bg-green-100 text-green-700 px-4 py-2">Free Counseling</Badge>
-            <Badge className="bg-blue-100 text-blue-700 px-4 py-2">Quick Response</Badge>
-            <Badge className="bg-purple-100 text-purple-700 px-4 py-2">Expert Guidance</Badge>
+          <div className="flex flex-wrap justify-center gap-2">
+            <Badge className="bg-green-100 text-green-700 px-3 py-1 text-xs md:text-sm">Free Counseling</Badge>
+            <Badge className="bg-blue-100 text-blue-700 px-3 py-1 text-xs md:text-sm">Quick Response</Badge>
+            <Badge className="bg-purple-100 text-purple-700 px-3 py-1 text-xs md:text-sm">Expert Guidance</Badge>
           </div>
         </div>
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
             {/* Contact Form */}
             <Card className="shadow-lg border-0">
               <CardHeader>
                 <CardTitle className="text-2xl bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
-                  Enroll Now - Free Counseling
+                  Get Free Counselling
                 </CardTitle>
                 <CardDescription>
                   Fill out the form below and our counselors will contact you within 24 hours
@@ -347,13 +346,13 @@ const Contact = () => {
       </section>
 
       {/* Enrollment Process */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
               Simple Enrollment Process
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-base md:text-lg text-muted-foreground">
               Get started in just 4 easy steps
             </p>
           </div>
@@ -402,7 +401,8 @@ const Contact = () => {
       </section> */}
 
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

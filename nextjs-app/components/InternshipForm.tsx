@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { useToast } from "@/hooks/use-toast";
+import { useSuccessModal } from "@/hooks/use-success-modal";
 import api from '../lib/axios'
 
 
@@ -25,7 +25,7 @@ const InternshipForm = () => {
   });
 
   const [jobTitles, setJobTitles] = useState<string[]>([]);
-  const { toast } = useToast();
+  const { showSuccess, SuccessModal } = useSuccessModal();
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -57,10 +57,9 @@ const InternshipForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.resume) {
-      toast({
+      showSuccess({
         title: "Resume Required",
         description: "Please upload your resume before submitting.",
-        variant: "destructive" 
       });
       return;
     }
@@ -88,7 +87,7 @@ const InternshipForm = () => {
       );
 
       if (response.status === 201) {
-        toast({
+        showSuccess({
           title: "Registration Successful!",
           description: "Your internship application has been submitted. We'll contact you soon.",
         });
@@ -105,16 +104,17 @@ const InternshipForm = () => {
         setJobTitles([])
       }
     } catch (error: any) {
-      toast({
+      showSuccess({
         title: "Submission Failed",
         description: error?.response?.data?.resume?.[0] || "Oops! Your submission has failed!. Please try again.",
-        variant: "destructive"
       });
     }
   };
 
   return (
-    <Card className="max-w-2xl mx-auto">
+    <>
+      <SuccessModal />
+      <Card className="max-w-2xl mx-auto">
       <CardHeader>
         <CardTitle className="text-2xl text-center bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent">
           Registration for Job
@@ -255,6 +255,7 @@ const InternshipForm = () => {
         </form>
       </CardContent>
     </Card>
+    </>
   );
 };
 

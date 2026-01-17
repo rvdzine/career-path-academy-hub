@@ -141,7 +141,7 @@ export default function HeroSection() {
             {/* CTA BUTTONS — MOBILE OPTIMIZED */}
             <div className="flex flex-col sm:flex-row justify-center sm:justify-start gap-3 sm:gap-4 mt-4 sm:mt-10">
 
-  <ContactDialog>
+  {/* <ContactDialog>
     <button
       className="
         bg-red-600 hover:bg-red-700 text-white
@@ -160,12 +160,12 @@ export default function HeroSection() {
       Enroll Now
       <ArrowRight className="w-4 h-4 max-[360px]:w-3 max-[360px]:h-3" />
     </button>
-  </ContactDialog>
+  </ContactDialog> */}
 
   <ContactDialog>
     <button
       className="
-        border-2 border-red-600 text-[#615F5F]
+        bg-red-600 hover:bg-red-700 text-white
         hover:bg-red-600/10
         px-5 py-2
         sm:px-7 sm:py-3
@@ -178,7 +178,7 @@ export default function HeroSection() {
         max-[360px]:text-[13px]
       "
     >
-      Speak to a Counsellor
+      Book Free Demo Class
     </button>
   </ContactDialog>
 

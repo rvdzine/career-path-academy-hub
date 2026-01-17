@@ -67,7 +67,7 @@ export default function AdminLayout({
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
               <Link href="/" className="text-xl font-bold text-gray-900">
-                iDigitalStudies
+                IDS
               </Link>
               <nav className="flex space-x-4">
                 <Link

@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { MapPin, Clock, Users } from "lucide-react";
-import { useToast } from "@/hooks/use-toast"; 
+import { useSuccessModal } from "@/hooks/use-success-modal"; 
 import api from '../lib/axios'
 
 interface BookingDialogProps {
@@ -27,8 +27,7 @@ interface BookingFormData {
 
 const BookingDialog = ({ children, course }: BookingDialogProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [step, setStep] = useState(1);
-  const { toast } = useToast();
+  const { showSuccess, SuccessModal } = useSuccessModal();
 
   const form = useForm<BookingFormData>({
     defaultValues: {
@@ -60,22 +59,20 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
       });
 
       if (result.status === 201) {
-        // setStep(2);
-        toast({
-          title: "Booking Request submitted!",
+        showSuccess({
+          title: "Demo Booked Successfully!",
           description: "We'll contact you within 24 hours to confirm your seat.",
+          autoCloseDelay: 4000
         });
+        form.reset();
+        setTimeout(() => setIsOpen(false), 4000);
       }
     } catch (error: any) {
       console.log('Booking Error: ', error.response?.data || error.message);
 
       const isDuplicate = error.response?.data?.error?.include("demo booking already exists");
-
-      toast({
-        title: isDuplicate ? "Already Booked" : "Oops! Your Booking is Failed!!",
-        description: isDuplicate ? "You have already booked a demo for this course. Please check your email or contact us." : "Please check your inputs and try again.",
-        variant: "destructive"
-      });
+      
+      alert(isDuplicate ? "Already Booked: You have already booked a demo for this course." : "Booking Failed: Please check your inputs and try again.");
     }
   };
 
@@ -91,7 +88,9 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
   // };
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <>
+      <SuccessModal />
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         {children || (
           <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
@@ -307,6 +306,7 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
         )} */}
       </DialogContent>
     </Dialog>
+    </>
   );
 };
 

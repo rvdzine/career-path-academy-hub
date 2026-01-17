@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useToast } from "@/components/ui/use-toast";
+import { useSuccessModal } from "@/hooks/use-success-modal";
 import { vacancyApi } from "@/lib/api";
 import { VacancyFormData } from "@/lib/types";
 import { useRouter } from "next/navigation";
@@ -18,7 +18,7 @@ interface VacancyFormProps {
 }
 
 export default function VacancyForm({ initialData, isEdit = false }: VacancyFormProps) {
-  const { toast } = useToast();
+  const { showSuccess, SuccessModal } = useSuccessModal();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   
@@ -67,11 +67,7 @@ export default function VacancyForm({ initialData, isEdit = false }: VacancyForm
     if (file) {
       const validTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword', 'image/jpeg', 'image/jpg'];
       if (!validTypes.includes(file.type)) {
-        toast({
-          title: "Invalid file type",
-          description: "Please upload a PDF, DOCX, JPG, or JPEG file",
-          variant: "destructive",
-        });
+        alert("Invalid file type: Please upload a PDF, DOCX, JPG, or JPEG file");
         return;
       }
       handleChange("job_description_file", file);
@@ -83,20 +79,12 @@ export default function VacancyForm({ initialData, isEdit = false }: VacancyForm
     
     // Validate that at least one JD method is provided
     if (uploadMethod === 'text' && !formData.job_description_body?.trim()) {
-      toast({
-        title: "Validation Error",
-        description: "Please enter job description text",
-        variant: "destructive",
-      });
+      alert("Validation Error: Please enter job description text");
       return;
     }
     
     if (uploadMethod === 'file' && !formData.job_description_file && !isEdit) {
-      toast({
-        title: "Validation Error",
-        description: "Please upload a job description file",
-        variant: "destructive",
-      });
+      alert("Validation Error: Please upload a job description file");
       return;
     }
     
@@ -120,34 +108,34 @@ export default function VacancyForm({ initialData, isEdit = false }: VacancyForm
 
       if (isEdit && initialData?.slug) {
         await vacancyApi.updateVacancy(initialData.slug, submitData);
-        toast({
-          title: "Success!",
+        showSuccess({
+          title: "Vacancy Updated!",
           description: "Vacancy updated successfully",
+          autoCloseDelay: 3000
         });
       } else {
         await vacancyApi.createVacancy(submitData);
-        toast({
-          title: "Success!",
-          description: "Vacancy created successfully",
+        showSuccess({
+          title: "Vacancy Created Successfully!",
+          description: "The vacancy has been published successfully",
+          autoCloseDelay: 3000
         });
       }
       
-      router.push("/admin/vacancies");
+      setTimeout(() => router.push("/admin/vacancies"), 3000);
     } catch (error: any) {
       console.error("Error saving vacancy:", error);
       console.error("Error response:", error.response?.data);
-      toast({
-        title: "Error",
-        description: error.response?.data?.message || error.response?.data?.job_description?.[0] || error.message || "Failed to save vacancy",
-        variant: "destructive",
-      });
+      alert(`Error: ${error.response?.data?.message || error.response?.data?.job_description?.[0] || error.message || "Failed to save vacancy"}`);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <Card className="max-w-4xl mx-auto">
+    <>
+      <SuccessModal />
+      <Card className="max-w-4xl mx-auto">
       <CardHeader>
         <CardTitle>{isEdit ? "Edit Vacancy" : "Create New Vacancy"}</CardTitle>
       </CardHeader>
@@ -375,5 +363,6 @@ export default function VacancyForm({ initialData, isEdit = false }: VacancyForm
         </form>
       </CardContent>
     </Card>
+    </>
   );
 }

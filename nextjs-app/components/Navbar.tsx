@@ -53,7 +53,7 @@ const Navbar = () => {
             
 
             <ContactDialog>
-              <Button className="bg-[#EA2525] hover:bg-red-600">Enroll Now</Button>
+              <Button className="bg-[#EA2525] hover:bg-red-600">Book Free Demo Class</Button>
             </ContactDialog>
 
             {/* WhatsApp Button */}

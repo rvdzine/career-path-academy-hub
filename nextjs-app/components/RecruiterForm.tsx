@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { useToast } from "@/hooks/use-toast";
+import { useSuccessModal } from "@/hooks/use-success-modal";
 import api from '../lib/axios'
 
 const RecruiterForm = () => {
@@ -33,7 +33,7 @@ const RecruiterForm = () => {
     job_description_file: null as File | null
   });
 
-  const { toast } = useToast();
+  const { showSuccess, SuccessModal } = useSuccessModal();
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -48,19 +48,17 @@ const RecruiterForm = () => {
     e.preventDefault();
     
     if (formData.job_description_type === "file" && !formData.job_description_file) {
-      toast({
+      showSuccess({
         title: "Job Description Required",
         description: "Please upload a job description file or switch to text input.",
-        variant: "destructive"
       });
       return;
     }
 
     if (formData.job_description_type === "text" && !formData.job_description_text.trim()) {
-      toast({
+      showSuccess({
         title: "Job Description Required",
         description: "Please provide a job description.",
-        variant: "destructive"
       });
       return;
     }
@@ -86,7 +84,7 @@ const RecruiterForm = () => {
       );
 
       if (response.status === 201) {
-        toast({
+        showSuccess({
           title: "Registration Successful!",
           description: "Your company has been registered. We'll contact you soon.",
         });
@@ -114,16 +112,17 @@ const RecruiterForm = () => {
         });
       }
     } catch (error: any) {
-      toast({
+      showSuccess({
         title: "Submission Failed",
         description: "Oops! your company is not registered! Please try again.",
-        variant: "destructive"
       });
     }
   };
 
   return (
-    <Card className="max-w-4xl mx-auto">
+    <>
+      <SuccessModal />
+      <Card className="max-w-4xl mx-auto">
       <CardHeader>
         <CardTitle className="text-2xl text-center bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent">
           Register Your Company for Hiring
@@ -393,6 +392,7 @@ const RecruiterForm = () => {
         </form>
       </CardContent>
     </Card>
+    </>
   );
 };
 

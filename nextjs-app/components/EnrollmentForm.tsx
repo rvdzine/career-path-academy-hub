@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { CreditCard, User, Mail, Phone, BookOpen } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { useSuccessModal } from "@/hooks/use-success-modal";
 import api from '../lib/axios'
 import { toast } from "sonner";
 
@@ -34,8 +34,7 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
   });
 
   const [isProcessing, setIsProcessing] = useState(false);
-  // const [successMessage, setSuccessMessage] = useState('');
-  const { toast } = useToast();
+  const { showSuccess, SuccessModal } = useSuccessModal();
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -120,11 +119,7 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
     
     // Validate form
     if (!formData.fullName || !formData.email || !formData.phone) {
-      toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields.",
-        variant: "destructive"
-      });
+      alert("Please fill in all required fields.");
       return;
     }
     setIsProcessing(true);
@@ -137,14 +132,13 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
         experience:formData.experience,
         learning_goals:formData.learningGoals,
         course_title:courseTitle,
-        // course_price:coursePrice
       });
       if (response.status === 201){
-        toast({
+        showSuccess({
           title: "Enrollment Successful!",
-          description: "You are registered successfully.",
+          description: "You are registered successfully. We'll contact you soon with course details.",
+          autoCloseDelay: 4000
         });
-        // setSuccessMessage("You are registered successfully.");
         
         setFormData({
           fullName: "",
@@ -153,32 +147,28 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
           experience: "",
           learningGoals: ""
         });
-        if (onClose) onClose();
+        if (onClose) {
+          setTimeout(() => onClose(), 4000);
+        }
       }
     } catch (error: any) {
       if(error.response?.data?.error?.includes("already registered")) {
-        toast({
-          title: "Already Registered!",
-          description: "Oops! This account is already registered! Try again.",
-          variant: "destructive"
-        })
+        alert("Already Registered! This account is already registered.");
       } else {
-      console.error("Enrollment failed:", error);
-      toast({
-        title: "Submission Failed",
-        description: "You are already registered!",
-        variant: "destructive"
-      });
+        console.error("Enrollment failed:", error);
+        alert("Submission Failed: You are already registered!");
+      }
     }
-  }
     setIsProcessing(false);
-    };
+  };
 
     // Proceed to payment
     // handlePayment();
 
   return (
-    <Card className="max-w-2xl mx-auto">
+    <>
+      <SuccessModal />
+      <Card className="max-w-2xl mx-auto">
       <CardHeader>
         <CardTitle className="text-2xl text-center flex items-center justify-center gap-2">
           <BookOpen className="w-6 h-6 text-[#EA2525]" />
@@ -260,7 +250,7 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
             />
           </div>
 
-          <div className="bg-red-50 p-4 rounded-lg">
+          {/* <div className="bg-red-50 p-4 rounded-lg">
             <h3 className="font-semibold mb-2 flex items-center gap-2">
               <CreditCard className="w-4 h-4" />
               Payment Details
@@ -271,7 +261,7 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
               <p>• 7-day money-back guarantee</p>
               <p>• All major cards and UPI accepted</p>
             </div>
-          </div>
+          </div> */}
 
           <Button 
             type="submit" 
@@ -294,6 +284,7 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
         </form>
       </CardContent>
     </Card>
+    </>
   );
 };
 
