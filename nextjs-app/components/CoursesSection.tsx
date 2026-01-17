@@ -12,7 +12,7 @@ import courseAnimation3 from "@/public/assets/Animations/3.json";
 import courseAnimation4 from "@/public/assets/Animations/4.json";
 
 import EnrollmentDialog from "@/components/EnrollmentDialog";
-import ContactDialog from "@/components/ContactDialog";
+import DemoBookingDialog from "@/components/DemoBookingDialog";
 
 // Badge Icons
 const chimg1 = "/svg/clock.svg";
@@ -233,11 +233,11 @@ const CoursesSection: React.FC = () => {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4">
-              <ContactDialog>
+              <DemoBookingDialog courseTitle={data.title}>
                 <button className="flex-1 border border-[#EA2525] text-[#EA2525] px-6 py-2 rounded-md font-medium hover:bg-[#EA2525]/10 transition">
                   Book Free Demo Class
                 </button>
-              </ContactDialog>
+              </DemoBookingDialog>
 
               <EnrollmentDialog courseTitle={data.title}>
                 <button className="flex-1 bg-[#EA2525] hover:bg-[#c21e1e] text-white px-6 py-2 rounded-md font-medium transition">

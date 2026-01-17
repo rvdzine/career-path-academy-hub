@@ -22,6 +22,7 @@ interface BookingFormData {
   email: string;
   phone: string;
   course: string;
+  experienceLevel: string;
   message: string;
 }
 
@@ -35,6 +36,7 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
       email: "",
       phone: "",
       course: course || "",
+      experienceLevel: "",
       message: ""
     }
   });
@@ -55,17 +57,23 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
         email: data.email,
         phone: data.phone,
         course: data.course,
+        experience_level: data.experienceLevel,
         learning_goals: data.message
       });
 
       if (result.status === 201) {
-        showSuccess({
-          title: "Demo Booked Successfully!",
-          description: "We'll contact you within 24 hours to confirm your seat.",
-          autoCloseDelay: 4000
-        });
+        // Close the dialog first
+        setIsOpen(false);
         form.reset();
-        setTimeout(() => setIsOpen(false), 4000);
+        
+        // Then show success modal after a brief delay
+        setTimeout(() => {
+          showSuccess({
+            title: "Demo Booked Successfully!",
+            description: "We'll contact you within 24 hours to confirm your seat.",
+            autoCloseDelay: 4000
+          });
+        }, 300);
       }
     } catch (error: any) {
       console.log('Booking Error: ', error.response?.data || error.message);
@@ -206,28 +214,68 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="mdm">
-                          Master in Digital Marketing Course at idigitalstudies
+                        <SelectItem value="master_dm_internship">
+                          Master in DM with Internship
                         </SelectItem>
 
-                        <SelectItem value="dms">
-                          Digital Marketing Specialist Course at iDigitalStudies
+                        <SelectItem value="specialist_dm">
+                          Specialist in DM
                         </SelectItem>
 
-                        <SelectItem value="smb">
-                          Best Digital Marketing Course for Business Owners
+                        <SelectItem value="dm_business_owners">
+                          DM for Business Owners
                         </SelectItem>
 
-                        <SelectItem value="beg">
-                          Digital Marketing Course for Beginners
+                        <SelectItem value="foundation_basic_dm">
+                          Foundation/Basic in DM Course
                         </SelectItem>
 
-                        <SelectItem value="cus">
-                          Customised Course in Digital Marketing
+                        <SelectItem value="custom_dm">
+                          Custom DM Course
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="experienceLevel"
+                rules={{ required: "Please select your experience level" }}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Current Experience Level</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select your experience level" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="fresher_student">
+                          Fresher/Student
                         </SelectItem>
 
-                        <SelectItem value="deg">
-                          Degree in Digital Marketing
+                        <SelectItem value="working_professional">
+                          Working Professional / Career Switchers
+                        </SelectItem>
+
+                        <SelectItem value="business_owner">
+                          Business Owner
+                        </SelectItem>
+
+                        <SelectItem value="freelancer">
+                          Freelancers / Remote Jobs Seekers
+                        </SelectItem>
+
+                        <SelectItem value="home_maker">
+                          Home Makers
+                        </SelectItem>
+
+                        <SelectItem value="others">
+                          Others
                         </SelectItem>
                       </SelectContent>
                     </Select>

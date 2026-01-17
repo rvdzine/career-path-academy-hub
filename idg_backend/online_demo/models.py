@@ -1,10 +1,7 @@
 from django.db import models
 
-# Create your models here.
-
-class Contact(models.Model):
-
-    INTERESTED_COURSES_CHOICES = [
+class OnlineDemo(models.Model):
+    COURSES_CHOICES = [
         ('master_dm_internship', 'Master in DM with Internship'),
         ('specialist_dm', 'Specialist in DM'),
         ('dm_business_owners', 'DM for Business Owners'),
@@ -20,19 +17,26 @@ class Contact(models.Model):
         ('home_maker', 'Home Makers'),
         ('others', 'Others'),
     ]
-    
-    full_name = models.CharField(max_length=100)
-    email = models.EmailField()
+
+    full_name = models.CharField(max_length=200)
     phone = models.CharField(max_length=15)
-    interested_courses = models.CharField(max_length=50, choices=INTERESTED_COURSES_CHOICES, blank=True, null=True)
-    experience = models.CharField(max_length=30, choices=EXPERIENCE_CHOICES, blank=True, null=True)
-    message = models.TextField(blank=True, null=True)
+    email = models.EmailField()
+    course = models.CharField(max_length=100, choices=COURSES_CHOICES)
+    course_title = models.CharField(max_length=300)  # Full course title for display
+    experience_level = models.CharField(max_length=100, choices=EXPERIENCE_CHOICES)
+    learning_goals = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=['full_name', 'email', 'phone'], name='unique_contact_entry')
+            models.UniqueConstraint(
+                fields=['full_name', 'email', 'phone', 'course'], 
+                name='unique_online_demo_booking'
+            )
         ]
-
+        ordering = ['-created_at']
+        verbose_name = 'Online Demo Booking'
+        verbose_name_plural = 'Online Demo Bookings'
+        
     def __str__(self):
-        return f"{self.full_name}"
+        return f"{self.full_name} - {self.course_title}"

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import ContactDialog from "@/components/ContactDialog";
+import BookingDialog from "@/components/BookingDialog";
 import Image from "next/image";
 
 
@@ -52,9 +53,9 @@ const Navbar = () => {
 
             
 
-            <ContactDialog>
-              <Button className="bg-[#EA2525] hover:bg-red-600">Book Free Demo Class</Button>
-            </ContactDialog>
+            <BookingDialog>
+              <Button className="bg-[#EA2525] hover:bg-red-600">Book Your Demo</Button>
+            </BookingDialog>
 
             {/* WhatsApp Button */}
             <a

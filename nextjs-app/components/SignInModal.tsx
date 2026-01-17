@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
+import { useSuccessModal } from "@/hooks/use-success-modal";
+import api from '../lib/axios';
 
 // Images import
 import DesktopImage from "@/public/assets/signinmodal5.png";        
@@ -19,11 +21,15 @@ import MobileImage from "@/public/assets/signinmodal6mobile.png";
 
 const SignInModal = () => {
   const [open, setOpen] = useState(false);
+  const { showSuccess, SuccessModal } = useSuccessModal();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     course: "",
+    experienceLevel: "",
+    message: "",
   });
 
   useEffect(() => {
@@ -35,14 +41,58 @@ const SignInModal = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
-    setOpen(false); 
+    setLoading(true);
+
+    try {
+      const result = await api.post("demo/book/", {
+        full_name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        course: formData.course,
+        experience_level: formData.experienceLevel,
+        learning_goals: formData.message
+      });
+
+      if (result.status === 201) {
+        // Close the dialog first
+        setOpen(false);
+        
+        // Then show success modal after a brief delay
+        setTimeout(() => {
+          showSuccess({
+            title: "Demo Booked Successfully!",
+            description: "We'll contact you within 24 hours to confirm your seat.",
+            autoCloseDelay: 4000
+          });
+        }, 300);
+
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          course: "",
+          experienceLevel: "",
+          message: "",
+        });
+      }
+    } catch (error: any) {
+      console.log('Booking Error: ', error.response?.data || error.message);
+      
+      const isDuplicate = error.response?.data?.error?.includes("demo booking already exists");
+      
+      alert(isDuplicate ? "Already Booked: You have already booked a demo for this course." : "Booking Failed: Please check your inputs and try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <>
+      <SuccessModal />
+      <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent
         className="p-0 rounded-2xl shadow-2xl border-0 max-w-3xl w-[90vw] max-h-[92dvh] overflow-y-auto"
         onOpenAutoFocus={(e) => e.preventDefault()}
@@ -105,15 +155,38 @@ const SignInModal = () => {
                 className="h-12 text-base"
               />
 
-              <Select onValueChange={(v) => handleInputChange("course", v)} required>
+              <Select 
+                onValueChange={(v) => handleInputChange("course", v)} 
+                required
+                value={formData.course}
+              >
                 <SelectTrigger className="h-12">
-                  <SelectValue placeholder="Select Course" />
+                  <SelectValue placeholder="Preferred Course *" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="master">Master in Digital Marketing</SelectItem>
-                  <SelectItem value="specialist">Digital Marketing Specialist</SelectItem>
-                  <SelectItem value="business">For Business Owners</SelectItem>
-                  <SelectItem value="beginners">Beginners Course</SelectItem>
+                  <SelectItem value="master_dm_internship">Master in DM with Internship</SelectItem>
+                  <SelectItem value="specialist_dm">Specialist in DM</SelectItem>
+                  <SelectItem value="dm_business_owners">DM for Business Owners</SelectItem>
+                  <SelectItem value="foundation_basic_dm">Foundation/Basic in DM Course</SelectItem>
+                  <SelectItem value="custom_dm">Custom DM Course</SelectItem>
+                </SelectContent>
+              </Select>
+
+              <Select 
+                onValueChange={(v) => handleInputChange("experienceLevel", v)} 
+                required
+                value={formData.experienceLevel}
+              >
+                <SelectTrigger className="h-12">
+                  <SelectValue placeholder="Current Experience Level *" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="fresher_student">Fresher/Student</SelectItem>
+                  <SelectItem value="working_professional">Working Professional / Career Switchers</SelectItem>
+                  <SelectItem value="business_owner">Business Owner</SelectItem>
+                  <SelectItem value="freelancer">Freelancers / Remote Jobs Seekers</SelectItem>
+                  <SelectItem value="home_maker">Home Makers</SelectItem>
+                  <SelectItem value="others">Others</SelectItem>
                 </SelectContent>
               </Select>
 
@@ -127,9 +200,10 @@ const SignInModal = () => {
 
               <Button
                 type="submit"
-                className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-7 rounded-xl text-lg shadow-lg transition-all"
+                disabled={loading}
+                className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-7 rounded-xl text-lg shadow-lg transition-all disabled:opacity-50"
               >
-                Register for FREE Demo
+                {loading ? "Submitting..." : "Register for FREE Demo"}
               </Button>
 
               <p className="text-center text-sm font-bold text-red-600 mt-5">
@@ -140,6 +214,7 @@ const SignInModal = () => {
         </div>
       </DialogContent>
     </Dialog>
+    </>
   );
 };
 

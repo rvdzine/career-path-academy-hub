@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import herosectionimg from "../public/assets/bg.jpg";
 import ContactDialog from "@/components/ContactDialog";
+import BookingDialog from "@/components/BookingDialog";
 
 const stats = [
   { image: "/svg/ai.svg", title: "AI-Driven", sub: "Module" },
@@ -162,7 +163,7 @@ export default function HeroSection() {
     </button>
   </ContactDialog> */}
 
-  <ContactDialog>
+  <BookingDialog>
     <button
       className="
         bg-red-600 hover:bg-red-700 text-white
@@ -178,9 +179,9 @@ export default function HeroSection() {
         max-[360px]:text-[13px]
       "
     >
-      Book Free Demo Class
+      Book Your Demo
     </button>
-  </ContactDialog>
+  </BookingDialog>
 
 </div>
 

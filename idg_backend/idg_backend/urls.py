@@ -24,11 +24,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/courses/', include('courses.urls')),
     path("api/demo/", include("demo.urls")),
+    path("api/online-demo/", include("online_demo.urls")),
     path("api/careers/", include("placement.urls")),
     path("api/contact/", include("contact.urls")),
     path("api/salaryreport/", include("salaryreport.urls")),
     path("api/", include("blog.urls")),
-    path("api/", include("vacancy.urls")),  # Add vacancy URLs
+    path("api/", include("vacancy.urls")),
     # JWT Authentication
     path('api/auth/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
