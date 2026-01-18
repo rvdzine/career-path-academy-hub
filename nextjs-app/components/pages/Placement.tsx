@@ -42,11 +42,17 @@ const Placement = () => {
               <Badge className="bg-red-100 text-[#EA2525] px-3 py-1 text-xs md:text-sm">
                 90% Placement Success Rate
               </Badge>
+              <Badge className="bg-red-100 text-[#EA2525] px-3 py-1 text-xs md:text-sm">
+                50% Partner Companies
+              </Badge>
+              <Badge className="bg-red-100 text-[#EA2525] px-3 py-1 text-xs md:text-sm">
+                2000+ Students Placed
+              </Badge>
             </div>
           </div>
 
           {/* Placement Stats - Integrated into Hero */}
-          <div className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] text-white rounded-xl shadow-lg py-4 md:py-6 px-4">
+          {/* <div className="bg-gradient-to-r from-[#EA2525] to-[#AA2526] text-white rounded-xl shadow-lg py-4 md:py-6 px-4">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
               {placementStats.map((stat, index) => {
                 const IconComponent = stat.icon;
@@ -61,7 +67,7 @@ const Placement = () => {
                 );
               })}
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 

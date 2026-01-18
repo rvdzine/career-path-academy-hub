@@ -118,22 +118,18 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
           {/* Center Info */}
           <Card className="bg-red-100 border-red-400">
             <CardContent className="p-6">
-              <div className="flex items-start gap-4">
-                <MapPin className="w-6 h-6 text-[#EA2525] mt-1" />
+              {/* <div className="flex items-start gap-4"> */}
+                {/* <MapPin className="w-6 h-6 text-[#EA2525] mt-1" /> */}
                 <div>
-                  <h3 className="font-semibold text-lg">Noida Center</h3>
-                  <p className="text-gray-600">T3, NXOne, Opposite Gaur city mall, Greater Noida, UP, 201306</p>
-                  <div className="flex flex-wrap gap-4 mt-2 text-sm text-gray-600">
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-4 h-4" />
-                      Flexible Timings
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Users className="w-4 h-4" />
-                      Small Batches
-                    </span>
-                  </div>
-                </div>
+                <div className="text-center mb-4">
+              <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 leading-tight">
+                Join <span className="text-red-600">FREE</span> Demo
+              </h2>
+              <p className="text-base sm:text-lg text-gray-700 mt-3 font-semibold">
+                Become a Certified Expert in Digital Marketing
+              </p>
+            </div>
+                {/* </div> */}
               </div>
             </CardContent>
           </Card>
