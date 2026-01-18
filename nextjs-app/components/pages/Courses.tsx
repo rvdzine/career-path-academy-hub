@@ -7,7 +7,7 @@ import Lottie from "lottie-react";
 
 import Navbar from "@/components/Navbar";
 import EnrollmentDialog from "@/components/EnrollmentDialog";
-import ContactDialog from "@/components/ContactDialog";
+import DemoBookingDialog from "@/components/DemoBookingDialog";
 import Footer from "@/components/Footer";
 import ProgramForm from "@/components/ProgramForm";
 
@@ -181,11 +181,11 @@ export default function Courses() {
 
                   {/* Buttons */}
                   <div className="flex gap-4">
-                    <ContactDialog>
+                    <DemoBookingDialog courseTitle={data.title}>
                       <button className="flex-1 border border-[#EA2525] text-[#EA2525] px-6 py-2 rounded-md font-medium hover:bg-[#EA2525]/10">
                         Book Free Demo Class
                       </button>
-                    </ContactDialog>
+                    </DemoBookingDialog>
 
                     <EnrollmentDialog courseTitle={data.title}>
                       <button className="flex-1 bg-[#EA2525] text-white px-6 py-2 rounded-md font-medium hover:bg-[#c21e1e]">

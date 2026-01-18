@@ -225,13 +225,11 @@ const Contact = () => {
                         <SelectValue placeholder="Select a course" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="digitalmarketing">Master in Digital Marketing Course at idigitalstudies</SelectItem>
-                        <SelectItem value="seomastery">Digital Marketing Specialist Course at iDigitalStudies</SelectItem>
-                        <SelectItem value="socialmediamarketingpro">Best Digital Marketing Course for Business Owners</SelectItem>
-                        <SelectItem value="googleads">Digital Marketing Course for Beginners</SelectItem>
-                        <SelectItem value="emailmarketing">Customised Course in Digital Marketing</SelectItem>
-                        <SelectItem value="analyticsanddatainsights">Degree in Digital Marketing</SelectItem>
-                        {/* <SelectItem value="content">Content Strategy & Creation</SelectItem> */}
+                        <SelectItem value="master_dm_internship">Master in DM with Internship</SelectItem>
+                        <SelectItem value="specialist_dm">Specialist in DM</SelectItem>
+                        <SelectItem value="dm_business_owners">DM for Business Owners</SelectItem>
+                        <SelectItem value="foundation_basic_dm">Foundation/Basic in DM Course</SelectItem>
+                        <SelectItem value="custom_dm">Custom DM Course</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -243,11 +241,12 @@ const Contact = () => {
                         <SelectValue placeholder="Select your experience level" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="fresher">Fresher / Student</SelectItem>
-                        <SelectItem value="0-2">0-2 Years</SelectItem>
-                        <SelectItem value="2-5">2-5 Years</SelectItem>
-                        <SelectItem value="5+">5+ Years</SelectItem>
-                        <SelectItem value="switcher">Career Switcher</SelectItem>
+                        <SelectItem value="fresher_student">Fresher/Student</SelectItem>
+                        <SelectItem value="working_professional">Working Professional / Career Switchers</SelectItem>
+                        <SelectItem value="business_owner">Business Owner</SelectItem>
+                        <SelectItem value="freelancer">Freelancers / Remote Jobs Seekers</SelectItem>
+                        <SelectItem value="home_maker">Home Makers</SelectItem>
+                        <SelectItem value="others">Others</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>

@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'contact',
     'salaryreport',
     'blog',
-    'vacancy',  # Add vacancy app
+    'vacancy',
+    'online_demo',
 ]
 
 MIDDLEWARE = [
