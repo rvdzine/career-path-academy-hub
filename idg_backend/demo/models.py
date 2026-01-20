@@ -27,11 +27,13 @@ class Demo(models.Model):
     course = models.CharField(max_length=100, choices=COURSES_CHOICES, blank=True, null=True)
     experience_level = models.CharField(max_length=100, choices=EXPERIENCE_CHOICES, blank=True, null=True)
     learning_goals = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         constraints = [
             models.UniqueConstraint(fields=['full_name', 'email', 'phone', 'course'], name='unique_demo_booking')
         ]
+        ordering = ['-created_at']
         
     def __str__(self):
         return f"{self.full_name} - {self.course or 'No course selected'}"

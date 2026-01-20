@@ -41,10 +41,11 @@ const DemoBookingDialog = ({ children, courseTitle, courseValue }: DemoBookingDi
   const getCourseValue = () => {
     if (courseValue) return courseValue;
     
-    // Map course titles to values
     const titleMap: Record<string, string> = {
       "Master in Digital Marketing Course at Institute of Digital Studies": "master_dm_internship",
+      "Master in Digital Marketing Course at Insitute of Digital Studies": "master_dm_internship",
       "Digital Marketing Specialist Course at Institute of Digital Studies": "specialist_dm",
+      "Digital Marketing Specialist Course at Insitute of Digital Studies": "specialist_dm",
       "Best Digital Marketing Course for Business Owners": "dm_business_owners",
       "Customised Course in Digital Marketing": "custom_dm"
     };

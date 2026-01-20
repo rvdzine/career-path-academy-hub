@@ -35,6 +35,10 @@ class Placement(models.Model):
         null=True
     )
     job_titles = models.JSONField(default=list, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
 
     def __str__(self):
         return f"{self.full_name}"

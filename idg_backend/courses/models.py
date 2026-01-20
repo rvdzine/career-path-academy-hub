@@ -5,15 +5,18 @@ from django.db import models
 class Enrollment(models.Model):
 
     EXPERIENCE_CHOICES = [
-        ('beginner', 'Beginner (New to Digital Marketing)'),
-        ('intermediate', 'Intermediate (Some experience)'),
-        ('advanced', 'Advanced (Experienced professional)'),
+        ('fresher_student', 'Fresher/Student'),
+        ('working_professional', 'Working Professional / Career Switchers'),
+        ('business_owner', 'Business Owner'),
+        ('freelancer', 'Freelancers / Remote Jobs Seekers'),
+        ('home_maker', 'Home Makers'),
+        ('others', 'Others'),
     ]
 
     full_name = models.CharField(max_length=100)
     email = models.EmailField()
     phone = models.CharField(max_length=15)
-    experience = models.CharField(max_length=20, choices=EXPERIENCE_CHOICES, blank=True, null=True)
+    experience = models.CharField(max_length=30, choices=EXPERIENCE_CHOICES, blank=True, null=True)
     learning_goals = models.TextField(blank=True, null=True)
     course_title = models.CharField(max_length=200)
     # course_price = models.CharField(max_length=20)
