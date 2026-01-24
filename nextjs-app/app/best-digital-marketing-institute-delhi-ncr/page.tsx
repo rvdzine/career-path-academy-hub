@@ -3,15 +3,14 @@
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import axios from "axios";
+// import axios from "axios";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle } from "lucide-react";
-import Image from "next/image";
+// import { Button } from "@/components/ui/button";
+// import { Card, CardContent } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import EnrollmentDialog from "@/components/EnrollmentDialog";
-import { Badge } from "lucide-react";
+import DemoBookingDialog from "@/components/DemoBookingDialog";
+// import { Badge } from "lucide-react";
 import {
   Trophy,
   Video,
@@ -26,183 +25,112 @@ import {
   Briefcase,
   GraduationCap,
 } from "lucide-react";
-import { log } from "console";
-import { json } from "stream/consumers";
+import { useSuccessModal } from "@/hooks/use-success-modal";
+import api from '@/lib/axios';
+import Lottie from "lottie-react";
+import courseAnimation1 from "@/public/assets/Animations/1.1.json";
+import courseAnimation2 from "@/public/assets/Animations/2.json";
+import courseAnimation4 from "@/public/assets/Animations/4.json";
 
 // SVG icons
-const chimg1 = "/svg/clock.svg";
-const chimg2 = "/svg/book.svg";
-const chimg3 = "/svg/frame.svg";
+const chimg3 = "/svg/chimg3.svg";
 const chimg4 = "/svg/clipboard.svg";
-const chimg5 = "/svg/briefcase.svg";
 const chimg6 = "/svg/verify.svg";
-const chimg7 = "/svg/sparkle.svg";
 
-// Course images
-import FDM1 from "@/components/assets/FDM1.png";
-import SDM2 from "@/components/assets/SDM2.png";
-import MDM3 from "@/components/assets/MDM3.png";
-import BODM4 from "@/components/assets/BODM4.png";
-import DDM5 from "@/components/assets/DDM5.png";
-import DIPDM6 from "@/components/assets/DIPDM6.png";
+// Course data matching /courses page
+type CourseKey = "Master Course" | "Specialist Course" | "Custom Course";
 
-const courses = [
-    {
-      id: "master-in-digital-marketing-course",
-      title: "Master in Digital Marketing Course at Institute of Digital Studies",
-      duration: "6 Months",
-      students: "2500+ Students Enrolled",
-      mode: "Online / Offline",
-      certification: "Certification",
-      projects: "10+ Live Projects",
-      extra: "Internship",
-      skills: [
-        "SEO",
-        "Digital Marketing",
-        "AI in Marketing",
-        "Social Media Marketing",
-        "Content Strategy",
-        "Analytical & Technical Skills",
-        "Paid Advertising (PPC)",
-        "Content & Creative Skills",
-        "Growth & Strategy",
-        "E-commerce & Specialised",
-      ],
-      image: MDM3,
-      badges: ["AI Driven", "Hinglish"],
-    },
-    {
-      id: "specialist-in-digital-marketing",
-      title: "Digital Marketing Specialist Course at Institute of Digital Studies",
-      duration: "3 Months",
-      students: "1500+ Students Enrolled",
-      mode: "Online / Offline",
-      certification: "Certification",
-      projects: "5 Live Projects",
-      skills: [
-        "SEO",
-        "Digital Marketing",
-        "AI in Marketing",
-        "Social Media Marketing",
-        "Content Strategy",
-        "Analytical & Technical Skills",
-        "Paid Advertising (PPC)",
-        "Content & Creative Skills",
-        "Growth & Strategy",
-        "E-commerce & Specialised",
-      ],
-      image: SDM2,
-      badges: ["Hinglish"],
-    },
-    {
-      id: "digital-marketing-course-for-business-owners",
-      title: "Best Digital Marketing Course for Business Owners",
-      duration: "Customised Timeline",
-      students: "200+ Students Enrolled",
-      mode: "Online",
-      certification: "Certification",
-      projects: "10+ Live Projects",
-      skills: [
-        "SEO",
-        "Digital Marketing",
-        "AI in Marketing",
-        "Social Media Marketing",
-        "Content Strategy",
-        "Analytical & Technical Skills",
-        "Paid Advertising (PPC)",
-        "Content & Creative Skills",
-        "Growth & Strategy",
-        "E-commerce & Specialised",
-      ],
-      image: BODM4,
-      badges: ["AI Driven", "Hinglish/English"],
-    },
-    {
-      id: "foundation-in-digital-marketing",
-      title: "Digital Marketing Course for Beginners",
-      duration: "2 Months",
-      students: "500+ Students Enrolled",
-      mode: "Online / Offline",
-      certification: "Certification",
-      projects: "2 Live Projects",
-      skills: [
-        "SEO",
-        "Digital Marketing",
-        "AI in Marketing",
-        "Social Media Marketing",
-        "Content Strategy",
-        "Analytical & Technical Skills",
-        "Paid Advertising (PPC)",
-        "Content & Creative Skills",
-        "Growth & Strategy",
-        "E-commerce & Specialised",
-      ],
-      image: FDM1,
-      badges: ["Hinglish"],
-    },
-    {
-      id: "customised-digital-marketing",
-      title: "Customised Course in Digital Marketing",
-      duration: "Customised Timeline",
-      students: "500+ Students Enrolled",
-      mode: "Online / Offline",
-      certification: "Certification",
-      projects: "2+ Live Projects",
-      skills: [
-        "SEO",
-        "Digital Marketing",
-        "AI in Marketing",
-        "Social Media Marketing",
-        "Content Strategy",
-        "Analytical & Technical Skills",
-        "Paid Advertising (PPC)",
-        "Content & Creative Skills",
-        "Growth & Strategy",
-        "E-commerce & Specialised",
-      ],
-      image: DIPDM6,
-      badges: ["AI Driven", "Hinglish/English"],
-    },
-    {
-      id: "degree-digital-marketing",
-      title: "Degree in Digital Marketing",
-      duration: "3 Years",
-      students: "250+ Students Enrolled",
-      mode: "Offline",
-      certification: "Degree + Certification",
-      projects: "Live Projects",
-      skills: [
-        "SEO",
-        "Digital Marketing",
-        "AI in Marketing",
-        "Social Media Marketing",
-        "Content Strategy",
-        "Analytical & Technical Skills",
-        "Paid Advertising (PPC)",
-        "Content & Creative Skills",
-        "Growth & Strategy",
-        "E-commerce & Specialised",
-      ],
-      image: DDM5,
-      badges: ["AI Driven", "Hinglish/English"],
-    },
-  ];
+const courseData: Record<CourseKey, any> = {
+  "Master Course": {
+    tag: "AI Driven",
+    title: "Master in Digital Marketing Course at Institute of Digital Studies",
+    animation: courseAnimation1,
+    duration: "6 Months",
+    mode: "Off/Online",
+    badge: "Hinglish",
+    salary: "₹8.5 LPA",
+    internship: "3 Months",
+    certification: "Certification",
+    projects: "10+ Live Projects",
+    content:
+      "Our 6-Month Digital Marketing Course with 100% Internship provides hands-on experience in SEO, SEM, social media, content marketing, and more.",
+  },
+  "Specialist Course": {
+    tag: "AI Driven",
+    title: "Digital Marketing Specialist Course at Institute of Digital Studies",
+    animation: courseAnimation2,
+    duration: "3 Months",
+    mode: "Off/Online",
+    badge: "Hinglish",
+    salary: "₹6.2 LPA",
+    certification: "Certification",
+    projects: "5+ Live Projects",
+    content:
+      "In-depth Digital Marketing training covering SEO, PPC, social media, email marketing, and analytics with live projects.",
+  },
+  "Custom Course": {
+    tag: "AI Driven",
+    title: "Customised Course in Digital Marketing",
+    animation: courseAnimation4,
+    duration: "Customised Timeline",
+    mode: "Off/Online",
+    badge: "Hinglish/English",
+    salary: "Depends on Skills",
+    certification: "Certification",
+    projects: "Custom Projects",
+    content:
+      "A completely customized digital marketing program designed according to your goals, skills, and learning pace.",
+  },
+};
+
+// Badge Component
+const BadgeComponent = ({ children }: { children: React.ReactNode }) => (
+  <div className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-[#FFF2F2] rounded">
+    {children}
+  </div>
+);
+
+// Info Box Component
+const Info = ({
+  label,
+  value,
+  isSalary = false,
+}: {
+  label: string;
+  value: string;
+  isSalary?: boolean;
+}) => {
+  const showDisclaimer = isSalary && !value.toLowerCase().includes("depend");
+
+  return (
+    <div className="border rounded-lg p-3 text-center">
+      <p className="text-xs text-gray-500 flex items-center justify-center gap-1">
+        {label}
+        {isSalary && <span className="text-red-500 font-bold">*</span>}
+      </p>
+      <p className="font-bold">{value}</p>
+      {showDisclaimer && (
+        <p className="text-[10px] text-gray-400 mt-1">Depends on skills</p>
+      )}
+    </div>
+  );
+};
 
 // ImageCarousel Component
 function ImageCarousel() {
   const images = [
-    {
-      src: "/assets/gallery2.webp",
-      alt: "Institute of Digital Studies Delhi Ncr - Students Receiving Certificates 1",
-    },
-    {
-      src: "/assets/gallery12.png",
-      alt: "Institute of Digital Studies Delhi Ncr - Students Receiving Certificates 2",
-    },
-    {
-      src: "/assets/gallery5.webp",
-      alt: "Institute of Digital Studies Delhi Ncr - Students Receiving Certificates 3",
-    },
+    // {
+    //   src: "/assets/gallery2.webp",
+    //   alt: "Institute of Digital Studies Delhi Ncr - Students Receiving Certificates 1",
+    // },
+    // {
+    //   src: "/assets/gallery12.png",
+    //   alt: "Institute of Digital Studies Delhi Ncr - Students Receiving Certificates 2",
+    // },
+    // {
+    //   src: "/assets/gallery5.webp",
+    //   alt: "Institute of Digital Studies Delhi Ncr - Students Receiving Certificates 3",
+    // },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -228,7 +156,7 @@ function ImageCarousel() {
 
   return (
     <div className="relative w-full overflow-hidden group">
-      <div
+      {/* <div
         className="flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
@@ -244,7 +172,7 @@ function ImageCarousel() {
             />
           </div>
         ))}
-      </div>
+      </div> */}
 
       <button
         onClick={goToPrevious}
@@ -281,94 +209,83 @@ function ImageCarousel() {
 }
 
 export default function BestDigitalMarketingInstitute() {
-  // Form State for Counselling Section
+  // Form State for Counselling Section (matching Contact page)
   const [formData, setFormData] = useState({
-    full_name: "",
+    name: "",
     email: "",
     phone: "",
-    interested_courses: "",
+    course: "",
     experience: "",
-    message: "",
   });
 
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState<{
-    type: "success" | "error";
-    text: string;
-  } | null>(null);
+  const { showSuccess, SuccessModal } = useSuccessModal();
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleInputChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const Free_Counselling_handle_Submit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setMessage(null);
-
-    if (
-      !formData.full_name ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.interested_courses
-    ) {
-      alert("All fields are required");
-      setLoading(false);
-      return; // Prevent further execution if validation fails
-    }
-
-    console.log("FormData", formData);
 
     try {
-      const res = await axios.post(
-        "https://api.Institute of Digital Studies.com/api/contact/contact/",
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await api.post("contact/contact/", {
+        full_name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        interested_courses: formData.course,
+        experience: formData.experience,
+        message: "",
+      });
 
-      console.log("Response data of Free Counselling", res);
-
-      if (res.status === 201) {
-        setMessage({
-          type: "success",
-          text: "Thank you! We have received your request. Our counsellor will contact you soon.",
+      if (response.status === 201) {
+        showSuccess({
+          title: "Thank You!",
+          description:
+            "Your details have been submitted successfully. We'll contact you within 24 hours.",
         });
+
+        // Reset form
         setFormData({
-          full_name: "",
+          name: "",
           email: "",
           phone: "",
-          interested_courses: "Master in Digital Marketing (MIDM)",
+          course: "",
           experience: "",
-          message: "",
-        });
-      } else {
-        setMessage({
-          type: "error",
-          text: "Something went wrong. Please try again.",
         });
       }
-    } catch (err) {
-      console.error("Error:", err);
-      setMessage({
-        type: "error",
-        text: "Network error. Please check your connection and try again.",
-      });
+    } catch (error: any) {
+      const errorMsg =
+        error?.response?.data?.non_field_errors?.[0] ||
+        error?.response?.data?.email?.[0] ||
+        "Something went wrong. Please try again.";
+
+      alert(`Error: ${errorMsg}`);
     } finally {
       setLoading(false);
     }
   };
 
+  // Handler for "For More Details" button clicks
+  // const handleCourseDetailsClick = async (courseTitle: string) => {
+  //   try {
+  //     await api.post("contact/contact/", {
+  //       full_name: "Course Details Request",
+  //       email: "details@request.com",
+  //       phone: "0000000000",
+  //       interested_courses: courseTitle,
+  //       experience: "Inquiry",
+  //       message: `User clicked 'For More Details' for: ${courseTitle}`,
+  //     });
+  //   } catch (error) {
+  //     console.error("Error logging course details click:", error);
+  //   }
+  // };
+
   return (
     <>
+      <SuccessModal />
       <Navbar />
       {/* HERO CAROUSEL */}
       <div className="w-full relative">
@@ -376,28 +293,6 @@ export default function BestDigitalMarketingInstitute() {
       </div>
 
       {/* HERO GRADIENT */}
-      {/* ======== Exact Meta Tags You Asked For ======== */}
-      <head>
-        <title>
-          Best Digital Marketing Institute In Delhi Ncr | Institute of Digital Studies
-        </title>
-        <meta
-          name="description"
-          content="Join Institute of Digital Studies is one of the the Best Digital Marketing Institute in Delhi Ncr. Learn SEO, Social Media, Google Ads & more with expert trainers and hands-on projects."
-        />
-        {/* Optional but good for SEO & social sharing */}
-        <meta
-          property="og:title"
-          content="Best Digital Marketing Institute In Delhi Ncr | Institute of Digital Studies"
-        />
-        <meta
-          property="og:description"
-          content="Join Institute of Digital Studies is one of the the Best Digital Marketing Institute in Delhi Ncr. Learn SEO, Social Media, Google Ads & more with expert trainers and hands-on projects."
-        />
-        <meta name="robots" content="index, follow" />
-      </head>
-
-      {/* ======== Your Hero Section ======== */}
       <section className="w-full bg-gradient-to-br from-red-950 via-red-700 to-rose-800 text-white overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center relative">
           <div className="absolute inset-0"></div>
@@ -880,62 +775,44 @@ export default function BestDigitalMarketingInstitute() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-start">
-              {/* LEFT: Form with API Submission */}
+              {/* LEFT: Form matching Contact page */}
               <div className="bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10 border border-blue-100 dark:border-purple-900">
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-5 sm:mb-6 text-center lg:text-left">
                   Fill Details for Free Counselling
                 </h3>
 
-                {/* Success/Error Message */}
-                {message && (
-                  <div
-                    className={`mb-4 p-4 rounded-lg text-center font-medium ${
-                      message.type === "success"
-                        ? "bg-green-100 text-green-800 border border-green-300"
-                        : "bg-red-100 text-red-800 border border-red-300"
-                    }`}
-                  >
-                    {message.text}
-                  </div>
-                )}
-
-                <form
-                  onSubmit={Free_Counselling_handle_Submit}
-                  className="space-y-4 sm:space-y-5"
-                >
-                  <div>
-                    <input
-                      type="text"
-                      name="full_name"
-                      value={formData.full_name}
-                      onChange={handleChange}
-                      placeholder="Your Full Name *"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition"
-                      required
-                      disabled={loading}
-                    />
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <input
+                        type="text"
+                        value={formData.name}
+                        onChange={(e) => handleInputChange("name", e.target.value)}
+                        placeholder="Full Name *"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition"
+                        required
+                        disabled={loading}
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => handleInputChange("phone", e.target.value)}
+                        placeholder="Phone Number *"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition"
+                        required
+                        disabled={loading}
+                      />
+                    </div>
                   </div>
 
                   <div>
                     <input
                       type="email"
-                      name="email"
                       value={formData.email}
-                      onChange={handleChange}
-                      placeholder="Your Email Address *"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition"
-                      required
-                      disabled={loading}
-                    />
-                  </div>
-
-                  <div>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="Your Phone Number *"
+                      onChange={(e) => handleInputChange("email", e.target.value)}
+                      placeholder="Email Address *"
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition"
                       required
                       disabled={loading}
@@ -944,102 +821,44 @@ export default function BestDigitalMarketingInstitute() {
 
                   <div>
                     <select
-                      name="interested_courses"
-                      value={formData.interested_courses}
-                      onChange={handleChange}
+                      value={formData.course}
+                      onChange={(e) => handleInputChange("course", e.target.value)}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition"
                       required
                       disabled={loading}
                     >
-                      <option value="digitalmarketing">
-                        Master in Digital Marketing (MIDM)
-                      </option>
-                      <option value="seomastery">
-                        Digital Marketing Specialist Course
-                      </option>
-                      <option value="socialmediamarketingpro">
-                        Best Digital Marketing Course for Business Owners
-                      </option>
-                      <option value="googleads">
-                        Digital Marketing Course for Beginners
-                      </option>
-                      <option value="emailmarketing">
-                        Customised Course in Digital Marketing
-                      </option>
-                      <option value="analyticsanddatainsights">
-                        Degree in Digital Marketing
-                      </option>
+                      <option value="">Select a course</option>
+                      <option value="master_dm_internship">Master in DM with Internship</option>
+                      <option value="specialist_dm">Specialist in DM</option>
+                      <option value="dm_business_owners">DM for Business Owners</option>
+                      <option value="foundation_basic_dm">Foundation/Basic in DM Course</option>
+                      <option value="custom_dm">Custom DM Course</option>
                     </select>
                   </div>
 
                   <div>
                     <select
-                      name="experience"
                       value={formData.experience}
-                      onChange={handleChange}
+                      onChange={(e) => handleInputChange("experience", e.target.value)}
                       className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition"
                       disabled={loading}
                     >
-                      <option value="">Select Experience (Optional)</option>
-                      <option value="fresher">Fresher / Student</option>
-                      <option value="0-2">0-2 Years</option>
-                      <option value="2-5">2-5 Years</option>
-                      <option value="5+">5+ Years</option>
-                      <option value="switcher">Career Switcher</option>
+                      <option value="">Select your experience level</option>
+                      <option value="fresher_student">Fresher/Student</option>
+                      <option value="working_professional">Working Professional / Career Switchers</option>
+                      <option value="business_owner">Business Owner</option>
+                      <option value="freelancer">Freelancers / Remote Jobs Seekers</option>
+                      <option value="home_maker">Home Makers</option>
+                      <option value="others">Others</option>
                     </select>
                   </div>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className={`w-full bg-[#ea2525] text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3 text-base ${
-                      loading
-                        ? "opacity-80 cursor-not-allowed"
-                        : "hover:scale-105"
-                    }`}
+                    className="w-full bg-gradient-to-r from-[#EA2525] to-[#AA2526] hover:from-[#AA2526] hover:to-[#EA2525] text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    {loading ? (
-                      <>
-                        <svg
-                          className="animate-spin h-5 w-5 text-white"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                          ></circle>
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                          ></path>
-                        </svg>
-                        Submitting...
-                      </>
-                    ) : (
-                      <>
-                        <svg
-                          className="w-5 h-5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"
-                          />
-                        </svg>
-                        Book Free Counselling
-                      </>
-                    )}
+                    {loading ? "Submitting..." : "Submit & Get Free Counseling"}
                   </button>
                 </form>
 
@@ -1098,7 +917,7 @@ export default function BestDigitalMarketingInstitute() {
                       </li>
                     ))}
                   </ul>
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  {/* <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                     <a
                       href="/contact"
                       className="inline-flex items-center justify-center bg-white text-black font-bold py-2.5 sm:py-3 px-5 sm:px-6 rounded-lg sm:rounded-xl hover:bg-gray-100 transition text-sm sm:text-base"
@@ -1111,7 +930,7 @@ export default function BestDigitalMarketingInstitute() {
                     >
                       View All Courses
                     </a>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="grid grid-cols-3 gap-3 sm:gap-4 text-center">
@@ -1172,14 +991,13 @@ export default function BestDigitalMarketingInstitute() {
                 <h3 className="text-2xl font-bold text-gray-800 leading-tight">
                   Masters in Digital Marketing Course
                 </h3>
-                <a
-                  href="https://Institute of Digital Studies.com/courses/master-in-digital-marketing-course"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link href = "/contact">
+                <button
                   className="mt-8 px-8 py-4 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition shadow-lg"
-                >
-                  View Details →
-                </a>
+                  >
+                  For More Details →
+                </button>
+                  </Link>
               </div>
 
               {/* Center: Specialist Course */}
@@ -1187,14 +1005,13 @@ export default function BestDigitalMarketingInstitute() {
                 <h3 className="text-2xl font-bold text-gray-800 leading-tight">
                   Specialist in Digital Marketing Course
                 </h3>
-                <a
-                  href="https://Institute of Digital Studies.com/courses/specialist-in-digital-marketing"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link href = "/contact">
+                <button
                   className="mt-8 px-8 py-4 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition shadow-lg"
-                >
-                  View Details →
-                </a>
+                  >
+                  For More Details →
+                </button>
+                  </Link>
               </div>
 
               {/* Right: Beginners Course */}
@@ -1202,14 +1019,13 @@ export default function BestDigitalMarketingInstitute() {
                 <h3 className="text-2xl font-bold text-gray-800 leading-tight">
                   Digital Marketing Course for Beginners
                 </h3>
-                <a
-                  href="https://Institute of Digital Studies.com/courses/foundation-in-digital-marketing"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link href = "/contact">
+                <button
                   className="mt-8 px-8 py-4 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition shadow-lg"
-                >
-                  View Details →
-                </a>
+                  >
+                  For More Details →
+                </button>
+                  </Link>
               </div>
             </div>
           </div>
@@ -1235,125 +1051,80 @@ export default function BestDigitalMarketingInstitute() {
       <p className="text-center">Digital marketing is booming, and Delhi Ncr is buzzing with opportunities. Institute of Digital Studies equips 
 you with the skills and confidence to stand out in a crowded market.</p>
       <section className="py-16 bg-white">
-       
-        <div className="container mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {courses.map((course) => {
-            const isAiDriven = course.badges.includes("AI Driven");
+        <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 gap-10">
+          {(Object.keys(courseData) as CourseKey[]).map((key) => {
+            const data = courseData[key];
 
             return (
-              <Card
-                key={course.id}
-                className="flex flex-col border rounded-xl shadow-md hover:shadow-lg transition duration-300 overflow-hidden min-h-[540px]"
+              <div
+                key={key}
+                className="bg-white border border-gray-300 rounded-2xl shadow-lg flex flex-col md:flex-row p-6 md:p-8"
               >
-                {/* Image with badges */}
-                <div className="relative h-[180px] sm:h-[200px] md:h-[220px] overflow-hidden">
-                  <img
-                    src={typeof course.image === 'string' ? course.image : course.image.src}
-                    alt={course.title}
-                    className="w-full h-full object-cover"
+                {/* Animation */}
+                <div className="w-full md:w-[45%] h-[360px] flex items-center justify-center bg-[#FFF5F5] rounded-xl">
+                  <Lottie
+                    animationData={data.animation}
+                    loop
+                    autoplay
+                    className="w-full h-full max-h-[420px]"
                   />
-
-                  {/* Badges Overlay */}
-                  <div className="absolute top-2 right-2 flex flex-wrap gap-2">
-                    {course.badges.map((badge, idx) => {
-                      let iconSrc = null;
-
-                      if (badge === "AI Driven") iconSrc = chimg7;
-                      else if (badge === "Hinglish") iconSrc = chimg3;
-                      else if (badge === "Hinglish/English") iconSrc = chimg3;
-
-                      return (
-                        <Badge
-                          key={idx}
-                          className={`flex items-center gap-1 px-2 py-1 text-sm rounded-full ${badge === "AI Driven"
-                              ? "bg-gradient-to-r from-[#0061FF] to-[#60EFFF] text-white"
-                              : "bg-white text-gray-800 border border-gray-300"
-                            }`}
-                        >
-                          {iconSrc && <img src={iconSrc} alt={badge} className="w-3 h-3" />}
-                          {badge}
-                        </Badge>
-                      );
-                    })}
-                  </div>
                 </div>
 
-                <CardContent className="px-5 pb-5 flex flex-col flex-1">
-                  {/* Students Enrolled */}
-                   <div className="flex items-center gap-2 mt-3 mb-3">
-                  <div className="flex -space-x-3">
-                    <img src="https://i.pravatar.cc/40?img=1" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
-                    <img src="https://i.pravatar.cc/40?img=2" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
-                    <img src="https://i.pravatar.cc/40?img=3" className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
+                {/* Content */}
+                <div className="md:w-[55%] md:pl-8 mt-6 md:mt-0 flex flex-col justify-between">
+                  <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm w-fit mb-3">
+                    {data.tag}
+                  </span>
+
+                  <h3 className="text-2xl font-bold mb-3">{data.title}</h3>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <BadgeComponent>
+                      <img src={chimg6} className="w-4 h-4" alt="" />
+                      {data.certification}
+                    </BadgeComponent>
+                    <BadgeComponent>
+                      <img src={chimg4} className="w-4 h-4" alt="" />
+                      {data.projects}
+                    </BadgeComponent>
+                    <BadgeComponent>
+                      <img src={chimg3} className="w-4 h-4" alt="" />
+                      {data.badge}
+                    </BadgeComponent>
                   </div>
-                  <p className="text-[10px] sm:text-xs text-gray-500">
-                    <span className="text-sm sm:text-base font-bold text-gray-900">
-                      {course.students.split(" ")[0]}
-                    </span>{" "}
-                    {isAiDriven
-                      ? "Students Enrolled in this AI Driven Course"
-                      : course.students.replace(course.students.split(" ")[0], "")
-                    }
-                  </p>
+
+                  <p className="text-sm text-gray-600 mb-4">{data.content}</p>
+
+                  {/* Info */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    <Info label="Duration" value={data.duration} />
+                    {data.mode && <Info label="Mode" value={data.mode} />}
+                    {data.salary && <Info label="Avg Salary" value={data.salary} isSalary />}
+                    {data.internship && <Info label="Internship" value={data.internship} />}
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex gap-4">
+                    <DemoBookingDialog courseTitle={data.title}>
+                      <button className="flex-1 border border-[#EA2525] text-[#EA2525] px-6 py-2 rounded-md font-medium hover:bg-[#EA2525]/10">
+                        Book Free Demo Class
+                      </button>
+                    </DemoBookingDialog>
+
+                    <EnrollmentDialog courseTitle={data.title}>
+                      <button className="flex-1 bg-[#EA2525] text-white px-6 py-2 rounded-md font-medium hover:bg-[#c21e1e]">
+                        Enroll Now
+                      </button>
+                    </EnrollmentDialog>
+                  </div>
+
+                  {(key === "Master Course" || key === "Specialist Course") && (
+                    <p className="text-xs text-gray-500 mt-3">
+                      <b>150+</b> Students enrolled last week
+                    </p>
+                  )}
                 </div>
-
-                  {/* Title */}
-                  <h2 className="text-xl font-bold text-gray-800 mt-1">{course.title}</h2>
-
-                  {/* Info Badges */}
-                  <div className="flex flex-wrap gap-2 mt-3 mb-4">
-                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
-                      <img src={chimg1} alt="" className="w-4 h-4" /> {course.duration}
-                    </Badge>
-                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
-                      <img src={chimg2} alt="" className="w-4 h-4" /> {course.mode}
-                    </Badge>
-                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
-                      <img src={chimg6} alt="" className="w-4 h-4" /> {course.certification}
-                    </Badge>
-                    <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
-                      <img src={chimg4} alt="" className="w-4 h-4" /> {course.projects}
-                    </Badge>
-                    {course.extra && (
-                      <Badge className="flex items-center gap-1 px-3 py-1 text-xs bg-[#FFF2F2] text-[#000] border-0">
-                        <img src={chimg5} alt="" className="w-4 h-4" /> {course.extra}
-                      </Badge>
-                    )}
-                  </div>
-
-                  {/* Skills */}
-                  <div className="mt-2">
-                    <p className="text-sm font-semibold text-gray-700">Skills you learn:</p>
-                    <p className="text-sm text-gray-600">{course.skills.join(", ")}</p>
-                  </div>
-
-                  {/* Bottom Buttons */}
-                  <div className="mt-auto pt-6 flex flex-col sm:flex-row gap-2">
-                    {course.id === "customised-digital-marketing" || course.id === "degree-digital-marketing" ? (
-                      <Button className="w-full border border-[#EA2525] bg-[#fff] text-[#EA2525] hover:bg-[#c21e1e] hover:text-[#fff]">
-                        For Queries - Contact Us
-                      </Button>
-                    ) : (
-                      <>
-                        {/* <BrochureDialog courseTitle={course.title}> */}
-                        <Link href={`/courses/${course.id}`} className="flex-1">
-                          <Button
-                            variant="outline"
-                           className="w-full sm:flex-1 border border-red-500 text-[#EA2525] bg-[#fff] hover:bg-[#f7e4e4]">
-                            Course Details
-                          </Button>
-                        </Link>
-                        {/* </BrochureDialog> */}
-                        <EnrollmentDialog courseTitle={course.title}>
-                          <Button className="flex-1 bg-[#EA2525] hover:bg-[#c21e1e] text-white">
-                            Enroll Now
-                          </Button>
-                        </EnrollmentDialog>
-                      </>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
+              </div>
             );
           })}
         </div>
@@ -1588,7 +1359,7 @@ you with the skills and confidence to stand out in a crowded market.</p>
 
             {/* CTA Section */}
             <div className="text-center">
-              <div className="inline-flex items-center gap-2.5 sm:gap-3 bg-gradient-to-r from-red-600 to-pink-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-2xl hover:shadow-pink-500/50 transition-all hover:scale-105 cursor-pointer">
+              {/* <div className="inline-flex items-center gap-2.5 sm:gap-3 bg-gradient-to-r from-red-600 to-pink-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-2xl hover:shadow-pink-500/50 transition-all hover:scale-105 cursor-pointer">
                 <svg
                   className="w-5 h-5 sm:w-6 sm:h-6"
                   fill="currentColor"
@@ -1599,7 +1370,7 @@ you with the skills and confidence to stand out in a crowded market.</p>
                 <span className="font-bold text-base sm:text-lg">
                   Join 5,000+ Students Now
                 </span>
-              </div>
+              </div> */}
               <p className="mt-5 sm:mt-6 text-base sm:text-lg font-medium text-gray-700 dark:text-gray-300">
                 <strong>Institute of Digital Studies</strong> — Delhi NCR{" "}
                 <span className="text-red-600">Most Trusted</span> Digital
