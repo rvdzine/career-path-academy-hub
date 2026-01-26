@@ -300,7 +300,7 @@ export default function BestDigitalMarketingInstitute() {
           {/* ========= Updated H1 as per your request ========= */}
           <h1 className="relative text-4xl sm:text-4xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight tracking-tight">
             <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white via-rose-100 to-orange-100 drop-shadow-lg">
-              Best Digital Marketing Institute in Delhi Ncr, Institute of Digital Studies
+            AI-Powered Best Digital Marketing Institute in Delhi NCR
             </span>
           </h1>
 
@@ -329,8 +329,8 @@ export default function BestDigitalMarketingInstitute() {
                   </svg>
                 </div>
                 <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold leading-tight text-black">
-                  Best Institute for Digital Marketing Course In Delhi Ncr
-                  <span className="block text-black">Institute of Digital Studies</span>
+                Digital Marketing Course For Transforming Your Career with
+                  <span className="block text-black">Modern AI Generation</span>
                 </h1>
               </div>
             </div>
@@ -360,8 +360,7 @@ export default function BestDigitalMarketingInstitute() {
               Why Choose Institute of Digital Studies?
             </h2>
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">
-              Empowering your career with industry-aligned skills, expert
-              mentorship, and guaranteed growth.
+            Do you lack the skills you need to move ahead? Now, you can become a digital marketing specialist without leaving your job. Boost your career with the Delhi Institute of Digital Marketing. A place to learn digital marketing from Executive Level to Manager Level in all practical ways. The high demand for a digital marketing course is best suited for working professionals, job seekers, freelancers, students, and entrepreneurs
             </p>
           </div>
 

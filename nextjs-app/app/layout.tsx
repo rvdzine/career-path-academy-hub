@@ -11,7 +11,7 @@ import UseScrollToTop from "@/components/ScrollToTop";
 export const metadata: Metadata = {
   title: "Digital Marketing Institute in Noida",
   description:
-    "Join the best Digital Marketing Institute in Noida. iDigital Studies offers practical Digital Marketing courses like SEO, SMO, PPC with live projects, 100% placement assistance, and expert training. Enroll today!",
+    "Join the best Digital Marketing Institute in Delhi NCR. iDigital Studies offers practical Digital Marketing courses like SEO, SMO, PPC with live projects, 100% placement, and expert training. Enroll today!",
   keywords: [
     "digital marketing classes",
     "digital marketing course",

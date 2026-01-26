@@ -44,7 +44,7 @@ const courseData: Record<TabType, any> = {
     salary: "₹8.5 LPA",
     internship: "3 Months",
     content:
-      "Our 6-Month Digital Marketing Course with 100% Internship provides hands-on experience in SEO, SEM, social media, content marketing, and more, along with a guaranteed internship to kickstart your career.",
+      "Our 6-Month Digital Marketing Course in Noida with 100% Internship provides hands-on experience in SEO, SEM, social media, content marketing, and more, along with a guaranteed internship to kickstart your career.",
     certification: "Certification",
     projects: "10+ Live Projects",
   },

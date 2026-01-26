@@ -228,9 +228,9 @@ const fallbackBlogs = [
     image: "./assets/blog-32.webp",
   },
   {
-    slug: "best-digital-marketing-institutes-in-delhi-ncr-2025-update",
-    title: "Best Digital Marketing Institutes in Delhi-NCR (2025 Update)",
-    excerpt: "It can be hard to find the right place to learn digital marketing. There are a lot of schools in ....",
+    slug: "best-digital-marketing-institutes-in-delhi-ncr-2026-update",
+    title: "Best Digital Marketing Institutes in Delhi-NCR (2026 Update)",
+    excerpt: "It can be hard to find the right place to learn digital marketing. There are a lot of schools in Delhi-NCR that promise to give you the....",
     image: "./assets/blog-33.avif",
   },
   {
@@ -487,7 +487,7 @@ const fallbackBlogs = [
   },
    {
     slug: "how-to-write-content-for-multilingual-seo",
-    title: "How to Write Content for Multilingual SEO",
+    title: "How to Write and Optimize Content for Multilingual SEO in 2026",
     excerpt: "Create multilingual SEO content with proper localisation, keyword research, and cultural adaptation...",
     image: "./assets/blog74.png",
   },
@@ -517,7 +517,7 @@ const fallbackBlogs = [
   },
   {
     slug: "how-to-use-reddit-and-quora-for-content-research",
-    title: "How to Use Reddit & Quora for Content Research",
+    title: "Ultimate Guide on How to Use Reddit and Quora for Content Research in 2026",
     excerpt: "Use Reddit and Quora to find real user questions, content gaps, and topics worth writing about...",
     image: "./assets/blog79.png",
   },

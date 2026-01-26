@@ -1,5 +1,6 @@
 import BlogDetail from "@/components/pages/BlogDetail";
 import axios from "axios";
+import { title } from "process";
 
 interface BlogDetailPageProps{
   params: Promise< {slug:string} >;
@@ -137,8 +138,8 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
       image: "https://images.unsplash.com/photo-1637606346315-d23ed32a6cfc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8U2VvfGVufDB8fDB8fHww",
     },
     "free-ai-tools-to-boost-your-digital-marketing-skills": {
-      title: "Free AI Tools to Boost Your Digital Marketing Skills",
-      description: "Explore free AI tools that make learning and executing digital marketing tasks faster and easier.",
+      title: "Top 5 Free AI Tools to Boost Your Digital Marketing Skills in 2026",
+      description: "Explore the top 5 free AI tools to enhance your digital marketing skills in 2026, from SEO and content creation to analytics and automation.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
     },
     "content-creation-tools-every-digital-marketer-should-try": {
@@ -206,9 +207,9 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
       description: "Get insights into what digital marketing internships teach  from campaign work to real-world projects.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
     },
-    "best-digital-marketing-institutes-in-delhi-ncr-2025-update": {
-      title: "Best Digital Marketing Institutes in Delhi-NCR (2025 Update)",
-      description: "Explore the top-rated digital marketing institutes in Delhi-NCR offering practical training and placements.",
+    "best-digital-marketing-institutes-in-delhi-ncr-2026-update": {
+      title: "Top 10 Digital Marketing Institutes in Delhi-NCR (2026 Update)",
+      description: "Explore the top 10 digital marketing institutes in Delhi-NCR offering practical training and placements in 2026.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
     },
     "salary-of-a-digital-marketer-in-india-city-wise-breakdown": {
@@ -225,7 +226,17 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
       title: "How Long Does It Take to Learn Digital Marketing?",
       description: "Find out how long it takes to learn digital marketing, depending on your pace, goals, and learning resources.",
       image: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
-    }
+    },
+    "how-to-use-reddit-and-quora-for-content-research": {
+      title: "How to Use Reddit and Quora for Content Research in 2026",
+      description: "Reddit and Quora are high-intent platforms where users actively seek solutions and voice real-world problems. In 2026, content marketers use these sites not just for ideas but to align with AI search behavior, as Google frequently prioritizes these forums in AI Overviews.",
+      image: ""
+    },
+    "how-to-write-content-for-multilingual-seo": {
+        title: "How to Write and Optimize Content for Multilingual SEO in 2026",
+        description: "Multilingual SEO in 2026 requires moving beyond literal translation to full localization, combining AI-driven keyword research with cultural nuances to match search intent across regions.",
+        image: "",
+      }
   };
 
     const blog = blogDetails[slug];

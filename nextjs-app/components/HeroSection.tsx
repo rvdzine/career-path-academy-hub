@@ -111,8 +111,7 @@ export default function HeroSection() {
   mb-3
   sm:mb-4
 ">
-  Upskill with practical training, industry tools, and hands-on
-  experience that transforms beginners into professionals.
+  Upskill with practical training, industry tools, and hands-on experience that transforms beginners into professionals with AI-Powered Digital Marketing Course in Noida.
 </p>
 
 

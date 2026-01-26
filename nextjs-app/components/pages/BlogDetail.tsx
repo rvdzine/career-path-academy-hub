@@ -2058,7 +2058,7 @@ It’s better to tailor content for each platform’s audience and format. Exact
 
   // #newwwwwwwwwwwwwwwwwwww
   "free-ai-tools-to-boost-your-digital-marketing-skills": {
-    title: "Free AI Tools to Boost Your Digital Marketing Skills",
+    title: "Top 5 Free AI Tools That Actually Boost Your Digital Marketing Skills.",
     content: `
 <p>If you're new to internet marketing, you could have noticed that it's not just about generating cool ads or posts on social media platforms anymore. AI tools are the new clandestine weapons in this new game. Using the right free AI tools can help you learn faster than you think, whether you're just starting out or already running campaigns.</p>
 <br/>
@@ -3439,16 +3439,16 @@ If you show enthusiasm, meet deadlines, and respond well to feedback, you have a
 <br/><br/>`,
     image: "/assets/blog-31.webp",
   },
-  "best-digital-marketing-institutes-in-delhi-ncr-2025-update": {
-    title: "Best Digital Marketing Institutes in Delhi-NCR (2025 Update)",
+  "best-digital-marketing-institutes-in-delhi-ncr-2026-update": {
+    title: "Best Digital Marketing Institutes in Delhi-NCR (2026 Update)",
     content: `
-It can be hard to find the right place to learn digital marketing. There are a lot of schools in Delhi-NCR that promise to give you the "best" training, but only a few actually do. This updated list for 2025 will help you choose the right school to start your digital journey, whether you're a student, looking for a job, or changing careers. Let's begin with the one in front.
+It can be hard to find the right place to learn digital marketing. There are a lot of schools in Delhi-NCR that promise to give you the "best" training, but only a few actually do. This updated list for 2026 will help you choose the right school to start your digital journey, whether you're a student, looking for a job, or changing careers. Let's begin with the one in front.
 <br/><br/>
 
 <h2><strong>1. iDigitalstudies – The Best Digital Marketing School in Delhi-NCR</strong></h2>
 
 
-If you really want to work in digital marketing, iDigitalstudies should be your first choice in 2025. This school is known for its hands-on training and one-on-one mentoring. It combines classroom learning with real-world projects, so you learn by doing.
+If you really want to work in digital marketing, iDigitalstudies should be your first choice in 2026. This school is known for its hands-on training and one-on-one mentoring. It combines classroom learning with real-world projects, so you learn by doing.
 <br/>
 
 They cover everything, from <strong>SEO, Google Ads, social media marketing, email automation, influencer marketing, content strategy, and analytics</strong>.  
@@ -3511,7 +3511,7 @@ Always choose an institute that offers:
 - Experienced trainers <br/><br/>
 
 Visit the campus, talk to faculty, and attend a demo class if possible.  
-<strong>iDigitalstudies stands out in 2025 for affordability, mentorship, and job-oriented training.</strong>
+<strong>iDigitalstudies stands out in 2026 for affordability, mentorship, and job-oriented training.</strong>
 <br/><br/>
 
 <h2><strong>FAQs</strong></h2>
@@ -7615,7 +7615,7 @@ image: "/assets/blog68.png"
 },
 
 "how-to-write-content-for-multilingual-seo": {
-  title: "How to Write Content for Multilingual SEO",
+  title: "How to Write and Optimize Content for Multilingual SEO in 2026",
   content: `
 <p>Reaching people in more than one language sounds exciting. It also sounds messy. Different words. Different cultures. Different search habits. That is exactly why multilingual SEO needs more than simple translation. If you want your content to rank and feel natural, you need to write it with intent. Let us break it down in a way that makes sense and does not feel overwhelming.</p><br/>
 
@@ -8004,7 +8004,7 @@ image: "/assets/blog68.png"
   image: "/assets/blog78.png"
 },
 "how-to-use-reddit-and-quora-for-content-research": {
-  title: "How to Use Reddit & Quora for Content Research",
+  title: "Ultimate Guide on How to Use Reddit and Quora for Content Research in 2026",
   content: `
 <p>If you’ve ever stared at a blank Google Doc thinking, “What do people actually want to read?”, welcome to the club. The good news? Reddit and Quora are basically giant crowdsourced idea machines. People openly rant, ask questions, share problems, and spill their thoughts — which is exactly what makes these platforms a goldmine for content research.</p><br/>
 
@@ -8323,7 +8323,7 @@ const BlogDetail = ({ slug }: { slug: string }) => {
                     },
                     {
                       title:
-                        "How To Do Basic Keyword Research For Free In 2025",
+                        "How To Do Basic Keyword Research For Free In 2026",
                       link: "https://idigitalstudies.com/blog/how-to-read-a-basic-seo-report-for-website-owners",
                     },
                     {
