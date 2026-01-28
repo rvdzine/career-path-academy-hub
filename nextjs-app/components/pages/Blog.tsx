@@ -83,7 +83,7 @@ const fallbackBlogs = [
   },
   {
     slug: "how-to-do-basic-keyword-research-for-free-in-2025",
-    title: "How to Do Basic Keyword Research for Free in 2025?",
+    title: "How to Do Basic Keyword Research for Free in 2026 - Step by Step Guide Explained",
     excerpt: "Find out how to do keyword research for free in 2025 using simple tools, smart strategies, and real search insights....",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
   },
@@ -403,7 +403,7 @@ const fallbackBlogs = [
   },
   {
     slug: "how-to-write-email-newsletters-that-people-actually-read",
-    title: "How to Write Email Newsletters That People Actually Read",
+    title: "How to Write a Top-Notch Email Newsletter in 10 Minutes That People Actually Read in 2026",
     excerpt: "Write newsletters people look forward to with relatable tone, useful content, and clear storytelling...",
     image: "./assets/blog60.png",
   },
@@ -463,7 +463,7 @@ const fallbackBlogs = [
   },
   {
     slug: "evergreen-content-vs-trending-content-when-to-use-what",
-    title: "Evergreen Content vs Trending Content: When to Use What",
+    title: "Understand Evergreen vs Trending Content: When to Use What in 2026",
     excerpt: "Learn when to choose evergreen content and when trending topics make sense to maximise traffic and long-term value...",
     image: "./assets/blog70.png",
   },

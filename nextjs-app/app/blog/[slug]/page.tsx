@@ -100,8 +100,8 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
     },
 
     "how-to-do-basic-keyword-research-for-free-in-2025": {
-      title: "How to Do Basic Keyword Research for Free in 2025?",
-      description: "Find out how to do keyword research for free in 2025 using simple tools, smart strategies, and real search insights.",
+      title: "How to Do Basic Keyword Research for Free in 2026 - Step by Step",
+      description: "Find out how to do keyword research for free in 2026 using simple tools, smart strategies, and real search insights to grow your website growth and business.",
       image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
     },
     
@@ -236,7 +236,18 @@ export async function generateMetadata({ params }: BlogDetailPageProps) {
         title: "How to Write and Optimize Content for Multilingual SEO in 2026",
         description: "Multilingual SEO in 2026 requires moving beyond literal translation to full localization, combining AI-driven keyword research with cultural nuances to match search intent across regions.",
         image: "",
-      }
+      },
+    "how-to-write-email-newsletters-that-people-actually-read": {
+        title: "How to Write a Top-Notch Email Newsletter in 10 Minutes?",
+        description: "Learn how to write a top-notch email newsletter in just 10 minutes. Simple steps, templates & tips to boost opens, clicks & engagement fast.",
+        image: "",
+    },
+    "evergreen-content-vs-trending-content-when-to-use-what": {
+        title: "Evergreen vs Trending Content: When to Use What in 2026",
+        description: "Evergreen vs trending content in 2026: learn when to use each to drive long-term traffic and short-term spikes. Build a smarter content strategy.",
+        image: "",
+    },
+      
   };
 
     const blog = blogDetails[slug];

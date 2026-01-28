@@ -5867,7 +5867,7 @@ Tools like <i>People Also Ask, AnswerThePublic,</i> and even Google’s autocomp
   image: "/assets/blog59.png",
 },
 "how-to-write-email-newsletters-that-people-actually-read": {
-  title: "How to Write Email Newsletters That People Actually Read",
+  title: "How to Write a Top-Notch Email Newsletter in 10 Minutes That People Actually Read in 2026",
   content: `
 <p>Let us be honest. Most email newsletters never get read.</p><br/>
 
@@ -7123,7 +7123,7 @@ image: "/assets/blog68.png"
   image: "/assets/blog69.png",
 },
 "evergreen-content-vs-trending-content-when-to-use-what": {
-  title: "Evergreen Content vs Trending Content: When to Use What",
+  title: "Understand Evergreen vs Trending Content: When to Use What in 2026",
   content: `
 <p>If you’ve ever opened a doc, stared at the blinking cursor, and thought, “Okay… now what?”</p><br/>
 
