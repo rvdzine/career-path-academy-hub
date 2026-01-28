@@ -8,9 +8,8 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { CreditCard, User, Mail, Phone, BookOpen } from "lucide-react";
-import { useSuccessModal } from "@/hooks/use-success-modal";
 import api from '../lib/axios'
-import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 interface EnrollmentFormProps {
   courseTitle: string;
@@ -34,7 +33,7 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
   });
 
   const [isProcessing, setIsProcessing] = useState(false);
-  const { showSuccess, SuccessModal } = useSuccessModal();
+  const router = useRouter();
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -134,22 +133,8 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
         course_title:courseTitle,
       });
       if (response.status === 201){
-        showSuccess({
-          title: "Enrollment Successful!",
-          description: "You are registered successfully. We'll contact you soon with course details.",
-          autoCloseDelay: 4000
-        });
-        
-        setFormData({
-          fullName: "",
-          email: "",
-          phone: "",
-          experience: "",
-          learningGoals: ""
-        });
-        if (onClose) {
-          setTimeout(() => onClose(), 4000);
-        }
+        // Redirect to thank you page
+        router.push("/thank-you");
       }
     } catch (error: any) {
       if(error.response?.data?.error?.includes("already registered")) {
@@ -158,17 +143,15 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
         console.error("Enrollment failed:", error);
         alert("Submission Failed: You are already registered!");
       }
+      setIsProcessing(false);
     }
-    setIsProcessing(false);
   };
 
     // Proceed to payment
     // handlePayment();
 
   return (
-    <>
-      <SuccessModal />
-      <Card className="max-w-2xl mx-auto">
+    <Card className="max-w-2xl mx-auto">
       <CardHeader>
         <CardTitle className="text-2xl text-center flex items-center justify-center gap-2">
           <BookOpen className="w-6 h-6 text-[#EA2525]" />
@@ -287,7 +270,6 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
         </form>
       </CardContent>
     </Card>
-    </>
   );
 };
 

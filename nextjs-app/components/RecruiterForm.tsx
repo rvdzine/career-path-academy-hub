@@ -8,8 +8,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { useSuccessModal } from "@/hooks/use-success-modal";
 import api from '../lib/axios'
+import { useRouter } from "next/navigation";
 
 const RecruiterForm = () => {
   const [formData, setFormData] = useState({
@@ -33,7 +33,7 @@ const RecruiterForm = () => {
     job_description_file: null as File | null
   });
 
-  const { showSuccess, SuccessModal } = useSuccessModal();
+  const router = useRouter();
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -48,18 +48,12 @@ const RecruiterForm = () => {
     e.preventDefault();
     
     if (formData.job_description_type === "file" && !formData.job_description_file) {
-      showSuccess({
-        title: "Job Description Required",
-        description: "Please upload a job description file or switch to text input.",
-      });
+      alert("Job Description Required: Please upload a job description file or switch to text input.");
       return;
     }
 
     if (formData.job_description_type === "text" && !formData.job_description_text.trim()) {
-      showSuccess({
-        title: "Job Description Required",
-        description: "Please provide a job description.",
-      });
+      alert("Job Description Required: Please provide a job description.");
       return;
     }
 
@@ -84,45 +78,16 @@ const RecruiterForm = () => {
       );
 
       if (response.status === 201) {
-        showSuccess({
-          title: "Registration Successful!",
-          description: "Your company has been registered. We'll contact you soon.",
-        });
-
-        // Reset form
-        setFormData({
-          company_name: "",
-          company_mail: "",
-          salary_range: "",
-          company_website: "",
-          employee_count: "",
-          contact_person_name: "",
-          phone_number: "",
-          address: "",
-          pin_code: "",
-          city: "",
-          state: "",
-          country: "",
-          job_profile: "",
-          job_opening_count: "",
-          industry_type: "",
-          job_description_type: "text",
-          job_description_text: "",
-          job_description_file: null
-        });
+        // Redirect to thank you page
+        router.push("/thank-you");
       }
     } catch (error: any) {
-      showSuccess({
-        title: "Submission Failed",
-        description: "Oops! your company is not registered! Please try again.",
-      });
+      alert("Submission Failed: Oops! your company is not registered! Please try again.");
     }
   };
 
   return (
-    <>
-      <SuccessModal />
-      <Card className="max-w-4xl mx-auto">
+    <Card className="max-w-4xl mx-auto">
       <CardHeader>
         <CardTitle className="text-2xl text-center bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent">
           Register Your Company for Hiring
@@ -392,7 +357,6 @@ const RecruiterForm = () => {
         </form>
       </CardContent>
     </Card>
-    </>
   );
 };
 

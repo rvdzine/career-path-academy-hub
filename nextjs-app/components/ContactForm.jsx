@@ -36,14 +36,8 @@ export default function CounselingForm() {
       });
 
       if (response.status === 201) {
-        alert("Thank you! We'll contact you within 24 hours.");
-        setFormData({
-          fullName: "",
-          phone: "",
-          email: "",
-          course: "",
-          message: "",
-        });
+        // Redirect to thank you page
+        window.location.href = "/thank-you";
       }
     } catch (error) {
       console.error("Contact form error:", error);

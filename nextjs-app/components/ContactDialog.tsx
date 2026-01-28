@@ -58,17 +58,8 @@ const ContactDialog = ({ children }: { children?: React.ReactNode }) => {
       });
 
       if (response.status === 201) {
-        // Show success message (you can add toast here if needed)
-        alert("Thank you! We'll contact you within 24 hours.");
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          course: "",
-          experience: "",
-          message: "",
-        });
-        setOpen(false);
+        // Redirect to thank you page
+        window.location.href = "/thank-you";
       }
     } catch (error: any) {
       console.error("Contact form error:", error);

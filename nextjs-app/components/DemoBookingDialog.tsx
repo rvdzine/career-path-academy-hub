@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
-import { useSuccessModal } from "@/hooks/use-success-modal"; 
 import api from '../lib/axios'
 
 interface DemoBookingDialogProps {
@@ -26,7 +25,6 @@ interface DemoFormData {
 
 const DemoBookingDialog = ({ children, courseTitle, courseValue }: DemoBookingDialogProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { showSuccess, SuccessModal } = useSuccessModal();
 
   const form = useForm<DemoFormData>({
     defaultValues: {
@@ -66,16 +64,8 @@ const DemoBookingDialog = ({ children, courseTitle, courseValue }: DemoBookingDi
       });
 
       if (result.status === 201) {
-        setIsOpen(false);
-        form.reset();
-        
-        setTimeout(() => {
-          showSuccess({
-            title: "Demo Class Booked!",
-            description: `Your demo class is booked for ${courseTitle} successfully. Stay tuned for more info.`,
-            autoCloseDelay: 5000
-          });
-        }, 300);
+        // Redirect to thank you page
+        window.location.href = "/thank-you";
       }
     } catch (error: any) {
       console.log('Booking Error: ', error.response?.data || error.message);
@@ -87,9 +77,7 @@ const DemoBookingDialog = ({ children, courseTitle, courseValue }: DemoBookingDi
   };
 
   return (
-    <>
-      <SuccessModal />
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger asChild>
           {children || (
             <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
@@ -237,7 +225,6 @@ const DemoBookingDialog = ({ children, courseTitle, courseValue }: DemoBookingDi
           </div>
         </DialogContent>
       </Dialog>
-    </>
   );
 };
 

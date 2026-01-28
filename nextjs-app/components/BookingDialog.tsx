@@ -9,7 +9,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { MapPin, Clock, Users } from "lucide-react";
-import { useSuccessModal } from "@/hooks/use-success-modal"; 
 import api from '../lib/axios'
 
 interface BookingDialogProps {
@@ -28,7 +27,6 @@ interface BookingFormData {
 
 const BookingDialog = ({ children, course }: BookingDialogProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { showSuccess, SuccessModal } = useSuccessModal();
 
   const form = useForm<BookingFormData>({
     defaultValues: {
@@ -62,18 +60,8 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
       });
 
       if (result.status === 201) {
-        // Close the dialog first
-        setIsOpen(false);
-        form.reset();
-        
-        // Then show success modal after a brief delay
-        setTimeout(() => {
-          showSuccess({
-            title: "Demo Booked Successfully!",
-            description: "We'll contact you within 24 hours to confirm your seat.",
-            autoCloseDelay: 4000
-          });
-        }, 300);
+        // Redirect to thank you page
+        window.location.href = "/thank-you";
       }
     } catch (error: any) {
       console.log('Booking Error: ', error.response?.data || error.message);
@@ -96,9 +84,7 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
   // };
 
   return (
-    <>
-      <SuccessModal />
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         {children || (
           <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
@@ -350,7 +336,6 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
         )} */}
       </DialogContent>
     </Dialog>
-    </>
   );
 };
 

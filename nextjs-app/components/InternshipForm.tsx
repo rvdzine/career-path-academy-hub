@@ -9,8 +9,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { useSuccessModal } from "@/hooks/use-success-modal";
 import api from '../lib/axios'
+import { useRouter } from "next/navigation";
 
 
 const InternshipForm = () => {
@@ -25,7 +25,7 @@ const InternshipForm = () => {
   });
 
   const [jobTitles, setJobTitles] = useState<string[]>([]);
-  const { showSuccess, SuccessModal } = useSuccessModal();
+  const router = useRouter();
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -57,10 +57,7 @@ const InternshipForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.resume) {
-      showSuccess({
-        title: "Resume Required",
-        description: "Please upload your resume before submitting.",
-      });
+      alert("Resume Required: Please upload your resume before submitting.");
       return;
     }
 
@@ -87,34 +84,16 @@ const InternshipForm = () => {
       );
 
       if (response.status === 201) {
-        showSuccess({
-          title: "Registration Successful!",
-          description: "Your internship application has been submitted. We'll contact you soon.",
-        });
-
-        setFormData({
-          fullName: "",
-          email: "",
-          phone: "",
-          course: "",
-          experience: "",
-          skills: "",
-          resume: null,
-        });
-        setJobTitles([])
+        // Redirect to thank you page
+        router.push("/thank-you");
       }
     } catch (error: any) {
-      showSuccess({
-        title: "Submission Failed",
-        description: error?.response?.data?.resume?.[0] || "Oops! Your submission has failed!. Please try again.",
-      });
+      alert(error?.response?.data?.resume?.[0] || "Submission Failed: Oops! Your submission has failed!. Please try again.");
     }
   };
 
   return (
-    <>
-      <SuccessModal />
-      <Card className="max-w-2xl mx-auto">
+    <Card className="max-w-2xl mx-auto">
       <CardHeader>
         <CardTitle className="text-2xl text-center bg-gradient-to-r from-[#EA2525] to-[#AA2526] bg-clip-text text-transparent">
           Registration for Job
@@ -255,7 +234,6 @@ const InternshipForm = () => {
         </form>
       </CardContent>
     </Card>
-    </>
   );
 };
 
