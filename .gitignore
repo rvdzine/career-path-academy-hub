@@ -1,49 +1,60 @@
-# ======================
-# Global / OS / Editors
-# ======================
-.DS_Store
-.idea/
-.vscode/*
-!.vscode/extensions.json
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# ENV FILES (CRITICAL)
 
-# ======================
-# Logs
-# ======================
-logs/
+.env
+.env.*
+*.env
+
+# PYTHON / DJANGO
+
+__pycache__/
+*.py[cod]
+*.sqlite3
 *.log
+*.pot
+*.pyc
+
+staticfiles/
+media/
+
+# VIRTUAL ENV
+
+venv/
+.venv/
+
+# NODE / NEXT.JS
+
+node_modules/
+.next/
+out/
+build/
+coverage/
+
+
+# NEXT.JS ENV
+
+.env.local
+.env.development.local
+.env.production.local
+
+
+# VERCEL
+
+.vercel/
+
+# LOGS
+
 npm-debug.log*
 yarn-debug.log*
-pnpm-debug.log*
+yarn-error.log*
 
-# ======================
-# Node (global safety)
-# ======================
-node_modules/
+# OS / EDITOR
 
-# ======================
-# Django / Python (BACKEND)
-# ======================
-idg_backend/db.sqlite3
-idg_backend/staticfiles/
-idg_backend/media/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
 
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
+# TYPESCRIPT
 
-# Virtual env
-venv/
-.Python
-
-# ======================
-# Build artifacts
-# ======================
-dist/
-dist-ssr/
+*.tsbuildinfo
+next-env.d.ts
