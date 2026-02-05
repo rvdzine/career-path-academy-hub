@@ -21,9 +21,9 @@ export default function PlacedStudentsCarousel({ students }: PlacedStudentsCarou
           <h2 className="text-4xl font-bold text-center mb-12">
             Our Success Stories
           </h2>
-          <div className="text-center text-gray-600 dark:text-gray-400">
+          {/* <div className="text-center text-gray-600 dark:text-gray-400">
             Loading testimonials...
-          </div>  
+          </div>   */}
         </div>
       </div>
     );

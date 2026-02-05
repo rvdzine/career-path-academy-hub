@@ -6,11 +6,14 @@ import { Trash2, Eye, Plus, FileText } from "lucide-react";
 import axios from "axios";
 import { PlacedStudent } from "@/types/placed-student";
 import SuccessModal from "@/components/SuccessModal";
+import ConfirmDeleteModal from "@/components/ConfirmDeleteModal";
 
 export default function AdminPlacedStudentsPage() {
   const [students, setStudents] = useState<PlacedStudent[]>([]);
   const [loading, setLoading] = useState(true);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [studentToDelete, setStudentToDelete] = useState<{ id: number; name: string } | null>(null);
 
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL?.replace(/\/api$/, '') || "http://localhost:8000";
 
@@ -31,17 +34,23 @@ export default function AdminPlacedStudentsPage() {
   };
 
   const handleDelete = async (id: number, name: string) => {
-    if (!confirm(`Are you sure you want to delete "${name}"?`)) {
-      return;
-    }
+    // Show confirmation modal instead of browser alert
+    setStudentToDelete({ id, name });
+    setShowConfirmModal(true);
+  };
+
+  const confirmDelete = async () => {
+    if (!studentToDelete) return;
 
     try {
-      await axios.delete(`${API_BASE_URL}/api/placed-students/${id}/`);
+      await axios.delete(`${API_BASE_URL}/api/placed-students/${studentToDelete.id}/`);
       setShowSuccessModal(true);
       fetchStudents();
     } catch (error) {
       console.error("Error deleting student:", error);
       alert("Failed to delete student");
+    } finally {
+      setStudentToDelete(null);
     }
   };
 
@@ -168,7 +177,7 @@ export default function AdminPlacedStudentsPage() {
                         <Pencil size={18} />
                       </Link> */}
                       <button
-                        // onClick={() => handleDelete(student.id, student.student_name)}
+                        onClick={() => handleDelete(student.id, student.student_name)}
                         className="text-red-600 hover:text-red-900"
                         title="Delete"
                       >
@@ -187,6 +196,16 @@ export default function AdminPlacedStudentsPage() {
         isOpen={showSuccessModal}
         onClose={() => setShowSuccessModal(false)}
         message="Student Deleted Successfully"
+      />
+
+      <ConfirmDeleteModal
+        isOpen={showConfirmModal}
+        onClose={() => {
+          setShowConfirmModal(false);
+          setStudentToDelete(null);
+        }}
+        onConfirm={confirmDelete}
+        studentName={studentToDelete?.name || ""}
       />
     </div>
   );
