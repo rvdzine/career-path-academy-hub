@@ -169,6 +169,14 @@ const Footer = () => {
                   </button>
                 </SalaryReportModal>
               </li>
+              <li>
+                <Link
+                  href="/placed-students"
+                  className="hover:text-white transition-colors"
+                >
+                  Students & Achievments
+                </Link>
+              </li>
             </ul>
           </div>
 

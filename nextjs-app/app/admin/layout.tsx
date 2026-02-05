@@ -82,6 +82,12 @@ export default function AdminLayout({
                 >
                   Vacancies
                 </Link>
+                <Link
+                  href="/admin/placed-students"
+                  className="text-gray-700 hover:text-[#EA2525] px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Student Portal
+                </Link>
               </nav>
             </div>
             <div className="flex items-center space-x-4">
