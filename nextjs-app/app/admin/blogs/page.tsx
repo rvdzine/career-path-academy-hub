@@ -163,7 +163,7 @@ export default function AdminBlogsPage() {
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {blog.author.username}
+                    {blog.author?.username || "Unknown"}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {blog.views_count}

@@ -7,14 +7,14 @@ export interface Author {
 
 export interface Blog {
   id: number;
-  title: string;
+  title: string;k
   slug: string;
   excerpt: string;
   content: string;
   meta_description: string;
   meta_keywords?: string;
   featured_image: string;
-  author: Author;
+  author: Author | null;
   status: 'draft' | 'published';
   created_at: string;
   updated_at: string;
@@ -29,7 +29,7 @@ export interface BlogListItem {
   slug: string;
   excerpt: string;
   featured_image: string;
-  author: Author;
+  author: Author | null;
   status: 'draft' | 'published';
   published_at?: string;
   is_featured: boolean;
