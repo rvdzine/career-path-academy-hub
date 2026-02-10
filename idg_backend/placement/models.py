@@ -14,7 +14,7 @@ def validate_file_size(file):
     if file.size > max_size:
         raise ValidationError('File size should not exceed 5MB.')
 
-class Placement(models.Model):
+class Register_For_Job(models.Model):
 
     EXPERIENCE_LEVEL_CHOICES = [
         ('fresher', 'Fresher (0-6 months))'),
@@ -39,11 +39,13 @@ class Placement(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+        verbose_name = 'Register For Job'
+        verbose_name_plural = 'Register For Jobs'
 
     def __str__(self):
         return f"{self.full_name}"
 
-class Company(models.Model):
+class Recruiter(models.Model):
     EMPLOYEE_COUNT_CHOICES = [
         ("1-10", "1-10"),
         ("11-50", "11-50"),
@@ -90,6 +92,10 @@ class Company(models.Model):
     )
 
     submitted_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Recruiter'
+        verbose_name_plural = 'Recruiters'
 
     def __str__(self):
         return self.company_name

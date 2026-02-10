@@ -1,4 +1,4 @@
-from .serializers import PlacementSerializer, CompanySerializer
+from .serializers import RegisterForJobSerializer, RecruiterSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -6,7 +6,7 @@ from rest_framework.decorators import api_view
 
 @api_view(['POST'])
 def intern(request):
-    serializer = PlacementSerializer(data=request.data)
+    serializer = RegisterForJobSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
         return Response({"message": "You are registered successfully"}, status=status.HTTP_201_CREATED)
@@ -14,7 +14,7 @@ def intern(request):
 
 @api_view(['POST'])
 def company_register(request):
-    serializer = CompanySerializer(data=request.data)
+    serializer = RecruiterSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
         return Response({"message": "Company registered successfully"}, status=status.HTTP_201_CREATED)

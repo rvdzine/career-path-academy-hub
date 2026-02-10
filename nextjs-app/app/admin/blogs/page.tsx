@@ -8,6 +8,7 @@ import { Pencil, Trash2, Eye, Plus } from "lucide-react";
 
 export default function AdminBlogsPage() {
   const [blogs, setBlogs] = useState<BlogListItem[]>([]);
+  const [allBlogs, setAllBlogs] = useState<BlogListItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<"all" | "published" | "draft">("all");
 
@@ -18,6 +19,12 @@ export default function AdminBlogsPage() {
   const fetchBlogs = async () => {
     try {
       setLoading(true);
+      
+      // Always fetch all blogs for count
+      const allResponse = await blogApi.getBlogs({});
+      setAllBlogs(allResponse.data);
+      
+      // Fetch filtered blogs
       const params = filter !== "all" ? { status: filter } : {};
       const response = await blogApi.getBlogs(params);
       setBlogs(response.data);
@@ -67,7 +74,7 @@ export default function AdminBlogsPage() {
               : "bg-white text-gray-700 border"
           }`}
         >
-          All ({blogs.length})
+          All ({allBlogs.length})
         </button>
         <button
           onClick={() => setFilter("published")}
@@ -77,7 +84,7 @@ export default function AdminBlogsPage() {
               : "bg-white text-gray-700 border"
           }`}
         >
-          Published
+          Published ({allBlogs.filter(b => b.status === 'published').length})
         </button>
         <button
           onClick={() => setFilter("draft")}
@@ -87,7 +94,7 @@ export default function AdminBlogsPage() {
               : "bg-white text-gray-700 border"
           }`}
         >
-          Drafts
+          Drafts ({allBlogs.filter(b => b.status === 'draft').length})
         </button>
       </div>
 

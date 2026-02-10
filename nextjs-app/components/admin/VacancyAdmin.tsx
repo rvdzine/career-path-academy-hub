@@ -196,7 +196,7 @@ const VacancyAdmin = () => {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-2">
-            Manage Job <span className="text-[#EA2525]">Vacancies</span>
+            Admin <span className="text-[#EA2525]">Job Portal</span>
           </h1>
           <p className="text-gray-600">Create and manage job vacancy postings</p>
         </div>
@@ -231,7 +231,6 @@ const VacancyAdmin = () => {
                     value={formData.company}
                     onChange={(e) => handleInputChange("company", e.target.value)}
                     placeholder="e.g., TechCorp Solutions"
-                    required
                   />
                 </div>
 

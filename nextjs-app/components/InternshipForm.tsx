@@ -30,8 +30,15 @@ const InternshipForm = () => {
 
   useEffect(() => {
     const job = searchParams.get("job");
-    if (job && !jobTitles.includes(job) && jobTitles.length < 5) {
-      setJobTitles((prev) => [...prev, job]);
+    if (job) {
+      // Decode the job title and add it if not already in the list
+      const decodedJob = decodeURIComponent(job);
+      setJobTitles((prev) => {
+        if (!prev.includes(decodedJob) && prev.length < 5) {
+          return [...prev, decodedJob];
+        }
+        return prev;
+      });
     }
   }, [searchParams]); 
 
@@ -68,6 +75,8 @@ const InternshipForm = () => {
     submissionData.append("experience_level", formData.experience);
     submissionData.append("key_skills", formData.skills);
     submissionData.append("resume", formData.resume);
+    
+    // Send job_titles as JSON string (backend will parse it)
     submissionData.append("job_titles", JSON.stringify(jobTitles));
 
 

@@ -66,18 +66,6 @@ class VacancyCreateUpdateSerializer(serializers.ModelSerializer):
             'job_description_file', 'requirements', 'skills', 'status'
         ]
     
-    def validate_skills(self, value):
-        """Validate that skills are comma-separated"""
-        if not value or not value.strip():
-            raise serializers.ValidationError("Skills are required")
-        return value
-    
-    def validate_requirements(self, value):
-        """Validate that requirements are provided"""
-        if not value or not value.strip():
-            raise serializers.ValidationError("Requirements are required")
-        return value
-    
     def validate(self, data):
         """Validate that at least one job description method is provided"""
         has_body = data.get('job_description_body') and data.get('job_description_body').strip()

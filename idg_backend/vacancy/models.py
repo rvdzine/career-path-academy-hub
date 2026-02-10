@@ -18,7 +18,7 @@ class Vacancy(models.Model):
     # Basic Information
     title = models.CharField(max_length=200, help_text="Job title (e.g., Digital Marketing Intern)")
     slug = models.SlugField(max_length=250, unique=True, blank=True)
-    company = models.CharField(max_length=200, help_text="Company name")
+    company = models.CharField(max_length=200, help_text="Company name", blank=True, null=True)
     location = models.CharField(max_length=200, help_text="Job location (e.g., Mumbai, Maharashtra)")
     
     # Job Details
@@ -50,11 +50,14 @@ class Vacancy(models.Model):
         verbose_name_plural = 'Vacancies'
     
     def __str__(self):
-        return f"{self.title} at {self.company}"
+        company_name = self.company if self.company else "No Company"
+        return f"{self.title} at {company_name}"
     
     def save(self, *args, **kwargs):
         if not self.slug:
-            base_slug = slugify(f"{self.title}-{self.company}")
+            # Use company name if available, otherwise use "company" as placeholder
+            company_part = self.company if self.company else "company"
+            base_slug = slugify(f"{self.title}-{company_part}")
             slug = base_slug
             counter = 1
             while Vacancy.objects.filter(slug=slug).exists():
