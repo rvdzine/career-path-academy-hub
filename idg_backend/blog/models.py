@@ -18,7 +18,7 @@ class Blog(models.Model):
     meta_keywords = models.TextField(blank=True, null=True, help_text="SEO keywords (optional)")
     
     # Image can be URL or uploaded file
-    featured_image = models.URLField(max_length=1000, help_text="Featured image URL")
+    featured_image = models.URLField(max_length=1000, help_text="Featured image URL", blank=True)
     
     # Author and status
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='blogs')

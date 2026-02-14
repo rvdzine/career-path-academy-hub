@@ -175,7 +175,7 @@ export default function BlogForm({ blog, isEdit = false }: BlogFormProps) {
       {/* Featured Image */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">
-          Featured Image *
+          Featured Image
         </label>
         
         {/* Upload Button */}
