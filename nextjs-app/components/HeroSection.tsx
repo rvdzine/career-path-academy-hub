@@ -90,8 +90,7 @@ export default function HeroSection() {
   <span className="text-red-600">AI-Powered</span>{" "}
   <span className="text-black">
     {/* Digital Marketing Education for the Next Generation */}
-    Best Digital Marketing Institute in Noida
-
+    Best Digital Marketing Institute
   </span>
 </h1>
 
