@@ -28,6 +28,7 @@ urlpatterns = [
     path("api/careers/", include("placement.urls")),
     path("api/contact/", include("contact.urls")),
     path("api/salaryreport/", include("salaryreport.urls")),
+    path("api/landpage-leads/", include("landpage_leads.urls")),
     path("api/", include("blog.urls")),
     path("api/", include("vacancy.urls")),
     path("api/", include("placed_students.urls")),
