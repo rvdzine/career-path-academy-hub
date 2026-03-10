@@ -32,6 +32,7 @@ import courseAnimation1 from "@/public/assets/Animations/1.1.json";
 import courseAnimation2 from "@/public/assets/Animations/2.json";
 import courseAnimation4 from "@/public/assets/Animations/4.json";
 
+
 // SVG icons
 const chimg3 = "/svg/chimg3.svg";
 const chimg4 = "/svg/clipboard.svg";
@@ -208,8 +209,13 @@ function ImageCarousel() {
   );
 }
 
-export default function BestDigitalMarketingInstitute() {
-  // Form State for Counselling Section (matching Contact page)
+export default function CityPageTemplate({ city }: { city: string }) {
+  
+  const formattedCity = city
+  .split("-")
+  .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+  .join(" ");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -224,6 +230,7 @@ export default function BestDigitalMarketingInstitute() {
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -300,14 +307,14 @@ export default function BestDigitalMarketingInstitute() {
           {/* ========= Updated H1 as per your request ========= */}
           <h1 className="relative text-4xl sm:text-4xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight tracking-tight">
             <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white via-rose-100 to-orange-100 drop-shadow-lg">
-            AI-Powered Best Digital Marketing Institute in Delhi NCR
+            AI-Powered Best Digital Marketing Institute in {formattedCity}
             </span>
           </h1>
 
           {/* ========= New Cockpit Description Added ========= */}
           <p className="relative text-base sm:text-lg md:text-xl lg:text-2xl max-w-5xl mx-auto text-gray-100 leading-relaxed font-medium opacity-95 px-4 mt-6">
-          Join iDigitalStudies is one of the the Best Digital Marketing 
-          Institute in Delhi Ncr. Learn SEO, Social Media, Google Ads & more with expert trainers and 
+          Join iDigitalStudies is one of the Best Digital Marketing 
+          Institute in {formattedCity}. Learn SEO, Social Media, Google Ads & more with expert trainers and 
           hands-on projects.
           </p>
         </div>
@@ -340,7 +347,7 @@ export default function BestDigitalMarketingInstitute() {
                 <strong className="text-black">
                   your career with Institute of Digital Studies,
                 </strong>{" "}
-                – the Best Digital Marketing Institute in Delhi Ncr. Expert
+                – the Best Digital Marketing Institute in {formattedCity}. Expert
                 mentors, live projects & 100% practical learning.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed">
@@ -488,7 +495,7 @@ export default function BestDigitalMarketingInstitute() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-              Benefits of Online Digital Marketing Course – Delhi Ncr
+            Benefits of Online Digital Marketing Course – {formattedCity}
             </h2>
             <p className="mt-2 sm:mt-3 text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">
               Industry-aligned curriculum, live projects, and 100% placement
@@ -1046,7 +1053,7 @@ export default function BestDigitalMarketingInstitute() {
       </div>
 
       {/* Courses */}
-      <h1 className="text-center font-bold text-4xl mb-4 mt-4">Master In Digital Marketing Course In Delhi Ncr</h1>
+      <h1 className="text-center font-bold text-4xl mb-4 mt-4">Master In Digital Marketing Course In {formattedCity}</h1>
       <p className="text-center">Digital marketing is booming, and Delhi Ncr is buzzing with opportunities. Institute of Digital Studies equips 
 you with the skills and confidence to stand out in a crowded market.</p>
       <section className="py-16 bg-white">

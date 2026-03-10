@@ -11,6 +11,19 @@ import Image from "next/image";
 // import the SalaryReportModal
 import SalaryReportModal from "@/components/SalaryReport";
 
+const cities = [
+  {name: "Delhi NCR", slug: "delhi-ncr"},
+  { name: "Dwarka", slug: "dwarka" },
+  { name: "Gurugram", slug: "gurugram" },
+  { name: "Kalkaji", slug: "kalkaji" },
+  { name: "Pitampura", slug: "pitampura" },
+  { name: "Preet Vihar", slug: "preet-vihar" },
+  { name: "Rajouri Garden", slug: "rajouri-garden" },
+  { name: "South Extension", slug: "south-extension" },
+  { name: "South Campus", slug: "south-campus" },
+  { name: "Noida", slug: "noida" },
+];
+
 const Footer = () => {
   return (
     <footer className="bg-[#121212] dark:bg-gray-950 text-white py-16">
@@ -36,12 +49,21 @@ const Footer = () => {
               PPC with live projects, 100% placement assistance, and expert
               training. Enroll today!
             </p>
-            <Link
-              href="/best-digital-marketing-institute-delhi-ncr"
-              className="text-gray-400 dark:text-gray-500 hover:text-white transition-colors"
-            >
-              Delhi Ncr | Dwarka | Gurugram | Kalkaji | Pitampura |  Preet Vihar | Rajouri Garden | South Extension | South Campus | Noida
-            </Link>
+            {/* Dynamically passing cities */}
+            
+            <div className="flex flex-wrap gap-2 text-gray-400 dark:text-gray-500">
+              {cities.map((city, index) => (
+                <span key={city.slug}>
+                  <Link
+                    href={`/digital-marketing-course-in-${city.slug}`}
+                    className="hover:text-white transition-colors"
+                  >
+                    {city.name}
+                  </Link>
+                  {index !== cities.length - 1 && " | "}
+                </span>
+              ))}
+            </div>
 
             <div className="flex space-x-4 pt-4">
               <a

@@ -127,8 +127,27 @@ const Terms = () => {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold">11. Governing Law and Jurisdiction</h2>
               <p>
+              Institute of Digital Studies (IDS) provides placement assistance to eligible students who successfully complete the training program and meet the institute’s academic and professional requirements. Placement assistance is intended to support students in connecting with potential employers and career opportunities.              
+              </p>
+            </section>
+
+
+            <section className="mb-8">
+              <h2 className="text-2xl font-semibold">12. Placement Assistance Policy </h2>
+              <p>
                 These Terms and Conditions are governed by and construed in accordance with the laws of India. Any dispute arising in relation to these terms shall be subject to the exclusive jurisdiction of the courts located in Ghaziabad, UP.
               </p>
+              <ul className="list-disc ml-6">
+                <li>Students must maintain 95%–100% attendance throughout the course to remain eligible for placement assistance.</li>
+                <li>All assignments, projects, and practical tasks must be completed and submitted on time as per institute guidelines.</li>
+                <li>Students are required to participate in and complete all assessments, tests, and learning activities conducted during the training program.</li>
+                <li>Participation in practical sessions, live projects, and case studies is mandatory to ensure industry readiness. </li>
+                <li>Students must attend resume building, portfolio preparation, and interview preparation sessions conducted by the institute.</li>
+                <li>* Students are expected to participate in all interviews and placement activities arranged by the institute.</li>
+                <li>Final job selection depends on the student’s performance, skills, interview results, and the hiring company’s requirements.</li>
+                <li>IDS provides placement assistance only and does not guarantee a job, as hiring decisions are made by the recruiting companies.</li>
+                <li>* The institute reserves the right to withdraw placement assistance if a student fails to meet course requirements, maintains poor attendance, or violates institute policies. </li>
+              </ul>
             </section>
           </div>
 
