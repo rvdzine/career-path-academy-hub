@@ -19,6 +19,7 @@ from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from .webhook_views import resend_contact_webhook, resend_landpage_webhook, webhook_status
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,4 +36,8 @@ urlpatterns = [
     # JWT Authentication
     path('api/auth/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # Webhook Management APIs
+    path('api/webhook/contact/<int:contact_id>/resend/', resend_contact_webhook, name='resend_contact_webhook'),
+    path('api/webhook/landpage/<int:lead_id>/resend/', resend_landpage_webhook, name='resend_landpage_webhook'),
+    path('api/webhook/status/', webhook_status, name='webhook_status'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
