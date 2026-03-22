@@ -2,10 +2,10 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { Download } from "lucide-react";
 import herosectionimg from "../public/assets/bg.jpg";
-import ContactDialog from "@/components/ContactDialog";
 import BookingDialog from "@/components/BookingDialog";
+import BrochureDialog from "@/components/BrochureDialog";
 
 const stats = [
   { image: "/svg/ai.svg", title: "AI-Driven", sub: "Module" },
@@ -140,27 +140,6 @@ export default function HeroSection() {
             {/* CTA BUTTONS — MOBILE OPTIMIZED */}
             <div className="flex flex-col sm:flex-row justify-center sm:justify-start gap-3 sm:gap-4 mt-4 sm:mt-10">
 
-  {/* <ContactDialog>
-    <button
-      className="
-        bg-red-600 hover:bg-red-700 text-white
-        px-5 py-2
-        sm:px-7 sm:py-3
-        max-[360px]:px-4
-        max-[360px]:py-[6px]
-        rounded-full
-        font-semibold
-        flex items-center justify-center gap-2
-        transition-all
-        text-sm sm:text-base
-        max-[360px]:text-[13px]
-      "
-    >
-      Enroll Now
-      <ArrowRight className="w-4 h-4 max-[360px]:w-3 max-[360px]:h-3" />
-    </button>
-  </ContactDialog> */}
-
   <BookingDialog>
     <button
       className="
@@ -180,6 +159,27 @@ export default function HeroSection() {
       Book Your Demo
     </button>
   </BookingDialog>
+
+  <BrochureDialog>
+    <button
+      className="
+        bg-white hover:bg-gray-50 text-red-600 border-2 border-red-600
+        px-5 py-2
+        sm:px-7 sm:py-3
+        max-[360px]:px-4
+        max-[360px]:py-[6px]
+        rounded-full
+        font-semibold
+        transition-all
+        text-sm sm:text-base
+        max-[360px]:text-[13px]
+        flex items-center justify-center gap-2
+      "
+    >
+      <Download className="w-4 h-4 max-[360px]:w-3 max-[360px]:h-3" />
+      Download Brochure
+    </button>
+  </BrochureDialog>
 
 </div>
 
