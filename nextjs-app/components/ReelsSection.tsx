@@ -3,17 +3,40 @@ import { Star } from "lucide-react";
 
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const reels = [
   {
-    img: "/assets/Loveleen.jpg",
-    video: "/videos/loveleen.mp4",
+    img: "/assets/Divya.png",
+    video: "/videos/Divya.mp4",
     rating: 5,
-    username: "Loveleen Sharma",
-    text: "This journey strengthened my skills to lead social media at Paytm.",
-    logo: "/svg/Paytm.svg",
-    
+    username: "Divya Chaudhary",
+    text: "Content strategy training shaped me into a stronger brand storyteller.",
+    logo: "/svg/testbook.svg",
+  },
+  {
+    img: "/assets/Isha Verma.jpeg",
+    video: "/videos/Isha .mp4",
+    rating: 5,
+    username: "Isha Verma",
+    text: "Real projects prepared me to run high-performing campaigns at Nykaa.",
+    logo: "/svg/Nykaa.svg",
+  },
+  // {
+  //   img: "/assets/Aakkar.png",
+  //   video: "/videos/anupam.mp4",
+  //   rating: 5,
+  //   username: "Anupam Kumar",
+  //   text: "The hands-on training equipped me with practical skills for Flipkart.",
+  //   logo: "/svg/Flipkart.svg",
+  // },
+  {
+    img: "/assets/gaurav.png",
+    video: "/videos/Gaurav.mp4",
+    rating: 5,
+    username: "Gaurav Singh",
+    text: "Mentorship here accelerated my growth at Uniliver.",
+    logo: "/svg/unilever.svg",
   },
   {
     img: "/assets/Bhumi.jpg",
@@ -22,38 +45,88 @@ const reels = [
     username: "Bhumi Gupta",
     text: "Automation skills here helped me power campaigns at Razorpay.",
     logo: "/svg/razorpay.svg",
-    
   },
   {
-    img: "/assets/Divya.png",
-    video: "/videos/Divya.mp4",
+    img: "/assets/soham.png",
+    video: "/videos/soham.mp4",
     rating: 5,
-    username: "Divya Chaudhary",
-    text: "Content strategy training shaped me into a stronger brand storyteller.",
-    logo: "/svg/testbook.svg",
-    
+    username: "Soham Patel",
+    text: "Digital marketing expertise helped me excel at Myntra.",
+    logo: "/svg/infosys.svg",
   },
-   {
-    img: "/assets/Isha Verma.jpeg",
-    video: "/videos/Isha .mp4",
+  {
+    img: "/assets/Loveleen.jpg",
+    video: "/videos/loveleen.mp4",
     rating: 5,
-    username: "Isha Verma",
-    text: "Real projects prepared me to run high-performing campaigns at Nykaa.",
-    logo: "/svg/Nykaa.svg",
-    
+    username: "Loveleen Sharma",
+    text: "This journey strengthened my skills to lead social media at Paytm.",
+    logo: "/svg/Paytm.svg",
   },
+  // {
+  //   img: "/assets/Mohit.jpg",
+  //   video: "/videos/yash.mp4",
+  //   rating: 5,
+  //   username: "Yash Verma",
+  //   text: "Strategic thinking from IDS transformed my career at TCS.",
+  //   logo: "/svg/TCS.svg",
+  // },
+  // {
+  //   img: "/assets/Student4.jpg",
+  //   video: "/videos/t4.mp4",
+  //   rating: 5,
+  //   username: "Student Four",
+  //   text: "Practical experience and mentorship transformed my career path.",
+  //   logo: "/svg/company4.svg",
+  // },
+  // {
+  //   img: "/assets/Student6.jpg",
+  //   video: "/videos/t6.mp4",
+  //   rating: 5,
+  //   username: "Student Six",
+  //   text: "The comprehensive training prepared me for real-world challenges.",
+  //   logo: "/svg/company6.svg",
+  // },
 ];
 
 export default function ReelsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+  const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const scrollLeft = () =>
+  // Auto-carousel functionality
+  useEffect(() => {
+    const autoScroll = () => {
+      if (scrollRef.current && playingIndex === null) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        const maxScroll = scrollWidth - clientWidth;
+
+        if (scrollLeft >= maxScroll - 10) {
+          // Reset to beginning
+          scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          // Scroll to next
+          scrollRef.current.scrollBy({ left: 350, behavior: "smooth" });
+        }
+      }
+    };
+
+    autoPlayTimerRef.current = setInterval(autoScroll, 4000);
+
+    return () => {
+      if (autoPlayTimerRef.current) {
+        clearInterval(autoPlayTimerRef.current);
+      }
+    };
+  }, [playingIndex]);
+
+  const scrollLeft = () => {
     scrollRef.current?.scrollBy({ left: -350, behavior: "smooth" });
+  };
 
-  const scrollRight = () =>
+  const scrollRight = () => {
     scrollRef.current?.scrollBy({ left: 350, behavior: "smooth" });
+  };
 
   const stopVideo = (index: number) => {
     const video = videoRefs.current[index];
