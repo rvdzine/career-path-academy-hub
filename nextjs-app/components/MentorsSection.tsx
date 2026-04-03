@@ -50,6 +50,13 @@ const mentors: Mentor[] = [
     company: "Mondelez",
     avatar: "/assets/suleman.jpeg",
   },
+  {
+    name: "Suleman Khan",
+    role: "Trainer & coach",
+    experience: "7+ years",
+    company: "Mondelez",
+    avatar: "/assets/jitender-singh.jpg",
+  },
   
 ];
 
