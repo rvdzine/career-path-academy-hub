@@ -51,7 +51,7 @@ const mentors: Mentor[] = [
     avatar: "/assets/suleman.jpeg",
   },
   {
-    name: "Suleman Khan",
+    name: "Jitender Singh",
     role: "Trainer & coach",
     experience: "7+ years",
     company: "Mondelez",
