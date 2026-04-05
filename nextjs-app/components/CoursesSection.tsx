@@ -36,11 +36,11 @@ const courseData: Record<TabType, any> = {
   "Master Course": {
     tag: "AI Driven",
     id: "master-in-digital-marketing-course",
-    title: "Master in Digital Marketing Course at Insitute of Digital Studies",
+    title: "Master in Digital Marketing Course at Institute of Digital Studies",
     animation: courseAnimation1,
     duration: "6 Months",
     mode: "Off/Online",
-    badge: "Hinglish",
+    badge: "Hindi/English",
     salary: "₹8.5 LPA",
     internship: "3 Months",
     content:
@@ -56,7 +56,7 @@ const courseData: Record<TabType, any> = {
     animation: courseAnimation2,
     duration: "3 Months",
     mode: "Off/Online",
-    badge: "Hinglish",
+    badge: "Hindi/English",
     salary: "₹6.2 LPA",
     content:
       "Our Digital Marketing Specialist Course (3 months) offers in-depth training on SEO, SEM, social media marketing, content strategy, PPC, email campaigns, and analytics, preparing you to become an industry expert with Live Project Training.",
@@ -71,10 +71,10 @@ const courseData: Record<TabType, any> = {
     animation: courseAnimation4,
     duration: "Customised Timeline",
     mode: "Off/Online",
-    badge: "Hinglish/English",
+    badge: "Hindi/English",
     salary: "Depends on Skills",
     content:
-      "Our Customized - Digital Marketing Course According to Your Needs offers personalized coaching tailored to you according to your needs SEO, social media, PPC, content strategies, and more to drive growth and success.",
+      "Our Customised - Digital Marketing Course According to Your Needs offers personalized coaching tailored to you according to your needs SEO, social media, PPC, content strategies, and more to drive growth and success.",
     certification: "Certification",
     projects: "Custom Projects",
   },
@@ -86,7 +86,7 @@ const courseData: Record<TabType, any> = {
     animation: courseAnimation3,
     duration: "Customised Timeline",
     mode: "Online (1:1)",
-    badge: "Hinglish/English",
+    badge: "Hindi/English",
     content:
       "Our 1:1 Digital Marketing Course for Business Owners offers personalized coaching tailored to your business needs, covering SEO, social media, PPC, content strategies, and more to drive growth and success.",
     certification: "Certification",
@@ -201,7 +201,7 @@ const CoursesSection: React.FC = () => {
               {data.salary && (
   <div className="border rounded-lg p-3 text-center">
     <p className="text-xs sm:text-sm text-gray-500 flex items-center justify-center gap-1">
-      Avg Salary
+      Avg Salary Up To
       <span className="text-red-500 font-bold">*</span>
     </p>
 

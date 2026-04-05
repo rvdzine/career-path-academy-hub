@@ -143,7 +143,7 @@ const Footer = () => {
                   href="/courses"
                   className="hover:text-white transition-colors"
                 >
-                  Customized Course in Digital Marketing
+                  Customised Course in Digital Marketing
                 </Link>
               </li>
               

@@ -123,10 +123,10 @@ const SignInModal = () => {
           <div className="w-full lg:w-1/2 bg-white p-6 sm:p-10 flex flex-col justify-center">
             <div className="text-center mb-4">
               <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 leading-tight">
-                Join <span className="text-red-600">FREE</span> Demo
+                Book Your <span className="text-red-600">FREE</span> Demo Class
               </h2>
               <p className="text-base sm:text-lg text-gray-700 mt-3 font-semibold">
-                Become a Certified Expert in Digital Marketing
+              Get course details, career guidance, and practical learning roadmap
               </p>
             </div>
 
@@ -161,7 +161,7 @@ const SignInModal = () => {
                 value={formData.course}
               >
                 <SelectTrigger className="h-12">
-                  <SelectValue placeholder="Preferred Course *" />
+                  <SelectValue placeholder="Choose Your Course *" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="master_dm_internship">Master in DM with Internship</SelectItem>
@@ -181,12 +181,13 @@ const SignInModal = () => {
                   <SelectValue placeholder="Current Experience Level *" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="fresher_student">Fresher/Student</SelectItem>
-                  <SelectItem value="working_professional">Working Professional / Career Switchers</SelectItem>
+                  <SelectItem value="fresher_student">Student / Fresher</SelectItem>
+                  <SelectItem value="working_professional">Working Professional</SelectItem>
+                  <SelectItem value="freelancer">Freelancer</SelectItem>
                   <SelectItem value="business_owner">Business Owner</SelectItem>
-                  <SelectItem value="freelancer">Freelancers / Remote Jobs Seekers</SelectItem>
-                  <SelectItem value="home_maker">Home Makers</SelectItem>
-                  <SelectItem value="others">Others</SelectItem>
+                  <SelectItem value="career_switcher">Career Switcher</SelectItem>
+                  <SelectItem value="home_maker">Homemaker</SelectItem>
+                  <SelectItem value="others">Other</SelectItem>
                 </SelectContent>
               </Select>
 
@@ -203,7 +204,7 @@ const SignInModal = () => {
                 disabled={loading}
                 className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-7 rounded-xl text-lg shadow-lg transition-all disabled:opacity-50"
               >
-                {loading ? "Submitting..." : "Register for FREE Demo"}
+                {loading ? "Submitting..." : "Reserve My Free Demo Seat"}
               </Button>
 
               <p className="text-center text-sm font-bold text-red-600 mt-5">

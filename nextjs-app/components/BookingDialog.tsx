@@ -237,11 +237,11 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
                       </FormControl>
                       <SelectContent>
                         <SelectItem value="fresher_student">
-                          Fresher/Student
+                          Student / Fresher
                         </SelectItem>
 
                         <SelectItem value="working_professional">
-                          Working Professional / Career Switchers
+                          Working Professional
                         </SelectItem>
 
                         <SelectItem value="business_owner">
@@ -249,15 +249,19 @@ const BookingDialog = ({ children, course }: BookingDialogProps) => {
                         </SelectItem>
 
                         <SelectItem value="freelancer">
-                          Freelancers / Remote Jobs Seekers
+                          Freelancer
+                        </SelectItem>
+
+                        <SelectItem value="career_switcher">
+                          Career Switcher
                         </SelectItem>
 
                         <SelectItem value="home_maker">
-                          Home Makers
+                          Homemaker
                         </SelectItem>
 
                         <SelectItem value="others">
-                          Others
+                          Other
                         </SelectItem>
                       </SelectContent>
                     </Select>

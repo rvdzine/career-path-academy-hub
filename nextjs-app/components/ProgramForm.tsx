@@ -152,12 +152,13 @@ export default function ProgramForm() {
 
               <div className="flex flex-wrap gap-4 sm:gap-6">
                 {[
-                  { label: "Fresher/Student", value: "fresher_student" },
+                  { label: "Student / Fresher", value: "fresher_student" },
                   { label: "Working Professional", value: "working_professional" },
                   { label: "Business Owner", value: "business_owner" },
                   { label: "Freelancer", value: "freelancer" },
-                  { label: "Home Maker", value: "home_maker" },
-                  { label: "Others", value: "others" },
+                  { label: "Career Switcher", value: "career_switcher" },
+                  { label: "Homemaker", value: "home_maker" },
+                  { label: "Other", value: "others" },
                 ].map((item) => (
                   <label
                     key={item.value}

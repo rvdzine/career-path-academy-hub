@@ -29,7 +29,7 @@ const Placement = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-6">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3">
-              Jobs & Placement
+              Jobs & Placements
             </h1>
             <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto mb-4">
               Start your career with our industry-focused internship program. Gain real-world experience and secure your dream job!
@@ -43,7 +43,7 @@ const Placement = () => {
                 90% Placement Success Rate
               </Badge>
               <Badge className="bg-red-100 text-[#EA2525] px-3 py-1 text-xs md:text-sm">
-                50% Partner Companies
+                50+ Partner Companies
               </Badge>
               <Badge className="bg-red-100 text-[#EA2525] px-3 py-1 text-xs md:text-sm">
                 2000+ Students Placed

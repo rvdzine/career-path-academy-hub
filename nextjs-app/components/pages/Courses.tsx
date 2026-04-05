@@ -34,7 +34,7 @@ const courseData: Record<CourseKey, any> = {
     animation: courseAnimation1,
     duration: "6 Months",
     mode: "Off/Online",
-    badge: "Hinglish",
+    badge: "Hindi/English",
     salary: "₹8.5 LPA",
     internship: "3 Months",
     certification: "Certification",
@@ -49,7 +49,7 @@ const courseData: Record<CourseKey, any> = {
     animation: courseAnimation2,
     duration: "3 Months",
     mode: "Off/Online",
-    badge: "Hinglish",
+    badge: "Hindi/English",
     salary: "₹6.2 LPA",
     certification: "Certification",
     projects: "5+ Live Projects",
@@ -63,7 +63,7 @@ const courseData: Record<CourseKey, any> = {
     animation: courseAnimation3,
     duration: "Customised Timeline",
     mode: "Online (1:1)",
-    badge: "Hinglish/English",
+    badge: "Hindi/English",
     certification: "Certification",
     projects: "10+ Live Projects",
     content:
@@ -76,12 +76,12 @@ const courseData: Record<CourseKey, any> = {
     animation: courseAnimation4,
     duration: "Customised Timeline",
     mode: "Off/Online",
-    badge: "Hinglish/English",
+    badge: "Hindi/English",
     salary: "Depends on Skills",
     certification: "Certification",
     projects: "Custom Projects",
     content:
-      "A completely customized digital marketing program designed according to your goals, skills, and learning pace.",
+      "A completely customised digital marketing program designed according to your goals, skills, and learning pace.",
   },
 };
 

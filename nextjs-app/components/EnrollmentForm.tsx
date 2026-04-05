@@ -216,12 +216,13 @@ const EnrollmentForm = ({ courseTitle, onClose }: EnrollmentFormProps) => {
                 <SelectValue placeholder="Select your experience level" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="fresher_student">Fresher/Student</SelectItem>
-                <SelectItem value="working_professional">Working Professional / Career Switchers</SelectItem>
+                <SelectItem value="fresher_student">Student / Fresher</SelectItem>
+                <SelectItem value="working_professional">Working Professional</SelectItem>
+                <SelectItem value="freelancer">Freelancer</SelectItem>
                 <SelectItem value="business_owner">Business Owner</SelectItem>
-                <SelectItem value="freelancer">Freelancers / Remote Jobs Seekers</SelectItem>
-                <SelectItem value="home_maker">Home Makers</SelectItem>
-                <SelectItem value="others">Others</SelectItem>
+                <SelectItem value="career_switcher">Career Switcher</SelectItem>
+                <SelectItem value="home_maker">Homemaker</SelectItem>
+                <SelectItem value="others">Other</SelectItem>
               </SelectContent>
             </Select>
           </div>

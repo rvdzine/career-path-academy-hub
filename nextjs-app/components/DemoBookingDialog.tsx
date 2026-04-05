@@ -169,22 +169,25 @@ const DemoBookingDialog = ({ children, courseTitle, courseValue }: DemoBookingDi
                         </FormControl>
                         <SelectContent>
                           <SelectItem value="fresher_student">
-                            Fresher/Student
+                            Student / Fresher
                           </SelectItem>
                           <SelectItem value="working_professional">
-                            Working Professional / Career Switchers
+                            Working Professional
+                          </SelectItem>
+                          <SelectItem value="freelancer">
+                            Freelancer
                           </SelectItem>
                           <SelectItem value="business_owner">
                             Business Owner
                           </SelectItem>
-                          <SelectItem value="freelancer">
-                            Freelancers / Remote Jobs Seekers
+                          <SelectItem value="career_switcher">
+                            Career Switcher
                           </SelectItem>
                           <SelectItem value="home_maker">
-                            Home Makers
+                            Homemaker
                           </SelectItem>
                           <SelectItem value="others">
-                            Others
+                            Other
                           </SelectItem>
                         </SelectContent>
                       </Select>

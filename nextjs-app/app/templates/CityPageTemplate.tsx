@@ -48,7 +48,7 @@ const courseData: Record<CourseKey, any> = {
     animation: courseAnimation1,
     duration: "6 Months",
     mode: "Off/Online",
-    badge: "Hinglish",
+    badge: "Hindi/English",
     salary: "₹8.5 LPA",
     internship: "3 Months",
     certification: "Certification",
@@ -62,7 +62,7 @@ const courseData: Record<CourseKey, any> = {
     animation: courseAnimation2,
     duration: "3 Months",
     mode: "Off/Online",
-    badge: "Hinglish",
+    badge: "Hindi/English",
     salary: "₹6.2 LPA",
     certification: "Certification",
     projects: "5+ Live Projects",
@@ -75,12 +75,12 @@ const courseData: Record<CourseKey, any> = {
     animation: courseAnimation4,
     duration: "Customised Timeline",
     mode: "Off/Online",
-    badge: "Hinglish/English",
+    badge: "Hindi/English",
     salary: "Depends on Skills",
     certification: "Certification",
     projects: "Custom Projects",
     content:
-      "A completely customized digital marketing program designed according to your goals, skills, and learning pace.",
+      "A completely customised digital marketing program designed according to your goals, skills, and learning pace.",
   },
 };
 
@@ -850,12 +850,13 @@ export default function CityPageTemplate({ city }: { city: string }) {
                       disabled={loading}
                     >
                       <option value="">Select your experience level</option>
-                      <option value="fresher_student">Fresher/Student</option>
-                      <option value="working_professional">Working Professional / Career Switchers</option>
+                      <option value="fresher_student">Student / Fresher</option>
+                      <option value="working_professional">Working Professional</option>
                       <option value="business_owner">Business Owner</option>
-                      <option value="freelancer">Freelancers / Remote Jobs Seekers</option>
-                      <option value="home_maker">Home Makers</option>
-                      <option value="others">Others</option>
+                      <option value="freelancer">Freelancer</option>
+                      <option value="career_switcher">Career Switcher</option>
+                      <option value="home_maker">Homemaker</option>
+                      <option value="others">Other</option>
                     </select>
                   </div>
 

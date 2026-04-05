@@ -3711,7 +3711,7 @@ Choose the mode that fits your learning style and convenience.
   <p>A good email marketer doesn't send out a lot of emails; they build relationships. This path is not well-known, but it is very useful if you want to connect with people directly and write messages that speak to them.</p></br>
 
   <h2><strong>6. Digital Marketing Strategist: The Person Who Sees the Big Picture</strong></h2>
-  <p>After trying out a few jobs and getting some experience, becoming a digital marketing strategist is a logical next step. This job includes planning and managing campaigns on a number of platforms, such as SEO, social media, email, and paid ads. You'll be in charge of teams, look at data, and make sure that every marketing move supports the company's goals.</p>
+  <p>After trying out a few jobs and getting some experience, becoming a digital marketing strategist  is a logical next step. This job includes planning and managing campaigns on a number of platforms, such as SEO, social media, email, and paid ads. You'll be in charge of teams, look at data, and make sure that every marketing move supports the company's goals.</p>
   <p>This could be your ultimate goal after a few years in the field if you like to plan, lead, and think long-term.</p></br>
 
   <h2><strong>In Conclusion</strong></h2>
@@ -8163,7 +8163,7 @@ image: "/assets/blog68.png"
 
 <p>Track metrics like return visits, time on page, scroll depth, email open rates, and content assisted conversions. Watch which personalized elements keep users longer and which ones fall flat.</p><br/>
 
-<p>Test one change at a time. Maybe personalized recommendations improve session depth. Maybe customized emails reduce churn. Keep what works. Remove what does not.</p><br/>
+<p>Test one change at a time. Maybe personalized recommendations improve session depth. Maybe customised emails reduce churn. Keep what works. Remove what does not.</p><br/>
 
 <p><strong>Personalization is a process, not a one-time setup.</strong></p><br/>
 
