@@ -39,7 +39,7 @@ const courseData: Record<TabType, any> = {
     title: "Master in Digital Marketing Course at Institute of Digital Studies",
     animation: courseAnimation1,
     duration: "6 Months",
-    mode: "Off/Online",
+    mode: "Offline/Online",
     badge: "Hindi/English",
     salary: "₹8.5 LPA",
     internship: "3 Months",
@@ -55,7 +55,7 @@ const courseData: Record<TabType, any> = {
     title: "Digital Marketing Specialist Course at Insitute of Digital Studies",
     animation: courseAnimation2,
     duration: "3 Months",
-    mode: "Off/Online",
+    mode: "Offline/Online",
     badge: "Hindi/English",
     salary: "₹6.2 LPA",
     content:
@@ -70,7 +70,7 @@ const courseData: Record<TabType, any> = {
     title: "Customised Course in Digital Marketing",
     animation: courseAnimation4,
     duration: "Customised Timeline",
-    mode: "Off/Online",
+    mode: "Offline/Online",
     badge: "Hindi/English",
     salary: "Depends on Skills",
     content:

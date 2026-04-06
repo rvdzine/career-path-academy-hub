@@ -33,7 +33,7 @@ const courseData: Record<CourseKey, any> = {
     title: "Master in Digital Marketing Course at Institute of Digital Studies",
     animation: courseAnimation1,
     duration: "6 Months",
-    mode: "Off/Online",
+    mode: "Offline/Online",
     badge: "Hindi/English",
     salary: "₹8.5 LPA",
     internship: "3 Months",
@@ -48,7 +48,7 @@ const courseData: Record<CourseKey, any> = {
     title: "Digital Marketing Specialist Course at Institute of Digital Studies",
     animation: courseAnimation2,
     duration: "3 Months",
-    mode: "Off/Online",
+    mode: "Offline/Online",
     badge: "Hindi/English",
     salary: "₹6.2 LPA",
     certification: "Certification",
@@ -75,7 +75,7 @@ const courseData: Record<CourseKey, any> = {
     title: "Customised Course in Digital Marketing",
     animation: courseAnimation4,
     duration: "Customised Timeline",
-    mode: "Off/Online",
+    mode: "Offline/Online",
     badge: "Hindi/English",
     salary: "Depends on Skills",
     certification: "Certification",
@@ -213,7 +213,6 @@ export default function Courses() {
 }
 
 // Info Box
-// Info Box
 const Info = ({
   label,
   value,
@@ -227,13 +226,13 @@ const Info = ({
     isSalary && !value.toLowerCase().includes("depend");
 
   return (
-    <div className="border rounded-lg p-3 text-center">
+    <div className="border rounded-lg p-3 text-center min-h-[80px] flex flex-col justify-center">
       <p className="text-xs text-gray-500 flex items-center justify-center gap-1">
         {label}
         {isSalary && <span className="text-red-500 font-bold">*</span>}
       </p>
 
-      <p className="font-bold">{value}</p>
+      <p className="font-bold break-words text-sm leading-tight mt-1 line-clamp-2">{value}</p>
 
       {showDisclaimer && (
         <p className="text-[10px] text-gray-400 mt-1">
