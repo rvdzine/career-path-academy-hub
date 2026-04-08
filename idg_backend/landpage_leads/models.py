@@ -8,6 +8,7 @@ class LandpageLead(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        app_label = 'landpage_leads'
         db_table = 'landpage_leads'
         constraints = [
             models.UniqueConstraint(
