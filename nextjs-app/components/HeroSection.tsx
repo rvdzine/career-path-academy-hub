@@ -87,10 +87,10 @@ export default function HeroSection() {
   leading-snug
   max-[360px]:leading-tight
 ">
-  <span className="text-red-600">AI-Powered</span>{" "}
+  <span className="text-red-600">AI-Integrated</span>{" "}
   <span className="text-black">
     {/* Digital Marketing Education for the Next Generation */}
-    Best Digital Marketing Institute
+    Advance Digital Marketing Institute
   </span>
 </h1>
 
