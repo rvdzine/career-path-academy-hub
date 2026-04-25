@@ -89,6 +89,7 @@ export default function PlacedStudentsPage() {
                 Search
               </Button>
             </div>
+            {/* COMMENTED OUT: Manage Placed Students button
             <Button
               onClick={handleManagePlacedStudents}
               variant="outline"
@@ -99,6 +100,7 @@ export default function PlacedStudentsPage() {
             </svg>
               Manage Placed Students
             </Button>
+            */}
           </div>
         </div>
 

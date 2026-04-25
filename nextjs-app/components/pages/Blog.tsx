@@ -580,6 +580,7 @@ const Blog = () => {
             Our Latest <span className="text-[#EA2525]">Blogs</span>
           </h2>
           {/* Admin Link - Opens in new tab */}
+          {/* COMMENTED OUT: Manage Blogs button
           <Link
             href="/admin/blogs"
             target="_blank"
@@ -591,6 +592,7 @@ const Blog = () => {
             </svg>
             Manage Blogs (Officials Only)
           </Link>
+          */}
         </div>
 
         {loading ? (
