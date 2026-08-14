@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import ContactOptionsDialog from "@/components/ContactOptionsDialog";
 
@@ -65,12 +65,12 @@ const services = [
   },
 ];
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" },
+    transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" as const },
   }),
 };
 
