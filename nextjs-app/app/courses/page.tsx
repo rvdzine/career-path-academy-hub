@@ -13,11 +13,14 @@ export const metadata: Metadata = {
     "social media marketing course",
     "digital marketing institute",
   ],
+  alternates: {
+    canonical: "https://idigitalstudies.com/courses",
+  },
   openGraph: {
     title: "Digital Marketing Courses | iDigitalStudies",
     description:
       "Explore comprehensive Digital Marketing courses at iDigitalStudies. Learn SEO, PPC, Social Media Marketing, Content Strategy, and more with hands-on projects and expert mentorship.",
-    url: "https://www.idigitalstudies.com/courses",
+    url: "https://idigitalstudies.com/courses",
     type: "website",
   },
   twitter: {

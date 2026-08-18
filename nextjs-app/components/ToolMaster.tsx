@@ -79,7 +79,7 @@ const ToolsYouWillMaster: React.FC = () => {
                   : "animate-scroll-right"
               }`}
             >
-              {[...row, ...row, ...row].map((tool, index) => (
+              {[...row, ...row].map((tool, index) => (
                 <div
                   key={`${tool.id}-${index}`}
                   className={`
@@ -96,6 +96,8 @@ const ToolsYouWillMaster: React.FC = () => {
                        src={tool.logo}
                        alt={tool.name}
                        fill
+                       loading="lazy"
+                       sizes="(max-width: 768px) 80px, 100px"
                        className="object-contain"/>
                   </div>
                   
@@ -113,13 +115,13 @@ const ToolsYouWillMaster: React.FC = () => {
             transform: translateX(0);
           }
           to {
-            transform: translateX(-33.333%);
+            transform: translateX(-50%);
           }
         }
 
         @keyframes scrollRight {
           from {
-            transform: translateX(-33.333%);
+            transform: translateX(-50%);
           }
           to {
             transform: translateX(0);
@@ -127,17 +129,17 @@ const ToolsYouWillMaster: React.FC = () => {
         }
 
         .animate-scroll-left {
-          animation: scrollLeft 45s linear infinite;
+          animation: scrollLeft 35s linear infinite;
         }
 
         .animate-scroll-right {
-          animation: scrollRight 45s linear infinite;
+          animation: scrollRight 35s linear infinite;
         }
 
         @media (min-width: 768px) {
           .animate-scroll-left,
           .animate-scroll-right {
-            animation-duration: 30s;
+            animation-duration: 25s;
           }
         }
       `}</style>

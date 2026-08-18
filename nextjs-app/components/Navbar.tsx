@@ -34,8 +34,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <Image src= "/IDS_LOGO.svg" width={120} height={40} alt="IDS Logo" />
+          <Link href="/" className="flex items-center">
+            <Image src= "/IDS_LOGO.svg" width={120} height={40} alt="Institute of Digital Studies - Best Digital Marketing Institute in Noida" />
           </Link>
 
           {/* Desktop Navigation */}

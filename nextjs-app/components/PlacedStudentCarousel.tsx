@@ -248,7 +248,14 @@ const PlacedStudentsCarousel = () => {
                     </div>
 
                     <div className="w-full md:w-28 md:h-52 h-64 rounded-xl overflow-hidden border border-gray-100 relative mt-4 md:mt-0">
-                      <Image src={student.image} alt={student.name} fill className="object-cover" />
+                      <Image
+                        src={student.image}
+                        alt={student.name}
+                        fill
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, 120px"
+                        className="object-cover"
+                      />
                     </div>
                   </div>
                 </div>

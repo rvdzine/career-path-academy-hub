@@ -42,8 +42,10 @@ export default function HeroSection() {
           <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[55%] max-w-[900px] h-full relative">
             <Image
               src={herosectionimg}
-              alt="Students"
+              alt="Students learning digital marketing at iDigitalStudies"
               fill
+              priority
+              sizes="(max-width: 768px) 100vw, 55vw"
               className="object-cover object-center opacity-90"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-white via-white/10 to-transparent pointer-events-none" />

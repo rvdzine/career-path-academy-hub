@@ -35,10 +35,11 @@ const Footer = () => {
               <div className="flex items-center justify-center">
                 <Link href="/" className="flex items-center space-x-2">
                   <Image
-                    src="/idg_footer.svg"
-                    width={120}
-                    height={40}
-                    alt="IDS Logo"
+                    src="/IDS_LOGO.svg"
+                    alt="Institute of Digital Studies - Digital Marketing Institute in Noida"
+                    width={150}
+                    height={50}
+                    className="h-10 w-auto"
                   />
                 </Link>
               </div>

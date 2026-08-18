@@ -97,6 +97,7 @@ export default function WhyIDS() {
               alt={reason.title}
               width={45}
               height={45}
+              loading="lazy"
               className="w-8 h-8 object-contain mt-1 flex-shrink-0"
             />
           )}
@@ -138,6 +139,7 @@ export default function WhyIDS() {
               alt={tool.name}
               width={80}
               height={80}
+              loading="lazy"
               className="h-14 w-auto object-contain"
             />
           </div>

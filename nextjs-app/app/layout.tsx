@@ -7,8 +7,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryProvider } from "@/components/providers/QueryProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import UseScrollToTop from "@/components/ScrollToTop";
+import JsonLd from "@/components/JsonLd";
+import { generateOrganizationSchema, generateLocalBusinessSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://idigitalstudies.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Digital Marketing Institute in Noida",
   description:
     "Join the best Digital Marketing Institute in Delhi NCR. iDigital Studies offers practical Digital Marketing courses like SEO, SMO, PPC with live projects, 100% placement, and expert training. Enroll today!",
@@ -27,11 +33,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = generateOrganizationSchema();
+  const localBusinessSchema = generateLocalBusinessSchema();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/ids-favicon.svg" type="image/svg+xml" />
         
+        {/* Structured Data: Organization & LocalBusiness JSON-LD */}
+        <JsonLd schema={[organizationSchema, localBusinessSchema]} />
 
         {/* Google Tag Manager Script */}
         <Script id="google-tag-manager" strategy="beforeInteractive">
