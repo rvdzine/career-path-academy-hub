@@ -71,23 +71,23 @@ export default function TrackRecordSection() {
 
           {/* Right Grey Panel */}
           <motion.div
-  initial={{ opacity: 0, scale: 0.95 }}
-  animate={controls}
-  variants={{
-    visible: { opacity: 1, scale: 1 },
-  }}
-  transition={{ duration: 0.8 }}
-  className="relative w-full h-[360px] md:h-[420px] rounded-3xl overflow-hidden"
->
-  <Image
-    src="/assets/gallery3.webp"   // 👈 your image path
-    alt="IDS Track Record"
-    fill
-    className="object-cover"
-    priority
-  />
-</motion.div>
-
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={controls}
+            variants={{
+              visible: { opacity: 1, scale: 1 },
+            }}
+            transition={{ duration: 0.8 }}
+            className="relative w-full h-[360px] md:h-[420px] rounded-3xl overflow-hidden"
+          >
+            <Image
+              src="/assets/gallery3.webp"
+              alt="Institute of Digital Studies track record and student success"
+              fill
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </motion.div>
 
         </div>
       </div>
@@ -128,7 +128,10 @@ function CountUp({ end, suffix = "" }: CountUpProps) {
       ref={ref}
       className="text-4xl md:text-5xl font-bold text-gray-900"
     >
-      <span ref={spanRef}>0</span>
+      <span ref={spanRef} suppressHydrationWarning>
+        {end}{suffix}
+      </span>
     </h3>
   );
 }
+

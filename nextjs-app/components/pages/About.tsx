@@ -102,7 +102,7 @@ const About = () => {
             <div className="relative">
               <img 
                 src={typeof about_csh === 'string' ? about_csh : about_csh.src}
-                alt="about csh" 
+                alt="Institute of Digital Studies practical digital marketing training center in Noida" 
               />
               <div className="absolute -bottom-4 -right-4 w-full h-full bg-gradient-to-r from-blue-200 to-purple-200 rounded-2xl -z-10"></div>
             </div>

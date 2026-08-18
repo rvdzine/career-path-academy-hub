@@ -175,19 +175,20 @@ export default function ReelsSection() {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <>
-                  <Image src={item.img} alt="reel" fill className="object-cover" />
-                  <div className="absolute inset-0 bg-black/40"></div>
-                </>
-              )}
-
-              {playingIndex !== index && (
-                <div
-                  onClick={() => setPlayingIndex(index)}
-                  className="absolute inset-0 cursor-pointer flex justify-center items-center"
-                >
-                  <div className="w-16 h-16 bg-white/40 backdrop-blur-xl rounded-full flex justify-center items-center">
-                    <Play size={34} className="text-white" />
+                <div onClick={() => setPlayingIndex(index)} className="cursor-pointer group relative w-full h-full">
+                  <Image
+                    src={item.img}
+                    alt="IDS student project demonstration and learning experience reel"
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 768px) 240px, 280px"
+                    className="object-cover"
+                  />
+                  {/* PLAY OVERLAY BUTTON */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition">
+                    <div className="w-12 h-12 rounded-full bg-white/80 flex items-center justify-center pl-1 shadow-lg">
+                      <Play className="w-6 h-6 text-black fill-black" />
+                    </div>
                   </div>
                 </div>
               )}
@@ -195,7 +196,7 @@ export default function ReelsSection() {
               {playingIndex === index && (
                 <button
                   onClick={() => stopVideo(index)}
-                  className="absolute top-3 right-3 bg-black/60 text-white p-2 rounded-full"
+                  className="absolute top-3 right-3 bg-black/60 text-white p-2 rounded-full z-10"
                 >
                   <X size={20} />
                 </button>
@@ -204,11 +205,6 @@ export default function ReelsSection() {
               {/* Bottom Section */}
               <div className="absolute bottom-0 w-full px-5 pb-4 pt-6 bg-gradient-to-t from-black/90 to-transparent text-white">
                 <div className="flex gap-1 text-yellow-400 mb-2">
-  {Array(item.rating)
-    .fill(0)
-    .map((_, i) => (
-      <Star key={i} size={18} fill="#facc15" stroke="#facc15" />
-    ))}
 </div>
 
 
@@ -221,7 +217,7 @@ export default function ReelsSection() {
                   {item.logo && (
                     <Image
                       src={item.logo}
-                      alt="logo"
+                      alt="Institute of Digital Studies verification badge"
                       width={40}
                       height={40}
                       className="opacity-90 object-contain"

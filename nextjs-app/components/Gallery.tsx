@@ -2,28 +2,27 @@
 import Image from "next/image";
 import { useState } from "react";
 
-// 🎨 16 total images (add your real image paths)
-const images = [
-  { src: "/assets/gallery1.webp", alt: "Digital Marketing Classroom" },
-  { src: "/assets/gallery2.webp", alt: "Hands-on Workshop" },
-  { src: "/assets/gallery3.webp", alt: "Students Learning Together" },
-  { src: "/assets/gallery4.webp", alt: "IDS Event and Seminar" },
-  { src: "/assets/gallery5.webp", alt: "Instructor Training Session" },
-  { src: "/assets/gallery6.webp", alt: "Certification Ceremony" },
-  { src: "/assets/gallery7.jpg", alt: "Guest Lecture" },
-  { src: "/assets/gallery8.jpg", alt: "Marketing Campaign Project" },
-  { src: "/assets/gallery1.webp", alt: "Student Presentation" },
-  { src: "/assets/gallery10.jpg", alt: "Workshop Collaboration" },
-  { src: "/assets/gallery11.jpg", alt: "Creative Discussion" },
-  { src: "/assets/gallery12.jpg", alt: "Practical Demo Session" },
-  { src: "/assets/gallery1.webp", alt: "Networking Event" },
-  { src: "/assets/gallery6.webp", alt: "Social Media Strategy Talk" },
-  { src: "/assets/gallery5.webp", alt: "Classroom Learning" },
-  { src: "/assets/gallery16.jpg", alt: "Success Celebration" },
+// 🎨 12 unique images split across 2 distinct rows
+const row1Images = [
+  { src: "/assets/gallery1.webp", alt: "Digital Marketing Classroom Session at IDS" },
+  { src: "/assets/gallery2.webp", alt: "Hands-on Practical Workshop" },
+  { src: "/assets/gallery3.webp", alt: "Students Collaborating on Projects" },
+  { src: "/assets/gallery4.webp", alt: "IDS Event and Digital Seminar" },
+  { src: "/assets/gallery5.webp", alt: "Instructor Led Masterclass" },
+  { src: "/assets/gallery6.webp", alt: "Certification Award Ceremony" },
+];
+
+const row2Images = [
+  { src: "/assets/gallery7.jpg", alt: "Guest Industry Expert Lecture" },
+  { src: "/assets/gallery8.jpg", alt: "Live Marketing Campaign Presentation" },
+  { src: "/assets/gallery10.jpg", alt: "Group Strategy Discussion" },
+  { src: "/assets/gallery11.jpg", alt: "Creative Brainstorming Session" },
+  { src: "/assets/gallery12.jpg", alt: "Live Tool Demo and Setup" },
+  { src: "/assets/gallery16.jpg", alt: "Student Placement Success Celebration" },
 ];
 
 export default function GallerySection() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
     <section className="py-20 bg-[#FFF9F9] relative overflow-hidden">
@@ -39,10 +38,10 @@ export default function GallerySection() {
 
       {/* 🔁 Auto-moving image rows */}
       <div className="space-y-8">
-        {/* Row 1 – moves left to right */}
+        {/* Row 1 – moves left */}
         <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div className="flex animate-scroll-left gap-6">
-            {[...images, ...images].map((image, index) => (
+            {[...row1Images, ...row1Images].map((image, index) => (
               <div
                 key={`row1-${index}`}
                 className="relative flex-shrink-0 w-64 h-48 rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer transition-transform duration-300 hover:scale-105"
@@ -52,6 +51,8 @@ export default function GallerySection() {
                   src={image.src}
                   alt={image.alt}
                   fill
+                  loading="lazy"
+                  sizes="(max-width: 768px) 200px, 260px"
                   className="object-cover"
                 />
               </div>
@@ -59,10 +60,10 @@ export default function GallerySection() {
           </div>
         </div>
 
-        {/* Row 2 – moves right to left */}
+        {/* Row 2 – moves right */}
         <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div className="flex animate-scroll-right gap-6">
-            {[...images, ...images].map((image, index) => (
+            {[...row2Images, ...row2Images].map((image, index) => (
               <div
                 key={`row2-${index}`}
                 className="relative flex-shrink-0 w-64 h-48 rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer transition-transform duration-300 hover:scale-105"
@@ -72,6 +73,8 @@ export default function GallerySection() {
                   src={image.src}
                   alt={image.alt}
                   fill
+                  loading="lazy"
+                  sizes="(max-width: 768px) 200px, 260px"
                   className="object-cover"
                 />
               </div>

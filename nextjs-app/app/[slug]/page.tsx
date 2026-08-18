@@ -35,6 +35,15 @@ export async function generateMetadata(
   return {
     title: `Digital Marketing Course in ${formattedCity} | IDS`,
     description: `Join the best Digital Marketing Course in ${formattedCity}. Learn SEO, PPC, Social Media Marketing with live projects.`,
+    alternates: {
+      canonical: `https://idigitalstudies.com/${slug}`,
+    },
+    openGraph: {
+      title: `Digital Marketing Course in ${formattedCity} | IDS`,
+      description: `Join the best Digital Marketing Course in ${formattedCity}. Learn SEO, PPC, Social Media Marketing with live projects.`,
+      url: `https://idigitalstudies.com/${slug}`,
+      type: "website",
+    },
   };
 }
 

@@ -1,6 +1,7 @@
 "use client";
 // src/components/coursedetailslanding.tsx
 import React from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -64,10 +65,12 @@ export default function CourseDetailsLanding() {
 
             {/* Video thumbnail */}
             <div className="relative rounded-lg overflow-hidden shadow-lg">
-              <img
-                src="#"
-                alt="Demo Video"
-                className="w-full h-64 object-cover"
+              <Image
+                src="/assets/gallery4.webp"
+                alt="Digital Marketing curriculum overview and classroom training demo"
+                width={800}
+                height={500}
+                className="w-full h-auto object-cover"
               />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                 <button className="bg-white rounded-full p-4 shadow-md text-xl">

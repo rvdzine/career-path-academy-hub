@@ -33,7 +33,7 @@ const CertificationSection = () => {
             <div className="relative w-full max-w-xl">
               <Image
                 src="/assets/IdsCertificate.jpg"
-                alt="IDS Certificate"
+                alt="Industry recognized Digital Marketing Master Certification by iDigitalStudies"
                 width={1200}
                 height={900}
                 className="w-full h-auto rounded-lg shadow-xl border"
@@ -57,18 +57,20 @@ const CertificationSection = () => {
                 <div className="w-14 h-14 relative">
                   <Image
                     src="/assets/MSME_logo.jpg"
-                    alt="MSME"
+                    alt="MSME Ministry of Micro Small and Medium Enterprises Certified"
                     fill
+                    loading="lazy"
+                    sizes="60px"
                     className="object-contain"
                   />
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-lg text-gray-900">
-                    MSME Registered
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Registered under Ministry of Micro, Small & Medium Enterprises
+                  <h4 className="font-semibold text-gray-900">
+                    Govt. of India
+                  </h4>
+                  <p className="text-sm text-gray-500">
+                    MSME Recognized
                   </p>
                 </div>
               </CardContent>
@@ -80,8 +82,10 @@ const CertificationSection = () => {
                 <div className="w-14 h-14 relative">
                   <Image
                     src="/svg/logo_nsdc.svg"
-                    alt="Skill India"
+                    alt="Skill India National Skill Development Corporation Partner"
                     fill
+                    loading="lazy"
+                    sizes="60px"
                     className="object-contain"
                   />
                 </div>

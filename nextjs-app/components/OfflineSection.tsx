@@ -35,13 +35,13 @@ const OfflineSection = () => {
 
         {/* Left Image */}
         <div className="flex justify-center md:justify-start">
-          <Image
-            src="/assets/offsectionimg.jpg"
-            alt="IDS Offline Center"
-            width={450}
-            height={300}
-            className="rounded-2xl w-full max-w-[440px] object-cover shadow-md"
-          />
+            <Image
+              src="/assets/offsectionimg.jpg"
+              alt="IDS Digital Marketing training center and practical lab facility in Sector 62 Noida"
+              width={700}
+              height={450}
+              className="w-full h-auto object-cover"
+            />
         </div>
 
         {/* Right Content */}
