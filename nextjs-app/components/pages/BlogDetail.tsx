@@ -8185,12 +8185,421 @@ image: "/assets/blog68.png"
 <p>Yes, when done correctly. Personalized content improves engagement metrics like time on page and return visits, which indirectly support SEO performance. It also helps match search intent more accurately. However, core content should still be crawlable and consistent for search engines. Use personalization to enhance the experience for users without hiding essential content from search engines. <strong>Balance is key.</strong></p>
 `,
   image: "/assets/blog80.png"
-}
+},
+  "how-to-learn-digital-marketing-complete-guide": {
+    title: "How to Learn Digital Marketing: The Complete Step-by-Step Guide (2026)",
+    content: `
+<p class="lead text-lg font-medium text-gray-700 mb-6">
+Digital marketing has evolved from a secondary advertising option into the absolute backbone of modern business growth. In 2026, with the integration of AI marketing tools, performance algorithms, and hyper-targeted advertising, the demand for skilled digital marketers has skyrocketed across India and global markets.
+</p>
 
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">What is Modern Digital Marketing in 2026?</h2>
+<p class="mb-4">
+Digital marketing is the practice of promoting products, services, or brands through digital channels such as search engines, social media platforms, email, websites, and mobile applications. Unlike traditional marketing (billboards, TV, print), digital marketing offers <strong>real-time measurable ROI, precision audience targeting, and predictable scalability</strong>.
+</p>
 
+<h3 class="text-xl font-bold mt-6 mb-3 text-gray-800">The 6 Core Pillars of Digital Marketing:</h3>
+<ul class="list-disc list-inside space-y-2 mb-6 text-gray-700">
+  <li><strong>Search Engine Optimization (SEO):</strong> Ranking websites on Google's top organic positions for high-intent keywords using on-page, technical, and authority building.</li>
+  <li><strong>Performance Marketing (PPC & Google Ads):</strong> Running profitable paid search, Performance Max (PMax), and YouTube ads with positive Return On Ad Spend (ROAS).</li>
+  <li><strong>Social Media Marketing (SMM & Meta Ads):</strong> Scaling Instagram Reels, Meta Ads Manager campaigns, and LinkedIn B2B lead generation.</li>
+  <li><strong>Content Strategy & Copywriting:</strong> Creating high-converting landing pages, blog guides, and viral video scripts powered by AI assistance.</li>
+  <li><strong>Marketing Automation & Email Funnels:</strong> Nurturing leads through automated lifecycle sequences using tools like Mailchimp and HubSpot.</li>
+  <li><strong>Web Analytics & GA4:</strong> Tracking conversion funnels, user behavior, and attribution modeling with Google Analytics 4 and Tag Manager.</li>
+</ul>
 
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">The 6-Month Digital Marketing Learning Roadmap</h2>
+<p class="mb-4">
+If you are starting from zero, following a structured learning sequence ensures you build compounding skills without getting overwhelmed:
+</p>
 
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-6">
+  <h4 class="font-bold text-red-600 text-lg mb-2">Month 1: Fundamentals & Website Creation</h4>
+  <p class="text-gray-700 mb-2">Learn domain setup, WordPress CMS, landing page design, user psychology, and basic HTML/CSS tags for SEO.</p>
+  
+  <h4 class="font-bold text-red-600 text-lg mb-2 mt-4">Month 2: Master SEO & AI Content Workflows</h4>
+  <p class="text-gray-700 mb-2">Keyword research with Semrush, technical crawl optimization, schema markup, on-page SEO, and backlink strategies.</p>
 
+  <h4 class="font-bold text-red-600 text-lg mb-2 mt-4">Month 3: Performance Ads (Google Ads & Meta Ads)</h4>
+  <p class="text-gray-700 mb-2">Search campaigns, Google Shopping, Performance Max, Instagram Retargeting, and Meta Pixel conversion tracking.</p>
+
+  <h4 class="font-bold text-red-600 text-lg mb-2 mt-4">Month 4: Social Media, Video & Brand Building</h4>
+  <p class="text-gray-700 mb-2">Reels viral strategies, LinkedIn personal branding, influencer marketing collaborations, and Canva pro graphic design.</p>
+
+  <h4 class="font-bold text-red-600 text-lg mb-2 mt-4">Month 5: Analytics, CRO & Email Automation</h4>
+  <p class="text-gray-700 mb-2">Google Analytics 4 setup, heatmaps, conversion rate optimization (CRO), and automated drip campaigns.</p>
+
+  <h4 class="font-bold text-red-600 text-lg mb-2 mt-4">Month 6: Live Client Projects & Placement Prep</h4>
+  <p class="text-gray-700">Managing real ad budgets, building an agency-grade portfolio, resume polishing, and mock interview rounds.</p>
+</div>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">Self-Study vs. Structured Course: Which Path Should You Choose?</h2>
+<div class="overflow-x-auto mb-6">
+  <table class="w-full text-left border border-gray-200 rounded-lg">
+    <thead class="bg-red-50 text-gray-900">
+      <tr>
+        <th class="p-3 border-b">Feature</th>
+        <th class="p-3 border-b">Self-Learning (YouTube/Free Blogs)</th>
+        <th class="p-3 border-b">Structured Course (<a href="/courses/master-in-digital-marketing-course" class="text-red-600 underline">IDS Program</a>)</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-700 text-sm">
+      <tr>
+        <td class="p-3 border-b font-medium">Learning Timeline</td>
+        <td class="p-3 border-b">12 - 18 months (Trial & Error)</td>
+        <td class="p-3 border-b">3 - 6 months (Structured Roadmap)</td>
+      </tr>
+      <tr>
+        <td class="p-3 border-b font-medium">Practical Experience</td>
+        <td class="p-3 border-b">Theory only (No real budgets)</td>
+        <td class="p-3 border-b">10+ Live Projects with Real Ad Spend</td>
+      </tr>
+      <tr>
+        <td class="p-3 border-b font-medium">Mentorship & Doubt Clearing</td>
+        <td class="p-3 border-b">None</td>
+        <td class="p-3 border-b">1:1 Daily Mentor Supervision</td>
+      </tr>
+      <tr>
+        <td class="p-3 border-b font-medium">Job Placement Support</td>
+        <td class="p-3 border-b">Zero assistance</td>
+        <td class="p-3 border-b"><a href="/jobs-and-placements" class="text-red-600 underline">100% Placement Guarantee (50+ Hiring Partners)</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">Career Opportunities & Salary Packages in 2026</h2>
+<p class="mb-4">
+Digital marketing is one of the highest-paying non-coding career fields in India. Typical salary packages across Delhi NCR & India include:
+</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-gray-700">
+  <li><strong>Digital Marketing Executive:</strong> ₹3.5 LPA – ₹5.0 LPA (Freshers & 0-1 Yr Experience)</li>
+  <li><strong>SEO Specialist / PPC Manager:</strong> ₹5.5 LPA – ₹8.5 LPA (1-3 Yrs Experience)</li>
+  <li><strong>Performance Marketing Lead:</strong> ₹9.0 LPA – ₹15.0 LPA (3-5 Yrs Experience)</li>
+  <li><strong>Digital Marketing Strategist / Head of Growth:</strong> ₹18.0 LPA – ₹30+ LPA</li>
+</ul>
+
+<div class="bg-gradient-to-r from-red-600 to-rose-600 text-white rounded-2xl p-8 my-8 text-center">
+  <h3 class="text-2xl font-bold mb-3">Ready to Launch Your High-Paying Digital Marketing Career?</h3>
+  <p class="text-white/90 max-w-2xl mx-auto mb-6">
+    Join the AI-Powered Master in Digital Marketing Course at the Institute of Digital Studies (IDS). Learn with 10+ live projects, 100% internship placement support, and global certifications.
+  </p>
+  <a href="/courses" class="inline-block bg-white text-red-600 font-bold px-8 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition">
+    Explore IDS Courses & Syllabus →
+  </a>
+</div>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">Frequently Asked Questions</h2>
+<h3 class="text-lg font-bold mt-4 mb-2 text-gray-800">1. Can a beginner learn digital marketing without a technical background?</h3>
+<p class="text-gray-700 mb-4">Yes! Digital marketing does not require coding or engineering backgrounds. Basic computer literacy and logical thinking are all you need to start.</p>
+
+<h3 class="text-lg font-bold mt-4 mb-2 text-gray-800">2. How long does it take to become job-ready?</h3>
+<p class="text-gray-700 mb-4">With a dedicated 3-to-6 month practical program, students complete live projects, earn certifications, and successfully interview for full-time executive roles.</p>
+
+<h3 class="text-lg font-bold mt-4 mb-2 text-gray-800">3. Does IDS provide offline classes?</h3>
+<p class="text-gray-700 mb-4">Yes, IDS provides full offline classroom training at our Sector 62, Noida campus, as well as live interactive online and weekend hybrid options across Delhi NCR.</p>
+`,
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+  },
+  "digital-marketing-course-vs-bootcamp-comparison": {
+    title: "Digital Marketing Course vs. Bootcamp: Which One is Right for You in 2026?",
+    content: `
+<p class="lead text-lg font-medium text-gray-700 mb-6">
+Choosing how to learn digital marketing is one of the most critical decisions for your career. With hundreds of 4-week bootcamps and comprehensive institute courses advertised online, how do you decide which learning model offers the highest return on investment (ROI), genuine skill acquisition, and real job placement?
+</p>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">What is the Difference Between a Digital Marketing Course and a Bootcamp?</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+  <div class="bg-red-50 border border-red-200 rounded-xl p-6">
+    <h3 class="text-xl font-bold text-red-700 mb-2">Comprehensive Course (IDS Model)</h3>
+    <p class="text-gray-700 text-sm mb-3">
+      A structured, deep-dive program (3 to 6 months) combining offline classroom labs, live campaign budgets, 1:1 mentorship, a guaranteed 3-month practical internship, and 100% placement support.
+    </p>
+    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+      <li>Paced, compounding learning</li>
+      <li>Real client ad spend management</li>
+      <li>Comprehensive 50+ tool mastery</li>
+    </ul>
+  </div>
+
+  <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">Crash Bootcamp</h3>
+    <p class="text-gray-700 text-sm mb-3">
+      A high-intensity, short-duration sprint (4 to 8 weeks) designed primarily for rapid theoretical overviews or single-skill upskilling (e.g., only Meta Ads or only SEO).
+    </p>
+    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+      <li>Fast-paced cramming</li>
+      <li>Limited live project execution</li>
+      <li>Basic interview tips without internship</li>
+    </ul>
+  </div>
+</div>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">Comprehensive Comparison Matrix: Course vs. Bootcamp</h2>
+<div class="overflow-x-auto mb-6">
+  <table class="w-full text-left border border-gray-200 rounded-lg">
+    <thead class="bg-red-50 text-gray-900">
+      <tr>
+        <th class="p-3 border-b">Feature</th>
+        <th class="p-3 border-b">Digital Marketing Bootcamp</th>
+        <th class="p-3 border-b">IDS Comprehensive Course (<a href="/courses" class="text-red-600 underline">Explore</a>)</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-700 text-sm">
+      <tr>
+        <td class="p-3 border-b font-medium">Program Duration</td>
+        <td class="p-3 border-b">4 - 8 Weeks (Fast & Intensive)</td>
+        <td class="p-3 border-b">3 - 6 Months (Complete Mastery)</td>
+      </tr>
+      <tr>
+        <td class="p-3 border-b font-medium">Curriculum Scope</td>
+        <td class="p-3 border-b">High-level overview (10-15 topics)</td>
+        <td class="p-3 border-b">50+ Core Modules + AI Marketing Tools</td>
+      </tr>
+      <tr>
+        <td class="p-3 border-b font-medium">Practical Execution</td>
+        <td class="p-3 border-b">Dummy simulations & screenshots</td>
+        <td class="p-3 border-b">10+ Real-World Projects with Live Budgets</td>
+      </tr>
+      <tr>
+        <td class="p-3 border-b font-medium">Internship Guarantee</td>
+        <td class="p-3 border-b">❌ Rarely included</td>
+        <td class="p-3 border-b">✅ Guaranteed 3-Month Industry Internship</td>
+      </tr>
+      <tr>
+        <td class="p-3 border-b font-medium">Job Placement</td>
+        <td class="p-3 border-b">Resume feedback only</td>
+        <td class="p-3 border-b"><a href="/jobs-and-placements" class="text-red-600 underline">100% Placement Support across 50+ Partners</a></td>
+      </tr>
+      <tr>
+        <td class="p-3 border-b font-medium">Cost & Payment</td>
+        <td class="p-3 border-b">High upfront fee per week</td>
+        <td class="p-3 border-b">Pocket-Friendly Fees with No-Cost EMI</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">Why Comprehensive Institute Courses Win on Career Outcomes</h2>
+<p class="mb-4">
+Digital marketing is not a theory subject; it is an experimental, data-driven craft. When employers in Delhi NCR and across India hire for entry-level or executive roles, they look for:
+</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-gray-700">
+  <li><strong>Proof of Work:</strong> Can you show real Google Ads Search Impression Share metrics or live SEO ranking improvements you achieved?</li>
+  <li><strong>Internship Experience:</strong> Candidates with a verified 3-month internship on their CV receive 3x more interview callbacks.</li>
+  <li><strong>Holistic Multi-Channel Knowledge:</strong> Knowing how SEO, Meta Ads, and Email funnels connect together gives you an unfair advantage over candidates who only know one isolated tool.</li>
+</ul>
+
+<div class="bg-gradient-to-r from-red-600 to-rose-600 text-white rounded-2xl p-8 my-8 text-center">
+  <h3 class="text-2xl font-bold mb-3">Choose the Right Path for Your Digital Marketing Career</h3>
+  <p class="text-white/90 max-w-2xl mx-auto mb-6">
+    Get hands-on training, 10+ live projects, 1:1 mentor doubt clearing, and 100% placement support at the Institute of Digital Studies (IDS).
+  </p>
+  <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <a href="/courses/master-in-digital-marketing-course" class="inline-block bg-white text-red-600 font-bold px-8 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition">
+      Master Course (6 Months) →
+    </a>
+    <a href="/courses/specialist-in-digital-marketing" class="inline-block bg-red-800 text-white font-bold px-8 py-3 rounded-lg shadow-lg hover:bg-red-900 transition">
+      Specialist Course (3 Months) →
+    </a>
+  </div>
+</div>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">Frequently Asked Questions</h2>
+<h3 class="text-lg font-bold mt-4 mb-2 text-gray-800">1. Are digital marketing bootcamps worth it for freshers?</h3>
+<p class="text-gray-700 mb-4">Bootcamps can give you a quick glimpse, but freshers without prior experience often struggle to land jobs because bootcamps lack verified internship experience and sufficient live portfolio depth.</p>
+
+<h3 class="text-lg font-bold mt-4 mb-2 text-gray-800">2. Does IDS offer flexible weekend batches for working professionals?</h3>
+<p class="text-gray-700 mb-4">Yes! IDS provides weekend batches and hybrid learning options so working professionals can upskill without quitting their full-time jobs.</p>
+
+<h3 class="text-lg font-bold mt-4 mb-2 text-gray-800">3. What is the average salary after completing a course at IDS?</h3>
+<p class="text-gray-700 mb-4">IDS graduates secure starting salary packages between ₹3.5 LPA and ₹8.5 LPA depending on experience, portfolio strength, and specialization.</p>
+`,
+    image: "https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=1200&q=80"
+  },
+  "seo-skills-every-digital-marketer-needs-in-2026": {
+    title: "Top 10 SEO Skills Every Digital Marketer Must Master in 2026",
+    content: `
+<p class="lead text-lg font-medium text-gray-700 mb-6">
+Search Engine Optimization (SEO) in 2026 has transitioned into a sophisticated blend of artificial intelligence, user experience engineering, and deep technical architecture. If you want to dominate Google rankings and AI answer engines like ChatGPT and Perplexity, here are the top 10 non-negotiable SEO skills you must master.
+</p>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">1. Generative Engine Optimization (GEO & AI Search)</h2>
+<p class="mb-4 text-gray-700">
+With Google AI Overviews and conversational answer engines dominating search real estate, traditional keyword stuffing is completely obsolete. Marketers must optimize for <strong>citation authority, information gain, and direct factual conciseness</strong> so AI models cite your website as the primary trusted source.
+</p>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">2. Technical SEO & Crawl Budget Mastery</h2>
+<p class="mb-4 text-gray-700">
+Search engine spiders need clean pathways to crawl and index your web pages. Mastering canonical tags, robots.txt directives, XML sitemaps, server response codes (301, 404, 503), and preventing duplicate content loops is foundational for enterprise sites.
+</p>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">3. Core Web Vitals & Page Speed Architecture</h2>
+<p class="mb-4 text-gray-700">
+Google explicitly uses page speed and user experience metrics as ranking signals. Skilled SEOs must understand:
+</p>
+<ul class="list-disc list-inside space-y-1 mb-4 text-gray-700">
+  <li><strong>Largest Contentful Paint (LCP):</strong> Preloading hero images and serving next-gen AVIF/WebP formats.</li>
+  <li><strong>Interaction to Next Paint (INP):</strong> Reducing main-thread JavaScript execution latency.</li>
+  <li><strong>Cumulative Layout Shift (CLS):</strong> Preventing sudden layout jumps by specifying explicit dimensions.</li>
+</ul>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">4. Advanced JSON-LD Schema Markup</h2>
+<p class="mb-4 text-gray-700">
+Structured data helps search engines understand the entity relationships on your pages. Modern SEOs must know how to implement <code class="bg-gray-100 px-2 py-1 rounded">EducationalOrganization</code>, <code class="bg-gray-100 px-2 py-1 rounded">Course</code>, <code class="bg-gray-100 px-2 py-1 rounded">FAQPage</code>, and <code class="bg-gray-100 px-2 py-1 rounded">BreadcrumbList</code> schemas to secure rich search snippets.
+</p>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">5. Search Intent & Semantic Topic Clusters</h2>
+<p class="mb-4 text-gray-700">
+Google no longer ranks standalone pages; it ranks <strong>topical authority</strong>. Building comprehensive pillar pages supported by interconnected cluster blogs signals to Google that your brand is an industry leader in that subject.
+</p>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">6. High-Intent Keyword Research & Gap Analysis</h2>
+<p class="mb-4 text-gray-700">
+Using tools like Semrush, Ahrefs, and Google Search Console to discover untapped long-tail queries, zero-click search patterns, and competitor keyword gaps.
+</p>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">7. Data-Led E-E-A-T Link Building & Digital PR</h2>
+<p class="mb-4 text-gray-700">
+Backlinks remain one of Google's strongest ranking pillars. Modern SEOs build authority through original industry research, data surveys, and thought leadership rather than low-quality link schemes.
+</p>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">8. Local SEO & Google Business Profile (GBP) Domination</h2>
+<p class="mb-4 text-gray-700">
+Capturing local search traffic ("near me" searches) through localized landing pages, review velocity management, and Google Maps ranking optimization.
+</p>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">9. Programmatic & E-Commerce SEO</h2>
+<p class="mb-4 text-gray-700">
+Managing dynamic URL parameters, faceted search filters, and programmatic SEO architectures for sites with thousands of product or course listings.
+</p>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">10. GA4 & Search Console Attribution Analytics</h2>
+<p class="mb-4 text-gray-700">
+Connecting SEO efforts directly to business revenue using Google Analytics 4 conversion events, attribution modeling, and search console query tracking.
+</p>
+
+<div class="bg-gradient-to-r from-red-600 to-rose-600 text-white rounded-2xl p-8 my-8 text-center">
+  <h3 class="text-2xl font-bold mb-3">Master Real-World SEO on Live Client Projects</h3>
+  <p class="text-white/90 max-w-2xl mx-auto mb-6">
+    Learn advanced technical SEO, Schema markup, and AI search workflows directly from industry experts at the Institute of Digital Studies (IDS).
+  </p>
+  <a href="/courses/master-in-digital-marketing-course" class="inline-block bg-white text-red-600 font-bold px-8 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition">
+    View Master Course Curriculum →
+  </a>
+</div>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">Frequently Asked Questions</h2>
+<h3 class="text-lg font-bold mt-4 mb-2 text-gray-800">1. Is coding required to learn SEO in 2026?</h3>
+<p class="text-gray-700 mb-4">You do not need to be a software developer, but understanding basic HTML tags, meta tags, and structured JSON-LD schemas is highly beneficial.</p>
+
+<h3 class="text-lg font-bold mt-4 mb-2 text-gray-800">2. How has AI changed SEO careers?</h3>
+<p class="text-gray-700 mb-4">AI has automated repetitive tasks like keyword grouping and basic drafting, allowing SEO specialists to focus on high-value strategy, technical architecture, and user experience.</p>
+`,
+    image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80"
+  },
+  "digital-marketing-salary-india-2026-by-role-location": {
+    title: "Digital Marketing Salary in India 2026: Roles, Locations & Experience Breakdown",
+    content: `
+<p class="lead text-lg font-medium text-gray-700 mb-6">
+Digital marketing is recognized as one of the fastest-growing and highest-paying non-technical career paths in India. As brands shift billions in advertising budgets from offline media into search, social media, and AI performance marketing, compensation packages for certified digital marketing specialists have hit record highs in 2026.
+</p>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">Digital Marketing Salary in India by Specialization (2026 Benchmark)</h2>
+<p class="mb-4 text-gray-700">
+Specialization is the key to commanding premium salaries. Here is what leading digital agencies, tech startups, and MNCs in India pay across core roles:
+</p>
+
+<div class="overflow-x-auto mb-6">
+  <table class="w-full text-left border border-gray-200 rounded-lg">
+    <thead class="bg-red-50 text-gray-900">
+      <tr>
+        <th class="p-3 border-b">Role / Job Title</th>
+        <th class="p-3 border-b">Fresher (0-1 Yr)</th>
+        <th class="p-3 border-b">Mid-Level (2-4 Yrs)</th>
+        <th class="p-3 border-b">Senior / Lead (5+ Yrs)</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-700 text-sm">
+      <tr>
+        <td class="p-3 border-b font-medium">Performance Marketing Manager (Google/Meta Ads)</td>
+        <td class="p-3 border-b">₹4.5 - ₹6.5 LPA</td>
+        <td class="p-3 border-b">₹8.0 - ₹14.0 LPA</td>
+        <td class="p-3 border-b">₹18.0 - ₹30+ LPA</td>
+      </tr>
+      <tr>
+        <td class="p-3 border-b font-medium">SEO Specialist / Technical SEO Lead</td>
+        <td class="p-3 border-b">₹3.5 - ₹5.0 LPA</td>
+        <td class="p-3 border-b">₹6.5 - ₹10.5 LPA</td>
+        <td class="p-3 border-b">₹14.0 - ₹24.0 LPA</td>
+      </tr>
+      <tr>
+        <td class="p-3 border-b font-medium">Social Media & Brand Content Strategist</td>
+        <td class="p-3 border-b">₹3.2 - ₹4.8 LPA</td>
+        <td class="p-3 border-b">₹5.5 - ₹9.0 LPA</td>
+        <td class="p-3 border-b">₹12.0 - ₹20.0 LPA</td>
+      </tr>
+      <tr>
+        <td class="p-3 border-b font-medium">Marketing Automation & CRM Manager</td>
+        <td class="p-3 border-b">₹4.0 - ₹5.8 LPA</td>
+        <td class="p-3 border-b">₹7.5 - ₹13.0 LPA</td>
+        <td class="p-3 border-b">₹16.0 - ₹28.0 LPA</td>
+      </tr>
+      <tr>
+        <td class="p-3 border-b font-medium">Head of Digital Marketing / Growth Director</td>
+        <td class="p-3 border-b">—</td>
+        <td class="p-3 border-b">₹15.0 - ₹22.0 LPA</td>
+        <td class="p-3 border-b">₹25.0 - ₹50+ LPA</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">Digital Marketing Salary by Location in India</h2>
+<p class="mb-4 text-gray-700">
+Location plays a significant role in salary brackets due to local industry concentration and cost of living:
+</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-gray-700">
+  <li><strong>Delhi NCR (Noida & Gurugram):</strong> The media and corporate startup capital of India offers the highest number of hiring openings, with average fresher packages at ₹3.8 – ₹6.0 LPA.</li>
+  <li><strong>Bengaluru (Bangalore):</strong> High demand for SaaS, B2B, and performance growth marketers (Average: ₹4.2 – ₹6.8 LPA for freshers).</li>
+  <li><strong>Mumbai:</strong> Premier destination for media agencies, entertainment marketing, and luxury brand advertising (Average: ₹4.0 – ₹6.5 LPA).</li>
+  <li><strong>Hyderabad & Pune:</strong> Rapidly expanding tech corridors with strong demand for international client agency executives (Average: ₹3.5 – ₹5.5 LPA).</li>
+</ul>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">How to Maximize Your Salary as a Fresher in 2026</h2>
+<p class="mb-4 text-gray-700">
+Employers in Delhi NCR do not hire based on degree marks; they hire based on <strong>practical proof of execution</strong>. To secure top salary packages:
+</p>
+<ul class="list-disc list-inside space-y-2 mb-6 text-gray-700">
+  <li><strong>Manage Real Ad Budgets:</strong> Showing actual ROAS metrics you generated beats any theoretical certificate.</li>
+  <li><strong>Complete a Verified 3-Month Internship:</strong> Candidates with practical agency internship experience receive 3x more interview offers.</li>
+  <li><strong>Master AI Toolchains:</strong> Demonstrate how you leverage ChatGPT, Midjourney, and automated scripts to 10x marketing output.</li>
+</ul>
+
+<div class="bg-gradient-to-r from-red-600 to-rose-600 text-white rounded-2xl p-8 my-8 text-center">
+  <h3 class="text-2xl font-bold mb-3">Join 2,000+ Placed Students at Institute of Digital Studies (IDS)</h3>
+  <p class="text-white/90 max-w-2xl mx-auto mb-6">
+    Get hands-on live project training, verified 3-month internship experience, and 100% placement support across 50+ hiring partner companies.
+  </p>
+  <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <a href="/jobs-and-placements" class="inline-block bg-white text-red-600 font-bold px-8 py-3 rounded-lg shadow-lg hover:bg-gray-100 transition">
+      View Placement Records & Hiring Partners →
+    </a>
+    <a href="/courses/master-in-digital-marketing-course" class="inline-block bg-red-800 text-white font-bold px-8 py-3 rounded-lg shadow-lg hover:bg-red-900 transition">
+      Explore Master Course →
+    </a>
+  </div>
+</div>
+
+<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">Frequently Asked Questions</h2>
+<h3 class="text-lg font-bold mt-4 mb-2 text-gray-800">1. What is the starting salary for a digital marketing fresher in Noida?</h3>
+<p class="text-gray-700 mb-4">A digital marketing fresher with practical live project training from IDS starts at ₹3.5 LPA to ₹5.5 LPA, with rapid salary revisions within the first 12 months.</p>
+
+<h3 class="text-lg font-bold mt-4 mb-2 text-gray-800">2. Which digital marketing skill pays the highest salary in 2026?</h3>
+<p class="text-gray-700 mb-4">Performance Marketing (Google & Meta Ads management with live ROAS optimization) and Technical SEO are currently the highest-paying skill tracks in India.</p>
+`,
+    image: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1200&q=80"
+  }
 };
 
 const BlogDetail = ({ slug }: { slug: string }) => {

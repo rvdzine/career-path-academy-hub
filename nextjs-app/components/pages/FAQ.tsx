@@ -7,78 +7,69 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const FAQ = () => {
   const faqs = [
     {
-      question: " What makes Institute of Digital Studies (IDS) the best digital marketing institute in Noida?",
-      answer: "Institute of Digital Studies (IDS) is known for its industry-relevant curriculum, expert trainers, hands-on experience, and personalized attention. We ensure our students gain practical knowledge that is directly applicable to real-world digital marketing challenges."
+      question: "What makes Institute of Digital Studies (IDS) the best digital marketing institute in Noida?",
+      answer: "Institute of Digital Studies (IDS) in Sector 62, Noida is renowned for its AI-integrated curriculum, live project budgets, 1:1 mentor coaching, and 100% placement track record across 50+ hiring partner companies."
     },
     {
-      question: "What is the duration of the Digital Marketing course in Noida at Institute of Digital Studies (IDS)?",
-      answer: "The duration of our Digital Marketing course ranges from 3 months for specialized programs to 6 months for comprehensive courses, including internships and practical training."
+      question: "What is the duration of the Digital Marketing course at IDS?",
+      answer: "The duration ranges from 2 months (Business Owners), 3 months (Foundation/Specialist), to 6 months (Master in Digital Marketing) including a guaranteed 3-month practical industry internship."
     },
     {
-      question: "Is there an internship included in the digital marketing course at Institute of Digital Studies (IDS)?",
-      answer:
-        "Yes, we offer a 100% Internship as part of our 6-month Digital Marketing course to provide students with hands-on industry experience",
-    },
-   {
-      question: "What topics are covered in the Digital Marketing course in Noida?",
-      answer:
-        "Our Digital Marketing course covers SEO, SEM, Social Media Marketing (SMM), Content Marketing, Google Analytics, PPC, Email Marketing, Affiliate Marketing, and much more.",
+      question: "What is the difference between Master, Specialist, and Foundation courses at IDS?",
+      answer: "The Master Course (6 Months) covers 50+ modules including AI tools, performance marketing, and 10+ live projects with 100% internship. The Specialist Course (3 Months) focuses deeply on SEO, PPC, and SMM, while the Foundation course provides a swift entry-level overview."
     },
     {
-      question: "Are the digital marketing classes in Noida offered by Institute of Digital Studies (IDS) suitable for beginners?",
-      answer:
-        "Absolutely! Our Digital Marketing courses are designed to cater to both beginners and experienced professionals. We start with foundational concepts and gradually move to advanced strategies.",
+      question: "Is there a guaranteed internship included in the digital marketing course?",
+      answer: "Yes, all comprehensive programs at IDS include a verified 3-month industry internship where students manage live client campaigns and real ad budgets."
     },
     {
-      question: "Will I get certification after completing the digital marketing course?",
-      answer:
-        "Yes, Institute of Digital Studies (IDS) provides a certification upon completion of the course, which is recognized by industry leaders and enhances your credibility as a digital marketing professional.",
+      question: "What is the job placement success rate at IDS Noida?",
+      answer: "IDS maintains a 90%+ placement success rate, having placed over 2,000+ students across top digital agencies, tech startups, and MNCs in Delhi NCR with starting packages between ₹3.5 LPA and ₹8.5 LPA."
     },
     {
-      question: "How do I enroll in the Digital Marketing course at Institute of Digital Studies (IDS) in Noida?",
-      answer:
-        "You can enroll by visiting our website or contacting our admissions team for a free consultation. We'll guide you through the process and help you choose the right course based on your goals.",
+      question: "What digital marketing tools and AI software will I master?",
+      answer: "You will master Google Analytics 4, Google Search Console, Semrush, Meta Ads Manager, Google Ads (Search & PMax), Mailchimp, HubSpot CRM, Canva, ChatGPT prompt workflows, and conversion optimization tools."
     },
     {
-      question: "What is the fee structure for the Digital Marketing course at Institute of Digital Studies (IDS)?",
-      answer:
-        "The fee structure depends on the course type and duration. For detailed information, please visit our website or contact our team for the most accurate pricing details.",
+      question: "What is the fee structure and are there No-Cost EMI payment options?",
+      answer: "IDS offers pocket-friendly fee structures tailored to each course tier with flexible No-Cost EMI installment plans and special scholarships for college students."
     },
     {
-      question: "Do you offer 1:1 Digital Marketing classes in Noida?",
-      answer:
-        "Yes, Institute of Digital Studies (IDS) offers 1:1 Digital Marketing coaching for business owners and professionals who need personalized attention and tailored strategies to grow their businesses online.",
+      question: "Are the digital marketing classes suitable for beginners with no technical background?",
+      answer: "Absolutely! Over 70% of our students come from non-technical, arts, commerce, or non-marketing backgrounds. We start from foundational fundamentals and build up to advanced campaign execution."
+    },
+    {
+      question: "Can working professionals and entrepreneurs join weekend batches?",
+      answer: "Yes! We offer dedicated Saturday/Sunday weekend batches, late evening cohorts, and hybrid online/offline learning models designed specifically for working executives."
+    },
+    {
+      question: "Will I get recognized certifications after completing the course?",
+      answer: "Yes, you receive the verified IDS Master Certification along with global industry credentials from Google, Meta, HubSpot, and MSME Government of India."
     },
     {
       question: "Can I attend digital marketing classes online if I am unable to join the Noida campus?",
-      answer:
-        "Yes, we offer online digital marketing classes for students across the globe. Our virtual classes provide the same level of training, resources, and support as in-person classes in Noida.",
+      answer: "Yes! We offer interactive live online classes with screen sharing, real-time doubt solving, and full LMS recording access for students across India and globally."
     },
-    // {
-    //   question: "Do you provide recorded sessions?",
-    //   answer:
-    //     "Yes, every session is recorded and made available to students for future reference.",
-    // },
-    // {
-    //   question: "Will I get support if I miss a class?",
-    //   answer:
-    //     "Absolutely. You can attend a repeat session in another batch or watch the recorded session anytime.",
-    // },
-    // {
-    //   question: "How can I enroll in a course?",
-    //   answer:
-    //     "You can enroll directly through our website, visit our center, or speak to our admissions team at 📞 9315471293 or 📧 info@Institute of Digital Studies (IDS).com.",
-    // },
-    // {
-    //   question: "Can I customize a course as per my learning goals?",
-    //   answer:
-    //     "Yes. Our Professional & Business Owner course is fully customizable and designed as a 1-to-1 learning plan.",
-    // },
-    // {
-    //   question: "Do you provide real-time project exposure?",
-    //   answer:
-    //     "Yes. Every course involves live projects, case studies, and practical tools to ensure hands-on learning.",
-    // },
+    {
+      question: "Do you offer 1:1 Digital Marketing coaching for business owners?",
+      answer: "Yes, IDS offers customized 1:1 executive coaching for business owners, entrepreneurs, and freelancers looking to scale their online customer acquisition and lead generation funnels."
+    },
+    {
+      question: "What topics are covered in the digital marketing curriculum?",
+      answer: "The curriculum covers Search Engine Optimization (SEO), Pay-Per-Click (PPC & Google Ads), Social Media Marketing (SMM & Meta Ads), Content Strategy, Web Analytics (GA4), Marketing Automation, AI Marketing, and E-commerce Scaling."
+    },
+    {
+      question: "Where is the IDS physical campus located?",
+      answer: "Our flagship campus is located in Sector 62, Noida, easily accessible via the Noida Electronic City Metro Station (Blue Line)."
+    },
+    {
+      question: "What is the typical salary package for freshers after course completion?",
+      answer: "Freshers trained at IDS typically secure starting salary packages between ₹3.5 LPA and ₹5.5 LPA, while candidates with prior experience moving into growth roles secure packages up to ₹8.5+ LPA."
+    },
+    {
+      question: "How can I book a free demo session or speak with a career counselor?",
+      answer: "You can book a free live demo session directly through our website or contact our counseling desk to schedule a 1:1 career guidance consultation."
+    },
   ];
 
   return (

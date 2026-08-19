@@ -117,6 +117,61 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    // 9 City Landing Pages
+    {
+      url: `${baseUrl}/digital-marketing-course-in-noida`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/digital-marketing-course-in-dwarka`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/digital-marketing-course-in-gurugram`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/digital-marketing-course-in-kalkaji`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/digital-marketing-course-in-pitampura`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/digital-marketing-course-in-preet-vihar`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/digital-marketing-course-in-rajouri-garden`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/digital-marketing-course-in-south-extension`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/digital-marketing-course-in-south-campus`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
   ]
 
   // Fetch dynamic blog pages from API
@@ -135,12 +190,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
   } catch (error) {
     console.error('Error fetching blogs for sitemap:', error)
-    // Fallback: Add hardcoded blog slugs if API fails
+    // Fallback: Add all pillar blog slugs if API is unavailable during build
     const fallbackBlogSlugs = [
+      'how-to-learn-digital-marketing-complete-guide',
+      'digital-marketing-course-vs-bootcamp-comparison',
+      'seo-skills-every-digital-marketer-needs-in-2026',
+      'digital-marketing-salary-india-2026-by-role-location',
       'local-seo-checklist-how-to-get-your-business-on-google-maps-for-free',
       'what-is-quality-score-5-simple-ways-to-improve-it-in-google-ads',
       'how-to-use-negative-keywords-in-googleads-to-save-money',
-      // Add more as needed...
+      'beginners-guide-to-schema-markup-types-that-boost-visibility',
     ]
     
     blogPages = fallbackBlogSlugs.map(slug => ({
