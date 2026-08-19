@@ -253,6 +253,30 @@ const fallbackBlogDetails: Record<
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
     datePublished: "2025-05-15T09:00:00Z",
   },
+  "how-to-learn-digital-marketing-complete-guide": {
+    title: "How to Learn Digital Marketing: The Complete Step-by-Step Guide (2026)",
+    description: "Master digital marketing step-by-step in 2026. Learn SEO, Google Ads, Meta Ads, AI workflows, career roadmap, tools & high-paying job strategies.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    datePublished: "2025-05-20T09:00:00Z",
+  },
+  "digital-marketing-course-vs-bootcamp-comparison": {
+    title: "Digital Marketing Course vs. Bootcamp: Which One is Right for You in 2026?",
+    description: "Digital marketing course vs bootcamp: Compare costs, duration, curriculum, live projects & 100% placement support to choose the best career path in 2026.",
+    image: "https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=1200&q=80",
+    datePublished: "2025-05-25T09:00:00Z",
+  },
+  "seo-skills-every-digital-marketer-needs-in-2026": {
+    title: "Top 10 SEO Skills Every Digital Marketer Must Master in 2026",
+    description: "Master the top 10 SEO skills for 2026: AI search (GEO), technical SEO, Core Web Vitals, Schema markup, search intent & semantic keyword optimization.",
+    image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
+    datePublished: "2025-05-28T09:00:00Z",
+  },
+  "digital-marketing-salary-india-2026-by-role-location": {
+    title: "Digital Marketing Salary in India 2026: Roles, Locations & Experience Breakdown",
+    description: "Complete 2026 Digital Marketing Salary Guide in India: Compare fresher to executive salaries by role (SEO, PPC, SMM, Growth) and location (Delhi NCR, Bangalore).",
+    image: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1200&q=80",
+    datePublished: "2025-06-01T09:00:00Z",
+  },
 };
 
 async function getBlogData(slug: string) {

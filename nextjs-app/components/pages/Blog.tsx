@@ -527,6 +527,30 @@ const fallbackBlogs = [
     excerpt: "Improve retention with personalized content tailored to user behavior, preferences, and intent...",
     image: "./assets/blog80.png",
   },
+  {
+    slug: "how-to-learn-digital-marketing-complete-guide",
+    title: "How to Learn Digital Marketing: The Complete Step-by-Step Guide (2026)",
+    excerpt: "Master digital marketing step-by-step in 2026. Learn SEO, Google Ads, Meta Ads, AI workflows, career roadmap, tools & high-paying job strategies.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    slug: "digital-marketing-course-vs-bootcamp-comparison",
+    title: "Digital Marketing Course vs. Bootcamp: Which One is Right for You in 2026?",
+    excerpt: "Digital marketing course vs bootcamp: Compare costs, duration, curriculum, live projects & 100% placement support to choose the best career path.",
+    image: "https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    slug: "seo-skills-every-digital-marketer-needs-in-2026",
+    title: "Top 10 SEO Skills Every Digital Marketer Must Master in 2026",
+    excerpt: "Master the top 10 SEO skills for 2026: AI search (GEO), technical SEO, Core Web Vitals, Schema markup, search intent & semantic keyword optimization.",
+    image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    slug: "digital-marketing-salary-india-2026-by-role-location",
+    title: "Digital Marketing Salary in India 2026: Roles, Locations & Experience Breakdown",
+    excerpt: "Complete 2026 Digital Marketing Salary Guide in India: Compare fresher to executive salaries by role (SEO, PPC, SMM, Growth) and location.",
+    image: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1200&q=80",
+  },
 ];
 
 const Blog = () => {

@@ -209,12 +209,33 @@ function ImageCarousel() {
   );
 }
 
+import { cityData } from "@/lib/cityData";
+
+// ... existing code ...
 export default function CityPageTemplate({ city }: { city: string }) {
-  
-  const formattedCity = city
-  .split("-")
-  .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-  .join(" ");
+  const currentCity = cityData[city] || {
+    cityName: city
+      .split("-")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" "),
+    region: "Delhi NCR",
+    heroHighlight: "Join iDigitalStudies, one of the Best Digital Marketing Institutes with expert trainers and live projects.",
+    localizedIntro: `Upgrade your career with Institute of Digital Studies – the premier digital marketing training center serving students and professionals in ${city}.`,
+    commuteInfo: {
+      metroLine: "Direct Metro Connectivity",
+      travelTime: "Convenient Commute",
+      modeDescription: "Easily accessible with regular classroom and blended batches.",
+    },
+    localOpportunities: {
+      title: "Digital Marketing Career Opportunities",
+      description: "Access high-growth jobs, internships, and freelance projects across top Delhi NCR companies.",
+      topHiringAreas: ["Sector 62 IT Hub", "Cyber City", "South Delhi Commercial Centres"],
+    },
+    cityFaqs: [],
+  };
+
+  const formattedCity = currentCity.cityName;
+
 
   const [formData, setFormData] = useState({
     name: "",
@@ -313,9 +334,7 @@ export default function CityPageTemplate({ city }: { city: string }) {
 
           {/* ========= New Cockpit Description Added ========= */}
           <p className="relative text-base sm:text-lg md:text-xl lg:text-2xl max-w-5xl mx-auto text-gray-100 leading-relaxed font-medium opacity-95 px-4 mt-6">
-          Join iDigitalStudies is one of the Best Digital Marketing 
-          Institute in {formattedCity}. Learn SEO, Social Media, Google Ads & more with expert trainers and 
-          hands-on projects.
+            {currentCity.heroHighlight}
           </p>
         </div>
       </section>
@@ -336,24 +355,19 @@ export default function CityPageTemplate({ city }: { city: string }) {
                   </svg>
                 </div>
                 <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-2xl font-bold leading-tight text-black">
-                Digital Marketing Course For Transforming Your Career with
-                  <span className="block text-black">Modern AI Generation</span>
+                  Digital Marketing Course in {formattedCity}
+                  <span className="block text-black">({currentCity.region})</span>
                 </h1>
               </div>
             </div>
             <div className="space-y-3 text-left">
               <p className="text-base sm:text-lg md:text-xl text-black leading-relaxed font-medium">
-                Upgrade{" "}
-                <strong className="text-black">
-                  your career with Institute of Digital Studies,
-                </strong>{" "}
-                – the Best Digital Marketing Institute in {formattedCity}. Expert
-                mentors, live projects & 100% practical learning.
+                {currentCity.localizedIntro}
               </p>
-              <p className="text-sm sm:text-base md:text-lg text-black leading-relaxed">
-                Learn <strong>SEO, Social Media, Google Ads & more</strong> with
-                expert trainers and hands-on projects.
-              </p>
+              <div className="bg-red-50 border border-red-200 rounded-lg p-3 text-black text-sm">
+                <p className="font-bold text-red-700">🚇 Metro & Travel:</p>
+                <p>{currentCity.commuteInfo.metroLine} — {currentCity.commuteInfo.modeDescription}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -367,7 +381,7 @@ export default function CityPageTemplate({ city }: { city: string }) {
               Why Choose Institute of Digital Studies?
             </h2>
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">
-            Do you lack the skills you need to move ahead? Now, you can become a digital marketing specialist without leaving your job. Boost your career with the Delhi Institute of Digital Marketing. A place to learn digital marketing from Executive Level to Manager Level in all practical ways. The high demand for a digital marketing course is best suited for working professionals, job seekers, freelancers, students, and entrepreneurs
+            Do you lack the skills you need to move ahead? Now, you can become a digital marketing specialist without leaving your job. Boost your career with the Institute of Digital Studies. A place to learn digital marketing from Executive Level to Manager Level in all practical ways. The high demand for a digital marketing course is best suited for working professionals, job seekers, freelancers, students, and entrepreneurs
             </p>
           </div>
 
