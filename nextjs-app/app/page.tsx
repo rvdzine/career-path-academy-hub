@@ -1,9 +1,9 @@
 import Index from "@/components/pages/Index";
 
 export const metadata = {
-  title: "Digital Marketing Institute in Noida | Digital Marketing Course - iDigitalStudies",
+  title: "Digital Marketing Institute in Noida | iDigitalStudies",
   description:
-    "Join the best Digital Marketing Institute in Delhi NCR. iDigital Studies offers practical Digital Marketing courses like SEO, SMO, PPC with live projects, 100% placement, and expert training. Enroll today!",
+    "Learn Digital Marketing in Noida with iDigitalStudies. Get practical training in SEO, PPC, SMM and performance marketing with real-world projects.",
 };
 
 export default function Home() {

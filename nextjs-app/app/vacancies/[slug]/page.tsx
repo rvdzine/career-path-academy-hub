@@ -49,7 +49,7 @@ export default function VacancyDetailPage() {
         <Navbar />
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="text-3xl font-bold mb-4">Vacancy Not Found</h1>
-          <Link href="/placement">
+          <Link href="/jobs-and-placements">
             <Button>Back to Vacancies</Button>
           </Link>
         </div>
