@@ -37,7 +37,7 @@ const Footer = () => {
               <a href="https://www.linkedin.com/company/institute-of-digital-marketing-studies/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
                 <FaLinkedinIn />
               </a>
-              <a href="https://www.youtube.com/@instituteofdigitalstudies5567" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
+              <a href="https://www.youtube.com/@instituteofdigitalstudies" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-lg">
                 <FaYoutube />
               </a>
             </div>

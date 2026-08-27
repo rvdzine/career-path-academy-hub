@@ -48,6 +48,14 @@ const Contact = () => {
       });
 
       if (response.status === 201) {
+        // Track Lead event on Meta Pixel
+        if (typeof window !== "undefined" && (window as any).fbq) {
+          (window as any).fbq("track", "Lead", {
+            content_name: formData.course || "General Inquiry",
+            currency: "INR",
+          });
+        }
+
         showSuccess({
           title: "Thank You!",
           description: "Your details have been submitted successfully. We’ll contact you within 24 hours."

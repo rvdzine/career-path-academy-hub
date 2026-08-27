@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   title: "Digital Marketing Institute in Noida",
   description:
-    "Join the best Digital Marketing Institute in Delhi NCR. iDigital Studies offers practical Digital Marketing courses like SEO, SMO, PPC with live projects, 100% placement, and expert training. Enroll today!",
+    "Learn Digital Marketing in Noida with iDigitalStudies. Get practical training in SEO, PPC, SMM and performance marketing with real-world projects.",
   keywords: [
     "digital marketing classes",
     "digital marketing course",
@@ -54,6 +54,21 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-57WCQG8');
           `}
         </Script>
+        {/* Meta Pixel Script */}
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1486883099250043');
+            fbq('track', 'PageView');
+          `}
+        </Script>
       </head>
 
       <body>
@@ -64,6 +79,17 @@ export default function RootLayout({
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
+        {/* Meta Pixel Noscript */}
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1486883099250043&ev=PageView&noscript=1"
+            alt=""
           />
         </noscript>
 

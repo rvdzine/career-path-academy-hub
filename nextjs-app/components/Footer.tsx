@@ -100,7 +100,7 @@ const Footer = () => {
                 <FaLinkedinIn />
               </a>
               <a
-                href="https://www.youtube.com/@instituteofdigitalstudies5567"
+                href="https://www.youtube.com/@instituteofdigitalstudies"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors text-lg"
@@ -170,10 +170,10 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/placement"
+                  href="/jobs-and-placements"
                   className="hover:text-white transition-colors"
                 >
-                  Placement
+                  Jobs & Placements
                 </Link>
               </li>
               <li>

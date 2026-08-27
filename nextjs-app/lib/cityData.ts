@@ -292,4 +292,37 @@ export const cityData: Record<string, CityContent> = {
       },
     ],
   },
+  "delhi-ncr": {
+    slug: "digital-marketing-course-in-delhi-ncr",
+    cityName: "Delhi NCR",
+    region: "National Capital Region",
+    metaTitle: "Best Digital Marketing Course in Delhi NCR | 100% Placement - IDS",
+    metaDescription: "Join the top-rated Digital Marketing Course in Delhi NCR at IDS. Hands-on training in AI tools, SEO, Google Ads & Meta Ads with guaranteed 3-month internship.",
+    heroHighlight: "Ranked #1 Digital Marketing Institute across Delhi NCR with practical classroom labs, real ad spend campaigns, and 100% placement support.",
+    localizedIntro: "Institute of Digital Studies (IDS) is Delhi NCR's most trusted training institute for practical, AI-integrated digital marketing. Catering to students, job seekers, and working professionals across Delhi, Noida, and Gurugram, our comprehensive curriculum equips you with high-income skills across SEO, Performance Marketing, Social Media Strategy, and Analytics.",
+    commuteInfo: {
+      metroLine: "Direct Blue Line, Pink Line & Magenta Line connectivity",
+      travelTime: "20-40 mins from major NCR stations",
+      modeDescription: "Centrally located campus in Sector 62, Noida with seamless metro accessibility across Delhi NCR.",
+    },
+    localOpportunities: {
+      title: "Delhi NCR's Booming Digital Marketing Economy",
+      description: "Delhi NCR is India's leading corporate and startup capital with over 15,000+ active digital marketing openings. IDS connects students directly with 50+ recruiting partners.",
+      topHiringAreas: ["Noida Sector 62 & 135", "Gurugram Cyber Hub", "South Delhi Media Agencies", "Connaught Place Corporate HQs"],
+    },
+    cityFaqs: [
+      {
+        question: "Why is IDS rated the best digital marketing institute in Delhi NCR?",
+        answer: "IDS combines 50+ practical modules with real ad budgets, 10+ live client projects, guaranteed 3-month agency internships, and personalized 1:1 mentor coaching.",
+      },
+      {
+        question: "What is the average starting salary for freshers in Delhi NCR after completing this course?",
+        answer: "Our graduates in Delhi NCR secure starting salary packages between ₹3.5 LPA and ₹8.5 LPA depending on specialization and portfolio strength.",
+      },
+      {
+        question: "Are both offline and live online training modes available across Delhi NCR?",
+        answer: "Yes, we offer hands-on offline classroom batches at our Noida Sector 62 campus as well as live interactive online weekend and weekday batches for students across Delhi NCR.",
+      },
+    ],
+  },
 };

@@ -64,12 +64,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/placement`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/jobs-and-placements`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
@@ -117,7 +111,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
-    // 9 City Landing Pages
+    // City Landing Pages (Delhi NCR Hubs)
+    {
+      url: `${baseUrl}/digital-marketing-course-in-delhi-ncr`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
     {
       url: `${baseUrl}/digital-marketing-course-in-noida`,
       lastModified: new Date(),
