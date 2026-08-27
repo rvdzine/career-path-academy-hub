@@ -91,7 +91,7 @@ const DEFAULT_SOCIAL_LINKS = [
   'https://www.facebook.com/instituteofdigitalstudies/',
   'https://www.instagram.com/instituteofdigitalstudies/',
   'https://www.linkedin.com/company/institute-of-digital-marketing-studies/',
-  'https://www.youtube.com/@instituteofdigitalstudies5567',
+  'https://www.youtube.com/@instituteofdigitalstudies',
 ];
 
 /**

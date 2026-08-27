@@ -100,7 +100,7 @@ const Footer = () => {
                 <FaLinkedinIn />
               </a>
               <a
-                href="https://www.youtube.com/@instituteofdigitalstudies5567"
+                href="https://www.youtube.com/@instituteofdigitalstudies"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors text-lg"
