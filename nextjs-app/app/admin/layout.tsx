@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import AdminNavbar from "@/components/admin/AdminNavbar";
 
 export const metadata: Metadata = {
   robots: {
@@ -12,5 +13,10 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <AdminNavbar />
+      <div className="flex-1">{children}</div>
+    </div>
+  );
 }

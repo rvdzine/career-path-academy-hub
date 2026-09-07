@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
 import { authApi } from "@/lib/api";
 
 export default function AdminLoginPage() {
@@ -18,7 +20,7 @@ export default function AdminLoginPage() {
 
     try {
       await authApi.login(username, password);
-      router.push("/admin/blogs");
+      router.push("/admin");
     } catch (err: any) {
       console.error("Login error:", err);
       setError(err.response?.data?.detail || "Invalid username or password");
@@ -29,24 +31,36 @@ export default function AdminLoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          IDS Admin Login
+      <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
+        <div className="flex flex-col items-center">
+          <Link href="/" className="mb-4">
+            <Image
+              src="/IDS_LOGO.svg"
+              width={160}
+              height={50}
+              alt="Institute of Digital Studies Logo"
+              priority
+              className="h-12 w-auto"
+            />
+          </Link>
+          <h2 className="text-center text-2xl font-bold text-gray-900">
+            Admin Portal Login
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
-          Institute Of Digital Marketing Management Space
+          <p className="mt-1 text-center text-xs text-gray-500">
+            Institute Of Digital Studies Management Space
           </p>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleLogin}>
+
+        <form className="mt-6 space-y-5" onSubmit={handleLogin}>
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
               {error}
             </div>
           )}
-          <div className="rounded-md shadow-sm -space-y-px">
+
+          <div className="space-y-4">
             <div>
-              <label htmlFor="username" className="sr-only">
+              <label htmlFor="username" className="block text-xs font-semibold text-gray-700 mb-1">
                 Username
               </label>
               <input
@@ -54,14 +68,15 @@ export default function AdminLoginPage() {
                 name="username"
                 type="text"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-[#EA2525] focus:border-[#EA2525] focus:z-10 sm:text-sm"
-                placeholder="Username"
+                className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#EA2525] focus:border-transparent text-sm transition"
+                placeholder="admin"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
+
             <div>
-              <label htmlFor="password" className="sr-only">
+              <label htmlFor="password" className="block text-xs font-semibold text-gray-700 mb-1">
                 Password
               </label>
               <input
@@ -69,8 +84,8 @@ export default function AdminLoginPage() {
                 name="password"
                 type="password"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-[#EA2525] focus:border-[#EA2525] focus:z-10 sm:text-sm"
-                placeholder="Password"
+                className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#EA2525] focus:border-transparent text-sm transition"
+                placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -81,10 +96,16 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#EA2525] hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#EA2525] disabled:opacity-50"
+              className="w-full flex justify-center py-2.5 px-4 border border-transparent text-sm font-semibold rounded-lg text-white bg-[#EA2525] hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#EA2525] disabled:opacity-50 transition shadow-sm shadow-red-200"
             >
-              {loading ? "Logging in..." : "Sign in"}
+              {loading ? "Signing in..." : "Sign In to Dashboard"}
             </button>
+          </div>
+
+          <div className="text-center">
+            <Link href="/" className="text-xs text-gray-500 hover:text-gray-800">
+              ← Return to public website
+            </Link>
           </div>
         </form>
       </div>
