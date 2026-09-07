@@ -1,169 +1,70 @@
 "use client";
+
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
+import axios from "axios";
+import { PlacedStudent } from "@/types/placed-student";
+import { getMediaUrl } from "@/lib/api";
 
-interface Student {
-  name: string;
-  role: string;
-  company: string;
-  package: string;
-  image: any;
-  location: string;
-  quote: string;
-  logo: string;
-}
+const getCompanyLogo = (companyName?: string, dbLogo?: string | null): string => {
+  if (dbLogo && dbLogo.trim()) return dbLogo;
+  const lower = (companyName || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  const map: Record<string, string> = {
+    salesforce: "/svg/Salesforce.svg",
+    meesho: "/svg/Meesho.svg",
+    dream11: "/svg/Dream11.svg",
+    zomato: "/svg/Zomato.svg",
+    razorpay: "/svg/razorpay.svg",
+    medianet: "/svg/medianet.svg",
+    testbook: "/svg/testbook.svg",
+    nykaa: "/svg/Nykaa.svg",
+    flipkart: "/svg/Flipkart.svg",
+    tcs: "/svg/TCS.svg",
+    paytm: "/svg/Paytm.svg",
+    myntra: "/svg/Myntra.svg",
+    urbancompany: "/svg/Urbancompany.svg",
+    infosys: "/svg/infosys.svg",
+    techmahindra: "/svg/techmahindra.svg",
+    unilever: "/svg/unilever.svg",
+  };
 
-const dummyStudents: Student[] = [
-  {
-    name: "Daryl Fernandes",
-    role: "Digital Marketing Specialist",
-    company: "Salesforce",
-    package: "₹8 LPA",
-    image: "/assets/daryl.jpg",
-    location: "Noida, India",
-    quote:
-      "Amazing mentors and real-world campaigns helped me land my first digital marketing role.",
-    logo: "/svg/Salesforce.svg",
-  },
-  {
-    name: "Sunny Singh",
-    role: "Social Media Manager",
-    company: "Meesho",
-    package: "₹7.5 LPA",
-    image: "/assets/Sunny.jpg", 
-    location: "Gurgaon, India",
-    quote:
-      "Built creative campaigns, portfolio & strategy cracked my dream social media job!",
-    logo: "/svg/Meesho.svg",
-  },
-  {
-  name: "Praneel Sharma",
-  role: "Digital Marketing Analyst",
-  company: "Dream11",
-  package: "₹9 LPA",
-  image: "/assets/Praneel.jpg",
-  location: "Hyderabad, India",
-  quote:
-    "From zero industry exposure to expert in GA4, dashboards & campaign analysis ,shaped my digital journey.",
-  logo: "/svg/Dream11.svg",
-},
-{
-  name: "Rakesh Kumar",
-  role: "Performance Marketing Specialist",
-  company: "Zomato",
-  package: "₹8.2 LPA",
-  image: "/assets/rakesh.jpg",
-  location: "Bengaluru, India",
-  quote:
-    "Mastered Meta + Google ads and funnel optimization ,now running high-ROI campaigns at Zomato!",
-  logo: "/svg/Zomato.svg",
-},
-{
-  name: "Arjun Yadav",
-  role: "Growth Marketing Manager",
-  company: "Razorpay",
-  package: "₹9.2 LPA",
-  image: "/assets/vicky.jpg",
-  location: "Bengaluru, India",
-  quote:
-    "Growth hacking, CRO & analytics helped me crack Razorpay — this program was a game changer!",
-  logo: "/svg/razorpay.svg",
-},
-{
-  name: "Vishal Kumar",
-  role: "SEO Specialist",
-  company: "Medianet",
-  package: "₹7 LPA",
-  image: "/assets/vishal.jpg",
-  location: "Mumbai, India",
-  quote:
-    "Learnt SEO, keyword research, and content strategy — landing at Groww feels surreal!",
-  logo: "/svg/medianet.svg",
-},
-{
-  name: "Bhumi Gupta",
-  role: "Marketing Automation Specialist",
-  company: "Razorpay",
-  package: "₹9.2 LPA",
-  image: "/assets/Bhumi.jpg",
-  location: "Pune, India",
-  quote:
-    "Automation skills here helped me power campaigns at Razorpay.",
-  logo: "/svg/razorpay.svg",
-},
-{
-  name: "Divya Chaudhary",
-  role: "Social Media & Brand Strategist",
-  company: "Testbook",
-  package: "₹10 LPA",
-  image: "/assets/Divya.png",
-  location: "Hyderabad, India",
-  quote:
-    "Content strategy training shaped me into a stronger brand storyteller.",
-  logo: "/svg/testbook.svg",
-},
+  for (const [key, path] of Object.entries(map)) {
+    if (lower.includes(key)) return path;
+  }
+  return "/assets/IDS.png";
+};
 
-  {
-    name: "Isha Verma",
-    role: "Digital Marketing Specialist",
-    company: "Nykaa",
-    package: "₹12 LPA",
-    image: "/assets/Isha Verma.jpeg",
-    location: "Pune, India",
-    quote:
-     " Real projects prepared me to run high-performing campaigns at Nykaa.",
-    logo: "/svg/Nykaa.svg",
-  },
-  {
-    name: "Abhiram Iyer",
-    role: "Product Marketing Associate",
-    company: "Flipkart",
-    package: "₹11 LPA",
-    image: "/assets/Abhiram.png",
-    location: "Bengaluru, India",
-    quote:
-      "Hands-on projects + interview prep = my ticket to Flipkart. Truly life-changing!",
-    logo: "/svg/Flipkart.svg",
-  },
-  {
-    name: "Mohit Kumar",
-    role: "SEO & Analytics Executive",
-    company: "TCS",
-    package: "₹7.2 LPA",
-    image: "/assets/Mohit.jpg",
-    location: "Mumbai, India",
-    quote:
-      "The mentorship and mock interviews were game-changing. Got placed in TCS within 3 months.",
-    logo: "/svg/TCS.svg",
-  },
-  {
-    name: "Loveleen Sharma",
-    role: "Social Media Marketing Manager",
-    company: "Paytm",
-    package: "₹15 LPA",
-    image: "/assets/Loveleen.jpg",
-    location: "Bengaluru, India",
-    quote:
-      "This journey strengthened my skills to lead social media at Paytm.",
-    logo: "/svg/Paytm.svg",
-  },
-  {
-    name: "Priya Kumari",
-    role: "Content Marketing Executive",
-    company: "Myntra",
-    package: "₹6.5 LPA",
-    image: "/assets/Priya.jpg",
-    location: "Gurgaon, India",
-    quote:
-      "Hands-on content training helped me create impactful fashion content.",
-    logo: "/svg/Myntra.svg",
-  },
-];
+const resolveStudentImage = (imagePath?: string): string => {
+  if (!imagePath) return "/placeholder-avatar.svg";
+  if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) return imagePath;
+  if (imagePath.startsWith("/assets/") || imagePath.startsWith("/svg/")) return imagePath;
+  return getMediaUrl(imagePath);
+};
 
 const PlacedStudentsCarousel = () => {
+  const [students, setStudents] = useState<PlacedStudent[]>([]);
+  const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(3);
+
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL?.replace(/\/api$/, "") || "http://localhost:8000";
+
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get(`${API_BASE_URL}/api/placed-students/`);
+        setStudents(response.data || []);
+      } catch (error) {
+        console.error("Failed to fetch placed students from database:", error);
+        setStudents([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchStudents();
+  }, [API_BASE_URL]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -177,121 +78,160 @@ const PlacedStudentsCarousel = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const maxIndex = Math.max(0, dummyStudents.length - visibleCount);
+  const maxIndex = Math.max(0, students.length - visibleCount);
   const nextSlide = () => setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   const prevSlide = () => setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
 
   useEffect(() => {
+    if (students.length <= visibleCount) return;
     const interval = setInterval(nextSlide, 4000);
     return () => clearInterval(interval);
-  }, [maxIndex]);
+  }, [maxIndex, visibleCount, students.length]);
 
   const translateX = -(currentIndex * (100 / visibleCount));
 
   return (
-    <>
-      <section className="w-full bg-[#FFF9F9] py-20">
-        <div className="text-center mb-8">
-          <span className="bg-[#EA2525] text-white px-5 py-1 rounded-full font-medium">
-            Success Stories
-          </span>
-          <h2 className="text-3xl font-bold text-black mt-4 max-w-3xl mx-auto">
-            Our alumni are working in top organizations such as Google, Meta,
-            Zomato, Meesho, Flipkart, TCS, and more.
-          </h2>
-        </div>
+    <section className="w-full bg-[#FFF9F9] py-20">
+      <div className="text-center mb-8">
+        <span className="bg-[#EA2525] text-white px-5 py-1 rounded-full font-medium">
+          Success Stories
+        </span>
+        <h2 className="text-3xl font-bold text-black mt-4 max-w-3xl mx-auto">
+          Our alumni are working in top organizations such as Google, Meta,
+          Zomato, Meesho, Flipkart, TCS, and more.
+        </h2>
+      </div>
 
-        <div className="relative px-4 md:px-8 lg:px-16">
-          <div className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(${translateX}%)` }}
-            >
-              {dummyStudents.map((student, index) => (
-                <div key={index} className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-3">
-                  <div className="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 p-6 flex flex-col md:flex-row items-center justify-between h-full">
-                    <div className="flex-1 pr-6">
-                      <div className="flex items-center gap-3 mb-3 -mt-2">
-                        {/* ✅ Uniform Company Logo Box */}
-                        <div className="w-11 h-11 flex items-center justify-center rounded-full bg-white border shadow-sm overflow-hidden">
+      <div className="relative px-4 md:px-8 lg:px-16">
+        {loading ? (
+          <div className="flex flex-col items-center justify-center py-20 space-y-4">
+            <Loader2 className="w-8 h-8 animate-spin text-[#EA2525]" />
+            <p className="text-sm text-gray-500">Loading student stories...</p>
+          </div>
+        ) : students.length === 0 ? (
+          <div className="text-center py-16 text-gray-500">
+            No placed students found.
+          </div>
+        ) : (
+          <>
+            <div className="overflow-hidden">
+              <div
+                className="flex transition-transform duration-500 ease-out"
+                style={{ transform: `translateX(${translateX}%)` }}
+              >
+                {students.map((student) => {
+                  const companyLogo = getCompanyLogo(student.company_name, student.company_logo);
+                  const studentImg = resolveStudentImage(student.student_image_url || (student as any).student_image);
+
+                  return (
+                    <div
+                      key={student.id || student.student_id}
+                      className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-3"
+                    >
+                      <div className="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 p-6 flex flex-col md:flex-row items-center justify-between h-full">
+                        <div className="flex-1 pr-0 md:pr-6">
+                          <div className="flex items-center gap-3 mb-3 -mt-2">
+                            {/* Uniform Company Logo Box */}
+                            <div className="w-11 h-11 flex items-center justify-center rounded-full bg-white border shadow-sm overflow-hidden flex-shrink-0">
+                              <Image
+                                src={companyLogo}
+                                alt={`${student.company_name} logo`}
+                                width={35}
+                                height={35}
+                                className="object-contain"
+                                unoptimized
+                              />
+                            </div>
+
+                            <div className="-mt-[2px]">
+                              <h3 className="font-semibold text-gray-900 text-base">
+                                {student.student_name}
+                              </h3>
+                              <p className="text-sm text-gray-500">
+                                {student.student_role} at {student.company_name}
+                              </p>
+                            </div>
+                          </div>
+
+                          <hr className="my-3 border-gray-200" />
+
+                          {student.student_bio && (
+                            <p className="text-gray-600 text-sm italic leading-relaxed mb-5 line-clamp-3">
+                              “{student.student_bio}”
+                            </p>
+                          )}
+
+                          <div className="flex gap-3 flex-wrap">
+                            {student.package && (
+                              <span className="bg-[#FFEFEF] text-[#EA2525] text-sm px-3 py-1 rounded-full font-medium">
+                                {student.package}
+                              </span>
+                            )}
+                            {student.location && (
+                              <span className="bg-[#FFEFEF] text-[#EA2525] text-sm px-3 py-1 rounded-full font-medium">
+                                {student.location}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+
+                        <div className="w-full md:w-28 md:h-52 h-64 rounded-xl overflow-hidden border border-gray-100 relative mt-4 md:mt-0 flex-shrink-0">
                           <Image
-                            src={student.logo}
-                            alt={`${student.company} logo`}
-                            width={35}
-                            height={35}
-                            className="object-contain "
+                            src={studentImg}
+                            alt={student.student_name}
+                            fill
+                            loading="lazy"
+                            sizes="(max-width: 768px) 100vw, 120px"
+                            className="object-cover"
+                            unoptimized
                           />
                         </div>
-
-                        <div className="-mt-[2px]">
-                          <h3 className="font-semibold text-gray-900 text-base">{student.name}</h3>
-                          <p className="text-sm text-gray-500">
-                            {student.role} at {student.company}
-                          </p>
-                        </div>
-                      </div>
-
-                      <hr className="my-3 border-gray-200" />
-
-                      <p className="text-gray-600 text-sm italic leading-relaxed mb-5">
-                        “{student.quote}”
-                      </p>
-
-                      <div className="flex gap-3 flex-wrap">
-                        <span className="bg-[#FFEFEF] text-[#EA2525] text-sm px-3 py-1 rounded-full font-medium">
-                          {student.package}
-                        </span>
-                        <span className="bg-[#FFEFEF] text-[#EA2525] text-sm px-3 py-1 rounded-full font-medium">
-                          {student.location}
-                        </span>
                       </div>
                     </div>
-
-                    <div className="w-full md:w-28 md:h-52 h-64 rounded-xl overflow-hidden border border-gray-100 relative mt-4 md:mt-0">
-                      <Image
-                        src={student.image}
-                        alt={student.name}
-                        fill
-                        loading="lazy"
-                        sizes="(max-width: 768px) 100vw, 120px"
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
+                  );
+                })}
+              </div>
             </div>
-          </div>
 
-          {/* Arrows */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow border hover:border-[#EA2525]"
-          >
-            <ChevronLeft size={22} />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow border hover:border-[#EA2525]"
-          >
-            <ChevronRight size={22} />
-          </button>
+            {/* Arrows */}
+            {students.length > visibleCount && (
+              <>
+                <button
+                  onClick={prevSlide}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow border hover:border-[#EA2525] transition"
+                  aria-label="Previous Slide"
+                >
+                  <ChevronLeft size={22} />
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow border hover:border-[#EA2525] transition"
+                  aria-label="Next Slide"
+                >
+                  <ChevronRight size={22} />
+                </button>
+              </>
+            )}
 
-          {/* Dots */}
-          <div className="flex justify-center mt-8 gap-2">
-            {Array.from({ length: maxIndex + 1 }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex ? "bg-[#EA2525]" : "bg-gray-300 hover:bg-gray-400"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
+            {/* Dots */}
+            {maxIndex > 0 && (
+              <div className="flex justify-center mt-8 gap-2">
+                {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    aria-label={`Go to slide ${index + 1}`}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      index === currentIndex ? "bg-[#EA2525]" : "bg-gray-300 hover:bg-gray-400"
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
+          </>
+        )}
+      </div>
+    </section>
   );
 };
 
