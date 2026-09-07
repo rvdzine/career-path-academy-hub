@@ -16,6 +16,9 @@ class PlacedStudent(Base):
     
     student_bio = Column(Text, nullable=True)
     certificate = Column(String(500), nullable=True)  # path/URL to certificate file
+    package = Column(String(50), nullable=True)  # e.g. '₹12 LPA'
+    location = Column(String(100), nullable=True)  # e.g. 'Bengaluru, India'
+    company_logo = Column(String(500), nullable=True)  # e.g. '/svg/Flipkart.svg'
     is_active = Column(Boolean, default=True)
     
     created_at = Column(DateTime(timezone=True), server_default=func.now())

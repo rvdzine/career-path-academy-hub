@@ -11,6 +11,9 @@ class VacancyListItem(BaseModel):
     job_type: str
     stipend: str
     status: str
+    job_description_header: Optional[str] = None
+    job_description_body: Optional[str] = None
+    job_description_file: Optional[str] = None
     views_count: int
     applications_count: int
     created_at: Optional[datetime] = None

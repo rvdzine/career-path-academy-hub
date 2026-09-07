@@ -14,6 +14,9 @@ class PlacedStudentItem(BaseModel):
     student_bio: Optional[str] = None
     certificate: Optional[str] = None
     certificate_url: Optional[str] = None
+    package: Optional[str] = None
+    location: Optional[str] = None
+    company_logo: Optional[str] = None
     is_active: bool
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
