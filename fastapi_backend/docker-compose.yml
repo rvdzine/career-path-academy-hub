@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ids_fastapi_backend
+    restart: unless-stopped
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    env_file:
+      - .env
+    environment:
+      - PORT=8000
+      - WORKERS=2
+    volumes:
+      # Persistent storage for uploaded media (if not using Cloudinary)
+      - ./media:/app/fastapi_backend/media
