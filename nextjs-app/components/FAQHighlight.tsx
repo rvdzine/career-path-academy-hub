@@ -1,107 +1,144 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
+"use client";
+
 import Link from "next/link";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ArrowRight } from "lucide-react";
+
+const faqs = [
+  {
+    id: "faq-1",
+    question: "What is the duration of digital marketing courses at IDS?",
+    answer:
+      "Course duration ranges from 3 months for specialized tracks (SEO, PPC) to 6 months for the Master program, which includes an intensive agency internship and real live client campaigns.",
+  },
+  {
+    id: "faq-2",
+    question: "Is a guaranteed agency internship included in the program?",
+    answer:
+      "Yes, our 6-month flagship Master program includes a 100% agency-based internship where you work on live ad budgets, client deliverables, and portfolio-ready performance campaigns.",
+  },
+  {
+    id: "faq-3",
+    question: "Are classes suitable for complete beginners with non-tech backgrounds?",
+    answer:
+      "Absolutely. Our curriculum starts from fundamental marketing logic and progresses systematically to advanced technical strategies. No coding or prior marketing experience is required.",
+  },
+  {
+    id: "faq-4",
+    question: "Will I receive recognized certifications upon completion?",
+    answer:
+      "Yes, graduates receive ISO 9001:2015 and Govt. recognized MSME / Skill India certifications, alongside industry credentials from Google Ads, Meta Blueprint, and HubSpot.",
+  },
+  {
+    id: "faq-5",
+    question: "What is the fee structure and do you offer EMI options?",
+    answer:
+      "Fees vary by track. We offer flexible zero-cost monthly EMI payment plans, corporate sponsorships, and merit scholarships of up to 40% for qualifying applicants.",
+  },
+  {
+    id: "faq-6",
+    question: "Can I attend classes online if I cannot visit the Noida campus?",
+    answer:
+      "Yes, we conduct live interactive virtual cohorts with real-time screen sharing, interactive doubt resolution, and lifetime access to recorded lecture archives.",
+  },
+];
 
 const FAQHighlight = () => {
-  const faqs = [
-    {
-      question: "What makes Institute of Digital Studies (IDS) the best digital marketing institute in Noida?",
-      answer:
-        "Institute of Digital Studies (IDS) is known for its industry-relevant curriculum, expert trainers, hands-on experience, and personalized attention. We ensure our students gain practical knowledge that is directly applicable to real-world digital marketing challenges.",
-    },
-    {
-      question: "What is the duration of the Digital Marketing course in Noida at Institute of Digital Studies (IDS)?",
-      answer:
-        "The duration of our Digital Marketing course ranges from 3 months for specialized programs to 6 months for comprehensive courses, including internships and practical training.",
-    },
-    {
-      question: "Is there an internship included in the digital marketing course at Institute of Digital Studies (IDS)?",
-      answer:
-        "Yes, we offer a 100% Internship as part of our 6-month Digital Marketing course to provide students with hands-on industry experience.",
-    },
-    {
-      question: "What topics are covered in the Digital Marketing course in Noida?",
-      answer:
-        "Our Digital Marketing course covers SEO, SEM, Social Media Marketing (SMM), Content Marketing, Google Analytics, PPC, Email Marketing, Affiliate Marketing, and much more.",
-    },
-    {
-      question: "Are the digital marketing classes in Noida offered by Institute of Digital Studies (IDS) suitable for beginners?",
-      answer:
-        "Absolutely! Our Digital Marketing courses are designed to cater to both beginners and experienced professionals. We start with foundational concepts and gradually move to advanced strategies.",
-    },
-    {
-      question: "Will I get certification after completing the digital marketing course?",
-      answer:
-        "Yes, Institute of Digital Studies (IDS) provides a certification upon completion of the course, which is recognized by industry leaders and enhances your credibility as a digital marketing professional.",
-    },
-    {
-      question: "How do I enroll in the Digital Marketing course at Institute of Digital Studies (IDS) in Noida?",
-      answer:
-        "You can enroll by visiting our website or contacting our admissions team for a free consultation. We'll guide you through the process and help you choose the right course based on your goals.",
-    },
-     {
-      question: "What is the fee structure for the Digital Marketing course at Institute of Digital Studies (IDS)?",
-      answer:
-        "The fee structure depends on the course type and duration. For detailed information, please visit our website or contact our team for the most accurate pricing details.",
-    },
-    {
-      question:  "Do you offer 1:1 Digital Marketing classes in Noida?",
-      answer:
-        "Yes, Institute of Digital Studies (IDS) offers 1:1 Digital Marketing coaching for business owners and professionals who need personalized attention and tailored strategies to grow their businesses online.",
-    },
-    {
-      question: "Can I attend digital marketing classes online if I am unable to join the Noida campus?",
-      answer:
-        "Yes, we offer online digital marketing classes for students across the globe. Our virtual classes provide the same level of training, resources, and support as in-person classes in Noida.",
-    },
-  ];
+  // Split faqs evenly into two columns for desktop
+  const col1 = faqs.slice(0, 3);
+  const col2 = faqs.slice(3, 6);
 
   return (
-    <section className="bg-white-50 py-8">
-      <div className="container mx-auto px-4">
-        {/* Title */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Frequently Asked Questions
+    <section className="relative w-full bg-white py-12 sm:py-16 lg:py-20 border-t border-gray-100 overflow-hidden">
+      {/* Subtle ambient red dot grid */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 opacity-40"
+        style={{
+          backgroundImage: "radial-gradient(circle, #EA252514 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      />
+
+      <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10">
+        {/* Concise Header */}
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <span className="block w-8 h-[2.5px] bg-red-600 rounded-full" />
+            <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-red-600">
+              Common Inquiries // Clear Answers
+            </span>
+            <span className="block w-8 h-[2.5px] bg-red-600 rounded-full" />
+          </div>
+
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-950 tracking-tight leading-tight">
+            Frequently Asked <span className="text-red-600">Questions</span>
           </h2>
-          <p className="text-lg text-gray-600">
-            Quick answers to what students usually ask
+
+          <p className="mt-2 text-xs sm:text-sm text-gray-600 font-normal leading-relaxed">
+            Quick, transparent answers to the questions prospective students ask us most.
           </p>
         </div>
 
-        {/* Single Column FAQ List */}
-        <div className="space-y-4 max-w-3xl mx-auto">
-          {faqs.map((faq, index) => (
-            <Accordion
-              key={index}
-              type="multiple" // allows independent expand/collapse
-              className="w-full"
-            >
-              <AccordionItem
-                value={`item-${index}`}
-                className="border border-gray-300 rounded-lg transition-all duration-300 hover:border-red-500 data-[state=open]:border-red-500"
-              >
-                <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
-                  <span className="font-semibold text-gray-900">{faq.question}</span>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4 text-gray-600">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          ))}
+        {/* 2-Column Concise FAQ Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4 max-w-5xl mx-auto">
+          {/* Column 1 */}
+          <div className="space-y-3.5">
+            {col1.map((faq) => (
+              <Accordion key={faq.id} type="multiple" className="w-full">
+                <AccordionItem
+                  value={faq.id}
+                  className="bg-white border border-gray-200/90 rounded-2xl hover:border-red-600/40 data-[state=open]:border-red-600/60 transition-all duration-200 shadow-xs hover:shadow-sm overflow-hidden"
+                >
+                  <AccordionTrigger className="px-5 py-3.5 text-left hover:no-underline font-bold text-xs sm:text-sm text-gray-950 hover:text-red-600 data-[state=open]:text-red-600 transition-colors">
+                    <span>{faq.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-5 pb-4 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed font-normal border-t border-gray-100/80 mt-1">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            ))}
+          </div>
+
+          {/* Column 2 */}
+          <div className="space-y-3.5">
+            {col2.map((faq) => (
+              <Accordion key={faq.id} type="multiple" className="w-full">
+                <AccordionItem
+                  value={faq.id}
+                  className="bg-white border border-gray-200/90 rounded-2xl hover:border-red-600/40 data-[state=open]:border-red-600/60 transition-all duration-200 shadow-xs hover:shadow-sm overflow-hidden"
+                >
+                  <AccordionTrigger className="px-5 py-3.5 text-left hover:no-underline font-bold text-xs sm:text-sm text-gray-950 hover:text-red-600 data-[state=open]:text-red-600 transition-colors">
+                    <span>{faq.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-5 pb-4 pt-1 text-xs sm:text-sm text-gray-600 leading-relaxed font-normal border-t border-gray-100/80 mt-1">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            ))}
+          </div>
         </div>
 
-        {/* Button */}
-        <div className="flex justify-center mt-10">
-          <Link href="/faq">
-            <Button className="bg-[#EA2525] hover:bg-red-600 px-8 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg focus:ring-2 focus:ring-[#EA2525]/50">
-              View More
-            </Button>
+        {/* View All Action */}
+        <div className="flex justify-center mt-8 sm:mt-10">
+          <Link
+            href="/faq"
+            className="inline-flex items-center justify-center gap-2.5 bg-red-600 hover:bg-gray-950 text-white font-black text-xs uppercase tracking-widest py-3.5 px-8 transition-all duration-200 shadow-md shadow-red-600/15 active:scale-95"
+            style={{
+              clipPath:
+                "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px))",
+            }}
+          >
+            <span>View All FAQs</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>
     </section>
   );
 };
+
 export default FAQHighlight;
+

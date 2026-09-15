@@ -38,90 +38,98 @@ const rows: Tool[][] = Array.from({ length: ROWS }, (_, i) =>
 
 const ToolsYouWillMaster: React.FC = () => {
   return (
-    <section className="relative py-12 sm:py-16 lg:py-20 bg-white overflow-hidden">
-      {/* Grid Background */}
+    <section className="relative py-16 sm:py-20 lg:py-24 bg-white overflow-hidden border-t border-gray-100">
+      {/* Background subtle ambient red dot grid */}
       <div
-        className="absolute inset-0 z-0 pointer-events-none"
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 opacity-40"
         style={{
-          backgroundImage: `
-            linear-gradient(#EA252512 1px, transparent 1px),
-            linear-gradient(to right, #EA252512 1px, transparent 1px)
-          `,
-          backgroundSize: "44px 44px",
-          maskImage: "linear-gradient(to right, white 60%, transparent 100%)",
-          WebkitMaskImage:
-            "linear-gradient(to right, white 60%, transparent 100%)",
+          backgroundImage:
+            "radial-gradient(circle, #EA252514 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
         }}
       />
 
-      {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10">
-        {/* Heading */}
-        <div className="text-center mb-10 sm:mb-14 max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-            Tools you’ll Master
+        {/* Section Heading */}
+        <div className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto">
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <span className="block w-8 h-[2.5px] bg-red-600 rounded-full" />
+            <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-red-600">
+              Industry Tech Stack // 30+ Tools
+            </span>
+            <span className="block w-8 h-[2.5px] bg-red-600 rounded-full" />
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 tracking-tight leading-[1.1] mb-3">
+            Tools You’ll <span className="text-red-600">Master</span>
           </h2>
-          <p className="mt-4 text-gray-600 text-sm sm:text-base">
-            Digital marketing relies on a wide variety of tools to manage
-            campaigns, analyze performance, create content, and engage with
-            audiences.
+
+          <p className="text-gray-600 text-sm sm:text-base font-normal max-w-2xl mx-auto leading-relaxed">
+            Gain hands-on proficiency in the world&apos;s leading marketing suites, analytics platforms, and AI automation tools.
           </p>
         </div>
 
-        {/* Auto Moving Rows */}
-        <div className="space-y-6 sm:space-y-8 md:space-y-10">
-          {rows.map((row, rowIndex) => (
-            <div
-              key={rowIndex}
-              className={`flex w-max gap-3 sm:gap-4 md:gap-6 ${
-                rowIndex % 2 === 0
-                  ? "animate-scroll-left"
-                  : "animate-scroll-right"
-              }`}
-            >
-              {[...row, ...row].map((tool, index) => (
-                <div
-                  key={`${tool.id}-${index}`}
-                  className={`
-                    bg-white rounded-xl shadow-md
-                    w-[140px] h-[80px]
-                    sm:w-[160px] sm:h-[90px]
-                    md:w-[180px] md:h-[100px]
-                    flex items-center justify-center
-                    hover:scale-105 transition-transform duration-300
-                  `}
-                >
-                  <div className="relative w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] md:w-[80px] md:h-[80px]">
-                    <Image
-                       src={tool.logo}
-                       alt={tool.name}
-                       fill
-                       loading="lazy"
-                       sizes="(max-width: 768px) 80px, 100px"
-                       className="object-contain"/>
+        {/* Marquee Wrapper with Smooth Edge Fades */}
+        <div className="relative overflow-hidden py-2">
+          {/* Edge Fade Gradients */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute top-0 bottom-0 left-0 w-20 sm:w-36 bg-gradient-to-r from-white via-white/80 to-transparent z-20"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute top-0 bottom-0 right-0 w-20 sm:w-36 bg-gradient-to-l from-white via-white/80 to-transparent z-20"
+          />
+
+          {/* Auto Moving Rows */}
+          <div className="space-y-4 sm:space-y-5 md:space-y-6">
+            {rows.map((row, rowIndex) => (
+              <div
+                key={rowIndex}
+                className={`flex w-max gap-3 sm:gap-4 md:gap-5 ${
+                  rowIndex % 2 === 0
+                    ? "animate-scroll-left"
+                    : "animate-scroll-right"
+                }`}
+              >
+                {[...row, ...row, ...row].map((tool, index) => (
+                  <div
+                    key={`${tool.id}-${index}`}
+                    className="bg-white rounded-2xl border-2 border-gray-100 hover:border-red-600/40 w-[150px] h-[85px] sm:w-[170px] sm:h-[95px] md:w-[195px] md:h-[105px] flex items-center justify-center p-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group cursor-default select-none"
+                  >
+                    <div className="relative w-[85px] h-[45px] sm:w-[100px] sm:h-[50px] md:w-[115px] md:h-[55px] group-hover:scale-105 transition-transform duration-300">
+                      <Image
+                        src={tool.logo}
+                        alt={tool.name}
+                        fill
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100px, 130px"
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
-                  
-                </div>
-              ))}
-            </div>
-          ))}
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Animations */}
+      {/* Marquee Animations */}
       <style jsx>{`
         @keyframes scrollLeft {
           from {
             transform: translateX(0);
           }
           to {
-            transform: translateX(-50%);
+            transform: translateX(-33.33%);
           }
         }
 
         @keyframes scrollRight {
           from {
-            transform: translateX(-50%);
+            transform: translateX(-33.33%);
           }
           to {
             transform: translateX(0);
@@ -136,10 +144,15 @@ const ToolsYouWillMaster: React.FC = () => {
           animation: scrollRight 35s linear infinite;
         }
 
+        .animate-scroll-left:hover,
+        .animate-scroll-right:hover {
+          animation-play-state: paused;
+        }
+
         @media (min-width: 768px) {
           .animate-scroll-left,
           .animate-scroll-right {
-            animation-duration: 25s;
+            animation-duration: 28s;
           }
         }
       `}</style>
