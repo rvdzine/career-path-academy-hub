@@ -272,7 +272,7 @@ const CoursesSection: React.FC = () => {
                     <div className="relative z-10 flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
                         <span className="font-mono text-xs font-black text-red-600 tracking-wider">
-                          // {course.num}
+                          {"//"} {course.num}
                         </span>
                         <span className="bg-red-600 text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded-none">
                           {course.badge}
