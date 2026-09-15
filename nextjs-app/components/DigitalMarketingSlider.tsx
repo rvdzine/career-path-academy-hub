@@ -18,7 +18,7 @@ const cards: Card[] = [
     strike: "NOT Theory-Driven Academics",
     description:
       "Trained by professionals who run real campaigns and deliver results.",
-    bg: "bg-gradient-to-br from-[#2b2b2b] to-[#111]",
+    bg: "bg-gradient-to-br from-[#1c1c1c] to-[#0a0a0a] border border-gray-800",
     textColor: "text-white",
     image: "/svg/Frame 5434.svg",
   },
@@ -27,8 +27,8 @@ const cards: Card[] = [
     strike: "NOT Outdated Marketing Concepts",
     description:
       "Learn modern strategies and funnels used by top marketing teams.",
-    bg: "bg-[#ffe1dc]",
-    textColor: "text-black",
+    bg: "bg-gradient-to-br from-[#FFF5F5] to-[#FEE2E2] border border-red-200/70",
+    textColor: "text-gray-950",
     image: "/svg/Frame 5435.svg",
   },
   {
@@ -36,7 +36,7 @@ const cards: Card[] = [
     strike: "NOT Watching Recorded Lectures",
     description:
       "Build skills by working on live campaigns and marketing projects.",
-    bg: "bg-gradient-to-br from-[#3a3a3a] to-[#1a1a1a]",
+    bg: "bg-gradient-to-br from-[#222222] to-[#0f0f0f] border border-gray-800",
     textColor: "text-white",
     image: "/svg/Frame 5436.svg",
   },
@@ -45,8 +45,8 @@ const cards: Card[] = [
     strike: "NOT Basic Exam Scores",
     description:
       "Improve with insights based on real performance metrics.",
-    bg: "bg-[#ffe1dc]",
-    textColor: "text-black",
+    bg: "bg-gradient-to-br from-[#FFF5F5] to-[#FEE2E2] border border-red-200/70",
+    textColor: "text-gray-950",
     image: "/svg/Frame 5437.svg",
   },
   {
@@ -54,7 +54,7 @@ const cards: Card[] = [
     strike: "NOT Just Theoretical Notes",
     description:
       "Hands-on experience with leading marketing tools & platforms.",
-    bg: "bg-gradient-to-br from-[#2b2b2b] to-[#111]",
+    bg: "bg-gradient-to-br from-[#1c1c1c] to-[#0a0a0a] border border-gray-800",
     textColor: "text-white",
     image: "/svg/Frame 5438.svg",
   },
@@ -63,8 +63,8 @@ const cards: Card[] = [
     strike: "NOT Generic Guidance Sessions",
     description:
       "Get guidance to build confidence and grow your digital career.",
-    bg: "bg-[#ffe1dc]",
-    textColor: "text-black",
+    bg: "bg-gradient-to-br from-[#FFF5F5] to-[#FEE2E2] border border-red-200/70",
+    textColor: "text-gray-950",
     image: "/svg/Frame 5439.svg",
   },
 ];
@@ -102,19 +102,38 @@ export default function DigitalMarketingCards() {
   const prev = () => setIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
 
   return (
-    <section className="py-20 bg-white overflow-hidden">
+    <section className="relative py-20 bg-white overflow-hidden border-t border-gray-100">
+      {/* Background subtle ambient red dot grid */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 opacity-40"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, #EA252514 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+        }}
+      />
+
       {/* Heading */}
-      <div className="text-center max-w-3xl mx-auto mb-16 px-4">
-        <h2 className="text-4xl font-bold mb-4">
-          Specialist Digital Marketing Education to Accelerate Your Career
+      <div className="relative z-10 text-center max-w-3xl mx-auto mb-16 px-4">
+        <div className="flex items-center justify-center gap-3 mb-3">
+          <span className="block w-8 h-[2.5px] bg-red-600 rounded-full" />
+          <span className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-red-600">
+            Methodology & Mentorship
+          </span>
+          <span className="block w-8 h-[2.5px] bg-red-600 rounded-full" />
+        </div>
+
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 tracking-tight leading-[1.1] mb-4">
+          Specialist <span className="text-red-600">Digital Marketing</span> Education to Accelerate Your Career
         </h2>
-        <p className="text-gray-600">
+        <p className="text-gray-600 text-sm sm:text-base font-normal max-w-2xl mx-auto">
           Learn from real practitioners using modern frameworks and real-world projects.
         </p>
       </div>
 
       {/* Slider */}
-      <div className="relative max-w-[1400px] mx-auto px-4">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4">
         <div className="overflow-hidden">
           <div
             className="flex transition-transform duration-700 ease-in-out"
@@ -186,13 +205,15 @@ export default function DigitalMarketingCards() {
         <div className="flex justify-center gap-4 mt-10">
           <button
             onClick={prev}
-            className="w-10 h-10 rounded-full border flex items-center justify-center hover:bg-black hover:text-white transition"
+            aria-label="Previous"
+            className="w-11 h-11 rounded-full border border-gray-300 hover:border-gray-950 bg-white hover:bg-gray-950 hover:text-white flex items-center justify-center transition shadow-sm cursor-pointer text-lg font-bold"
           >
             ‹
           </button>
           <button
             onClick={next}
-            className="w-10 h-10 rounded-full border flex items-center justify-center hover:bg-black hover:text-white transition"
+            aria-label="Next"
+            className="w-11 h-11 rounded-full border border-gray-300 hover:border-gray-950 bg-white hover:bg-gray-950 hover:text-white flex items-center justify-center transition shadow-sm cursor-pointer text-lg font-bold"
           >
             ›
           </button>
