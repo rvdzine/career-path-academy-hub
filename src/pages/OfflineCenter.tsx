@@ -10,8 +10,8 @@ import BookingDialog from "@/components/BookingDialog";
 
 const OfflineCenter = () => {
   const center = {
-    city: "Greater Noida",
-    address: "T3, B1603, NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306",
+    city: "Greater Noida West",
+    address: "F407, Arthamart, Techzone IV, Greater Noida West, UP, 201306",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop",
     facilities: ["Smart Classrooms", "High-Speed Wi-Fi", "Modern Lab", "Cafeteria", "Free Parking", "AC Environment"],
     batches: [

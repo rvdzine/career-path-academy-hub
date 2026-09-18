@@ -83,7 +83,7 @@ export default function AdminNavbar() {
           <div className="flex items-center gap-6">
             <Link href="/admin" className="flex items-center gap-3">
               <Image
-                src="/IDS_LOGO.svg"
+                src="/IDS_new_logo.svg"
                 width={130}
                 height={40}
                 alt="Institute of Digital Studies"

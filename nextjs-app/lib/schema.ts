@@ -75,13 +75,13 @@ export interface LocalBusinessSchemaParams extends OrganizationSchemaParams {
 
 const DEFAULT_BASE_URL = 'https://idigitalstudies.com';
 const DEFAULT_ORG_NAME = 'Institute of Digital Studies (IDS)';
-const DEFAULT_LOGO = 'https://idigitalstudies.com/IDS_LOGO.svg';
+const DEFAULT_LOGO = 'https://idigitalstudies.com/IDS_new_logo.svg';
 const DEFAULT_PHONE = '+919315471293';
 const DEFAULT_EMAIL = 'info@idigitalstudies.com';
 
 const DEFAULT_ADDRESS = {
-  streetAddress: 'T3, B1603, NXOne, TechZone 4, Opposite Gaur City Mall',
-  addressLocality: 'Greater Noida',
+  streetAddress: 'F407, Arthamart, Techzone IV',
+  addressLocality: 'Greater Noida West',
   addressRegion: 'Uttar Pradesh',
   postalCode: '201306',
   addressCountry: 'IN',
@@ -126,7 +126,7 @@ export function generateOrganizationSchema(params?: OrganizationSchemaParams) {
 }
 
 /**
- * Generates a LocalBusiness schema for physical Noida / Greater Noida campus.
+ * Generates a LocalBusiness schema for physical Greater Noida West campus.
  */
 export function generateLocalBusinessSchema(params?: LocalBusinessSchemaParams) {
   return {

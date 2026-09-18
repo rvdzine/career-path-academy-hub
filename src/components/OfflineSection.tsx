@@ -57,8 +57,8 @@ const OfflineSection = () => {
           </Badge>
 
           <h3 className="text-3xl font-bold text-black leading-snug">
-            NXOne, Tech zone 4, Opposite Gaur City Mall, <br />
-            Greater Noida, UP, 201306
+            F407, Arthamart, Techzone IV, <br />
+            Greater Noida West, UP, 201306
           </h3>
 
           <p className="text-lg font-medium text-gray-700">

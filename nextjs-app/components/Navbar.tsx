@@ -35,7 +35,14 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <Image src= "/IDS_LOGO.svg" width={120} height={40} alt="Institute of Digital Studies - Best Digital Marketing Institute in Noida" />
+            <Image
+              src="/IDS_new_logo.svg"
+              width={140}
+              height={36}
+              priority
+              className="h-[32px] sm:h-[36px] w-auto object-contain"
+              alt="Institute of Digital Studies - Best Digital Marketing Institute in Noida"
+            />
           </Link>
 
           {/* Desktop Navigation */}

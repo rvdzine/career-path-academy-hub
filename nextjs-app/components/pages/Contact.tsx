@@ -93,8 +93,8 @@ const Contact = () => {
       // email: "mumbai@digitalacademy.com"
     },
     // {
-    //   city: "Noida, UP",
-    //   address: "NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306",
+    //   city: "Greater Noida West, UP",
+    //   address: "F407, Arthamart, Techzone IV, Greater Noida West, UP, 201306",
     //   phone: "+91 9315471293",
     //   email: "delhi@digitalacademy.com"
     // },
@@ -329,8 +329,8 @@ const Contact = () => {
                 <CardContent className="space-y-4">
                   {/* {campusLocations.map((location, index) => ( */}
                     <div className="border-l-4 border-red-500 pl-4 space-y-1">
-                      <h4 className="font-semibold text-red-600">Noida, UP</h4>
-                      <p className="text-sm text-muted-foreground">NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306</p>
+                      <h4 className="font-semibold text-red-600">Greater Noida West, UP</h4>
+                      <p className="text-sm text-muted-foreground">F407, Arthamart, Techzone IV, Greater Noida West, UP, 201306</p>
                       <p className="text-sm">+91 9315471293</p>
                     </div>
                   {/* ))} */}
