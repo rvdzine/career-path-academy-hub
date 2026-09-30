@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import ContactDialog from "@/components/ContactDialog";
-import IDS_LOGO from "@/components/svg/IDS_LOGO.svg";
+import IDS_LOGO from "./svg/IDS_new_logo.svg";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -41,7 +41,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img src={IDS_LOGO} className="h-10 w-auto" alt="IDS Logo" />
+            <img src={IDS_LOGO} className="h-[32px] sm:h-[36px] w-auto object-contain" alt="IDS Logo" />
           </Link>
 
           {/* Desktop Navigation */}
