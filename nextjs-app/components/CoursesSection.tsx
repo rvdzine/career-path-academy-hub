@@ -183,7 +183,7 @@ const CoursesSection: React.FC = () => {
 
       <div className="relative z-10 max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-14">
         {/* ─── SECTION HEADER ─── */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-14">
           <div>
             <div className="flex items-center gap-3 mb-3">
               <span className="block w-8 h-[2.5px] bg-red-600 rounded-full" />
@@ -234,7 +234,7 @@ const CoursesSection: React.FC = () => {
 
         {/* ─── CAROUSEL TRACK ─── */}
         <div
-          className="overflow-hidden cursor-grab active:cursor-grabbing pt-4 pb-8 -mx-3 px-3"
+          className="overflow-hidden cursor-grab active:cursor-grabbing pb-6 -mx-2 px-2"
           ref={emblaRef}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -243,7 +243,7 @@ const CoursesSection: React.FC = () => {
             {courses.map((course) => (
               <div
                 key={course.id}
-                className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 pl-5 sm:pl-6 py-1"
+                className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 pl-5 sm:pl-6"
               >
                 {/* ─── LUXURY EDITORIAL SPLIT CARD ─── */}
                 <div className="group relative bg-white border-2 border-gray-950 flex flex-col h-full overflow-hidden transition-all duration-300 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.18)] hover:-translate-y-2">

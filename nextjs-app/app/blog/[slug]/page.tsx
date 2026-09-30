@@ -288,7 +288,7 @@ async function getBlogData(slug: string) {
     return {
       title: blog.title,
       description: blog.meta_description || blog.excerpt || blog.title,
-      image: blog.featured_image || "https://idigitalstudies.com/IDS_new_logo.svg",
+      image: blog.featured_image || "https://idigitalstudies.com/IDS_LOGO.svg",
       keywords: blog.meta_keywords ? blog.meta_keywords.split(",") : [],
       datePublished: blog.created_at || blog.published_at || new Date().toISOString(),
       dateModified: blog.updated_at || blog.created_at || new Date().toISOString(),
@@ -300,7 +300,7 @@ async function getBlogData(slug: string) {
       return {
         title: fallback.title,
         description: fallback.description,
-        image: fallback.image || "https://idigitalstudies.com/IDS_new_logo.svg",
+        image: fallback.image || "https://idigitalstudies.com/IDS_LOGO.svg",
         keywords: [],
         datePublished: fallback.datePublished || "2025-01-01T00:00:00Z",
         dateModified: fallback.datePublished || "2025-01-01T00:00:00Z",

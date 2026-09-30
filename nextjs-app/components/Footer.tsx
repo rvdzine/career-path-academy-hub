@@ -35,7 +35,7 @@ const Footer = () => {
               <div className="flex items-center justify-center">
                 <Link href="/" className="flex items-center space-x-2">
                   <Image
-                    src="/IDS_new_logo.svg"
+                    src="/IDS_LOGO.svg"
                     alt="Institute of Digital Studies - Digital Marketing Institute in Noida"
                     width={150}
                     height={50}
@@ -263,8 +263,10 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-2 text-gray-400 dark:text-gray-500">
               <li className="flex items-start gap-2">
-                <MdLocationOn className="text-xl mt-1 flex-shrink-0" />
-                <span>F407, Arthamart, Techzone IV, Greater Noida West, UP, 201306</span>
+                <MdLocationOn className="text-xl mt-1" />
+                T3, B1603, NXOne, Tech zone 4, Opposite Gaur city mall, Greater
+                Noida, UP, 201306 Business Address: T3, B1603, NXOne, Tech zone
+                4, Opposite Gaur city mall, Greater Noida, UP, 201306
               </li>
               <li className="flex items-center gap-2">
                 <MdPhone className="text-xl" />

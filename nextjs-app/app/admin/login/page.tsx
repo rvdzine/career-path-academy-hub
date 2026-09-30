@@ -35,7 +35,7 @@ export default function AdminLoginPage() {
         <div className="flex flex-col items-center">
           <Link href="/" className="mb-4">
             <Image
-              src="/IDS_new_logo.svg"
+              src="/IDS_LOGO.svg"
               width={160}
               height={50}
               alt="Institute of Digital Studies Logo"
