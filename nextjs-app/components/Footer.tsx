@@ -209,6 +209,14 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-400 dark:text-gray-500">
               <li>
                 <Link
+                  href="/verify-certificate"
+                  className="hover:text-white transition-colors"
+                >
+                  Verify Certificate
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/blog"
                   className="hover:text-white transition-colors"
                 >
@@ -264,9 +272,7 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-400 dark:text-gray-500">
               <li className="flex items-start gap-2">
                 <MdLocationOn className="text-xl mt-1" />
-                T3, B1603, NXOne, Tech zone 4, Opposite Gaur city mall, Greater
-                Noida, UP, 201306 Business Address: T3, B1603, NXOne, Tech zone
-                4, Opposite Gaur city mall, Greater Noida, UP, 201306
+                F407-408, Arthamart, Tech zone IV, Greater Noida 201306
               </li>
               <li className="flex items-center gap-2">
                 <MdPhone className="text-xl" />
