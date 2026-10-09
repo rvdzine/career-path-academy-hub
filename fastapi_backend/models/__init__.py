@@ -9,6 +9,7 @@ from .placement import JobApplication, Recruiter
 from .blog import Blog
 from .vacancy import Vacancy
 from .placed_student import PlacedStudent
+from .student import EnrolledStudent
 
 __all__ = [
     "Base",
@@ -23,4 +24,5 @@ __all__ = [
     "Blog",
     "Vacancy",
     "PlacedStudent",
+    "EnrolledStudent",
 ]

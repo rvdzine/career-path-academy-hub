@@ -8,7 +8,7 @@ import time
 from datetime import datetime, timezone
 
 from .config import settings
-from .database import get_db
+from .database import get_db, engine, Base
 from .routers import (
     auth,
     blogs,
@@ -20,7 +20,20 @@ from .routers import (
     courses,
     salary_report,
     placement,
+    students,
 )
+
+# Auto-create tables for models
+Base.metadata.create_all(bind=engine)
+
+# Safe column migration check for existing tables
+try:
+    with engine.connect() as conn:
+        conn.execute(text("ALTER TABLE enrolled_students ADD COLUMN IF NOT EXISTS course_code VARCHAR(20);"))
+        conn.execute(text("ALTER TABLE enrolled_students ADD COLUMN IF NOT EXISTS course_duration VARCHAR(50);"))
+        conn.commit()
+except Exception:
+    pass
 
 START_TIME = time.time()
 
@@ -62,6 +75,7 @@ app.include_router(online_demo.router)
 app.include_router(courses.router)
 app.include_router(salary_report.router)
 app.include_router(placement.router)
+app.include_router(students.router)
 
 @app.get("/api/health/", tags=["Health"])
 @app.get("/health", tags=["Health"])
