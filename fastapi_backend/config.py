@@ -26,13 +26,26 @@ class Settings(BaseSettings):
     EMAIL_HOST_USER: str = ""
     EMAIL_HOST_PASSWORD: str = ""
     DEFAULT_FROM_EMAIL: str = ""
-    LEAD_NOTIFICATION_EMAILS: str = ""
+    LEAD_NOTIFICATION_EMAILS: str = "ravi@cybershield.in,idsleads@cybershield.in"
+
+    # Certificate Email Settings (Zoho SMTP)
+    MAIL_HOST: str = "smtppro.zoho.com"
+    MAIL_PORT: int = 465
+    MAIL_SECURE: bool = True
+    MAIL_USER: str = "no-reply@idigitalstudies.com"
+    MAIL_PASS: str = "Cyber@123321"
+    MAIL_FROM_NAME: str = "Institute of Digital Studies"
+    MAIL_FROM_EMAIL: str = "no-reply@idigitalstudies.com"
+    MAIL_COPY_TO_SELF: bool = True
+    MAIL_COPY_EMAIL: Optional[str] = "no-reply@idigitalstudies.com"
     
-    # CRM Webhook & Admin
+    # Site, CRM Webhook & Admin
+    SITE_URL: str = "https://idigitalstudies.com"
+    FRONTEND_URL: str = "https://idigitalstudies.com"
     CRM_WEBHOOK_URL: str = ""
     WEBHOOK_TIMEOUT: int = 30
     WEBHOOK_RETRY_ATTEMPTS: int = 3
-    ADMIN_PANEL_URL: str = "http://localhost:3000/admin"
+    ADMIN_PANEL_URL: str = "https://idigitalstudies.com/admin"
 
     @property
     def cors_origins(self) -> List[str]:
