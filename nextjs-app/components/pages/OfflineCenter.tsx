@@ -22,7 +22,7 @@ const OfflineCenter = () => {
   const center = {
     city: "Greater Noida",
     address:
-      "T3, B1603, NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306",
+      "F407-408, Arthamart, Tech zone IV, Greater Noida 201306",
     image:
       "/assets/gallery4.webp",
   };

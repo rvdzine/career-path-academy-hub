@@ -330,7 +330,7 @@ const Contact = () => {
                   {/* {campusLocations.map((location, index) => ( */}
                     <div className="border-l-4 border-red-500 pl-4 space-y-1">
                       <h4 className="font-semibold text-red-600">Noida, UP</h4>
-                      <p className="text-sm text-muted-foreground">NXOne, Tech zone 4, Opposite Gaur city mall, Greater Noida, UP, 201306</p>
+                      <p className="text-sm text-muted-foreground">F407-408, Arthamart, Tech zone IV, Greater Noida 201306</p>
                       <p className="text-sm">+91 9315471293</p>
                     </div>
                   {/* ))} */}
