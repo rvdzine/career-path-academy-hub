@@ -10,11 +10,13 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-# Install system dependencies required for psycopg2, curl health checks, etc.
+# Install system dependencies required for psycopg2, curl health checks, fonts, etc.
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     libpq-dev \
     curl \
+    fonts-dejavu-core \
+    fontconfig \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy and install python dependencies first (enables Docker layer caching)
