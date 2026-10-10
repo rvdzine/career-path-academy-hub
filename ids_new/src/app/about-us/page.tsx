@@ -1329,7 +1329,7 @@ export default function AboutUsPage() {
                   <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
                     <span>Active in 20+ Cities Worldwide</span>
                     <Link
-                      href="/#contact"
+                      href="/contact-us"
                       className="font-bold text-[#fe4759] hover:underline flex items-center gap-1"
                     >
                       Connect with Alumni
