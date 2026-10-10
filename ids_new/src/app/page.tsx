@@ -10,6 +10,7 @@ import FacultySection from "@/components/FacultySection";
 import AlumniWall from "@/components/AlumniWall";
 import ToolsMaster from "@/components/ToolsMaster";
 import FAQSection from "@/components/FAQSection";
+import DemoBookingForm from "@/components/DemoBookingForm";
 import Footer from "@/components/Footer";
 import StickyWidgets from "@/components/StickyWidgets";
 
@@ -49,7 +50,10 @@ export default function Home() {
       {/* 10. Tools You'll Master */}
       <ToolsMaster />
 
-      {/* 11. FAQ Section */}
+      {/* 11. Free Demo Booking & Career Counseling Section */}
+      <DemoBookingForm />
+
+      {/* 12. FAQ Section */}
       <FAQSection />
 
       {/* 13. Comprehensive Multi-Column Footer */}

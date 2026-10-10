@@ -112,7 +112,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" suppressHydrationWarning className={`${instrumentSans.variable} ${caveat.variable} h-full antialiased scroll-smooth`}>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning className={`${instrumentSans.variable} ${caveat.variable} h-full antialiased scroll-smooth`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

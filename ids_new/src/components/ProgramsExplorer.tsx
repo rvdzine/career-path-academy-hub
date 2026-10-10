@@ -128,6 +128,7 @@ export default function ProgramsExplorer() {
               width={26}
               height={20}
               className="object-contain"
+              style={{ width: "auto", height: "auto" }}
             />
           </div>
         )}

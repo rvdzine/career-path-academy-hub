@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { vacancyApi } from "@/lib/api";
+import { vacancyApi, placementApi } from "@/lib/api";
 
 function formatDate(dateStr?: string): string {
   if (!dateStr) return "Recent";
@@ -343,14 +343,16 @@ export default function JobsAndPlacementsPage() {
     fullName: "",
     email: "",
     phone: "",
-    course: "Master in Digital Marketing with AI",
+    course: "Master in Digital Marketing Course",
     selectedRole: "Digital Marketing Intern",
     experienceLevel: "Fresher / Student",
     portfolioUrl: "",
     message: "",
   });
+  const [candidateResume, setCandidateResume] = useState<File | null>(null);
   const [candidateSubmitting, setCandidateSubmitting] = useState(false);
   const [candidateSubmitted, setCandidateSubmitted] = useState(false);
+  const [candidateError, setCandidateError] = useState<string | null>(null);
 
   // Recruiter Form State
   const [recruiterForm, setRecruiterForm] = useState({
@@ -364,8 +366,10 @@ export default function JobsAndPlacementsPage() {
     salaryBracket: "₹3 LPA - ₹6 LPA",
     message: "",
   });
+  const [recruiterJdFile, setRecruiterJdFile] = useState<File | null>(null);
   const [recruiterSubmitting, setRecruiterSubmitting] = useState(false);
   const [recruiterSubmitted, setRecruiterSubmitted] = useState(false);
+  const [recruiterError, setRecruiterError] = useState<string | null>(null);
 
   // Filtered & Sorted Vacancies
   const filteredVacancies = useMemo(() => {
@@ -389,34 +393,153 @@ export default function JobsAndPlacementsPage() {
       });
   }, [vacancies, searchQuery, selectedType, sortOrder]);
 
+  // Dedicated Apply Modal State for specific vacancy
+  const [applyingVacancy, setApplyingVacancy] = useState<JobVacancy | null>(null);
+  const [modalApplyForm, setModalApplyForm] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    experienceLevel: "Fresher / Student",
+    portfolioUrl: "",
+    coverNote: "",
+  });
+  const [modalApplyResume, setModalApplyResume] = useState<File | null>(null);
+  const [modalApplySubmitting, setModalApplySubmitting] = useState(false);
+  const [modalApplySubmitted, setModalApplySubmitted] = useState(false);
+  const [modalApplyError, setModalApplyError] = useState<string | null>(null);
+
+  const handleOpenApplyModal = (vacancy: JobVacancy) => {
+    setApplyingVacancy(vacancy);
+    setModalApplySubmitted(false);
+    setModalApplyError(null);
+  };
+
   const handleApplyClick = (vacancy: JobVacancy) => {
-    setCandidateForm((prev) => ({
-      ...prev,
-      selectedRole: `${vacancy.title} (${vacancy.company})`,
-    }));
-    setActiveSection("register");
-    const regElement = document.getElementById("active-content-section");
-    if (regElement) {
-      regElement.scrollIntoView({ behavior: "smooth" });
+    handleOpenApplyModal(vacancy);
+  };
+
+  const handleModalApplySubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!applyingVacancy) return;
+
+    setModalApplySubmitting(true);
+    setModalApplyError(null);
+
+    try {
+      const fd = new FormData();
+      fd.append("full_name", modalApplyForm.fullName.trim());
+      fd.append("email", modalApplyForm.email.trim());
+      fd.append("phone", modalApplyForm.phone.trim());
+      fd.append("experience_level", modalApplyForm.experienceLevel);
+
+      const notes = [
+        `Direct Vacancy Application: ${applyingVacancy.title} (${applyingVacancy.company})`,
+        modalApplyForm.portfolioUrl ? `Portfolio/LinkedIn: ${modalApplyForm.portfolioUrl}` : "",
+        modalApplyForm.coverNote ? `Candidate Note: ${modalApplyForm.coverNote}` : "",
+      ].filter(Boolean).join(" | ");
+
+      fd.append("key_skills", notes);
+      fd.append("job_titles", JSON.stringify([`${applyingVacancy.title} (${applyingVacancy.company})`]));
+
+      if (modalApplyResume) {
+        fd.append("resume", modalApplyResume);
+      }
+
+      await placementApi.applyForJob(fd);
+      setModalApplySubmitted(true);
+    } catch (err: any) {
+      const errorMsg =
+        err?.response?.data?.detail ||
+        err?.response?.data?.message ||
+        "Could not submit application. Please check your network and try again.";
+      setModalApplyError(typeof errorMsg === "string" ? errorMsg : JSON.stringify(errorMsg));
+    } finally {
+      setModalApplySubmitting(false);
     }
   };
 
-  const handleCandidateSubmit = (e: React.FormEvent) => {
+  const handleCandidateSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setCandidateSubmitting(true);
-    setTimeout(() => {
-      setCandidateSubmitting(false);
+    setCandidateError(null);
+
+    try {
+      const fd = new FormData();
+      fd.append("full_name", candidateForm.fullName.trim());
+      fd.append("email", candidateForm.email.trim());
+      fd.append("phone", candidateForm.phone.trim());
+      fd.append("experience_level", candidateForm.experienceLevel);
+
+      const notesParts = [
+        candidateForm.course ? `Course: ${candidateForm.course}` : "",
+        candidateForm.portfolioUrl ? `Portfolio/Profile: ${candidateForm.portfolioUrl}` : "",
+        candidateForm.message ? `Skills & Details: ${candidateForm.message}` : "",
+      ].filter(Boolean);
+
+      fd.append("key_skills", notesParts.join(" | ") || "Digital Marketing");
+      fd.append("job_titles", JSON.stringify([candidateForm.selectedRole]));
+
+      if (candidateResume) {
+        fd.append("resume", candidateResume);
+      }
+
+      await placementApi.applyForJob(fd);
       setCandidateSubmitted(true);
-    }, 800);
+    } catch (err: any) {
+      const errorMsg =
+        err?.response?.data?.detail ||
+        err?.response?.data?.message ||
+        "Could not submit application. Please check your network and try again.";
+      setCandidateError(typeof errorMsg === "string" ? errorMsg : JSON.stringify(errorMsg));
+    } finally {
+      setCandidateSubmitting(false);
+    }
   };
 
-  const handleRecruiterSubmit = (e: React.FormEvent) => {
+  const handleRecruiterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setRecruiterSubmitting(true);
-    setTimeout(() => {
-      setRecruiterSubmitting(false);
+    setRecruiterError(null);
+
+    try {
+      const fd = new FormData();
+      fd.append("company_name", recruiterForm.companyName.trim());
+      fd.append("company_mail", recruiterForm.workEmail.trim());
+      fd.append("phone_number", recruiterForm.phoneNumber.trim());
+      fd.append("contact_person_name", recruiterForm.contactPerson.trim());
+      fd.append("job_profile", recruiterForm.openRoles);
+      fd.append("salary_range", recruiterForm.salaryBracket);
+      fd.append("employee_count", "10 - 50");
+      fd.append("industry_type", "Digital Marketing / IT");
+      fd.append("address", recruiterForm.hiringLocation || "Noida / Delhi NCR");
+      fd.append("city", "Noida");
+      fd.append("state", "Uttar Pradesh");
+      fd.append("country", "India");
+      fd.append("pin_code", "201301");
+
+      const countMatch = recruiterForm.positionsCount.match(/\d+/g);
+      const countNum = countMatch ? parseInt(countMatch[countMatch.length - 1], 10) : 1;
+      fd.append("job_opening_count", String(countNum));
+
+      fd.append("job_description_type", recruiterJdFile ? "file" : "text");
+      if (recruiterForm.message) {
+        fd.append("job_description_text", recruiterForm.message);
+      }
+      if (recruiterJdFile) {
+        fd.append("job_description_file", recruiterJdFile);
+      }
+
+      await placementApi.registerRecruiter(fd);
       setRecruiterSubmitted(true);
-    }, 800);
+    } catch (err: any) {
+      const errorMsg =
+        err?.response?.data?.detail ||
+        err?.response?.data?.message ||
+        "Could not register your company. Please check your inputs and try again.";
+      setRecruiterError(typeof errorMsg === "string" ? errorMsg : JSON.stringify(errorMsg));
+    } finally {
+      setRecruiterSubmitting(false);
+    }
   };
 
   return (
@@ -1076,8 +1199,26 @@ export default function JobsAndPlacementsPage() {
                     {/* Role Pre-Selection Banner */}
                     <div className="p-3 rounded-xl bg-rose-50/70 border border-rose-100 flex items-center justify-between text-xs">
                       <span className="text-slate-600 font-semibold">Applying For / Desired Role:</span>
-                      <span className="font-extrabold text-[#fe4759]">{candidateForm.selectedRole}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="font-extrabold text-[#fe4759]">{candidateForm.selectedRole}</span>
+                        {candidateForm.selectedRole !== "Digital Marketing Intern" && (
+                          <button
+                            type="button"
+                            onClick={() => setCandidateForm({ ...candidateForm, selectedRole: "Digital Marketing Intern" })}
+                            className="text-[11px] text-slate-400 hover:text-slate-700 underline cursor-pointer"
+                          >
+                            Reset
+                          </button>
+                        )}
+                      </div>
                     </div>
+
+                    {candidateError && (
+                      <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-semibold flex items-center gap-2">
+                        <span>⚠️</span>
+                        <span>{candidateError}</span>
+                      </div>
+                    )}
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
@@ -1133,10 +1274,10 @@ export default function JobsAndPlacementsPage() {
                           onChange={(e) => setCandidateForm({ ...candidateForm, course: e.target.value })}
                           className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#fe4759]/20 focus:border-[#fe4759] bg-white text-slate-800"
                         >
-                          <option value="Master in Digital Marketing with AI">Master in Digital Marketing with AI</option>
-                          <option value="Data Analytics Master Course">Data Analytics Master Course</option>
-                          <option value="PG Diploma in Advanced Analytics">PG Diploma in Advanced Analytics</option>
-                          <option value="UI/UX Design Master Course">UI/UX Design Master Course</option>
+                          <option value="Master in Digital Marketing Course">Master in Digital Marketing Course</option>
+                          <option value="Digital Marketing Specialist Course">Digital Marketing Specialist Course</option>
+                          <option value="Digital Marketing Course for Business Owners">Digital Marketing Course for Business Owners</option>
+                          <option value="Customised Course in Digital Marketing">Customised Course in Digital Marketing</option>
                           <option value="External Candidate / Self-Taught">External Candidate / Self-Taught</option>
                         </select>
                       </div>
@@ -1173,6 +1314,41 @@ export default function JobsAndPlacementsPage() {
                       </div>
                     </div>
 
+                    {/* Resume Upload Input */}
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                        <span>Upload Resume (PDF, DOC, DOCX)</span>
+                        <span className="text-[11px] font-normal text-slate-400">Max 5MB</span>
+                      </label>
+                      <input
+                        type="file"
+                        accept=".pdf,.doc,.docx"
+                        onChange={(e) => {
+                          if (e.target.files && e.target.files[0]) {
+                            const file = e.target.files[0];
+                            if (file.size > 5 * 1024 * 1024) {
+                              alert("Resume file size exceeds 5MB limit. Please choose a smaller file.");
+                              return;
+                            }
+                            setCandidateResume(file);
+                          }
+                        }}
+                        className="w-full px-4 py-2.5 text-xs rounded-xl border border-dashed border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#fe4759]/20 focus:border-[#fe4759] bg-slate-50/60 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-[#fe4759] file:text-white hover:file:bg-[#e0384a] cursor-pointer"
+                      />
+                      {candidateResume && (
+                        <div className="mt-1.5 flex items-center justify-between text-xs text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200">
+                          <span className="truncate font-medium">✓ {candidateResume.name}</span>
+                          <button
+                            type="button"
+                            onClick={() => setCandidateResume(null)}
+                            className="text-slate-400 hover:text-slate-700 font-bold ml-2"
+                          >
+                            ✕
+                          </button>
+                        </div>
+                      )}
+                    </div>
+
                     <div>
                       <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                         Key Skills & Preferred Cities (Optional)
@@ -1181,7 +1357,7 @@ export default function JobsAndPlacementsPage() {
                         rows={3}
                         value={candidateForm.message}
                         onChange={(e) => setCandidateForm({ ...candidateForm, message: e.target.value })}
-                        placeholder="Mention your top tools (Google Ads, SEO, Meta Ads, Python, Canva) and preferred locations..."
+                        placeholder="Mention your top tools (Google Ads, SEO, Meta Ads, AI tools) and preferred locations..."
                         className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#fe4759]/20 focus:border-[#fe4759]"
                       />
                     </div>
@@ -1192,7 +1368,7 @@ export default function JobsAndPlacementsPage() {
                       className="w-full py-4 bg-[#fe4759] hover:bg-[#e0384a] text-white font-black text-sm sm:text-base rounded-xl transition-all shadow-lg shadow-[#fe4759]/30 hover:scale-[1.01] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
                     >
                       {candidateSubmitting ? (
-                        <span>Submitting Application...</span>
+                        <span>Submitting Application to Database...</span>
                       ) : (
                         <>
                           <span>Submit Profile for Placements</span>
@@ -1343,6 +1519,13 @@ export default function JobsAndPlacementsPage() {
                       </p>
                     </div>
 
+                    {recruiterError && (
+                      <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-semibold flex items-center gap-2">
+                        <span>⚠️</span>
+                        <span>{recruiterError}</span>
+                      </div>
+                    )}
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
@@ -1453,6 +1636,41 @@ export default function JobsAndPlacementsPage() {
                       </div>
                     </div>
 
+                    {/* Job Description File Attachment */}
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                        <span>Attach Job Description Document (Optional)</span>
+                        <span className="text-[11px] font-normal text-slate-400">PDF, DOC, DOCX, Images up to 5MB</span>
+                      </label>
+                      <input
+                        type="file"
+                        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                        onChange={(e) => {
+                          if (e.target.files && e.target.files[0]) {
+                            const file = e.target.files[0];
+                            if (file.size > 5 * 1024 * 1024) {
+                              alert("File size exceeds 5MB limit. Please choose a smaller file.");
+                              return;
+                            }
+                            setRecruiterJdFile(file);
+                          }
+                        }}
+                        className="w-full px-4 py-2.5 text-xs rounded-xl border border-dashed border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#fe4759]/20 focus:border-[#fe4759] bg-slate-50/60 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-slate-800 file:text-white hover:file:bg-slate-900 cursor-pointer"
+                      />
+                      {recruiterJdFile && (
+                        <div className="mt-1.5 flex items-center justify-between text-xs text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200">
+                          <span className="truncate font-medium">✓ {recruiterJdFile.name}</span>
+                          <button
+                            type="button"
+                            onClick={() => setRecruiterJdFile(null)}
+                            className="text-slate-400 hover:text-slate-700 font-bold ml-2"
+                          >
+                            ✕
+                          </button>
+                        </div>
+                      )}
+                    </div>
+
                     <div>
                       <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                         Specific Requirements / Mandatory Tools (Optional)
@@ -1472,7 +1690,7 @@ export default function JobsAndPlacementsPage() {
                       className="w-full py-4 bg-[#fe4759] hover:bg-[#e0384a] text-white font-black text-sm sm:text-base rounded-xl transition-all shadow-lg shadow-[#fe4759]/30 hover:scale-[1.01] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
                     >
                       {recruiterSubmitting ? (
-                        <span>Processing Request...</span>
+                        <span>Registering Company to Database...</span>
                       ) : (
                         <>
                           <span>Request Candidate Profiles</span>
@@ -1635,6 +1853,241 @@ export default function JobsAndPlacementsPage() {
                 Apply for this Position
               </button>
             </div>
+
+          </div>
+        </div>
+      )}
+
+      {/* ══════════════════════════════════════════════════════════════
+          APPLY FOR VACANCY MODAL (POPUP TRIGGERED ON "APPLY NOW")
+          ══════════════════════════════════════════════════════════════ */}
+      {applyingVacancy && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-in fade-in duration-200"
+          onClick={() => setApplyingVacancy(null)}
+        >
+          <div
+            className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 shadow-2xl border border-slate-200 relative max-h-[92vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setApplyingVacancy(null)}
+              className="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {modalApplySubmitted ? (
+              <div className="text-center py-8 space-y-4">
+                <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                  <Check className="w-8 h-8 stroke-[3]" />
+                </div>
+                <h3 className="text-2xl font-black text-slate-900">
+                  Application Submitted!
+                </h3>
+                <p className="text-slate-600 text-sm max-w-sm mx-auto leading-relaxed">
+                  Thank you, <span className="font-bold text-[#fe4759]">{modalApplyForm.fullName}</span>! Your profile and resume have been submitted directly for <span className="font-bold text-slate-900">{applyingVacancy.title}</span> at <span className="font-bold text-slate-900">{applyingVacancy.company}</span>.
+                </p>
+                <div className="p-3.5 bg-rose-50 border border-rose-100 rounded-2xl text-xs text-slate-600 max-w-sm mx-auto text-left">
+                  <span className="font-bold text-slate-800 block mb-1">What happens next:</span>
+                  • Candidate details stored in Corporate Placement Portal<br />
+                  • Profile shared with {applyingVacancy.company}&apos;s hiring coordinator<br />
+                  • Fast-track WhatsApp interview scheduling within 24–48 hours
+                </div>
+                <button
+                  onClick={() => {
+                    setApplyingVacancy(null);
+                    setModalApplySubmitted(false);
+                  }}
+                  className="mt-4 px-6 py-2.5 bg-[#fe4759] text-white font-bold rounded-xl text-sm hover:bg-[#e0384a] transition-colors cursor-pointer"
+                >
+                  Done & Close
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleModalApplySubmit} className="space-y-4">
+                {/* Header info */}
+                <div className="pr-8 pb-3 border-b border-slate-100">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#fe4759] bg-rose-50 border border-rose-100 px-2.5 py-0.5 rounded-full">
+                      {applyingVacancy.company}
+                    </span>
+                    <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md capitalize">
+                      {applyingVacancy.jobType}
+                    </span>
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-black text-slate-900 leading-snug">
+                    Apply for {applyingVacancy.title}
+                  </h3>
+                  <div className="flex items-center gap-3 text-xs text-slate-500 mt-1">
+                    <span className="flex items-center gap-1">
+                      <MapPin className="w-3.5 h-3.5 text-[#fe4759]" />
+                      {applyingVacancy.location}
+                    </span>
+                    <span>•</span>
+                    <span className="font-bold text-[#fe4759]">{applyingVacancy.stipend}</span>
+                  </div>
+                </div>
+
+                {modalApplyError && (
+                  <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-semibold flex items-center gap-2">
+                    <span>⚠️</span>
+                    <span>{modalApplyError}</span>
+                  </div>
+                )}
+
+                {/* Full Name */}
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={modalApplyForm.fullName}
+                    onChange={(e) => setModalApplyForm({ ...modalApplyForm, fullName: e.target.value })}
+                    placeholder="e.g. Priya Sharma"
+                    className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#fe4759]/20 focus:border-[#fe4759]"
+                  />
+                </div>
+
+                {/* Email & Phone */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={modalApplyForm.email}
+                      onChange={(e) => setModalApplyForm({ ...modalApplyForm, email: e.target.value })}
+                      placeholder="priya@gmail.com"
+                      className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#fe4759]/20 focus:border-[#fe4759]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                      WhatsApp Phone *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={modalApplyForm.phone}
+                      onChange={(e) => setModalApplyForm({ ...modalApplyForm, phone: e.target.value })}
+                      placeholder="+91 98765 43210"
+                      className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#fe4759]/20 focus:border-[#fe4759]"
+                    />
+                  </div>
+                </div>
+
+                {/* Experience & LinkedIn */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                      Experience Level
+                    </label>
+                    <select
+                      value={modalApplyForm.experienceLevel}
+                      onChange={(e) => setModalApplyForm({ ...modalApplyForm, experienceLevel: e.target.value })}
+                      className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#fe4759]/20 focus:border-[#fe4759] bg-white text-slate-800"
+                    >
+                      <option value="Fresher / Student">Fresher / Student</option>
+                      <option value="0 - 1 Year Experience">0 - 1 Year Experience</option>
+                      <option value="1 - 3 Years Experience">1 - 3 Years Experience</option>
+                      <option value="Career Switcher">Career Switcher</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                      LinkedIn / Portfolio (Optional)
+                    </label>
+                    <input
+                      type="url"
+                      value={modalApplyForm.portfolioUrl}
+                      onChange={(e) => setModalApplyForm({ ...modalApplyForm, portfolioUrl: e.target.value })}
+                      placeholder="https://linkedin.com/in/..."
+                      className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#fe4759]/20 focus:border-[#fe4759]"
+                    />
+                  </div>
+                </div>
+
+                {/* Resume Upload */}
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center justify-between">
+                    <span>Upload Resume (PDF, DOC, DOCX)</span>
+                    <span className="text-[11px] font-normal text-slate-400">Max 5MB</span>
+                  </label>
+                  <input
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    onChange={(e) => {
+                      if (e.target.files && e.target.files[0]) {
+                        const file = e.target.files[0];
+                        if (file.size > 5 * 1024 * 1024) {
+                          alert("Resume file size exceeds 5MB limit. Please choose a smaller file.");
+                          return;
+                        }
+                        setModalApplyResume(file);
+                      }
+                    }}
+                    className="w-full px-3.5 py-2 text-xs rounded-xl border border-dashed border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#fe4759]/20 focus:border-[#fe4759] bg-slate-50/60 file:mr-3 file:py-1 file:px-2.5 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-[#fe4759] file:text-white hover:file:bg-[#e0384a] cursor-pointer"
+                  />
+                  {modalApplyResume && (
+                    <div className="mt-1 flex items-center justify-between text-xs text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200">
+                      <span className="truncate font-medium">✓ {modalApplyResume.name}</span>
+                      <button
+                        type="button"
+                        onClick={() => setModalApplyResume(null)}
+                        className="text-slate-400 hover:text-slate-700 font-bold ml-2 cursor-pointer"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  )}
+                </div>
+
+                {/* Cover Note */}
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    Note to Recruiter (Optional)
+                  </label>
+                  <textarea
+                    rows={2}
+                    value={modalApplyForm.coverNote}
+                    onChange={(e) => setModalApplyForm({ ...modalApplyForm, coverNote: e.target.value })}
+                    placeholder="Highlight your key skills for this position..."
+                    className="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#fe4759]/20 focus:border-[#fe4759]"
+                  />
+                </div>
+
+                {/* Actions */}
+                <div className="flex items-center gap-3 pt-3 border-t border-slate-100">
+                  <button
+                    type="button"
+                    onClick={() => setApplyingVacancy(null)}
+                    className="py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm rounded-xl transition-colors cursor-pointer"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={modalApplySubmitting}
+                    className="flex-1 py-3 bg-[#fe4759] hover:bg-[#e0384a] text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-md shadow-[#fe4759]/25 hover:scale-[1.01] cursor-pointer disabled:opacity-70 flex items-center justify-center gap-2"
+                  >
+                    {modalApplySubmitting ? (
+                      <span>Sending Application to Database...</span>
+                    ) : (
+                      <>
+                        <span>Submit Application for {applyingVacancy.company}</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            )}
 
           </div>
         </div>

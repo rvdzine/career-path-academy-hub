@@ -9,6 +9,7 @@ from ..services.webhook_service import send_lead_to_crm
 
 router = APIRouter(prefix="/api/contact", tags=["Contact"])
 
+@router.post("/", response_model=ContactResponse, status_code=status.HTTP_201_CREATED)
 @router.post("/contact/", response_model=ContactResponse, status_code=status.HTTP_201_CREATED)
 def submit_contact_form(payload: ContactCreate, db: Session = Depends(get_db)):
     try:

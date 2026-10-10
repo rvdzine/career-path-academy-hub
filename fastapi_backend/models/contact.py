@@ -9,8 +9,8 @@ class Contact(Base):
     full_name = Column(String(100), nullable=False)
     email = Column(String(254), nullable=False)
     phone = Column(String(15), nullable=False)
-    interested_courses = Column(String(50), nullable=True)
-    experience = Column(String(50), nullable=True)
+    interested_courses = Column(String(150), nullable=True)
+    experience = Column(String(100), nullable=True)
     message = Column(Text, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 

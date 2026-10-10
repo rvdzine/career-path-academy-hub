@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { X } from "lucide-react";
 
 interface MegaMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenDemoModal?: () => void;
 }
 
 export interface IDSCourse {
@@ -64,20 +66,9 @@ export const idsCourses: IDSCourse[] = [
     affiliation: "MSME",
     slug: "/courses/customised-course-in-digital-marketing",
   },
-  {
-    id: "degree",
-    title: "Degree in Digital Marketing",
-    category: "Undergraduate Degree",
-    badge: "3-Year UGC Degree",
-    duration: "3 Years",
-    mode: "Offline Campus",
-    desc: "Formal university degree curriculum with UGC & NEP 2020 alignment, dual credentials, mandatory internships, and placements.",
-    affiliation: "Medhavi University",
-    slug: "/digital-marketing-course",
-  },
 ];
 
-export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
+export default function MegaMenu({ isOpen, onClose, onOpenDemoModal }: MegaMenuProps) {
   if (!isOpen) return null;
 
   return (
@@ -88,16 +79,16 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
         onClick={onClose}
       />
 
-      {/* Floating Mega Dropdown Panel for All 6 Courses */}
+      {/* Floating Mega Dropdown Panel for All 4 Courses */}
       <div className="absolute top-full left-0 right-0 max-w-[1400px] w-full mx-auto mt-2 z-50 px-4 sm:px-6 lg:px-8 animate-in fade-in slide-in-from-top-2 duration-200">
-        <div className="bg-white border border-slate-200/90 shadow-2xl rounded-2xl p-6 sm:p-7 overflow-hidden">
+        <div className="bg-white border border-slate-200/90 shadow-2xl rounded-2xl p-5 sm:p-7 max-h-[calc(100vh-100px)] overflow-y-auto">
           
           {/* Top Header Bar without icons */}
           <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-100 flex-wrap gap-3">
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="font-extrabold text-slate-900 text-base sm:text-lg">
-                  Our 6 Certified Digital Marketing Programs
+                  Our 4 Certified Digital Marketing Programs
                 </h3>
                 <span className="text-[11px] font-bold text-[#fe4759] bg-rose-50 border border-rose-100 px-2.5 py-0.5 rounded-full">
                   Official Curriculum
@@ -116,13 +107,16 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
                 +91 9315471293
               </a>
 
-              <a
-                href="#consultation"
-                onClick={onClose}
-                className="inline-flex items-center text-xs font-bold text-white bg-[#fe4759] hover:bg-[#e0384a] px-4 py-2 rounded-xl shadow-xs transition-colors"
+              <button
+                type="button"
+                onClick={() => {
+                  onClose();
+                  onOpenDemoModal?.();
+                }}
+                className="inline-flex items-center text-xs font-bold text-white bg-[#fe4759] hover:bg-[#e0384a] px-4 py-2 rounded-xl shadow-xs transition-colors cursor-pointer"
               >
                 Book Free Demo
-              </a>
+              </button>
 
               <button
                 onClick={onClose}
@@ -134,23 +128,28 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
             </div>
           </div>
 
-          {/* 6 Courses Grid: 3-column clean layout without icons and without Google/Meta tags */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* 4 Courses Grid: 2 by 2 balanced clean layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {idsCourses.map((course) => (
-              <a
+              <Link
                 key={course.id}
                 href={course.slug}
                 onClick={onClose}
-                className="group relative bg-white border border-slate-200/90 hover:border-[#fe4759]/60 hover:shadow-xl hover:shadow-rose-500/5 rounded-2xl p-5 transition-all duration-200 flex flex-col justify-between hover:-translate-y-0.5"
+                className="group relative bg-white border border-slate-200/90 hover:border-[#fe4759]/60 hover:shadow-xl hover:shadow-rose-500/5 rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col justify-between hover:-translate-y-0.5"
               >
                 <div>
-                  {/* Track Badge & Duration (Clean badges, no icons) */}
+                  {/* Track Badge, Tag & Duration */}
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#fe4759] bg-rose-50 border border-rose-100/80 px-2.5 py-1 rounded-md">
-                      {course.category}
-                    </span>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#fe4759] bg-rose-50 border border-rose-100/80 px-2.5 py-1 rounded-md">
+                        {course.category}
+                      </span>
+                      <span className="text-[10px] font-semibold text-slate-600 bg-slate-100 border border-slate-200/60 px-2 py-0.5 rounded-md">
+                        {course.badge}
+                      </span>
+                    </div>
 
-                    <span className="text-[11px] font-bold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-md">
+                    <span className="text-[11px] font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-md shrink-0">
                       {course.duration}
                     </span>
                   </div>
@@ -183,11 +182,12 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
                     Industry Certified
                   </span>
 
-                  <span className="text-xs font-bold text-[#fe4759] group-hover:underline">
+                  <span className="text-xs font-bold text-[#fe4759] group-hover:underline inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
                     View Details
+                    <span aria-hidden="true">→</span>
                   </span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
 
