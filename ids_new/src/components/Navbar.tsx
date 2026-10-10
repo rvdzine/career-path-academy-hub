@@ -12,10 +12,12 @@ import {
 } from "lucide-react";
 import TopBar from "@/components/TopBar";
 import MegaMenu from "@/components/MegaMenu";
+import DemoBookingModal from "@/components/DemoBookingModal";
 
 export default function Navbar() {
   const [isMegaOpen, setIsMegaOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileExpandedSection, setMobileExpandedSection] = useState<string | null>(null);
 
@@ -172,25 +174,32 @@ export default function Navbar() {
             </Link>
 
             {/* Book Demo Button */}
-            <a
-              href="#consultation"
+            <button
+              type="button"
+              onClick={() => setIsDemoModalOpen(true)}
               className="px-4 py-2 text-xs xl:text-sm font-bold text-white bg-[#fe4759] hover:bg-[#e0384a] rounded-lg transition-colors cursor-pointer whitespace-nowrap shrink-0 shadow-sm shadow-[#fe4759]/25"
             >
               Free Demo
-            </a>
+            </button>
           </nav>
 
           {/* Mobile / Tablet: "All Courses" pill + Hamburger Toggle */}
           <div className="flex items-center gap-2 lg:hidden">
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => {
+                setIsMegaOpen(!isMegaOpen);
+                setIsMobileMenuOpen(false);
+              }}
               className="px-3 py-1.5 rounded-full text-xs font-semibold bg-[#fe4759] text-white shadow-xs whitespace-nowrap"
             >
               All Courses ▾
             </button>
 
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => {
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+                setIsMegaOpen(false);
+              }}
               className="p-2 text-slate-800 hover:text-[#fe4759] focus:outline-none"
               aria-label="Toggle Navigation Menu"
             >
@@ -204,7 +213,11 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Mega Menu Dropdown */}
-        <MegaMenu isOpen={isMegaOpen} onClose={() => setIsMegaOpen(false)} />
+        <MegaMenu
+          isOpen={isMegaOpen}
+          onClose={() => setIsMegaOpen(false)}
+          onOpenDemoModal={() => setIsDemoModalOpen(true)}
+        />
 
         {/* Mobile Navigation Drawer */}
         {isMobileMenuOpen && (
@@ -226,13 +239,16 @@ export default function Navbar() {
                 <span className="absolute bottom-0 right-0 w-[70%] h-[2px] bg-gradient-to-l from-[#fe4759] via-[#ff6b7a] to-[#ff9aa5]" />
                 <span className="absolute bottom-0 right-0 w-[2px] h-[65%] bg-[#fe4759]" />
               </Link>
-              <a
-                href="#consultation"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center justify-center py-2 px-3 rounded-lg text-xs font-bold border border-[#fe4759] text-[#fe4759]"
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsDemoModalOpen(true);
+                }}
+                className="flex items-center justify-center py-2 px-3 rounded-lg text-xs font-bold border border-[#fe4759] text-[#fe4759] hover:bg-rose-50 transition-colors cursor-pointer"
               >
                 Book Demo
-              </a>
+              </button>
             </div>
 
             {/* Courses Overview Accordion */}
@@ -255,48 +271,34 @@ export default function Navbar() {
 
               {mobileExpandedSection === "courses" && (
                 <div className="pl-3 py-2 space-y-2.5 text-xs text-slate-600 border-l-2 border-[#fe4759]">
-                  <a
-                    href="#programs"
+                  <Link
+                    href="/courses/master-in-digital-marketing"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block font-semibold text-slate-800 hover:text-[#fe4759]"
                   >
                     • Master in Digital Marketing Course <span className="text-[#fe4759] font-normal">(6 Months)</span>
-                  </a>
-                  <a
-                    href="#programs"
+                  </Link>
+                  <Link
+                    href="/courses/digital-marketing-specialist"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block font-semibold text-slate-800 hover:text-[#fe4759]"
                   >
                     • Digital Marketing Specialist Course <span className="text-[#fe4759] font-normal">(3 Months)</span>
-                  </a>
-                  <a
-                    href="#programs"
+                  </Link>
+                  <Link
+                    href="/courses/digital-marketing-for-business-owners"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block font-semibold text-slate-800 hover:text-[#fe4759]"
                   >
                     • Digital Marketing for Business Owners <span className="text-[#fe4759] font-normal">(1:1 Mentorship)</span>
-                  </a>
-                  <a
-                    href="#programs"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block font-semibold text-slate-800 hover:text-[#fe4759]"
-                  >
-                    • Digital Marketing for Beginners <span className="text-[#fe4759] font-normal">(2 Months)</span>
-                  </a>
-                  <a
-                    href="#programs"
+                  </Link>
+                  <Link
+                    href="/courses/customised-course-in-digital-marketing"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block font-semibold text-slate-800 hover:text-[#fe4759]"
                   >
                     • Customised Course in Digital Marketing <span className="text-[#fe4759] font-normal">(Tailored)</span>
-                  </a>
-                  <a
-                    href="#programs"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block font-semibold text-slate-800 hover:text-[#fe4759]"
-                  >
-                    • Degree in Digital Marketing <span className="text-[#fe4759] font-normal">(3-Year UGC)</span>
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>
@@ -397,6 +399,12 @@ export default function Navbar() {
           </div>
         )}
       </header>
+
+      {/* Free Demo Interactive Booking Modal */}
+      <DemoBookingModal
+        isOpen={isDemoModalOpen}
+        onClose={() => setIsDemoModalOpen(false)}
+      />
     </div>
   );
 }

@@ -205,4 +205,46 @@ export const studentApi = {
     api.delete(`/students/${studentId}/`),
 };
 
+// Placement & Career API endpoints
+export const placementApi = {
+  applyForJob: (formData: FormData) =>
+    api.post('/careers/student-placement/', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    }),
+
+  registerRecruiter: (formData: FormData) =>
+    api.post('/careers/recruiter-entry/', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    }),
+};
+
+// Demo & Consultation API endpoints
+export const demoApi = {
+  bookDemo: (data: {
+    full_name: string;
+    email: string;
+    phone: string;
+    course?: string;
+    experience_level?: string;
+    learning_goals?: string;
+  }) => api.post('/demo/book/', data),
+};
+
+// Contact Form API endpoints
+export const contactApi = {
+  submitContact: (data: {
+    full_name: string;
+    email: string;
+    phone: string;
+    interested_courses?: string;
+    experience?: string;
+    message?: string;
+  }) => api.post('/contact/contact/', data),
+};
+
 export default api;
+

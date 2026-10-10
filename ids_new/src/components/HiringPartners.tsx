@@ -148,6 +148,7 @@ export default function HiringPartners() {
                           width={95}
                           height={28}
                           className="h-6 sm:h-7 w-auto max-w-[100px] max-h-8 object-contain"
+                          style={{ width: "auto", height: "auto" }}
                           unoptimized
                         />
                       </div>
@@ -222,7 +223,7 @@ export default function HiringPartners() {
 
               {/* 6. Salesforce */}
               <div className="h-16 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md flex items-center justify-center p-3 transition-all">
-                <Image src="/assets/Salesforce.svg" alt="Salesforce" width={75} height={24} className="h-5 w-auto object-contain" unoptimized />
+                <Image src="/assets/Salesforce.svg" alt="Salesforce" width={75} height={24} className="h-5 w-auto object-contain" style={{ width: "auto", height: "auto" }} unoptimized />
               </div>
             </div>
           </div>

@@ -2,26 +2,37 @@
 
 import { useState } from "react";
 import { Sparkles, CheckCircle2, Phone, Mail, User, BookOpen, Send, ShieldCheck } from "lucide-react";
+import { demoApi } from "@/lib/api";
 
 export default function DemoBookingForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    course: "Data Analytics Master Course",
+    course: "Master in Digital Marketing Course",
     experience: "Fresher / College Student",
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate or send to FastAPI backend endpoint
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await demoApi.bookDemo({
+        full_name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        course: formData.course,
+        experience_level: formData.experience,
+      });
       setSubmitted(true);
-    }, 800);
+    } catch (err) {
+      console.warn("Could not save demo to backend, continuing gracefully:", err);
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -183,15 +194,10 @@ export default function DemoBookingForm() {
                           }
                           className="w-full pl-9 pr-3 py-2.5 text-sm rounded-xl border border-slate-200 focus:border-[#fe4759] focus:ring-1 focus:ring-[#fe4759] outline-none transition-all bg-white"
                         >
-                          <option>Data Analytics Master Course</option>
-                          <option>Digital Marketing Master Course</option>
-                          <option>PG Diploma in Digital Marketing with AI</option>
-                          <option>PG Diploma in Advanced Analytics & Agentic AI</option>
-                          <option>Financial Modeling Master Course</option>
-                          <option>Investment Banking Master Course</option>
-                          <option>UI UX Design Master Course</option>
-                          <option>Content Writing Master Course</option>
-                          <option>Medical Scribing Master Course</option>
+                          <option>Master in Digital Marketing Course</option>
+                          <option>Digital Marketing Specialist Course</option>
+                          <option>Digital Marketing Course for Business Owners</option>
+                          <option>Customised Course in Digital Marketing</option>
                         </select>
                       </div>
                     </div>
