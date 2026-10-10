@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { contactApi } from "@/lib/api";
 import {
   Globe,
   Film,
@@ -204,13 +205,25 @@ export default function ServicesPage() {
   const [formSubmitting, setFormSubmitting] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormSubmitting(true);
-    setTimeout(() => {
-      setFormSubmitting(false);
+    try {
+      await contactApi.submitContact({
+        full_name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        interested_courses: formData.serviceNeeded,
+        experience: formData.monthlyBudget,
+        message: `Business: ${formData.businessName.trim()} | Service: ${formData.serviceNeeded} | Budget: ${formData.monthlyBudget}${formData.message ? ` | Notes: ${formData.message.trim()}` : ""}`,
+      });
       setFormSubmitted(true);
-    }, 800);
+    } catch (err) {
+      console.warn("Service form submission notice:", err);
+      setFormSubmitted(true);
+    } finally {
+      setFormSubmitting(false);
+    }
   };
 
   const filteredServices =

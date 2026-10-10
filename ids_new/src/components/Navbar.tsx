@@ -333,34 +333,34 @@ export default function Navbar() {
               >
                 Blogs & Insights
               </Link>
-              <a
-                href="#hiring-partners"
+              <Link
+                href="/#hiring-partners"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block py-1 hover:text-[#fe4759]"
               >
                 Hiring Partners & Placements
-              </a>
-              <a
-                href="#alumni"
+              </Link>
+              <Link
+                href="/#alumni"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block py-1 hover:text-[#fe4759]"
               >
                 Student Reviews & Stories
-              </a>
-              <a
-                href="#faq"
+              </Link>
+              <Link
+                href="/#faq"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block py-1 hover:text-[#fe4759]"
               >
                 FAQs
-              </a>
-              <a
-                href="#faq"
+              </Link>
+              <Link
+                href="/#faq"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block py-1 hover:text-[#fe4759]"
               >
                 Refund Policy
-              </a>
+              </Link>
               <Link
                 href="/terms-and-conditions"
                 onClick={() => setIsMobileMenuOpen(false)}
