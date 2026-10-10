@@ -17,6 +17,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://idigitalstudies.com"),
   title: "IDS - Master In-Demand Skills For A High-Growth Career",
   description:
     "Key Reasons To Join IDS · Industry Experienced Mentors · Lifetime LMS Access · Hands-On Virtual Internships · Dedicated Placement Assistance.",
