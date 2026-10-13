@@ -87,7 +87,7 @@ export default function ContactUsPage() {
     name: "",
     phone: "",
     email: "",
-    course: "Master in Digital Marketing Course",
+    course: "Master in Digital Marketing with AI & Automation",
     experience: "Student / Fresher",
     message: "",
   });
@@ -475,17 +475,17 @@ export default function ContactUsPage() {
                         onChange={(e) => setFormData({ ...formData, course: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#fe4759] focus:ring-2 focus:ring-[#fe4759]/20 outline-none transition-all text-sm font-medium bg-white"
                       >
-                        <option value="Master in Digital Marketing Course">
-                          Master in Digital Marketing Course
+                        <option value="Master in Digital Marketing with AI & Automation">
+                          Master in Digital Marketing with AI & Automation
                         </option>
-                        <option value="Digital Marketing Specialist Course">
-                          Digital Marketing Specialist Course
+                        <option value="Advance Performance & Growth Marketing Program">
+                          Advance Performance & Growth Marketing Program
                         </option>
-                        <option value="Digital Marketing Course for Business Owners">
-                          Digital Marketing Course for Business Owners
+                        <option value="Digital Marketing Program for Business Owners">
+                          Digital Marketing Program for Business Owners
                         </option>
-                        <option value="Customised Course in Digital Marketing">
-                          Customised Course in Digital Marketing
+                        <option value="Customised Program in Digital Marketing">
+                          Customised Program in Digital Marketing
                         </option>
                       </select>
                     </div>

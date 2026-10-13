@@ -52,10 +52,23 @@ def generate_next_student_id(db: Session) -> str:
     return f"IDS{next_num:05d}"
 
 COURSE_CODE_MAP = {
+    # New official course names
+    "master in digital marketing with ai & automation": "DM01M",
+    "advance performance & growth marketing program": "DM01S",
+    "digital marketing program for business owners": "DM01B",
+    "customised program in digital marketing": "DM01C",
+    # Legacy alias mappings for existing database records
     "digital marketer for business owners": "DM01B",
     "master in digital marketing": "DM01M",
     "digital marketing specialist course": "DM01S",
     "customised course in digital marketing": "DM01C",
+}
+
+OFFICIAL_COURSE_NAMES = {
+    "DM01M": "Master in Digital Marketing with AI & Automation",
+    "DM01S": "Advance Performance & Growth Marketing Program",
+    "DM01B": "Digital Marketing Program for Business Owners",
+    "DM01C": "Customised Program in Digital Marketing",
 }
 
 def resolve_course_code(course_name: str, provided_code: Optional[str] = None) -> str:
@@ -71,12 +84,16 @@ def resolve_course_code(course_name: str, provided_code: Optional[str] = None) -
         return "DM01B"
     elif "master" in clean_name:
         return "DM01M"
-    elif "specialist" in clean_name:
+    elif "performance" in clean_name or "growth" in clean_name or "specialist" in clean_name:
         return "DM01S"
     elif "custom" in clean_name:
         return "DM01C"
 
     return "DM01C"
+
+def get_canonical_course_name(course_name: str, course_code: Optional[str] = None) -> str:
+    code = resolve_course_code(course_name, course_code)
+    return OFFICIAL_COURSE_NAMES.get(code, course_name.strip() if course_name else "Master in Digital Marketing with AI & Automation")
 
 def generate_certificate_id(
     student: EnrolledStudent,
@@ -121,6 +138,7 @@ def enroll_student(payload: StudentEnrollRequest, db: Session = Depends(get_db))
     """
     student_id = generate_next_student_id(db)
     course_code = resolve_course_code(payload.course_name, payload.course_code)
+    canonical_course_name = get_canonical_course_name(payload.course_name, course_code)
 
     student = EnrolledStudent(
         student_id=student_id,
@@ -129,7 +147,7 @@ def enroll_student(payload: StudentEnrollRequest, db: Session = Depends(get_db))
         phone=payload.phone.strip(),
         location=payload.location.strip(),
         course_mode=payload.course_mode.strip().lower(),
-        course_name=payload.course_name.strip(),
+        course_name=canonical_course_name,
         course_code=course_code,
         certificate_status="pending",
     )
@@ -258,6 +276,7 @@ def verify_certificate(identifier: str, db: Session = Depends(get_db)):
         )
 
     cert_id = student.certificate_id or generate_certificate_id(student)
+    canonical_course_name = get_canonical_course_name(student.course_name, student.course_code)
 
     if student.certificate_status != "issued":
         return {
@@ -266,7 +285,7 @@ def verify_certificate(identifier: str, db: Session = Depends(get_db)):
             "message": "Student is enrolled, but their completion certificate has not been officially issued yet.",
             "student_id": student.student_id,
             "name": student.name,
-            "course_name": student.course_name,
+            "course_name": canonical_course_name,
         }
 
     return {
@@ -275,7 +294,7 @@ def verify_certificate(identifier: str, db: Session = Depends(get_db)):
         "student_id": student.student_id,
         "certificate_id": cert_id,
         "name": student.name,
-        "course_name": student.course_name,
+        "course_name": canonical_course_name,
         "course_code": student.course_code or "DM01S",
         "course_mode": student.course_mode,
         "course_duration": student.course_duration or "3 Months",
@@ -313,7 +332,7 @@ def get_certificate_image(student_id: str, db: Session = Depends(get_db)):
                     content=r.content,
                     media_type="image/png",
                     headers={
-                        "Cache-Control": "public, max-age=86400",
+                        "Cache-Control": "no-cache, must-revalidate",
                         "Content-Disposition": f'inline; filename="{safe_filename}.png"',
                     },
                 )
@@ -324,10 +343,11 @@ def get_certificate_image(student_id: str, db: Session = Depends(get_db)):
     cert_id = student.certificate_id or generate_certificate_id(student)
     duration = student.course_duration or "3 Months"
     completion_date = student.course_completion_date or date.today()
+    canonical_course_name = get_canonical_course_name(student.course_name, student.course_code)
 
     png_io, _ = generate_certificate_buffers(
         student_name=student.name,
-        course_name=student.course_name,
+        course_name=canonical_course_name,
         duration=duration,
         course_mode=student.course_mode,
         certificate_id=cert_id,
@@ -338,7 +358,7 @@ def get_certificate_image(student_id: str, db: Session = Depends(get_db)):
         content=png_io.getvalue(),
         media_type="image/png",
         headers={
-            "Cache-Control": "public, max-age=86400",
+            "Cache-Control": "no-cache, must-revalidate",
             "Content-Disposition": f'inline; filename="{safe_filename}.png"',
         },
     )
@@ -366,10 +386,11 @@ def download_certificate(
     safe_filename = cert_id.replace("/", "_").replace(" ", "_")
     duration = student.course_duration or "3 Months"
     completion_date = student.course_completion_date or date.today()
+    canonical_course_name = get_canonical_course_name(student.course_name, student.course_code)
 
     png_io, pdf_io = generate_certificate_buffers(
         student_name=student.name,
-        course_name=student.course_name,
+        course_name=canonical_course_name,
         duration=duration,
         course_mode=student.course_mode,
         certificate_id=cert_id,
@@ -417,6 +438,8 @@ def issue_certificate(
         or resolve_course_code(student.course_name)
     )
     student.course_code = course_code
+    canonical_course_name = get_canonical_course_name(student.course_name, course_code)
+    student.course_name = canonical_course_name
 
     cert_id = generate_certificate_id(
         student=student,
@@ -429,7 +452,7 @@ def issue_certificate(
     try:
         png_io, _ = generate_certificate_buffers(
             student_name=student.name,
-            course_name=student.course_name,
+            course_name=canonical_course_name,
             duration=duration,
             course_mode=student.course_mode,
             certificate_id=cert_id,

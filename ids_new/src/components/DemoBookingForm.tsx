@@ -9,7 +9,7 @@ export default function DemoBookingForm() {
     name: "",
     email: "",
     phone: "",
-    course: "Master in Digital Marketing Course",
+    course: "Master in Digital Marketing with AI & Automation",
     experience: "Fresher / College Student",
   });
   const [submitted, setSubmitted] = useState(false);
@@ -194,10 +194,10 @@ export default function DemoBookingForm() {
                           }
                           className="w-full pl-9 pr-3 py-2.5 text-sm rounded-xl border border-slate-200 focus:border-[#fe4759] focus:ring-1 focus:ring-[#fe4759] outline-none transition-all bg-white"
                         >
-                          <option>Master in Digital Marketing Course</option>
-                          <option>Digital Marketing Specialist Course</option>
-                          <option>Digital Marketing Course for Business Owners</option>
-                          <option>Customised Course in Digital Marketing</option>
+                          <option>Master in Digital Marketing with AI & Automation</option>
+                          <option>Advance Performance & Growth Marketing Program</option>
+                          <option>Digital Marketing Program for Business Owners</option>
+                          <option>Customised Program in Digital Marketing</option>
                         </select>
                       </div>
                     </div>

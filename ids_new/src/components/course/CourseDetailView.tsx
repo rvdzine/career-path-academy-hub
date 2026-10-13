@@ -67,7 +67,7 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
     if (code === "DM01M" || name.includes("master")) {
       return "master_dm_internship";
     }
-    if (code === "DM01S" || name.includes("specialist")) {
+    if (code === "DM01S" || name.includes("specialist") || name.includes("performance") || name.includes("growth")) {
       return "specialist_dm";
     }
     if (code === "DM01B" || name.includes("business")) {

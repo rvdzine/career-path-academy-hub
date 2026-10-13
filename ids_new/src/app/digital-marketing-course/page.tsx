@@ -8,7 +8,7 @@ interface PageProps {
 
 export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
   const resolvedSearchParams = searchParams ? await searchParams : {};
-  const courseSlug = resolvedSearchParams.course || "master-in-digital-marketing";
+  const courseSlug = resolvedSearchParams.course || "master-in-digital-marketing-with-ai-automation";
   const course = getCourseBySlug(courseSlug);
 
   return {
@@ -36,7 +36,7 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
 
 export default async function DigitalMarketingCourseRoute({ searchParams }: PageProps) {
   const resolvedSearchParams = searchParams ? await searchParams : {};
-  const courseSlug = resolvedSearchParams.course || "master-in-digital-marketing";
+  const courseSlug = resolvedSearchParams.course || "master-in-digital-marketing-with-ai-automation";
   const course = getCourseBySlug(courseSlug);
 
   return <CourseDetailView course={course} />;

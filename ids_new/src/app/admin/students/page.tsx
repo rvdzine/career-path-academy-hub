@@ -36,10 +36,10 @@ import { studentApi, getVerificationUrl } from "@/lib/api";
 import { EnrolledStudent, StudentStats, StudentEnrollFormData } from "@/lib/types";
 
 const AVAILABLE_COURSES = [
-  { name: "Master in Digital marketing", code: "DM01M" },
-  { name: "Digital marketer for business owners", code: "DM01B" },
-  { name: "Digital marketing specialist course", code: "DM01S" },
-  { name: "customised course in digital marketing", code: "DM01C" },
+  { name: "Master in Digital Marketing with AI & Automation", code: "DM01M" },
+  { name: "Advance Performance & Growth Marketing Program", code: "DM01S" },
+  { name: "Digital Marketing Program for Business Owners", code: "DM01B" },
+  { name: "Customised Program in Digital Marketing", code: "DM01C" },
 ];
 
 export default function EnrolledStudentsPage() {
@@ -1420,7 +1420,11 @@ export default function EnrolledStudentsPage() {
               <div className="rounded-2xl border border-gray-200 bg-gray-50 overflow-hidden shadow-xs p-2">
                 <div className="relative aspect-[1526/1031] w-full bg-white rounded-xl overflow-hidden border border-gray-100">
                   <img
-                    src={studentApi.getCertificateImageUrl(viewCertStudent.certificate_id || viewCertStudent.student_id)}
+                    src={
+                      viewCertStudent.certificate_url
+                        ? `${viewCertStudent.certificate_url}?t=${viewCertStudent.certificate_issued_at ? new Date(viewCertStudent.certificate_issued_at).getTime() : Date.now()}`
+                        : `${studentApi.getCertificateImageUrl(viewCertStudent.certificate_id || viewCertStudent.student_id)}?t=${Date.now()}`
+                    }
                     alt={`Certificate for ${viewCertStudent.name}`}
                     className="w-full h-full object-cover"
                   />

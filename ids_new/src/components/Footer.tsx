@@ -86,23 +86,23 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-400">
               <li>
-                <Link href="/courses/master-in-digital-marketing" className="hover:text-[#fe4759] transition-colors">
-                  Master in Digital Marketing (6 Mos)
+                <Link href="/courses/master-in-digital-marketing-with-ai-automation" className="hover:text-[#fe4759] transition-colors">
+                  Master in Digital Marketing with AI & Automation (6 Mos)
                 </Link>
               </li>
               <li>
-                <Link href="/courses/digital-marketing-specialist" className="hover:text-[#fe4759] transition-colors">
-                  Digital Marketing Specialist (3 Mos)
+                <Link href="/courses/advance-performance-growth-marketing-program" className="hover:text-[#fe4759] transition-colors">
+                  Advance Performance & Growth Marketing Program (3 Mos)
                 </Link>
               </li>
               <li>
-                <Link href="/courses/digital-marketing-for-business-owners" className="hover:text-[#fe4759] transition-colors">
-                  Digital Marketing for Business Owners
+                <Link href="/courses/digital-marketing-program-for-business-owners" className="hover:text-[#fe4759] transition-colors">
+                  Digital Marketing Program for Business Owners
                 </Link>
               </li>
               <li>
-                <Link href="/courses/customised-course-in-digital-marketing" className="hover:text-[#fe4759] transition-colors">
-                  Customised Digital Marketing
+                <Link href="/courses/customised-program-in-digital-marketing" className="hover:text-[#fe4759] transition-colors">
+                  Customised Program in Digital Marketing
                 </Link>
               </li>
             </ul>

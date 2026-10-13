@@ -13,7 +13,7 @@ from ..utils.file_storage import configure_cloudinary, MEDIA_ROOT
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_PATH = BASE_DIR / "assets" / "templates" / "final_certificate.png"
-FALLBACK_TEMPLATE_PATH = Path("c:/Users/surya/OneDrive/Desktop/cybershield/ids_new/public/assets/final_certificate.png")
+FALLBACK_TEMPLATE_PATH = BASE_DIR / "assets" / "templates" / "final_certificate.png"
 
 def get_font(font_names: list, size: int) -> ImageFont.FreeTypeFont:
     """
@@ -116,8 +116,14 @@ def render_certificate_from_svg(
     )
 
 
-    # 6. Candidate fonts for resvg
+    # 6. Candidate fonts for resvg (both Linux container and Windows)
     candidate_fonts = [
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+        "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf",
+        "/usr/share/fonts/truetype/freefont/FreeSans.ttf",
         "C:/Windows/Fonts/segoeui.ttf",
         "C:/Windows/Fonts/segoeuib.ttf",
         "C:/Windows/Fonts/arial.ttf",
@@ -129,7 +135,7 @@ def render_certificate_from_svg(
         svg_string=filled_svg,
         skip_system_fonts=bool(font_files),
         font_files=font_files if font_files else None,
-        zoom=2.0,
+        zoom=1.5,
         text_rendering="geometric_precision",
         shape_rendering="geometric_precision",
         image_rendering="optimize_quality",
