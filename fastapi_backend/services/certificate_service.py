@@ -133,8 +133,9 @@ def render_certificate_from_svg(
 
     png_bytes = resvg_py.svg_to_bytes(
         svg_string=filled_svg,
-        skip_system_fonts=bool(font_files),
+        skip_system_fonts=False,
         font_files=font_files if font_files else None,
+        sans_serif_family="DejaVu Sans",
         zoom=1.5,
         text_rendering="geometric_precision",
         shape_rendering="geometric_precision",
