@@ -4,6 +4,8 @@ from sqlalchemy import func, or_
 from typing import List, Optional
 from datetime import datetime, timezone, date
 import requests
+import io
+from PIL import Image
 
 from ..database import get_db
 from ..models.student import EnrolledStudent
@@ -388,6 +390,29 @@ def download_certificate(
     completion_date = student.course_completion_date or date.today()
     canonical_course_name = get_canonical_course_name(student.course_name, student.course_code)
 
+    # 1. If pre-rendered certificate exists in Cloudinary/storage, stream directly
+    if student.certificate_url and student.certificate_url.startswith("http"):
+        try:
+            r = requests.get(student.certificate_url, timeout=12)
+            if r.status_code == 200:
+                if format.lower() == "pdf":
+                    img = Image.open(io.BytesIO(r.content)).convert("RGB")
+                    pdf_io = io.BytesIO()
+                    img.save(pdf_io, format="PDF", resolution=200.0)
+                    return Response(
+                        content=pdf_io.getvalue(),
+                        media_type="application/pdf",
+                        headers={"Content-Disposition": f'attachment; filename="{safe_filename}.pdf"'},
+                    )
+                else:
+                    return Response(
+                        content=r.content,
+                        media_type="image/png",
+                        headers={"Content-Disposition": f'attachment; filename="{safe_filename}.png"'},
+                    )
+        except Exception as e:
+            print(f"[Download Certificate] Storage cache fetch fallback: {e}")
+
     png_io, pdf_io = generate_certificate_buffers(
         student_name=student.name,
         course_name=canonical_course_name,
@@ -517,28 +542,49 @@ def send_certificate_email(
         db.commit()
         db.refresh(student)
 
-    # Generate print-ready PDF and PNG
-    png_io, pdf_io = generate_certificate_buffers(
-        student_name=student.name,
-        course_name=student.course_name,
-        duration=duration,
-        course_mode=student.course_mode,
-        certificate_id=cert_id,
-        issue_date=completion_date,
-    )
+    canonical_course_name = get_canonical_course_name(student.course_name, student.course_code)
+
+    # 1. Fetch pre-rendered certificate from Cloudinary/storage if available
+    pdf_bytes = None
+    png_bytes = None
+
+    if student.certificate_url and student.certificate_url.startswith("http"):
+        try:
+            r = requests.get(student.certificate_url, timeout=12)
+            if r.status_code == 200:
+                png_bytes = r.content
+                img = Image.open(io.BytesIO(png_bytes)).convert("RGB")
+                pdf_io = io.BytesIO()
+                img.save(pdf_io, format="PDF", resolution=200.0)
+                pdf_bytes = pdf_io.getvalue()
+        except Exception as e:
+            print(f"[Send Certificate Email] Storage fetch fallback: {e}")
+
+    # 2. Dynamic generation fallback
+    if not pdf_bytes or not png_bytes:
+        png_io, pdf_io = generate_certificate_buffers(
+            student_name=student.name,
+            course_name=canonical_course_name,
+            duration=duration,
+            course_mode=student.course_mode,
+            certificate_id=cert_id,
+            issue_date=completion_date,
+        )
+        png_bytes = png_io.getvalue()
+        pdf_bytes = pdf_io.getvalue()
 
     verification_url = f"{settings.SITE_URL}/verify-certificate/{cert_id}"
 
     success, message = send_student_certificate_email(
         student_name=student.name,
         recipient_email=student.email,
-        course_name=student.course_name,
+        course_name=canonical_course_name,
         certificate_id=cert_id,
         issue_date=completion_date,
         duration=duration,
         course_mode=student.course_mode,
-        pdf_bytes=pdf_io.getvalue(),
-        png_bytes=png_io.getvalue(),
+        pdf_bytes=pdf_bytes,
+        png_bytes=png_bytes,
         verification_url=verification_url,
     )
 
