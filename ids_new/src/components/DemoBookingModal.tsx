@@ -23,10 +23,10 @@ interface DemoBookingModalProps {
 }
 
 const COURSES = [
-  "Master in Digital Marketing Course",
-  "Digital Marketing Specialist Course",
-  "Digital Marketing Course for Business Owners",
-  "Customised Course in Digital Marketing",
+  "Master in Digital Marketing with AI & Automation",
+  "Advance Performance & Growth Marketing Program",
+  "Digital Marketing Program for Business Owners",
+  "Customised Program in Digital Marketing",
 ];
 
 const EXPERIENCE_OPTIONS = [

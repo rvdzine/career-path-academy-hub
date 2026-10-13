@@ -343,7 +343,7 @@ export default function JobsAndPlacementsPage() {
     fullName: "",
     email: "",
     phone: "",
-    course: "Master in Digital Marketing Course",
+    course: "Master in Digital Marketing with AI & Automation",
     selectedRole: "Digital Marketing Intern",
     experienceLevel: "Fresher / Student",
     portfolioUrl: "",
@@ -1274,10 +1274,10 @@ export default function JobsAndPlacementsPage() {
                           onChange={(e) => setCandidateForm({ ...candidateForm, course: e.target.value })}
                           className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#fe4759]/20 focus:border-[#fe4759] bg-white text-slate-800"
                         >
-                          <option value="Master in Digital Marketing Course">Master in Digital Marketing Course</option>
-                          <option value="Digital Marketing Specialist Course">Digital Marketing Specialist Course</option>
-                          <option value="Digital Marketing Course for Business Owners">Digital Marketing Course for Business Owners</option>
-                          <option value="Customised Course in Digital Marketing">Customised Course in Digital Marketing</option>
+                          <option value="Master in Digital Marketing with AI & Automation">Master in Digital Marketing with AI & Automation</option>
+                          <option value="Advance Performance & Growth Marketing Program">Advance Performance & Growth Marketing Program</option>
+                          <option value="Digital Marketing Program for Business Owners">Digital Marketing Program for Business Owners</option>
+                          <option value="Customised Program in Digital Marketing">Customised Program in Digital Marketing</option>
                           <option value="External Candidate / Self-Taught">External Candidate / Self-Taught</option>
                         </select>
                       </div>

@@ -272,32 +272,32 @@ export default function Navbar() {
               {mobileExpandedSection === "courses" && (
                 <div className="pl-3 py-2 space-y-2.5 text-xs text-slate-600 border-l-2 border-[#fe4759]">
                   <Link
-                    href="/courses/master-in-digital-marketing"
+                    href="/courses/master-in-digital-marketing-with-ai-automation"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block font-semibold text-slate-800 hover:text-[#fe4759]"
                   >
-                    • Master in Digital Marketing Course <span className="text-[#fe4759] font-normal">(6 Months)</span>
+                    • Master in Digital Marketing with AI & Automation <span className="text-[#fe4759] font-normal">(6 Months)</span>
                   </Link>
                   <Link
-                    href="/courses/digital-marketing-specialist"
+                    href="/courses/advance-performance-growth-marketing-program"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block font-semibold text-slate-800 hover:text-[#fe4759]"
                   >
-                    • Digital Marketing Specialist Course <span className="text-[#fe4759] font-normal">(3 Months)</span>
+                    • Advance Performance & Growth Marketing Program <span className="text-[#fe4759] font-normal">(3 Months)</span>
                   </Link>
                   <Link
-                    href="/courses/digital-marketing-for-business-owners"
+                    href="/courses/digital-marketing-program-for-business-owners"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block font-semibold text-slate-800 hover:text-[#fe4759]"
                   >
-                    • Digital Marketing for Business Owners <span className="text-[#fe4759] font-normal">(1:1 Mentorship)</span>
+                    • Digital Marketing Program for Business Owners <span className="text-[#fe4759] font-normal">(1:1 Mentorship)</span>
                   </Link>
                   <Link
-                    href="/courses/customised-course-in-digital-marketing"
+                    href="/courses/customised-program-in-digital-marketing"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block font-semibold text-slate-800 hover:text-[#fe4759]"
                   >
-                    • Customised Course in Digital Marketing <span className="text-[#fe4759] font-normal">(Tailored)</span>
+                    • Customised Program in Digital Marketing <span className="text-[#fe4759] font-normal">(Tailored)</span>
                   </Link>
                 </div>
               )}

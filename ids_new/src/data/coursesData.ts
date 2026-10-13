@@ -41,22 +41,24 @@ export interface CourseData {
 }
 
 export const COURSES_DATA: CourseData[] = [
-  // 1. MASTER IN DIGITAL MARKETING COURSE
+  // 1. MASTER IN DIGITAL MARKETING WITH AI & AUTOMATION
   {
     id: "master",
-    slug: "master-in-digital-marketing",
+    slug: "master-in-digital-marketing-with-ai-automation",
     aliases: [
+      "master-in-digital-marketing",
       "master",
       "master-digital-marketing",
       "master-in-digital-marketing-course",
+      "master-in-digital-marketing-with-ai-automation",
       "dm01m",
     ],
     courseCode: "DM01M",
-    name: "Master in Digital Marketing Course",
+    name: "Master in Digital Marketing with AI & Automation",
     pillTag: "GOVT. RECOGNIZED CERTIFICATION • NSDC & MSME ALIGNED",
     headlinePre: "AI-Infused Advanced",
-    headlineHighlight: "Master in Digital Marketing",
-    headlinePost: "Course",
+    headlineHighlight: "Master in Digital Marketing with AI & Automation",
+    headlinePost: "",
     subheadline:
       "Become a full-stack digital marketing leader with India's most practical, project-first training program. Master 35+ industry tools, Generative AI workflows, live ad budgets, and get 100% placement support.",
     duration: "6 Months",
@@ -205,11 +207,11 @@ export const COURSES_DATA: CourseData[] = [
         techStack: ["LinkedIn Sales Navigator", "Upwork Pro", "Portfolio Hub", "Pitch Decks"],
       },
     ],
-    seoTitle: "Master in Digital Marketing Course (6 Months) with AI & Live Projects",
+    seoTitle: "Master in Digital Marketing with AI & Automation (6 Months) | IDS",
     seoDescription:
-      "Enroll in India's top-rated Master in Digital Marketing Course at IDS. 6-month hands-on training with AI tools, 10+ live client campaigns, NSDC certification, and 100% placement assistance.",
+      "Enroll in India's top-rated Master in Digital Marketing with AI & Automation program at IDS. 6-month hands-on training with AI tools, 10+ live client campaigns, NSDC certification, and 100% placement assistance.",
     keywords: [
-      "Master in Digital Marketing Course",
+      "Master in Digital Marketing with AI & Automation",
       "Advanced Digital Marketing Course",
       "Digital Marketing Course in Noida",
       "AI in Digital Marketing",
@@ -218,22 +220,25 @@ export const COURSES_DATA: CourseData[] = [
     ],
   },
 
-  // 2. DIGITAL MARKETING SPECIALIST COURSE
+  // 2. ADVANCE PERFORMANCE & GROWTH MARKETING PROGRAM
   {
     id: "specialist",
-    slug: "digital-marketing-specialist",
+    slug: "advance-performance-growth-marketing-program",
     aliases: [
+      "digital-marketing-specialist",
+      "advance-performance-growth-marketing-program",
+      "performance-growth-marketing",
       "specialist",
       "specialist-course",
       "digital-marketing-specialist-course",
       "dm01s",
     ],
     courseCode: "DM01S",
-    name: "Digital Marketing Specialist Course",
+    name: "Advance Performance & Growth Marketing Program",
     pillTag: "GOOGLE & META CERTIFIED • TACTICAL PERFORMANCE MARKETING SPRINT",
     headlinePre: "Fast-Track",
-    headlineHighlight: "Digital Marketing Specialist",
-    headlinePost: "Course",
+    headlineHighlight: "Advance Performance & Growth Marketing",
+    headlinePost: "Program",
     subheadline:
       "A high-octane 3-month tactical performance marketing sprint. Master real-time paid ad spends, conversion rate optimization (CRO), ROAS scaling, and data attribution telemetry with Google and Meta certified mentors.",
     duration: "3 Months",
@@ -342,12 +347,13 @@ export const COURSES_DATA: CourseData[] = [
         techStack: ["Agency Audit Playbooks", "Pitch Decks", "LinkedIn Sales Navigator", "Resume Grooming"],
       },
     ],
-    seoTitle: "Digital Marketing Specialist Course (3 Months) - Performance Marketing",
+    seoTitle: "Advance Performance & Growth Marketing Program (3 Months) | IDS",
     seoDescription:
-      "Become a certified Performance Marketing Specialist in 3 months. Master Google Ads, Meta Ads, CRO, and analytics with real ad spend budgets at Institute of Digital Studies.",
+      "Become a certified Performance & Growth Marketing leader in 3 months. Master Google Ads, Meta Ads, CRO, and growth loops with real ad spend budgets at Institute of Digital Studies.",
     keywords: [
-      "Digital Marketing Specialist Course",
+      "Advance Performance & Growth Marketing Program",
       "Performance Marketing Course",
+      "Growth Marketing Course",
       "PPC Specialist Training",
       "Google Ads Certification",
       "Meta Ads Course",
@@ -355,22 +361,24 @@ export const COURSES_DATA: CourseData[] = [
     ],
   },
 
-  // 3. DIGITAL MARKETING COURSE FOR BUSINESS OWNERS
+  // 3. DIGITAL MARKETING PROGRAM FOR BUSINESS OWNERS
   {
     id: "business-owners",
-    slug: "digital-marketing-for-business-owners",
+    slug: "digital-marketing-program-for-business-owners",
     aliases: [
+      "digital-marketing-for-business-owners",
+      "digital-marketing-program-for-business-owners",
       "business-owners",
       "for-business-owners",
       "digital-marketing-course-for-business-owners",
       "dm01b",
     ],
     courseCode: "DM01B",
-    name: "Digital Marketing Course for Business Owners",
+    name: "Digital Marketing Program for Business Owners",
     pillTag: "EXECUTIVE PROGRAM • 1:1 FOUNDER MENTORSHIP & ROI SCALING",
     headlinePre: "Executive Mentorship",
-    headlineHighlight: "Digital Marketing for Business Owners",
-    headlinePost: "Program",
+    headlineHighlight: "Digital Marketing Program for Business Owners",
+    headlinePost: "",
     subheadline:
       "Engineered specifically for business owners, startup founders, and entrepreneurs. Learn to generate predictable inbound customer leads, stop wasted agency ad spends, cut CAC, and scale revenues with 1:1 customized mentorship.",
     duration: "Custom Timeline",
@@ -459,11 +467,11 @@ export const COURSES_DATA: CourseData[] = [
         techStack: ["Agency Evaluation Scorecard", "Interview Questionnaires", "Executive KPI Dashboards"],
       },
     ],
-    seoTitle: "Digital Marketing Course for Business Owners & Founders | 1:1 Coaching",
+    seoTitle: "Digital Marketing Program for Business Owners & Founders | IDS",
     seoDescription:
       "Exclusive executive digital marketing program for business owners and startup founders. Generate predictable leads, cut agency costs, and scale business revenue with 1:1 mentorship.",
     keywords: [
-      "Digital Marketing for Business Owners",
+      "Digital Marketing Program for Business Owners",
       "Executive Digital Marketing Training",
       "Digital Marketing for Founders",
       "Business Lead Generation Course",
@@ -472,11 +480,13 @@ export const COURSES_DATA: CourseData[] = [
     ],
   },
 
-  // 4. CUSTOMISED COURSE IN DIGITAL MARKETING
+  // 4. CUSTOMISED PROGRAM IN DIGITAL MARKETING
   {
     id: "customised",
-    slug: "customised-course-in-digital-marketing",
+    slug: "customised-program-in-digital-marketing",
     aliases: [
+      "customised-course-in-digital-marketing",
+      "customised-program-in-digital-marketing",
       "customised",
       "customised-course",
       "custom-digital-marketing-course",
@@ -484,11 +494,11 @@ export const COURSES_DATA: CourseData[] = [
       "dm01c",
     ],
     courseCode: "DM01C",
-    name: "Customised Course in Digital Marketing",
+    name: "Customised Program in Digital Marketing",
     pillTag: "TAILORED MODULAR CURRICULUM • CUSTOM TIMELINE & MENTORSHIP",
     headlinePre: "Personalized",
-    headlineHighlight: "Customised Course in Digital Marketing",
-    headlinePost: "Program",
+    headlineHighlight: "Customised Program in Digital Marketing",
+    headlinePost: "",
     subheadline:
       "Choose exactly what you want to learn. Pick individual skill tracks from SEO, Performance Marketing, AI Content, Social Media, or E-Commerce and learn at your own pace with a dedicated senior mentor.",
     duration: "Flexible Timeline",
@@ -577,11 +587,11 @@ export const COURSES_DATA: CourseData[] = [
         techStack: ["Zapier", "Make.com", "HubSpot CRM", "Google Analytics 4", "Looker Studio"],
       },
     ],
-    seoTitle: "Customised Digital Marketing Course | Tailored Modular Syllabus",
+    seoTitle: "Customised Program in Digital Marketing | Tailored Modular Syllabus",
     seoDescription:
       "Design your own digital marketing syllabus with Institute of Digital Studies. Pick from SEO, Paid Ads, AI, Social Media, or E-Commerce tracks with flexible 1:1 mentorship.",
     keywords: [
-      "Customised Course in Digital Marketing",
+      "Customised Program in Digital Marketing",
       "Custom Digital Marketing Course",
       "Modular Digital Marketing Training",
       "Personalized Marketing Mentorship",

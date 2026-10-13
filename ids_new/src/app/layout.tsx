@@ -66,6 +66,14 @@ export const metadata: Metadata = {
       "Industry Experienced Mentors · Lifetime LMS Access · Hands-On Virtual Internships · Dedicated Placement Assistance.",
     creator: "@idigitalstudies",
   },
+  icons: {
+    icon: [
+      { url: "/ids-favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/ids-favicon.svg",
+    apple: "/ids-favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -117,6 +125,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/ids-favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
