@@ -3,7 +3,8 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, X, CheckCircle2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, CheckCircle2, Loader2 } from "lucide-react";
+import { contactApi } from "@/lib/api";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -22,7 +23,6 @@ interface ProgramCard {
   image: string;
   features: ProgramFeature[];
   href: string;
-  brochureUrl?: string;
   cardBg: string;
   titleColor: string;
   descColor: string;
@@ -113,9 +113,10 @@ export default function ProgramsExplorer() {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
-  // Syllabus Modal State
+  // Brochure Modal State
   const [selectedProgram, setSelectedProgram] = useState<ProgramCard | null>(null);
   const [syllabusSubmitted, setSyllabusSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [syllabusForm, setSyllabusForm] = useState({ name: "", phone: "", email: "" });
 
   const tabs = [{ id: "marketing", label: "Digital Marketing" }];
@@ -171,7 +172,6 @@ export default function ProgramsExplorer() {
           { icon: <BarIcon />, label: "Live Projects & Tools Access" },
         ],
         href: "/courses/master-in-digital-marketing-with-ai-automation",
-        brochureUrl: "/brochures/master-in-digital-marketing-with-ai-automation.pdf",
       },
       {
         title: "Advance Performance & Growth Marketing Program",
@@ -196,7 +196,6 @@ export default function ProgramsExplorer() {
           { icon: <GoogleIcon />, label: "Google & Meta Certification Prep" },
         ],
         href: "/courses/advance-performance-growth-marketing-program",
-        brochureUrl: "/brochures/advance-performance-growth-marketing-program.pdf",
       },
       {
         title: "Digital Marketing Program for Business Owners",
@@ -221,7 +220,6 @@ export default function ProgramsExplorer() {
           { icon: <MentorIcon />, label: "1:1 Mentorship" },
         ],
         href: "/courses/digital-marketing-program-for-business-owners",
-        brochureUrl: "/brochures/digital-marketing-program-for-business-owners.pdf",
       },
       {
         title: "Customised Program in Digital Marketing",
@@ -246,26 +244,40 @@ export default function ProgramsExplorer() {
           { icon: <MentorIcon />, label: "1:1 Mentorship" },
         ],
         href: "/courses/customised-program-in-digital-marketing",
-        brochureUrl: "/brochures/customised-program-in-digital-marketing.pdf",
       },
     ],
   };
 
-  const handleSyllabusSubmit = (e: React.FormEvent) => {
+  const handleSyllabusSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSyllabusSubmitted(true);
+    if (isSubmitting) return;
+    setIsSubmitting(true);
 
-    // Trigger PDF download
-    if (selectedProgram) {
-      const targetUrl = selectedProgram.brochureUrl || "/brochure.pdf";
-      const link = document.createElement("a");
-      link.href = targetUrl;
-      link.download = `${selectedProgram.title.replace(/[^a-zA-Z0-9]/g, "_")}_Brochure.pdf`;
-      link.target = "_blank";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+    try {
+      await contactApi.submitContact({
+        full_name: syllabusForm.name.trim(),
+        email: syllabusForm.email.trim(),
+        phone: syllabusForm.phone.trim(),
+        interested_courses: selectedProgram?.title || "Digital Marketing",
+        experience: "Not specified",
+        message: `Brochure Download: ${selectedProgram?.title || "Digital Marketing"}`,
+      });
+    } catch (err) {
+      console.error("Failed to save brochure lead to contact table:", err);
+      // Still proceed with download so the user experience isn't blocked
     }
+
+    setSyllabusSubmitted(true);
+    setIsSubmitting(false);
+
+    // Trigger single PDF download for all cards
+    const link = document.createElement("a");
+    link.href = "/brochure.pdf";
+    link.download = "IDS_Course_Brochure.pdf";
+    link.target = "_blank";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 
     setTimeout(() => {
       setSelectedProgram(null);
@@ -440,7 +452,11 @@ export default function ProgramsExplorer() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200">
           <div className="relative w-full max-w-md bg-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-100 animate-in zoom-in-95 duration-200">
             <button
-              onClick={() => setSelectedProgram(null)}
+              onClick={() => {
+                if (!isSubmitting) {
+                  setSelectedProgram(null);
+                }
+              }}
               className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition-colors"
             >
               <X className="w-5 h-5" />
@@ -478,10 +494,12 @@ export default function ProgramsExplorer() {
 
               <button
                 type="submit"
-                disabled={syllabusSubmitted}
-                className="w-full py-3 px-5 rounded-full bg-[#fe4759] hover:bg-[#e03447] text-white font-bold text-sm shadow-md shadow-[#fe4759]/25 hover:shadow-lg transition-all flex items-center justify-center gap-2 mt-2 cursor-pointer"
+                disabled={syllabusSubmitted || isSubmitting}
+                className="w-full py-3 px-5 rounded-full bg-[#fe4759] hover:bg-[#e03447] text-white font-bold text-sm shadow-md shadow-[#fe4759]/25 hover:shadow-lg transition-all flex items-center justify-center gap-2 mt-2 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
               >
-                {syllabusSubmitted ? (
+                {isSubmitting ? (
+                  <><Loader2 className="w-4 h-4 animate-spin" /><span>Saving & Downloading...</span></>
+                ) : syllabusSubmitted ? (
                   <><CheckCircle2 className="w-4 h-4" /><span>Brochure Sent Successfully!</span></>
                 ) : (
                   <><DownloadIcon /><span>Download Brochure PDF</span></>
