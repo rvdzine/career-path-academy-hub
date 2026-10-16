@@ -57,8 +57,8 @@ export const COURSES_DATA: CourseData[] = [
     name: "Master in Digital Marketing with AI & Automation",
     pillTag: "GOVT. RECOGNIZED CERTIFICATION • NSDC & MSME ALIGNED",
     headlinePre: "AI-Infused Advanced",
-    headlineHighlight: "Master in Digital Marketing with AI & Automation",
-    headlinePost: "",
+    headlineHighlight: "Master in Digital Marketing",
+    headlinePost: "with AI & Automation",
     subheadline:
       "Become a full-stack digital marketing leader with India's most practical, project-first training program. Master 35+ industry tools, Generative AI workflows, live ad budgets, and get 100% placement support.",
     duration: "6 Months",

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FacultySection from "@/components/FacultySection";
 import {
   ArrowRight,
   TrendingUp,
@@ -278,12 +279,12 @@ export default function AboutUsPage() {
 
               {/* Main Headline */}
               <h1 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] font-black text-[#0B132A] leading-tight tracking-tight">
-                The Story Behind <span className="text-[#fe4759]">iDigitalStudies</span>
+                The Story Behind <span className="text-[#fe4759]">Institute of Digital Studies</span>
               </h1>
 
               {/* Mission Description (Grounded, realistic & authentic) */}
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-xl font-normal">
-                Founded with a clear mission to bridge the gap between academic education and real-world employability, iDigitalStudies empowers ambitious learners with practical, project-based training, expert mentorship, and dedicated career guidance.
+                Founded with a clear mission to bridge the gap between academic education and real-world employability, Institute of Digital Studies empowers ambitious learners with practical, project-based training, expert mentorship, and dedicated career guidance.
               </p>
 
               {/* CTA Buttons */}
@@ -397,10 +398,10 @@ export default function AboutUsPage() {
                   <div className="absolute bottom-4 left-5 right-5 z-30 flex items-center justify-between">
                     <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-bold tracking-tight shadow-xs">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#fe4759] animate-pulse" />
-                      Life at iDigitalStudies • Practical Project Training
+                      Life at Institute of Digital Studies • Practical Project Training
                     </span>
                     <span className="hidden sm:inline-block text-[11px] font-semibold text-white/80">
-                      iDigitalStudies Campus
+                      Institute of Digital Studies Campus
                     </span>
                   </div>
                 </div>
@@ -410,43 +411,7 @@ export default function AboutUsPage() {
 
           </div>
 
-          {/* Bottom Partner Logos (Razorpay, GyanDhan, KPMG, Amazon, Google, Airtel) */}
-          <div className="mt-14 pt-8 border-t border-slate-200/60">
-            <div className="flex items-center justify-between gap-6 flex-wrap opacity-75 hover:opacity-100 transition-opacity">
-              {/* Razorpay */}
-              <div className="flex items-center gap-1 text-slate-700 font-bold text-lg">
-                <span className="italic font-black text-xl text-[#fe4759]">/</span>Razorpay
-              </div>
-              {/* GyanDhan */}
-              <div className="flex items-center gap-1 text-slate-600 font-semibold text-xs tracking-wider">
-                <span className="w-5 h-5 rounded-full border border-slate-400 flex items-center justify-center text-[10px] font-bold">
-                  GD
-                </span>
-                GyanDhan
-              </div>
-              {/* KPMG */}
-              <div className="font-sans font-black text-xl text-slate-800 tracking-wider">
-                KPMG
-              </div>
-              {/* Amazon */}
-              <div className="font-sans font-bold text-lg text-slate-800 tracking-tight">
-                amazon
-              </div>
-              {/* Google */}
-              <div className="font-sans font-bold text-lg tracking-tight flex">
-                <span className="text-[#4285F4]">G</span>
-                <span className="text-[#EA4335]">o</span>
-                <span className="text-[#FBBC05]">o</span>
-                <span className="text-[#4285F4]">g</span>
-                <span className="text-[#34A853]">l</span>
-                <span className="text-[#EA4335]">e</span>
-              </div>
-              {/* Airtel */}
-              <div className="flex items-center gap-1 font-bold text-slate-800 text-lg">
-                <span className="text-red-600 font-black">airtel</span>
-              </div>
-            </div>
-          </div>
+
 
         </div>
       </section>
@@ -565,20 +530,16 @@ export default function AboutUsPage() {
                       }`}
                     />
 
-                    {/* Top Icon Badge */}
-                    <div
-                      className={`w-12 h-12 rounded-2xl border flex items-center justify-center mb-5 transition-all duration-500 shadow-2xs ${
-                        isActive
-                          ? "bg-[#fe4759] text-white border-[#fe4759] scale-110 shadow-lg shadow-[#fe4759]/35"
-                          : "bg-rose-50 text-[#fe4759] border-rose-100/80 group-hover:bg-[#fe4759] group-hover:text-white group-hover:scale-105"
-                      }`}
-                    >
+                    {/* Top Icon (Background removed) */}
+                    <div className="mb-5 transition-all duration-500">
                       <Icon
-                        className={`w-5 h-5 stroke-[2.2] ${
-                          card.isStar && !isActive
+                        className={`w-9 h-9 stroke-[2.2] text-[#fe4759] transition-all duration-500 ${
+                          isActive
+                            ? "scale-110 drop-shadow-[0_4px_12px_rgba(254,71,89,0.35)]"
+                            : "group-hover:scale-110"
+                        } ${
+                          card.isStar
                             ? "fill-[#fe4759]/20"
-                            : card.isStar
-                            ? "fill-white/30"
                             : ""
                         }`}
                       />
@@ -753,6 +714,11 @@ export default function AboutUsPage() {
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════════════════════
+          SECTION: EXPERIENCED INDUSTRY MENTORS (FACULTY)
+          ══════════════════════════════════════════════════════════════ */}
+      <FacultySection />
 
       {/* ══════════════════════════════════════════════════════════════
           SECTION 4: OUR VISION & CORE VALUES

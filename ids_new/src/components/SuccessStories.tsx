@@ -3,8 +3,6 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import {
-  ChevronLeft,
-  ChevronRight,
   TrendingUp,
   Play,
   Volume2,
@@ -109,10 +107,10 @@ function GraduateCard({ grad }: { grad: Graduate }) {
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="min-w-[270px] sm:min-w-[290px] max-w-[310px] w-full shrink-0 bg-white rounded-[28px] p-3.5 sm:p-4 border border-slate-200/80 shadow-[0_10px_30px_rgba(0,0,0,0.06)] flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 relative group cursor-pointer"
+      className="w-[250px] sm:w-[265px] shrink-0 bg-white rounded-[24px] p-3 sm:p-3.5 border border-slate-200/80 shadow-[0_8px_25px_rgba(0,0,0,0.05)] flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 relative group cursor-pointer"
     >
       {/* Photo & Video Container with Red Border Frame */}
-      <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border-2 border-[#fe4759]/70 bg-slate-950">
+      <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden border-2 border-[#fe4759]/70 bg-slate-950">
         {/* Monochromatic Poster Image */}
         <Image
           src={grad.photo}
@@ -121,7 +119,7 @@ function GraduateCard({ grad }: { grad: Graduate }) {
           className={`object-cover object-top grayscale transition-opacity duration-300 ${
             isPlaying ? "opacity-0" : "opacity-100"
           }`}
-          sizes="(max-width: 768px) 280px, 310px"
+          sizes="(max-width: 768px) 250px, 265px"
         />
 
         {/* Monochromatic Video Element with Filter */}
@@ -141,15 +139,15 @@ function GraduateCard({ grad }: { grad: Graduate }) {
         )}
 
         {/* Top Status Badge: Hover to Play / Playing Reel */}
-        <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 text-white text-[10px] font-bold tracking-wide pointer-events-none">
+        <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2 py-0.5 rounded-full border border-white/20 text-white text-[9px] font-bold tracking-wide pointer-events-none">
           {isPlaying ? (
             <>
-              <span className="w-2 h-2 rounded-full bg-[#fe4759] animate-ping" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#fe4759] animate-ping" />
               <span>Playing Reel</span>
             </>
           ) : (
             <>
-              <Play className="w-2.5 h-2.5 fill-white" />
+              <Play className="w-2 h-2 fill-white" />
               <span>Hover to Play</span>
             </>
           )}
@@ -157,7 +155,7 @@ function GraduateCard({ grad }: { grad: Graduate }) {
 
         {/* Placement Tag Badge */}
         {grad.hike && (
-          <div className="absolute top-3 right-3 z-10 bg-white/95 backdrop-blur-md px-2 py-0.5 rounded-full border border-slate-200/80 text-[10px] font-black text-slate-800 shadow-xs pointer-events-none">
+          <div className="absolute top-2.5 right-2.5 z-10 bg-white/95 backdrop-blur-md px-2 py-0.5 rounded-full border border-slate-200/80 text-[9px] font-black text-slate-800 shadow-xs pointer-events-none">
             {grad.hike}
           </div>
         )}
@@ -165,8 +163,8 @@ function GraduateCard({ grad }: { grad: Graduate }) {
         {/* Center Play Button Watermark when not playing */}
         {!isPlaying && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-12 h-12 rounded-full bg-white/85 backdrop-blur-xs border border-white/60 flex items-center justify-center pl-1 shadow-lg group-hover:scale-110 group-hover:bg-[#fe4759] transition-all duration-300">
-              <Play className="w-5 h-5 text-slate-900 fill-slate-900 group-hover:text-white group-hover:fill-white transition-colors duration-300" />
+            <div className="w-10 h-10 rounded-full bg-white/85 backdrop-blur-xs border border-white/60 flex items-center justify-center pl-0.5 shadow-md group-hover:scale-110 group-hover:bg-[#fe4759] transition-all duration-300">
+              <Play className="w-4 h-4 text-slate-900 fill-slate-900 group-hover:text-white group-hover:fill-white transition-colors duration-300" />
             </div>
           </div>
         )}
@@ -177,62 +175,40 @@ function GraduateCard({ grad }: { grad: Graduate }) {
             onClick={toggleAudio}
             title={isMuted ? "Unmute Audio" : "Mute Audio"}
             aria-label="Toggle Sound"
-            className="absolute bottom-12 right-3 z-20 w-8 h-8 rounded-full bg-black/70 hover:bg-[#fe4759] text-white flex items-center justify-center backdrop-blur-md transition-colors shadow-md cursor-pointer"
+            className="absolute bottom-11 right-2.5 z-20 w-7 h-7 rounded-full bg-black/70 hover:bg-[#fe4759] text-white flex items-center justify-center backdrop-blur-md transition-colors shadow-md cursor-pointer"
           >
             {isMuted ? (
-              <VolumeX className="w-4 h-4" />
+              <VolumeX className="w-3.5 h-3.5" />
             ) : (
-              <Volume2 className="w-4 h-4" />
+              <Volume2 className="w-3.5 h-3.5" />
             )}
           </button>
         )}
 
         {/* Gradient shadow overlay at bottom of photo to give depth to nameplate */}
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none"></div>
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none"></div>
       </div>
 
-      {/* Overlapping Floating Nameplate (Matches exact screenshot layout) */}
-      <div className="relative -mt-10 mx-2 bg-white rounded-2xl py-3 px-3.5 shadow-[0_8px_24px_rgba(0,0,0,0.1)] border border-slate-100/90 text-center z-10 flex flex-col items-center">
+      {/* Overlapping Floating Nameplate */}
+      <div className="relative -mt-8 mx-1.5 bg-white rounded-xl py-2.5 px-3 shadow-[0_6px_20px_rgba(0,0,0,0.08)] border border-slate-100/90 text-center z-10 flex flex-col items-center">
         {/* First Name in Bold Modern Typography */}
-        <h3 className="text-xl sm:text-2xl font-black text-slate-800 tracking-tight leading-tight group-hover:text-[#fe4759] transition-colors">
+        <h3 className="text-lg sm:text-xl font-black text-slate-800 tracking-tight leading-tight group-hover:text-[#fe4759] transition-colors">
           {grad.name}
         </h3>
 
         {/* Solid Red Alumni Role Badge */}
-        <div className="mt-1.5 px-3 py-1 bg-[#fe4759] text-white text-[11px] sm:text-xs font-bold rounded-sm shadow-xs whitespace-nowrap">
+        <div className="mt-1 px-2.5 py-0.5 bg-[#fe4759] text-white text-[10px] sm:text-[11px] font-bold rounded-sm shadow-xs whitespace-nowrap">
           {grad.role}
         </div>
 
         {/* Subtle bottom curved shadow element */}
-        <div className="absolute inset-x-4 -bottom-1.5 h-3 bg-black/10 blur-xs rounded-full -z-10 pointer-events-none"></div>
+        <div className="absolute inset-x-4 -bottom-1 h-2.5 bg-black/10 blur-xs rounded-full -z-10 pointer-events-none"></div>
       </div>
     </div>
   );
 }
 
 export default function SuccessStories() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const scroll = (direction: "left" | "right") => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 320;
-      scrollContainerRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const checkScroll = () => {
-    if (scrollContainerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-      setCanScrollLeft(scrollLeft > 10);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-    }
-  };
-
   return (
     <section id="stories" className="py-16 md:py-24 bg-white font-sans relative overflow-hidden">
       <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
@@ -251,46 +227,14 @@ export default function SuccessStories() {
           </p>
         </div>
 
-        {/* Carousel Container with Left/Right Buttons */}
-        <div className="relative group/carousel">
+        {/* Main Showcase: Static First Card + Infinite Auto-Scrolling Graduate Cards */}
+        <div className="flex flex-col md:flex-row items-center md:items-stretch gap-5 sm:gap-6">
           
-          {/* Left Arrow Button */}
-          <button
-            onClick={() => scroll("left")}
-            disabled={!canScrollLeft}
-            aria-label="Previous Stories"
-            className={`absolute -left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-20 h-10 w-10 sm:h-11 sm:w-11 rounded-full bg-white shadow-xl border border-slate-200/80 flex items-center justify-center text-slate-700 hover:text-white hover:bg-[#fe4759] hover:border-[#fe4759] transition-all cursor-pointer ${
-              !canScrollLeft ? "opacity-30 cursor-not-allowed pointer-events-none" : "opacity-90 hover:opacity-100"
-            }`}
-          >
-            <ChevronLeft className="w-5 h-5 -ml-0.5 stroke-[2.5]" />
-          </button>
-
-          {/* Right Arrow Button */}
-          <button
-            onClick={() => scroll("right")}
-            disabled={!canScrollRight}
-            aria-label="Next Stories"
-            className={`absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-20 h-10 w-10 sm:h-11 sm:w-11 rounded-full bg-white shadow-xl border border-slate-200/80 flex items-center justify-center text-slate-700 hover:text-white hover:bg-[#fe4759] hover:border-[#fe4759] transition-all cursor-pointer ${
-              !canScrollRight ? "opacity-30 cursor-not-allowed pointer-events-none" : "opacity-90 hover:opacity-100"
-            }`}
-          >
-            <ChevronRight className="w-5 h-5 -mr-0.5 stroke-[2.5]" />
-          </button>
-
-          {/* Cards Scroll Track */}
-          <div
-            ref={scrollContainerRef}
-            onScroll={checkScroll}
-            className="flex items-stretch gap-5 sm:gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-8 pt-2 px-1"
-          >
-            
-            {/* Card 1: Success Stories Photo Collage Card (Exact match to reference design) */}
-            <div className="min-w-[270px] sm:min-w-[290px] max-w-[310px] w-full shrink-0 bg-white rounded-[28px] p-3.5 sm:p-4 border border-slate-200/80 shadow-[0_10px_30px_rgba(0,0,0,0.06)] flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              
-              {/* Mosaic Photo Grid with Central "Success Stories" Block */}
-              <div className="grid grid-cols-4 grid-rows-4 gap-1.5 p-1 rounded-2xl border-2 border-[#fe4759]/70 bg-white aspect-[4/5] overflow-hidden">
-                
+          {/* Card 1: Static / Freezed Success Stories Photo Collage Card (Exact match to GraduateCard sizing & anatomy) */}
+          <div className="w-[250px] sm:w-[265px] shrink-0 bg-white rounded-[24px] p-3 sm:p-3.5 border border-slate-200/80 shadow-[0_8px_25px_rgba(0,0,0,0.05)] flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 relative group z-20">
+            {/* Mosaic Photo Grid in matching aspect-[4/5] container */}
+            <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden border-2 border-[#fe4759]/70 bg-white">
+              <div className="grid grid-cols-4 grid-rows-4 gap-1.5 p-1.5 h-full w-full">
                 {/* Row 1: 4 headshots */}
                 <div className="relative rounded-lg overflow-hidden border border-[#fe4759]/30 bg-slate-100">
                   <Image src="/alumni/isha_verma.jpg" alt="Graduate" fill sizes="80px" className="object-cover" />
@@ -345,23 +289,31 @@ export default function SuccessStories() {
                 <div className="relative rounded-lg overflow-hidden border border-[#fe4759]/30 bg-slate-100">
                   <Image src="/alumni/loveleen.jpg" alt="Graduate" fill sizes="80px" className="object-cover" />
                 </div>
-
-              </div>
-
-              {/* Bottom Label */}
-              <div className="mt-3 text-center">
-                <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                  Active Alumni Network
-                </span>
               </div>
             </div>
 
-            {/* Individual Graduate Cards with Monochromatic Hover Autoplay Video */}
-            {graduates.map((grad, idx) => (
-              <GraduateCard key={idx} grad={grad} />
-            ))}
-
+            {/* Overlapping Floating Nameplate (Matches exact GraduateCard anatomy & height) */}
+            <div className="relative -mt-8 mx-1.5 bg-white rounded-xl py-2.5 px-3 shadow-[0_6px_20px_rgba(0,0,0,0.08)] border border-slate-100/90 text-center z-10 flex flex-col items-center">
+              <h3 className="text-lg sm:text-xl font-black text-slate-800 tracking-tight leading-tight group-hover:text-[#fe4759] transition-colors">
+                Alumni Network
+              </h3>
+              <div className="mt-1 px-2.5 py-0.5 bg-[#fe4759] text-white text-[10px] sm:text-[11px] font-bold rounded-sm shadow-xs whitespace-nowrap">
+                3,500+ PLACED
+              </div>
+              <div className="absolute inset-x-4 -bottom-1 h-2.5 bg-black/10 blur-xs rounded-full -z-10 pointer-events-none"></div>
+            </div>
           </div>
+
+          {/* Marquee Wrapper for Cards 2 to the Last */}
+          <div className="relative flex-1 min-w-0 overflow-hidden py-1">
+            {/* Infinite Horizontal Scrolling Track (Pause on Hover) */}
+            <div className="flex w-max items-stretch gap-5 sm:gap-6 animate-marquee hover:[animation-play-state:paused] pb-6 pt-1">
+              {[...graduates, ...graduates].map((grad, idx) => (
+                <GraduateCard key={`${grad.name}-${idx}`} grad={grad} />
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

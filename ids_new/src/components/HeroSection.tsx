@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Search,
   Star,
@@ -10,6 +12,7 @@ import {
   BookOpen,
   Zap,
   GraduationCap,
+  X,
 } from "lucide-react";
 
 const partnerLogos = [
@@ -26,27 +29,147 @@ const partnerLogos = [
   { name: "Sleepwell", src: "/assets/Sleepwell.png", width: 90, height: 26 },
 ];
 
-export default function HeroSection() {
-  const [searchQuery, setSearchQuery] = useState("");
+interface SearchableCourse {
+  title: string;
+  duration: string;
+  badge: string;
+  badgeClass: string;
+  image: string;
+  href: string;
+  description: string;
+  keywords: string[];
+}
 
-  const popularCourses = [
-    "Data Science",
-    "Data Analytics",
-    "Digital Marketing",
+const COURSES_LIST: SearchableCourse[] = [
+  {
+    title: "Master in Digital Marketing with AI & Automation",
+    duration: "6 Months",
+    badge: "Most Popular",
+    badgeClass: "bg-[#fef3c7] text-[#92400e] border-[#fde68a]",
+    image: "/assets/courses/master_marketing_v2.jpg",
+    href: "/courses/master-in-digital-marketing-with-ai-automation",
+    description: "Hands-on AI tools, 10+ live client campaigns & guaranteed internship.",
+    keywords: [
+      "master", "digital marketing", "ai", "automation", "full course",
+      "internship", "chatgpt", "tools", "6 months", "placement", "all"
+    ],
+  },
+  {
+    title: "Advance Performance & Growth Marketing Program",
+    duration: "3 Months",
+    badge: "Google & Meta Certified",
+    badgeClass: "bg-[#dbeafe] text-[#1e40af] border-[#bfdbfe]",
+    image: "/assets/courses/specialist_marketing_v2.jpg",
+    href: "/courses/advance-performance-growth-marketing-program",
+    description: "Master performance marketing, SEO, Google Ads & Meta analytics.",
+    keywords: [
+      "advance", "performance", "growth", "seo", "sem", "google ads",
+      "meta ads", "facebook ads", "instagram ads", "ppc", "analytics", "3 months"
+    ],
+  },
+  {
+    title: "Digital Marketing Program for Business Owners",
+    duration: "3 Months",
+    badge: "For Business Owners",
+    badgeClass: "bg-[#fef3c7] text-[#78350f] border-[#fde68a]",
+    image: "/assets/courses/business_owners_v2.jpg",
+    href: "/courses/digital-marketing-program-for-business-owners",
+    description: "Scale your brand, generate qualified leads & increase revenue.",
+    keywords: [
+      "business", "business owners", "entrepreneur", "founder", "leads",
+      "sales", "revenue", "roi", "brand", "startup", "ecommerce"
+    ],
+  },
+  {
+    title: "Customised Program in Digital Marketing",
+    duration: "Flexible",
+    badge: "Tailored to Goals",
+    badgeClass: "bg-[#ede9fe] text-[#6b21a8] border-[#ddd6fe]",
+    image: "/assets/courses/customised_marketing_v2.jpg",
+    href: "/courses/customised-program-in-digital-marketing",
+    description: "Personalised curriculum designed as per your goals & industry.",
+    keywords: [
+      "custom", "customised", "personalized", "tailored", "flexible",
+      "1:1", "mentorship", "specific", "short"
+    ],
+  },
+];
+
+export default function HeroSection() {
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const searchRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const popularTags = [
+    { label: "AI & Automation", query: "AI & Automation" },
+    { label: "Performance Marketing", query: "Performance" },
+    { label: "Business Owners", query: "Business Owners" },
   ];
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const matchingCourses = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return [];
+
+    const scored = COURSES_LIST.map((course) => {
+      let score = 0;
+      const titleLower = course.title.toLowerCase();
+      const descLower = course.description.toLowerCase();
+
+      if (titleLower.includes(q)) score += 60;
+      if (descLower.includes(q)) score += 20;
+      if (course.badge.toLowerCase().includes(q)) score += 25;
+      if (course.duration.toLowerCase().includes(q)) score += 20;
+
+      // individual words in query
+      const words = q.split(/\s+/).filter(Boolean);
+      for (const w of words) {
+        if (titleLower.includes(w)) score += 25;
+        if (descLower.includes(w)) score += 10;
+        for (const kw of course.keywords) {
+          if (kw.includes(w) || w.includes(kw)) score += 20;
+        }
+      }
+
+      return { course, score };
+    });
+
+    const matches = scored.filter((item) => item.score > 0).sort((a, b) => b.score - a.score);
+    return matches.map((m) => m.course);
+  }, [searchQuery]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
+    if (!searchQuery.trim()) {
       const element = document.getElementById("programs");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      if (element) element.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
+
+    if (matchingCourses.length > 0) {
+      setIsDropdownOpen(false);
+      router.push(matchingCourses[0].href);
+    } else {
+      setIsDropdownOpen(false);
+      const element = document.getElementById("programs");
+      if (element) element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section id="hero" className="relative min-h-[calc(100vh-90px)] md:min-h-[calc(100dvh-90px)] flex flex-col justify-between pt-4 sm:pt-5 lg:pt-6 pb-5 sm:pb-6 lg:pb-8 bg-gradient-to-b from-[#FFF8F9] via-[#FFFAFA] to-white overflow-hidden font-sans">
+    <section id="hero" className="relative min-h-[calc(100vh-90px)] md:min-h-[calc(100dvh-90px)] flex flex-col justify-between pt-4 sm:pt-5 lg:pt-6 pb-5 sm:pb-6 lg:pb-8 bg-gradient-to-b from-[#FFFAFA] via-[#FFFCFC] to-white overflow-hidden font-sans">
       {/* ─── DECORATIVE CORNER ACCENTS ─── */}
       {/* Bottom-Left Red Wave */}
       <div className="absolute -bottom-10 -left-10 w-[300px] sm:w-[380px] h-[200px] pointer-events-none z-0">
@@ -135,42 +258,144 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Pill Search Bar with Red "Find a Course →" Button */}
-            <form
-              onSubmit={handleSearch}
-              className="bg-white p-1.5 pl-4 sm:pl-5 rounded-full shadow-[0_10px_35px_rgba(254,71,89,0.07),0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center justify-between gap-2 max-w-xl"
-            >
-              <div className="flex items-center gap-2.5 flex-1 min-w-0">
-                <Search className="w-5 h-5 text-[#fe4759] stroke-[2.2] shrink-0" />
-                <input
-                  type="text"
-                  placeholder="Search for a course..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full text-xs sm:text-sm outline-none text-slate-800 placeholder:text-slate-400 bg-transparent py-1.5 font-medium"
-                />
-              </div>
-              <button
-                type="submit"
-                className="px-5 sm:px-7 py-2.5 sm:py-3 bg-[#fe3b56] hover:bg-[#e22a45] text-white font-bold text-xs sm:text-sm rounded-full transition-all shadow-md shadow-[#fe3b56]/25 hover:scale-[1.02] cursor-pointer whitespace-nowrap flex items-center gap-1.5 shrink-0"
+            {/* Pill Search Bar with Red "Find a Course →" Button & Live Dropdown */}
+            <div ref={searchRef} className="relative max-w-xl">
+              <form
+                onSubmit={handleSearch}
+                className="bg-white p-1.5 pl-4 sm:pl-5 rounded-full shadow-[0_10px_35px_rgba(254,71,89,0.07),0_2px_8px_rgba(0,0,0,0.03)] border border-slate-100 flex items-center justify-between gap-2"
               >
-                <span>Find a Course</span>
-                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-              </button>
-            </form>
-
-            {/* Popular Courses Pills */}
-            <div className="flex items-center gap-2 flex-wrap text-xs pt-0.5">
-              <span className="font-semibold text-slate-400">Popular:</span>
-              {popularCourses.map((course, idx) => (
-                <a
-                  key={idx}
-                  href="#programs"
-                  className="px-4 py-1.5 rounded-full bg-white hover:bg-rose-50/50 border border-[#fed7dc] text-xs font-semibold text-[#fe4759] shadow-2xs hover:border-[#fe4759] transition-all"
+                <div className="flex items-center gap-2.5 flex-1 min-w-0">
+                  <Search className="w-5 h-5 text-[#fe4759] stroke-[2.2] shrink-0" />
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    placeholder="Search for a course (e.g. AI, Performance, Business)..."
+                    value={searchQuery}
+                    onFocus={() => setIsDropdownOpen(true)}
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value);
+                      setIsDropdownOpen(true);
+                    }}
+                    className="w-full text-xs sm:text-sm outline-none text-slate-800 placeholder:text-slate-400 bg-transparent py-1.5 font-medium"
+                  />
+                  {searchQuery.trim() && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSearchQuery("");
+                        setIsDropdownOpen(false);
+                      }}
+                      className="p-1 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition-colors cursor-pointer"
+                      title="Clear search"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  )}
+                </div>
+                <button
+                  type="submit"
+                  className="px-5 sm:px-7 py-2.5 sm:py-3 bg-[#fe3b56] hover:bg-[#e22a45] text-white font-bold text-xs sm:text-sm rounded-full transition-all shadow-md shadow-[#fe3b56]/25 hover:scale-[1.02] cursor-pointer whitespace-nowrap flex items-center gap-1.5 shrink-0"
                 >
-                  {course}
-                </a>
-              ))}
+                  <span>Find a Course</span>
+                  <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                </button>
+              </form>
+
+              {/* ── Search Results Dropdown ── */}
+              {isDropdownOpen && searchQuery.trim().length > 0 && (
+                <div className="absolute left-0 right-0 top-full mt-2 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-100 p-2 sm:p-2.5 z-50 animate-in fade-in zoom-in-95 duration-150">
+                  <div className="flex items-center justify-between px-3 py-1.5 text-[11px] font-semibold text-slate-400 border-b border-slate-100 mb-1">
+                    <span>
+                      {matchingCourses.length > 0
+                        ? `Most Relevant (${matchingCourses.length})`
+                        : "No exact match"}
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-normal">Press Enter to view</span>
+                  </div>
+
+                  {matchingCourses.length > 0 ? (
+                    <div className="space-y-1 max-h-[300px] overflow-y-auto scrollbar-thin">
+                      {matchingCourses.map((course, idx) => (
+                        <Link
+                          key={idx}
+                          href={course.href}
+                          onClick={() => setIsDropdownOpen(false)}
+                          className={`flex items-center gap-3 p-2.5 rounded-xl transition-all group ${
+                            idx === 0 ? "bg-rose-50/40 hover:bg-rose-50/80" : "hover:bg-slate-50"
+                          }`}
+                        >
+                          <div className="relative w-12 h-12 rounded-lg overflow-hidden shrink-0 border border-slate-200/80 bg-slate-100">
+                            <Image
+                              src={course.image}
+                              alt={course.title}
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                          </div>
+
+                          <div className="flex-1 min-w-0 text-left">
+                            <div className="flex items-center gap-2 mb-0.5">
+                              <span
+                                className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${course.badgeClass}`}
+                              >
+                                {course.badge}
+                              </span>
+                              <span className="text-[10px] text-slate-400 font-medium">
+                                • {course.duration}
+                              </span>
+                            </div>
+                            <h4 className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-[#fe4759] truncate transition-colors">
+                              {course.title}
+                            </h4>
+                            <p className="text-[11px] text-slate-500 truncate">
+                              {course.description}
+                            </p>
+                          </div>
+
+                          <div className="text-slate-400 group-hover:text-[#fe4759] group-hover:translate-x-0.5 transition-all shrink-0 pr-1">
+                            <ArrowRight className="w-4 h-4" />
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="p-3 text-center">
+                      <p className="text-xs text-slate-500 mb-2">
+                        No direct match for &quot;{searchQuery}&quot;. Check our flagship program:
+                      </p>
+                      <Link
+                        href={COURSES_LIST[0].href}
+                        onClick={() => setIsDropdownOpen(false)}
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#fe4759] hover:underline"
+                      >
+                        <span>{COURSES_LIST[0].title}</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* Upcoming Cohorts Pills (Single Line) */}
+            <div className="flex items-center gap-2 text-xs pt-0.5 overflow-x-auto scrollbar-none whitespace-nowrap py-0.5">
+              <span className="font-semibold text-slate-500 shrink-0">Upcoming Cohorts:</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                {popularTags.map((item, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => {
+                      setSearchQuery(item.query);
+                      setIsDropdownOpen(true);
+                      inputRef.current?.focus();
+                    }}
+                    className="px-3 sm:px-3.5 py-1.5 rounded-full bg-white hover:bg-rose-50/50 border border-[#fed7dc] text-[11px] sm:text-xs font-semibold text-[#fe4759] shadow-2xs hover:border-[#fe4759] transition-all cursor-pointer shrink-0"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
             </div>
 
           </div>
@@ -247,13 +472,16 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              {/* Row 2: 95% Placement Rate Card with trend arrow graphic */}
+              {/* Row 2: 95% Placement Rate Card */}
               <div className="bg-white rounded-[26px] sm:rounded-[28px] p-4.5 sm:p-5 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100/60 flex items-center justify-between hover:shadow-md transition-shadow">
                 <div className="flex items-center gap-3 sm:gap-3.5">
                   <div className="shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 24 24" className="w-8 h-8 sm:w-9 sm:h-9 stroke-[#00C48C] fill-none stroke-[2.8] stroke-linecap-round stroke-linejoin-round">
-                      <path d="M3 17 L9 11 L13 15 L21 7" />
-                      <path d="M15 7 L21 7 L21 13" />
+                    {/* Career Briefcase Icon in Emerald */}
+                    <svg viewBox="0 0 24 24" className="w-8 h-8 sm:w-9 sm:h-9 stroke-[#00C48C] fill-none stroke-[2.2] stroke-linecap-round stroke-linejoin-round">
+                      <rect x="2" y="7" width="20" height="14" rx="2" />
+                      <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                      <path d="M12 12v.01" />
+                      <path d="M2 13a20 20 0 0 0 20 0" />
                     </svg>
                   </div>
                   <div>
@@ -265,30 +493,22 @@ export default function HeroSection() {
                     </div>
                   </div>
                 </div>
-                {/* Stylized Trend Arrow */}
-                <div className="pr-1 text-[#fe4759]">
+                {/* Clean Upward Career Trend Arrow SVG */}
+                <div className="pr-1 text-[#00C48C]">
                   <svg
-                    viewBox="0 0 50 30"
-                    className="w-11 h-6 sm:w-12 sm:h-7 stroke-current fill-none stroke-[2.5] stroke-linecap-round stroke-linejoin-round"
+                    viewBox="0 0 44 26"
+                    className="w-10 h-6 sm:w-11 sm:h-6.5 stroke-current fill-none stroke-[2.6] stroke-linecap-round stroke-linejoin-round"
                   >
-                    <path d="M 2 24 L 11 16 L 20 22 L 32 9 L 46 5" />
-                    <path d="M 36 5 L 46 5 L 46 15" />
+                    <path d="M 2 20 L 14 10 L 23 15 L 40 3" />
+                    <path d="M 29 3 L 40 3 L 40 14" />
                   </svg>
                 </div>
               </div>
 
-              {/* Row 3: Verified Reviews Card (Google 4.9 & Justdial 4.8) */}
-              <div className="bg-white rounded-[26px] sm:rounded-[28px] p-4.5 sm:p-5 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100/60 space-y-3.5 hover:shadow-md transition-shadow">
-                {/* Header: Verified Reviews with Red Shield Check */}
-                <div className="flex items-center gap-2">
-                  <svg viewBox="0 0 24 24" className="w-5 h-5 fill-[#fe3b56]">
-                    <path d="M12 2L4 5.5v6c0 5 3.4 9.7 8 10.9 4.6-1.2 8-5.9 8-10.9v-6L12 2zm-1.5 14.5L6.5 12l1.4-1.4 2.6 2.6 6.6-6.6 1.4 1.4-8 8.5z"/>
-                  </svg>
-                  <span className="text-sm sm:text-[15px] font-black text-[#0B132A] tracking-tight">Verified Reviews</span>
-                </div>
-
+              {/* Row 3: Ratings Card (Google 4.9 & Justdial 4.8) */}
+              <div className="bg-white rounded-[26px] sm:rounded-[28px] p-4 sm:p-4.5 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100/60 hover:shadow-md transition-shadow">
                 {/* Dual Platform Reviews: Google 4.9 & Justdial 4.8 */}
-                <div className="grid grid-cols-2 divide-x divide-slate-100/90 gap-3 sm:gap-4 pt-0.5">
+                <div className="grid grid-cols-2 divide-x divide-slate-100/90 gap-3 sm:gap-4">
                   
                   {/* Google Review (4.9 Rating) */}
                   <div className="pr-2 sm:pr-3 flex flex-col justify-between">
@@ -320,9 +540,6 @@ export default function HeroSection() {
                           <Star key={i} className="w-3.5 h-3.5 fill-[#FFB800] text-[#FFB800]" />
                         ))}
                       </div>
-                      <div className="text-xs font-semibold text-[#64748B] mt-1">
-                        1,850+ reviews
-                      </div>
                     </div>
                   </div>
 
@@ -351,9 +568,6 @@ export default function HeroSection() {
                           <Star key={i} className="w-3.5 h-3.5 fill-[#FFB800] text-[#FFB800]" />
                         ))}
                       </div>
-                      <div className="text-xs font-semibold text-[#64748B] mt-1">
-                        920+ reviews
-                      </div>
                     </div>
                   </div>
 
@@ -362,29 +576,29 @@ export default function HeroSection() {
 
               {/* Row 4: Two cards side by side (20+ Courses Offered & 1,500+ Learning Now) */}
               <div className="grid grid-cols-2 gap-3.5 sm:gap-4">
-                {/* 20+ Courses Offered */}
+                {/* 10+ Years Teaching Experience */}
                 <div className="bg-white rounded-[26px] sm:rounded-[28px] p-4 sm:p-4.5 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100/60 flex items-center gap-3 hover:shadow-md transition-shadow">
                   <div className="shrink-0 flex items-center justify-center">
                     <BookOpen className="w-7 h-7 sm:w-8 sm:h-8 text-[#fe4759] stroke-[2.3]" />
                   </div>
                   <div>
                     <div className="text-2xl sm:text-[26px] font-black text-[#0B132A] tracking-tight leading-none">
-                      20+
+                      10+ Yrs
                     </div>
                     <div className="text-xs sm:text-[13px] text-[#64748B] font-semibold mt-1 whitespace-nowrap">
-                      Courses Offered
+                      Teaching Experience
                     </div>
                   </div>
                 </div>
 
-                {/* 1,500+ Active Learners (Solid Brand Red Card) */}
+                {/* 2,500+ Active Learners (Solid Brand Red Card) */}
                 <div className="bg-gradient-to-r from-[#FF4D63] to-[#FE324E] rounded-[26px] sm:rounded-[28px] p-4 sm:p-4.5 shadow-[0_10px_28px_rgba(254,50,78,0.28)] text-white flex items-center gap-3 hover:scale-[1.02] transition-transform">
                   <div className="shrink-0 flex items-center justify-center">
                     <Zap className="w-7 h-7 sm:w-8 sm:h-8 fill-white text-white stroke-none" />
                   </div>
                   <div>
                     <div className="text-2xl sm:text-[26px] font-black text-white tracking-tight leading-none">
-                      1,500+
+                      2,500+
                     </div>
                     <div className="text-xs sm:text-[13px] text-white/95 font-semibold mt-1 whitespace-nowrap">
                       Active Learners
