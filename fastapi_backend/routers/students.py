@@ -181,6 +181,85 @@ def get_student_stats(db: Session = Depends(get_db)):
         certificates_pending=pending,
     )
 
+@router.get("/recent-enrollments/", response_model=List[dict])
+def get_recent_enrollments_feed(limit: int = Query(35, ge=5, le=100), db: Session = Depends(get_db)):
+    """
+    Returns public-safe sanitized student enrollments for live social proof toast ticker.
+    Converts full name to privacy format (e.g. 'Ankita Tiwari' -> 'Ankita T.')
+    """
+    results = []
+    seen = set()
+
+    def format_safe_name(raw_name: str) -> Optional[str]:
+        if not raw_name:
+            return None
+        lower_name = raw_name.lower().strip()
+        if any(w in lower_name for w in ["test", "demo", "dummy", "fake", "sample", "admin", "asdf"]):
+            return None
+        parts = [p.strip() for p in raw_name.split() if p.strip()]
+        if not parts or len(parts[0]) < 2:
+            return None
+        if len(parts) == 1:
+            return parts[0].capitalize()
+        first = parts[0].capitalize()
+        last_initial = parts[-1][0].upper() + "."
+        return f"{first} {last_initial}"
+
+    def clean_course_name(course_title: Optional[str]) -> str:
+        if not course_title:
+            return "Master in Digital Marketing with AI & Automation"
+        cleaned = course_title.strip()
+        if "at Institute of Digital Studies" in cleaned:
+            cleaned = cleaned.replace("at Institute of Digital Studies", "").strip()
+        if "at IDS" in cleaned:
+            cleaned = cleaned.replace("at IDS", "").strip()
+        return cleaned
+
+    # 1. Fetch recent from enrollments (web submissions)
+    try:
+        from ..models.enrollment import Enrollment
+        recent_leads = db.query(Enrollment).order_by(Enrollment.created_at.desc()).limit(20).all()
+        for lead in recent_leads:
+            safe_name = format_safe_name(lead.full_name)
+            if not safe_name:
+                continue
+            course = clean_course_name(lead.course_title)
+            key = (safe_name, course)
+            if key not in seen:
+                seen.add(key)
+                results.append({"name": safe_name, "course": course})
+    except Exception:
+        pass
+
+    # 2. Fetch from enrolled_students
+    students = (
+        db.query(EnrolledStudent)
+        .order_by(EnrolledStudent.created_at.desc(), EnrolledStudent.id.desc())
+        .limit(limit)
+        .all()
+    )
+    for s in students:
+        safe_name = format_safe_name(s.name)
+        if not safe_name:
+            continue
+        course = clean_course_name(s.course_name)
+        key = (safe_name, course)
+        if key not in seen:
+            seen.add(key)
+            results.append({"name": safe_name, "course": course})
+
+    # Fallback if empty
+    if not results:
+        results = [
+            {"name": "Ankita T.", "course": "Advance Performance & Growth Marketing Program"},
+            {"name": "Kushal G.", "course": "Master in Digital Marketing with AI & Automation"},
+            {"name": "Narsi K.", "course": "Master in Digital Marketing with AI & Automation"},
+            {"name": "Anshuman", "course": "Master in Digital Marketing with AI & Automation"},
+            {"name": "Nisaruddin S.", "course": "Master in Digital Marketing with AI & Automation"},
+        ]
+
+    return results
+
 @router.get("/", response_model=List[StudentResponse])
 def list_students(
     q: Optional[str] = Query(None, description="Search by name or student ID"),
