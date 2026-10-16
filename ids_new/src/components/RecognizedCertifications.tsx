@@ -29,22 +29,44 @@ export default function RecognizedCertifications() {
           </p>
         </div>
 
-        {/* Prominent Badges Showcase Banner */}
-        <div className="relative bg-white rounded-3xl p-4 sm:p-8 lg:p-10 border border-slate-200/80 shadow-[0_10px_35px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300">
-          {/* Subtle Accent Glows */}
-          <div className="absolute top-0 right-1/4 w-72 h-72 bg-[#fe4759]/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+        {/* Side-by-Side Showcase: Certificate on Left, Badges on Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+          {/* Left Column: Certificate Template */}
+          <div className="relative bg-white rounded-2xl sm:rounded-3xl p-0 border border-slate-200/80 shadow-[0_10px_35px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex items-center justify-center overflow-hidden group">
+            {/* Subtle Accent Glows */}
+            <div className="absolute top-0 left-0 w-64 h-64 bg-[#fe4759]/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Badges Image */}
-          <div className="relative w-full aspect-[1024/341] max-w-5xl mx-auto select-none">
-            <Image
-              src="/assets/CC.png"
-              alt="Certifications Recognized by AI Powered Training, Skill India, IDS, Meta, HubSpot, Google, and 100+ Partners"
-              fill
-              sizes="(max-width: 768px) 100vw, 1024px"
-              priority
-              className="object-contain"
-            />
+            {/* Certificate Template Image */}
+            <div className="relative w-full aspect-[984/656] select-none">
+              <Image
+                src="/assets/certificate_showcase.webp"
+                alt="Official Institute of Digital Studies Certificate of Completion Template"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+                className="object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+              />
+            </div>
+          </div>
+
+          {/* Right Column: Certification Badges */}
+          <div className="relative bg-white rounded-2xl sm:rounded-3xl p-0 border border-slate-200/80 shadow-[0_10px_35px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex items-center justify-center overflow-hidden group">
+            {/* Subtle Accent Glows */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#fe4759]/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Badges Image */}
+            <div className="relative w-full aspect-[1024/682] select-none">
+              <Image
+                src="/assets/recognized_partners_badges.webp"
+                alt="Certifications Recognized by AI Powered Training, Skill India, IDS, Meta, HubSpot, Google, and 100+ Partners"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+                className="object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -31,6 +31,7 @@ interface ProgramCard {
   viewBtnClass: string;
   syllabusBtnClass: string;
   syllabusTextClass: string;
+  uspBadges: React.ReactNode;
 }
 
 // ─── Icon helpers ────────────────────────────────────────────────────────────
@@ -58,6 +59,59 @@ const GoogleIcon = () => (
     <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
     <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
   </svg>
+);
+const MetaIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    className="w-[21px] h-[21px] shrink-0"
+    fill="none"
+    stroke="#0081FB"
+    strokeWidth="2.3"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M12 10.174c1.766 -2.784 3.315 -4.174 4.648 -4.174c2 0 3.263 2.213 4 5.217c.704 2.869 .5 6.783 -2 6.783c-1.114 0 -2.648 -1.565 -4.148 -3.652a27.627 27.627 0 0 1 -2.5 -4.174" />
+    <path d="M12 10.174c-1.766 -2.784 -3.315 -4.174 -4.648 -4.174c-2 0 -3.263 2.213 -4 5.217c-.704 2.869 -.5 6.783 2 6.783c1.114 0 2.648 -1.565 4.148 -3.652c1 -1.391 1.833 -2.783 2.5 -4.174" />
+  </svg>
+);
+const MicrosoftIcon = () => (
+  <svg className="w-[17px] h-[17px] shrink-0" viewBox="0 0 21 21">
+    <rect x="1" y="1" width="9" height="9" fill="#F25022"/>
+    <rect x="11" y="1" width="9" height="9" fill="#7FBA00"/>
+    <rect x="1" y="11" width="9" height="9" fill="#00A4EF"/>
+    <rect x="11" y="11" width="9" height="9" fill="#FFB900"/>
+  </svg>
+);
+const HubspotIcon = () => (
+  <svg className="w-[18px] h-[18px] shrink-0" viewBox="0 0 24 24" fill="#FF7A59">
+    <path d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/>
+  </svg>
+);
+const SkillIndiaIcon = () => (
+  <div className="h-[20px] w-[20px] relative shrink-0">
+    <Image
+      src="/assets/skills_nsdc.svg"
+      alt="Skill India"
+      fill
+      className="object-contain"
+    />
+  </div>
+);
+const MsmeIcon = () => (
+  <div className="h-[18px] w-[34px] relative shrink-0">
+    <Image
+      src="/assets/MSME_logo.jpg"
+      alt="MSME"
+      fill
+      className="object-contain"
+    />
+  </div>
+);
+const NsdcIcon = () => (
+  <span className="text-[11.5px] font-black tracking-tight text-[#0f2c59] flex items-center gap-1 leading-none shrink-0">
+    <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-[#0f2c59] via-[#ea580c] to-[#16a34a] shrink-0" />
+    <span>NSDC</span>
+  </span>
 );
 const MentorIcon = () => (
   <svg viewBox="0 0 24 24" className="w-[18px] h-[18px] shrink-0 stroke-current fill-none stroke-[1.9]" strokeLinecap="round" strokeLinejoin="round">
@@ -150,9 +204,8 @@ export default function ProgramsExplorer() {
     marketing: [
       {
         title: "Master in Digital Marketing with AI & Automation",
-        subtag: "NSDC & MSME APPROVED",
         description:
-          "A complete 6-month program to build a career in digital marketing with hands-on learning, live projects and guaranteed internship.",
+          "Master AI-powered marketing, live client ad spends, SEO & guaranteed internship.",
         badge: "Most Popular",
         badgeIcon: <TrophyIcon />,
         badgeClass: "bg-[#fef3c7] text-[#92400e] border border-[#fde68a]",
@@ -162,7 +215,7 @@ export default function ProgramsExplorer() {
         descColor: "text-slate-500",
         featureTextColor: "text-slate-700",
         iconBg: "bg-rose-50 text-[#fe4759]",
-        viewBtnClass: "bg-[#0f172a] hover:bg-slate-800 text-white border-transparent",
+        viewBtnClass: "bg-[#fe4759] hover:bg-[#e03447] text-white border-transparent shadow-sm shadow-[#fe4759]/25",
         syllabusBtnClass: "bg-[#fff1f2] hover:bg-[#ffe4e6] text-[#e11d48] border border-[#fecdd3]",
         syllabusTextClass: "text-[#e11d48]",
         features: [
@@ -172,23 +225,29 @@ export default function ProgramsExplorer() {
           { icon: <BarIcon />, label: "Live Projects & Tools Access" },
         ],
         href: "/courses/master-in-digital-marketing-with-ai-automation",
+        uspBadges: (
+          <>
+            <NsdcIcon />
+            <MsmeIcon />
+          </>
+        ),
       },
       {
         title: "Advance Performance & Growth Marketing Program",
         description:
-          "A focused 3-month program to master performance marketing, SEO, social media, content and analytics with real-world practice.",
+          "Scale paid ad campaigns across Google Ads, Meta Ads Manager, CRO & analytics.",
         badge: "Google & Meta Certified",
         badgeIcon: <GoogleIcon />,
         badgeClass: "bg-[#2563eb] text-white shadow-sm",
         image: "/assets/courses/specialist_marketing_v2.jpg",
-        cardBg: "bg-gradient-to-b from-white via-[#fbfdff] to-[#eef6ff] border border-blue-200/70 shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_35px_rgba(0,0,0,0.12)]",
+        cardBg: "bg-gradient-to-b from-white via-[#fffbfc] to-[#fff0f2] border border-rose-200/70 shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_35px_rgba(0,0,0,0.12)]",
         titleColor: "text-slate-900",
         descColor: "text-slate-500",
         featureTextColor: "text-slate-700",
-        iconBg: "bg-blue-50 text-blue-600",
-        viewBtnClass: "bg-[#0f172a] hover:bg-slate-800 text-white border-transparent",
-        syllabusBtnClass: "bg-[#f0f6ff] hover:bg-[#e0edff] text-[#1d4ed8] border border-[#bfdbfe]",
-        syllabusTextClass: "text-[#1d4ed8]",
+        iconBg: "bg-rose-50 text-[#fe4759]",
+        viewBtnClass: "bg-[#fe4759] hover:bg-[#e03447] text-white border-transparent shadow-sm shadow-[#fe4759]/25",
+        syllabusBtnClass: "bg-[#fff1f2] hover:bg-[#ffe4e6] text-[#e11d48] border border-[#fecdd3]",
+        syllabusTextClass: "text-[#e11d48]",
         features: [
           { icon: <CertIcon />, label: "Certification" },
           { icon: <CalIcon />, label: "3 Months" },
@@ -196,54 +255,72 @@ export default function ProgramsExplorer() {
           { icon: <GoogleIcon />, label: "Google & Meta Certification Prep" },
         ],
         href: "/courses/advance-performance-growth-marketing-program",
+        uspBadges: (
+          <>
+            <GoogleIcon />
+            <MetaIcon />
+          </>
+        ),
       },
       {
         title: "Digital Marketing Program for Business Owners",
         description:
-          "A practical 3-month program to help business owners grow their brand, generate leads and increase revenue using digital marketing.",
+          "Generate high-intent B2B & B2C leads, scale brand authority and maximize ROI.",
         badge: "For Business Owners",
         badgeIcon: <BriefcaseIcon />,
         badgeClass: "bg-[#fef3c7] text-[#78350f] border border-[#fde68a]",
         image: "/assets/courses/business_owners_v2.jpg",
-        cardBg: "bg-gradient-to-b from-white via-[#fffdfa] to-[#fcf5e5] border border-amber-200/70 shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_35px_rgba(0,0,0,0.12)]",
+        cardBg: "bg-gradient-to-b from-white via-[#fffbfc] to-[#fff0f2] border border-rose-200/70 shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_35px_rgba(0,0,0,0.12)]",
         titleColor: "text-slate-900",
         descColor: "text-slate-500",
         featureTextColor: "text-slate-700",
-        iconBg: "bg-amber-50 text-amber-700",
-        viewBtnClass: "bg-[#064e3b] hover:bg-[#065f46] text-white border-transparent",
-        syllabusBtnClass: "bg-[#fef9ee] hover:bg-[#fef3c7] text-[#78350f] border border-[#fde68a]",
-        syllabusTextClass: "text-[#78350f]",
+        iconBg: "bg-rose-50 text-[#fe4759]",
+        viewBtnClass: "bg-[#fe4759] hover:bg-[#e03447] text-white border-transparent shadow-sm shadow-[#fe4759]/25",
+        syllabusBtnClass: "bg-[#fff1f2] hover:bg-[#ffe4e6] text-[#e11d48] border border-[#fecdd3]",
+        syllabusTextClass: "text-[#e11d48]",
         features: [
           { icon: <CertIcon />, label: "Certification" },
           { icon: <CalIcon />, label: "Customised Timeline" },
           { icon: <BarIcon />, label: "Business-Focused Curriculum" },
-          { icon: <MentorIcon />, label: "1:1 Mentorship" },
+          { icon: <MentorIcon />, label: "1:1 Sessions" },
         ],
         href: "/courses/digital-marketing-program-for-business-owners",
+        uspBadges: (
+          <>
+            <MetaIcon />
+            <MicrosoftIcon />
+          </>
+        ),
       },
       {
         title: "Customised Program in Digital Marketing",
         description:
-          "A flexible, personalised program designed as per your goals, background and industry. Learn what you need, at your own pace.",
+          "Tailored modular training designed around your niche industry and career goals.",
         badge: "Tailored to Your Goals",
         badgeIcon: <SlidersIcon />,
         badgeClass: "bg-[#ede9fe] text-[#6b21a8] border border-[#ddd6fe]",
         image: "/assets/courses/customised_marketing_v2.jpg",
-        cardBg: "bg-gradient-to-b from-white via-[#fcfbfe] to-[#f4effe] border border-purple-200/70 shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_35px_rgba(0,0,0,0.12)]",
+        cardBg: "bg-gradient-to-b from-white via-[#fffbfc] to-[#fff0f2] border border-rose-200/70 shadow-[0_2px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_35px_rgba(0,0,0,0.12)]",
         titleColor: "text-slate-900",
         descColor: "text-slate-500",
         featureTextColor: "text-slate-700",
-        iconBg: "bg-purple-50 text-purple-700",
-        viewBtnClass: "bg-[#6d28d9] hover:bg-[#5b21b6] text-white border-transparent",
-        syllabusBtnClass: "bg-[#faf5ff] hover:bg-[#f3e8ff] text-[#6d28d9] border border-[#e9d5ff]",
-        syllabusTextClass: "text-[#6d28d9]",
+        iconBg: "bg-rose-50 text-[#fe4759]",
+        viewBtnClass: "bg-[#fe4759] hover:bg-[#e03447] text-white border-transparent shadow-sm shadow-[#fe4759]/25",
+        syllabusBtnClass: "bg-[#fff1f2] hover:bg-[#ffe4e6] text-[#e11d48] border border-[#fecdd3]",
+        syllabusTextClass: "text-[#e11d48]",
         features: [
           { icon: <CertIcon />, label: "Certification" },
           { icon: <CalIcon />, label: "Flexible Timeline" },
           { icon: <TuneIcon />, label: "Tailored Curriculum" },
-          { icon: <MentorIcon />, label: "1:1 Mentorship" },
+          { icon: <MentorIcon />, label: "1:1 / Batches" },
         ],
         href: "/courses/customised-program-in-digital-marketing",
+        uspBadges: (
+          <>
+            <HubspotIcon />
+            <SkillIndiaIcon />
+          </>
+        ),
       },
     ],
   };
@@ -385,6 +462,11 @@ export default function ProgramsExplorer() {
                       {program.badge}
                     </span>
                   </div>
+
+                  {/* ── USP Section: Dynamic Badges (Bottom-Right Cutout) ── */}
+                  <div className="absolute bottom-0 right-0 z-10 bg-white rounded-tl-[24px] pt-2.5 pb-2 pl-3.5 pr-4 flex items-center gap-2.5 shadow-xs">
+                    {program.uspBadges}
+                  </div>
                 </div>
 
                 {/* ── Body ── */}
@@ -405,7 +487,7 @@ export default function ProgramsExplorer() {
                   </h3>
 
                   {/* Description */}
-                  <p className={`text-[12.5px] sm:text-[13px] leading-[1.55] mb-5 line-clamp-3 ${program.descColor}`}>
+                  <p className={`text-[12.5px] sm:text-[13px] leading-[1.55] mb-5 line-clamp-2 min-h-[38px] sm:min-h-[40px] ${program.descColor}`}>
                     {program.description}
                   </p>
 

@@ -41,8 +41,8 @@ interface ServiceItem {
   category: string;
   quote: string;
   description: string;
-  offerBadge: string;
-  badgeType: "price" | "guarantee" | "kit";
+  offerBadge?: string;
+  badgeType?: "price" | "guarantee" | "kit";
   deliverables: string[];
   popular?: boolean;
 }
@@ -58,8 +58,6 @@ const servicesData: ServiceItem[] = [
       "Your business exists offline. Your competition exists online and that's why they're winning.",
     description:
       "High converting, mobile-first websites and applications built to turn casual visitors into loyal paying customers.",
-    offerBadge: "First Project at ₹999",
-    badgeType: "price",
     popular: true,
     deliverables: [
       "Next.js / React & WordPress Architecture",
@@ -77,8 +75,6 @@ const servicesData: ServiceItem[] = [
     quote: "Your product is good. Your ads just haven't proved it yet.",
     description:
       "Scroll-stopping UGC and creative ads that generate massive revenue. Real creators, real hooks, and verified buyer psychology.",
-    offerBadge: "First Video at ₹999",
-    badgeType: "price",
     popular: true,
     deliverables: [
       "Psychological 3-second visual hooks & scripts",
@@ -135,8 +131,6 @@ const servicesData: ServiceItem[] = [
       "People buy with their eyes first. If your visuals don't stop them nothing else gets the chance.",
     description:
       "Premium production quality that positions your brand as an undeniable market leader through cinematic excellence.",
-    offerBadge: "First Shoot at ₹999",
-    badgeType: "price",
     deliverables: [
       "4K Cinema camera rigs & professional lighting",
       "On-location or studio commercial photography",
@@ -167,8 +161,8 @@ const servicesData: ServiceItem[] = [
 
 const faqs = [
   {
-    q: "How does the 'First Project at ₹999' offer work?",
-    a: "We believe in earning your trust with undeniable proof before asking for larger retainers. For your first engagement—whether it's a high-converting landing page prototype, an ad creative video, or a professional product shoot—we execute at just ₹999. Once you see the quality and speed, you can scale with our full-stack growth packages.",
+    q: "How does the 'For first seven days at ₹1999' offer work?",
+    a: "We believe in earning your trust with undeniable proof before asking for larger retainers. For your first engagement—whether it's a high-converting landing page prototype, an ad creative video, or a professional product shoot—we execute your first seven days at just ₹1999. Once you see the quality and speed, you can scale with our full-stack growth packages.",
   },
   {
     q: "What does 'No Results = No Charges' and 'Guaranteed or No Bill' mean?",
@@ -303,7 +297,7 @@ export default function ServicesPage() {
                 </a>
 
                 <a
-                  href="https://wa.me/919315471293?text=Hi%20iDigitalStudies%20team,%20I%20am%20interested%20in%20your%20digital%20marketing%20services%20and%20the%20%E2%82%B9999%20introductory%20offer."
+                  href="https://wa.me/919315471293?text=Hi%20iDigitalStudies%20team,%20I%20am%20interested%20in%20your%20digital%20marketing%20services%20and%20the%20%E2%82%B91999%20introductory%20offer."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-7 py-4 bg-white hover:bg-rose-50/60 text-[#fe4759] font-bold text-sm sm:text-base rounded-2xl border border-rose-200 transition-all hover:-translate-y-0.5 shadow-2xs flex items-center gap-2.5"
@@ -318,7 +312,7 @@ export default function ServicesPage() {
               <div className="pt-2 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-semibold text-slate-600">
                 <span className="flex items-center gap-1.5 text-slate-700">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  First Project at ₹999
+                  First Project at ₹1999
                 </span>
                 <span className="flex items-center gap-1.5 text-slate-700">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
@@ -346,7 +340,7 @@ export default function ServicesPage() {
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-2xl">🌐</span>
                     <span className="text-[10px] bg-[#fe4759] text-white px-2.5 py-0.5 rounded-full font-bold shadow-xs">
-                      First at ₹999
+                      First at ₹1999
                     </span>
                   </div>
                   <h4 className="text-slate-900 font-extrabold text-xs sm:text-sm leading-tight group-hover:text-[#fe4759] transition-colors">
@@ -362,7 +356,7 @@ export default function ServicesPage() {
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-2xl">🎬</span>
                     <span className="text-[10px] bg-[#fe4759] text-white px-2.5 py-0.5 rounded-full font-bold shadow-xs">
-                      First at ₹999
+                      First at ₹1999
                     </span>
                   </div>
                   <h4 className="text-slate-900 font-extrabold text-xs sm:text-sm leading-tight group-hover:text-[#fe4759] transition-colors">
@@ -416,7 +410,7 @@ export default function ServicesPage() {
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-2xl">🎥</span>
                     <span className="text-[10px] bg-[#fe4759] text-white px-2.5 py-0.5 rounded-full font-bold shadow-xs">
-                      First at ₹999
+                      First at ₹1999
                     </span>
                   </div>
                   <h4 className="text-slate-900 font-extrabold text-xs sm:text-sm leading-tight group-hover:text-[#fe4759] transition-colors">
@@ -470,7 +464,7 @@ export default function ServicesPage() {
 
             <div className="p-4 rounded-2xl bg-rose-50/40 border border-rose-100/60">
               <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#fe4759] tracking-tight">
-                ₹10Cr+
+                ₹1Cr+
               </div>
               <div className="text-xs sm:text-sm font-bold text-slate-800 mt-1">
                 Ad Spend Managed
@@ -490,10 +484,10 @@ export default function ServicesPage() {
 
             <div className="p-4 rounded-2xl bg-rose-50/40 border border-rose-100/60">
               <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#fe4759] tracking-tight">
-                ₹999
+                ₹1999
               </div>
               <div className="text-xs sm:text-sm font-bold text-slate-800 mt-1">
-                Zero-Risk First Project
+                For first seven days
               </div>
               <p className="text-[11px] text-slate-500 hidden sm:block">Quality guaranteed upfront</p>
             </div>
@@ -621,35 +615,28 @@ export default function ServicesPage() {
                     ))}
                   </div>
 
-                  {/* Offer Badge + Claim Button Footer */}
-                  <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
-                    <div className="flex items-center justify-between">
-                      <span
-                        className={`inline-block px-3.5 py-1 rounded-full text-xs font-black tracking-wide ${
-                          service.badgeType === "price"
-                            ? "bg-[#fe4759] text-white shadow-sm shadow-[#fe4759]/25"
-                            : service.badgeType === "guarantee"
-                            ? "bg-slate-900 text-emerald-400 border border-slate-800"
-                            : "bg-slate-900 text-white"
-                        }`}
-                      >
-                        {service.offerBadge}
-                      </span>
-
-                      <button
-                        onClick={() => prefillService(service.title)}
-                        className="text-xs font-bold text-[#fe4759] hover:underline flex items-center gap-1 group/btn"
-                      >
-                        <span>Select Service</span>
-                        <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                      </button>
-                    </div>
+                  {/* Card Action Footer */}
+                  <div className="pt-4 border-t border-slate-100 flex flex-col gap-3 mt-auto">
+                    {service.offerBadge && (
+                      <div className="flex items-center">
+                        <span
+                          className={`inline-block px-3.5 py-1 rounded-full text-xs font-black tracking-wide ${
+                            service.badgeType === "guarantee"
+                              ? "bg-slate-900 text-emerald-400 border border-slate-800"
+                              : "bg-slate-900 text-white"
+                          }`}
+                        >
+                          {service.offerBadge}
+                        </span>
+                      </div>
+                    )}
 
                     <button
                       onClick={() => prefillService(service.title)}
-                      className="w-full py-2.5 bg-slate-50 hover:bg-[#fe4759] text-slate-800 hover:text-white font-bold text-xs sm:text-sm rounded-xl border border-slate-200 hover:border-[#fe4759] transition-all duration-200 text-center cursor-pointer"
+                      className="w-full py-3 bg-slate-50 hover:bg-[#fe4759] text-slate-800 hover:text-white font-bold text-xs sm:text-sm rounded-xl border border-slate-200 hover:border-[#fe4759] transition-all duration-200 text-center cursor-pointer flex items-center justify-center gap-2 group/btn"
                     >
-                      Claim Offer & Book Consultation
+                      <span>Book Free Consultation</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                     </button>
                   </div>
 
@@ -731,10 +718,10 @@ export default function ServicesPage() {
                 02
               </div>
               <h4 className="font-extrabold text-slate-900 text-lg mb-2">
-                ₹999 Test Sprint
+                ₹1999 Test Sprint
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Test our quality risk-free with your first website prototype, ad video, or shoot at just ₹999. Zero long-term lock-in.
+                Test our quality risk-free with your first website prototype, ad video, or shoot at just ₹1999. Zero long-term lock-in.
               </p>
             </div>
 
@@ -875,7 +862,7 @@ export default function ServicesPage() {
                         Book Your Free Strategy Call
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-                        Claim your introductory ₹999 project or request a full proposal.
+                        Claim your introductory ₹1999 project or request a full proposal.
                       </p>
                     </div>
 
@@ -952,11 +939,11 @@ export default function ServicesPage() {
                         onChange={(e) => setFormData({ ...formData, serviceNeeded: e.target.value })}
                         className="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#fe4759]/20 focus:border-[#fe4759] bg-white text-slate-800"
                       >
-                        <option value="Website & App Development">🌐 Website & App Development (First at ₹999)</option>
-                        <option value="UGC & Creative Ads">🎬 UGC & Creative Ads (First Video at ₹999)</option>
+                        <option value="Website & App Development">🌐 Website & App Development (First at ₹1999)</option>
+                        <option value="UGC & Creative Ads">🎬 UGC & Creative Ads (First Video at ₹1999)</option>
                         <option value="Social Media Management">📱 Social Media Management (No Results = No Charge)</option>
                         <option value="Lead Generation">🎯 Lead Generation (Guaranteed or No Bill)</option>
-                        <option value="Shoots & Cinematics">🎥 Shoots & Cinematics (First Shoot at ₹999)</option>
+                        <option value="Shoots & Cinematics">🎥 Shoots & Cinematics (First Shoot at ₹1999)</option>
                         <option value="Branding & Graphics">✦ Branding & Graphics (Full Branding Kit)</option>
                         <option value="Full-Stack All Services">🚀 Full-Stack Omnichannel Package (All Services)</option>
                       </select>
@@ -968,7 +955,7 @@ export default function ServicesPage() {
                         Estimated Monthly Ad/Marketing Budget
                       </label>
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                        {["Intro ₹999 Test", "₹25k - ₹50k", "₹50k - ₹1L", "₹1L - ₹5L+"].map((b) => (
+                        {["Intro ₹1999 Test", "₹25k - ₹50k", "₹50k - ₹1L", "₹1L - ₹5L+"].map((b) => (
                           <button
                             type="button"
                             key={b}
@@ -1009,7 +996,7 @@ export default function ServicesPage() {
                         <span>Submitting Your Details...</span>
                       ) : (
                         <>
-                          <span>Claim ₹999 Offer & Confirm Call</span>
+                          <span>Claim ₹1999 Offer & Confirm Call</span>
                           <ArrowRight className="w-4 h-4" />
                         </>
                       )}
@@ -1098,7 +1085,7 @@ export default function ServicesPage() {
             Ready to Scale Your Digital Revenue?
           </h2>
           <p className="text-white/90 text-sm sm:text-base max-w-2xl mx-auto">
-            Get your first project live at just ₹999. Results delivered or you pay nothing.
+            Get your first project live at just ₹1999. Results delivered or you pay nothing.
           </p>
 
           <div className="pt-3 flex flex-wrap items-center justify-center gap-4">

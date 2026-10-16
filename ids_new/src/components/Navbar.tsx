@@ -44,7 +44,7 @@ export default function Navbar() {
   const aboutItems = [
     { title: "About Us", desc: "Our story, mission & global leadership", href: "/about-us" },
     { title: "Campus Glimpse", desc: "Campus culture, student life & bento gallery", href: "/glimpse" },
-    { title: "Agency Services", desc: "Full-stack digital marketing & ₹999 test sprints", href: "/services" },
+    { title: "Agency Services", desc: "Full-stack digital marketing & ₹1999 test sprints", href: "/services" },
     { title: "Contact Us", desc: "Speak with senior advisors at +91 9315471293", href: "/contact-us" },
     { title: "Refund Policy", desc: "100% transparent fee & money-back policy", href: "/#faq" },
     { title: "Terms & Conditions", desc: "Admissions, enrollment & code of conduct", href: "/terms-and-conditions" },
@@ -103,9 +103,9 @@ export default function Navbar() {
           {/* Center / Right: Desktop Navigation Links & Action Buttons */}
           <nav
             ref={dropdownRef}
-            className="hidden lg:flex items-center gap-2 xl:gap-4 2xl:gap-5 text-slate-700 font-medium text-[13px] xl:text-[14px]"
+            className="hidden lg:flex items-center gap-3 xl:gap-5 2xl:gap-6 text-slate-700 font-medium text-[13px] xl:text-[14px]"
           >
-            {/* Custom Corner-Framed Placement Button (Exact Match to User Reference) */}
+            {/* 1. Placement */}
             <Link
               href="/jobs-and-placements"
               className="relative group inline-flex items-center justify-center px-3.5 py-1.5 xl:px-4 xl:py-1.5 text-[13px] xl:text-[14px] font-medium text-slate-900 transition-all duration-300 hover:scale-105 whitespace-nowrap cursor-pointer shrink-0"
@@ -124,7 +124,40 @@ export default function Navbar() {
               <span className="absolute bottom-0 right-0 w-[2px] h-[65%] bg-[#fe4759] group-hover:h-[80%] transition-all duration-300" />
             </Link>
 
-            {/* About Us Dropdown */}
+            {/* 2. About us (Direct click - dropdown removed as requested) */}
+            <Link
+              href="/about-us"
+              className="hover:text-[#fe4759] transition-colors whitespace-nowrap font-medium px-1 py-1"
+            >
+              About us
+            </Link>
+
+            {/* 3. Agency Services */}
+            <Link
+              href="/services"
+              className="hover:text-[#fe4759] transition-colors whitespace-nowrap font-medium px-1 py-1"
+            >
+              Agency Services
+            </Link>
+
+            {/* 4. Blogs */}
+            <Link
+              href="/blog"
+              className="hover:text-[#fe4759] transition-colors whitespace-nowrap font-medium px-1 py-1"
+            >
+              Blogs
+            </Link>
+
+            {/* 5. Contact us */}
+            <Link
+              href="/contact-us"
+              className="hover:text-[#fe4759] transition-colors whitespace-nowrap font-medium px-1 py-1"
+            >
+              Contact us
+            </Link>
+
+            {/* Rest commented out for now as requested */}
+            {/*
             <div className="relative">
               <button
                 onClick={() => toggleDropdown("about")}
@@ -157,23 +190,6 @@ export default function Navbar() {
               )}
             </div>
 
-            {/* Services Link */}
-            <Link
-              href="/services"
-              className="hover:text-[#fe4759] transition-colors whitespace-nowrap font-medium"
-            >
-              Services
-            </Link>
-
-            {/* Blogs Link */}
-            <Link
-              href="/blog"
-              className="hover:text-[#fe4759] transition-colors whitespace-nowrap"
-            >
-              Blogs
-            </Link>
-
-            {/* Book Demo Button */}
             <button
               type="button"
               onClick={() => setIsDemoModalOpen(true)}
@@ -181,6 +197,7 @@ export default function Navbar() {
             >
               Free Demo
             </button>
+            */}
           </nav>
 
           {/* Mobile / Tablet: "All Courses" pill + Hamburger Toggle */}
@@ -222,23 +239,58 @@ export default function Navbar() {
         {/* Mobile Navigation Drawer */}
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-white border-b border-slate-200 px-4 py-4 space-y-3 max-h-[85vh] overflow-y-auto animate-in slide-in-from-top duration-200">
-            {/* Quick Action Buttons */}
-            <div className="grid grid-cols-2 gap-2 pb-3 border-b border-slate-100">
+            {/* Nav Items in order: Placement, About us, Agency Services, Blogs, Contact us */}
+            <div className="space-y-1.5 text-sm font-medium text-slate-800">
+              {/* 1. Placement */}
               <Link
                 href="/jobs-and-placements"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="relative group flex items-center justify-center py-2 px-3 text-xs font-semibold text-slate-900"
+                className="flex items-center justify-between py-2.5 px-3 rounded-lg bg-rose-50/50 text-[#fe4759] font-bold transition-colors"
               >
-                {/* Top-Left Bracket */}
-                <span className="absolute top-0 left-0 w-[70%] h-[2px] bg-gradient-to-r from-[#fe4759] via-[#ff6b7a] to-[#ff9aa5]" />
-                <span className="absolute top-0 left-0 w-[2px] h-[65%] bg-[#fe4759]" />
-
-                <span className="group-hover:text-[#fe4759] transition-colors">Placement</span>
-
-                {/* Bottom-Right Bracket */}
-                <span className="absolute bottom-0 right-0 w-[70%] h-[2px] bg-gradient-to-l from-[#fe4759] via-[#ff6b7a] to-[#ff9aa5]" />
-                <span className="absolute bottom-0 right-0 w-[2px] h-[65%] bg-[#fe4759]" />
+                <span>Placement</span>
+                <span className="text-xs">→</span>
               </Link>
+
+              {/* 2. About us */}
+              <Link
+                href="/about-us"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block py-2 px-3 rounded-lg hover:bg-slate-50 hover:text-[#fe4759] transition-colors"
+              >
+                About us
+              </Link>
+
+              {/* 3. Agency Services */}
+              <Link
+                href="/services"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block py-2 px-3 rounded-lg hover:bg-slate-50 hover:text-[#fe4759] transition-colors"
+              >
+                Agency Services
+              </Link>
+
+              {/* 4. Blogs */}
+              <Link
+                href="/blog"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block py-2 px-3 rounded-lg hover:bg-slate-50 hover:text-[#fe4759] transition-colors"
+              >
+                Blogs
+              </Link>
+
+              {/* 5. Contact us */}
+              <Link
+                href="/contact-us"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block py-2 px-3 rounded-lg hover:bg-slate-50 hover:text-[#fe4759] transition-colors"
+              >
+                Contact us
+              </Link>
+            </div>
+
+            {/* Rest of mobile links commented out for now as requested */}
+            {/*
+            <div className="grid grid-cols-2 gap-2 pb-3 border-b border-slate-100">
               <button
                 type="button"
                 onClick={() => {
@@ -251,7 +303,6 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Courses Overview Accordion */}
             <div>
               <button
                 onClick={() =>
@@ -276,106 +327,12 @@ export default function Navbar() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block font-semibold text-slate-800 hover:text-[#fe4759]"
                   >
-                    • Master in Digital Marketing with AI & Automation <span className="text-[#fe4759] font-normal">(6 Months)</span>
-                  </Link>
-                  <Link
-                    href="/courses/advance-performance-growth-marketing-program"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block font-semibold text-slate-800 hover:text-[#fe4759]"
-                  >
-                    • Advance Performance & Growth Marketing Program <span className="text-[#fe4759] font-normal">(3 Months)</span>
-                  </Link>
-                  <Link
-                    href="/courses/digital-marketing-program-for-business-owners"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block font-semibold text-slate-800 hover:text-[#fe4759]"
-                  >
-                    • Digital Marketing Program for Business Owners <span className="text-[#fe4759] font-normal">(1:1 Mentorship)</span>
-                  </Link>
-                  <Link
-                    href="/courses/customised-program-in-digital-marketing"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block font-semibold text-slate-800 hover:text-[#fe4759]"
-                  >
-                    • Customised Program in Digital Marketing <span className="text-[#fe4759] font-normal">(Tailored)</span>
+                    • Master in Digital Marketing with AI & Automation (6 Months)
                   </Link>
                 </div>
               )}
             </div>
-
-            {/* Direct Navigation Links */}
-            <div className="space-y-2 pt-2 border-t border-slate-100 text-sm font-medium text-slate-700">
-              <Link
-                href="/services"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block py-1 text-[#fe4759] font-bold"
-              >
-                Services (Growth Agency)
-              </Link>
-              <Link
-                href="/about-us"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block py-1 hover:text-[#fe4759]"
-              >
-                About Us
-              </Link>
-              <Link
-                href="/contact-us"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block py-1 hover:text-[#fe4759]"
-              >
-                Contact Us
-              </Link>
-              <Link
-                href="/blog"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block py-1 hover:text-[#fe4759]"
-              >
-                Blogs & Insights
-              </Link>
-              <Link
-                href="/#hiring-partners"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block py-1 hover:text-[#fe4759]"
-              >
-                Hiring Partners & Placements
-              </Link>
-              <Link
-                href="/#alumni"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block py-1 hover:text-[#fe4759]"
-              >
-                Student Reviews & Stories
-              </Link>
-              <Link
-                href="/#faq"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block py-1 hover:text-[#fe4759]"
-              >
-                FAQs
-              </Link>
-              <Link
-                href="/#faq"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block py-1 hover:text-[#fe4759]"
-              >
-                Refund Policy
-              </Link>
-              <Link
-                href="/terms-and-conditions"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block py-1 hover:text-[#fe4759]"
-              >
-                Terms & Conditions
-              </Link>
-              <Link
-                href="/privacy-policy"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block py-1 hover:text-[#fe4759]"
-              >
-                Privacy Policy
-              </Link>
-            </div>
+            */}
 
             {/* Contact Quick Buttons for Mobile */}
             <div className="pt-3 border-t border-slate-100 flex gap-2">

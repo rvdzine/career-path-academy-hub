@@ -1,33 +1,66 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Phone, MessageCircle, X, Sparkles, CheckCircle2 } from "lucide-react";
+import { Phone, MessageCircle, X } from "lucide-react";
+import api from "@/lib/api";
+
+interface EnrolledToastItem {
+  name: string;
+  course: string;
+}
+
+const DEFAULT_ENROLLMENTS: EnrolledToastItem[] = [
+  { name: "Sneha J.", course: "Master in Digital Marketing Course" },
+  { name: "Jaiaditya N.", course: "Master in Digital Marketing with AI & Automation" },
+  { name: "Abhishek S.", course: "Master in Digital Marketing with AI & Automation" },
+  { name: "Ravi S.", course: "Master in Digital Marketing with AI & Automation" },
+  { name: "Ashutosh", course: "Master in Digital Marketing with AI & Automation" },
+  { name: "Lalit N.", course: "Master in Digital Marketing with AI & Automation" },
+  { name: "Ankita T.", course: "Advance Performance & Growth Marketing Program" },
+  { name: "Kushal G.", course: "Master in Digital Marketing with AI & Automation" },
+  { name: "Chandan M.", course: "Master in Digital Marketing with AI & Automation" },
+];
 
 export default function StickyWidgets() {
   const [toastVisible, setToastVisible] = useState(false);
   const [toastIndex, setToastIndex] = useState(0);
-
-  const notifications = [
-    { name: "Ankit G.", city: "New Delhi", course: "Data Analytics Master Course", time: "3 mins ago" },
-    { name: "Esha N.", city: "Bengaluru", course: "PG Diploma in Digital Marketing With AI", time: "8 mins ago" },
-    { name: "Sujata P.", city: "Mumbai", course: "Financial Modeling Master Course", time: "12 mins ago" },
-    { name: "Gaurav P.", city: "Pune", course: "UI UX Design Master Course", time: "16 mins ago" },
-    { name: "Chandan M.", city: "Hyderabad", course: "PG Diploma in Advanced Analytics & Agentic AI", time: "22 mins ago" },
-  ];
+  const [notifications, setNotifications] = useState<EnrolledToastItem[]>(DEFAULT_ENROLLMENTS);
 
   useEffect(() => {
-    // Show toast after 4 seconds, then rotate every 12 seconds
+    let isMounted = true;
+    const fetchRecentEnrollments = async () => {
+      try {
+        const res = await api.get("/students/recent-enrollments/");
+        if (isMounted && res.data && Array.isArray(res.data) && res.data.length > 0) {
+          setNotifications(res.data);
+        }
+      } catch (err) {
+        // Silently use defaults if API is temporarily unavailable
+      }
+    };
+
+    fetchRecentEnrollments();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (notifications.length === 0) return;
+
+    // Show toast after 3.5 seconds, then cycle every 10 seconds
     const initialTimer = setTimeout(() => {
       setToastVisible(true);
-    }, 4000);
+    }, 3500);
 
     const interval = setInterval(() => {
       setToastVisible(false);
       setTimeout(() => {
         setToastIndex((prev) => (prev + 1) % notifications.length);
         setToastVisible(true);
-      }, 1000);
-    }, 12000);
+      }, 900);
+    }, 10000);
 
     return () => {
       clearTimeout(initialTimer);
@@ -35,35 +68,30 @@ export default function StickyWidgets() {
     };
   }, [notifications.length]);
 
-  const current = notifications[toastIndex];
+  const current = notifications[toastIndex] || notifications[0];
 
   return (
     <>
       {/* 1. Live Social Proof Toast Notification (Desktop & Tablet) */}
-      {toastVisible && (
-        <div className="fixed bottom-20 left-4 sm:bottom-6 sm:left-6 z-40 max-w-sm bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-2xl p-3.5 shadow-2xl animate-in slide-in-from-bottom duration-300">
-          <div className="flex items-start justify-between gap-3">
-            <div className="h-9 w-9 rounded-full bg-[#fe4759]/15 flex items-center justify-center text-[#fe4759] shrink-0 font-bold text-xs">
-              {current.name.split(" ")[0][0]}
+      {toastVisible && current && (
+        <div className="hidden sm:block fixed sm:bottom-6 sm:left-6 z-40 max-w-sm bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-2xl p-3.5 shadow-2xl animate-in slide-in-from-bottom duration-300">
+          <div className="flex items-center justify-between gap-3">
+            <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[#fe4759]/20 to-[#fe4759]/10 border border-[#fe4759]/25 flex items-center justify-center text-[#fe4759] shrink-0 font-extrabold text-sm shadow-2xs">
+              {current.name ? current.name.charAt(0).toUpperCase() : "S"}
             </div>
 
             <div className="flex-1 min-w-0 pr-1">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 truncate">
-                <span>{current.name}</span>
-                <span className="text-[10px] font-normal text-slate-400">from {current.city}</span>
+              <div className="text-xs font-bold text-slate-900 truncate">
+                {current.name}
               </div>
-              <p className="text-[11px] text-[#fe4759] font-semibold line-clamp-1 mt-0.5">
+              <p className="text-[11px] text-[#fe4759] font-medium line-clamp-1 mt-0.5">
                 Enrolled in {current.course}
               </p>
-              <div className="flex items-center gap-1 text-[9.5px] text-slate-400 mt-0.5">
-                <CheckCircle2 className="w-3 h-3 text-emerald-500" />
-                <span>Verified Admission • {current.time}</span>
-              </div>
             </div>
 
             <button
               onClick={() => setToastVisible(false)}
-              className="text-slate-400 hover:text-slate-600 p-0.5"
+              className="text-slate-400 hover:text-slate-600 p-1 rounded-lg hover:bg-slate-100 transition-colors"
               aria-label="Close notification"
             >
               <X className="w-3.5 h-3.5" />

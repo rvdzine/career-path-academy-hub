@@ -128,10 +128,10 @@ export default function HiringPartners() {
             </div>
 
             {/* Vertical Auto-Scrolling 2-Column Marquee (Showing exactly 6 cards / 3 rows at a time) */}
-            <div className="relative h-[216px] overflow-hidden rounded-2xl">
+            <div className="relative h-[294px] overflow-hidden rounded-2xl">
               {/* Top & Bottom Smooth Gradient Edge Masks */}
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-white via-white/80 to-transparent z-10" />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-white via-white/80 to-transparent z-10" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-white via-white/80 to-transparent z-10" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white via-white/80 to-transparent z-10" />
 
               {/* Infinite Scrolling Track */}
               <div className="animate-marquee-vertical flex flex-col">
@@ -140,14 +140,14 @@ export default function HiringPartners() {
                     {row.map((item, colIdx) => (
                       <div
                         key={colIdx}
-                        className="h-16 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md flex items-center justify-center p-3 transition-all"
+                        className="h-[88px] rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md flex items-center justify-center p-2 sm:p-2.5 transition-all group"
                       >
                         <Image
                           src={item.logo}
                           alt={item.name}
-                          width={95}
-                          height={28}
-                          className="h-6 sm:h-7 w-auto max-w-[100px] max-h-8 object-contain"
+                          width={140}
+                          height={46}
+                          className="h-10 sm:h-11 md:h-12 w-auto max-w-[135px] sm:max-w-[150px] max-h-12 sm:max-h-13 object-contain group-hover:scale-108 transition-transform duration-300"
                           style={{ width: "auto", height: "auto" }}
                           unoptimized
                         />
@@ -176,54 +176,81 @@ export default function HiringPartners() {
               </div>
             </div>
 
-            {/* 6 Logos Grid (3 rows x 2 columns, perfectly matching 216px height) */}
-            <div className="grid grid-cols-2 gap-3 h-[216px]">
+            {/* 6 Logos Grid (3 rows x 2 columns, matching 294px height) */}
+            <div className="grid grid-cols-2 gap-3 h-[294px]">
               {/* 1. Razorpay */}
-              <div className="h-16 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md flex items-center justify-center p-3 transition-all">
-                <div className="flex items-center gap-1">
-                  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-[#0A85EA]">
-                    <path d="M12.8 2L5 13.5h5.5L7.5 22 19 8.5h-6.2z"/>
-                  </svg>
-                  <span className="font-bold text-xs text-[#0C2340] tracking-tight">Razorpay</span>
-                </div>
+              <div className="h-[88px] rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md flex items-center justify-center p-2 sm:p-2.5 transition-all group">
+                <Image
+                  src="/svg/razorpay.svg"
+                  alt="Razorpay"
+                  width={140}
+                  height={44}
+                  className="h-10 sm:h-11 w-auto max-w-[140px] max-h-12 object-contain group-hover:scale-108 transition-transform duration-300"
+                  style={{ width: "auto", height: "auto" }}
+                  unoptimized
+                />
               </div>
 
               {/* 2. Paytm */}
-              <div className="h-16 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md flex items-center justify-center p-3 transition-all">
-                <div className="flex items-center font-black text-sm tracking-tight">
-                  <span className="text-[#002E6E]">Pay</span>
-                  <span className="text-[#00BAF2]">tm</span>
-                </div>
+              <div className="h-[88px] rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md flex items-center justify-center p-2.5 transition-all group">
+                <Image
+                  src="/svg/Paytm.svg"
+                  alt="Paytm"
+                  width={130}
+                  height={44}
+                  className="h-10 sm:h-11 w-auto max-w-[135px] max-h-12 object-contain group-hover:scale-108 transition-transform duration-300"
+                  style={{ width: "auto", height: "auto" }}
+                  unoptimized
+                />
               </div>
 
               {/* 3. HDFC Bank */}
-              <div className="h-16 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md flex items-center justify-center p-3 transition-all">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-4 h-4 bg-[#004C8F] flex items-center justify-center p-0.5 rounded-xs">
-                    <div className="w-full h-full bg-red-600 border border-white"></div>
+              <div className="h-[88px] rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md flex items-center justify-center p-2.5 transition-all group">
+                <div className="flex items-center gap-2 sm:gap-2.5 group-hover:scale-108 transition-transform duration-300">
+                  <div className="w-7 h-7 bg-[#004C8F] flex items-center justify-center p-1 rounded-xs shrink-0">
+                    <div className="w-full h-full bg-[#ED1C24] border border-white"></div>
                   </div>
-                  <span className="font-black text-[9px] text-[#004C8F] tracking-tighter">HDFC BANK</span>
+                  <span className="font-black text-base sm:text-lg text-[#004C8F] tracking-tight">HDFC BANK</span>
                 </div>
               </div>
 
               {/* 4. Airtel */}
-              <div className="h-16 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md flex items-center justify-center p-3 transition-all">
-                <div className="flex items-center gap-1">
-                  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-[#E40000]">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5c-2.49 0-4.5-2.01-4.5-4.5S8.51 7.5 11 7.5c1.45 0 2.74.69 3.56 1.76l-1.39 1.39C12.69 10.27 11.9 10 11 10c-1.1 0-2 .9-2 2s.9 2 2 2c.74 0 1.38-.41 1.72-1.02h-1.72V11.5h3.41c.06.27.09.56.09.87 0 2.28-1.63 4.13-3.5 4.13z"/>
-                  </svg>
-                  <span className="font-black text-[#E40000] text-sm lowercase tracking-tight">airtel</span>
-                </div>
+              <div className="h-[88px] rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md flex items-center justify-center p-2 sm:p-2.5 transition-all group">
+                <Image
+                  src="/svg/airtel.jpg"
+                  alt="Airtel"
+                  width={130}
+                  height={50}
+                  className="h-11 sm:h-12 w-auto max-w-[135px] max-h-13 object-contain mix-blend-multiply group-hover:scale-108 transition-transform duration-300"
+                  style={{ width: "auto", height: "auto" }}
+                  unoptimized
+                />
               </div>
 
               {/* 5. Netflix */}
-              <div className="h-16 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md flex items-center justify-center p-3 transition-all">
-                <span className="font-black text-base text-[#E50914] tracking-wider">NETFLIX</span>
+              <div className="h-[88px] rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md flex items-center justify-center p-2 sm:p-2.5 transition-all group">
+                <Image
+                  src="/svg/netflix.png"
+                  alt="Netflix"
+                  width={140}
+                  height={50}
+                  className="h-11 sm:h-12 w-auto max-w-[140px] max-h-13 object-contain group-hover:scale-108 transition-transform duration-300"
+                  style={{ width: "auto", height: "auto" }}
+                  unoptimized
+                />
               </div>
 
               {/* 6. Salesforce */}
-              <div className="h-16 rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md flex items-center justify-center p-3 transition-all">
-                <Image src="/assets/Salesforce.svg" alt="Salesforce" width={75} height={24} className="h-5 w-auto object-contain" style={{ width: "auto", height: "auto" }} unoptimized />
+              <div className="h-[88px] rounded-2xl bg-white border border-slate-200/80 hover:border-slate-300 shadow-2xs hover:shadow-md flex items-center justify-center p-2.5 transition-all group">
+                <Image
+                  src="/assets/Salesforce.svg"
+                  alt="Salesforce"
+                  width={135}
+                  height={44}
+                  className="h-10 sm:h-11 w-auto max-w-[140px] max-h-12 object-contain group-hover:scale-108 transition-transform duration-300"
+                  style={{ width: "auto", height: "auto" }}
+                  unoptimized
+                />
               </div>
             </div>
           </div>

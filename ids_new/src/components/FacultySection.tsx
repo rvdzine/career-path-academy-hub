@@ -8,22 +8,26 @@ export default function FacultySection() {
       name: "Deepanshu Jaiswal",
       role: "COO & Senior Mentor",
       photo: "/mentors/deepanshu.jpg",
-      companyType: "ids",
-      companyName: "IDS",
     },
     {
       name: "Ravi Verma",
       role: "Strategist Principal",
       photo: "/mentors/Ravi.jpg",
-      companyType: "pw",
-      companyName: "Physics Wallah",
     },
     {
       name: "Sweta Kushwaha",
       role: "Sr. Marketing Manager",
       photo: "/mentors/sweta.jpg",
-      companyType: "amazon",
-      companyName: "Amazon",
+    },
+    {
+      name: "Aman Saxena",
+      role: "AI & Growth Mentor",
+      photo: "/mentors/aman.jpg",
+    },
+    {
+      name: "Suleman",
+      role: "Performance Specialist",
+      photo: "/mentors/suleman.jpg",
     },
   ];
 
@@ -45,85 +49,35 @@ export default function FacultySection() {
           </p>
         </div>
 
-        {/* 3 Mentor Cards Grid - Clean Brand Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-7 max-w-4xl mx-auto items-stretch">
+        {/* 5 Mentor Cards Grid - Full Bleed Image Cover Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6 max-w-7xl mx-auto items-stretch">
           {mentors.map((mentor, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-[26px] p-4 sm:p-5 border border-slate-200/80 hover:border-[#fe4759]/40 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-rose-500/[0.06] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+              className="relative aspect-[4/5] w-full max-w-[280px] sm:max-w-none mx-auto rounded-[24px] sm:rounded-[26px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-2xl hover:shadow-rose-500/20 hover:-translate-y-2 transition-all duration-500 group flex flex-col justify-end border border-slate-200/80 hover:border-[#fe4759]/60"
             >
-              <div>
-                {/* Photo Container with rounded corners */}
-                <div className="relative w-full aspect-square rounded-[20px] overflow-hidden bg-slate-100 border border-slate-100/80 shadow-xs">
-                  <Image
-                    src={mentor.photo}
-                    alt={mentor.name}
-                    fill
-                    sizes="(max-width: 768px) 280px, 300px"
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+              {/* Full-bleed Cover Image */}
+              <Image
+                src={mentor.photo}
+                alt={mentor.name}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                className="object-cover object-top group-hover:scale-108 transition-transform duration-700 ease-out"
+              />
 
-                {/* Name + LinkedIn Icon */}
-                <div className="mt-4 px-1">
-                  <div className="flex items-center justify-between gap-1.5">
-                    <h3 className="text-base sm:text-[17px] font-extrabold text-slate-900 tracking-tight leading-snug group-hover:text-[#fe4759] transition-colors">
-                      {mentor.name}
-                    </h3>
-                    {/* LinkedIn Official Blue 'in' Icon */}
-                    <a
-                      href="https://linkedin.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center w-5 h-5 rounded-[5px] bg-[#0A66C2] text-white text-[10px] font-bold shrink-0 hover:opacity-90 transition-opacity shadow-2xs"
-                      aria-label={`${mentor.name} LinkedIn Profile`}
-                    >
-                      in
-                    </a>
-                  </div>
+              {/* Multi-stop Cinematic Dark Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 via-50% to-transparent pointer-events-none group-hover:from-black transition-all duration-300" />
 
-                  {/* Role / Designation */}
-                  <p className="text-xs font-semibold text-[#fe4759] mt-1 leading-tight">
-                    {mentor.role}
-                  </p>
-                </div>
+              {/* Mentor Info Overlay */}
+              <div className="relative z-10 p-5 flex flex-col">
+                <h3 className="text-base sm:text-lg font-extrabold text-white tracking-tight leading-snug drop-shadow-md group-hover:text-white transition-colors">
+                  {mentor.name}
+                </h3>
+                <p className="text-xs font-semibold text-rose-300/95 mt-1 leading-tight flex items-center gap-1.5 drop-shadow-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#fe4759] shrink-0 shadow-[0_0_8px_#fe4759]" />
+                  {mentor.role}
+                </p>
               </div>
-
-              {/* Bottom Company Logo Badge Container */}
-              <div className="mt-5 pt-3.5 border-t border-slate-100">
-                <div className="h-9 px-4 rounded-xl bg-slate-50/80 group-hover:bg-[#FFF0F2] border border-slate-200/70 group-hover:border-[#fe4759]/20 flex items-center justify-center mx-auto w-fit min-w-[120px] transition-colors">
-                  {mentor.companyType === "ids" && (
-                    <div className="flex items-center justify-center">
-                      <span className="font-black text-sm text-[#fe4759] tracking-tight">IDS</span>
-                    </div>
-                  )}
-
-                  {mentor.companyType === "pw" && (
-                    <div className="flex items-center justify-center">
-                      <Image
-                        src="/mentors/pw.png"
-                        alt="Physics Wallah"
-                        width={90}
-                        height={20}
-                        className="object-contain h-5 w-auto"
-                      />
-                    </div>
-                  )}
-
-                  {mentor.companyType === "amazon" && (
-                    <div className="flex items-center justify-center">
-                      <Image
-                        src="/mentors/amazon.jpg"
-                        alt="Amazon"
-                        width={60}
-                        height={18}
-                        className="object-contain h-4 w-auto"
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
-
             </div>
           ))}
         </div>

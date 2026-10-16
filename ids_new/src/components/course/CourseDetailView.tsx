@@ -6,6 +6,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyWidgets from "@/components/StickyWidgets";
+import SuccessStories from "@/components/SuccessStories";
 import { CourseData, COURSES_DATA } from "@/data/coursesData";
 import {
   ShieldCheck,
@@ -34,17 +35,19 @@ import {
   Award,
   AlertCircle,
   Calendar,
+  X,
+  Loader2,
+  Star,
+  Building2,
+  User,
 } from "lucide-react";
-import api from "@/lib/api";
+import api, { contactApi } from "@/lib/api";
 
 interface CourseDetailViewProps {
   course: CourseData;
 }
 
-export type FormMode = "demo" | "enroll";
-
 export default function CourseDetailView({ course }: CourseDetailViewProps) {
-  const [formMode, setFormMode] = useState<FormMode>("demo");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -55,26 +58,74 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [submittedMode, setSubmittedMode] = useState<FormMode>("demo");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  // Brochure Download Lead Capture State
+  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
+  const [brochureForm, setBrochureForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+  });
+  const [isBrochureSubmitting, setIsBrochureSubmitting] = useState(false);
+  const [brochureSubmitted, setBrochureSubmitted] = useState(false);
+  const [brochureError, setBrochureError] = useState<string | null>(null);
+
+  const handleBrochureSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isBrochureSubmitting) return;
+
+    const trimmedName = brochureForm.name.trim();
+    const cleanPhone = brochureForm.phone.replace(/\D/g, "");
+    const trimmedEmail = brochureForm.email.trim().toLowerCase();
+
+    if (!trimmedName || !trimmedEmail || !cleanPhone) {
+      setBrochureError("Please fill in your name, email, and 10-digit phone number.");
+      return;
+    }
+    if (cleanPhone.length !== 10) {
+      setBrochureError("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
+    setBrochureError(null);
+    setIsBrochureSubmitting(true);
+
+    try {
+      await contactApi.submitContact({
+        full_name: trimmedName,
+        email: trimmedEmail,
+        phone: cleanPhone,
+        interested_courses: course.name,
+        experience: "Not specified",
+        message: `Brochure Download: ${course.name}`,
+      });
+    } catch (err) {
+      console.error("Failed to save brochure lead to contact table:", err);
+      // Still proceed with download so the user experience isn't blocked
+    }
+
+    setBrochureSubmitted(true);
+    setIsBrochureSubmitting(false);
+
+    // Trigger brochure PDF download
+    const link = document.createElement("a");
+    link.href = "/brochure.pdf";
+    link.download = `IDS_${course.name.replace(/\s+/g, "_")}_Brochure.pdf`;
+    link.target = "_blank";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    setTimeout(() => {
+      setIsBrochureOpen(false);
+      setBrochureSubmitted(false);
+      setBrochureForm({ name: "", phone: "", email: "" });
+    }, 2200);
+  };
 
   // Accordion state: first module expanded by default
   const [expandedModules, setExpandedModules] = useState<number[]>([1]);
-
-  const getCourseDemoSlug = (courseCode: string, courseName: string): string => {
-    const code = (courseCode || "").toUpperCase();
-    const name = (courseName || "").toLowerCase();
-    if (code === "DM01M" || name.includes("master")) {
-      return "master_dm_internship";
-    }
-    if (code === "DM01S" || name.includes("specialist") || name.includes("performance") || name.includes("growth")) {
-      return "specialist_dm";
-    }
-    if (code === "DM01B" || name.includes("business")) {
-      return "dm_business_owners";
-    }
-    return "custom_dm";
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -103,40 +154,21 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
     setIsSubmitting(true);
 
     try {
-      if (formMode === "demo") {
-        const payload = {
-          full_name: trimmedName,
-          email: trimmedEmail,
-          phone: cleanPhone,
-          course: getCourseDemoSlug(course.courseCode, course.name),
-          course_title: course.name,
-          experience_level: formData.experienceLevel,
-          learning_goals: formData.learningGoals.trim() || undefined,
-        };
+      const payload = {
+        full_name: trimmedName,
+        email: trimmedEmail,
+        phone: cleanPhone,
+        experience: formData.experienceLevel,
+        learning_goals: formData.learningGoals.trim() || undefined,
+        course_title: course.name,
+      };
 
-        const res = await api.post("/online-demo/book/", payload);
-        if (res.status === 200 || res.status === 201) {
-          setSubmittedMode("demo");
-          setIsSubmitted(true);
-        }
-      } else {
-        const payload = {
-          full_name: trimmedName,
-          email: trimmedEmail,
-          phone: cleanPhone,
-          experience: formData.experienceLevel,
-          learning_goals: formData.learningGoals.trim() || undefined,
-          course_title: course.name,
-        };
-
-        const res = await api.post("/courses/enroll/", payload);
-        if (res.status === 200 || res.status === 201) {
-          setSubmittedMode("enroll");
-          setIsSubmitted(true);
-        }
+      const res = await api.post("/courses/enroll/", payload);
+      if (res.status === 200 || res.status === 201) {
+        setIsSubmitted(true);
       }
     } catch (err: any) {
-      console.error("Form submission error:", err);
+      console.error("Enrollment form submission error:", err);
       const detail = err?.response?.data?.detail;
       const errorMsg =
         (typeof detail === "object" ? detail?.error : detail) ||
@@ -151,9 +183,7 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
           errorMsg.toLowerCase().includes("already exists"))
       ) {
         setErrorMessage(
-          formMode === "demo"
-            ? "You have already booked a free demo for this course with this contact number/email."
-            : "This account is already registered/enrolled for this course."
+          "This account is already registered/enrolled for this course."
         );
       } else {
         setErrorMessage(
@@ -167,8 +197,7 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
     }
   };
 
-  const scrollToEnroll = (mode: FormMode = "enroll") => {
-    setFormMode(mode);
+  const scrollToEnroll = () => {
     setErrorMessage(null);
     const el = document.getElementById("enroll-form");
     if (el) {
@@ -326,76 +355,128 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
 
       {/* 2. Breadcrumbs Bar */}
       <div className="bg-slate-50/80 border-b border-slate-100 py-2.5 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-[1400px] w-full mx-auto flex items-center gap-2 text-xs text-slate-500 font-medium">
-          <Link href="/" className="hover:text-[#fe4759] transition-colors">
+        <div className="max-w-[1400px] w-full mx-auto flex items-center gap-1.5 sm:gap-2 text-xs text-slate-500 font-medium">
+          <Link href="/" className="hover:text-[#fe4759] transition-colors shrink-0">
             Home
           </Link>
           <span className="text-slate-300">/</span>
-          <span className="text-slate-400">Programs</span>
+          <span className="text-slate-400 shrink-0">Programs</span>
           <span className="text-slate-300">/</span>
-          <span className="text-slate-800 font-semibold truncate max-w-xs sm:max-w-md">
+          <span className="text-slate-800 font-semibold truncate max-w-[160px] xs:max-w-xs sm:max-w-md">
             {course.name}
           </span>
         </div>
       </div>
 
       {/* 3. HERO SECTION */}
-      <section className="relative pt-8 pb-16 lg:pt-12 lg:pb-20 bg-gradient-to-b from-[#FBFDFF] via-white to-white overflow-hidden border-b border-slate-100">
+      <section className="relative pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pt-12 lg:pb-20 bg-gradient-to-b from-[#FBFDFF] via-white to-white overflow-hidden border-b border-slate-100">
         <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Headline, Stats, Overview */}
-            <div className="lg:col-span-7 space-y-6">
-              {/* Main Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-extrabold text-slate-800 tracking-tight leading-[1.15]">
-                {course.headlinePre} <br />
-                <span className="text-[#fe4759]">
-                  {course.headlineHighlight}
-                </span>{" "}
-                {course.headlinePost}
+            <div className="lg:col-span-7 space-y-4 sm:space-y-6">
+              {/* Eyebrow / Credibility Badge */}
+              {course.pillTag && (
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-gradient-to-r from-rose-50 to-orange-50/50 border border-rose-200/90 text-[10px] sm:text-xs font-bold text-[#fe4759] tracking-wider uppercase shadow-2xs">
+                  <Sparkles className="w-3.5 h-3.5 text-[#fe4759] shrink-0" />
+                  <span className="truncate">{course.pillTag}</span>
+                </div>
+              )}
+
+              {/* Main Headline - Significantly Increased Font Size */}
+              <h1 className="text-[32px] xs:text-[38px] sm:text-[44px] md:text-5xl lg:text-[56px] font-black text-slate-900 tracking-tight leading-[1.1]">
+                <span className="text-slate-800">{course.headlinePre} </span>
+                <span className="text-[#fe4759]">{course.headlineHighlight}</span>
+                {course.headlinePost && (
+                  <span className="text-slate-800"> {course.headlinePost}</span>
+                )}
               </h1>
 
               {/* Subheadline */}
-              <p className="text-base sm:text-[17px] text-slate-600 font-normal leading-relaxed max-w-xl">
+              <p className="text-xs sm:text-base lg:text-[17px] text-slate-600 font-normal leading-relaxed max-w-xl">
                 {course.subheadline}
               </p>
 
-              {/* Course Meta Specs Pill Row */}
-              <div className="flex items-center flex-wrap gap-3 text-xs sm:text-sm font-semibold text-slate-700 pt-1">
-                <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200/80 px-3 py-1.5 rounded-lg">
-                  <Clock className="w-4 h-4 text-[#fe4759] shrink-0" />
-                  <span>Duration: <strong className="text-slate-900">{course.duration}</strong></span>
+              {/* Structured Key Highlights (2x2 Grid) */}
+              <div className="grid grid-cols-2 gap-2 max-w-xl text-[11px] sm:text-xs font-semibold text-slate-700">
+                <div className="flex items-center gap-1.5 bg-slate-50/90 border border-slate-200/80 rounded-xl px-2.5 py-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                  <span className="truncate">35+ Live Agency Tools</span>
                 </div>
-                <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200/80 px-3 py-1.5 rounded-lg">
-                  <Globe className="w-4 h-4 text-[#fe4759] shrink-0" />
-                  <span>Mode: <strong className="text-slate-900">{course.mode.split("(")[0].trim()}</strong></span>
+                <div className="flex items-center gap-1.5 bg-slate-50/90 border border-slate-200/80 rounded-xl px-2.5 py-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                  <span className="truncate">Guaranteed Live Internship</span>
                 </div>
-                <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200/80 px-3 py-1.5 rounded-lg">
-                  <Award className="w-4 h-4 text-[#fe4759] shrink-0" />
-                  <span>Code: <strong className="text-slate-900">{course.courseCode}</strong></span>
+                <div className="flex items-center gap-1.5 bg-slate-50/90 border border-slate-200/80 rounded-xl px-2.5 py-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                  <span className="truncate">Real Ad Budget Spends</span>
+                </div>
+                <div className="flex items-center gap-1.5 bg-slate-50/90 border border-slate-200/80 rounded-xl px-2.5 py-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                  <span className="truncate">100% Placement Support</span>
                 </div>
               </div>
 
-              {/* Two Statistics Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg pt-2">
-                <div className="bg-[#FFF8F9] border border-rose-100 rounded-2xl p-4 sm:p-5 flex items-center gap-3.5 shadow-2xs">
-                  <div className="w-1.5 h-10 bg-[#fe4759] rounded-full shrink-0" />
+              {/* Duration, Mode, and Code Tile in ONE LINE ONLY */}
+              <div className="grid grid-cols-3 gap-1 sm:gap-2 bg-gradient-to-r from-slate-50 via-white to-slate-50 border border-slate-200/90 rounded-xl sm:rounded-2xl p-2 sm:p-2.5 shadow-2xs max-w-xl">
+                {/* Duration */}
+                <div className="flex items-center gap-1.5 sm:gap-2 px-1 border-r border-slate-200/70 min-w-0">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-rose-50 text-[#fe4759] flex items-center justify-center shrink-0">
+                    <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="block text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase tracking-wider">Duration</span>
+                    <span className="block text-[11px] sm:text-xs font-bold text-slate-900 truncate">{course.duration}</span>
+                  </div>
+                </div>
+
+                {/* Mode */}
+                <div className="flex items-center gap-1.5 sm:gap-2 px-1 border-r border-slate-200/70 min-w-0">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-rose-50 text-[#fe4759] flex items-center justify-center shrink-0">
+                    <Globe className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="block text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase tracking-wider">Mode</span>
+                    <span className="block text-[11px] sm:text-xs font-bold text-slate-900 truncate">{course.mode.split("(")[0].trim()}</span>
+                  </div>
+                </div>
+
+                {/* Code */}
+                <div className="flex items-center gap-1.5 sm:gap-2 px-1 min-w-0">
+                  <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-rose-50 text-[#fe4759] flex items-center justify-center shrink-0">
+                    <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="block text-[8px] sm:text-[9px] font-bold text-slate-400 uppercase tracking-wider">Code</span>
+                    <span className="block text-[11px] sm:text-xs font-bold text-slate-900 truncate">{course.courseCode}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Two Statistics Cards (Side-by-side 2-col on all screens) */}
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-4 max-w-xl pt-0.5">
+                <div className="bg-gradient-to-br from-[#FFF8F9] to-white border border-rose-100 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 flex items-center gap-2.5 sm:gap-3.5 shadow-2xs">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-rose-100 flex items-center justify-center text-[#fe4759] shrink-0 shadow-2xs">
+                    <Star className="w-4 h-4 sm:w-5 sm:h-5 fill-[#fe4759]" />
+                  </div>
                   <div>
-                    <div className="text-2xl sm:text-[26px] font-black text-slate-800 leading-none">
+                    <div className="text-lg sm:text-2xl font-black text-slate-900 leading-none">
                       {course.statRating}
                     </div>
-                    <div className="text-xs text-slate-500 font-medium mt-1">
+                    <div className="text-[10px] sm:text-xs text-slate-500 font-medium mt-1 leading-tight line-clamp-1">
                       {course.statRatingLabel}
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-[#FFF8F9] border border-rose-100 rounded-2xl p-4 sm:p-5 flex items-center gap-3.5 shadow-2xs">
-                  <div className="w-1.5 h-10 bg-[#fe4759] rounded-full shrink-0" />
+                <div className="bg-gradient-to-br from-[#FFF8F9] to-white border border-rose-100 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 flex items-center gap-2.5 sm:gap-3.5 shadow-2xs">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-rose-100 flex items-center justify-center text-[#fe4759] shrink-0 shadow-2xs">
+                    <Building2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </div>
                   <div>
-                    <div className="text-2xl sm:text-[26px] font-black text-slate-800 leading-none">
+                    <div className="text-lg sm:text-2xl font-black text-slate-900 leading-none">
                       {course.statPartners}
                     </div>
-                    <div className="text-xs text-slate-500 font-medium mt-1">
+                    <div className="text-[10px] sm:text-xs text-slate-500 font-medium mt-1 leading-tight line-clamp-1">
                       {course.statPartnersLabel}
                     </div>
                   </div>
@@ -407,52 +488,27 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
               <div
                 id="enroll-form"
-                className="w-full max-w-[460px] bg-white rounded-3xl p-6 sm:p-7 shadow-[0_15px_45px_rgba(0,0,0,0.06)] border border-slate-100 transition-all"
+                className="w-full max-w-[460px] bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-7 shadow-[0_12px_40px_rgba(0,0,0,0.06)] border border-slate-100/90 transition-all relative overflow-hidden"
               >
-                {/* 2-Option Segmented Tab Switcher */}
-                <div className="grid grid-cols-2 p-1 bg-slate-100 rounded-2xl mb-4">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setFormMode("demo");
-                      setErrorMessage(null);
-                    }}
-                    className={`py-2.5 px-3 rounded-xl text-xs font-black transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                      formMode === "demo"
-                        ? "bg-[#fe4759] text-white shadow-sm"
-                        : "text-slate-600 hover:text-slate-900"
-                    }`}
-                  >
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>Book Free Demo</span>
-                  </button>
+                {/* Top Accent Strip */}
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#fe4759] via-rose-400 to-[#fe4759]" />
 
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setFormMode("enroll");
-                      setErrorMessage(null);
-                    }}
-                    className={`py-2.5 px-3 rounded-xl text-xs font-black transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
-                      formMode === "enroll"
-                        ? "bg-[#fe4759] text-white shadow-sm"
-                        : "text-slate-600 hover:text-slate-900"
-                    }`}
-                  >
-                    <Award className="w-3.5 h-3.5" />
-                    <span>Enroll Now</span>
-                  </button>
-                </div>
-
-                {/* Dynamic Header */}
-                <div className="space-y-1">
-                  <h3 className="text-xl sm:text-[22px] font-black text-slate-800 tracking-tight">
-                    {formMode === "demo" ? "Book Your Free Demo Class" : `Enroll in ${course.name}`}
+                {/* Form Header */}
+                <div className="pb-3 border-b border-slate-100 mt-1">
+                  <div className="flex items-center justify-between gap-2 mb-1.5">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-rose-50 border border-rose-200/70 text-[10px] font-bold text-[#fe4759] uppercase tracking-wider">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#fe4759] animate-ping" />
+                      Admissions Open
+                    </span>
+                    <span className="text-[11px] font-semibold text-slate-500">
+                      Batch: <strong className="text-slate-800">{course.courseCode}</strong>
+                    </span>
+                  </div>
+                  <h3 className="text-base sm:text-xl font-black text-slate-900 tracking-tight leading-snug">
+                    Direct Admission &amp; Seat Booking
                   </h3>
-                  <p className="text-xs text-slate-500 leading-relaxed">
-                    {formMode === "demo"
-                      ? `Attend a live interactive walkthrough with a senior industry mentor for ${course.name}.`
-                      : `Submit your admission form to secure your seat and batch timings for ${course.name}.`}
+                  <p className="text-[11px] sm:text-xs text-slate-500 font-normal mt-0.5 truncate">
+                    Apply for <span className="font-semibold text-slate-700">{course.name}</span>
                   </p>
                 </div>
 
@@ -462,12 +518,10 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
                       <CheckCircle2 className="w-8 h-8 stroke-[2.5]" />
                     </div>
                     <h4 className="text-lg font-extrabold text-slate-800">
-                      {submittedMode === "demo" ? "Demo Class Booked Successfully!" : "Enrollment Submitted Successfully!"}
+                      Enrollment Submitted Successfully!
                     </h4>
                     <p className="text-xs text-slate-600 leading-relaxed max-w-sm mx-auto">
-                      {submittedMode === "demo"
-                        ? "Thank you! Our academic counselor will contact you via WhatsApp/Phone shortly to confirm your preferred demo class slot."
-                        : "Thank you! Your enrollment application has been recorded. Our admissions team will reach out with the onboarding schedule and fee confirmation."}
+                      Thank you! Your enrollment application has been recorded. Our admissions team will reach out with the onboarding schedule and fee confirmation.
                     </p>
                     <button
                       onClick={() => {
@@ -484,13 +538,13 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
                       }}
                       className="text-xs font-bold text-[#fe4759] hover:underline cursor-pointer pt-2 inline-block"
                     >
-                      ← Submit another request
+                      ← Submit another application
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="mt-4 space-y-3">
+                  <form onSubmit={handleSubmit} className="mt-3.5 space-y-2.5 sm:space-y-3">
                     {errorMessage && (
-                      <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-xs font-semibold text-rose-700 flex items-start gap-2 animate-in fade-in">
+                      <div className="p-2.5 sm:p-3 rounded-xl bg-rose-50 border border-rose-200 text-xs font-semibold text-rose-700 flex items-start gap-2 animate-in fade-in">
                         <AlertCircle className="w-4 h-4 text-[#fe4759] shrink-0 mt-0.5" />
                         <span>{errorMessage}</span>
                       </div>
@@ -500,41 +554,51 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
                       <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
                         Full Name *
                       </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="Enter your full name"
-                        value={formData.name}
-                        onChange={(e) =>
-                          setFormData({ ...formData, name: e.target.value })
-                        }
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:border-[#fe4759] focus:ring-1 focus:ring-[#fe4759] outline-none transition-all"
-                      />
+                      <div className="relative">
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                          <User className="w-3.5 h-3.5" />
+                        </div>
+                        <input
+                          type="text"
+                          required
+                          placeholder="Enter your full name"
+                          value={formData.name}
+                          onChange={(e) =>
+                            setFormData({ ...formData, name: e.target.value })
+                          }
+                          className="w-full pl-9 pr-3.5 py-2 sm:py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:border-[#fe4759] focus:ring-1 focus:ring-[#fe4759] outline-none transition-all bg-white"
+                        />
+                      </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                       <div>
                         <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
                           Email Address *
                         </label>
-                        <input
-                          type="email"
-                          required
-                          placeholder="name@gmail.com"
-                          value={formData.email}
-                          onChange={(e) =>
-                            setFormData({ ...formData, email: e.target.value })
-                          }
-                          className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:border-[#fe4759] focus:ring-1 focus:ring-[#fe4759] outline-none transition-all"
-                        />
+                        <div className="relative">
+                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                            <Mail className="w-3.5 h-3.5" />
+                          </div>
+                          <input
+                            type="email"
+                            required
+                            placeholder="name@gmail.com"
+                            value={formData.email}
+                            onChange={(e) =>
+                              setFormData({ ...formData, email: e.target.value })
+                            }
+                            className="w-full pl-9 pr-3 py-2 sm:py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:border-[#fe4759] focus:ring-1 focus:ring-[#fe4759] outline-none transition-all bg-white"
+                          />
+                        </div>
                       </div>
 
                       <div>
                         <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
                           Phone Number *
                         </label>
-                        <div className="flex rounded-xl border border-slate-200 overflow-hidden focus-within:border-[#fe4759] focus-within:ring-1 focus-within:ring-[#fe4759] transition-all">
-                          <div className="bg-slate-50/70 border-r border-slate-200 px-2.5 py-2.5 flex items-center gap-1 text-[11px] font-bold text-slate-700 shrink-0 select-none">
+                        <div className="flex rounded-xl border border-slate-200 overflow-hidden focus-within:border-[#fe4759] focus-within:ring-1 focus-within:ring-[#fe4759] transition-all bg-white">
+                          <div className="bg-slate-50 border-r border-slate-200 px-2.5 py-2 sm:py-2.5 flex items-center gap-1 text-[11px] font-bold text-slate-700 shrink-0 select-none">
                             <span>+91</span>
                           </div>
                           <input
@@ -547,7 +611,7 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
                             onChange={(e) =>
                               setFormData({ ...formData, phone: e.target.value })
                             }
-                            className="w-full px-3 py-2.5 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 outline-none"
+                            className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 outline-none bg-white"
                           />
                         </div>
                       </div>
@@ -557,35 +621,43 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
                       <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
                         Current Profile / Experience Level *
                       </label>
-                      <select
-                        value={formData.experienceLevel}
-                        onChange={(e) =>
-                          setFormData({ ...formData, experienceLevel: e.target.value })
-                        }
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 bg-white focus:border-[#fe4759] focus:ring-1 focus:ring-[#fe4759] outline-none transition-all cursor-pointer"
-                      >
-                        <option value="fresher_student">Student / Fresher</option>
-                        <option value="working_professional">Working Professional</option>
-                        <option value="business_owner">Business Owner / Entrepreneur</option>
-                        <option value="freelancer">Freelancer</option>
-                        <option value="career_switcher">Career Switcher</option>
-                        <option value="home_maker">Homemaker</option>
-                        <option value="others">Other</option>
-                      </select>
+                      <div className="relative">
+                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                          <Briefcase className="w-3.5 h-3.5" />
+                        </div>
+                        <select
+                          value={formData.experienceLevel}
+                          onChange={(e) =>
+                            setFormData({ ...formData, experienceLevel: e.target.value })
+                          }
+                          className="w-full pl-9 pr-8 py-2 sm:py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 bg-white focus:border-[#fe4759] focus:ring-1 focus:ring-[#fe4759] outline-none transition-all cursor-pointer appearance-none"
+                        >
+                          <option value="fresher_student">Student / Fresher</option>
+                          <option value="working_professional">Working Professional</option>
+                          <option value="business_owner">Business Owner / Entrepreneur</option>
+                          <option value="freelancer">Freelancer</option>
+                          <option value="career_switcher">Career Switcher</option>
+                          <option value="home_maker">Homemaker</option>
+                          <option value="others">Other</option>
+                        </select>
+                        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400">
+                          <ChevronDown className="w-4 h-4" />
+                        </div>
+                      </div>
                     </div>
 
                     <div>
                       <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1">
-                        Learning Goals <span className="text-slate-400 font-normal lowercase">(optional)</span>
+                        Career Goals <span className="text-slate-400 font-normal lowercase">(optional)</span>
                       </label>
                       <input
                         type="text"
-                        placeholder="e.g. Job switch, Freelancing, Business growth"
+                        placeholder="e.g. Job switch, Freelancing, Agency growth"
                         value={formData.learningGoals}
                         onChange={(e) =>
                           setFormData({ ...formData, learningGoals: e.target.value })
                         }
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:border-[#fe4759] focus:ring-1 focus:ring-[#fe4759] outline-none transition-all"
+                        className="w-full px-3.5 py-2 sm:py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 placeholder:text-slate-400 focus:border-[#fe4759] focus:ring-1 focus:ring-[#fe4759] outline-none transition-all bg-white"
                       />
                     </div>
 
@@ -605,7 +677,7 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
                       />
                       <label
                         htmlFor="agreeTerms"
-                        className="text-[11px] text-slate-600 cursor-pointer"
+                        className="text-[11px] text-slate-600 cursor-pointer select-none"
                       >
                         I agree to the{" "}
                         <Link href="/terms-and-conditions" target="_blank" className="text-[#fe4759] underline font-medium">
@@ -622,34 +694,43 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-3.5 px-4 rounded-xl text-center text-sm font-bold text-white bg-[#fe4759] hover:bg-[#e0384a] shadow-md shadow-[#fe4759]/25 hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2 mt-2 disabled:opacity-60"
+                      className="w-full py-3 sm:py-3.5 px-4 rounded-xl text-center text-xs sm:text-sm font-bold text-white bg-[#fe4759] hover:bg-[#e0384a] shadow-md shadow-[#fe4759]/25 hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2 mt-1 disabled:opacity-60"
                     >
                       {isSubmitting ? (
-                        <span>Processing...</span>
+                        <div className="flex items-center gap-2">
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          <span>Submitting Application...</span>
+                        </div>
                       ) : (
                         <>
-                          <span>
-                            {formMode === "demo" ? "Book Free Demo Class" : `Submit Enrollment for ${course.courseCode}`}
-                          </span>
+                          <span>Lock My Admission Seat</span>
                           <ArrowRight className="w-4 h-4 stroke-[2.5]" />
                         </>
                       )}
                     </button>
 
-                    <div className="relative my-2.5 flex items-center justify-center">
+                    <div className="flex items-center justify-center gap-3 pt-0.5 text-[10px] text-slate-400 font-medium select-none">
+                      <span className="flex items-center gap-1">
+                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" /> 100% Confidential
+                      </span>
+                      <span>•</span>
+                      <span>Direct Admissions Desk</span>
+                    </div>
+
+                    <div className="relative my-2 flex items-center justify-center">
                       <div className="border-t border-slate-100 w-full" />
-                      <span className="bg-white px-3 text-[10px] uppercase font-bold text-slate-400">
+                      <span className="bg-white px-2.5 text-[9px] uppercase font-bold text-slate-400">
                         OR
                       </span>
                     </div>
 
                     <a
-                      href={`https://wa.me/919315471293?text=Hi%2C%20I%20would%20like%20to%20${formMode === "demo" ? "book%20a%20free%20demo%20class" : "enroll"}%20for%20${encodeURIComponent(course.name)}.`}
+                      href={`https://wa.me/919315471293?text=Hi%2C%20I%20would%20like%20to%20enroll%20for%20${encodeURIComponent(course.name)}.`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full py-2.5 px-4 rounded-xl text-center text-xs font-bold text-slate-800 bg-[#FFF5F6] border border-rose-100 hover:bg-[#FFEBEF] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full py-2.5 px-3 rounded-xl text-center text-xs font-bold text-slate-800 bg-[#FFF5F6] border border-rose-100 hover:bg-[#FFEBEF] transition-all flex items-center justify-center gap-2 cursor-pointer"
                     >
-                      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-[#25D366]">
+                      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-[#25D366] shrink-0">
                         <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
                       </svg>
                       <span>Quick Inquiry on WhatsApp</span>
@@ -662,29 +743,59 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
         </div>
       </section>
 
-      {/* 4. OTHER COURSES QUICK SWITCHER */}
-      <section className="bg-slate-900 text-white py-4 px-4 sm:px-6">
-        <div className="max-w-[1400px] w-full mx-auto flex items-center justify-between flex-wrap gap-3 text-xs">
-          <span className="font-bold text-slate-400 uppercase tracking-wider text-[11px]">
-            Explore All 4 Certified Programs:
-          </span>
-          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-            {COURSES_DATA.map((c) => {
-              const isCurrent = c.id === course.id;
-              return (
-                <Link
-                  key={c.id}
-                  href={`/courses/${c.slug}`}
-                  className={`px-3 py-1.5 rounded-full font-bold transition-all ${
-                    isCurrent
-                      ? "bg-[#fe4759] text-white shadow-xs"
-                      : "bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white"
-                  }`}
-                >
-                  {c.name.replace(" Course", "")} ({c.duration})
-                </Link>
-              );
-            })}
+      {/* 4. OTHER COURSES QUICK SWITCHER - INFINITE HORIZONTAL SCROLL */}
+      <section className="bg-slate-900 text-white py-2.5 sm:py-3 px-4 border-b border-slate-800 overflow-hidden relative">
+        <div className="max-w-[1400px] w-full mx-auto flex items-center gap-3 sm:gap-4">
+          <div className="shrink-0 flex items-center gap-2 z-10 bg-slate-900 pr-2">
+            <span className="w-2 h-2 rounded-full bg-[#fe4759] animate-pulse" />
+            <span className="font-extrabold text-slate-300 uppercase tracking-wider text-[10px] sm:text-[11px] whitespace-nowrap">
+              Explore All 4 Programs:
+            </span>
+          </div>
+
+          {/* Infinite Marquee Track with Fade Masks */}
+          <div className="relative flex-1 overflow-hidden">
+            <div className="absolute left-0 inset-y-0 w-6 bg-gradient-to-r from-slate-900 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 inset-y-0 w-8 bg-gradient-to-l from-slate-900 to-transparent z-10 pointer-events-none" />
+
+            <div className="flex w-max items-center gap-3 sm:gap-4 animate-marquee hover:[animation-play-state:paused]">
+              {[...COURSES_DATA, ...COURSES_DATA, ...COURSES_DATA].map((c, idx) => {
+                const isCurrent = c.id === course.id;
+                const shortInfo: Record<string, { label: string; duration: string }> = {
+                  master: { label: "Master in DM + AI", duration: "6M" },
+                  specialist: { label: "Performance & Growth", duration: "3M" },
+                  "business-owners": { label: "For Business Owners", duration: "Custom" },
+                  customised: { label: "Customised Program", duration: "Flexible" },
+                };
+                const info = shortInfo[c.id] || {
+                  label: c.name.replace(" Course", "").replace(" Program", ""),
+                  duration: c.duration,
+                };
+
+                return (
+                  <Link
+                    key={`${c.id}-${idx}`}
+                    href={`/courses/${c.slug}`}
+                    className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 shrink-0 ${
+                      isCurrent
+                        ? "bg-[#fe4759] text-white shadow-xs ring-1 ring-[#fe4759]"
+                        : "bg-slate-800/90 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700/60"
+                    }`}
+                  >
+                    <span>{info.label}</span>
+                    <span
+                      className={`text-[10px] px-1.5 py-0.5 rounded-md font-semibold ${
+                        isCurrent
+                          ? "bg-white/20 text-white"
+                          : "bg-slate-900/60 text-slate-400"
+                      }`}
+                    >
+                      {info.duration}
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -835,12 +946,13 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
 
             {/* Right Column: Sticky Sidebar with Highlights & Audience */}
             <div className="lg:col-span-4 space-y-5 lg:sticky lg:top-24">
-              {/* Card 1: Syllabus PDF Download Button */}
+              {/* Card 1: Download Complete Brochure Button */}
               <button
-                onClick={() => scrollToEnroll("demo")}
+                type="button"
+                onClick={() => setIsBrochureOpen(true)}
                 className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#fe4759] via-[#e63946] to-[#c72234] text-white font-extrabold text-sm sm:text-base shadow-xl shadow-rose-900/15 hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Download Complete Syllabus PDF</span>
+                <span>Download complete brochure</span>
                 <FileDown className="w-5 h-5 stroke-[2.2]" />
               </button>
 
@@ -884,7 +996,12 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
         </div>
       </section>
 
-      {/* 6. THE S.C.A.L.E. METHODOLOGY SECTION */}
+      {/* 6. REAL STORIES & VIDEO TESTIMONIALS */}
+      <div className="border-t border-slate-100">
+        <SuccessStories />
+      </div>
+
+      {/* 7. THE S.C.A.L.E. METHODOLOGY SECTION */}
       <section className="py-16 md:py-24 bg-slate-50/60 relative border-t border-slate-100">
         <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
@@ -995,7 +1112,7 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
               </div>
 
               <button
-                onClick={() => scrollToEnroll("enroll")}
+                onClick={() => scrollToEnroll()}
                 className="py-3 px-6 rounded-xl font-black text-xs sm:text-sm uppercase tracking-wider text-[#fe4759] bg-white hover:bg-slate-50 shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap flex items-center gap-1.5"
               >
                 <span>APPLY NOW</span>
@@ -1005,6 +1122,119 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
           </div>
         </div>
       </section>
+
+      {/* ── Brochure Download Lead Capture Modal ── */}
+      {isBrochureOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200">
+          <div className="relative w-full max-w-md bg-white rounded-3xl p-6 sm:p-7 shadow-2xl border border-slate-100 animate-in zoom-in-95 duration-200">
+            <button
+              type="button"
+              onClick={() => {
+                if (!isBrochureSubmitting) {
+                  setIsBrochureOpen(false);
+                  setBrochureError(null);
+                }
+              }}
+              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition-colors cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="text-center mb-6">
+              <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-100 flex items-center justify-center mx-auto mb-3 text-[#fe4759]">
+                <FileDown className="w-6 h-6 stroke-[2.2]" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-1">
+                Download Complete Brochure
+              </h3>
+              <p className="text-xs text-slate-500 max-w-xs mx-auto leading-relaxed">
+                Get full curriculum modules, project blueprints, and certifications for{" "}
+                <strong className="text-slate-800 font-semibold">{course.name}</strong>.
+              </p>
+            </div>
+
+            {brochureError && (
+              <div className="mb-3.5 p-3 rounded-xl bg-rose-50 border border-rose-200 text-xs font-semibold text-rose-700 flex items-start gap-2">
+                <AlertCircle className="w-4 h-4 text-[#fe4759] shrink-0 mt-0.5" />
+                <span>{brochureError}</span>
+              </div>
+            )}
+
+            <form onSubmit={handleBrochureSubmit} className="space-y-3.5">
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Rahul Sharma"
+                  value={brochureForm.name}
+                  onChange={(e) =>
+                    setBrochureForm({ ...brochureForm, name: e.target.value })
+                  }
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#fe4759] focus:ring-2 focus:ring-[#fe4759]/10"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  Phone Number (WhatsApp) *
+                </label>
+                <input
+                  type="tel"
+                  required
+                  placeholder="e.g. 9876543210"
+                  value={brochureForm.phone}
+                  onChange={(e) =>
+                    setBrochureForm({ ...brochureForm, phone: e.target.value })
+                  }
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#fe4759] focus:ring-2 focus:ring-[#fe4759]/10"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  required
+                  placeholder="e.g. rahul@gmail.com"
+                  value={brochureForm.email}
+                  onChange={(e) =>
+                    setBrochureForm({ ...brochureForm, email: e.target.value })
+                  }
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#fe4759] focus:ring-2 focus:ring-[#fe4759]/10"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={brochureSubmitted || isBrochureSubmitting}
+                className="w-full py-3 px-5 rounded-full bg-[#fe4759] hover:bg-[#e03447] text-white font-bold text-sm shadow-md shadow-[#fe4759]/25 hover:shadow-lg transition-all flex items-center justify-center gap-2 mt-4 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
+              >
+                {isBrochureSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Saving & Downloading...</span>
+                  </>
+                ) : brochureSubmitted ? (
+                  <>
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                    <span>Brochure Sent Successfully!</span>
+                  </>
+                ) : (
+                  <>
+                    <FileDown className="w-4 h-4 stroke-[2.2]" />
+                    <span>Download Brochure PDF</span>
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* 8. Sticky Widgets & Footer */}
       <StickyWidgets />
