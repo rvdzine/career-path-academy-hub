@@ -52,9 +52,12 @@ const ToolsYouWillMaster: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10">
         {/* Section Heading */}
-        <div className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-800 tracking-tight leading-[1.1] mb-3">
-            Tools You’ll <span className="text-[#fe4759]">Master</span>
+        <div className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto space-y-3">
+          <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-extrabold text-slate-900 tracking-tight leading-tight">
+            Tools You&apos;ll{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fe4759] to-[#d82a3d]">
+              Master
+            </span>
           </h2>
 
           <p className="text-slate-600 text-sm sm:text-base font-normal max-w-2xl mx-auto leading-relaxed">

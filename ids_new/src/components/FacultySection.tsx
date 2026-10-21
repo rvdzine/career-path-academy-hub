@@ -15,11 +15,6 @@ export default function FacultySection() {
       photo: "/mentors/Ravi.jpg",
     },
     {
-      name: "Sweta Kushwaha",
-      role: "Sr. Marketing Manager",
-      photo: "/mentors/sweta.jpg",
-    },
-    {
       name: "Aman Saxena",
       role: "AI & Growth Mentor",
       photo: "/mentors/aman.jpg",
@@ -49,19 +44,19 @@ export default function FacultySection() {
           </p>
         </div>
 
-        {/* 5 Mentor Cards Grid - Full Bleed Image Cover Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6 max-w-7xl mx-auto items-stretch">
+        {/* 4 Mentor Cards Grid - 2 Cols on Mobile, 4 Cols on Desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 sm:gap-5 md:gap-6 max-w-6xl mx-auto items-stretch">
           {mentors.map((mentor, idx) => (
             <div
               key={idx}
-              className="relative aspect-[4/5] w-full max-w-[280px] sm:max-w-none mx-auto rounded-[24px] sm:rounded-[26px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-2xl hover:shadow-rose-500/20 hover:-translate-y-2 transition-all duration-500 group flex flex-col justify-end border border-slate-200/80 hover:border-[#fe4759]/60"
+              className="relative aspect-[3/4] sm:aspect-[4/5] w-full mx-auto rounded-[18px] sm:rounded-[24px] md:rounded-[26px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-2xl hover:shadow-rose-500/20 hover:-translate-y-2 transition-all duration-500 group flex flex-col justify-end border border-slate-200/80 hover:border-[#fe4759]/60"
             >
               {/* Full-bleed Cover Image */}
               <Image
                 src={mentor.photo}
                 alt={mentor.name}
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 25vw"
                 className="object-cover object-top group-hover:scale-108 transition-transform duration-700 ease-out"
               />
 
@@ -69,11 +64,11 @@ export default function FacultySection() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 via-50% to-transparent pointer-events-none group-hover:from-black transition-all duration-300" />
 
               {/* Mentor Info Overlay */}
-              <div className="relative z-10 p-5 flex flex-col">
-                <h3 className="text-base sm:text-lg font-extrabold text-white tracking-tight leading-snug drop-shadow-md group-hover:text-white transition-colors">
+              <div className="relative z-10 p-3 sm:p-4 md:p-5 flex flex-col">
+                <h3 className="text-sm sm:text-base md:text-lg font-bold sm:font-extrabold text-white tracking-tight leading-snug drop-shadow-md group-hover:text-white transition-colors line-clamp-1 sm:line-clamp-none">
                   {mentor.name}
                 </h3>
-                <p className="text-xs font-semibold text-rose-300/95 mt-1 leading-tight flex items-center gap-1.5 drop-shadow-sm">
+                <p className="text-[10px] sm:text-xs font-semibold text-rose-300/95 mt-0.5 sm:mt-1 leading-tight flex items-center gap-1 sm:gap-1.5 drop-shadow-sm line-clamp-1 sm:line-clamp-none">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#fe4759] shrink-0 shadow-[0_0_8px_#fe4759]" />
                   {mentor.role}
                 </p>

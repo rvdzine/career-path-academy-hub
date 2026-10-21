@@ -55,10 +55,10 @@ export default function WhyChooseUs() {
   const renderCard = (feat: (typeof features)[0], idx: number) => (
     <div
       key={idx}
-      className="bg-white border border-slate-200/80 hover:border-rose-200/90 rounded-[26px] p-5 sm:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-lg hover:shadow-rose-500/[0.06] hover:-translate-y-1 transition-all duration-300 flex items-center gap-4 group cursor-default"
+      className="bg-white border border-slate-200/80 hover:border-rose-200/90 rounded-[18px] sm:rounded-[24px] md:rounded-[26px] p-3 sm:p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-lg hover:shadow-rose-500/[0.06] hover:-translate-y-1 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-4 group cursor-default"
     >
       {/* Bolder Illustration Icon (No Background) */}
-      <div className="relative w-12 h-12 sm:w-13 sm:h-13 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+      <div className="relative w-8 h-8 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
         <Image
           src={feat.icon}
           alt={feat.title}
@@ -70,7 +70,7 @@ export default function WhyChooseUs() {
       </div>
 
       {/* Text Content */}
-      <h4 className="text-sm sm:text-[15px] font-extrabold text-slate-800 tracking-tight leading-snug group-hover:text-[#fe4759] transition-colors">
+      <h4 className="text-xs sm:text-sm md:text-[15px] font-bold sm:font-extrabold text-slate-800 tracking-tight leading-snug group-hover:text-[#fe4759] transition-colors">
         {feat.title}
       </h4>
     </div>
@@ -97,11 +97,11 @@ export default function WhyChooseUs() {
           </p>
         </div>
 
-        {/* Bento Grid: 4 Columns Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        {/* Bento Grid: 2 Columns on Mobile, 4 Columns on Desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 md:gap-5">
           
-          {/* 1. Large Feature Card: 10+ Years of Excellence (Spans 2 cols & 2 rows) */}
-          <div className="md:col-span-2 lg:col-span-2 lg:row-span-2 bg-gradient-to-br from-[#fe4759] via-[#eb384c] to-[#d82a3d] rounded-[30px] p-7 sm:p-9 text-white shadow-xl shadow-[#fe4759]/20 flex flex-col justify-between relative overflow-hidden group">
+          {/* 1. Large Feature Card: 10+ Years of Excellence (Spans 2 cols on mobile/tablet & 2 rows on desktop) */}
+          <div className="col-span-2 md:col-span-2 lg:col-span-2 lg:row-span-2 bg-gradient-to-br from-[#fe4759] via-[#eb384c] to-[#d82a3d] rounded-[22px] sm:rounded-[30px] p-5 sm:p-7 md:p-9 text-white shadow-xl shadow-[#fe4759]/20 flex flex-col justify-between relative overflow-hidden group">
             
             {/* Background Giant Watermark Cap Icon */}
             <div className="absolute -right-6 -bottom-6 w-60 h-60 text-white/10 pointer-events-none group-hover:scale-110 transition-transform duration-700">
@@ -119,39 +119,39 @@ export default function WhyChooseUs() {
               </div>
 
               {/* Main Bold Metric & Headline */}
-              <div className="mt-5 mb-3">
-                <div className="text-4xl sm:text-5xl lg:text-[54px] font-black text-white tracking-tight leading-none">
+              <div className="mt-4 sm:mt-5 mb-2 sm:mb-3">
+                <div className="text-3xl sm:text-5xl lg:text-[54px] font-black text-white tracking-tight leading-none">
                   10+
                 </div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mt-1">
+                <div className="text-xl sm:text-3xl font-extrabold text-white tracking-tight mt-1">
                   Years of Excellence
                 </div>
               </div>
 
               {/* Tagline */}
-              <p className="text-white/95 text-base sm:text-[17px] font-bold leading-snug mb-2">
+              <p className="text-white/95 text-sm sm:text-[17px] font-bold leading-snug mb-1 sm:mb-2">
                 Pioneering digital education since 2014.
               </p>
 
               {/* Body Text */}
-              <p className="text-white/90 text-sm sm:text-[14px] font-normal leading-relaxed max-w-sm">
+              <p className="text-white/90 text-xs sm:text-[14px] font-normal leading-relaxed max-w-sm">
                 Empowering careers through practical skills, live projects, and dedicated mentorship.
               </p>
             </div>
 
             {/* Bottom: Overlapping Student Avatars + Verified Badge */}
-            <div className="flex items-center gap-4 pt-8 relative z-10">
-              <div className="flex items-center -space-x-2.5">
-                <div className="relative w-9 h-9 rounded-full border-2 border-white overflow-hidden shadow-sm">
+            <div className="flex items-center gap-3 sm:gap-4 pt-6 sm:pt-8 relative z-10">
+              <div className="flex items-center -space-x-2 sm:-space-x-2.5">
+                <div className="relative w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-white overflow-hidden shadow-sm">
                   <Image src="/alumni/shranya.jpg" alt="Alumni" fill sizes="36px" className="object-cover" />
                 </div>
-                <div className="relative w-9 h-9 rounded-full border-2 border-white overflow-hidden shadow-sm">
+                <div className="relative w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-white overflow-hidden shadow-sm">
                   <Image src="/alumni/anushka.jpg" alt="Alumni" fill sizes="36px" className="object-cover" />
                 </div>
-                <div className="relative w-9 h-9 rounded-full border-2 border-white overflow-hidden shadow-sm">
+                <div className="relative w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-white overflow-hidden shadow-sm">
                   <Image src="/alumni/mannat.jpg" alt="Alumni" fill sizes="36px" className="object-cover" />
                 </div>
-                <div className="relative w-9 h-9 rounded-full border-2 border-white overflow-hidden shadow-sm">
+                <div className="relative w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-white overflow-hidden shadow-sm">
                   <Image src="/alumni/divyansh.jpg" alt="Alumni" fill sizes="36px" className="object-cover" />
                 </div>
               </div>
@@ -173,10 +173,10 @@ export default function WhyChooseUs() {
           {/* Cards 9 & 10 (Row 4: Columns 1 & 2) */}
           {features.slice(8, 10).map(renderCard)}
 
-          {/* 11. CTA Card: Accelerate Your Career (Spans 2 columns on Bottom Right) */}
+          {/* 11. CTA Card: Accelerate Your Career (Spans 2 columns on Bottom Right & full width on mobile) */}
           <a
             href="#consultation"
-            className="md:col-span-2 lg:col-span-2 bg-gradient-to-r from-[#fe4759] via-[#eb384c] to-[#d82a3d] rounded-[26px] p-5 sm:p-6 text-white shadow-xl shadow-[#fe4759]/20 flex items-center justify-between gap-4 group hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer relative overflow-hidden"
+            className="col-span-2 md:col-span-2 lg:col-span-2 bg-gradient-to-r from-[#fe4759] via-[#eb384c] to-[#d82a3d] rounded-[20px] sm:rounded-[26px] p-4 sm:p-6 text-white shadow-xl shadow-[#fe4759]/20 flex items-center justify-between gap-3 sm:gap-4 group hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer relative overflow-hidden"
           >
             {/* Ambient pulse */}
             <div className="absolute right-0 top-0 w-44 h-44 bg-white/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>

@@ -72,22 +72,22 @@ export default function AlumniWall() {
           </p>
         </div>
 
-        {/* Clean, Un-congested 3-Column Grid using the Original Card Design */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 max-w-6xl mx-auto items-stretch">
+        {/* 2-Column on Mobile, 2 on Tablet, 3 on Desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 md:gap-7 max-w-6xl mx-auto items-stretch">
           {testimonials.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-[28px] border border-slate-200/80 hover:border-[#fe4759]/40 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-rose-500/[0.06] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+              className="bg-white rounded-[18px] sm:rounded-[28px] border border-slate-200/80 hover:border-[#fe4759]/40 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-xl hover:shadow-rose-500/[0.06] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden group"
             >
               <div>
                 {/* Top Brand Rose Banner */}
-                <div className="h-20 sm:h-22 w-full bg-gradient-to-r from-[#FFF0F2] via-[#FFF5F6] to-[#FFEBEF] p-4 flex items-start justify-end relative">
-                  <Quote className="w-5 h-5 text-rose-300/80 fill-rose-300/30" />
+                <div className="h-10 sm:h-20 md:h-22 w-full bg-gradient-to-r from-[#FFF0F2] via-[#FFF5F6] to-[#FFEBEF] p-2.5 sm:p-4 flex items-start justify-end relative">
+                  <Quote className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-rose-300/80 fill-rose-300/30" />
                 </div>
 
                 {/* Overlapping Rounded Photo Container */}
-                <div className="relative -mt-9 sm:-mt-10 ml-5 sm:ml-6">
-                  <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-[20px] overflow-hidden border-2 border-white ring-2 ring-rose-200/70 shadow-md bg-white relative">
+                <div className="relative -mt-5 sm:-mt-9 md:-mt-10 ml-3 sm:ml-5 md:ml-6">
+                  <div className="w-11 h-11 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-[12px] sm:rounded-[20px] overflow-hidden border-2 border-white ring-2 ring-rose-200/70 shadow-md bg-white relative">
                     <Image
                       src={item.photo}
                       alt={item.name}
@@ -99,17 +99,17 @@ export default function AlumniWall() {
                 </div>
 
                 {/* Graduate Info & Main Testimonial Content Only */}
-                <div className="px-5 sm:px-6 pt-3.5 pb-6">
-                  <h3 className="text-base sm:text-[17px] font-extrabold text-slate-900 tracking-tight leading-snug group-hover:text-[#fe4759] transition-colors">
+                <div className="px-3 sm:px-5 md:px-6 pt-2 sm:pt-3.5 pb-3.5 sm:pb-6">
+                  <h3 className="text-xs sm:text-base md:text-[17px] font-bold sm:font-extrabold text-slate-900 tracking-tight leading-snug group-hover:text-[#fe4759] transition-colors truncate sm:whitespace-normal">
                     {item.name}
                   </h3>
 
-                  <p className="text-xs font-semibold text-[#fe4759] mt-0.5">
+                  <p className="text-[10px] sm:text-xs font-semibold text-[#fe4759] mt-0.5 truncate sm:whitespace-normal">
                     {item.role} • {item.company}
                   </p>
 
                   {/* Main Testimonial Content */}
-                  <p className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed mt-3.5 font-normal italic">
+                  <p className="text-slate-600 text-[10.5px] sm:text-xs md:text-[13.5px] leading-snug sm:leading-relaxed mt-2 sm:mt-3.5 font-normal italic line-clamp-4 sm:line-clamp-none">
                     &ldquo;{item.testimonial}&rdquo;
                   </p>
                 </div>

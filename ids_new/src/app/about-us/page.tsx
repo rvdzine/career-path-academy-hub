@@ -461,7 +461,7 @@ export default function AboutUsPage() {
                 </div>
 
                 {/* Main Headline */}
-                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-white leading-[1.1] tracking-tight mb-5">
+                <h2 className="text-2xl sm:text-3xl lg:text-[44px] font-black text-white leading-[1.1] tracking-tight mb-5">
                   Affordable <br />
                   World-Class <br />
                   Education
@@ -659,7 +659,7 @@ export default function AboutUsPage() {
               </div>
 
               {/* Big Quote */}
-              <h2 className="text-3xl sm:text-4xl lg:text-[46px] font-black text-[#0B132A] leading-[1.12] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-[46px] font-black text-[#0B132A] leading-[1.12] tracking-tight">
                 &ldquo;Think Beyond Classrooms <br />
                 <span className="text-[#fe4759]">Work on Real-Time Projects.</span>&rdquo;
               </h2>
