@@ -808,7 +808,7 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
             <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#fe4759] block">
               {course.curriculumCategory}
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-800 tracking-tight leading-[1.15]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-black text-slate-800 tracking-tight leading-[1.2]">
               {course.curriculumTitlePre}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fe4759] to-[#d02e40]">
                 {course.curriculumTitleHighlight}

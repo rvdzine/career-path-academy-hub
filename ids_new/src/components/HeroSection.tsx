@@ -93,6 +93,18 @@ const COURSES_LIST: SearchableCourse[] = [
       "1:1", "mentorship", "specific", "short"
     ],
   },
+  {
+    title: "Cisco Networking / CCNA / CCMP",
+    duration: "Upcoming Cohort",
+    badge: "New Cohort",
+    badgeClass: "bg-[#e0f2fe] text-[#0369a1] border-[#bae6fd]",
+    image: "/assets/courses/customised_marketing_v2.jpg",
+    href: "#programs",
+    description: "Hands-on network engineering, routing, switching, CCNA and advanced infrastructure tracks.",
+    keywords: [
+      "cisco", "networking", "ccna", "ccmp", "ccnp", "network", "cisco networking", "cohort", "infrastructure"
+    ],
+  },
 ];
 
 export default function HeroSection() {
@@ -104,8 +116,7 @@ export default function HeroSection() {
 
   const popularTags = [
     { label: "AI & Automation", query: "AI & Automation" },
-    { label: "Performance Marketing", query: "Performance" },
-    { label: "Business Owners", query: "Business Owners" },
+    { label: "Cisco Networking / CCNA / CCMP", query: "Cisco Networking" },
   ];
 
   // Close dropdown on click outside
@@ -170,30 +181,6 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-[calc(100vh-90px)] md:min-h-[calc(100dvh-90px)] flex flex-col justify-between pt-4 sm:pt-5 lg:pt-6 pb-5 sm:pb-6 lg:pb-8 bg-gradient-to-b from-[#FFFAFA] via-[#FFFCFC] to-white overflow-hidden font-sans">
-      {/* ─── DECORATIVE CORNER ACCENTS ─── */}
-      {/* Bottom-Left Red Wave */}
-      <div className="absolute -bottom-10 -left-10 w-[300px] sm:w-[380px] h-[200px] pointer-events-none z-0">
-        <svg viewBox="0 0 380 200" className="w-full h-full fill-[#fe4759] opacity-90">
-          <path d="M 0 200 L 0 50 C 70 70 120 160 210 120 C 290 85 330 150 380 200 Z" />
-        </svg>
-      </div>
-
-      {/* Bottom-Left Dot Grid (Beside the Wave) */}
-      <div
-        className="absolute bottom-6 left-6 w-28 h-20 z-0 opacity-40 pointer-events-none hidden sm:block"
-        style={{
-          backgroundImage: "radial-gradient(#fe4759 2px, transparent 2px)",
-          backgroundSize: "14px 14px",
-        }}
-      ></div>
-
-      {/* Bottom-Right Red Wave & Arc */}
-      <div className="absolute -bottom-10 -right-10 w-[320px] sm:w-[400px] h-[220px] pointer-events-none z-0">
-        <svg viewBox="0 0 400 220" className="w-full h-full fill-[#fe4759] opacity-90">
-          <path d="M 400 220 L 400 50 C 330 70 280 165 190 120 C 110 80 60 160 0 220 Z" />
-        </svg>
-      </div>
-
       {/* Top-Right Soft Dot Matrix */}
       <div
         className="absolute top-6 right-6 lg:right-10 w-44 h-32 z-0 opacity-25 pointer-events-none hidden md:block"
@@ -212,48 +199,55 @@ export default function HeroSection() {
             
             
 
-            {/* H1 Main Headline - Strictly 3 Lines (Enforced with whitespace-nowrap and exact 56px desktop font size) */}
-            <h1 className="text-[32px] sm:text-[40px] md:text-[46px] lg:text-[50px] xl:text-[56px] 2xl:text-[56px] font-extrabold text-slate-800 leading-[1.08] tracking-tight">
-              <span className="block whitespace-nowrap">Master In-Demand</span>
-              <span className="block whitespace-nowrap">Skills For a</span>
-              <span className="block whitespace-nowrap text-[#fe4759]">High-Growth Career</span>
-            </h1>
+            {/* H1 Main Headline & Description */}
+            <div className="space-y-2 sm:space-y-2.5">
+              <h1 className="text-[35px] xs:text-[39px] sm:text-[43px] md:text-[48px] lg:text-[40px] xl:text-[47px] 2xl:text-[52px] font-extrabold text-slate-800 leading-[1.08] sm:leading-[1.12] tracking-tight">
+                <span className="block">The Digital World</span>
+                <span className="block">
+                  Won&apos;t Wait. <span className="text-[#fe4759]">Neither</span>
+                </span>
+                <span className="block text-[#fe4759]">Should Your Skills.</span>
+              </h1>
+              <p className="text-sm sm:text-[15px] lg:text-base text-slate-600 leading-relaxed font-normal max-w-xl pt-0.5">
+                Master digital marketing, AI and performance-driven strategies through hands-on projects and industry-focused learning.
+              </p>
+            </div>
 
-            {/* 3 Features Row: Live Projects, Guaranteed Internships, Placement Assistance */}
-            <div className="flex items-center gap-3 sm:gap-5 pt-1">
+            {/* 3 Features Row: Live Projects, Guaranteed Internships, Placement Assistance (Closer spacing on mobile) */}
+            <div className="flex items-center justify-start gap-3 xs:gap-4 sm:gap-6 -mt-1 sm:mt-0 pt-0 overflow-x-auto scrollbar-none">
               {/* Feature 1: Live Projects */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 shrink-0">
                 <div className="shrink-0 flex items-center justify-center">
-                  <GraduationCap className="w-6 h-6 sm:w-7 sm:h-7 fill-[#fe4759] text-[#fe4759]" />
+                  <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 fill-[#fe4759] text-[#fe4759]" />
                 </div>
                 <div className="leading-tight">
                   <span className="text-xs sm:text-sm font-bold text-slate-900 block">Live</span>
-                  <span className="text-[11px] sm:text-xs font-medium text-slate-600 block">Projects</span>
+                  <span className="text-[10px] sm:text-xs font-medium text-slate-600 block">Projects</span>
                 </div>
               </div>
 
               {/* Feature 2: Hands-On Internships */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 shrink-0">
                 <div className="shrink-0 flex items-center justify-center">
-                  <svg viewBox="0 0 24 24" className="w-6 h-6 sm:w-7 sm:h-7 fill-[#fe4759]">
+                  <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-[#fe4759]">
                     <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
                     <rect x="11" y="11" width="2" height="3" fill="#fff" rx="0.5" />
                   </svg>
                 </div>
                 <div className="leading-tight">
                   <span className="text-xs sm:text-sm font-bold text-slate-900 block">Hands-On</span>
-                  <span className="text-[11px] sm:text-xs font-medium text-slate-600 block">Internships</span>
+                  <span className="text-[10px] sm:text-xs font-medium text-slate-600 block">Internships</span>
                 </div>
               </div>
 
               {/* Feature 3: Placement Assistance */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 shrink-0">
                 <div className="shrink-0 flex items-center justify-center">
-                  <Users className="w-6 h-6 sm:w-7 sm:h-7 fill-[#fe4759] text-[#fe4759]" />
+                  <Users className="w-5 h-5 sm:w-6 sm:h-6 fill-[#fe4759] text-[#fe4759]" />
                 </div>
                 <div className="leading-tight">
                   <span className="text-xs sm:text-sm font-bold text-slate-900 block">Placement</span>
-                  <span className="text-[11px] sm:text-xs font-medium text-slate-600 block">Assistance</span>
+                  <span className="text-[10px] sm:text-xs font-medium text-slate-600 block">Assistance</span>
                 </div>
               </div>
             </div>
@@ -401,34 +395,17 @@ export default function HeroSection() {
           </div>
 
           {/* ══════════ COLUMN 2: CENTER STUDENT CUTOUT + "BUILD YOUR FUTURE" (3 Cols) ══════════ */}
-          <div className="lg:col-span-3 xl:col-span-3 flex items-center justify-center relative my-4 lg:my-0">
-            <div className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px] aspect-[1145/1374] flex items-center justify-center">
+          <div className="lg:col-span-3 xl:col-span-3 flex items-center justify-center relative my-3 sm:my-4 lg:my-0">
+            <div className="relative w-full max-w-[190px] xs:max-w-[215px] sm:max-w-[270px] lg:max-w-[420px] aspect-[1145/1374] flex items-center justify-center">
               
-              {/* <div className="absolute top-2 -left-4 sm:-left-8 z-20 pointer-events-none select-none">
-                <div
-                  className="text-2xl sm:text-[32px] font-bold text-[#fe3b56] -rotate-12 tracking-wide leading-tight drop-shadow-xs"
-                  style={{ fontFamily: "var(--font-caveat), 'Caveat', cursive, sans-serif" }}
-                >
-                  Build <br />
-                  Your Future
-                </div>
-                <svg
-                  viewBox="0 0 60 40"
-                  className="w-12 h-9 text-[#fe3b56] ml-8 -mt-2 fill-none stroke-current stroke-[2.2] stroke-linecap-round stroke-linejoin-round"
-                >
-                  <path d="M 6 36 Q 24 6 52 14" />
-                  <path d="M 40 8 L 52 14 L 46 24" />
-                </svg>
-              </div> */}
-
-              {/* Student Image with Red Fluid Accent (High-Res cutout matching reference) */}
+              {/* Student Image with Red Fluid Accent */}
               <div className="relative w-full h-full">
                 <Image
                   src="/hero_banner.png"
                   alt="Student with laptop and notebook building a rewarding career"
                   fill
                   priority
-                  sizes="(max-width: 768px) 340px, (max-width: 1200px) 380px, 420px"
+                  sizes="(max-width: 640px) 215px, (max-width: 1024px) 270px, 420px"
                   className="object-contain object-bottom drop-shadow-md"
                 />
               </div>
@@ -436,15 +413,15 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* ══════════ COLUMN 3: RIGHT FLOATING TRUST & METRIC CARDS (Exact match to screenshot) ══════════ */}
+          {/* ══════════ COLUMN 3: RIGHT FLOATING TRUST & METRIC CARDS ══════════ */}
           <div className="lg:col-span-4 xl:col-span-4 w-full">
-            <div className="max-w-[460px] xl:max-w-[480px] w-full ml-auto space-y-3.5 sm:space-y-4">
+            <div className="max-w-[460px] xl:max-w-[480px] w-full ml-auto space-y-3 sm:space-y-4">
               
-              {/* Row 1: 55K+ Students Trained Card with 3-bar outline chart */}
-              <div className="bg-white rounded-[26px] sm:rounded-[28px] p-4.5 sm:p-5 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100/60 flex items-center justify-between hover:shadow-md transition-shadow">
+              {/* Row 1: 10K+ Students Trained Card */}
+              <div className="bg-white rounded-[20px] sm:rounded-[28px] p-3.5 sm:p-5 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100/60 flex items-center justify-between hover:shadow-md transition-shadow">
                 <div className="flex items-center gap-3 sm:gap-3.5">
                   <div className="shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 32 32" className="w-8 h-8 sm:w-9 sm:h-9 fill-[#fe4759]">
+                    <svg viewBox="0 0 32 32" className="w-7 h-7 sm:w-9 sm:h-9 fill-[#fe4759]">
                       <circle cx="16" cy="11" r="4.2" />
                       <path d="M9.5 24.5c0-3.3 2.9-6 6.5-6s6.5 2.7 6.5 6V26h-13v-1.5z" />
                       <circle cx="9" cy="13" r="3.2" />
@@ -454,7 +431,7 @@ export default function HeroSection() {
                     </svg>
                   </div>
                   <div>
-                    <div className="text-[28px] sm:text-[32px] font-black text-[#0B132A] tracking-tight leading-none">
+                    <div className="text-2xl sm:text-[32px] font-black text-[#0B132A] tracking-tight leading-none">
                       10K+
                     </div>
                     <div className="text-xs sm:text-[13px] text-[#64748B] font-semibold mt-1 whitespace-nowrap">
@@ -464,7 +441,7 @@ export default function HeroSection() {
                 </div>
                 {/* 3-Bar Outline Chart */}
                 <div className="pr-1">
-                  <svg viewBox="0 0 32 36" className="w-8 h-9 stroke-[#fe7888] fill-none stroke-[2.5] stroke-linecap-round stroke-linejoin-round">
+                  <svg viewBox="0 0 32 36" className="w-7 h-8 sm:w-8 sm:h-9 stroke-[#fe7888] fill-none stroke-[2.5] stroke-linecap-round stroke-linejoin-round">
                     <rect x="3" y="18" width="5.5" height="15" rx="2.75" />
                     <rect x="13.5" y="10" width="5.5" height="23" rx="2.75" />
                     <rect x="24" y="2" width="5.5" height="31" rx="2.75" />
@@ -473,11 +450,10 @@ export default function HeroSection() {
               </div>
 
               {/* Row 2: 95% Placement Rate Card */}
-              <div className="bg-white rounded-[26px] sm:rounded-[28px] p-4.5 sm:p-5 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100/60 flex items-center justify-between hover:shadow-md transition-shadow">
+              <div className="bg-white rounded-[20px] sm:rounded-[28px] p-3.5 sm:p-5 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100/60 flex items-center justify-between hover:shadow-md transition-shadow">
                 <div className="flex items-center gap-3 sm:gap-3.5">
                   <div className="shrink-0 flex items-center justify-center">
-                    {/* Career Briefcase Icon in Emerald */}
-                    <svg viewBox="0 0 24 24" className="w-8 h-8 sm:w-9 sm:h-9 stroke-[#00C48C] fill-none stroke-[2.2] stroke-linecap-round stroke-linejoin-round">
+                    <svg viewBox="0 0 24 24" className="w-7 h-7 sm:w-9 sm:h-9 stroke-[#00C48C] fill-none stroke-[2.2] stroke-linecap-round stroke-linejoin-round">
                       <rect x="2" y="7" width="20" height="14" rx="2" />
                       <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
                       <path d="M12 12v.01" />
@@ -485,7 +461,7 @@ export default function HeroSection() {
                     </svg>
                   </div>
                   <div>
-                    <div className="text-[28px] sm:text-[32px] font-black text-[#0B132A] tracking-tight leading-none">
+                    <div className="text-2xl sm:text-[32px] font-black text-[#0B132A] tracking-tight leading-none">
                       95%
                     </div>
                     <div className="text-xs sm:text-[13px] text-[#64748B] font-semibold mt-1 whitespace-nowrap">
@@ -493,11 +469,11 @@ export default function HeroSection() {
                     </div>
                   </div>
                 </div>
-                {/* Clean Upward Career Trend Arrow SVG */}
+                {/* Upward Career Trend Arrow */}
                 <div className="pr-1 text-[#00C48C]">
                   <svg
                     viewBox="0 0 44 26"
-                    className="w-10 h-6 sm:w-11 sm:h-6.5 stroke-current fill-none stroke-[2.6] stroke-linecap-round stroke-linejoin-round"
+                    className="w-9 h-5.5 sm:w-11 sm:h-6.5 stroke-current fill-none stroke-[2.6] stroke-linecap-round stroke-linejoin-round"
                   >
                     <path d="M 2 20 L 14 10 L 23 15 L 40 3" />
                     <path d="M 29 3 L 40 3 L 40 14" />
@@ -506,8 +482,7 @@ export default function HeroSection() {
               </div>
 
               {/* Row 3: Ratings Card (Google 4.9 & Justdial 4.8) */}
-              <div className="bg-white rounded-[26px] sm:rounded-[28px] p-4 sm:p-4.5 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100/60 hover:shadow-md transition-shadow">
-                {/* Dual Platform Reviews: Google 4.9 & Justdial 4.8 */}
+              <div className="bg-white rounded-[20px] sm:rounded-[28px] p-3.5 sm:p-4.5 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100/60 hover:shadow-md transition-shadow">
                 <div className="grid grid-cols-2 divide-x divide-slate-100/90 gap-3 sm:gap-4">
                   
                   {/* Google Review (4.9 Rating) */}
@@ -526,7 +501,7 @@ export default function HeroSection() {
                           Google
                         </div>
                         <div className="flex items-baseline gap-1 mt-0.5">
-                          <span className="text-2xl sm:text-[26px] font-black text-[#0B132A] leading-none">
+                          <span className="text-xl sm:text-[26px] font-black text-[#0B132A] leading-none">
                             4.9
                           </span>
                           <span className="text-xs font-semibold text-[#94A3B8]">/5</span>
@@ -554,7 +529,7 @@ export default function HeroSection() {
                           Justdial
                         </div>
                         <div className="flex items-baseline gap-1 mt-0.5">
-                          <span className="text-2xl sm:text-[26px] font-black text-[#0B132A] leading-none">
+                          <span className="text-xl sm:text-[26px] font-black text-[#0B132A] leading-none">
                             4.8
                           </span>
                           <span className="text-xs font-semibold text-[#94A3B8]">/5</span>
@@ -574,34 +549,34 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              {/* Row 4: Two cards side by side (20+ Courses Offered & 1,500+ Learning Now) */}
-              <div className="grid grid-cols-2 gap-3.5 sm:gap-4">
+              {/* Row 4: Two cards side by side (10+ Yrs & 2,500+ Active Learners) */}
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 {/* 10+ Years Teaching Experience */}
-                <div className="bg-white rounded-[26px] sm:rounded-[28px] p-4 sm:p-4.5 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100/60 flex items-center gap-3 hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-[20px] sm:rounded-[28px] p-3 sm:p-4.5 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100/60 flex items-center gap-2.5 sm:gap-3 hover:shadow-md transition-shadow">
                   <div className="shrink-0 flex items-center justify-center">
-                    <BookOpen className="w-7 h-7 sm:w-8 sm:h-8 text-[#fe4759] stroke-[2.3]" />
+                    <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-[#fe4759] stroke-[2.3]" />
                   </div>
                   <div>
-                    <div className="text-2xl sm:text-[26px] font-black text-[#0B132A] tracking-tight leading-none">
+                    <div className="text-xl sm:text-[26px] font-black text-[#0B132A] tracking-tight leading-none">
                       10+ Yrs
                     </div>
-                    <div className="text-xs sm:text-[13px] text-[#64748B] font-semibold mt-1 whitespace-nowrap">
-                      Teaching Experience
+                    <div className="text-[11px] sm:text-[13px] text-[#64748B] font-semibold mt-0.5 sm:mt-1 whitespace-nowrap">
+                      Experience
                     </div>
                   </div>
                 </div>
 
-                {/* 2,500+ Active Learners (Solid Brand Red Card) */}
-                <div className="bg-gradient-to-r from-[#FF4D63] to-[#FE324E] rounded-[26px] sm:rounded-[28px] p-4 sm:p-4.5 shadow-[0_10px_28px_rgba(254,50,78,0.28)] text-white flex items-center gap-3 hover:scale-[1.02] transition-transform">
+                {/* 2,500+ Active Learners */}
+                <div className="bg-gradient-to-r from-[#FF4D63] to-[#FE324E] rounded-[20px] sm:rounded-[28px] p-3 sm:p-4.5 shadow-[0_10px_28px_rgba(254,50,78,0.28)] text-white flex items-center gap-2.5 sm:gap-3 hover:scale-[1.02] transition-transform">
                   <div className="shrink-0 flex items-center justify-center">
-                    <Zap className="w-7 h-7 sm:w-8 sm:h-8 fill-white text-white stroke-none" />
+                    <Zap className="w-6 h-6 sm:w-8 sm:h-8 fill-white text-white stroke-none" />
                   </div>
                   <div>
-                    <div className="text-2xl sm:text-[26px] font-black text-white tracking-tight leading-none">
+                    <div className="text-xl sm:text-[26px] font-black text-white tracking-tight leading-none">
                       2,500+
                     </div>
-                    <div className="text-xs sm:text-[13px] text-white/95 font-semibold mt-1 whitespace-nowrap">
-                      Active Learners
+                    <div className="text-[11px] sm:text-[13px] text-white/95 font-semibold mt-0.5 sm:mt-1 whitespace-nowrap">
+                      Learners
                     </div>
                   </div>
                 </div>

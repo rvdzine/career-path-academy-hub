@@ -53,7 +53,7 @@ export default function DemoBookingForm() {
                 Free Counseling & Live Demo
               </div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15]">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight leading-[1.18]">
                 Book Your{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fe4759] to-rose-300">
                   Free Live Demo Class
