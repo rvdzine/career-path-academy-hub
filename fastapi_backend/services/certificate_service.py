@@ -1,15 +1,23 @@
 import os
 import io
 import uuid
+import gc
+import logging
 from pathlib import Path
 from datetime import date, datetime
 from typing import Tuple, Optional
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
 from PIL import Image, ImageDraw, ImageFont
 import cloudinary
 import cloudinary.uploader
 
 from ..config import settings
 from ..utils.file_storage import configure_cloudinary, MEDIA_ROOT
+
+logger = logging.getLogger(__name__)
+
+# Thread pool for certificate generation (isolated from main request thread)
+_cert_executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="cert_gen")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_PATH = BASE_DIR / "assets" / "templates" / "final_certificate.png"
@@ -131,18 +139,26 @@ def render_certificate_from_svg(
     ]
     font_files = [f for f in candidate_fonts if Path(f).exists()]
 
+    # zoom=1.0 → 1184x800px (~27MB RAM). zoom=1.5 was 2368x1600px (~108MB) and OOM-killed workers.
     png_bytes = resvg_py.svg_to_bytes(
         svg_string=filled_svg,
         skip_system_fonts=False,
         font_files=font_files if font_files else None,
         sans_serif_family="DejaVu Sans",
-        zoom=1.5,
+        zoom=1.0,
         text_rendering="geometric_precision",
         shape_rendering="geometric_precision",
         image_rendering="optimize_quality",
     )
 
-    return Image.open(io.BytesIO(png_bytes)).convert("RGB")
+    # Free the large SVG string and raw bytes from memory immediately
+    del filled_svg
+    gc.collect()
+
+    img = Image.open(io.BytesIO(png_bytes)).convert("RGB")
+    del png_bytes
+    gc.collect()
+    return img
 
 def render_certificate(
     student_name: str,
@@ -218,19 +234,15 @@ def render_certificate(
 
     return img
 
-def generate_certificate_buffers(
+def _generate_certificate_buffers_sync(
     student_name: str,
     course_name: str,
-    duration: str = "3 Months",
-    course_mode: str = "offline",
-    certificate_id: str = "CERT-IDS00100",
-    issue_date: Optional[date] = None,
+    duration: str,
+    course_mode: str,
+    certificate_id: str,
+    issue_date: Optional[date],
 ) -> Tuple[io.BytesIO, io.BytesIO]:
-    """
-    Renders the certificate and returns two BytesIO streams:
-    1. PNG image buffer
-    2. Print-ready PDF document buffer
-    """
+    """Internal sync worker — runs inside the thread pool."""
     img = render_certificate(
         student_name=student_name,
         course_name=course_name,
@@ -245,12 +257,45 @@ def generate_certificate_buffers(
     img.save(png_io, format="PNG", optimize=True)
     png_io.seek(0)
 
-    # PDF Buffer (200 DPI for ultra-high print clarity)
+    # PDF Buffer
     pdf_io = io.BytesIO()
-    img.save(pdf_io, format="PDF", resolution=200.0)
+    img.save(pdf_io, format="PDF", resolution=150.0)  # 150 DPI is plenty for digital PDF
     pdf_io.seek(0)
 
+    # Explicitly free the image from memory
+    img.close()
+    del img
+    gc.collect()
+
     return png_io, pdf_io
+
+
+def generate_certificate_buffers(
+    student_name: str,
+    course_name: str,
+    duration: str = "3 Months",
+    course_mode: str = "offline",
+    certificate_id: str = "CERT-IDS00100",
+    issue_date: Optional[date] = None,
+    timeout: int = 90,
+) -> Tuple[io.BytesIO, io.BytesIO]:
+    """
+    Renders the certificate in a thread pool with a timeout.
+    This prevents OOM from crashing the Uvicorn worker process.
+    Returns (PNG BytesIO, PDF BytesIO).
+    """
+    future = _cert_executor.submit(
+        _generate_certificate_buffers_sync,
+        student_name, course_name, duration, course_mode, certificate_id, issue_date
+    )
+    try:
+        return future.result(timeout=timeout)
+    except FuturesTimeoutError:
+        future.cancel()
+        raise RuntimeError(f"Certificate generation timed out after {timeout}s")
+    except Exception as exc:
+        logger.error("Certificate generation failed in thread: %s", exc, exc_info=True)
+        raise
 
 def upload_certificate_to_storage(png_buffer: io.BytesIO, certificate_id: str) -> str:
     """

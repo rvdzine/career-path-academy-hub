@@ -47,7 +47,7 @@ const mentors: Mentor[] = [
     experience: "9+ Yrs",
     company: "Mondelez",
     specialty: "Omni-Channel Marketing",
-    avatar: "/assets/suleman.jpeg",
+    avatar: "/assets/suleman_mentor.jpg",
   },
   {
     name: "Jitender Singh",
