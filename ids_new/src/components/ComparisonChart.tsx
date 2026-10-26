@@ -124,14 +124,14 @@ export default function ComparisonChart() {
           {/* Table Header Row */}
           <div className="grid grid-cols-12 items-stretch border-b border-slate-100">
             {/* Col 1: Pillar Header */}
-            <div className="col-span-3 px-6 py-5 bg-slate-50/80 flex items-center">
+            <div className="col-span-3 px-5 lg:px-6 py-4 lg:py-5 bg-slate-50/80 flex items-center">
               <span className="text-xs font-black uppercase tracking-wider text-slate-500">
                 Training Dimension
               </span>
             </div>
 
             {/* Col 2: Conventional Institutes */}
-            <div className="col-span-4 px-6 py-5 bg-slate-50/50 border-l border-slate-100 flex items-center justify-between">
+            <div className="col-span-4 px-5 lg:px-6 py-4 lg:py-5 bg-slate-50/50 border-l border-slate-100 flex items-center justify-between">
               <div>
                 <span className="text-xs font-black uppercase tracking-wider text-slate-400 block">
                   Conventional Institutes
@@ -147,29 +147,31 @@ export default function ComparisonChart() {
             </div>
 
             {/* Col 3: The IDS Advantage (Hero Header) */}
-            <div className="col-span-5 px-6 py-5 bg-gradient-to-r from-[#FFF5F6] via-[#FFF0F2] to-[#FFF5F6] border-l border-rose-200/80 flex items-center justify-between relative overflow-hidden">
-              <div className="relative z-10 flex items-center gap-3">
-                <div className="w-8 h-8 rounded-xl bg-[#fe4759] flex items-center justify-center text-white shadow-md shadow-rose-500/25">
-                  <Sparkles className="w-4 h-4 fill-white" />
+            <div className="col-span-5 px-5 lg:px-6 py-4 lg:py-5 bg-gradient-to-r from-[#FFF5F6] via-[#FFF0F2] to-[#FFF5F6] border-l border-rose-200/80 flex items-center justify-between gap-3 relative overflow-hidden">
+              <div className="relative z-10 flex items-center gap-3 min-w-0">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#fe4759] to-[#e03042] flex items-center justify-center text-white shadow-md shadow-rose-500/25 shrink-0">
+                  <Sparkles className="w-4.5 h-4.5 fill-white" />
                 </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-black text-slate-900 tracking-tight">
-                      The IDS Advantage
-                    </span>
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-[#fe4759] text-white text-[10px] font-extrabold uppercase tracking-wide">
-                      Agency Model
-                    </span>
-                  </div>
-                  <span className="text-[11px] font-semibold text-[#fe4759]">
+                <div className="min-w-0">
+                  <span className="text-sm lg:text-[15px] font-black text-slate-900 tracking-tight block">
+                    The IDS Advantage
+                  </span>
+                  <span className="text-[11px] lg:text-xs font-semibold text-[#fe4759] block mt-0.5">
                     100% Practical & Placement-Focused
                   </span>
                 </div>
               </div>
 
-              <div className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-rose-200 shadow-2xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                <span className="text-[11px] font-bold text-slate-700">95% Placement Rate</span>
+              <div className="flex flex-col items-end gap-1.5 shrink-0 z-10">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#fe4759] text-white text-[10px] font-black uppercase tracking-wider shadow-2xs">
+                  Agency Model
+                </span>
+                <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white border border-rose-200/90 shadow-2xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                  <span className="text-[10px] lg:text-[11px] font-bold text-slate-700 whitespace-nowrap">
+                    95% Placement Rate
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -253,7 +255,33 @@ export default function ComparisonChart() {
         {/* ============================================================== */}
         {/* MOBILE CARDS VIEW (Under md) */}
         {/* ============================================================== */}
-        <div className="block md:hidden space-y-4">
+        <div className="block md:hidden space-y-3.5">
+          {/* Mobile Comparison Header Banner */}
+          <div className="flex items-center justify-between gap-2.5 p-3.5 rounded-2xl bg-gradient-to-r from-[#FFF5F6] via-[#FFF0F2] to-[#FFF5F6] border border-rose-200/80 shadow-2xs">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#fe4759] to-[#e03042] flex items-center justify-center text-white shadow-xs shrink-0">
+                <Sparkles className="w-4 h-4 fill-white" />
+              </div>
+              <div className="min-w-0">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xs sm:text-sm font-black text-slate-900 tracking-tight whitespace-nowrap">
+                    The IDS Advantage
+                  </span>
+                  <span className="inline-flex items-center px-1.5 py-0.5 rounded-full bg-[#fe4759] text-white text-[9px] font-black uppercase tracking-wider shrink-0">
+                    Agency Model
+                  </span>
+                </div>
+                <span className="text-[10px] sm:text-[11px] font-semibold text-[#fe4759] block mt-0.5 truncate">
+                  100% Practical & Placement-Focused
+                </span>
+              </div>
+            </div>
+
+            <div className="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-white border border-rose-200 shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+              <span className="text-[10px] font-bold text-slate-700 whitespace-nowrap">95% Placement</span>
+            </div>
+          </div>
           {comparisonData.map((item, idx) => {
             const PillarIcon = item.icon;
             return (

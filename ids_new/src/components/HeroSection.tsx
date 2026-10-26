@@ -94,7 +94,7 @@ const COURSES_LIST: SearchableCourse[] = [
     ],
   },
   {
-    title: "Cisco Networking / CCNA / CCMP",
+    title: "Cisco Networking / CCNA / CCNP",
     duration: "Upcoming Cohort",
     badge: "New Cohort",
     badgeClass: "bg-[#e0f2fe] text-[#0369a1] border-[#bae6fd]",
@@ -116,7 +116,7 @@ export default function HeroSection() {
 
   const popularTags = [
     { label: "AI & Automation", query: "AI & Automation" },
-    { label: "Cisco Networking / CCNA / CCMP", query: "Cisco Networking" },
+    { label: "Cisco Networking / CCNA / CCNP", query: "Cisco Networking" },
   ];
 
   // Close dropdown on click outside
@@ -208,7 +208,7 @@ export default function HeroSection() {
                 </span>
                 <span className="block text-[#fe4759]">Should Your Skills.</span>
               </h1>
-              <p className="text-sm sm:text-[15px] lg:text-base text-slate-600 leading-relaxed font-normal max-w-xl pt-0.5">
+              <p className="text-sm sm:text-[15px] lg:text-base text-slate-600 leading-relaxed font-normal max-w-xl pt-3.5 sm:pt-4">
                 Master digital marketing, AI and performance-driven strategies through hands-on projects and industry-focused learning.
               </p>
             </div>
