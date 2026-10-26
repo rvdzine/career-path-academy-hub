@@ -731,7 +731,7 @@ export default function JobsAndPlacementsPage() {
                 <div className="absolute -top-3 -right-3 bg-[#0B132A] text-white rounded-xl p-2.5 sm:p-3 shadow-lg border border-slate-800 flex items-center gap-2 z-20">
                   <Sparkles className="w-4 h-4 text-amber-400" />
                   <span className="text-[11px] font-black tracking-wide">
-                    ₹8.5 LPA Top Entry CTC
+                    ₹18.5 LPA Top Entry CTC
                   </span>
                 </div>
 
