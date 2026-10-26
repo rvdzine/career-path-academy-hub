@@ -576,17 +576,18 @@ export default function AboutUsPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════
-          SECTION 3: THE FOUNDER'S PHILOSOPHY
+          SECTION 3: THE FOUNDER'S PHILOSOPHY (COMMENTED OUT)
           ══════════════════════════════════════════════════════════════ */}
+      {/* 
       <section className="py-16 sm:py-20 lg:py-24 bg-[#FFF9FA] relative overflow-hidden">
-        {/* Giant Watermark Background Text: "VISION" */}
+        // Giant Watermark Background Text: "VISION"
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none z-0">
           <span className="text-[120px] sm:text-[180px] lg:text-[240px] font-black text-rose-950/[0.03] tracking-widest uppercase">
             VISION
           </span>
         </div>
 
-        {/* Faint Red Dot Matrix Background */}
+        // Faint Red Dot Matrix Background
         <div
           className="absolute inset-0 opacity-15 pointer-events-none z-0"
           style={{
@@ -598,14 +599,14 @@ export default function AboutUsPage() {
         <div className="max-w-[1360px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
-            {/* Left: Founder's Asymmetrical Photo Card */}
+            // Left: Founder's Asymmetrical Photo Card
             <div className="lg:col-span-5 flex justify-center relative">
               <div className="relative w-full max-w-[380px] sm:max-w-[420px]">
                 
-                {/* Thin Red Outline Frame Behind Photo */}
+                // Thin Red Outline Frame Behind Photo
                 <div className="absolute -top-3 -right-3 w-full h-full rounded-tr-[54px] rounded-bl-[54px] rounded-tl-3xl rounded-br-3xl border-2 border-[#fe4759]/30 pointer-events-none"></div>
 
-                {/* Main Photo Container */}
+                // Main Photo Container
                 <div className="relative w-full aspect-[4/5] rounded-tr-[54px] rounded-bl-[54px] rounded-tl-3xl rounded-br-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100">
                   <Image
                     src="/assets/Arjun.jpg"
@@ -616,7 +617,7 @@ export default function AboutUsPage() {
                   />
                 </div>
 
-                {/* Top-Left Floating Badge: PRACTICAL EXCELLENCE */}
+                // Top-Left Floating Badge: PRACTICAL EXCELLENCE
                 <div className="absolute -top-5 -left-4 sm:-left-6 bg-white rounded-2xl p-3 sm:p-3.5 shadow-xl border border-slate-100 max-w-[200px] z-20">
                   <div className="flex items-center gap-1.5 text-[10px] font-bold text-[#fe4759] uppercase tracking-wider mb-0.5">
                     <div className="w-5 h-5 rounded-lg bg-rose-50 text-[#fe4759] flex items-center justify-center">
@@ -629,7 +630,7 @@ export default function AboutUsPage() {
                   </p>
                 </div>
 
-                {/* Bottom-Right Floating Badge: Top 1% Mentor / Top Voice */}
+                // Bottom-Right Floating Badge: Top 1% Mentor / Top Voice
                 <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 bg-gradient-to-r from-[#FF4D63] to-[#FE324E] text-white rounded-2xl p-3 sm:p-3.5 shadow-xl shadow-[#fe4759]/25 z-20 flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-xl bg-white/20 backdrop-blur-xs flex items-center justify-center">
                     <LinkedInIcon className="w-4 h-4 fill-white" />
@@ -647,10 +648,10 @@ export default function AboutUsPage() {
               </div>
             </div>
 
-            {/* Right: The Philosophy & Bio */}
+            // Right: The Philosophy & Bio
             <div className="lg:col-span-7 space-y-6">
               
-              {/* Badge */}
+              // Badge
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200/60">
                 <Sparkles className="w-3.5 h-3.5 text-[#fe4759]" />
                 <span className="text-xs font-bold text-[#fe4759] tracking-wider uppercase">
@@ -658,13 +659,13 @@ export default function AboutUsPage() {
                 </span>
               </div>
 
-              {/* Big Quote */}
+              // Big Quote
               <h2 className="text-2xl sm:text-3xl lg:text-[46px] font-black text-[#0B132A] leading-[1.12] tracking-tight">
                 &ldquo;Think Beyond Classrooms <br />
                 <span className="text-[#fe4759]">Work on Real-Time Projects.</span>&rdquo;
               </h2>
 
-              {/* Philosophy Body */}
+              // Philosophy Body
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
                 In the fastest-evolving times, companies demand excellence and reward only the{" "}
                 <span className="font-bold italic text-[#fe4759]">boldest</span>. We have designed IDS
@@ -672,7 +673,7 @@ export default function AboutUsPage() {
                 real-life projects and well-structured internships.
               </p>
 
-              {/* Founder Name & Title */}
+              // Founder Name & Title
               <div className="pt-2">
                 <div className="text-2xl font-black text-slate-900 tracking-tight">
                   Abhishek Kumar
@@ -691,7 +692,7 @@ export default function AboutUsPage() {
                 </a>
               </div>
 
-              {/* Endorsements */}
+              // Endorsements
               <div className="flex items-center gap-3 pt-2">
                 <div className="flex -space-x-2">
                   <div className="w-7 h-7 rounded-full border-2 border-white overflow-hidden relative shadow-xs">
@@ -714,6 +715,7 @@ export default function AboutUsPage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* ══════════════════════════════════════════════════════════════
           SECTION: EXPERIENCED INDUSTRY MENTORS (FACULTY)
