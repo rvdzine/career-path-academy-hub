@@ -37,7 +37,7 @@ import { EnrolledStudent, StudentStats, StudentEnrollFormData } from "@/lib/type
 
 const AVAILABLE_COURSES = [
   { name: "Master in Digital Marketing with AI & Automation", code: "DM01M" },
-  { name: "Advance Performance & Growth Marketing Program", code: "DM01S" },
+  { name: "Performance Marketing Mastery Program", code: "DM01S" },
   { name: "Digital Marketing Program for Business Owners", code: "DM01B" },
   { name: "Customised Program in Digital Marketing", code: "DM01C" },
 ];

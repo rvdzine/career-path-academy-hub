@@ -55,16 +55,16 @@ const COURSES_LIST: SearchableCourse[] = [
     ],
   },
   {
-    title: "Advance Performance & Growth Marketing Program",
-    duration: "3 Months",
-    badge: "Google & Meta Certified",
+    title: "Performance Marketing Mastery Program",
+    duration: "12 Weeks",
+    badge: "Meta & Google Certified",
     badgeClass: "bg-[#dbeafe] text-[#1e40af] border-[#bfdbfe]",
     image: "/assets/courses/specialist_marketing_v2.jpg",
-    href: "/courses/advance-performance-growth-marketing-program",
-    description: "Master performance marketing, SEO, Google Ads & Meta analytics.",
+    href: "/courses/performance-marketing-mastery-program",
+    description: "Master Meta Ads, Google Ads, LinkedIn Ads, AI Marketing, and Automation.",
     keywords: [
-      "advance", "performance", "growth", "seo", "sem", "google ads",
-      "meta ads", "facebook ads", "instagram ads", "ppc", "analytics", "3 months"
+      "performance marketing", "performance", "growth", "google ads", "meta ads",
+      "facebook ads", "instagram ads", "linkedin ads", "ppc", "analytics", "12 weeks"
     ],
   },
   {
