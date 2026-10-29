@@ -91,8 +91,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/courses/advance-performance-growth-marketing-program" className="hover:text-[#fe4759] transition-colors">
-                  Advance Performance & Growth Marketing Program (3 Mos)
+                <Link href="/courses/performance-marketing-mastery-program" className="hover:text-[#fe4759] transition-colors">
+                  Performance Marketing Mastery Program (12 Wks)
                 </Link>
               </li>
               <li>

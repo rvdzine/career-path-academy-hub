@@ -7,6 +7,10 @@ export interface CourseModule {
   subtitle: string;
   desc: string;
   techStack: string[];
+  topics?: string[];
+  keyMetrics?: string[];
+  practicalAssignment?: string;
+  expectedOutcome?: string;
 }
 
 export interface CourseData {
@@ -38,6 +42,20 @@ export interface CourseData {
   seoTitle: string;
   seoDescription: string;
   keywords: string[];
+
+  // Extended Comprehensive Content
+  programOverview?: string[];
+  learningObjectives?: string[];
+  toolsCategories?: { category: string; tools: string[] }[];
+  practicalProjects?: { title: string; desc: string }[];
+  assessmentCriteria?: { component: string; weightage: string }[];
+  capstoneProject?: {
+    title: string;
+    description: string;
+    deliverables: string[];
+  };
+  careerOpportunities?: string[];
+  programOutcomes?: string[];
 }
 
 export const COURSES_DATA: CourseData[] = [
@@ -220,144 +238,429 @@ export const COURSES_DATA: CourseData[] = [
     ],
   },
 
-  // 2. ADVANCE PERFORMANCE & GROWTH MARKETING PROGRAM
+  // 2. PERFORMANCE MARKETING MASTERY PROGRAM
   {
     id: "specialist",
-    slug: "advance-performance-growth-marketing-program",
+    slug: "performance-marketing-mastery-program",
     aliases: [
-      "digital-marketing-specialist",
+      "performance-marketing-mastery-program",
       "advance-performance-growth-marketing-program",
+      "digital-marketing-specialist",
       "performance-growth-marketing",
+      "performance-marketing-mastery",
       "specialist",
       "specialist-course",
       "digital-marketing-specialist-course",
       "dm01s",
     ],
     courseCode: "DM01S",
-    name: "Advance Performance & Growth Marketing Program",
-    pillTag: "GOOGLE & META CERTIFIED • TACTICAL PERFORMANCE MARKETING SPRINT",
-    headlinePre: "Fast-Track",
-    headlineHighlight: "Advance Performance & Growth Marketing",
+    name: "Performance Marketing Mastery Program",
+    pillTag: "META ADS • GOOGLE ADS • LINKEDIN ADS • AI MARKETING • AUTOMATION & ANALYTICS",
+    headlinePre: "Industry-Oriented",
+    headlineHighlight: "Performance Marketing Mastery",
     headlinePost: "Program",
     subheadline:
-      "A high-octane 3-month tactical performance marketing sprint. Master real-time paid ad spends, conversion rate optimization (CRO), ROAS scaling, and data attribution telemetry with Google and Meta certified mentors.",
-    duration: "3 Months",
-    durationDetail: "Intensive Performance Sprint + Portfolio Building",
-    mode: "Online Live & Offline Campus (Greater Noida)",
+      "A 12-week comprehensive hands-on program designed to develop practical mastery in paid advertising, lead generation funnels, conversion rate optimization (CRO), marketing analytics telemetry, and AI-powered marketing automation.",
+    duration: "12 Weeks",
+    durationDetail: "Live Interactive Classes + Practical Assignments + Live Projects (6–8 hrs/week)",
+    mode: "Online Live & Offline Campus (Beginner to Advanced)",
     statRating: "4.9/5",
-    statRatingLabel: "Rated by 1,850+ Alumni",
+    statRatingLabel: "Rated by 1,850+ Performance Marketers",
     statPartners: "100+",
     statPartnersLabel: "Specialist Agency Recruiters",
-    curriculumCategory: "FOCUSED 8-MODULE PERFORMANCE MARKETING SPRINT",
-    curriculumTitlePre: "Performance Marketing",
-    curriculumTitleHighlight: "Specialist Curriculum",
+    curriculumCategory: "COMPREHENSIVE 10-MODULE PERFORMANCE SPRINT",
+    curriculumTitlePre: "12-Week Applied",
+    curriculumTitleHighlight: "Performance Marketing Curriculum",
     curriculumSubtitle:
-      "Engineered for speed, ROI, and commercial ad mastery. Move from basic ads to managing 6-figure budgets, conversion funnels, and data attribution modeling.",
+      "From advertising economics and audience architecture to multi-crore campaign scaling, conversion tracking, AI workflows, and CRM automation.",
     bannerImage: "/assets/courses/specialist_marketing.jpg",
     highlights: [
-      "8 Focused Specialist Modules on Paid Ads & CRO",
-      "Real Live Ad Spends on Meta & Google Ads Accounts",
-      "Conversion Rate Optimization (CRO) & Heatmap Telemetry",
-      "Direct Agency Placement Drives for Specialist Roles",
+      "10 Deep-Dive Modules Across Meta, Google, LinkedIn & AI Marketing",
+      "7 Practical Industry Projects with Live Ad Accounts & Budgets",
+      "Server-Side Tracking, GA4, GTM & Conversions API (CAPI)",
+      "AI-Driven Creative Production, Copywriting & Campaign Analysis",
+      "Full-Funnel CRM & WhatsApp/Email Lead Nurturing Workflows",
+      "100% Placement Support with 100+ Hiring Partners",
     ],
     targetAudience: [
-      "Working professionals looking for fast-track upskilling in performance marketing",
-      "Junior marketers wanting to become high-earning media buyers & PPC specialists",
-      "Freelancers wanting to handle high-ticket client advertising budgets with confidence",
+      "Aspiring performance marketers wanting to master paid ads, analytics & automation",
+      "Junior marketers & media buyers looking to manage 6-figure budgets and boost ROAS",
+      "Working professionals & career switchers transitioning into high-growth digital marketing roles",
+      "Entrepreneurs & freelancers wanting to generate predictable, high-converting client leads",
+    ],
+    programOverview: [
+      "The Performance Marketing Mastery Program is designed to develop practical skills in paid advertising, lead generation, customer acquisition, conversion optimization, marketing analytics, and AI-powered marketing automation.",
+      "Students learn how to plan, launch, manage, and optimize advertising campaigns across major digital advertising platforms. They also learn to use AI tools, automation workflows, analytics platforms, and CRM systems to improve campaign efficiency and marketing performance.",
+      "The program combines advertising strategy with practical execution, helping students understand how businesses acquire customers, generate qualified leads, control acquisition costs, and measure marketing ROI.",
+    ],
+    learningObjectives: [
+      "Develop performance marketing strategies based on business goals",
+      "Create and manage campaigns on Meta Ads, Google Ads, and LinkedIn Ads",
+      "Conduct audience research, keyword research, and competitor analysis",
+      "Build lead generation and customer acquisition funnels",
+      "Create effective ad copy, creative briefs, and landing page strategies",
+      "Implement conversion tracking and campaign measurement",
+      "Analyze CPC, CPM, CTR, CPL, CPA, ROAS, and conversion rates",
+      "Optimize advertising campaigns based on performance data",
+      "Use AI tools for research, content creation, campaign planning, and analysis",
+      "Automate lead capture, follow-ups, reporting, and CRM workflows",
+      "Develop campaign reports and present data-driven recommendations",
+      "Build a professional performance marketing portfolio",
     ],
     modules: [
       {
         id: 1,
-        title: "Module 01: Growth Economics, Funnel Architecture & CAC Modeling",
-        tag: "UNIT ECONOMICS • FUNNELS • CAC & LTV",
+        title: "Module 1: Performance Marketing Fundamentals",
+        tag: "UNIT ECONOMICS • FUNNELS • CAC & ROAS • WEEK 1",
         iconName: "TrendingUp",
         iconColor: "text-[#fe4759]",
-        subtitle: "Understanding Unit Economics & Customer Lifetime Value",
-        desc: "Master the financial core of performance marketing: Customer Acquisition Cost (CAC), Lifetime Value (LTV), Payback Periods, and full-funnel retention architectures.",
-        techStack: ["Growth Models", "Excel/Sheets", "Funnel Metrics", "CAC Calculators"],
+        subtitle: "Foundations of Data-Driven Paid Growth & Marketing Economics",
+        desc: "Understand digital advertising business models, customer journey stages (Awareness, Consideration, Conversion, Retention), B2B vs. B2C performance marketing, lead generation vs. e-commerce, and attribution modeling.",
+        techStack: ["CAC/LTV Models", "Funnel Architecture", "KPI Frameworks", "Marketing Math"],
+        topics: [
+          "Introduction to performance marketing vs. brand marketing",
+          "Digital advertising business models & customer journey funnels",
+          "Awareness, consideration, conversion, and retention stages",
+          "B2B vs. B2C performance marketing & Lead gen vs. e-commerce",
+          "Campaign objectives, business KPIs & marketing budget planning",
+          "Introduction to attribution and ROI measurement",
+        ],
+        keyMetrics: ["CPM", "CPC", "CTR", "CPL", "CPA", "CAC", "ROAS", "Conversion Rate", "LTV"],
+        practicalAssignment: "Develop a performance marketing strategy for a digital marketing training institute or selected business.",
+        expectedOutcome: "Master growth economics and construct complete full-funnel marketing strategies aligned with business goals.",
       },
       {
         id: 2,
-        title: "Module 02: High-Converting Landing Page Design & CRO Frameworks",
-        tag: "CRO • HEATMAPS • A/B TESTING",
-        iconName: "Globe",
-        iconColor: "text-orange-500",
-        subtitle: "Conversion Rate Optimization (CRO) & User Behavioral Insights",
-        desc: "Design frictionless landing pages that convert cold ad traffic into paying customers. Implement A/B split testing, exit-intent triggers, and Hotjar session replay analysis.",
-        techStack: ["WordPress", "Elementor Pro", "Hotjar", "VWO", "Google Optimize Alternative"],
+        title: "Module 2: Meta Ads Mastery (Facebook & Instagram)",
+        tag: "META ADS MANAGER • AUDIENCES • CBO • WEEKS 2–3",
+        iconName: "Share2",
+        iconColor: "text-blue-600",
+        subtitle: "Full-Funnel Social Ad Scaling, Audience Mining & Creative Testing",
+        desc: "Set up Meta Business Portfolio, navigate ad account structures, permissions, and billing. Master Custom Audiences, Lookalikes, Retargeting, Instant Forms, Click-to-Message, Advantage+ campaigns, and budget optimization.",
+        techStack: ["Meta Ads Manager", "Meta Business Suite", "Custom Audiences", "Instant Forms", "Advantage+"],
+        topics: [
+          "Meta Advertising Fundamentals: Business Portfolio, account structure, billing & policies",
+          "Audience Targeting: Demographics, Custom Audiences, Website Visitors, Customer Lists & Lookalikes",
+          "Retargeting strategies, audience overlap & exclusion architectures",
+          "Campaign Creation: Lead gen, website conversions, Instant Forms, click-to-message & e-commerce sales",
+          "Creative & Optimization: Static, carousels, Reels, video ads, copy frameworks & hook testing",
+          "Frequency, CPM, CPC, CPL, lead quality evaluation & budget scaling",
+        ],
+        practicalAssignment: "Build a complete Meta campaign structure, 5 ad copy variations, 3 creative concepts, a lead generation campaign, and an actionable retargeting plan.",
+        expectedOutcome: "Plan, launch, monitor, and optimize scalable Meta advertising campaigns with controlled acquisition costs.",
       },
       {
         id: 3,
-        title: "Module 03: Advanced Google Ads (Search, Display & Performance Max)",
-        tag: "PPC • SEARCH INTENT • PMAX SCALING",
-        iconName: "Target",
+        title: "Module 3: Google Ads Mastery (Search, Display & Video)",
+        tag: "GOOGLE ADS • SEARCH INTENT • PMAX • WEEKS 4–5",
+        iconName: "Search",
         iconColor: "text-amber-600",
-        subtitle: "High-Intent Lead Gen & Target ROAS Scaling",
-        desc: "Execute high-intent Google search campaigns. Master smart bidding algorithms (tCPA, tROAS), negative keyword matrices, Quality Score optimization, and cross-channel Performance Max campaigns.",
-        techStack: ["Google Ads Manager", "Keyword Planner", "Google Tag Manager", "Merchant Center"],
+        subtitle: "High-Intent Keyword Research, Search Campaigns & Multi-Channel Scaling",
+        desc: "Master search intent, keyword match types (broad, phrase, exact), negative keyword matrices, Responsive Search Ads (RSAs), smart bidding strategies (tCPA, tROAS), Display, YouTube ads, and Performance Max.",
+        techStack: ["Google Ads Manager", "Keyword Planner", "Responsive Search Ads", "Performance Max", "YouTube Ads"],
+        topics: [
+          "Google Ads Fundamentals: Account structure, search intent, campaign objectives & bidding strategies",
+          "Keyword Research: Commercial vs. informational intent, Keyword Planner, match types & negative keywords",
+          "Google Search Ads: Responsive Search Ads (RSAs), headlines, descriptions, assets & Quality Score",
+          "Additional Campaign Types: Display network, YouTube video advertising, remarketing & Performance Max (PMax)",
+          "Optimization & Diagnostics: Quality Score improvement, search term cleanup, CPC/CPA control & policy troubleshooting",
+        ],
+        practicalAssignment: "Build a keyword research spreadsheet, campaign structure, 10 RSA headlines + 4 descriptions, a negative keyword list, and an audit of a sample campaign.",
+        expectedOutcome: "Structure high-ROI Google Ads campaigns, capture commercial search intent, and optimize using performance data.",
       },
       {
         id: 4,
-        title: "Module 04: Meta Ads Mastery (Facebook, Instagram & Advantage+)",
-        tag: "PAID SOCIAL • CBO • ADVANTAGE+ CAMPAIGNS",
-        iconName: "Zap",
-        iconColor: "text-blue-600",
-        subtitle: "Full-Funnel Social Ad Scaling & Audience Mining",
-        desc: "Master Meta Ads Manager from prospecting to retargeting. Scale using Campaign Budget Optimization (CBO), Advantage+ shopping campaigns, custom engagement audiences, and lookalikes.",
-        techStack: ["Meta Ads Manager", "Audience Insights", "Ad Creative Matrix", "Meta Business Suite"],
+        title: "Module 4: LinkedIn Ads for B2B Marketing",
+        tag: "B2B MARKETING • ACCOUNT-BASED MARKETING • WEEK 6",
+        iconName: "Briefcase",
+        iconColor: "text-sky-700",
+        subtitle: "High-Ticket B2B Lead Generation & Account-Based Marketing (ABM)",
+        desc: "Harness LinkedIn Campaign Manager to reach enterprise decision-makers. Master firmographic targeting (job title, seniority, company size), Document Ads, Sponsored Content, Lead Gen Forms, and Matched Audiences.",
+        techStack: ["LinkedIn Campaign Manager", "LinkedIn Insight Tag", "Lead Gen Forms", "Matched Audiences", "B2B ABM"],
+        topics: [
+          "B2B performance marketing fundamentals & Ideal Customer Profile (ICP) definition",
+          "Account-based marketing (ABM) & firmographic targeting (job titles, seniority, company size, industries)",
+          "Ad Formats: Sponsored Content, Single Image, Video Ads, Document Ads, and Message/Conversation Ads",
+          "Lead Gen Forms, website conversions, matched audiences & LinkedIn Insight Tag implementation",
+          "B2B sales pipeline measurement, lead quality evaluation & cost per qualified lead",
+        ],
+        practicalAssignment: "Define an enterprise ICP, write 3 B2B ad copies, design a LinkedIn Lead Gen Form, and compare B2B CPL with Meta Ads.",
+        expectedOutcome: "Target C-suite and high-level decision-makers, generating high-ticket, qualified B2B sales pipeline leads.",
       },
       {
         id: 5,
-        title: "Module 05: Creative Strategy, Hooks & High-CTR Ad Formats",
-        tag: "CREATIVE TESTING • HOOKS • VIDEO ADS",
-        iconName: "Palette",
+        title: "Module 5: Other Performance Marketing Channels",
+        tag: "YOUTUBE • DISPLAY • PROGRAMMATIC • E-COMMERCE • WEEK 7",
+        iconName: "Globe",
         iconColor: "text-purple-600",
-        subtitle: "Winning Ad Creatives & Iterative Creative Testing",
-        desc: "In modern performance marketing, creative is your targeting. Learn how to write compelling ad scripts, produce 3-second hook UGC ads, and run systematic creative iteration matrices.",
-        techStack: ["Canva Pro", "CapCut", "Midjourney AI", "Figma", "Ad Creative Frameworks"],
+        subtitle: "Multi-Channel Expansion: YouTube, GDN, E-Commerce & Emerging Networks",
+        desc: "Expand beyond Meta & Google Search. Execute YouTube video campaigns, Google Display Network (GDN), programmatic remarketing, Google Merchant Center product feeds, Shopping ads, and alternative ad platforms.",
+        techStack: ["YouTube Ads", "Google Merchant Center", "Google Display Network", "Microsoft Ads", "Shopping Ads"],
+        topics: [
+          "YouTube Advertising: Video ad formats, creative planning, audience targeting & view-to-conversion tracking",
+          "Programmatic & Display: Google Display Network, placement exclusions & brand safety",
+          "E-commerce Advertising: Product feeds, Google Merchant Center, Shopping campaigns & ROAS modeling",
+          "Additional Platforms: Microsoft Advertising, Pinterest Ads, Snapchat Ads & TikTok advertising overview",
+        ],
+        practicalAssignment: "Develop a multi-channel media plan for a business with a defined budget, target audience, campaign objectives, and expected KPIs.",
+        expectedOutcome: "Select and allocate budgets across secondary performance channels tailored to specific business models.",
       },
       {
         id: 6,
-        title: "Module 06: Data Tracking, Conversions API (CAPI) & GTM Telemetry",
-        tag: "TRACKING • CONVERSIONS API • GTM",
+        title: "Module 6: Landing Pages & Conversion Rate Optimization (CRO)",
+        tag: "CRO • A/B TESTING • HEATMAPS • UX • WEEK 8",
         iconName: "Layers",
-        iconColor: "text-emerald-600",
-        subtitle: "First-Party Data, Server-Side Tracking & Event Setup",
-        desc: "Overcome iOS privacy restrictions with robust tracking. Implement Google Tag Manager, Meta Conversions API (CAPI), custom data layer variables, and event deduplication.",
-        techStack: ["Google Tag Manager", "Meta Pixel Helper", "Server-Side GTM", "Stape.io"],
+        iconColor: "text-orange-500",
+        subtitle: "Designing High-Converting Landing Pages & Eliminating Funnel Friction",
+        desc: "Build frictionless mobile-first landing pages that convert ad traffic into customers. Master value proposition crafting, form optimization, social proof engineering, A/B split testing, heatmaps, and session replays.",
+        techStack: ["WordPress", "Elementor", "Unbounce", "Microsoft Clarity", "Hotjar"],
+        topics: [
+          "Landing page anatomy: Above-the-fold design, sticky CTAs, message matching & mobile-first UI",
+          "Headlines, benefits, compelling offers, lead capture forms & form optimization",
+          "Trust signals, testimonials, certifications & social proof placement",
+          "Conversion Rate Optimization (CRO) frameworks & A/B split testing fundamentals",
+          "User behavior telemetry: Heatmaps, click maps, scroll depth, session recordings & form abandonment analysis",
+        ],
+        practicalAssignment: "Create a landing page wireframe for a course, SaaS product, or lead generation service with an end-to-end conversion optimization plan.",
+        expectedOutcome: "Build landing pages with high conversion rates and diagnose behavioral friction using heatmap telemetry.",
       },
       {
         id: 7,
-        title: "Module 07: Google Analytics 4 (GA4), Data Attribution & Looker Studio",
-        tag: "GA4 • ATTRIBUTION • REPORTING",
+        title: "Module 7: Tracking, Analytics & Attribution",
+        tag: "GA4 • GTM • PIXEL & CAPI • ATTRIBUTION • WEEK 9",
         iconName: "BarChart3",
-        iconColor: "text-violet-600",
-        subtitle: "Attribution Modeling & Executive Client Dashboards",
-        desc: "Configure GA4 custom events, conversion funnels, and exploratory reports. Build automated real-time performance dashboards in Looker Studio to demonstrate undeniable ROI to clients.",
-        techStack: ["Google Analytics 4", "Looker Studio", "Data Studio", "Supermetrics"],
+        iconColor: "text-emerald-600",
+        subtitle: "Server-Side Event Tracking, GA4 Telemetry & Attribution Modeling",
+        desc: "Implement flawless conversion tracking across advertising channels. Configure Google Tag Manager (GTM), custom events, Meta Conversions API (CAPI), Google Analytics 4 (GA4) reports, UTM parameters, and attribution models.",
+        techStack: ["Google Analytics 4", "Google Tag Manager", "Meta Pixel", "Conversions API (CAPI)", "Looker Studio"],
+        topics: [
+          "Google Analytics 4: Account/property setup, events, key events, traffic acquisition & conversion paths",
+          "Google Tag Manager: Container setup, tags, triggers, variables, form submissions & button click tracking",
+          "Ad Conversion Tracking: Meta Pixel, Meta Conversions API (CAPI), Google Ads Enhanced Conversions & Insight Tag",
+          "Offline conversion imports, lead-to-sale tracking & data deduplication",
+          "Attribution Models: First-click, last-click, data-driven attribution & cross-channel CRM revenue attribution",
+        ],
+        practicalAssignment: "Create a standardized UTM naming convention, GTM container setup, GA4 conversion tracking plan, and attribution audit.",
+        expectedOutcome: "Implement end-to-end tracking infrastructure and troubleshoot conversion discrepancies between ad platforms and CRM.",
       },
       {
         id: 8,
-        title: "Module 08: Live Client Media Audits & Specialist Placement Launch",
-        tag: "PORTFOLIO • AUDITS • PLACEMENT",
-        iconName: "Briefcase",
-        iconColor: "text-[#fe4759]",
-        subtitle: "Real Account Audits, Agency Pitching & Fast Placement",
-        desc: "Audit real, live client ad accounts to identify wasted ad spend. Package your findings into a comprehensive performance case study, mock agency interviews, and fast-track placement referrals.",
-        techStack: ["Agency Audit Playbooks", "Pitch Decks", "LinkedIn Sales Navigator", "Resume Grooming"],
+        title: "Module 8: AI-Powered Performance Marketing",
+        tag: "GENERATIVE AI • PROMPT ENGINEERING • AD CREATIVE • WEEK 10",
+        iconName: "Sparkles",
+        iconColor: "text-rose-500",
+        subtitle: "Supercharging Ad Copy, Creative Iterations & Campaign Data Analysis with AI",
+        desc: "Use AI tools to accelerate marketing workflows 10x. Generate customer personas, high-CTR ad hooks, video scripts, Midjourney/Firefly creative concepts, and automated data analysis for client reporting.",
+        techStack: ["ChatGPT Plus", "Google Gemini", "Claude 3.5 Sonnet", "Canva Magic Studio", "Adobe Firefly", "CapCut AI"],
+        topics: [
+          "AI for Market Research: Customer persona development, competitor ad auditing & pain point discovery",
+          "AI for Ad Copywriting: High-CTR hooks, angles, headlines, CTAs, video scripts & creative briefs",
+          "AI for Creative Production: Image concepts, storyboarding, voiceovers, subtitles & creative resizing",
+          "AI for Campaign Analysis: Report interpretation, diagnosing CPL increases, creative fatigue detection & client summaries",
+          "Tool Stack Mastery: ChatGPT, Gemini, Claude, Canva Magic Studio, Adobe Firefly, and CapCut AI",
+        ],
+        practicalAssignment: "Generate 20 ad copy variations, 5 creative concepts for customer segments, an AI video ad script/storyboard, and an AI-assisted optimization report.",
+        expectedOutcome: "Leverage AI as a daily co-pilot to research, write, generate ad creatives, and analyze complex campaign datasets.",
+      },
+      {
+        id: 9,
+        title: "Module 9: Marketing Automation & CRM Integration",
+        tag: "ZAPIER • MAKE • CRM • WHATSAPP AUTOMATION • WEEK 11",
+        iconName: "Zap",
+        iconColor: "text-yellow-500",
+        subtitle: "Instant Lead Routing, Nurturing Sequences & Speed-to-Lead Workflows",
+        desc: "Connect advertising channels directly to CRMs. Automate instant lead capture from Meta/Google into HubSpot or Zoho, trigger automated WhatsApp and email follow-ups, lead scoring, and appointment scheduling.",
+        techStack: ["Zapier", "Make.com", "n8n", "HubSpot CRM", "Zoho CRM", "WhatsApp Business API", "Google Sheets"],
+        topics: [
+          "Lead Management: Lead capture, routing, qualification, lead scoring & lifecycle management",
+          "Marketing Automation: Email follow-ups, WhatsApp automation, lead assignment & appointment reminders",
+          "Automation Tools: Zapier, Make.com, n8n, GoHighLevel, HubSpot CRM, Zoho CRM, Bigin & Google Sheets",
+          "Practical Workflows: Meta/Google/LinkedIn leads to CRM, automatic salesperson alerts & speed-to-lead tracking",
+          "AI-Powered Automation: AI lead classification, automated summaries, chatbot integration & voice agent use cases",
+        ],
+        practicalAssignment: "Build an automated workflow that captures a lead, stores it in a CRM or Google Sheets, notifies sales via WhatsApp/Email, and schedules a follow-up reminder.",
+        expectedOutcome: "Eliminate lead leakage, reduce speed-to-lead to seconds, and build automated lead nurturing pipelines.",
+      },
+      {
+        id: 10,
+        title: "Module 10: Campaign Strategy, Budgeting & Optimization",
+        tag: "BUDGET SCALING • MEDIA AUDITS • CLIENT DECKS • WEEK 12",
+        iconName: "Target",
+        iconColor: "text-red-600",
+        subtitle: "Media Planning, 6-Figure Budget Allocation, ROAS Scaling & Client Pitching",
+        desc: "Synthesize your complete performance marketing arsenal. Build multi-channel media plans, forecast CAC and ROAS, combat creative fatigue, reallocate budgets across winning ad sets, and pitch executive client audit decks.",
+        techStack: ["Media Planning Models", "Budget Allocators", "Looker Studio Dashboards", "Agency Pitch Decks"],
+        topics: [
+          "Building a complete performance marketing strategy & defining business KPIs",
+          "Media planning & budget allocation: Forecasting clicks, leads, CPL, CPA, CAC & ROAS",
+          "Campaign testing frameworks, creative fatigue mitigation & audience saturation",
+          "Scaling successful campaigns & cross-channel budget reallocation",
+          "Marketing profitability, contribution margins, client presentations & campaign audits",
+        ],
+        practicalAssignment: "Prepare a complete performance marketing plan covering campaign objectives, channel selection, budget, targeting, tracking, expected KPIs, and optimization strategy.",
+        expectedOutcome: "Formulate, execute, scale, and present enterprise-grade performance marketing campaigns with predictable ROI.",
       },
     ],
-    seoTitle: "Advance Performance & Growth Marketing Program (3 Months) | IDS",
+    toolsCategories: [
+      {
+        category: "Meta Advertising",
+        tools: ["Meta Ads Manager", "Meta Business Suite", "Audience Insights", "Ad Creative Matrix"],
+      },
+      {
+        category: "Search Advertising",
+        tools: ["Google Ads", "Google Keyword Planner", "Search Console", "Google Merchant Center"],
+      },
+      {
+        category: "B2B Advertising",
+        tools: ["LinkedIn Campaign Manager", "Matched Audiences", "Lead Gen Forms"],
+      },
+      {
+        category: "Video & Display",
+        tools: ["YouTube Ads", "Google Display Network (GDN)", "Programmatic Ad Buying"],
+      },
+      {
+        category: "Analytics & Telemetry",
+        tools: ["Google Analytics 4 (GA4)", "Looker Studio", "Supermetrics"],
+      },
+      {
+        category: "Tracking & Infrastructure",
+        tools: ["Google Tag Manager (GTM)", "Meta Pixel", "Conversions API (CAPI)", "LinkedIn Insight Tag"],
+      },
+      {
+        category: "Keyword Research & SEO",
+        tools: ["Google Keyword Planner", "Semrush", "Ahrefs", "SpyFu"],
+      },
+      {
+        category: "Landing Page Builders",
+        tools: ["WordPress", "Elementor Pro", "Unbounce"],
+      },
+      {
+        category: "CRO & User Behavior",
+        tools: ["Microsoft Clarity", "Hotjar", "VWO"],
+      },
+      {
+        category: "AI Research & Copywriting",
+        tools: ["ChatGPT Plus", "Google Gemini", "Claude 3.5 Sonnet"],
+      },
+      {
+        category: "AI Creative Production",
+        tools: ["Canva Magic Studio", "Adobe Firefly", "CapCut AI", "Midjourney"],
+      },
+      {
+        category: "CRM & Lead Management",
+        tools: ["HubSpot CRM", "Zoho CRM", "Bigin by Zoho", "GoHighLevel"],
+      },
+      {
+        category: "Marketing Automation",
+        tools: ["Zapier", "Make.com", "n8n", "WhatsApp Business Platform"],
+      },
+      {
+        category: "Reporting & Dashboards",
+        tools: ["Google Sheets", "Looker Studio Dashboards", "Data Studio"],
+      },
+      {
+        category: "Project & Campaign Management",
+        tools: ["Trello", "Asana", "Notion"],
+      },
+    ],
+    practicalProjects: [
+      {
+        title: "Project 1: Meta Ads Lead Generation System",
+        desc: "Develop a full campaign strategy, audience plan, creative concepts, and lead generation campaign structure with instant form optimization for a selected business.",
+      },
+      {
+        title: "Project 2: High-Intent Google Search Ads Campaign",
+        desc: "Conduct commercial keyword research, group keywords into ad groups, write 10 Responsive Search Ad variations, and build negative keyword exclusion matrices.",
+      },
+      {
+        title: "Project 3: LinkedIn B2B Decision-Maker Campaign",
+        desc: "Define an Ideal Customer Profile (ICP), configure firmographic targeting (job roles, company size), develop B2B ad creatives, and build a native Lead Gen Form.",
+      },
+      {
+        title: "Project 4: High-Converting Landing Page & Tracking Setup",
+        desc: "Design a conversion-focused landing page wireframe with GA4 custom event tracking and Google Tag Manager (GTM) tag-trigger container setup.",
+      },
+      {
+        title: "Project 5: AI-Powered Multi-Angle Marketing Campaign",
+        desc: "Use Generative AI tools to generate 20 segmented ad copy variations, 5 creative concepts, video scripts, storyboards, and an AI-assisted campaign analysis audit.",
+      },
+      {
+        title: "Project 6: Automated Lead Capture & CRM Pipeline",
+        desc: "Build a live workflow connecting Meta & Google Lead Ads to CRM, automating lead assignment, WhatsApp/Email confirmation sequences, and sales rep notifications.",
+      },
+      {
+        title: "Project 7: Integrated Multi-Channel Growth Campaign",
+        desc: "Prepare a complete campaign plan combining Meta Ads, Google Ads, landing pages, server-side conversion tracking, Looker Studio reporting, and lead nurturing.",
+      },
+    ],
+    capstoneProject: {
+      title: "Build a Complete Performance Marketing System",
+      description:
+        "Students develop an end-to-end commercial growth marketing system for a selected business (Educational Institute, SaaS company, E-commerce store, or B2B Service Provider).",
+      deliverables: [
+        "Business and competitor market analysis",
+        "Target audience segmentation and customer personas",
+        "Campaign objectives and measurable KPI framework",
+        "Full-funnel advertising strategy for Meta Ads",
+        "Google Ads search and Performance Max campaign structure",
+        "LinkedIn Ads strategy for B2B lead generation",
+        "Advertising creatives, hooks, and ad copy variations",
+        "Conversion-optimized landing page wireframe",
+        "Conversion tracking implementation plan (GA4, GTM, CAPI)",
+        "CRM integration and marketing automation workflow",
+        "Real-time Looker Studio campaign performance dashboard",
+        "Budget allocation, scaling, and ad fatigue mitigation roadmap",
+        "Final executive presentation of the campaign strategy",
+      ],
+    },
+    assessmentCriteria: [
+      { component: "Advertising Fundamentals & Strategy", weightage: "10%" },
+      { component: "Meta Ads Practical Assignment", weightage: "15%" },
+      { component: "Google Ads Practical Assignment", weightage: "15%" },
+      { component: "LinkedIn Ads Campaign Plan", weightage: "10%" },
+      { component: "Analytics & Conversion Tracking", weightage: "15%" },
+      { component: "AI & Automation Project", weightage: "15%" },
+      { component: "Final Integrated Capstone Project", weightage: "20%" },
+    ],
+    careerOpportunities: [
+      "Performance Marketing Executive",
+      "Digital Advertising Specialist",
+      "Meta Ads Specialist",
+      "Google Ads Specialist",
+      "LinkedIn Ads Specialist",
+      "Paid Media Executive",
+      "Lead Generation Specialist",
+      "Performance Marketing Analyst",
+      "Marketing Automation Executive",
+      "Growth Marketing Associate",
+      "Digital Marketing Consultant",
+      "Freelance Performance Marketer",
+    ],
+    programOutcomes: [
+      "Develop structured, data-backed multi-channel advertising campaigns",
+      "Select and allocate budgets across the most profitable advertising channels",
+      "Launch, monitor, and optimize paid campaigns on live advertising accounts",
+      "Measure campaign performance, CAC, ROAS, and attribution telemetry",
+      "Identify and eliminate funnel friction to increase conversion rates (CRO)",
+      "Use AI tools to accelerate research, creative production, and data analysis 10x",
+      "Build automated CRM lead capture, routing, and follow-up workflows",
+      "Present professional campaign reports and actionable recommendations",
+      "Graduate with an impressive portfolio demonstrating verified marketing results",
+    ],
+    seoTitle: "Performance Marketing Mastery Program (12 Weeks) | IDS",
     seoDescription:
-      "Become a certified Performance & Growth Marketing leader in 3 months. Master Google Ads, Meta Ads, CRO, and growth loops with real ad spend budgets at Institute of Digital Studies.",
+      "Master Meta Ads, Google Ads, LinkedIn Ads, AI Marketing, and Automation in India's top 12-week Performance Marketing Mastery Program at Institute of Digital Studies (IDS). 100% practical training on live ad budgets.",
     keywords: [
-      "Advance Performance & Growth Marketing Program",
+      "Performance Marketing Mastery Program",
       "Performance Marketing Course",
+      "Meta Ads Course",
+      "Google Ads Certification",
+      "LinkedIn Ads Course",
       "Growth Marketing Course",
       "PPC Specialist Training",
-      "Google Ads Certification",
-      "Meta Ads Course",
-      "Fast Track Digital Marketing",
+      "Marketing Automation Course",
+      "AI in Digital Marketing",
+      "IDS Performance Marketing",
     ],
   },
 
@@ -606,15 +909,21 @@ export function getCourseBySlug(rawSlug?: string): CourseData {
 
   const clean = rawSlug.trim().toLowerCase();
 
-  // Match exact slug or alias
-  const found = COURSES_DATA.find(
-    (c) =>
-      c.slug.toLowerCase() === clean ||
-      c.aliases.some((alias) => alias.toLowerCase() === clean) ||
-      clean.includes(c.id.toLowerCase())
-  );
+  // 1. Exact slug match
+  const exactSlug = COURSES_DATA.find((c) => c.slug.toLowerCase() === clean);
+  if (exactSlug) return exactSlug;
 
-  return found || COURSES_DATA[0];
+  // 2. Exact alias match
+  const aliasMatch = COURSES_DATA.find((c) =>
+    c.aliases.some((alias) => alias.toLowerCase() === clean)
+  );
+  if (aliasMatch) return aliasMatch;
+
+  // 3. Exact ID match (e.g. "master", "specialist", "business-owners", "customised")
+  const idMatch = COURSES_DATA.find((c) => c.id.toLowerCase() === clean);
+  if (idMatch) return idMatch;
+
+  return COURSES_DATA[0];
 }
 
 export function getAllCourseSlugs(): string[] {

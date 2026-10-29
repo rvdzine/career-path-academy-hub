@@ -40,6 +40,8 @@ import {
   Star,
   Building2,
   User,
+  GraduationCap,
+  BookOpen,
 } from "lucide-react";
 import api, { contactApi } from "@/lib/api";
 
@@ -376,9 +378,11 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
             <div className="lg:col-span-7 space-y-4 sm:space-y-6">
               {/* Eyebrow / Credibility Badge */}
               {course.pillTag && (
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-gradient-to-r from-rose-50 to-orange-50/50 border border-rose-200/90 text-[10px] sm:text-xs font-bold text-[#fe4759] tracking-wider uppercase shadow-2xs">
-                  <Sparkles className="w-3.5 h-3.5 text-[#fe4759] shrink-0" />
-                  <span className="truncate">{course.pillTag}</span>
+                <div className="inline-flex items-start sm:items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-2xl sm:rounded-full bg-gradient-to-r from-rose-50 to-orange-50/50 border border-rose-200/90 text-[10px] sm:text-xs font-bold text-[#fe4759] tracking-wide uppercase shadow-2xs max-w-full">
+                  <Sparkles className="w-3.5 h-3.5 text-[#fe4759] shrink-0 mt-0.5 sm:mt-0" />
+                  <span className="leading-relaxed whitespace-normal break-words">
+                    {course.pillTag}
+                  </span>
                 </div>
               )}
 
@@ -763,7 +767,7 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
                 const isCurrent = c.id === course.id;
                 const shortInfo: Record<string, { label: string; duration: string }> = {
                   master: { label: "Master in DM + AI", duration: "6M" },
-                  specialist: { label: "Performance & Growth", duration: "3M" },
+                  specialist: { label: "Performance Marketing", duration: "12W" },
                   "business-owners": { label: "For Business Owners", duration: "Custom" },
                   customised: { label: "Customised Program", duration: "Flexible" },
                 };
@@ -799,6 +803,66 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
           </div>
         </div>
       </section>
+
+      {/* 4B. PROGRAM OVERVIEW & LEARNING OBJECTIVES */}
+      {(course.programOverview || course.learningObjectives) && (
+        <section className="py-12 sm:py-16 bg-gradient-to-b from-white via-slate-50/50 to-slate-50/80 border-b border-slate-200/80">
+          <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+              
+              {/* Left Column (5 Cols): #1 Program Overview */}
+              {course.programOverview && (
+                <div className="lg:col-span-5 space-y-4">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 border border-rose-200/70 text-[#fe4759] text-xs font-bold uppercase tracking-wider shadow-2xs">
+                    <BookOpen className="w-3.5 h-3.5" />
+                    1. Program Overview
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-tight">
+                    Strategic Paid Growth Meets <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fe4759] to-[#d02e40]">Practical Execution</span>
+                  </h2>
+                  <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                    {course.programOverview.map((paragraph, pIdx) => (
+                      <p key={pIdx} className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/70 shadow-2xs">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Right Column (7 Cols): #2 Learning Objectives */}
+              {course.learningObjectives && (
+                <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm space-y-4">
+                  <div className="flex items-center justify-between flex-wrap gap-2 pb-2 border-b border-slate-100">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/70 text-emerald-700 text-xs font-bold uppercase tracking-wider shadow-2xs">
+                      <Target className="w-3.5 h-3.5 text-emerald-600" />
+                      2. Learning Objectives
+                    </div>
+                    <span className="text-xs font-bold text-slate-400">
+                      {course.learningObjectives.length} CORE CAPABILITIES
+                    </span>
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">
+                    What You Will Achieve by the End of the Program:
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-1">
+                    {course.learningObjectives.map((obj, oIdx) => (
+                      <div
+                        key={oIdx}
+                        className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-50/70 border border-slate-100 text-xs text-slate-700 font-medium hover:bg-rose-50/30 hover:border-rose-100 transition-colors"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-[#fe4759] shrink-0 mt-0.5" />
+                        <span className="leading-snug">{obj}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 5. DETAILED CURRICULUM MODULES SECTION */}
       <section className="py-16 md:py-24 bg-white relative">
@@ -909,7 +973,7 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
                       {/* Expanded Body */}
                       {isExpanded && (
                         <div className="px-5 pb-5 pt-1 border-t border-slate-100/90 animate-in fade-in duration-200">
-                          <div className="pl-3 sm:pl-4 border-l-2 border-rose-300 space-y-3 mt-2">
+                          <div className="pl-3 sm:pl-4 border-l-2 border-rose-300 space-y-3.5 mt-2">
                             <div>
                               <h5 className="text-xs sm:text-sm font-extrabold text-slate-800 tracking-tight">
                                 {item.subtitle}
@@ -918,6 +982,45 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
                                 {item.desc}
                               </p>
                             </div>
+
+                            {/* Topics List if available */}
+                            {item.topics && item.topics.length > 0 && (
+                              <div className="pt-1">
+                                <span className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 block mb-1.5">
+                                  KEY TOPICS COVERED
+                                </span>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                                  {item.topics.map((topic, tIdx) => (
+                                    <div
+                                      key={tIdx}
+                                      className="flex items-start gap-1.5 text-xs text-slate-700 font-medium"
+                                    >
+                                      <span className="w-1.5 h-1.5 rounded-full bg-[#fe4759] shrink-0 mt-1.5" />
+                                      <span className="leading-snug">{topic}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+
+                            {/* Key Metrics if available */}
+                            {item.keyMetrics && item.keyMetrics.length > 0 && (
+                              <div>
+                                <span className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 block mb-1.5">
+                                  KEY METRICS MASTERED
+                                </span>
+                                <div className="flex items-center gap-1.5 flex-wrap">
+                                  {item.keyMetrics.map((metric, mIdx) => (
+                                    <span
+                                      key={mIdx}
+                                      className="px-2 py-0.5 bg-rose-50 text-[#fe4759] font-bold text-[10px] rounded-md border border-rose-100"
+                                    >
+                                      {metric}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
 
                             {/* Tech Stack Pills */}
                             <div>
@@ -935,6 +1038,30 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
                                 ))}
                               </div>
                             </div>
+
+                            {/* Practical Assignment if available */}
+                            {item.practicalAssignment && (
+                              <div className="p-2.5 sm:p-3 rounded-xl bg-amber-50/70 border border-amber-200/60 text-xs text-amber-950">
+                                <span className="font-extrabold uppercase text-[10px] tracking-wider text-amber-800 block mb-0.5 flex items-center gap-1.5">
+                                  <Briefcase className="w-3.5 h-3.5 text-amber-600" />
+                                  Practical Hands-On Assignment
+                                </span>
+                                <p className="leading-relaxed text-amber-900 font-medium">{item.practicalAssignment}</p>
+                              </div>
+                            )}
+
+                            {/* Expected Outcome if available */}
+                            {item.expectedOutcome && (
+                              <div className="p-2.5 sm:p-3 rounded-xl bg-emerald-50/70 border border-emerald-200/60 text-xs text-emerald-950 flex items-start gap-2">
+                                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                                <div>
+                                  <span className="font-extrabold uppercase text-[10px] tracking-wider text-emerald-800 block mb-0.5">
+                                    Expected Outcome
+                                  </span>
+                                  <p className="leading-relaxed text-emerald-900 font-medium">{item.expectedOutcome}</p>
+                                </div>
+                              </div>
+                            )}
                           </div>
                         </div>
                       )}
@@ -995,6 +1122,265 @@ export default function CourseDetailView({ course }: CourseDetailViewProps) {
           </div>
         </div>
       </section>
+
+      {/* 5B. PRACTICAL PROJECTS & ASSIGNMENTS (If provided) */}
+      {course.practicalProjects && course.practicalProjects.length > 0 && (
+        <section className="py-16 md:py-20 bg-slate-50/70 border-t border-slate-200/80">
+          <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14 space-y-3">
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#fe4759] block">
+                LEARN BY EXECUTING
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-800 tracking-tight">
+                7 Hands-On <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fe4759] to-[#d02e40]">Practical Projects</span>
+              </h2>
+              <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto">
+                No simulated toy assignments. Every project mirrors live client media mandates, real ad spend budgeting, and technical conversion infrastructure.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {course.practicalProjects.map((proj, pIdx) => (
+                <div
+                  key={pIdx}
+                  className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 hover:border-rose-300 shadow-2xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="w-8 h-8 rounded-xl bg-rose-50 text-[#fe4759] font-black text-xs flex items-center justify-center border border-rose-100">
+                        0{pIdx + 1}
+                      </span>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-100 px-2.5 py-0.5 rounded-full">
+                        Live Industry Brief
+                      </span>
+                    </div>
+                    <h3 className="text-base font-extrabold text-slate-900 group-hover:text-[#fe4759] transition-colors mb-2 leading-snug">
+                      {proj.title}
+                    </h3>
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                      {proj.desc}
+                    </p>
+                  </div>
+                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-bold text-emerald-600">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>Portfolio-Verified Milestone</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 5C. RECOMMENDED TOOLS & PLATFORMS GRID (If provided) */}
+      {course.toolsCategories && course.toolsCategories.length > 0 && (
+        <section className="py-16 md:py-20 bg-white border-t border-slate-100">
+          <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14 space-y-3">
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#fe4759] block">
+                COMPREHENSIVE TOOL STACK
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-800 tracking-tight">
+                Recommended <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fe4759] to-[#d02e40]">Tools &amp; Platforms</span>
+              </h2>
+              <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto">
+                Gain hands-on proficiency with the exact digital advertising, analytics telemetry, AI creation, and CRM automation stack used by top global agencies.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              {course.toolsCategories.map((cat, cIdx) => (
+                <div
+                  key={cIdx}
+                  className="bg-slate-50/70 rounded-2xl p-4 sm:p-5 border border-slate-200/80 hover:bg-white hover:border-rose-200 hover:shadow-md transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <span className="text-[11px] font-black uppercase tracking-wider text-slate-800 block mb-2.5 pb-2 border-b border-slate-200/60">
+                      {cat.category}
+                    </span>
+                    <div className="space-y-1.5">
+                      {cat.tools.map((tool, tIdx) => (
+                        <div
+                          key={tIdx}
+                          className="text-xs font-semibold text-slate-600 flex items-center gap-1.5"
+                        >
+                          <span className="w-1 h-1 rounded-full bg-[#fe4759]" />
+                          <span>{tool}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 5D. FINAL CAPSTONE PROJECT SHOWCASE (If provided) */}
+      {course.capstoneProject && (
+        <section className="py-16 md:py-20 bg-gradient-to-b from-slate-900 to-slate-950 text-white relative overflow-hidden border-t border-slate-800">
+          <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              <div className="lg:col-span-5 space-y-4">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/20 border border-rose-500/30 text-rose-300 text-xs font-bold uppercase tracking-wider">
+                  <Award className="w-3.5 h-3.5 text-[#fe4759]" />
+                  FINAL CAPSTONE BENCHMARK
+                </span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-tight">
+                  {course.capstoneProject.title}
+                </h2>
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+                  {course.capstoneProject.description}
+                </p>
+                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                  <span className="text-xs font-black uppercase tracking-wider text-rose-400 block">
+                    Comprehensive Evaluation
+                  </span>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    Evaluated on strategic thinking, technical accuracy, campaign architecture, attribution telemetry, creative quality, automation efficiency, and data-backed presentation.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={scrollToEnroll}
+                  className="px-5 py-3 rounded-xl bg-[#fe4759] hover:bg-[#e03447] text-white font-bold text-xs sm:text-sm shadow-lg shadow-rose-950/40 transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <span>Build Your Capstone System</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+
+              <div className="lg:col-span-7 bg-white/5 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/10 shadow-2xl">
+                <h3 className="text-base font-black text-white mb-4 flex items-center justify-between">
+                  <span>13 Core System Deliverables</span>
+                  <span className="text-xs font-bold text-rose-400 bg-rose-500/20 px-2.5 py-0.5 rounded-full">
+                    End-to-End
+                  </span>
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-200">
+                  {course.capstoneProject.deliverables.map((deliv, dIdx) => (
+                    <div
+                      key={dIdx}
+                      className="flex items-start gap-2 bg-white/5 p-2.5 rounded-xl border border-white/5"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <span className="leading-snug">{deliv}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 5E. ASSESSMENT, CAREERS & OUTCOMES (If provided) */}
+      {(course.assessmentCriteria || course.careerOpportunities || course.programOutcomes) && (
+        <section className="py-16 md:py-20 bg-slate-50/80 border-t border-slate-200/80">
+          <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+            
+            {/* Career Opportunities Grid */}
+            {course.careerOpportunities && (
+              <div>
+                <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
+                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#fe4759] block">
+                    HIGH-GROWTH JOB ROLES
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight">
+                    Where This Program <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fe4759] to-[#d02e40]">Takes Your Career</span>
+                  </h3>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 max-w-5xl mx-auto">
+                  {course.careerOpportunities.map((role, rIdx) => (
+                    <div
+                      key={rIdx}
+                      className="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-rose-300 hover:shadow-sm transition-all flex items-center gap-2.5"
+                    >
+                      <div className="w-7 h-7 rounded-lg bg-rose-50 text-[#fe4759] flex items-center justify-center shrink-0">
+                        <Briefcase className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="text-xs font-bold text-slate-800 leading-tight">
+                        {role}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Assessment & Program Outcomes Side by Side */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-6xl mx-auto">
+              {/* Left: Assessment Weightage */}
+              {course.assessmentCriteria && (
+                <div className="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm space-y-4">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-xl bg-rose-50 text-[#fe4759] flex items-center justify-center shrink-0">
+                      <BarChart3 className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-base font-extrabold text-slate-900 leading-tight">
+                        Assessment &amp; Evaluation
+                      </h4>
+                      <span className="text-[11px] text-slate-500 font-medium">
+                        Suggested Passing Benchmark: 60% Overall
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="divide-y divide-slate-100 pt-1">
+                    {course.assessmentCriteria.map((item, aIdx) => (
+                      <div key={aIdx} className="py-2.5 flex items-center justify-between text-xs">
+                        <span className="text-slate-700 font-medium">{item.component}</span>
+                        <span className="font-extrabold text-[#fe4759] bg-rose-50 px-2 py-0.5 rounded-md">
+                          {item.weightage}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-[11px] text-slate-500 leading-relaxed">
+                    IDS certification reflects hands-on campaign execution, capstone submission, and practical portfolio defense.
+                  </div>
+                </div>
+              )}
+
+              {/* Right: Program Outcomes Checklist */}
+              {course.programOutcomes && (
+                <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm space-y-4">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-xl bg-rose-50 text-[#fe4759] flex items-center justify-center shrink-0">
+                      <GraduationCap className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-base font-extrabold text-slate-900 leading-tight">
+                        Graduate Program Outcomes
+                      </h4>
+                      <span className="text-[11px] text-slate-500 font-medium">
+                        Skills You Will Master &amp; Demonstrate
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                    {course.programOutcomes.map((outcome, oIdx) => (
+                      <div
+                        key={oIdx}
+                        className="flex items-start gap-2 text-xs text-slate-700 leading-snug"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                        <span>{outcome}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+          </div>
+        </section>
+      )}
 
       {/* 6. REAL STORIES & VIDEO TESTIMONIALS */}
       <div className="border-t border-slate-100">

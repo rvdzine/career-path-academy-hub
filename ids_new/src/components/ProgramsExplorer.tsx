@@ -233,10 +233,10 @@ export default function ProgramsExplorer() {
         ),
       },
       {
-        title: "Advance Performance & Growth Marketing Program",
+        title: "Performance Marketing Mastery Program",
         description:
-          "Scale paid ad campaigns across Google Ads, Meta Ads Manager, CRO & analytics.",
-        badge: "Google & Meta Certified",
+          "Meta Ads, Google Ads, LinkedIn Ads, AI Marketing, CRO, analytics telemetry, and CRM automation.",
+        badge: "12 Weeks Sprint",
         badgeIcon: <GoogleIcon />,
         badgeClass: "bg-[#2563eb] text-white shadow-sm",
         image: "/assets/courses/specialist_marketing_v2.jpg",
@@ -250,11 +250,11 @@ export default function ProgramsExplorer() {
         syllabusTextClass: "text-[#e11d48]",
         features: [
           { icon: <CertIcon />, label: "Certification" },
-          { icon: <CalIcon />, label: "3 Months" },
-          { icon: <BarIcon />, label: "Live Projects" },
-          { icon: <GoogleIcon />, label: "Google & Meta Certification Prep" },
+          { icon: <CalIcon />, label: "12 Weeks" },
+          { icon: <BarIcon />, label: "7 Practical Projects" },
+          { icon: <GoogleIcon />, label: "Meta & Google Certified" },
         ],
-        href: "/courses/advance-performance-growth-marketing-program",
+        href: "/courses/performance-marketing-mastery-program",
         uspBadges: (
           <>
             <GoogleIcon />
